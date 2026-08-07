@@ -122,7 +122,7 @@
     { "id": "LAW-08", "path": "core/laws/LAW-08_documentation.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "documentation-engineer", "depends_on": ["laws-index"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
     { "id": "LAW-09", "path": "core/laws/LAW-09_session.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index", "context-tiers"], "referenced_by": ["wf-01", "ledger-head"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
     { "id": "LAW-10", "path": "core/laws/LAW-10_human_approval.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index"], "referenced_by": ["sch-approval"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
-    { "id": "LAW-11", "path": "core/laws/LAW-11_agent_conduct.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index", "agent-contract"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
+    { "id": "LAW-11", "path": "core/laws/LAW-11_agent_conduct.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index"], "referenced_by": ["agent-contract"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
     { "id": "LAW-12", "path": "core/laws/LAW-12_ambiguity_stop_conditions.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index"], "referenced_by": ["LAW-13"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
     { "id": "LAW-13", "path": "core/laws/LAW-13_content_trust_boundary.md", "layer": "L1", "partition": "core", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["laws-index", "precedence", "LAW-12"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "laws" },
 
@@ -241,6 +241,7 @@
       { "from": "frozen", "to": "LAW-01", "type": "references" },
       { "from": "gates", "to": "LAW-03", "type": "references" },
       { "from": "agent-contract", "to": "LAW-11", "type": "references" },
+      { "from": "LAW-11", "to": "agent-contract", "type": "references" },
       { "from": "agent-contract", "to": "LAW-12", "type": "references" },
       { "from": "agent-contract", "to": "precedence", "type": "references" },
       { "from": "LAW-13", "to": "precedence", "type": "references" },

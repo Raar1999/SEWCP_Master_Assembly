@@ -1,0 +1,39 @@
+# Ledger HEAD
+
+> **Instance artifact.** Emitted by aief-compile Stage 3 from `framework.manifest.json` and live repository state.
+> Partition `project` — never touched by framework upgrade. Owner `repository-engineer`. Mutability mutable.
+
+---
+
+Read at boot step B4. Provides constant-time head lookup without reading the ledger body.
+
+```yaml
+seq:         0
+state:       genesis
+entry_hash:  null   # no entry written; see OI-F-02
+segment:     SEG-0000
+prev_hash:   null
+```
+
+## B4 verification
+
+1. `HEAD.seq` = 0, state `genesis` - no entry to verify.
+2. No file at seq 1 exists - no orphan.
+3. `STATE.last_ledger_seq` (0) equals `HEAD.seq` (0). **Reconciled.**
+
+## Genesis semantics
+
+Ruled by **AIEF-AMD-003 §AMD-10**. `state` takes one of two values:
+
+| State | Meaning | B4 behaviour |
+|---|---|---|
+| `genesis` | Ledger empty. `seq: 0`, `entry_hash: null`, `prev_hash: null` | **Check 1 vacuous by definition.** Checks 2 and 3 apply unchanged and are the operative reconciliation |
+| `active` | One or more entries written | All three checks apply unchanged |
+
+**The first session close transitions `genesis` → `active`**, writing entry `L-0000001` and setting `seq: 1`. The transition occurs once per repository and is irreversible.
+
+B4's anti-drift guarantee is unchanged: checks 2 and 3 detect divergence between state and history; check 1 detects a corrupted entry, which cannot exist when no entry exists.
+
+## Write order at session close
+
+Entry file -> flush -> `HEAD` -> `STATE.md` -> release lock. Segments seal every 500 entries.

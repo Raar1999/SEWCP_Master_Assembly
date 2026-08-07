@@ -1,0 +1,3 @@
+# Ledger Segment SEG-0000
+
+Segment 0. Seals at 500 entries. Entries: `L-nnnnnnn`, schema `core/schemas/SCH-ledger-entry.schema.json`. Append-only; never edited.
