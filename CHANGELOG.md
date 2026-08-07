@@ -8,7 +8,8 @@ Versioning follows the release tag scheme in `releases/TAGS.md`.
 
 ## [Unreleased]
 
-Nothing yet.
+### Fixed
+- `releases/TAGS.md` §5 now reproduces the applied tag annotations **verbatim**. The v0.1.0 release commit carried paraphrased text that omitted the `baseline/spec-revA` protection statement and the `v0.1.0` C-4 distribution restriction. Raised as a MINOR finding by independent audit re-verification. Tags were **not** moved — `v0.1.0` remains at `88ec4cb` per `releases/TAGS.md` §4 rule 2.
 
 ---
 

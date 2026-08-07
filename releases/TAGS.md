@@ -58,14 +58,27 @@ All tags are **annotated** (`git tag -a`). Lightweight tags are not permitted �
 
 ## 5. Applied Tag Messages
 
-```
-baseline/spec-revA
-    SEWCP engineering specification Rev A - frozen baseline.
-    Volumes 00-09, 11 files under spec/.
-    Content migrated from docs/ unchanged at repository initialisation.
+Reproduced **verbatim** from the applied annotations. Authoritative source is the tag object itself — verify with `git tag -l <tag> --format="%(contents)"`.
 
-v0.1.0
-    Release 0.1 - repository infrastructure baseline.
-    Authorised by releases/v0.1/RELEASE_0.1_READINESS_REPORT.md.
-    Infrastructure only. No engineering content created or modified.
+**`baseline/spec-revA`** → `88ec4cb`
+
 ```
+SEWCP engineering specification Rev A - frozen baseline.
+
+Volumes 00-09, 11 files under spec/.
+Content migrated from docs/ unchanged at repository initialisation.
+This tag is protected and is never moved or deleted.
+```
+
+**`v0.1.0`** → `88ec4cb`
+
+```
+Release 0.1.0 - repository infrastructure baseline.
+
+Authorised by releases/v0.1/RELEASE_0.1_READINESS_REPORT.md.
+Infrastructure only. No engineering content created or modified.
+Conditional restriction: open item C-4 (unresolved LICENSE) blocks
+public or external distribution.
+```
+
+> **Correction note.** The v0.1.0 release commit carried a paraphrased version of these messages that omitted the protection statement and the C-4 restriction. Independent audit flagged the drift; this section was corrected post-tag. Per §4 rule 2 the tags were **not** moved — `v0.1.0` remains at `88ec4cb`, and this correction lands after it.
