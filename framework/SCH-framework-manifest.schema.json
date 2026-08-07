@@ -1,0 +1,404 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aief.dev/schemas/SCH-framework-manifest.schema.json",
+  "title": "SCH-framework-manifest",
+  "description": "Canonical schema for framework.manifest.json, the single source of truth from which AIEF is generated. Authority: AIEF-FRZ-001 Part 3, as amended by AIEF-AMD-001.",
+  "type": "object",
+  "required": [
+    "metadata", "version", "layers", "partitions", "profiles", "files",
+    "dependencies", "boot_sequence", "runtime_sequence", "agents",
+    "laws", "templates", "schemas", "validation", "generation_order"
+  ],
+  "additionalProperties": false,
+
+  "$defs": {
+    "roleId": {
+      "type": "string",
+      "pattern": "^(repository-engineer|documentation-engineer|qa-engineer|project-manager|chief-systems-engineer|human-owner|[a-z]+\\.[a-z-]+)$"
+    },
+    "authorityLevel": { "enum": ["A0", "A1", "A2", "A3", "A4", "H"] },
+    "layerId": { "enum": ["L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7"] },
+    "partitionId": { "enum": ["root", "core", "profile", "project", "adapters"] },
+    "tier": { "enum": ["T0", "T1", "T2", "T3", "T4", "none"] },
+    "stage": { "enum": [1, 2, 3, 4, 5, 6] },
+    "severity": { "enum": ["BLOCKING", "WARNING"] },
+    "checkableClass": { "enum": ["full", "partial", "none"] },
+    "lifecycleClass": { "enum": ["framework-versioned", "instance-created", "runtime-generated"] },
+    "mutability": { "enum": ["immutable", "append-only", "mutable"] },
+    "gateTopology": { "enum": ["terminal", "recurring"] },
+    "identifier": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+
+    "agentContract": {
+      "type": "object",
+      "description": "Agent contract record. Field set frozen by AIEF-FRZ-001 2.7; values supplied by AIEF-AMD-001 AMD-04.",
+      "required": [
+        "id", "name", "authority", "capability_tags", "responsibilities",
+        "inputs", "outputs", "allowed", "forbidden", "escalation",
+        "profile_scope", "duty_conflicts"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/roleId" },
+        "name": { "type": "string" },
+        "authority": { "$ref": "#/$defs/authorityLevel" },
+        "capability_tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "responsibilities": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "inputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "outputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "allowed": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "forbidden": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "escalation": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "profile_scope": {
+          "oneOf": [
+            { "const": "universal" },
+            { "type": "array", "items": { "$ref": "#/$defs/identifier" } }
+          ]
+        },
+        "duty_conflicts": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+
+  "properties": {
+
+    "metadata": {
+      "type": "object",
+      "description": "Manifest section 1. Framework identity and build provenance.",
+      "required": ["framework", "identifier", "description", "authors", "license", "provenance", "reproducible"],
+      "additionalProperties": false,
+      "properties": {
+        "framework": { "type": "string" },
+        "identifier": { "$ref": "#/$defs/identifier" },
+        "description": { "type": "string" },
+        "authors": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "license": { "type": "string" },
+        "provenance": {
+          "type": "object",
+          "required": ["frozen_by", "freeze_document", "amendment_document"],
+          "properties": {
+            "frozen_by": { "type": "string" },
+            "freeze_document": { "type": "string" },
+            "amendment_document": { "type": "string" }
+          }
+        },
+        "reproducible": {
+          "type": "object",
+          "description": "V-10 declaration.",
+          "required": ["required", "hash_algorithm", "normalisation"],
+          "properties": {
+            "required": { "const": true },
+            "hash_algorithm": { "const": "SHA-256" },
+            "normalisation": {
+              "type": "object",
+              "required": ["encoding", "line_ending", "trailing_whitespace", "terminal_newline"],
+              "properties": {
+                "encoding": { "const": "UTF-8" },
+                "line_ending": { "const": "LF" },
+                "trailing_whitespace": { "const": "stripped" },
+                "terminal_newline": { "const": "enforced" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "version": {
+      "type": "object",
+      "description": "Manifest section 2.",
+      "required": ["semver", "release_date", "min_context_window", "boot_ceiling_tokens", "compatibility_range", "min_host_capabilities"],
+      "additionalProperties": false,
+      "properties": {
+        "semver": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "release_date": { "type": "string", "format": "date" },
+        "min_context_window": { "type": "integer", "const": 32000 },
+        "boot_ceiling_tokens": { "type": "integer", "const": 6000 },
+        "compatibility_range": { "type": "string" },
+        "min_host_capabilities": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "layers": {
+      "type": "array",
+      "description": "Manifest section 3.",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "partition", "emitting_stage", "replaced_on_upgrade"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/layerId" },
+          "name": { "type": "string" },
+          "partition": { "$ref": "#/$defs/partitionId" },
+          "emitting_stage": { "$ref": "#/$defs/stage" },
+          "replaced_on_upgrade": { "type": "boolean" }
+        }
+      }
+    },
+
+    "partitions": {
+      "type": "array",
+      "description": "Manifest section 4.",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "write_access", "upgrade_semantics", "integrity_verified"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/partitionId" },
+          "path": { "type": "string" },
+          "write_access": { "enum": ["framework-only", "agents-and-humans", "human-only"] },
+          "upgrade_semantics": { "enum": ["replaced-wholesale", "never-touched", "merged-additively"] },
+          "integrity_verified": { "type": "boolean" }
+        }
+      }
+    },
+
+    "profiles": {
+      "type": "array",
+      "description": "Manifest section 5. MI-9: each profile declares a complete agent set and lifecycle stage set.",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "discipline_tags", "gate_topology", "agents", "lifecycle", "freeze_points", "file_count"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/identifier" },
+          "name": { "type": "string" },
+          "discipline_tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "gate_topology": { "$ref": "#/$defs/gateTopology" },
+          "agents": { "type": "array", "items": { "$ref": "#/$defs/roleId" }, "minItems": 1 },
+          "lifecycle": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "gate"],
+              "properties": {
+                "id": { "$ref": "#/$defs/identifier" },
+                "name": { "type": "string" },
+                "gate": { "$ref": "#/$defs/gateTopology" }
+              }
+            }
+          },
+          "freeze_points": { "type": "array", "items": { "type": "string" } },
+          "file_count": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+
+    "files": {
+      "type": "array",
+      "description": "Manifest section 6. Complete inventory. Record fields per AIEF-FRZ-001 3.2 plus content_ref per AMD-05.",
+      "minItems": 70,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "layer", "partition", "tier", "token_cap", "owner_role", "depends_on", "generator", "lifecycle", "mutability", "integrity", "profile_scope", "content_ref"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/identifier" },
+          "path": { "type": "string" },
+          "layer": { "$ref": "#/$defs/layerId" },
+          "partition": { "$ref": "#/$defs/partitionId" },
+          "tier": { "$ref": "#/$defs/tier" },
+          "token_cap": { "type": ["integer", "null"], "minimum": 1 },
+          "owner_role": { "$ref": "#/$defs/roleId" },
+          "depends_on": { "type": "array", "items": { "$ref": "#/$defs/identifier" } },
+          "referenced_by": { "type": "array", "items": { "$ref": "#/$defs/identifier" } },
+          "generator": { "$ref": "#/$defs/stage" },
+          "lifecycle": { "$ref": "#/$defs/lifecycleClass" },
+          "mutability": { "$ref": "#/$defs/mutability" },
+          "integrity": { "enum": ["hashed", "unhashed"] },
+          "profile_scope": {
+            "oneOf": [
+              { "const": "universal" },
+              { "type": "array", "items": { "$ref": "#/$defs/identifier" } }
+            ]
+          },
+          "content_ref": { "type": ["string", "null"] }
+        }
+      }
+    },
+
+    "dependencies": {
+      "type": "object",
+      "description": "Manifest section 7. Directed acyclic graph. MI-2, MI-3.",
+      "required": ["edge_types", "edges"],
+      "additionalProperties": false,
+      "properties": {
+        "edge_types": { "type": "array", "items": { "enum": ["reads", "references", "validates", "emits"] } },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "to", "type"],
+            "properties": {
+              "from": { "$ref": "#/$defs/identifier" },
+              "to": { "$ref": "#/$defs/identifier" },
+              "type": { "enum": ["reads", "references", "validates", "emits"] }
+            }
+          }
+        }
+      }
+    },
+
+    "boot_sequence": {
+      "type": "array",
+      "description": "Manifest section 8. Ordered steps B1..B9. MI-11.",
+      "minItems": 11,
+      "items": {
+        "type": "object",
+        "required": ["step", "action", "cost_class", "tier", "files", "failure"],
+        "additionalProperties": false,
+        "properties": {
+          "step": { "type": "string", "pattern": "^B[0-9]+[a-z]?$" },
+          "action": { "type": "string" },
+          "cost_class": { "enum": ["O(1)", "O(n)"] },
+          "tier": { "$ref": "#/$defs/tier" },
+          "files": { "type": "array", "items": { "$ref": "#/$defs/identifier" } },
+          "failure": { "type": "string" }
+        }
+      }
+    },
+
+    "runtime_sequence": {
+      "type": "array",
+      "description": "Manifest section 9. Twelve phases mapped to six workflows.",
+      "minItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["phase", "name", "workflow", "entry", "exit", "produces", "blocking_condition"],
+        "additionalProperties": false,
+        "properties": {
+          "phase": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "name": { "type": "string" },
+          "workflow": { "$ref": "#/$defs/identifier" },
+          "entry": { "type": "string" },
+          "exit": { "type": "string" },
+          "produces": { "type": "array", "items": { "type": "string" } },
+          "blocking_condition": { "type": "string" }
+        }
+      }
+    },
+
+    "agents": {
+      "type": "object",
+      "description": "Manifest section 10. Universal registry frozen at five. Profile agents namespaced.",
+      "required": ["contract_fields", "universal", "profile"],
+      "additionalProperties": false,
+      "properties": {
+        "contract_fields": { "type": "array", "items": { "type": "string" }, "minItems": 8 },
+        "universal": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/agentContract" }
+        },
+        "profile": { "type": "array", "items": { "$ref": "#/$defs/agentContract" } }
+      }
+    },
+
+    "laws": {
+      "type": "array",
+      "description": "Manifest section 11. Thirteen laws. MI-5.",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "rule", "clauses", "checkable", "binding_roles", "checks", "owner_role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^LAW-\\d{2}$" },
+          "title": { "type": "string" },
+          "rule": { "type": "string" },
+          "clauses": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "checkable": { "$ref": "#/$defs/checkableClass" },
+          "binding_roles": { "type": "array", "items": { "type": "string" } },
+          "checks": { "type": "array", "items": { "type": "string" } },
+          "owner_role": { "$ref": "#/$defs/roleId" }
+        }
+      }
+    },
+
+    "templates": {
+      "type": "array",
+      "description": "Manifest section 12. Ten output contracts. MI-6.",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "producer_role", "consumer_roles", "filing_path", "required_sections", "acceptance_conditions", "owner_role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/identifier" },
+          "title": { "type": "string" },
+          "producer_role": { "type": "string" },
+          "consumer_roles": { "type": "array", "items": { "type": "string" } },
+          "filing_path": { "type": "string" },
+          "required_sections": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "acceptance_conditions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "owner_role": { "$ref": "#/$defs/roleId" }
+        }
+      }
+    },
+
+    "schemas": {
+      "type": "array",
+      "description": "Manifest section 13. Eight artifact schemas. MI-7.",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "target_artifact", "required_fields", "severity", "owner_role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/identifier" },
+          "path": { "type": "string" },
+          "target_artifact": { "type": "string" },
+          "required_fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "severity": { "$ref": "#/$defs/severity" },
+          "owner_role": { "$ref": "#/$defs/roleId" }
+        }
+      }
+    },
+
+    "validation": {
+      "type": "array",
+      "description": "Manifest section 14. Twenty-one blocking checks V-01..V-21.",
+      "minItems": 21,
+      "items": {
+        "type": "object",
+        "required": ["id", "class", "verifies", "severity", "phase", "law_ref", "target"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^V-\\d{2}$" },
+          "class": { "type": "string" },
+          "verifies": { "type": "string" },
+          "severity": { "$ref": "#/$defs/severity" },
+          "phase": { "enum": ["compile-time", "runtime", "installation"] },
+          "law_ref": { "type": ["string", "null"] },
+          "target": { "type": "string" }
+        }
+      }
+    },
+
+    "generation_order": {
+      "type": "array",
+      "description": "Manifest section 15. Topologically sorted emission sequence with stage barriers.",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["stage", "name", "inputs", "outputs", "barrier", "failure"],
+        "additionalProperties": false,
+        "properties": {
+          "stage": { "$ref": "#/$defs/stage" },
+          "name": { "type": "string" },
+          "inputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "outputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "barrier": { "type": "string" },
+          "failure": { "type": "string" }
+        }
+      }
+    }
+  }
+}
