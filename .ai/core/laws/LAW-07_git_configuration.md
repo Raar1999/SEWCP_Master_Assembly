@@ -22,16 +22,22 @@
 
 1. No AI attribution in any commit, tag, file or document.
 2. No co-author trailers.
-3. Git author and committer identity are never modified.
-4. Published history is never rewritten.
-5. Tags are annotated and never moved.
+3. No generated-by trailers.
+4. Git author and committer identity are never modified.
+5. The configured git identity is preserved and never overwritten.
+6. Published history is never rewritten.
+7. Tags are annotated and never moved.
+8. Force push is prohibited unless explicitly authorised by the framework.
+9. The repository-engineer owns all repository operations and executes the release sequence automatically once a release gate is approved.
+10. After every release the repository-engineer shall verify: clean working tree, remote branch, remote tags, commit SHA, release tag target, repository synchronisation, and author equals committer equals repository owner.
+11. A repository policy violation is a QA failure, never a warning.
 
 ## Enforcement
 
 | | |
 |---|---|
 | Machine-checkable | full |
-| Bound checks | V-21 |
+| Bound checks | V-21, V-22 |
 | Binding on | repository-engineer |
 | Owner | `repository-engineer` |
 

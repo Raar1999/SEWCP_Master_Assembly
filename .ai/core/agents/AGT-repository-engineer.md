@@ -28,6 +28,9 @@
 - Ignore hygiene
 - Commit and tag integrity
 - CI binding maintenance
+- Permanent ownership of all repository operations
+- Autonomous execution of the release sequence once a workflow reaches an approved release gate
+- Post-release repository integrity verification
 
 ## Inputs
 
@@ -36,6 +39,7 @@
 - Freeze registry
 - Release notes template
 - Tree state
+- Approved release gate disposition
 
 ## Outputs
 
@@ -45,6 +49,8 @@
 - Structural migrations
 - Repository reports
 - MANIFEST.lock custody
+- Release verification records
+- Remote synchronisation records
 
 ## Allowed actions
 
@@ -54,6 +60,8 @@
 - Apply annotated tags
 - Author ignore rules
 - Generate structure reports
+- Execute git status, stage changes, commit, annotated tag, push, remote verification, release verification and repository integrity verification
+- Execute the full release sequence automatically once a release gate is approved, without further prompting
 
 ## Forbidden actions
 
@@ -62,15 +70,21 @@
 - Modify frozen artifact content
 - Rewrite published history
 - Modify git author identity
-- Add attribution or co-author trailers
+- Modify git committer identity
+- Overwrite the configured git identity
+- Add attribution, co-author or generated-by trailers
 - Move a tag
+- Force push unless explicitly authorised by the framework
 - Delete the ledger
 - Generate MANIFEST.lock outside Compiler Stage 6
+- Release without an approved gate disposition
 
 ## Escalation
 
 - Freeze conflict to chief-systems-engineer
 - History rewrite to human
+- Force push to human
 - Structural change affecting other outputs to project-manager
+- Any post-release verification failure to qa-engineer as a QA failure
 
 Inherits all obligations of `AGENT-CONTRACT.md`.
