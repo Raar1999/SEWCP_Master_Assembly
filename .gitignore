@@ -1,0 +1,102 @@
+# ── Autodesk Fusion 360 ────────────────────────────────────────────────
+# Parametric source of record lives in Fusion Team cloud versioning.
+# Git holds the neutral geometry record (STEP) and documentation only.
+# Policy reference: SEDEP-PMP-002 §3.1
+*.f3d
+*.f3z
+*.f2d
+*.f3b
+*.dwf
+*.dwfx
+AutodeskFusion360/
+Autodesk/
+*.bak
+*.bak[0-9]*
+~$*
+
+# ── Python ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.cover
+.hypothesis/
+.ipynb_checkpoints/
+
+# ── VS Code ────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/*.code-snippets
+.history/
+*.code-workspace
+
+# ── OS artefacts ───────────────────────────────────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ── CAE / simulation scratch ───────────────────────────────────────────
+*.sim
+*.simr
+simulation_results/
+*.nas
+*.op2
+
+# ── General ────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.env
+.env.local
+secrets.yaml
+
+# ── Explicitly TRACKED (negations) ─────────────────────────────────────
+# Released neutral geometry and drawings are part of the record.
+!cad/exports/step/*.step
+!cad/exports/step/*.stp
+!drawings/**/*.pdf
+!releases/**

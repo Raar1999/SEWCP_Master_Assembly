@@ -1,0 +1,36 @@
+LICENSE — PLACEHOLDER
+=====================
+
+STATUS: NOT YET SELECTED. Requires repository owner decision before any
+public release or external distribution.
+
+This file is a placeholder created during Release 0.1 infrastructure
+preparation. No license has been applied to this repository.
+
+--------------------------------------------------------------------------
+DECISION REQUIRED
+--------------------------------------------------------------------------
+
+SEDEP-PMP-002 §1 records a proposed dual-license intent:
+
+    Code (src/, tests/)        MIT
+    Documentation (spec/, program/, implementation/)   CC-BY-4.0
+
+That is a recorded intent only. It has not been ratified and MUST NOT be
+treated as the effective license.
+
+The repository owner shall:
+
+  1. Confirm or replace the proposed licenses.
+  2. Replace the full text of this file with the selected license.
+  3. If dual-licensing, state the boundary explicitly by path.
+  4. Record the decision in CHANGELOG.md.
+
+--------------------------------------------------------------------------
+INTERIM POSITION
+--------------------------------------------------------------------------
+
+Until this file is replaced, all rights are reserved by the repository
+owner. The absence of a license is not an implicit grant of rights.
+
+Do not publish this repository publicly until this placeholder is resolved.
