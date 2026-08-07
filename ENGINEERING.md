@@ -16,9 +16,10 @@ Read this first, then the canonical artifacts it references.
 | **Project** | SEWCP — Semiconductor Electrostatic Wafer Chuck Platform |
 | **Product** | 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment |
 | **Engineering baseline** | SEWCP Rev A — **FROZEN** |
-| **Governing framework** | AIEF 1.0.0 — **FROZEN** |
+| **Governing framework** | AIEF 1.0.0 — **FROZEN**, seven amendments |
 | **Active profile** | `mechanical` |
-| **Repository release** | v0.1.0 (infrastructure baseline) |
+| **Active host adapter** | `claude-code` |
+| **Repository release** | **v0.6.0** |
 
 ## 2 · Startup Sequence
 
@@ -87,8 +88,13 @@ Recovering an in-progress project without conversation history:
 | Document | Path |
 |---|---|
 | Architecture freeze 1.0.0 | [`framework/AIEF-FRZ-001_Framework_Architecture_Freeze_1.0.0.md`](framework/AIEF-FRZ-001_Framework_Architecture_Freeze_1.0.0.md) |
-| Amendments — ownership, profiles, contracts | [`framework/AIEF-AMD-001_Architecture_Amendments_1.0.0.md`](framework/AIEF-AMD-001_Architecture_Amendments_1.0.0.md) |
-| Amendments — CMP-BLOCK-014 | [`framework/AIEF-AMD-002_Architecture_Amendments_CMP-BLOCK-014.md`](framework/AIEF-AMD-002_Architecture_Amendments_CMP-BLOCK-014.md) |
+| AMD-001 — ownership, profiles, role contracts | [`framework/AIEF-AMD-001_Architecture_Amendments_1.0.0.md`](framework/AIEF-AMD-001_Architecture_Amendments_1.0.0.md) |
+| AMD-002 — CMP-BLOCK-014 dependency cycle | [`framework/AIEF-AMD-002_Architecture_Amendments_CMP-BLOCK-014.md`](framework/AIEF-AMD-002_Architecture_Amendments_CMP-BLOCK-014.md) |
+| AMD-003 — session timeout, ledger genesis | [`framework/AIEF-AMD-003_Architecture_Amendments_OI-F-01_OI-F-02.md`](framework/AIEF-AMD-003_Architecture_Amendments_OI-F-01_OI-F-02.md) |
+| AMD-004 — Repository Engineer autonomy | [`framework/AIEF-AMD-004_Repository_Engineer_Autonomy.md`](framework/AIEF-AMD-004_Repository_Engineer_Autonomy.md) |
+| AMD-005 — host bootstrap artifacts | [`framework/AIEF-AMD-005_Host_Bootstrap_Artifacts.md`](framework/AIEF-AMD-005_Host_Bootstrap_Artifacts.md) |
+| AMD-006 — Mechanical CAD Engineer | [`framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md`](framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md) |
+| AMD-007 — compiler_stage state field | [`framework/AIEF-AMD-007_Compiler_Stage_State_Field.md`](framework/AIEF-AMD-007_Compiler_Stage_State_Field.md) |
 | Framework manifest — single source of truth | [`framework/framework.manifest.json`](framework/framework.manifest.json) |
 | Manifest schema | [`framework/SCH-framework-manifest.schema.json`](framework/SCH-framework-manifest.schema.json) |
 
@@ -105,14 +111,16 @@ Recovering an in-progress project without conversation history:
 
 ## 6 · Compiler Stage
 
+> **Authoritative source: [`.ai/project/STATE.md`](.ai/project/STATE.md) field `compiler_stage`.** The table below is a convenience pointer.
+
 | Stage | Name | Status |
 |---|---|---|
-| 1 | Generate Core | ✅ **SIGNED OFF** — 58 artifacts, all validations pass |
-| 2 | Generate Templates | ⏳ not started |
-| 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts, continuation operational *(executed ahead of Stage 2; deviation DEV-01)* |
-| 4 | Generate Adapters | ⏳ not started |
-| 5 | Generate Validation | ⏳ not started |
-| 6 | Generate Release | ⏳ not started — **gates boot step B2a** |
+| 1 | Generate Core | ✅ **COMPLETE** — 59 artifacts, signed off |
+| 2 | Generate Templates | ⏳ **outstanding — NEXT** |
+| 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts *(ahead of Stage 2; deviation DEV-01)* |
+| 4 | Generate Adapters | ✅ **COMPLETE** — 5 adapters + `CLAUDE.md` host hook |
+| 5 | Generate Validation | ⏳ outstanding |
+| 6 | Generate Release | ⏳ outstanding — **gates boot step B2a** |
 
 ## 7 · Engineering Status
 
@@ -122,10 +130,11 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **BLOCKED** |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, amended twice, Stages 1 and 3 emitted |
+| Framework | AIEF 1.0.0 frozen, **seven amendments**; Stages 1, 3, 4 emitted |
+| Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
 | Frozen set | 16 artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md) |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE` |
-| Repository | v0.1.0 released; `.ai/`, `framework/`, `ENGINEERING.md` uncommitted |
+| Repository | **v0.6.0** released, pushed, working tree clean |
 
 **Open items — authoritative list: [`.ai/project/OPEN_ITEMS.md`](.ai/project/OPEN_ITEMS.md)**
 
@@ -142,9 +151,11 @@ Recovering an in-progress project without conversation history:
 
 > ### Framework Compiler Stage 2 — Generate Templates
 >
-> Stage 1 is signed off. Stage 3 is complete and continuation is operational. Stage 2 remains outstanding and **must run before release** — deviation DEV-01 records that Stage 3 was executed ahead of it.
+> Emit the 11 manifest-declared output contracts to `.ai/core/templates/`. This also closes deviation **DEV-01**, which records that Stage 3 was executed ahead of Stage 2, leaving `state.depends_on → tpl-current-state` unsatisfied.
 
-**Then, in order:** Stage 4 Adapters → Stage 5 Validation → **Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a).
+**Then, in order:** Stage 5 Validation → **Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a).
+
+**Stage 2 will not unblock the `LC-M04-EXIT` gate.** That gate is held by ECR-D-001…004 — four defects in the frozen SEWCP specification — which are Design Authority decisions, not compiler work.
 
 ---
 

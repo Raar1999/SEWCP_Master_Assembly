@@ -7,6 +7,7 @@
   "required": [
     "lifecycle_stage",
     "active_gate",
+    "compiler_stage",
     "last_ledger_seq",
     "blockers",
     "active_tasks",
@@ -19,6 +20,9 @@
       "description": "Required field of sch-state."
     },
     "active_gate": {
+      "description": "Required field of sch-state."
+    },
+    "compiler_stage": {
       "description": "Required field of sch-state."
     },
     "last_ledger_seq": {

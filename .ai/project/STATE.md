@@ -10,6 +10,10 @@
 ```yaml
 lifecycle_stage:  LC-M04   # Implementation (mechanical profile)
 active_gate:      LC-M04-EXIT
+compiler_stage:
+  next:           2           # Generate Templates
+  complete:       [1, 3, 4]   # Core, Project Layer, Adapters
+  outstanding:    [2, 5, 6]   # Templates, Validation, Release
 last_ledger_seq:  0
 frozen_set_hash:  42bce7b0de019f854f99387edfc901b0
 active_tasks:     []
@@ -23,11 +27,17 @@ next_action:      Framework Compiler Stage 2 - Generate Templates
 
 ## Required sections
 
-Per `tpl-current-state`: `Lifecycle stage`, `Active gate`, `Last ledger sequence`, `Open blockers`, `Active tasks`, `Frozen set hash`, `Next action`.
+Per `tpl-current-state`: `Lifecycle stage`, `Active gate`, `Compiler stage`, `Last ledger sequence`, `Open blockers`, `Active tasks`, `Frozen set hash`, `Next action`.
 
 ## Reconciliation
 
 `last_ledger_seq` must equal `ledger/HEAD.seq`. Current: **0 == 0**. Boot step B4 passes.
+
+## Compiler stage
+
+`compiler_stage` declares complete and outstanding stages **explicitly**. It was added by AIEF-AMD-007 after the cold-start acceptance test found that stage completion was recoverable only by inspecting the filesystem for the presence or absence of `core/templates/`, `core/validation/` and `core/MANIFEST.lock`. Inference is what this framework exists to eliminate, so the fact is now declared.
+
+Stage 6 remains outstanding, so boot step **B2a cannot execute** — `core/MANIFEST.lock` does not exist and `BINDING.core_digest_pin` is `PENDING-STAGE-6`.
 
 ## Frozen set
 
