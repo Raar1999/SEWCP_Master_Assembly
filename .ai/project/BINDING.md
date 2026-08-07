@@ -23,6 +23,7 @@ enabled_agents:
   - project-manager   # A3
   - chief-systems-engineer   # A4
   - mechanical.design-engineer   # A1
+  - mechanical.cad-engineer   # A1 - AIEF-AMD-006
   - mechanical.manufacturing-engineer   # A1
   - mechanical.simulation-engineer   # A1
 ```

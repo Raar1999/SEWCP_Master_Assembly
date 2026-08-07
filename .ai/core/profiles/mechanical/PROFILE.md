@@ -17,13 +17,14 @@
 | Profile id | `mechanical` |
 | Discipline tags | mechanical, hardware, semiconductor, npi |
 | Gate topology | **terminal** |
-| Files | 15 |
+| Files | 16 |
 
 ## Agents
 
 | Role | Specification |
 |---|---|
 | `mechanical.design-engineer` | `agents/AGT-design-engineer.md` |
+| `mechanical.cad-engineer` | `agents/AGT-cad-engineer.md` |
 | `mechanical.manufacturing-engineer` | `agents/AGT-manufacturing-engineer.md` |
 | `mechanical.simulation-engineer` | `agents/AGT-simulation-engineer.md` |
 

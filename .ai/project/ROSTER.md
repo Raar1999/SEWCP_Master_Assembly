@@ -22,6 +22,7 @@ Roles enabled for this project. Registry: `core/agents/INDEX.md`. Contracts are 
 | Role | Authority | Assigned identity |
 |---|---|---|
 | `mechanical.design-engineer` | A1 | UNASSIGNED |
+| `mechanical.cad-engineer` | A1 | UNASSIGNED |
 | `mechanical.manufacturing-engineer` | A1 | UNASSIGNED |
 | `mechanical.simulation-engineer` | A1 | UNASSIGNED |
 

@@ -33,6 +33,7 @@ Universal registry is **frozen at five roles** for MAJOR version 1. Profile role
 | `mechanical.design-engineer` | A1 | cad, tolerance, gdt |
 | `mechanical.manufacturing-engineer` | A1 | producibility, process, inspection |
 | `mechanical.simulation-engineer` | A1 | fea, thermal, correlation |
+| `mechanical.cad-engineer` | A1 | cad, parametric, fusion360, drawings, export |
 
 ## Authority levels
 
@@ -50,4 +51,6 @@ Universal registry is **frozen at five roles** for MAJOR version 1. Profile role
 - `project-manager`: May not gate-pass its own plan unaided
 - `chief-systems-engineer`: May not implement what it approved
 - `chief-systems-engineer`: May not validate schemas it authored
+- `mechanical.cad-engineer`: May not make engineering decisions; that authority belongs to mechanical.design-engineer
+- `mechanical.cad-engineer`: May not author the implementation package it implements
 - `software.test-engineer`: May not test code it authored
