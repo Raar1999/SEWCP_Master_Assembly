@@ -31,7 +31,7 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 
 > **The order of rows in the table below is not the hashing order.** DC-2 sorts by path. The table is grouped for reading.
 
-## Registered artifacts (25)
+## Registered artifacts (26)
 
 | Path | DC-1 digest |
 |---|---|
@@ -58,12 +58,13 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 | `framework/AIEF-AMD-007_Compiler_Stage_State_Field.md` | `860a1c7e8f18a05d032fe21cd2dfaeac4580765de1d225f9c260def8484caa9e` |
 | `framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md` | `192ff86128dadfc8382f1894e1a38713f7321ee83aff7891d7e885c31c9dd71e` |
 | `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | `86c8be7f0eafb441c55ad5d5033f6e8e4e684350da262557539e6291b68f2c97` |
+| `framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md` | `486be10eb3bea89fb8c6c99949f1bb48e884cb556879e594cdd778dac5b0b829` |
 | `framework/SCH-framework-manifest.schema.json` | `ee3d0bdf37156541c13ece46fec9172dabd93e98f32cb88c0ae7a2adff4bb25f` |
-| `framework/framework.manifest.json` | `9611d547aab51475e3b57a255af52d47972e4024c896edb5c210cf8f9813e557` |
+| `framework/framework.manifest.json` | `ae16ccaca5746b81a2a992841fc1d239fd1c8b0c34657c05611e025a9d8395aa` |
 
 **Not registered, by ruling.** `framework/AIEF-ARCH-001_AI_Engineering_Framework_Architecture.md` — superseded by `AIEF-FRZ-001`, authorises nothing, cited by nothing as a live authority (AMD-21, APR-003).
 
-Per-artifact verification after this change: **25 of 25 verify.**
+Per-artifact verification after this change: **26 of 26 verify.**
 
 ## Registration history
 
@@ -76,16 +77,18 @@ Per-artifact verification after this change: **25 of 25 verify.**
 | 2026-08-08 | § Aggregate | Construction declared; aggregate recomputed for the first time under a declared method | AIEF-AMD-008 §AMD-16, disposing ECR-Q-001 |
 | 2026-08-08 | `framework/framework.manifest.json` | `636cf22b…14b38d3c` → `9611d547…9813e557` | AIEF-AMD-009 rulings AMD-23/AMD-24, disposing ECR-Q-003 and OI-C-03; approval [`approvals/APR-004_Amend_Framework_Manifest_AMD-009.md`](approvals/APR-004_Amend_Framework_Manifest_AMD-009.md) |
 | 2026-08-08 | `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-005_Register_AIEF-AMD-009.md`](approvals/APR-005_Register_AIEF-AMD-009.md) |
+| 2026-08-08 | `framework/framework.manifest.json` | `9611d547…9813e557` → `ae16ccac…9d8395aa` | AIEF-AMD-010 rulings AMD-25…AMD-33, disposing Stage 6 pre-flight OQ-1…OQ-10 and OQ-12; approval [`approvals/APR-006_Amend_Framework_Manifest_AMD-010.md`](approvals/APR-006_Amend_Framework_Manifest_AMD-010.md) |
+| 2026-08-08 | `framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-007_Register_AIEF-AMD-010.md`](approvals/APR-007_Register_AIEF-AMD-010.md) |
 
 ## Aggregate
 
-**`frozen_set_hash`**, DC-2 over the 25 registered artifacts above:
+**`frozen_set_hash`**, DC-2 over the 26 registered artifacts above:
 
 ```
-4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22
+80cd3ebe0ce971b079fe598bac401ab959f77c7c900a54caa6e0a09963fdf2e8
 ```
 
-Prior value over the 24-member registry, replaced when AIEF-AMD-009 amended the manifest and joined the registry (APR-004, APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — reproducible from the superseded membership, retained for audit.
+Prior value over the 25-member registry, replaced when AIEF-AMD-010 amended the manifest and joined the registry (APR-006, APR-007): `4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22` — reproducible from the superseded membership, retained for audit. Earlier value over the 24-member registry (replaced at APR-004/APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — likewise reproducible and retained.
 
 Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 
@@ -113,5 +116,6 @@ Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 | ECR-D-005 | Disposed **A** — the re-registration recorded at APR-001 |
 | ECR-Q-003 | Disposed **A** by AIEF-AMD-009 §AMD-23 — Stage 1 barrier protects the Stage 1 output set |
 | AIEF-AMD-008 §AMD-21 | Registry scope and registration criterion |
-| AIEF-AMD-009 §AMD-24 | MI-3 namespace ruling — the manifest change behind the latest re-registration |
-| APR-001 … APR-005 | The five recorded approvals behind the registry changes above |
+| AIEF-AMD-009 §AMD-24 | MI-3 namespace ruling — an earlier manifest re-registration |
+| AIEF-AMD-010 §§AMD-25…AMD-34 | Stage 6 constructions (DC-4, DC-5, TF-1/TF-2) and pre-flight dispositions — the manifest change behind the latest re-registration |
+| APR-001 … APR-007 | The seven recorded approvals behind the registry changes above |

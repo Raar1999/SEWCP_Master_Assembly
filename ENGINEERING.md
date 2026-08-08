@@ -16,7 +16,7 @@ Read this first, then the canonical artifacts it references.
 | **Project** | SEWCP — Semiconductor Electrostatic Wafer Chuck Platform |
 | **Product** | 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment |
 | **Engineering baseline** | SEWCP Rev A — **FROZEN** |
-| **Governing framework** | AIEF 1.0.0 — **FROZEN**, nine amendments |
+| **Governing framework** | AIEF 1.0.0 — **FROZEN**, ten amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
 | **Repository release** | **v0.10.0** — annotated tag on the Stage 5 release commit, verified by `git describe --tags --exact-match HEAD` |
@@ -97,6 +97,7 @@ Recovering an in-progress project without conversation history:
 | AMD-007 — compiler_stage state field | [`framework/AIEF-AMD-007_Compiler_Stage_State_Field.md`](framework/AIEF-AMD-007_Compiler_Stage_State_Field.md) |
 | AMD-008 — digest constructions, stage monotonicity, provenance, registry scope | [`framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) |
 | AMD-009 — Stage 1 emission barrier, MI-3 namespace | [`framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md`](framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) |
+| AMD-010 — Stage 6 constructions (DC-4, DC-5, tokenizers) and pre-flight dispositions | [`framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md`](framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md) |
 | Framework manifest — single source of truth | [`framework/framework.manifest.json`](framework/framework.manifest.json) |
 | Manifest schema | [`framework/SCH-framework-manifest.schema.json`](framework/SCH-framework-manifest.schema.json) |
 
@@ -132,9 +133,9 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **BLOCKED** |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, **nine amendments**; Stages 1–5 emitted |
+| Framework | AIEF 1.0.0 frozen, **ten amendments**; Stages 1–5 emitted |
 | Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
-| Frozen set | **25** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under DC-2 |
+| Frozen set | **26** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under DC-2 |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
 | Repository | **v0.10.0**, `HEAD == origin/main`. Approval-provenance commits: `d07e931` (Release 0.8 — Stage 2 templates + AMD-008 state, manifest at APR-002's subject `636cf22b…`), `655aa75` (AMD-009 state, manifest at APR-004's subject `9611d547…`, AMD-009 at APR-005's subject `86c8be7f…`), `be75798` (Release 0.9 sync, tag v0.9.0). The Stage 5 release commit adds `core/validation/**`, VER-003 and the `.gitignore` negation |
 
@@ -149,19 +150,19 @@ Recovering an in-progress project without conversation history:
 | C-4 | `LICENSE` is an unresolved placeholder | Public or external release |
 | CDR-C3 | Independent cold-context ratification of the AIEF CDR not performed | Recorded residual risk, AIEF-FRZ-001 §6.2 |
 
-**Open, not blocking** — `OI-V-02` (`V-24` declared but not implemented), `OI-V-03` (all session `S-2026-08-08-02` work is unverified), `OI-R-01` (no `v0.2.0` tag), `OI-C-01…02` (ledger schema; `ADP-ci` stale at 22 checks), `OI-C-04…05` (`implementation/` BOMs; `referenced_by` completeness undeclared), `OI-P-01…02` (session records absent; roster roles UNASSIGNED), `SOD-1` (A4 both ruled and applied, at rank-1 direction, sessions `-02` and `-03`).
+**Open, not blocking** — `OI-V-02` (`V-24` declared but not implemented), `OI-V-03` (all session `S-2026-08-08-02` work is unverified), `OI-V-06` (V-14 trial count undeclared — pre-flight OQ-11), `OI-V-07` (`core/validation/` stale in the V-09/V-10 texts after AMD-010), `OI-R-01` (no `v0.2.0` tag), `OI-C-01…02` (ledger schema; `ADP-ci` stale at 22 checks — required content now fixed by AMD-010 §AMD-32), `OI-C-04…05` (`implementation/` BOMs; `referenced_by` completeness undeclared), `OI-P-01…02` (session records absent; roster roles UNASSIGNED), `SOD-1` (A4 both ruled and applied, at rank-1 direction, sessions `-02`, `-03` and `-04`), and the two human-owner reservations `OQ-13` (compiler-work allocation choice) and `OQ-14` (Stage 6 authorization).
 
-**Recently closed** — `ECR-Q-003` and `OI-C-03`, jointly, by [`framework/AIEF-AMD-009`](framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) §§AMD-23/24 (approvals `APR-004`/`APR-005`): the Stage 1 barrier now protects the Stage 1 output set — Stage 5 lawfully emits `core/validation/**` — and MI-3's strict `files[]`-id namespace governs, with the manifest passing it. Earlier: `ECR-Q-001` and `ECR-Q-002` by [`framework/AIEF-AMD-008`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §§AMD-16/17; `OI-V-01` by [`.ai/project/verification/VER-001`](.ai/project/verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) — 10 criteria, 10 PASS — dispositioned at [`.ai/project/reviews/DR-001`](.ai/project/reviews/DR-001_QA-001_Finding_Dispositions.md); `ECR-D-005` fully closed; `OI-F-01`, `OI-F-02` by AIEF-AMD-003; `CMP-BLOCK-014` by AIEF-AMD-002.
+**Recently closed** — the eleven Stage 6 pre-flight specification gaps `OQ-1…OQ-10, OQ-12`, by [`framework/AIEF-AMD-010`](framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md) §§AMD-25…AMD-33 (approvals `APR-006`/`APR-007`): DC-4 core aggregate (root files covered, lock self-excluded), DC-5 release digest, tokenizer families TF-1/TF-2, budget record in `MANIFEST.lock`, deterministic uncompressed tar distributable, compile-time checks precede Stage 6 emission, campaign scope V-01…V-25, two-execution build-time reproducibility, V-10 platforms — with `AMD-34` recording the allocation options and recommendation while reserving the choice to the human owner. Earlier: `ECR-Q-003` and `OI-C-03`, jointly, by [`framework/AIEF-AMD-009`](framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) §§AMD-23/24 (approvals `APR-004`/`APR-005`): the Stage 1 barrier now protects the Stage 1 output set — Stage 5 lawfully emits `core/validation/**` — and MI-3's strict `files[]`-id namespace governs, with the manifest passing it. Earlier: `ECR-Q-001` and `ECR-Q-002` by [`framework/AIEF-AMD-008`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §§AMD-16/17; `OI-V-01` by [`.ai/project/verification/VER-001`](.ai/project/verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) — 10 criteria, 10 PASS — dispositioned at [`.ai/project/reviews/DR-001`](.ai/project/reviews/DR-001_QA-001_Finding_Dispositions.md); `ECR-D-005` fully closed; `OI-F-01`, `OI-F-02` by AIEF-AMD-003; `CMP-BLOCK-014` by AIEF-AMD-002.
 
 ## 8 · Next Engineering Activity
 
 > ### Framework Compiler Stage 6 — Generate Release: **NOT AUTHORIZED**
 >
-> **Stage 5 is complete** (`S-2026-08-08-03`): `core/validation/CHECKS.md` and `core/validation/MANIFEST` emitted from `manifest.validation` — 25 checks, stage barrier PASS (13/13 checkable laws bound, zero orphans), independently verified by cold-context QA at [`VER-003`](.ai/project/verification/VER-003_Independent_Verification_Stage_5_Emission.md). All 25 checks remain **declared-only**: implementation requires the CMP-BLOCK-004/-005 infrastructure (OI-V-02).
+> **The Stage 6 specification is now complete.** The pre-flight determination ([`STAGE-6_PREFLIGHT`](.ai/project/STAGE-6_PREFLIGHT_CMP-BLOCK-004_005.md), `dc811a6`) recorded fourteen open questions; [`AIEF-AMD-010`](framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md) (`S-2026-08-08-04`, approvals `APR-006`/`APR-007`) formally resolves eleven of them — DC-4 core aggregate, DC-5 release digest, tokenizer families, budget record, distributable, check ordering, campaign scope, build-time reproducibility, Stage-6-only increment admissibility. CMP-BLOCK-004/-005 are now **implementation** blockers only, no longer specification blockers.
 >
-> **Stage 6 requires explicit human authorization** (standing instruction, `S-2026-08-08-03`) and is held by **CMP-BLOCK-004** — `MANIFEST.lock`, the budget measurement record and the release digest require `aief-compile` as deterministic software. Stage 6 satisfies boot step B2a and writes `BINDING.core_digest_pin`.
+> **Stage 6 requires explicit human authorization** (standing instruction, `S-2026-08-08-03`; pre-flight OQ-14 — reserved to the human owner) and remains held by **CMP-BLOCK-004** until a deterministic Stage 6 implementation exists. Stage 6 satisfies boot step B2a and writes `BINDING.core_digest_pin`.
 >
-> Also pending: session-summary records (OI-P-01) and the Stage 6 pre-flight determination of the CMP-BLOCK-004/-005 minimum implementation, directed by the human owner in `S-2026-08-08-03`.
+> **Awaiting the human owner:** the OQ-13 allocation choice (AMD-010 §AMD-34 records the options and recommends enabling the `software.*` roles in this instance; the choice is the owner's) and Stage 6 authorization. Also pending: independent cold-context QA audit of `S-2026-08-08-04` (SOD-1 mitigating control), OI-V-06 (V-14 trial count), and session-summary records (OI-P-01).
 
 **Then: Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a, and writes `BINDING.core_digest_pin`).
 

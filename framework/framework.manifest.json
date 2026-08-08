@@ -20,7 +20,7 @@
         "terminal_newline": "enforced"
       },
       "digest_constructions": {
-        "note": "Normative. Declared by AIEF-AMD-008 AMD-16 and AMD-17. Every digest the framework requires, verifies or depends upon is constructed here. DC-1 is restated unchanged; DC-2 and DC-3 are new. A digest that is required and verified but never constructed is the defect class these three close.",
+        "note": "Normative. DC-1 restated unchanged from AIEF-FRZ-001 section 1.7; DC-2 and DC-3 declared by AIEF-AMD-008 AMD-16 and AMD-17; DC-4 and DC-5 declared by AIEF-AMD-010 AMD-27 and AMD-28. Every digest the framework requires, verifies or depends upon is constructed here. A digest that is required and verified but never constructed is the defect class these five close.",
         "per_artifact": {
           "id": "DC-1",
           "algorithm": "SHA-256",
@@ -95,7 +95,93 @@
             "entry_2_digest": "66e51617abb575133fa7bea5ace6b220f9d8feb4e3911a3d81cd158718f8195b"
           },
           "not_applied": "AIEF-AMD-008 defines DC-3 and does not write L-0000001; HEAD remains at genesis. The genesis to active transition is irreversible and belongs to a session performing a full LAW-09 close"
+        },
+        "core_aggregate": {
+          "id": "DC-4",
+          "algorithm": "SHA-256",
+          "authority": "AIEF-AMD-010 AMD-27, disposing Stage 6 pre-flight OPEN-QUESTION 4 and OPEN-QUESTION 5",
+          "target_fields": ["core/MANIFEST.lock aggregate_digest", "project/BINDING.md core_digest_pin"],
+          "covers": "every files[] entry declared integrity hashed that the build emits for the selected profile - the L0 root files BOOT.md, FRAMEWORK.md and README.md, core/** including core/templates/** and core/validation/**, and core/profiles/<selected>/** - as the pair (emission path, DC-1 digest); core/MANIFEST.lock itself is excluded by self-exclusion; unhashed partitions (project, adapters) are never covered",
+          "root_file_ruling": "the three L0 root files are covered: files[] declares each integrity hashed and the root partition declares integrity_verified true, and a declaration verified by nothing is a dead declaration. The boot-step phrase 'core aggregate digest' is superseded in reading as 'the aggregate digest recorded in core/MANIFEST.lock', which covers the full integrity-verified emitted set - AIEF-AMD-010 AMD-27, following the AIEF-AMD-009 AMD-23 supersession-in-reading mechanism; no frozen byte is edited",
+          "record": "<path> <SP> <digest> <LF> - the DC-2 record grammar exactly; <path> is the emission path relative to .ai/ exactly as declared in files[].path, POSIX separators; <SP> is one U+0020; <digest> is 64 lowercase hexadecimal characters; <LF> is one U+000A",
+          "record_order": "ascending by the UTF-8 octet sequence of <path>, compared as unsigned octets, shorter prefix first",
+          "preimage": "the records concatenated in that order; no header, no trailer, no separator beyond each record terminal LF, no byte-order mark",
+          "encoding": "UTF-8",
+          "self_exclusion": "core/MANIFEST.lock is not a member of its own files list and contributes no record to the preimage; the lock records the aggregate, so covering itself would be circular. The lock is bound instead by the BINDING pin: core_digest_pin equals aggregate_digest, per AIEF-FRZ-001 section 1.7 F-06",
+          "b2a_procedure": "recompute DC-1 for every listed file and compare to its recorded digest; verify no covered-scope file is absent from the list and no listed file is absent from the tree; recompute DC-4 over the recomputed pairs and compare to aggregate_digest; compare aggregate_digest to the BINDING core_digest_pin; any mismatch halts, blocking",
+          "lock_serialisation": "core/MANIFEST.lock is UTF-8 JSON conforming to sch-core-manifest, member order framework_version, build_provenance, hash_algorithm, normalisation, aggregate_digest, budget_measurement, files; aggregate_digest precedes files so the T1 digest read stays within the 200-token cap declared on files[manifest-lock]; files is an array of [path, digest] pairs in DC-4 record order",
+          "output": "64 lowercase hexadecimal characters; truncation is prohibited",
+          "empty_set": "never lawful - a build emitting zero covered files is a failed build, not an empty aggregate",
+          "duplicate_path": "a path listed twice is a build defect; DC-4 is undefined for it and the build halts",
+          "worked_example": {
+            "input": [
+              ["BOOT.md", "0000000000000000000000000000000000000000000000000000000000000000"],
+              ["core/VERSION", "1111111111111111111111111111111111111111111111111111111111111111"]
+            ],
+            "digest": "eb6e969b9f1d31a367ccf83315c1a40f8df0bb1c7dec41566a637ac3740325b1"
+          },
+          "recorded_residual": "lock members other than files and aggregate_digest (framework_version, build_provenance, hash_algorithm, normalisation, budget_measurement) are not bound by the pin, because AIEF-FRZ-001 section 1.7 freezes the pin as the aggregate digest; tamper on those members is detected by V-12 and version control, not by B2a. Accepted property, recorded by AIEF-AMD-010 AMD-27"
+        },
+        "release_digest": {
+          "id": "DC-5",
+          "algorithm": "SHA-256",
+          "authority": "AIEF-AMD-010 AMD-28, disposing Stage 6 pre-flight OPEN-QUESTION 3",
+          "domain": "the raw octets of the distributable archive exactly as emitted; no normalisation of any kind - DC-1 normalisation applies to text content, never to a binary container, and the archive construction is itself deterministic per metadata.reproducible.distributable",
+          "distinct_from_aggregate": "the release digest is not MANIFEST.lock aggregate_digest and is not comparable to it: DC-4 binds the installed tree content as (path, DC-1 digest) pairs, DC-5 binds the shipped container, including the archive structure and the contained MANIFEST.lock itself. Both are required: DC-4 authenticates the tree at every boot (B2a); DC-5 authenticates the acquisition before any installation exists to verify",
+          "recording": "recorded in a sidecar file <archive-name>.sha256 published alongside the archive, containing exactly <digest> <SP> <SP> <archive-name> <LF> in the sha256sum text convention, and in the Integrity statement section of the release notes filed per tpl-release-notes; never inside the archive and never inside MANIFEST.lock, because the archive contains the lock and self-reference would be circular",
+          "output": "64 lowercase hexadecimal characters; truncation is prohibited",
+          "worked_example": {
+            "input": "the three octets 0x61 0x62 0x63",
+            "digest": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+          }
         }
+      },
+      "tokenizer_families": {
+        "note": "Normative. Declared by AIEF-AMD-010 AMD-26, disposing Stage 6 pre-flight OPEN-QUESTION 2. AIEF-FRZ-001 section 1.8 requires measurement with two tokenizer families with the maximum governing, and names neither; these are the two. Two families means two distinct segmentation algorithms, so a family-specific undercount cannot pass the budget.",
+        "tf-1": {
+          "id": "TF-1",
+          "family": "byte-level BPE",
+          "artifact": "cl100k_base.tiktoken - the tiktoken cl100k_base vocabulary file",
+          "encoding_name": "cl100k_base",
+          "determinism": "greedy byte-pair merging over a fixed published vocabulary with a fixed pre-tokenisation pattern; publicly specified; implementable offline from the pinned artifact alone",
+          "special_tokens": "disabled - measurement tokenises file text only; no special token is injected",
+          "pin": "the raw-octet SHA-256 of the vocabulary artifact, recorded in the budget_measurement member of core/MANIFEST.lock at the first authoritative Stage 6 measurement and verified against that record before every subsequent measurement"
+        },
+        "tf-2": {
+          "id": "TF-2",
+          "family": "SentencePiece unigram",
+          "artifact": "spiece.model - the T5 SentencePiece model, 32000 pieces, Apache-2.0 licensed and freely redistributable",
+          "determinism": "Viterbi segmentation over a fixed serialised model; publicly specified; implementable offline from the pinned artifact alone",
+          "special_tokens": "disabled - measurement tokenises file text only; no special token is injected",
+          "pin": "the raw-octet SHA-256 of the model artifact, recorded in the budget_measurement member of core/MANIFEST.lock at the first authoritative Stage 6 measurement and verified against that record before every subsequent measurement"
+        },
+        "pin_value_rule": "the pin values are fixed by the first Stage 6 build and frozen from then on by the lock that records them; a pin value asserted in this manifest without the artifact in hand would be an assumption, which LAW-12 forbids - the mechanism is declared here, the values are measured",
+        "governing_rule": "per-file and aggregate measurement under both families; the maximum governs - AIEF-FRZ-001 section 1.8, not restated"
+      },
+      "budget_measurement_record": {
+        "authority": "AIEF-AMD-010 AMD-29, disposing Stage 6 pre-flight OPEN-QUESTION 6",
+        "location": "the budget_measurement member of core/MANIFEST.lock, admitted by sch-core-manifest additionalProperties true; not a separate file - a separate file would require a files[] entry, a schema and a consumer, and would be a dead file in every install; no schema amendment is required",
+        "content": [
+          "per-file token count under each family for every file carrying a non-null token_cap in tiers T0 and T1",
+          "per-family T0 plus T1 totals and the governing maximum per file and in aggregate",
+          "verdict against every per-file cap and against the 6000 aggregate ceiling",
+          "tokenizer artifact identifiers with their raw-octet SHA-256 pin values",
+          "measurement timestamp and the Stage 6 build identifier"
+        ],
+        "verdict_rule": "any per-file cap breach or aggregate ceiling breach under either family halts the build - AIEF-FRZ-001 Part 4 Stage 6 failure row"
+      },
+      "distributable": {
+        "authority": "AIEF-AMD-010 AMD-30, disposing Stage 6 pre-flight OPEN-QUESTION 7",
+        "format": "uncompressed POSIX ustar tar archive",
+        "name": "aief-<semver>-<profile>.tar",
+        "contents": "exactly the emitted install set for the selected profile: the DC-4 covered set plus core/MANIFEST.lock, every entry rooted at .ai/; nothing else - the zero-dead-file rule of AIEF-FRZ-001 section 1.5 constrains the archive to universal core plus selected profile only",
+        "determinism": "entries sorted ascending by the UTF-8 octet sequence of the archive path; mtime 0, uid 0, gid 0, empty uname and gname, mode 0644 for regular files and 0755 for directories, no extended headers beyond those pax requires for long paths. Compression is rejected: compressor output varies across implementations and versions, which would break the byte-identical requirement of AIEF-FRZ-001 Part 4; a consumer may compress for transport outside the framework boundary, without framework meaning",
+        "disposition": "not tracked in the instance repository - the repository is the installed tree, and tracking a generated container of it would duplicate every artifact in a second, unverified form; published as a release artifact alongside its DC-5 sidecar and referenced from the release notes"
+      },
+      "build_time_reproducibility": {
+        "authority": "AIEF-AMD-010 AMD-33, disposing Stage 6 pre-flight OPEN-QUESTION 10; distinct from check V-10",
+        "rule": "Stage 6 executes the build at least twice on the build platform within one release run and halts unless every execution yields a byte-identical distributable archive, an identical DC-4 aggregate_digest and an identical DC-5 release digest - this is the non-reproducible-digest halt of AIEF-FRZ-001 Part 4 Stage 6, made executable",
+        "distinct_from_v10": "V-10 is the campaign check: at least two executions on at least two platforms, gating Framework Release 1.0.0. The build-time check is single-platform and gates every Stage 6 run"
       }
     }
   },
@@ -487,8 +573,8 @@
     { "id": "V-06", "class": "Schema validation", "verifies": "All eight schemas valid JSON Schema 2020-12; every target artifact has a schema", "severity": "BLOCKING", "phase": "compile-time", "law_ref": "LAW-10", "target": "schemas" },
     { "id": "V-07", "class": "Template validation", "verifies": "Every template resolves producer and consumer roles and declares acceptance conditions", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "templates" },
     { "id": "V-08", "class": "Profile validation", "verifies": "Every profile declares a complete agent set and lifecycle stage set; zero universal-scope discipline leakage", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "profiles" },
-    { "id": "V-09", "class": "Token budget validation", "verifies": "Per-file caps respected; T0 plus T1 at most 6000 tokens under both tokenizer families", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "files" },
-    { "id": "V-10", "class": "Compiler validation", "verifies": "Build reproducible: identical input yields identical aggregate digest across at least two executions and two platforms", "severity": "BLOCKING", "phase": "compile-time", "law_ref": "LAW-05", "target": "distributable" },
+    { "id": "V-09", "class": "Token budget validation", "verifies": "Per-file caps respected; T0 plus T1 at most 6000 tokens under both tokenizer families. The two families are TF-1 and TF-2 as declared in metadata.reproducible.tokenizer_families, per AIEF-AMD-010 AMD-26; the maximum governs; each measurement verifies the tokenizer artifact pins recorded in the budget_measurement member of core/MANIFEST.lock", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "files" },
+    { "id": "V-10", "class": "Compiler validation", "verifies": "Build reproducible: identical input yields identical aggregate digest across at least two executions and two platforms. The two platforms, per AIEF-AMD-010 AMD-33: Windows and at least one of Linux or macOS, so both native line-ending conventions are exercised against DC-1 normalisation. The aggregate digest is DC-4 and the release digest DC-5, per metadata.reproducible.digest_constructions; byte-identity of the distributable is part of the criterion", "severity": "BLOCKING", "phase": "compile-time", "law_ref": "LAW-05", "target": "distributable" },
     { "id": "V-11", "class": "Boot validation", "verifies": "B1 to B9 execute in order; B2a, B4 and B4a halt correctly on induced fault; orientation at B8 supportable from T1 alone", "severity": "BLOCKING", "phase": "runtime", "law_ref": "LAW-09", "target": "boot_sequence" },
     { "id": "V-12", "class": "Core integrity validation", "verifies": "Tamper on any core file detected; project-level regeneration of MANIFEST.lock impossible; zero false positives across three platforms", "severity": "BLOCKING", "phase": "runtime", "law_ref": "LAW-01", "target": "manifest-lock" },
     { "id": "V-13", "class": "Ledger validation", "verifies": "HEAD lookup constant time at depths 10, 1000 and 100000; chain continuous; sequence monotonic with zero gaps or reuse; segment sealing at 500", "severity": "BLOCKING", "phase": "runtime", "law_ref": "LAW-09", "target": "ledger-head" },
@@ -512,6 +598,6 @@
     { "stage": 3, "name": "Generate Project Layer", "inputs": ["partitions", "files", "schemas", "profiles"], "outputs": ["project/**"], "barrier": "Emitted once at installation; never re-emitted by upgrade", "failure": "Existing project partition present: refuse and report; never overwrite" },
     { "stage": 4, "name": "Generate Adapters", "inputs": ["layers", "version"], "outputs": ["adapters/**"], "barrier": "Adapters are additive on upgrade; never replace project data", "failure": "Host capability declaration missing required fields halts the build" },
     { "stage": 5, "name": "Generate Validation", "inputs": ["laws", "schemas", "validation"], "outputs": ["core/validation/**"], "barrier": "A law declared machine-checkable with no bound check halts the build", "failure": "Orphan check or orphan law halts the build" },
-    { "stage": 6, "name": "Generate Release", "inputs": ["all stage 1 to 5 output", "metadata.reproducible", "version"], "outputs": ["core/MANIFEST.lock", "budget measurement record", "distributable archive", "release digest", "project/BINDING.md core_digest_pin (integrity pin write, per AIEF-FRZ-001 Part 4 Stage 6; a field write into an already-emitted instance artifact, not a re-emission of the project partition)"], "barrier": "MANIFEST.lock is emitted only here", "failure": "Budget overrun on any tokenizer or non-reproducible digest halts the build" }
+    { "stage": 6, "name": "Generate Release", "inputs": ["all stage 1 to 5 output", "metadata.reproducible", "version"], "outputs": ["core/MANIFEST.lock (serialised per metadata.reproducible.digest_constructions.core_aggregate lock_serialisation; aggregate_digest is DC-4)", "budget measurement record (the budget_measurement member of core/MANIFEST.lock, per AIEF-AMD-010 AMD-29; not a separate file)", "distributable archive (aief-<semver>-<profile>.tar per metadata.reproducible.distributable, AIEF-AMD-010 AMD-30; published with the release, not tracked in the instance repository)", "release digest (DC-5 over the distributable archive octets, recorded in the sha256 sidecar and the release-notes Integrity statement, per AIEF-AMD-010 AMD-28)", "project/BINDING.md core_digest_pin (integrity pin write, per AIEF-FRZ-001 Part 4 Stage 6; a field write into an already-emitted instance artifact, not a re-emission of the project partition; the pin value is the DC-4 aggregate_digest)"], "barrier": "MANIFEST.lock is emitted only here. Entry preconditions per AIEF-AMD-010: AMD-31 - every validation check declared phase compile-time except V-10 passes against the manifest and the complete Stage 1 to 5 output immediately before emission; V-10 is evaluated on the Stage 6 build itself, never before it. AMD-25 - Stage 6 may execute as a deterministic Stage-6-only compiler increment taking the verified Stage 1 to 5 tree as input; the increment must itself satisfy the reproducibility requirement of AIEF-FRZ-001 Part 4, and the full six-stage aief-compile remains required for V-10 two-platform evidence, V-18 and Framework Release 1.0.0. AMD-33 - the build executes at least twice and halts on any divergence, per metadata.reproducible.build_time_reproducibility", "failure": "Budget overrun on any tokenizer or non-reproducible digest halts the build" }
   ]
 }
