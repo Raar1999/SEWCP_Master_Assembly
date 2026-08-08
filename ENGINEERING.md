@@ -19,7 +19,7 @@ Read this first, then the canonical artifacts it references.
 | **Governing framework** | AIEF 1.0.0 — **FROZEN**, nine amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
-| **Repository release** | **v0.7.0** — annotated tag on `6ce3508`, verified by `git describe --tags --exact-match HEAD` |
+| **Repository release** | **v0.9.0** — annotated tag on the state-synchronization commit after `655aa75`, verified by `git describe --tags --exact-match HEAD` |
 
 ## 2 · Startup Sequence
 
@@ -136,9 +136,9 @@ Recovering an in-progress project without conversation history:
 | Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
 | Frozen set | **25** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under DC-2 |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
-| Repository | **v0.7.0** on `6ce3508`, `HEAD == origin/main`, no unpushed commits. **Working tree is DIRTY** — the Stage 2 session, the AIEF-AMD-008 session and the AIEF-AMD-009 session are all uncommitted |
+| Repository | **v0.9.0**, `HEAD == origin/main`. All session work through AIEF-AMD-009 and VER-002 is committed: `d07e931` (Release 0.8 — Stage 2 templates + AMD-008 state, manifest at APR-002's subject `636cf22b…`) and `655aa75` (AMD-009 state, manifest at APR-004's subject `9611d547…`, AMD-009 at APR-005's subject `86c8be7f…`) |
 
-> **Working tree.** Every artifact of the last three sessions — Stage 2's eleven templates, four ECRs, five approvals, one review, verification reports and AIEF-AMD-008/-009 — exists **only in the working tree** and not in git history. Committing them is a `repository-engineer` action.
+> **Approval provenance.** Each approval's subject is recoverable as a git object: `git show d07e931:framework/framework.manifest.json` normalises to APR-002's `subject_hash`; `git show 655aa75:framework/framework.manifest.json` to APR-004's; `git show 655aa75:framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` to APR-005's. This discharges VER-002 findings FIND-Q2-2 and FIND-Q2-3.
 
 **Open items — authoritative list: [`.ai/project/OPEN_ITEMS.md`](.ai/project/OPEN_ITEMS.md)**
 
