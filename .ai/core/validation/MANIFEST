@@ -1,0 +1,30 @@
+AIEF 1.0.0 validation manifest
+emitted-by aief-compile stage 5
+source framework.manifest.json manifest.validation
+fields id|phase|severity|law_ref|target
+count 25
+V-01|compile-time|BLOCKING|null|framework.manifest.json
+V-02|compile-time|BLOCKING|null|dependencies
+V-03|compile-time|BLOCKING|LAW-06|all sections
+V-04|compile-time|BLOCKING|null|laws
+V-05|compile-time|BLOCKING|LAW-04|agents
+V-06|compile-time|BLOCKING|LAW-10|schemas
+V-07|compile-time|BLOCKING|null|templates
+V-08|compile-time|BLOCKING|null|profiles
+V-09|compile-time|BLOCKING|null|files
+V-10|compile-time|BLOCKING|LAW-05|distributable
+V-11|runtime|BLOCKING|LAW-09|boot_sequence
+V-12|runtime|BLOCKING|LAW-01|manifest-lock
+V-13|runtime|BLOCKING|LAW-09|ledger-head
+V-14|runtime|BLOCKING|LAW-09|ledger-head
+V-15|runtime|BLOCKING|LAW-09|state
+V-16|runtime|BLOCKING|LAW-13|LAW-13
+V-17|runtime|BLOCKING|LAW-09|runtime_sequence
+V-18|installation|BLOCKING|null|profiles
+V-19|installation|BLOCKING|LAW-03|profiles
+V-20|installation|BLOCKING|LAW-08|files
+V-21|installation|BLOCKING|LAW-01|partitions
+V-22|installation|BLOCKING|LAW-07|repository
+V-23|compile-time|BLOCKING|null|files.depends_on
+V-24|compile-time|BLOCKING|LAW-01|project/FROZEN.md
+V-25|compile-time|BLOCKING|null|files

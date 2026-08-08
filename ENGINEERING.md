@@ -19,7 +19,7 @@ Read this first, then the canonical artifacts it references.
 | **Governing framework** | AIEF 1.0.0 — **FROZEN**, nine amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
-| **Repository release** | **v0.9.0** — annotated tag on the state-synchronization commit after `655aa75`, verified by `git describe --tags --exact-match HEAD` |
+| **Repository release** | **v0.10.0** — annotated tag on the Stage 5 release commit, verified by `git describe --tags --exact-match HEAD` |
 
 ## 2 · Startup Sequence
 
@@ -121,8 +121,8 @@ Recovering an in-progress project without conversation history:
 | 2 | Generate Templates | ✅ **COMPLETE** — 11 artifacts, barrier satisfied *(closes DEV-01)* |
 | 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts *(ahead of Stage 2; deviation DEV-01, now closed)* |
 | 4 | Generate Adapters | ✅ **COMPLETE** — 5 adapters + `CLAUDE.md` host hook |
-| 5 | Generate Validation | ⏳ **outstanding — NEXT** |
-| 6 | Generate Release | ⏳ outstanding — **gates boot step B2a** |
+| 5 | Generate Validation | ✅ **COMPLETE** — `core/validation/CHECKS.md` + `MANIFEST`, 25 checks, stage barrier PASS; verified by VER-003 |
+| 6 | Generate Release | ⏳ outstanding — **gates boot step B2a**; blocked by CMP-BLOCK-004 and **awaiting explicit human authorization** |
 
 ## 7 · Engineering Status
 
@@ -132,11 +132,11 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **BLOCKED** |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, **nine amendments**; Stages 1, 2, 3, 4 emitted |
+| Framework | AIEF 1.0.0 frozen, **nine amendments**; Stages 1–5 emitted |
 | Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
 | Frozen set | **25** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under DC-2 |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
-| Repository | **v0.9.0**, `HEAD == origin/main`. All session work through AIEF-AMD-009 and VER-002 is committed: `d07e931` (Release 0.8 — Stage 2 templates + AMD-008 state, manifest at APR-002's subject `636cf22b…`) and `655aa75` (AMD-009 state, manifest at APR-004's subject `9611d547…`, AMD-009 at APR-005's subject `86c8be7f…`) |
+| Repository | **v0.10.0**, `HEAD == origin/main`. Approval-provenance commits: `d07e931` (Release 0.8 — Stage 2 templates + AMD-008 state, manifest at APR-002's subject `636cf22b…`), `655aa75` (AMD-009 state, manifest at APR-004's subject `9611d547…`, AMD-009 at APR-005's subject `86c8be7f…`), `be75798` (Release 0.9 sync, tag v0.9.0). The Stage 5 release commit adds `core/validation/**`, VER-003 and the `.gitignore` negation |
 
 > **Approval provenance.** Each approval's subject is recoverable as a git object: `git show d07e931:framework/framework.manifest.json` normalises to APR-002's `subject_hash`; `git show 655aa75:framework/framework.manifest.json` to APR-004's; `git show 655aa75:framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` to APR-005's. This discharges VER-002 findings FIND-Q2-2 and FIND-Q2-3.
 
@@ -155,13 +155,13 @@ Recovering an in-progress project without conversation history:
 
 ## 8 · Next Engineering Activity
 
-> ### Framework Compiler Stage 5 — Generate Validation
+> ### Framework Compiler Stage 6 — Generate Release: **NOT AUTHORIZED**
 >
-> **Both gating dispositions are complete** (AIEF-AMD-009, approvals APR-004/APR-005): `ECR-Q-003` is closed — the Stage 1 barrier protects the Stage 1 output set, so Stage 5 lawfully emits `core/validation/**`, its own declared subtree — and `OI-C-03` is closed — the manifest now passes `MI-3` under the governing strict reading, so `V-01` no longer halts.
+> **Stage 5 is complete** (`S-2026-08-08-03`): `core/validation/CHECKS.md` and `core/validation/MANIFEST` emitted from `manifest.validation` — 25 checks, stage barrier PASS (13/13 checkable laws bound, zero orphans), independently verified by cold-context QA at [`VER-003`](.ai/project/verification/VER-003_Independent_Verification_Stage_5_Emission.md). All 25 checks remain **declared-only**: implementation requires the CMP-BLOCK-004/-005 infrastructure (OI-V-02).
 >
-> Emit `core/validation/CHECKS.md` and `core/validation/MANIFEST` from `manifest.validation`, **25 checks**. Stage barrier: *a law declared machine-checkable with no bound check halts the build.* Note **CMP-BLOCK-005** — the tokenizer, multi-platform and concurrency infrastructure that several checks depend on is absent.
+> **Stage 6 requires explicit human authorization** (standing instruction, `S-2026-08-08-03`) and is held by **CMP-BLOCK-004** — `MANIFEST.lock`, the budget measurement record and the release digest require `aief-compile` as deterministic software. Stage 6 satisfies boot step B2a and writes `BINDING.core_digest_pin`.
 >
-> Stage 5 is where three declared-but-unimplemented checks become real: **V-23** stage monotonicity, **V-24** freeze registry (**OI-V-02**), **V-25** encoding conformance. All three are declared in the manifest by AIEF-AMD-008 §AMD-19 and none is implemented.
+> Also pending: session-summary records (OI-P-01) and the Stage 6 pre-flight determination of the CMP-BLOCK-004/-005 minimum implementation, directed by the human owner in `S-2026-08-08-03`.
 
 **Then: Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a, and writes `BINDING.core_digest_pin`).
 

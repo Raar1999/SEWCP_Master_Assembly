@@ -101,7 +101,7 @@ Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 
 ### Standing verification
 
-**None yet.** Check `V-24` — *every registered path exists and its DC-1 digest matches; the DC-2 aggregate recomputes; every artifact meeting the AMD-21 criterion is registered* — is declared by `AIEF-AMD-008` §AMD-19 as a Compiler Stage 5 requirement and is **not implemented**. Until Stage 5 runs, this registry is verified only by hand. Recorded as **OI-V-02**.
+**None yet.** Check `V-24` — *every registered path exists and its DC-1 digest matches; the DC-2 aggregate recomputes; every artifact meeting the AMD-21 criterion is registered* — is declared by `AIEF-AMD-008` §AMD-19 and **emitted** by Compiler Stage 5 into `core/validation/` (`S-2026-08-08-03`), but is **not implemented as software**: execution requires the CMP-BLOCK-004/-005 infrastructure. This registry is still verified only by hand. Recorded as **OI-V-02**.
 
 ## Authority chain
 

@@ -32,6 +32,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+!.ai/core/validation/MANIFEST
 .venv/
 venv/
 ENV/

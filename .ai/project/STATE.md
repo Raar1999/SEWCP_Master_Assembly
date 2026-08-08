@@ -11,9 +11,9 @@
 lifecycle_stage:  LC-M04   # Implementation (mechanical profile)
 active_gate:      LC-M04-EXIT
 compiler_stage:
-  next:           5              # Generate Validation
-  complete:       [1, 2, 3, 4]   # Core, Templates, Project Layer, Adapters
-  outstanding:    [5, 6]         # Validation, Release
+  next:           6              # Generate Release - NOT authorized; human authorization required
+  complete:       [1, 2, 3, 4, 5]   # Core, Templates, Project Layer, Adapters, Validation
+  outstanding:    [6]            # Release
 last_ledger_seq:  0
 frozen_set_hash:  4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22
 active_tasks:     []
@@ -30,14 +30,16 @@ open_non_blocking:
   - OI-C-01..02      # ledger schema additionalProperties; ADP-ci stale at 22 checks
   - OI-C-04..05      # implementation/ BOMs; referenced_by completeness undeclared
   - OI-P-01..02      # session records absent; roster UNASSIGNED
-next_action:      Framework Compiler Stage 5 - Generate Validation.
-                  Gating dispositions COMPLETE - ECR-Q-003 and OI-C-03 closed by
-                  AIEF-AMD-009 (AMD-23, AMD-24), approvals APR-004/APR-005.
-                  Emit core/validation/CHECKS.md and core/validation/MANIFEST
-                  per manifest.validation, 25 checks. Note CMP-BLOCK-005: the
-                  tokenizer, multi-platform and concurrency infrastructure that
-                  V-09/V-12/V-15/V-18 depend on is absent; V-23/V-24/V-25 are
-                  declared and unimplemented until Stage 5 runs.
+next_action:      Framework Compiler Stage 6 - Generate Release. NOT authorized -
+                  explicit human authorization required, and CMP-BLOCK-004 holds it
+                  (aief-compile not implemented as software; MANIFEST.lock, budget
+                  measurement and release digest require it). Stage 5 complete:
+                  core/validation/CHECKS.md and MANIFEST emitted (25 checks,
+                  S-2026-08-08-03), verified by VER-003, committed at Release 0.10.
+                  All 25 checks remain declared-only (OI-V-02, CMP-BLOCK-004/-005).
+                  Directed next: Stage 6 pre-flight - determine the minimum
+                  implementation required to clear CMP-BLOCK-004/-005; no Stage 6
+                  execution, no MANIFEST.lock, no ledger entry.
 ```
 
 ## Required sections
