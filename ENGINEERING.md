@@ -16,10 +16,10 @@ Read this first, then the canonical artifacts it references.
 | **Project** | SEWCP — Semiconductor Electrostatic Wafer Chuck Platform |
 | **Product** | 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment |
 | **Engineering baseline** | SEWCP Rev A — **FROZEN** |
-| **Governing framework** | AIEF 1.0.0 — **FROZEN**, seven amendments |
+| **Governing framework** | AIEF 1.0.0 — **FROZEN**, eight amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
-| **Repository release** | **v0.6.0** |
+| **Repository release** | **v0.7.0** — annotated tag on `6ce3508`, verified by `git describe --tags --exact-match HEAD` |
 
 ## 2 · Startup Sequence
 
@@ -95,6 +95,7 @@ Recovering an in-progress project without conversation history:
 | AMD-005 — host bootstrap artifacts | [`framework/AIEF-AMD-005_Host_Bootstrap_Artifacts.md`](framework/AIEF-AMD-005_Host_Bootstrap_Artifacts.md) |
 | AMD-006 — Mechanical CAD Engineer | [`framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md`](framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md) |
 | AMD-007 — compiler_stage state field | [`framework/AIEF-AMD-007_Compiler_Stage_State_Field.md`](framework/AIEF-AMD-007_Compiler_Stage_State_Field.md) |
+| AMD-008 — digest constructions, stage monotonicity, provenance, registry scope | [`framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) |
 | Framework manifest — single source of truth | [`framework/framework.manifest.json`](framework/framework.manifest.json) |
 | Manifest schema | [`framework/SCH-framework-manifest.schema.json`](framework/SCH-framework-manifest.schema.json) |
 
@@ -116,10 +117,10 @@ Recovering an in-progress project without conversation history:
 | Stage | Name | Status |
 |---|---|---|
 | 1 | Generate Core | ✅ **COMPLETE** — 59 artifacts, signed off |
-| 2 | Generate Templates | ⏳ **outstanding — NEXT** |
-| 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts *(ahead of Stage 2; deviation DEV-01)* |
+| 2 | Generate Templates | ✅ **COMPLETE** — 11 artifacts, barrier satisfied *(closes DEV-01)* |
+| 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts *(ahead of Stage 2; deviation DEV-01, now closed)* |
 | 4 | Generate Adapters | ✅ **COMPLETE** — 5 adapters + `CLAUDE.md` host hook |
-| 5 | Generate Validation | ⏳ outstanding |
+| 5 | Generate Validation | ⏳ **outstanding — NEXT** |
 | 6 | Generate Release | ⏳ outstanding — **gates boot step B2a** |
 
 ## 7 · Engineering Status
@@ -130,11 +131,13 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **BLOCKED** |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, **seven amendments**; Stages 1, 3, 4 emitted |
+| Framework | AIEF 1.0.0 frozen, **eight amendments**; Stages 1, 2, 3, 4 emitted |
 | Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
-| Frozen set | 16 artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md) |
-| Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE` |
-| Repository | **v0.6.0** released, pushed, working tree clean |
+| Frozen set | **24** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under a declared construction |
+| Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
+| Repository | **v0.7.0** on `6ce3508`, `HEAD == origin/main`, no unpushed commits. **Working tree is DIRTY** — the AIEF-AMD-008 session and the Stage 2 session are both uncommitted |
+
+> **Working tree.** Six modified files and six untracked paths, none gitignored. Every artifact of the last two sessions — Stage 2's eleven templates, three ECRs, three approvals, one review, one verification report and AIEF-AMD-008 — exists **only in the working tree** and not in git history. Committing them is a `repository-engineer` action.
 
 **Open items — authoritative list: [`.ai/project/OPEN_ITEMS.md`](.ai/project/OPEN_ITEMS.md)**
 
@@ -145,17 +148,23 @@ Recovering an in-progress project without conversation history:
 | C-4 | `LICENSE` is an unresolved placeholder | Public or external release |
 | CDR-C3 | Independent cold-context ratification of the AIEF CDR not performed | Recorded residual risk, AIEF-FRZ-001 §6.2 |
 
-**Recently closed** — `OI-F-01` (`session_timeout` = 14400 s) and `OI-F-02` (ledger genesis semantics), both by [`framework/AIEF-AMD-003_Architecture_Amendments_OI-F-01_OI-F-02.md`](framework/AIEF-AMD-003_Architecture_Amendments_OI-F-01_OI-F-02.md). Also `CMP-BLOCK-014` by AIEF-AMD-002.
+**Open, not blocking** — `ECR-Q-003` (Stage 1's core-emission barrier is contradicted by Stages 2, 5 and 6; holds a question Stage 5 must answer), `OI-V-02` (`V-24` declared but not implemented), `OI-V-03` (all session `S-2026-08-08-02` work is unverified), `OI-R-01` (no `v0.2.0` tag), `OI-C-01…03` (ledger schema; `ADP-ci` stale at 22 checks; `MI-3` namespace, which strictly fails `V-01`), `OI-P-01…02` (session records absent; roster roles UNASSIGNED), `SOD-1` (A4 both ruled and applied, at rank-1 direction).
+
+**Recently closed** — `ECR-Q-001` and `ECR-Q-002`, jointly, by [`framework/AIEF-AMD-008`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §§AMD-16/17: the freeze-set aggregate and ledger entry-hash constructions are now declared normatively in the manifest, with published worked examples. `OI-V-01` by the independent verification report filed at [`.ai/project/verification/VER-001`](.ai/project/verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) — 10 criteria, 10 PASS, 9 findings, dispositioned at [`.ai/project/reviews/DR-001`](.ai/project/reviews/DR-001_QA-001_Finding_Dispositions.md). `ECR-D-005` fully closed, its held actions released. Earlier: `OI-F-01`, `OI-F-02` by AIEF-AMD-003, `CMP-BLOCK-014` by AIEF-AMD-002.
 
 ## 8 · Next Engineering Activity
 
-> ### Framework Compiler Stage 2 — Generate Templates
+> ### Framework Compiler Stage 5 — Generate Validation
 >
-> Emit the 11 manifest-declared output contracts to `.ai/core/templates/`. This also closes deviation **DEV-01**, which records that Stage 3 was executed ahead of Stage 2, leaving `state.depends_on → tpl-current-state` unsatisfied.
+> **Two dispositions come first, and both gate a clean Stage 5:** `ECR-Q-003` (Stage 1's barrier *"No later stage may emit into core"* is contradicted by the declared outputs of Stages 2, 5 and 6 — Stage 5 emits into `core/`) and `OI-C-03` (under the strict reading of `MI-3`, the manifest fails `V-01`, which halts the build). Neither may be ruled on by the authority that raised or recorded it.
+>
+> Then emit `core/validation/CHECKS.md` and `core/validation/MANIFEST` from `manifest.validation`, now **25 checks**. Stage barrier: *a law declared machine-checkable with no bound check halts the build.* Note **CMP-BLOCK-005** — the tokenizer, multi-platform and concurrency infrastructure that several checks depend on is absent.
+>
+> Stage 5 is where three declared-but-unimplemented checks become real: **V-23** stage monotonicity, **V-24** freeze registry (**OI-V-02**), **V-25** encoding conformance. All three are declared in the manifest by AIEF-AMD-008 §AMD-19 and none is implemented.
 
-**Then, in order:** Stage 5 Validation → **Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a).
+**Then: Stage 6 Release** (emits `core/MANIFEST.lock`, satisfying boot step B2a, and writes `BINDING.core_digest_pin`).
 
-**Stage 2 will not unblock the `LC-M04-EXIT` gate.** That gate is held by ECR-D-001…004 — four defects in the frozen SEWCP specification — which are Design Authority decisions, not compiler work.
+**Neither ECR-D-005 nor Stage 2 will unblock the `LC-M04-EXIT` gate.** That gate is held by ECR-D-001…004 — four defects in the frozen SEWCP specification — which are Design Authority decisions, not compiler work.
 
 ---
 

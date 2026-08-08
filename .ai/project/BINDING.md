@@ -1,7 +1,7 @@
 # Project Binding
 
 > **Instance artifact.** Emitted by aief-compile Stage 3 from `framework.manifest.json` and live repository state.
-> Partition `project` â€” never touched by framework upgrade. Owner `project-manager`. Mutability mutable.
+> Partition `project` — never touched by framework upgrade. Owner `project-manager`. Mutability mutable.
 
 ---
 
@@ -32,4 +32,4 @@ enabled_agents:
 
 - `core_digest_pin` is set by Compiler Stage 6. Boot step **B2a cannot execute until then**.
 - `host_adapter` is `claude-code`; binding specified in `adapters/ADP-claude-code.md`, host hook installed at `CLAUDE.md`.
-- `session_timeout` is 4 hours per AIEF-AMD-003 Â§AMD-09. Reclamation of a stale lock is **ledger-recorded**; a human may force-release at any time without waiting. Projects may override this value.
+- `session_timeout` is 4 hours per AIEF-AMD-003 §AMD-09. Reclamation of a stale lock is **ledger-recorded**; a human may force-release at any time without waiting. Projects may override this value.

@@ -18,6 +18,84 @@
         "line_ending": "LF",
         "trailing_whitespace": "stripped",
         "terminal_newline": "enforced"
+      },
+      "digest_constructions": {
+        "note": "Normative. Declared by AIEF-AMD-008 AMD-16 and AMD-17. Every digest the framework requires, verifies or depends upon is constructed here. DC-1 is restated unchanged; DC-2 and DC-3 are new. A digest that is required and verified but never constructed is the defect class these three close.",
+        "per_artifact": {
+          "id": "DC-1",
+          "algorithm": "SHA-256",
+          "authority": "AIEF-FRZ-001 section 1.7 OD-2; project/FROZEN.md",
+          "domain": "normalised file content",
+          "normalisation": "decode UTF-8 stripping any byte-order mark; convert CRLF and lone CR to LF; strip trailing whitespace from every line; remove trailing blank lines; append exactly one terminal LF; encode UTF-8",
+          "output": "64 lowercase hexadecimal characters",
+          "status": "unchanged by AIEF-AMD-008; restated here so all three constructions have one home"
+        },
+        "frozen_set_aggregate": {
+          "id": "DC-2",
+          "algorithm": "SHA-256",
+          "authority": "AIEF-AMD-008 AMD-16, disposing ECR-Q-001",
+          "target_fields": ["project/FROZEN.md section Aggregate", "project/STATE.md frozen_set_hash"],
+          "covers": "every entry of the project/FROZEN.md registered-artifact table, as the pair (registered path, DC-1 digest); nothing else - not file contents, not FROZEN.md itself, not registry prose, not the registration history",
+          "record": "<path> <SP> <digest> <LF>, where <path> is the repository-relative POSIX path exactly as registered, <SP> is one U+0020, <digest> is 64 lowercase hexadecimal characters and <LF> is one U+000A",
+          "record_order": "ascending by the UTF-8 octet sequence of <path>, compared as unsigned octets, shorter prefix first; the order of rows in the registry table is not used and carries no meaning",
+          "preimage": "the records concatenated in that order; no header, no trailer, no separator beyond each record terminal LF, no byte-order mark",
+          "encoding": "UTF-8",
+          "self_exclusion": "the aggregate is not part of its own preimage",
+          "output": "64 lowercase hexadecimal characters, recorded in full in both target fields; truncation is prohibited",
+          "empty_registry": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "duplicate_path": "a path registered twice is a registry defect; DC-2 is undefined for it and check V-24 fails",
+          "worked_example": {
+            "input": [
+              ["a/alpha.md", "0000000000000000000000000000000000000000000000000000000000000000"],
+              ["b/beta.md", "1111111111111111111111111111111111111111111111111111111111111111"]
+            ],
+            "digest": "8de12581a7d3aef29454fcdfd696a71e4d5c1a0352f69c7a6b03b167d0f5f1b3"
+          },
+          "live_value_location": "the live aggregate is recorded in project/FROZEN.md and project/STATE.md, never inside a registered artifact, because a registered artifact printing the aggregate would change it",
+          "superseded_value": {
+            "value": "42bce7b0de019f854f99387edfc901b054b540f829bfe365e003be96892d5847",
+            "status": "SUPERSEDED. Not reproducible by any of thirteen tested constructions. DC-2 is defined going forward and does not recover it. Retained for audit only and never used as a comparison basis."
+          }
+        },
+        "ledger_entry_hash": {
+          "id": "DC-3",
+          "algorithm": "SHA-256",
+          "authority": "AIEF-AMD-008 AMD-17, disposing ECR-Q-002",
+          "target_fields": ["project/ledger/SEG-nnnn/L-nnnnnnn entry_hash", "project/ledger/HEAD entry_hash"],
+          "covered_fields": ["seq", "timestamp", "session_id", "actor", "action", "artifacts", "prev_hash"],
+          "covered_fields_derivation": "schemas[sch-ledger-entry].required_fields with entry_hash omitted, in the declared order; not alphabetical, not file order",
+          "self_exclusion": "entry_hash is excluded from its own preimage",
+          "undeclared_fields": "excluded from the preimage; a digest that varied with content not declared in the manifest would not be reproducible from the manifest alone. Consequence: any field beyond the declared seven is not protected by the chain",
+          "record": "<field-name> <SP> <value> <LF>, where <SP> is one U+0020 and <LF> is one U+000A",
+          "value_forms": {
+            "seq": "decimal integer; no sign, no leading zeros, no digit separators; the filename L-0000007 is zero-padded, the value is 7",
+            "timestamp": "YYYY-MM-DDTHH:MM:SSZ; UTC only, second precision, literal T and Z; no fractional seconds, no numeric offset form",
+            "session_id": "as recorded, of the form S-YYYY-MM-DD-nn",
+            "actor": "the role token only, per AIEF-AMD-008 AMD-20: a roleId registered in core/agents/INDEX.md, or the reserved token boot or role-unrecorded; the session is carried by session_id and is never duplicated here",
+            "action": "the recorded string, single line",
+            "artifacts": "repository-relative POSIX paths sorted ascending by UTF-8 octets, joined by one U+002C with no surrounding space; the empty list serialises to the empty string, giving an eleven-octet record - the nine characters of the field name, U+0020, U+000A - whose space is significant and must not be stripped",
+            "prev_hash": "64 lowercase hexadecimal characters, or the literal four-character token null"
+          },
+          "value_constraints": "a value contains no LF, no CR and no leading or trailing U+0020; a violation is a BLOCKING schema error and is rejected, never silently normalised, because silent normalisation would make two different entries hash alike",
+          "preimage": "the seven records concatenated in the declared field order; no header, no trailer, no byte-order mark",
+          "encoding": "UTF-8",
+          "digest_domain": "the canonical preimage above, never the entry file on-disk octets; file layout, key order, comments and whitespace do not affect the digest",
+          "chain_rule": "prev_hash is a covered field and is therefore an input to the successor digest; altering entry n changes entry_hash(n), which is prev_hash(n+1), and every digest after it. This is what makes the ledger tamper-evident rather than merely sequential",
+          "genesis": {
+            "head_at_genesis": "seq 0, entry_hash null, prev_hash null - AIEF-AMD-003 AMD-10, unchanged",
+            "first_entry": "L-0000001 carries seq 1 and prev_hash as the literal token null",
+            "head_after_first_close": "state active, seq 1, entry_hash equal to DC-3 of L-0000001, prev_hash null"
+          },
+          "head_binding": "HEAD.entry_hash is always the DC-3 digest of the entry at HEAD.seq; HEAD.prev_hash is always that entry prev_hash; boot step B4 check 1 recomputes DC-3 over the named entry and compares",
+          "output": "64 lowercase hexadecimal characters",
+          "worked_example": {
+            "entry_1": { "seq": 1, "timestamp": "2026-01-01T00:00:00Z", "session_id": "S-2026-01-01-01", "actor": "chief-systems-engineer", "action": "example", "artifacts": ["a/alpha.md", "b/beta.md"], "prev_hash": null },
+            "entry_1_digest": "cb8e79720632c4f3bb0050a181ae0bffe2189f629b7fb7bfb1e3d8457d8259e0",
+            "entry_2": { "seq": 2, "timestamp": "2026-01-01T00:00:00Z", "session_id": "S-2026-01-01-01", "actor": "chief-systems-engineer", "action": "example-successor", "artifacts": [], "prev_hash": "cb8e79720632c4f3bb0050a181ae0bffe2189f629b7fb7bfb1e3d8457d8259e0" },
+            "entry_2_digest": "66e51617abb575133fa7bea5ace6b220f9d8feb4e3911a3d81cd158718f8195b"
+          },
+          "not_applied": "AIEF-AMD-008 defines DC-3 and does not write L-0000001; HEAD remains at genesis. The genesis to active transition is irreversible and belongs to a session performing a full LAW-09 close"
+        }
       }
     }
   },
@@ -136,7 +214,7 @@
 
     { "id": "workflows-index", "path": "core/workflows/INDEX.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "project-manager", "depends_on": [], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
     { "id": "wf-01", "path": "core/workflows/WF-01_session.md", "layer": "L1", "partition": "core", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["LAW-09", "boot"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
-    { "id": "wf-02", "path": "core/workflows/WF-02_task.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "project-manager", "depends_on": ["LAW-11", "tpl-task-package"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
+    { "id": "wf-02", "path": "core/workflows/WF-02_task.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "project-manager", "depends_on": ["LAW-11"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
     { "id": "wf-03", "path": "core/workflows/WF-03_review.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["LAW-04", "LAW-05"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
     { "id": "wf-04", "path": "core/workflows/WF-04_implement.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "project-manager", "depends_on": ["LAW-05", "LAW-12", "LAW-13"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
     { "id": "wf-05", "path": "core/workflows/WF-05_release.md", "layer": "L1", "partition": "core", "tier": "T3", "token_cap": null, "owner_role": "repository-engineer", "depends_on": ["LAW-03", "LAW-07"], "referenced_by": ["workflows-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "runtime_sequence" },
@@ -167,7 +245,7 @@
     { "id": "checks", "path": "core/validation/CHECKS.md", "layer": "L6", "partition": "core", "tier": "none", "token_cap": null, "owner_role": "qa-engineer", "depends_on": ["laws-index"], "referenced_by": [], "generator": 5, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "validation" },
     { "id": "validation-manifest", "path": "core/validation/MANIFEST", "layer": "L6", "partition": "core", "tier": "none", "token_cap": null, "owner_role": "qa-engineer", "depends_on": ["checks", "schemas-index"], "referenced_by": ["adp-ci"], "generator": 5, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": "universal", "content_ref": "validation" },
 
-    { "id": "binding", "path": "project/BINDING.md", "layer": "L4", "partition": "project", "tier": "T1", "token_cap": 800, "owner_role": "project-manager", "depends_on": ["sch-binding", "version-file", "manifest-lock"], "referenced_by": ["boot"], "generator": 3, "lifecycle": "instance-created", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
+    { "id": "binding", "path": "project/BINDING.md", "layer": "L4", "partition": "project", "tier": "T1", "token_cap": 800, "owner_role": "project-manager", "depends_on": ["sch-binding", "version-file"], "referenced_by": ["boot", "prof-mech", "prof-soft", "prof-res"], "generator": 3, "lifecycle": "instance-created", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
     { "id": "state", "path": "project/STATE.md", "layer": "L4", "partition": "project", "tier": "T1", "token_cap": 1100, "owner_role": "chief-systems-engineer", "depends_on": ["sch-state", "tpl-current-state", "ledger-head"], "referenced_by": ["boot"], "generator": 3, "lifecycle": "instance-created", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
     { "id": "frozen", "path": "project/FROZEN.md", "layer": "L4", "partition": "project", "tier": "none", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["LAW-01"], "referenced_by": [], "generator": 3, "lifecycle": "instance-created", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
     { "id": "roster", "path": "project/ROSTER.md", "layer": "L4", "partition": "project", "tier": "none", "token_cap": null, "owner_role": "project-manager", "depends_on": ["agents-index"], "referenced_by": [], "generator": 3, "lifecycle": "instance-created", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
@@ -180,9 +258,9 @@
     { "id": "adp-claude-code", "path": "adapters/ADP-claude-code.md", "layer": "L5", "partition": "adapters", "tier": "none", "token_cap": null, "owner_role": "repository-engineer", "depends_on": ["adapters-index", "boot"], "referenced_by": [], "generator": 4, "lifecycle": "framework-versioned", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
     { "id": "adp-chatgpt", "path": "adapters/ADP-chatgpt.md", "layer": "L5", "partition": "adapters", "tier": "none", "token_cap": null, "owner_role": "repository-engineer", "depends_on": ["adapters-index", "boot"], "referenced_by": [], "generator": 4, "lifecycle": "framework-versioned", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
     { "id": "adp-generic-llm", "path": "adapters/ADP-generic-llm.md", "layer": "L5", "partition": "adapters", "tier": "none", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["adapters-index", "boot"], "referenced_by": [], "generator": 4, "lifecycle": "framework-versioned", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
-    { "id": "adp-ci", "path": "adapters/ADP-ci.md", "layer": "L5", "partition": "adapters", "tier": "none", "token_cap": null, "owner_role": "repository-engineer", "depends_on": ["adapters-index", "validation-manifest"], "referenced_by": [], "generator": 4, "lifecycle": "framework-versioned", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
+    { "id": "adp-ci", "path": "adapters/ADP-ci.md", "layer": "L5", "partition": "adapters", "tier": "none", "token_cap": null, "owner_role": "repository-engineer", "depends_on": ["adapters-index"], "referenced_by": [], "generator": 4, "lifecycle": "framework-versioned", "mutability": "mutable", "integrity": "unhashed", "profile_scope": "universal", "content_ref": null },
 
-    { "id": "prof-mech", "path": "core/profiles/mechanical/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["binding"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "profiles" },
+    { "id": "prof-mech", "path": "core/profiles/mechanical/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": [], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "profiles" },
     { "id": "mech-agt-design", "path": "core/profiles/mechanical/agents/AGT-design-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-mech"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "agents" },
     { "id": "mech-agt-cad", "path": "core/profiles/mechanical/agents/AGT-cad-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-mech"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "agents" },
     { "id": "mech-agt-manufacturing", "path": "core/profiles/mechanical/agents/AGT-manufacturing-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-mech"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "agents" },
@@ -199,7 +277,7 @@
     { "id": "mech-lc-09", "path": "core/profiles/mechanical/lifecycle/LC-M09_revision.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "project-manager", "depends_on": ["mech-lc-index"], "referenced_by": ["mech-lc-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "profiles" },
     { "id": "mech-lc-10", "path": "core/profiles/mechanical/lifecycle/LC-M10_archive.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "project-manager", "depends_on": ["mech-lc-index"], "referenced_by": ["mech-lc-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["mechanical"], "content_ref": "profiles" },
 
-    { "id": "prof-soft", "path": "core/profiles/software/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["binding"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "profiles" },
+    { "id": "prof-soft", "path": "core/profiles/software/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": [], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "profiles" },
     { "id": "soft-agt-software", "path": "core/profiles/software/agents/AGT-software-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-soft"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "agents" },
     { "id": "soft-agt-test", "path": "core/profiles/software/agents/AGT-test-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-soft"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "agents" },
     { "id": "soft-agt-platform", "path": "core/profiles/software/agents/AGT-platform-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-soft"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "agents" },
@@ -211,7 +289,7 @@
     { "id": "soft-lc-05", "path": "core/profiles/software/lifecycle/LC-S05_release.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "project-manager", "depends_on": ["soft-lc-index"], "referenced_by": ["soft-lc-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "profiles" },
     { "id": "soft-lc-06", "path": "core/profiles/software/lifecycle/LC-S06_operate.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "project-manager", "depends_on": ["soft-lc-index"], "referenced_by": ["soft-lc-index"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["software"], "content_ref": "profiles" },
 
-    { "id": "prof-res", "path": "core/profiles/research/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["binding"], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["research"], "content_ref": "profiles" },
+    { "id": "prof-res", "path": "core/profiles/research/PROFILE.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": [], "referenced_by": [], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["research"], "content_ref": "profiles" },
     { "id": "res-agt-researcher", "path": "core/profiles/research/agents/AGT-researcher.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-res"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["research"], "content_ref": "agents" },
     { "id": "res-agt-data", "path": "core/profiles/research/agents/AGT-data-engineer.md", "layer": "L3", "partition": "profile", "tier": "T2", "token_cap": null, "owner_role": "chief-systems-engineer", "depends_on": ["agent-contract"], "referenced_by": ["prof-res"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["research"], "content_ref": "agents" },
     { "id": "res-lc-index", "path": "core/profiles/research/lifecycle/INDEX.md", "layer": "L3", "partition": "profile", "tier": "T1", "token_cap": null, "owner_role": "project-manager", "depends_on": ["LAW-03"], "referenced_by": ["prof-res"], "generator": 1, "lifecycle": "framework-versioned", "mutability": "immutable", "integrity": "hashed", "profile_scope": ["research"], "content_ref": "profiles" },
@@ -254,7 +332,8 @@
       { "from": "manifest-lock", "to": "sch-core-manifest", "type": "references" },
       { "from": "prof-mech", "to": "binding", "type": "references" },
       { "from": "prof-soft", "to": "binding", "type": "references" },
-      { "from": "prof-res", "to": "binding", "type": "references" }
+      { "from": "prof-res", "to": "binding", "type": "references" },
+      { "from": "wf-02", "to": "tpl-task-package", "type": "references" }
     ]
   },
 
@@ -421,7 +500,10 @@
     { "id": "V-19", "class": "Lifecycle validation", "verifies": "Each profile completes a full lifecycle; LAW-03 binary disposition preserved in terminal and recurring gates", "severity": "BLOCKING", "phase": "installation", "law_ref": "LAW-03", "target": "profiles" },
     { "id": "V-20", "class": "Path validation", "verifies": "Zero hardcoded alternate paths; all validation globs resolve; no project artifact matched by any ignore rule", "severity": "BLOCKING", "phase": "installation", "law_ref": "LAW-08", "target": "files" },
     { "id": "V-21", "class": "Upgrade validation", "verifies": "Core wholesale replacement leaves project byte-identical; adapters merge additively; MAJOR mismatch halts boot", "severity": "BLOCKING", "phase": "installation", "law_ref": "LAW-01", "target": "partitions" },
-    { "id": "V-22", "class": "Git policy validation", "verifies": "Every commit and tag satisfies author equals committer equals repository owner; no attribution trailer appears in line-anchored trailer form in any commit message or tag annotation; no AI authorship claim appears in any tracked artifact; published history is not rewritten; after release the working tree is clean and synchronised with the remote, and the release tag resolves to the release commit. Prohibition text that names a forbidden pattern is not itself a violation - the check matches trailer form, never bare substrings.", "severity": "BLOCKING", "phase": "installation", "law_ref": "LAW-07", "target": "repository" }
+    { "id": "V-22", "class": "Git policy validation", "verifies": "Every commit and tag satisfies author equals committer equals repository owner; no attribution trailer appears in line-anchored trailer form in any commit message or tag annotation; no AI authorship claim appears in any tracked artifact; published history is not rewritten; after release the working tree is clean and synchronised with the remote, and the release tag resolves to the release commit. Prohibition text that names a forbidden pattern is not itself a violation - the check matches trailer form, never bare substrings. Every actor-provenance field in a tracked project artifact - raised_by, ruled_by, approver, verifier, producer, reviewer, actor, role - resolves to a role registered in core/agents/INDEX.md or to the reserved token boot or role-unrecorded, optionally followed by a session identifier of the form S-YYYY-MM-DD-nn; a model, vendor, product or host-adapter name appearing in such a field is a violation. A host adapter named in a declared configuration field or in prose describing configuration is not a violation. The check examines declared fields, never free text.", "severity": "BLOCKING", "phase": "installation", "law_ref": "LAW-07", "target": "repository" },
+    { "id": "V-23", "class": "Stage monotonicity validation", "verifies": "For every files[] entry S and every id T in S.depends_on: T exists and generator(T) is less than or equal to generator(S). Where generator(T) equals generator(S), the intra-stage emission order is a topological order of the same-stage depends_on subgraph. Distinct from V-02: a backward edge is acyclic, so acyclicity cannot detect it.", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "files.depends_on" },
+    { "id": "V-24", "class": "Freeze registry validation", "verifies": "Every path registered in project/FROZEN.md exists in the working tree and its DC-1 digest equals the registered digest. The DC-2 aggregate recomputed over the registry equals the value recorded in FROZEN.md and the value in STATE.frozen_set_hash, both at full 64-character length. Every artifact meeting the AIEF-AMD-008 AMD-21 registration criterion is registered. No path is registered twice.", "severity": "BLOCKING", "phase": "compile-time", "law_ref": "LAW-01", "target": "project/FROZEN.md" },
+    { "id": "V-25", "class": "Encoding conformance validation", "verifies": "Every text artifact under .ai/ and every artifact registered in project/FROZEN.md decodes as UTF-8 without error, carries no byte-order mark, uses LF line endings exclusively, ends with exactly one terminal LF, and contains no mojibake sequence outside quoted evidence. Mojibake sequence, normatively: a maximal run of non-ASCII characters that, re-encoded as CP1252 and decoded as UTF-8, both succeed and yield a strictly shorter string. Quoted-evidence exclusion: such a sequence occurring inside a Markdown code span or fenced code block is quoted evidence and is not a violation - the same narrowing V-22 applies to prohibition text. The check matches prose, never quoted evidence, because a report that cites a corrupt byte sequence as evidence must not thereby become non-conforming.", "severity": "BLOCKING", "phase": "compile-time", "law_ref": null, "target": "files" }
   ],
 
   "generation_order": [
@@ -430,6 +512,6 @@
     { "stage": 3, "name": "Generate Project Layer", "inputs": ["partitions", "files", "schemas", "profiles"], "outputs": ["project/**"], "barrier": "Emitted once at installation; never re-emitted by upgrade", "failure": "Existing project partition present: refuse and report; never overwrite" },
     { "stage": 4, "name": "Generate Adapters", "inputs": ["layers", "version"], "outputs": ["adapters/**"], "barrier": "Adapters are additive on upgrade; never replace project data", "failure": "Host capability declaration missing required fields halts the build" },
     { "stage": 5, "name": "Generate Validation", "inputs": ["laws", "schemas", "validation"], "outputs": ["core/validation/**"], "barrier": "A law declared machine-checkable with no bound check halts the build", "failure": "Orphan check or orphan law halts the build" },
-    { "stage": 6, "name": "Generate Release", "inputs": ["all stage 1 to 5 output", "metadata.reproducible", "version"], "outputs": ["core/MANIFEST.lock", "budget measurement record", "distributable archive", "release digest"], "barrier": "MANIFEST.lock is emitted only here", "failure": "Budget overrun on any tokenizer or non-reproducible digest halts the build" }
+    { "stage": 6, "name": "Generate Release", "inputs": ["all stage 1 to 5 output", "metadata.reproducible", "version"], "outputs": ["core/MANIFEST.lock", "budget measurement record", "distributable archive", "release digest", "project/BINDING.md core_digest_pin (integrity pin write, per AIEF-FRZ-001 Part 4 Stage 6; a field write into an already-emitted instance artifact, not a re-emission of the project partition)"], "barrier": "MANIFEST.lock is emitted only here", "failure": "Budget overrun on any tokenizer or non-reproducible digest halts the build" }
   ]
 }
