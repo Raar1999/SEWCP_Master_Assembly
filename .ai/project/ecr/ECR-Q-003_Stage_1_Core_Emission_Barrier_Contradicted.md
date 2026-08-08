@@ -7,8 +7,12 @@
 ecr_id:       ECR-Q-003
 class:        Q                      # ambiguity - LAW-02
 raised_by:    chief-systems-engineer · S-2026-08-08-02
-status:       OPEN
-disposition:  PENDING                # A4 ruling required, by a session that did not raise it
+status:       CLOSED
+disposition:  A                      # barrier protects the Stage 1 output set
+ruled_by:     chief-systems-engineer · S-2026-08-08-03
+ruled_at:     2026-08-08T05:51:32Z
+instrument:   framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md §AMD-23
+approval:     project/approvals/APR-004_Amend_Framework_Manifest_AMD-009.md
 raised_at:    2026-08-08T02:36:52Z
 related:      FIND-1                 # surfaced while correcting stage-crossing dependencies
 ```
@@ -72,11 +76,18 @@ Whichever is chosen, the wording should be made precise enough that a compiler c
 
 ## 6 · Disposition
 
-**PENDING.**
+**CLOSED — Disposition A**, ruled by `chief-systems-engineer` · `S-2026-08-08-03`, a cold session that did not raise this ECR (`tpl-ecr` acceptance condition 3, LAW-02 clause 5, identity per AIEF-AMD-008 §AMD-20).
 
-Per `tpl-ecr` acceptance condition 3 and LAW-02 clause 5, the disposition shall be recorded by an agent that did not raise this ECR. **This authority raised it and therefore does not rule on it**, notwithstanding that it holds A4 and could otherwise. Under `AIEF-AMD-008` §AMD-20 a later `chief-systems-engineer` session is a distinct agent and may rule.
+> The barrier protects the Stage 1 output set from later modification; it was never a prohibition on later stages emitting into their own declared `core/` subtrees. Stage 1 owns `BOOT.md`, `FRAMEWORK.md`, `README.md`, `core/profiles/<selected>/**`, and `core/**` excluding `core/templates/**` (Stage 2), `core/validation/**` (Stage 5) and `core/MANIFEST.lock` (Stage 6). Evaluable as pairwise disjointness of `generation_order[].outputs`.
 
-Held: the answer Compiler Stage 5 needs before it emits. No other work is stopped.
+| | |
+|---|---|
+| Instrument | `framework/AIEF-AMD-009` §AMD-23 — full ruling, rejected alternatives B and C, and the FRZ-001 supersession treatment |
+| Approval | `project/approvals/APR-004`, bound to the manifest's post-amendment DC-1 digest |
+| Manifest change | `generation_order[stage 1].barrier` and `.outputs` made precise; `validation[V-01].verifies` extended so the barrier is check-bound |
+| `AIEF-FRZ-001` Part 4 Stage 1 | Barrier row superseded **in reading** per the AMD-001 §AMD-04 precedent; the document's bytes and registered digest are unchanged |
+| Retrospective effect | Stage 2's completion is conforming; no completed work is invalidated |
+| Stage 5 consequence | The question this ECR held for Stage 5 is answered: Stage 5 lawfully emits `core/validation/**`, its own declared subtree |
 
 ---
 

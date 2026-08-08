@@ -16,7 +16,7 @@ Read this first, then the canonical artifacts it references.
 | **Project** | SEWCP — Semiconductor Electrostatic Wafer Chuck Platform |
 | **Product** | 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment |
 | **Engineering baseline** | SEWCP Rev A — **FROZEN** |
-| **Governing framework** | AIEF 1.0.0 — **FROZEN**, eight amendments |
+| **Governing framework** | AIEF 1.0.0 — **FROZEN**, nine amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
 | **Repository release** | **v0.7.0** — annotated tag on `6ce3508`, verified by `git describe --tags --exact-match HEAD` |
@@ -96,6 +96,7 @@ Recovering an in-progress project without conversation history:
 | AMD-006 — Mechanical CAD Engineer | [`framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md`](framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md) |
 | AMD-007 — compiler_stage state field | [`framework/AIEF-AMD-007_Compiler_Stage_State_Field.md`](framework/AIEF-AMD-007_Compiler_Stage_State_Field.md) |
 | AMD-008 — digest constructions, stage monotonicity, provenance, registry scope | [`framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) |
+| AMD-009 — Stage 1 emission barrier, MI-3 namespace | [`framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md`](framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) |
 | Framework manifest — single source of truth | [`framework/framework.manifest.json`](framework/framework.manifest.json) |
 | Manifest schema | [`framework/SCH-framework-manifest.schema.json`](framework/SCH-framework-manifest.schema.json) |
 
@@ -131,13 +132,13 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **BLOCKED** |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, **eight amendments**; Stages 1, 2, 3, 4 emitted |
+| Framework | AIEF 1.0.0 frozen, **nine amendments**; Stages 1, 2, 3, 4 emitted |
 | Agents | 5 universal + 4 `mechanical` profile, all persisted on disk |
-| Frozen set | **24** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under a declared construction |
+| Frozen set | **25** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); aggregate computed under DC-2 |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
-| Repository | **v0.7.0** on `6ce3508`, `HEAD == origin/main`, no unpushed commits. **Working tree is DIRTY** — the AIEF-AMD-008 session and the Stage 2 session are both uncommitted |
+| Repository | **v0.7.0** on `6ce3508`, `HEAD == origin/main`, no unpushed commits. **Working tree is DIRTY** — the Stage 2 session, the AIEF-AMD-008 session and the AIEF-AMD-009 session are all uncommitted |
 
-> **Working tree.** Six modified files and six untracked paths, none gitignored. Every artifact of the last two sessions — Stage 2's eleven templates, three ECRs, three approvals, one review, one verification report and AIEF-AMD-008 — exists **only in the working tree** and not in git history. Committing them is a `repository-engineer` action.
+> **Working tree.** Every artifact of the last three sessions — Stage 2's eleven templates, four ECRs, five approvals, one review, verification reports and AIEF-AMD-008/-009 — exists **only in the working tree** and not in git history. Committing them is a `repository-engineer` action.
 
 **Open items — authoritative list: [`.ai/project/OPEN_ITEMS.md`](.ai/project/OPEN_ITEMS.md)**
 
@@ -148,17 +149,17 @@ Recovering an in-progress project without conversation history:
 | C-4 | `LICENSE` is an unresolved placeholder | Public or external release |
 | CDR-C3 | Independent cold-context ratification of the AIEF CDR not performed | Recorded residual risk, AIEF-FRZ-001 §6.2 |
 
-**Open, not blocking** — `ECR-Q-003` (Stage 1's core-emission barrier is contradicted by Stages 2, 5 and 6; holds a question Stage 5 must answer), `OI-V-02` (`V-24` declared but not implemented), `OI-V-03` (all session `S-2026-08-08-02` work is unverified), `OI-R-01` (no `v0.2.0` tag), `OI-C-01…03` (ledger schema; `ADP-ci` stale at 22 checks; `MI-3` namespace, which strictly fails `V-01`), `OI-P-01…02` (session records absent; roster roles UNASSIGNED), `SOD-1` (A4 both ruled and applied, at rank-1 direction).
+**Open, not blocking** — `OI-V-02` (`V-24` declared but not implemented), `OI-V-03` (all session `S-2026-08-08-02` work is unverified), `OI-R-01` (no `v0.2.0` tag), `OI-C-01…02` (ledger schema; `ADP-ci` stale at 22 checks), `OI-C-04…05` (`implementation/` BOMs; `referenced_by` completeness undeclared), `OI-P-01…02` (session records absent; roster roles UNASSIGNED), `SOD-1` (A4 both ruled and applied, at rank-1 direction, sessions `-02` and `-03`).
 
-**Recently closed** — `ECR-Q-001` and `ECR-Q-002`, jointly, by [`framework/AIEF-AMD-008`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §§AMD-16/17: the freeze-set aggregate and ledger entry-hash constructions are now declared normatively in the manifest, with published worked examples. `OI-V-01` by the independent verification report filed at [`.ai/project/verification/VER-001`](.ai/project/verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) — 10 criteria, 10 PASS, 9 findings, dispositioned at [`.ai/project/reviews/DR-001`](.ai/project/reviews/DR-001_QA-001_Finding_Dispositions.md). `ECR-D-005` fully closed, its held actions released. Earlier: `OI-F-01`, `OI-F-02` by AIEF-AMD-003, `CMP-BLOCK-014` by AIEF-AMD-002.
+**Recently closed** — `ECR-Q-003` and `OI-C-03`, jointly, by [`framework/AIEF-AMD-009`](framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) §§AMD-23/24 (approvals `APR-004`/`APR-005`): the Stage 1 barrier now protects the Stage 1 output set — Stage 5 lawfully emits `core/validation/**` — and MI-3's strict `files[]`-id namespace governs, with the manifest passing it. Earlier: `ECR-Q-001` and `ECR-Q-002` by [`framework/AIEF-AMD-008`](framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §§AMD-16/17; `OI-V-01` by [`.ai/project/verification/VER-001`](.ai/project/verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) — 10 criteria, 10 PASS — dispositioned at [`.ai/project/reviews/DR-001`](.ai/project/reviews/DR-001_QA-001_Finding_Dispositions.md); `ECR-D-005` fully closed; `OI-F-01`, `OI-F-02` by AIEF-AMD-003; `CMP-BLOCK-014` by AIEF-AMD-002.
 
 ## 8 · Next Engineering Activity
 
 > ### Framework Compiler Stage 5 — Generate Validation
 >
-> **Two dispositions come first, and both gate a clean Stage 5:** `ECR-Q-003` (Stage 1's barrier *"No later stage may emit into core"* is contradicted by the declared outputs of Stages 2, 5 and 6 — Stage 5 emits into `core/`) and `OI-C-03` (under the strict reading of `MI-3`, the manifest fails `V-01`, which halts the build). Neither may be ruled on by the authority that raised or recorded it.
+> **Both gating dispositions are complete** (AIEF-AMD-009, approvals APR-004/APR-005): `ECR-Q-003` is closed — the Stage 1 barrier protects the Stage 1 output set, so Stage 5 lawfully emits `core/validation/**`, its own declared subtree — and `OI-C-03` is closed — the manifest now passes `MI-3` under the governing strict reading, so `V-01` no longer halts.
 >
-> Then emit `core/validation/CHECKS.md` and `core/validation/MANIFEST` from `manifest.validation`, now **25 checks**. Stage barrier: *a law declared machine-checkable with no bound check halts the build.* Note **CMP-BLOCK-005** — the tokenizer, multi-platform and concurrency infrastructure that several checks depend on is absent.
+> Emit `core/validation/CHECKS.md` and `core/validation/MANIFEST` from `manifest.validation`, **25 checks**. Stage barrier: *a law declared machine-checkable with no bound check halts the build.* Note **CMP-BLOCK-005** — the tokenizer, multi-platform and concurrency infrastructure that several checks depend on is absent.
 >
 > Stage 5 is where three declared-but-unimplemented checks become real: **V-23** stage monotonicity, **V-24** freeze registry (**OI-V-02**), **V-25** encoding conformance. All three are declared in the manifest by AIEF-AMD-008 §AMD-19 and none is implemented.
 

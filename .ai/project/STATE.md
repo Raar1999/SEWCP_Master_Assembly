@@ -15,7 +15,7 @@ compiler_stage:
   complete:       [1, 2, 3, 4]   # Core, Templates, Project Layer, Adapters
   outstanding:    [5, 6]         # Validation, Release
 last_ledger_seq:  0
-frozen_set_hash:  080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a
+frozen_set_hash:  4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22
 active_tasks:     []
 blockers:
   - ECR-D-001..004   # defects in frozen SEWCP specification
@@ -23,16 +23,21 @@ blockers:
   - CMP-BLOCK-005    # verification infrastructure absent
   - C-4              # LICENSE placeholder unresolved
 open_non_blocking:
-  - ECR-Q-003        # Stage 1 core-emission barrier contradicted; holds a Stage 5 question
   - OI-V-02          # V-24 declared, not implemented
   - OI-V-03          # all S-2026-08-08-02 work unverified
+  - OI-V-04          # VER-002's three MINOR findings await disposition
   - OI-R-01          # no v0.2.0 tag
-  - OI-C-01..04      # ledger schema; ADP-ci stale; MI-3 namespace strictly fails V-01; BOMs
+  - OI-C-01..02      # ledger schema additionalProperties; ADP-ci stale at 22 checks
+  - OI-C-04..05      # implementation/ BOMs; referenced_by completeness undeclared
   - OI-P-01..02      # session records absent; roster UNASSIGNED
 next_action:      Framework Compiler Stage 5 - Generate Validation.
-                  First disposition ECR-Q-003 and OI-C-03; both gate a clean Stage 5.
-                  Then emit core/validation/CHECKS.md and core/validation/MANIFEST
-                  per manifest.validation, now 25 checks. Note CMP-BLOCK-005.
+                  Gating dispositions COMPLETE - ECR-Q-003 and OI-C-03 closed by
+                  AIEF-AMD-009 (AMD-23, AMD-24), approvals APR-004/APR-005.
+                  Emit core/validation/CHECKS.md and core/validation/MANIFEST
+                  per manifest.validation, 25 checks. Note CMP-BLOCK-005: the
+                  tokenizer, multi-platform and concurrency infrastructure that
+                  V-09/V-12/V-15/V-18 depend on is absent; V-23/V-24/V-25 are
+                  declared and unimplemented until Stage 5 runs.
 ```
 
 ## Required sections
@@ -51,10 +56,10 @@ Declared **explicitly**, never inferred from the filesystem (AIEF-AMD-007). Stag
 
 ## Frozen set
 
-**24 registered** in `FROZEN.md`; **24 of 24 verify.** Membership 16 → 24 by AIEF-AMD-008 §AMD-21, approval `APR-003`: five unregistered amendments, AMD-008 itself, and both ADRs. `AIEF-ARCH-001` ruled out as superseded.
+**25 registered** in `FROZEN.md`; **25 of 25 verify.** Membership 16 → 24 by AIEF-AMD-008 §AMD-21 (approval `APR-003`); 24 → 25 by the registration of `AIEF-AMD-009` as an authorising instrument (approval `APR-005`). `AIEF-ARCH-001` ruled out as superseded.
 
-`frozen_set_hash` above is **DC-2** over that registry — the construction declared by §AMD-16, closing ECR-Q-001. Recorded at **full 64 characters**; DC-2 prohibits truncation. The prior aggregate is superseded and not reproducible, retained in `FROZEN.md` for audit only.
+`frozen_set_hash` above is **DC-2** over that registry — the construction declared by §AMD-16, closing ECR-Q-001. Recorded at **full 64 characters**; DC-2 prohibits truncation. The prior 24-member value `080771b0…6b6367a` remains reproducible from the superseded membership and is retained in `FROZEN.md`; the original pre-DC-2 aggregate is superseded and not reproducible, retained for audit only.
 
-`framework.manifest.json` re-registered at `636cf22b…14b38d3c`, approval `APR-002`.
+`framework.manifest.json` re-registered at `9611d547…9813e557`, approval `APR-004` (previously `636cf22b…14b38d3c`, `APR-002`).
 
 **No standing check binds this registry to the tree.** `V-24` is declared, not implemented — OI-V-02.

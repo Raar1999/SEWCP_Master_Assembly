@@ -31,7 +31,7 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 
 > **The order of rows in the table below is not the hashing order.** DC-2 sorts by path. The table is grouped for reading.
 
-## Registered artifacts (24)
+## Registered artifacts (25)
 
 | Path | DC-1 digest |
 |---|---|
@@ -57,12 +57,13 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 | `framework/AIEF-AMD-006_Mechanical_CAD_Engineer.md` | `ece7c0c780ffd0c006f508ddcc624a416d1f11ff24d4addb3dc9be61c36f38e9` |
 | `framework/AIEF-AMD-007_Compiler_Stage_State_Field.md` | `860a1c7e8f18a05d032fe21cd2dfaeac4580765de1d225f9c260def8484caa9e` |
 | `framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md` | `192ff86128dadfc8382f1894e1a38713f7321ee83aff7891d7e885c31c9dd71e` |
+| `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | `86c8be7f0eafb441c55ad5d5033f6e8e4e684350da262557539e6291b68f2c97` |
 | `framework/SCH-framework-manifest.schema.json` | `ee3d0bdf37156541c13ece46fec9172dabd93e98f32cb88c0ae7a2adff4bb25f` |
-| `framework/framework.manifest.json` | `636cf22b9080b5d5178542fc42b618fc75033129a5932167d3b12e3214b38d3c` |
+| `framework/framework.manifest.json` | `9611d547aab51475e3b57a255af52d47972e4024c896edb5c210cf8f9813e557` |
 
 **Not registered, by ruling.** `framework/AIEF-ARCH-001_AI_Engineering_Framework_Architecture.md` — superseded by `AIEF-FRZ-001`, authorises nothing, cited by nothing as a live authority (AMD-21, APR-003).
 
-Per-artifact verification after this change: **24 of 24 verify.**
+Per-artifact verification after this change: **25 of 25 verify.**
 
 ## Registration history
 
@@ -73,14 +74,18 @@ Per-artifact verification after this change: **24 of 24 verify.**
 | 2026-08-08 | `framework/framework.manifest.json` | `f72485c2…07f31467` → `636cf22b…14b38d3c` | AIEF-AMD-008 rulings AMD-16…AMD-20, approval [`approvals/APR-002_Amend_Framework_Manifest_AMD-008.md`](approvals/APR-002_Amend_Framework_Manifest_AMD-008.md) |
 | 2026-08-08 | ADR-001, ADR-002, AMD-003…AMD-008 | **8 added** — registry scope expansion | AIEF-AMD-008 §AMD-21, approval [`approvals/APR-003_Register_Framework_Amendments_and_ADRs.md`](approvals/APR-003_Register_Framework_Amendments_and_ADRs.md) |
 | 2026-08-08 | § Aggregate | Construction declared; aggregate recomputed for the first time under a declared method | AIEF-AMD-008 §AMD-16, disposing ECR-Q-001 |
+| 2026-08-08 | `framework/framework.manifest.json` | `636cf22b…14b38d3c` → `9611d547…9813e557` | AIEF-AMD-009 rulings AMD-23/AMD-24, disposing ECR-Q-003 and OI-C-03; approval [`approvals/APR-004_Amend_Framework_Manifest_AMD-009.md`](approvals/APR-004_Amend_Framework_Manifest_AMD-009.md) |
+| 2026-08-08 | `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-005_Register_AIEF-AMD-009.md`](approvals/APR-005_Register_AIEF-AMD-009.md) |
 
 ## Aggregate
 
-**`frozen_set_hash`**, DC-2 over the 24 registered artifacts above:
+**`frozen_set_hash`**, DC-2 over the 25 registered artifacts above:
 
 ```
-080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a
+4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22
 ```
+
+Prior value over the 24-member registry, replaced when AIEF-AMD-009 amended the manifest and joined the registry (APR-004, APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — reproducible from the superseded membership, retained for audit.
 
 Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 
@@ -106,5 +111,7 @@ Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 | LAW-10 | Approval is an artifact bound to a content hash |
 | ECR-Q-001 | Disposed **A** by AIEF-AMD-008 §AMD-16 — the construction that made this aggregate computable |
 | ECR-D-005 | Disposed **A** — the re-registration recorded at APR-001 |
+| ECR-Q-003 | Disposed **A** by AIEF-AMD-009 §AMD-23 — Stage 1 barrier protects the Stage 1 output set |
 | AIEF-AMD-008 §AMD-21 | Registry scope and registration criterion |
-| APR-001 · APR-002 · APR-003 | The three recorded approvals behind the three registry changes above |
+| AIEF-AMD-009 §AMD-24 | MI-3 namespace ruling — the manifest change behind the latest re-registration |
+| APR-001 … APR-005 | The five recorded approvals behind the registry changes above |
