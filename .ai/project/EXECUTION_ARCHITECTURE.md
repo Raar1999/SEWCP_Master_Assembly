@@ -478,10 +478,26 @@ Five successive independent audits found the same defect at five depths of one v
 
 Each repair added a distinguishing predicate at **one interpretation site**, and the next
 audit picked another. **Four of the five were found in code the previous repair had just
-written.** The mechanism is exact and it is one thing:
+written.** The mechanism is one thing:
 
-> **An input that is *present but uninterpretable* is coerced onto the same value as
-> *absent* — and *absent* is a passing state.**
+> **A value admits two readings, one of which passes, and the choice between them is made
+> silently.**
+
+Two families fall under it, and the first form of this section named only one of them:
+
+- **Uninterpretable ≡ absent.** A present-but-unreadable input is coerced onto the same value
+  an absent one produces, and absent is a passing state. (Depths 2, 3, 4; L5-B; L5-C.)
+- **Tie-break between two present readings.** Both readings are real and the parser picks one
+  — last-wins on a duplicate key, first-wins on a second fence, one of two link definitions.
+  Nothing is absent and nothing is unreadable. (Depth 1; L5-A; L5-E; L6-1, L6-2, L6-4.)
+
+**The narrower sentence was written here first, and `VER-013` was right to reject it.** Under
+it, a duplicate `digest:` inside a flow mapping is *not* an instance of this class — the seal
+block is present, well-formed and readable, and every declaredness predicate passes. It was
+nonetheless the cheapest attack in the entire history: **one edit, one file**, `X-06 PASS`
+with a notice set identical to a clean run, the predecessor rewritten, and the correct digest
+still displayed to a human reader. A diagnosis is the rule a future agent applies to a new
+finding, so a diagnosis narrower than the defect is a defect in its own right.
 
 The cause is not any accessor. It is that the result record was the **only** authoritative
 record class in this repository with no schema and no admission gate (`core/schemas/` carries
@@ -516,11 +532,25 @@ consumer. Nothing new is invented here. The module is made to do what it already
   enforced by `X-01`/`X-06`. Restating §6's field list in `records.py` would create the second
   declaration `FIND-Q9-44` was raised about.
 
-**Why this class cannot simply move one layer down.** There is no layer below the document.
-The previous four depths were all *interpretations* of an admitted record; admission is the
-boundary at which a byte sequence becomes a record at all, and below it there is only the
-file. A future defect of this class would have to make an *admitted* record mean two things —
-which is what "unambiguous" denies.
+**Why this class cannot simply move down — and why that was the wrong axis.** There is no
+layer below the document: admission is where a byte sequence becomes a record, and below it
+there is only the file. That argument is true, and `VER-013` showed it is **not the argument
+that matters**. The class did not move down; it moved **sideways** — to the parser's *other*
+mapping-construction sites and to the *other characters* in the whitespace class. Guarding
+one site per kind is the same enumeration error as guarding one interpretation site per kind,
+committed one level up.
+
+The termination argument is therefore structural, not positional, and it has two halves:
+
+- **One insertion point.** Every mapping this parser builds — block, flow, sequence-item
+  inline key, sequence-item sibling merge — goes through `records.put`. A fifth construction
+  path cannot be added without passing the guard, and keys are normalised so `'k':` and `k:`
+  are one key.
+- **Properties, not enumerations.** Indentation is rejected by Unicode *general category*
+  (`Zs Zl Zp Cc Cf`), not by a list of characters and not by `\s` — which does not contain
+  U+200B or U+FEFF, both of which hoisted a line exactly as a tab did. Shape is validated for
+  **both** record classes by one function, because guarding the result record and not the task
+  record was the same error again.
 
 **Regression protection** is `tests/test_exec_admission.py`, written against `records.py`
 rather than against `X-06`, so it pins the invariant and not a symptom. Seven mutants aimed at

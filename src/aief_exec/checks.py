@@ -586,7 +586,32 @@ def x06_result_currency(repo: Path) -> dict[str, Any]:
         # link that triggers the rule now, and the link survives the deletion.
         if link.exists and not str(result.supersedes_seal.get("digest") or ""):
             session = str(result.produced_by.get("session") or "")
-            if epoch and records.SESSION_ID.match(session) and session >= epoch:
+            # VER-013 L5-C, and R-014 AC-11's disposal of it was WRONG. The
+            # `else:` branch below is the history exemption, and reaching it
+            # required only that `SESSION_ID` fail to match - which an absent,
+            # null or malformed session does exactly as well as a genuinely
+            # early one. So deleting the seal AND the session line turned an
+            # X-06 FAIL into a PASS for two edits in one file, cheaper than the
+            # three-edit residual §6.4 discloses, with the back-link intact and
+            # the cross-check satisfied. AC-11 argued the worst such a coercion
+            # could do was make a claim vanish; the control - same attack with
+            # the session left intact - fails, which proves the field is
+            # load-bearing and the argument false.
+            #
+            # The exemption is for records demonstrably written before the
+            # convention existed. A record that does not say when it was written
+            # has not demonstrated that, and "I cannot tell" is not "before".
+            if not records.SESSION_ID.match(session):
+                details.append(
+                    f"{rid}: supersedes {link.target}, pins no supersedes_seal, "
+                    f"and declares no readable produced_by.session "
+                    f"({session or 'absent'!r}). The missing-seal rule is "
+                    f"excused only for records written before the seal epoch "
+                    f"{epoch}, and a record that does not say when it was "
+                    f"written has not shown that (VER-013 L5-C). Repair: "
+                    f"declare {rid}.produced_by.session, or pin the seal"
+                )
+            elif epoch and session >= epoch:
                 details.append(
                     f"{rid}: supersedes {link.target} and pins no "
                     f"supersedes_seal, but was published at session {session}, at "

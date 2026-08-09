@@ -18,6 +18,7 @@ Supported: nested mappings by indentation, block sequences, flow sequences
 from __future__ import annotations
 
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -102,7 +103,7 @@ def _scalar(raw: str) -> Any:
             if ":" not in part:
                 raise RecordError(f"flow mapping entry without ':': {part!r}")
             k, _, v = part.partition(":")
-            out[k.strip()] = _scalar(v)
+            put(out, k, _scalar(v), f"flow mapping {body!r}")
         return out
     # JSON's number grammar: no leading zeros. A token like an all-digit SHA-256
     # digest, a zero-padded id or a segment name is an identifier, not an integer,
@@ -139,8 +140,62 @@ def _split_flow(body: str) -> list[str]:
     return [p.strip() for p in parts if p.strip()]
 
 
+#: Every character that is whitespace but is **not** the space the block grammar
+#: is defined in terms of. `VER-013` L6-3: the first form of `_indent` rejected
+#: `\t` alone, so U+00A0, `\v`, `\f`, U+2007, U+200B and the rest each survived
+#: `lstrip(" ")`, failed the `\t` test, yielded indent 0 and reproduced L5-B's
+#: exact parse - child hoisted to top level, parent key silently `None`. U+00A0
+#: is invisible in every editor and is a routine copy-paste artifact.
+#:
+#: Rejecting one character of a class is the enumeration error this whole repair
+#: exists to stop, committed inside the repair. The class is rejected.
+#: Unicode general categories that are separators, controls or invisible format
+#: characters. `\s` is not enough: U+200B ZERO WIDTH SPACE and U+FEFF are `Cf`,
+#: not whitespace, so a `\s`-based rule admitted them and they hoisted the line
+#: exactly as a tab did. Enumerating characters was the first mistake here and
+#: enumerating a *regex class* was the second; the property is what matters.
+AMBIGUOUS_INDENT_CATEGORIES = frozenset({"Zs", "Zl", "Zp", "Cc", "Cf"})
+
+
+def _is_ambiguous_indent(ch: str) -> bool:
+    return unicodedata.category(ch) in AMBIGUOUS_INDENT_CATEGORIES
+
+
+def put(out: dict[str, Any], key: str, value: Any, where: str) -> None:
+    """**The one insertion point for every mapping this parser builds.**
+
+    `VER-013` L6-1, L6-2, L6-4. The duplicate-key guard was added to
+    `_parse_map` only, so the *other three* mapping-construction sites - flow
+    mappings, the inline first key of a sequence item, and the `entry.update()`
+    that merges its siblings - still resolved a duplicate by last-wins, in
+    silence. One of them, the flow mapping, is the syntax this repair's own
+    regression suite certifies as the lawful control, and a duplicate `digest:`
+    inside it rewrote a superseded record at `X-06 PASS` for **one edit in one
+    file** - the cheapest attack in the whole history.
+
+    Guarding one site per kind is the same enumeration error as guarding one
+    interpretation site per kind, one level up. There is one site now and every
+    construction path goes through it, so a fourth path cannot be added without
+    passing through the guard.
+
+    Keys are normalised before comparison: `'k':` and `k:` are one key, because
+    they are one key to a reader. `VER-013` L6-4 recorded them resolving as two.
+    """
+    k = _scalar(key) if key[:1] in ("'", '"') else key
+    k = str(k).strip()
+    if k in out:
+        raise RecordError(
+            f"{where}: duplicate key {k!r}. The document declares it more than "
+            f"once, so which declaration governs is undefined and choosing one "
+            f"is a tie-break, not a reading (LAW-12). A reader of the file and "
+            f"a reader of the parse would disagree. Repair: delete the "
+            f"declaration that does not govern"
+        )
+    out[k] = value
+
+
 def _indent(line: str) -> int:
-    """Indentation depth in spaces. **A tab is a parse error, not a width.**
+    """Indentation depth in spaces. **Any other whitespace is a parse error.**
 
     `VER-012` L5-B. This counted spaces only, so a tab-indented child line had
     depth 0: it hoisted itself to top level and its parent key silently became
@@ -154,11 +209,12 @@ def _indent(line: str) -> int:
     defect. The line is rejected instead.
     """
     stripped = line.lstrip(" ")
-    if stripped[:1] == "\t":
+    if stripped and _is_ambiguous_indent(stripped[0]):
         raise RecordError(
-            f"tab indentation is not part of the block grammar and has no "
-            f"defined width, so the nesting this line declares is ambiguous "
-            f"(LAW-12): {line!r}. Repair: indent with spaces"
+            f"indentation character {stripped[0]!r} (U+{ord(stripped[0]):04X}) "
+            f"is not the space this block grammar is defined in terms of and "
+            f"has no defined width, so the nesting this line declares is "
+            f"ambiguous (LAW-12): {line!r}. Repair: indent with spaces"
         )
     return len(line) - len(stripped)
 
@@ -216,30 +272,23 @@ def _parse_map(lines: list[str], i: int, level: int) -> tuple[dict[str, Any], in
         # A document that says a thing twice is not a document that says it
         # once. Which of the two a reader believes is exactly the ambiguity this
         # parser's contract says it will refuse to resolve.
-        if key in out:
-            raise RecordError(
-                f"line {i + 1}: duplicate key {key!r} at this level. The "
-                f"document declares it more than once and the two declarations "
-                f"are not reconcilable here, so which one governs is undefined "
-                f"(LAW-12). A reader of the file and a reader of the parse would "
-                f"disagree. Repair: delete the declaration that does not govern"
-            )
         i += 1
         if rest == "|":
             block, i = _parse_literal(lines, i, level)
-            out[key] = block
+            put(out, key, block, f"line {i}")
         elif rest:
-            out[key] = _scalar(rest)
+            put(out, key, _scalar(rest), f"line {i}")
         else:
             j = _skip(lines, i)
             if j < len(lines) and _indent(lines[j]) > level:
                 child_ind = _indent(lines[j])
                 if _strip_comment(lines[j]).strip().startswith("- "):
-                    out[key], i = _parse_seq(lines, j, child_ind)
+                    sub, i = _parse_seq(lines, j, child_ind)
                 else:
-                    out[key], i = _parse_map(lines, j, child_ind)
+                    sub, i = _parse_map(lines, j, child_ind)
+                put(out, key, sub, f"line {i}")
             else:
-                out[key] = None
+                put(out, key, None, f"line {i}")
                 i = j
     return out, i
 
@@ -268,20 +317,22 @@ def _parse_seq(lines: list[str], i: int, level: int) -> tuple[list[Any], int]:
             entry: dict[str, Any] = {}
             child_level = ind + 2
             if rest.strip():
-                entry[key.strip()] = _scalar(rest)
+                put(entry, key, _scalar(rest), f"line {i}")
             else:
                 j = _skip(lines, i)
                 if j < len(lines) and _indent(lines[j]) > child_level - 1:
-                    entry[key.strip()], i = _parse_map(lines, j, _indent(lines[j]))
+                    sub, i = _parse_map(lines, j, _indent(lines[j]))
+                    put(entry, key, sub, f"line {i}")
                 else:
-                    entry[key.strip()] = None
+                    put(entry, key, None, f"line {i}")
             j = _skip(lines, i)
             while j < len(lines) and _indent(lines[j]) == child_level:
                 nxt = _strip_comment(lines[j]).strip()
                 if nxt.startswith("- "):
                     break
                 more, i = _parse_map(lines, j, child_level)
-                entry.update(more)
+                for mk, mv in more.items():
+                    put(entry, mk, mv, f"line {i} (sequence item)")
                 j = _skip(lines, i)
             out.append(entry)
         else:
@@ -340,11 +391,88 @@ def extract_fence(text: str, lang: str = "yaml") -> str:
 # Records
 # --------------------------------------------------------------------------
 
+def _check_shapes(
+    rid: str, data: dict[str, Any], shapes: tuple[tuple[str, str], ...]
+) -> None:
+    """Reject a structurally malformed record. One function, both record classes.
+
+    `VER-013`. Shape is well-formedness; *content* - which fields must be
+    present and what they must say - is `EXECUTION_ARCHITECTURE.md` §5 and §6,
+    enforced by `X-01` and `X-06`. Restating those field lists here would be the
+    second declaration `FIND-Q9-44` was raised about, so this table says only
+    what KIND of thing each field is when it is present.
+
+    `mapping`  - a mapping.
+    `mappings` - a sequence whose every element is a mapping.
+    `sequence` - a sequence. A bare string is the dangerous case: it is
+                 iterable, so a coercing consumer silently reads it as a list of
+                 characters (`write_scope: not-a-list` became ten one-character
+                 patterns).
+    `scalar`   - not a collection.
+    """
+    for name, shape in shapes:
+        v = data.get(name)
+        if v is None:
+            continue
+        bad = (
+            (shape == "mapping" and not isinstance(v, dict))
+            or (shape in ("mappings", "sequence") and not isinstance(v, list))
+            or (shape == "scalar" and isinstance(v, (dict, list)))
+        )
+        if bad:
+            raise RecordError(
+                f"{rid}: {name} is {type(v).__name__}, not a {shape}. It is "
+                f"declared and cannot be read as declared, which is not the "
+                f"same as absent and must not be silently treated as absent "
+                f"(VER-012/013)"
+            )
+        if shape == "mappings":
+            for n, entry in enumerate(v):
+                if not isinstance(entry, dict):
+                    raise RecordError(
+                        f"{rid}: {name}[{n}] is {type(entry).__name__}, not a "
+                        f"mapping. A malformed entry used to be dropped from "
+                        f"the set in silence (VER-012/013)"
+                    )
+
+
 @dataclass
 class TaskRecord:
     task_id: str
     path: str
     data: dict[str, Any]
+
+    #: `VER-013` L6-6. The result record got an admission gate and the task
+    #: record did not, so `read_entries` kept the exact
+    #: `[e for e in ... if isinstance(e, dict)]` pattern that
+    #: `ResultRecord.validate_shape`'s docstring names as the mechanism. On the
+    #: live `T-001`, replacing one `- path:` mapping with a bare scalar dropped
+    #: it silently - six entries became five, `X-01` and `X-03` both PASS,
+    #: nothing named it - and moved `acquisition`, the quantity the `X-08`
+    #: dispatch gate is a function of, from TF-1 6744 to 6436.
+    #:
+    #: Guarding one record class is the enumeration error again. Both are
+    #: guarded, by the same function.
+    SHAPES: tuple[tuple[str, str], ...] = (
+        ("read_scope", "mapping"),
+        ("qa", "mapping"),
+        ("checkpoint", "mapping"),
+        ("acceptance_criteria", "mappings"),
+        ("write_scope", "sequence"),
+        ("depends_on", "sequence"),
+        ("consumes", "sequence"),
+        ("produces", "sequence"),
+        ("blocked_by", "sequence"),
+        ("deliverable", "sequence"),
+        ("inputs", "sequence"),
+        ("forbidden_actions", "sequence"),
+        ("status", "scalar"),
+        ("role", "scalar"),
+        ("task_id", "scalar"),
+    )
+
+    def validate_shape(self) -> None:
+        _check_shapes(self.task_id, self.data, self.SHAPES)
 
     def __getitem__(self, key: str) -> Any:
         return self.data.get(key)
@@ -467,6 +595,17 @@ class ResultRecord:
         ("supersedes_seal", "mapping"),
         ("inputs", "mappings"),
         ("deliverables", "mappings"),
+        ("acceptance", "mappings"),
+        ("affected", "sequence"),
+        # VER-013: these four were uncovered, and each still coerced a present
+        # malformed value onto the same string an absent one produces.
+        # `superseded_by: {}` read as "makes no claim" - the FIND-Q9-43 notice
+        # branch - while being present and unreadable.
+        ("status", "scalar"),
+        ("supersedes", "scalar"),
+        ("superseded_by", "scalar"),
+        ("conclusion", "scalar"),
+        ("result_id", "scalar"),
     )
 
     def validate_shape(self) -> None:
@@ -490,31 +629,7 @@ class ResultRecord:
         Called by `load_results`, so no consumer can obtain an unvalidated
         record through the supported path.
         """
-        for field_name, shape in self.SHAPES:
-            v = self.data.get(field_name)
-            if v is None:
-                continue
-            if shape == "mapping" and not isinstance(v, dict):
-                raise RecordError(
-                    f"{self.result_id}: {field_name} is "
-                    f"{type(v).__name__}, not a mapping. It is declared and "
-                    f"cannot be read, which is not the same as absent and must "
-                    f"not be silently treated as absent (VER-012)"
-                )
-            if shape == "mappings":
-                if not isinstance(v, list):
-                    raise RecordError(
-                        f"{self.result_id}: {field_name} is "
-                        f"{type(v).__name__}, not a sequence of mappings"
-                    )
-                for n, entry in enumerate(v):
-                    if not isinstance(entry, dict):
-                        raise RecordError(
-                            f"{self.result_id}: {field_name}[{n}] is "
-                            f"{type(entry).__name__}, not a mapping. A "
-                            f"malformed entry used to be dropped from the "
-                            f"pinned set in silence (VER-012)"
-                        )
+        _check_shapes(self.result_id, self.data, self.SHAPES)
 
     @property
     def status(self) -> str:
@@ -662,7 +777,9 @@ def load_tasks(repo: Path) -> dict[str, TaskRecord]:
         if tid in out:
             raise RecordError(f"duplicate task_id {tid}")
         rel = f"{TASKS_DIR}/{p.name}"
-        out[tid] = TaskRecord(task_id=tid, path=rel, data=data)
+        rec = TaskRecord(task_id=tid, path=rel, data=data)
+        rec.validate_shape()
+        out[tid] = rec
     return out
 
 
