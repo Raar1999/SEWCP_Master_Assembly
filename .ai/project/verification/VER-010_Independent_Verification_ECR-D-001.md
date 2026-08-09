@@ -1,17 +1,21 @@
-# VER-008 — Independent Verification of ECR-D-001 Disposition A
+# VER-010 — Independent Verification of ECR-D-001 Disposition A
 
 > **Instance artifact.** Partition `project`. Owner `qa-engineer`.
 > Two cold-context rounds against `.ai/project/ecr/ECR-D-001_Alignment_Pin_Interface_Two_Geometries.md`.
-> Filed at `VER-008`; the slot was vacant between `VER-007` and `VER-009`.
+> Filed at **`VER-010`**. `VER-008` is **reserved by `T-003`** for the SOD-1 cold audit of
+> session `S-2026-08-08-10` (`T-003` deliverable and write scope); this report was first filed
+> there in error — `VER-010` V5, the same identifier-collision defect this report records at
+> R10(c) for the approvals, committed by the report itself.
 
 ```yaml
-verification_id: VER-008
+verification_id: VER-010
 subject:         ECR-D-001 disposition A, and its implementation in spec/01_SEWCP-200_Cooling_Plate.md
 verifier_role:   qa-engineer            # cold context, no access to the implementer's conclusions
 author_role:     software.software-engineer
 law:             LAW-05 - verifier authored none of the work under audit
 round_1:         FAIL
 round_2:         FAIL
+round_3:         FAIL   # V1, V2, V3 - all clerical, all repaired; round 4 pending
 status:          ECR-D-001 NOT CLOSED
 session:         S-2026-08-09-14
 ```
@@ -20,14 +24,17 @@ session:         S-2026-08-09-14
 
 ## 0 · Why this file exists, and the defect that produced it
 
-`VER-008` was cited by name in five artifacts — `ECR-D-001`, `ECR-D-007`, `APR-017`,
+The finding set was cited by name in **six** artifacts — `ECR-D-001`, `ECR-D-007`, `APR-017`,
 `FROZEN.md` and `OPEN_ITEMS_REGISTER.md` — as the authority for findings F1…F15, **while no
 such report existed anywhere in the repository.** Round 2 recorded that as a blocker in its own
 right (`R10`): `GATES.md` C6 requires that *a verification report exists*, and a finding set
 cited but not filed is unauditable. Three findings (F6, F8, F12) were reachable from no
 artifact at all.
 
-The report is filed here, and the citations resolve. Both rounds are recorded, including the
+The report is filed here. The citations were then found still dangling — they named
+`VER-ECR-D-001`, an identifier no artifact carried, so `VER-010` V4 recorded the
+cited-but-unfiled defect as still present under a different name. Every citation is now
+rewritten to `VER-010` and resolves. Both rounds are recorded, including the
 round-1 findings that round 2 then found unrepaired — this file is not a summary of what
 survived.
 
@@ -90,7 +97,7 @@ reproduce from their declared memberships.
 | R8(a) | `ECR-D-001`'s `approval:` field pointed at `APR-016`, which its own successor declares **void under LAW-10**. An assessor following the ECR's pointer lands on a failing hash | MAJOR |
 | R8(b) | `ECR-D-001` §7 stated the material conflict *"is raised separately"*. **No such ECR existed.** A status claim published without the fact behind it — the F2 failure class, repeated | MAJOR |
 | R10(a) | `CP-D09a`/`CP-D10a` carry `M4 × 0.7, **8.0 deep**`. The approved option text says *"M4 tapped hole"* with no depth; `SEWCP-700` states **no plate-side tap depth**. An implementing agent set an engineering value, froze it into a registered artifact, and `APR-017` then certified *"No engineering value was set by an implementing agent"* | MAJOR |
-| R10(b) | `VER-ECR-D-001` cited in five artifacts, filed nowhere | MAJOR |
+| R10(b) | `VER-010` cited in five artifacts, filed nowhere | MAJOR |
 | R10(c) | `APR-014` identifier collision: a prior session had already reserved it for the manifest re-registration | MAJOR |
 
 ## 5 · Repairs applied after round 2
@@ -98,7 +105,7 @@ reproduce from their declared memberships.
 | Finding | Repair | Requires authority |
 |---|---|---|
 | R3/F11 | `residual:` field corrected to `three - see §7` | no |
-| R8(a) | `approval:` → `APR-017` (live); `approval_superseded:` → `APR-016` | no |
+| R8(a) | `approval:` → `APR-018` (terminal); `approval_chain:` records `APR-016 → APR-017 → APR-018`. **Liveness is no longer asserted** — the field says to determine it by recomputing the terminal approval's `subject_hash`. `VER-010` V1: the first two repairs each named the approval that the *next* edit voided, and each labelled it `LIVE` | no |
 | R8(b) | **`ECR-D-008`** filed (316L vs Ti-6Al-4V) and **`ECR-D-009`** filed (`AP-D08` head seat). Both registered; both block `C7` | no |
 | R10(b) | **this file** | no |
 | R10(c) | `APR-014`/`APR-015` renumbered to **`APR-016`/`APR-017`** | no |

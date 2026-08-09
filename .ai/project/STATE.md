@@ -14,7 +14,9 @@ last_ledger_seq:  0
 frozen_set_hash:  8574956e8fd68167edc56d7c98cd7a5c4ff4d4095d6812f4108184ab7d1915f9
 active_tasks:     []
 blockers:
-  - ECR-D-001..004   # defects in the frozen SEWCP specification
+  - ECR-D-001..004   # defects in the frozen SEWCP specification (D-001 dispositioned A, not closed)
+  - ECR-D-006        # framework manifest digest drift - blocks LC-M04-EXIT C5
+  - ECR-D-007..009   # raised on VER-010: locator geometry, pin material, screw seat - block C7
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
   - CMP-BLOCK-006    # V-09 breach; A4 determination filed (AMD-41), remedy is OQ-15
@@ -42,5 +44,5 @@ next_action: |
 
 - **Reconciliation.** `0 == HEAD.seq`; B4 passes, check 1 vacuous at `genesis`. No LAW-09 close, none possible retroactively: work is in files, unlogged, not lost (OI-P-01).
 - **Compiler stage.** Declared, never inferred (AIEF-AMD-007). Stage 6 outstanding, so B2a cannot execute; `BINDING.core_digest_pin` is `PENDING-STAGE-6`.
-- **Frozen set.** **28 of 29 verify** in [`FROZEN.md`](FROZEN.md) — `framework/framework.manifest.json` does not reproduce against its registered digest (**ECR-D-006**, open, pre-dating this session). 28 → 29 by `AIEF-AMD-013` (`APR-012`, `APR-013`); `spec/01_SEWCP-200_Cooling_Plate.md` re-registered under ECR-D-001 disposition A (`APR-016`, `APR-017`). The DC-2 aggregate is over the registry rows, so it reproduces while that artifact has drifted. No standing check binds the registry to the tree (OI-V-02).
+- **Frozen set.** **28 of 29 verify** in [`FROZEN.md`](FROZEN.md) — `framework/framework.manifest.json` does not reproduce against its registered digest (**ECR-D-006**, open, pre-dating this session). 28 → 29 by `AIEF-AMD-013` (`APR-012`, `APR-013`); `spec/01_SEWCP-200_Cooling_Plate.md` re-registered under ECR-D-001 disposition A (`APR-016`, `APR-017`, `APR-018` — the published digest is `APR-018`'s). The DC-2 aggregate is over the registry rows, so it reproduces while that artifact has drifted. No standing check binds the registry to the tree (OI-V-02).
 - **Budget.** `BOOT.md` and `OPEN_ITEMS.md` breach; aggregate far above 6000 under both families. Determination [`AIEF-AMD-013`](../../framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md) §AMD-41; counts and this file's lossless reduction in [`APR-012`](approvals/APR-012_Amend_Framework_Manifest_AMD-013.md). **This file now sits near its own cap with no durable headroom — see OQ-15.**

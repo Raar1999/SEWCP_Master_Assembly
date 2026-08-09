@@ -6,7 +6,7 @@
 ```yaml
 ecr_id:       ECR-D-007
 class:        D                      # defect - LAW-02: a defect stops the affected work
-raised_by:    software.software-engineer · S-2026-08-09-14   # on VER-ECR-D-001 findings F3, F4, F9, F10
+raised_by:    software.software-engineer · S-2026-08-09-14   # on VER-010 findings F3, F4, F9, F10
 status:       OPEN
 disposition:  null                   # Design Authority decision required
 ruled_by:     null
@@ -71,7 +71,7 @@ ring holes — the two most similar features. **3.35 < 3.5**, by 0.15 mm.
 The M4's **depth is undetermined** — `CP-D09a`/`CP-D10a` read `depth TBD — ECR-D-007` since
 `APR-018`. The first form of this paragraph computed *"8.0 mm deep beneath a 3.00 mm
 counterbore = 11.0 mm below the top face"* from a value an implementing agent had set with no
-authority (`VER-008` R10(a)); that value is struck and the arithmetic with it. What stands is
+authority (`VER-010` R10(a)); that value is struck and the arithmetic with it. What stands is
 the **conditional**: any tap depth exceeding **5.00 mm** below the counterbore floor puts the
 thread past `CP-D07`'s 8.00 mm channel-to-top-face wall, after which it is kept clear of the
 circuit only by the 3.35 mm radial wall questioned above. The depth is requested action 5.

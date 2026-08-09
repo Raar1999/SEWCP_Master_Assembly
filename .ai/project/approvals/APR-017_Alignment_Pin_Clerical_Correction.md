@@ -1,7 +1,7 @@
 # APR-017 — Clerical correction of `spec/01` under ECR-D-001; geometric findings split out
 
 > **Instance artifact.** Partition `project`. Schema `core/schemas/SCH-approval.schema.json`, severity BLOCKING.
-> Satisfies the recorded-human-approval requirement of LAW-01 and LAW-10 for the repair of `VER-ECR-D-001` findings F1–F2, F5, F10.
+> Satisfies the recorded-human-approval requirement of LAW-01 and LAW-10 for the repair of `VER-010` findings F1–F2, F5, F10.
 
 ```yaml
 approval_id:   APR-017            # renumbered from APR-015 with APR-016
@@ -27,7 +27,7 @@ scope:         Option B - clerical correction only. One line of spec/01 (the sur
 
 `APR-016` authorised ECR-D-001 disposition A and was correctly bound to
 `spec/01_SEWCP-200_Cooling_Plate.md` at `a637ae18…7f8b9b54`. Independent verification
-(`VER-ECR-D-001`) then returned **FAIL** and the repair requires a further edit to that
+(`VER-010`) then returned **FAIL** and the repair requires a further edit to that
 artifact — which **voids `APR-016` under LAW-10**, exactly as `APR-016` itself declares. This
 approval supersedes it and binds to the corrected content. `APR-016` remains on the record as
 the instrument that authorised the geometry decision; it is not deleted and its reasoning is
@@ -80,7 +80,7 @@ which is the check whose case-sensitive form produced finding F2.
 `ROSTER.md`; the split decision was taken by the human owner on a verification report and an
 enumerated option set.
 
-> **CORRECTED — `VER-008` R10(a).** This section asserted *"No engineering value was set by an
+> **CORRECTED — `VER-010` R10(a).** This section asserted *"No engineering value was set by an
 > implementing agent, which is the property Option B was chosen to preserve."* **That was
 > false.** `CP-D09a`/`CP-D10a` in `spec/01` carry `M4 × 0.7, **8.0 deep**`. The approved Option
 > A text says *"M4 tapped hole"* with no depth, and `SEWCP-700` — the governing volume —

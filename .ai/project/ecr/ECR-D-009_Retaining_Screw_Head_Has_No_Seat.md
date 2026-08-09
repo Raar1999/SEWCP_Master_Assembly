@@ -1,7 +1,7 @@
 # ECR-D-009 — The alignment-pin retaining screw head has nowhere to bear
 
 > **Instance artifact.** Partition `project`. Filed per `manifest.templates → tpl-ecr`, schema `core/schemas/SCH-ecr.schema.json`.
-> Raised on `VER-ECR-D-001` F8, confirmed in `VER-008`.
+> Raised on `VER-010` F8, confirmed in `VER-010`.
 
 ```yaml
 ecr_id:       ECR-D-009
