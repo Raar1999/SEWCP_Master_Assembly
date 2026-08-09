@@ -1,0 +1,616 @@
+"""Record parsing: the bounded index, task records and result records.
+
+Actor provenance: software.software-engineer - S-2026-08-09-01.
+
+Implements EXECUTION_ARCHITECTURE.md sections 4, 5 and 6.
+
+No YAML library is available in this environment and the repository declares no
+such dependency, so this module implements a **restricted subset** of the block
+grammar the repository already uses in STATE.md, BINDING.md and ledger/HEAD.
+The parser raises `RecordError` on anything outside that subset rather than
+guessing - LAW-12: assumption is never a resolution method.
+
+Supported: nested mappings by indentation, block sequences, flow sequences
+`[a, b]`, flow mappings `{k: v}`, literal block scalars `|`, quoted scalars,
+`null`/`true`/`false`/integers, and `#` comments outside quotes.
+"""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+from aief_stage6.digests import dc1_digest
+
+TASK_ID = re.compile(r"^T-\d{3}$")
+RESULT_ID = re.compile(r"^R-\d{3}$")
+SESSION_ID = re.compile(r"^S-\d{4}-\d{2}-\d{2}-\d{2}$")
+
+#: SCH-task.schema.json `required` - the eight fields the schema mandates.
+SCH_TASK_REQUIRED = (
+    "task_id",
+    "role",
+    "objective",
+    "inputs",
+    "deliverable",
+    "acceptance_criteria",
+    "forbidden_actions",
+    "escalation",
+)
+
+#: EXECUTION_ARCHITECTURE.md section 5 - the extension fields carried under
+#: SCH-task's `additionalProperties: true`.
+EXTENSION_REQUIRED = (
+    "status",
+    "read_scope",
+    "write_scope",
+    "qa",
+    "checkpoint",
+)
+
+
+class RecordError(ValueError):
+    """A record does not conform to the declared grammar or contract."""
+
+
+# --------------------------------------------------------------------------
+# Restricted block-mapping parser
+# --------------------------------------------------------------------------
+
+def _strip_comment(line: str) -> str:
+    """Remove a trailing `#` comment that is not inside quotes."""
+    out = []
+    quote = None
+    for i, ch in enumerate(line):
+        if quote:
+            out.append(ch)
+            if ch == quote:
+                quote = None
+            continue
+        if ch in "'\"":
+            quote = ch
+            out.append(ch)
+            continue
+        if ch == "#" and (i == 0 or line[i - 1] in " \t"):
+            break
+        out.append(ch)
+    return "".join(out).rstrip()
+
+
+def _scalar(raw: str) -> Any:
+    """Parse a scalar. Flow collections are handled here so that a value may be
+    written inline, as STATE.md and BINDING.md already do."""
+    text = raw.strip()
+    if text == "" or text in ("null", "~"):
+        return None
+    if text == "true":
+        return True
+    if text == "false":
+        return False
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in "'\"":
+        return text[1:-1]
+    if text.startswith("[") and text.endswith("]"):
+        return [_scalar(p) for p in _split_flow(text[1:-1])] if text[1:-1].strip() else []
+    if text.startswith("{") and text.endswith("}"):
+        body = text[1:-1].strip()
+        if not body:
+            return {}
+        out: dict[str, Any] = {}
+        for part in _split_flow(body):
+            if ":" not in part:
+                raise RecordError(f"flow mapping entry without ':': {part!r}")
+            k, _, v = part.partition(":")
+            out[k.strip()] = _scalar(v)
+        return out
+    # JSON's number grammar: no leading zeros. A token like an all-digit SHA-256
+    # digest, a zero-padded id or a segment name is an identifier, not an integer,
+    # and must survive as text.
+    if re.fullmatch(r"-?(0|[1-9]\d*)", text):
+        return int(text)
+    return text
+
+
+def _split_flow(body: str) -> list[str]:
+    """Split a flow collection body on top-level commas."""
+    parts, depth, quote, cur = [], 0, None, []
+    for ch in body:
+        if quote:
+            cur.append(ch)
+            if ch == quote:
+                quote = None
+            continue
+        if ch in "'\"":
+            quote = ch
+            cur.append(ch)
+            continue
+        if ch in "[{":
+            depth += 1
+        elif ch in "]}":
+            depth -= 1
+        if ch == "," and depth == 0:
+            parts.append("".join(cur))
+            cur = []
+            continue
+        cur.append(ch)
+    if cur:
+        parts.append("".join(cur))
+    return [p.strip() for p in parts if p.strip()]
+
+
+def _indent(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def parse_block(text: str) -> dict[str, Any]:
+    """Parse the restricted block grammar into a dict."""
+    lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    value, consumed = _parse_map(lines, 0, 0)
+    # Trailing blank or comment lines are permitted.
+    for line in lines[consumed:]:
+        if _strip_comment(line).strip():
+            raise RecordError(f"unparsed trailing content: {line!r}")
+    return value
+
+
+def _skip(lines: list[str], i: int) -> int:
+    while i < len(lines) and not _strip_comment(lines[i]).strip():
+        i += 1
+    return i
+
+
+def _parse_map(lines: list[str], i: int, level: int) -> tuple[dict[str, Any], int]:
+    out: dict[str, Any] = {}
+    while True:
+        i = _skip(lines, i)
+        if i >= len(lines):
+            return out, i
+        raw = lines[i]
+        stripped = _strip_comment(raw)
+        if not stripped.strip():
+            i += 1
+            continue
+        ind = _indent(raw)
+        if ind < level:
+            return out, i
+        if ind > level:
+            raise RecordError(f"unexpected indent at line {i + 1}: {raw!r}")
+        body = stripped.strip()
+        if body.startswith("- "):
+            return out, i
+        if ":" not in body:
+            raise RecordError(f"line {i + 1} is not a mapping entry: {raw!r}")
+        key, _, rest = body.partition(":")
+        key = key.strip()
+        rest = rest.strip()
+        i += 1
+        if rest == "|":
+            block, i = _parse_literal(lines, i, level)
+            out[key] = block
+        elif rest:
+            out[key] = _scalar(rest)
+        else:
+            j = _skip(lines, i)
+            if j < len(lines) and _indent(lines[j]) > level:
+                child_ind = _indent(lines[j])
+                if _strip_comment(lines[j]).strip().startswith("- "):
+                    out[key], i = _parse_seq(lines, j, child_ind)
+                else:
+                    out[key], i = _parse_map(lines, j, child_ind)
+            else:
+                out[key] = None
+                i = j
+    return out, i
+
+
+def _parse_seq(lines: list[str], i: int, level: int) -> tuple[list[Any], int]:
+    out: list[Any] = []
+    while True:
+        i = _skip(lines, i)
+        if i >= len(lines):
+            return out, i
+        raw = lines[i]
+        ind = _indent(raw)
+        if ind < level:
+            return out, i
+        body = _strip_comment(raw).strip()
+        if not body.startswith("- "):
+            if ind == level:
+                return out, i
+            raise RecordError(f"line {i + 1} is not a sequence item: {raw!r}")
+        item = body[2:].strip()
+        i += 1
+        if ":" in item and not item.startswith(("[", "{", "'", '"')):
+            # Inline first key of a mapping item; its siblings are indented to
+            # the column where that key started.
+            key, _, rest = item.partition(":")
+            entry: dict[str, Any] = {}
+            child_level = ind + 2
+            if rest.strip():
+                entry[key.strip()] = _scalar(rest)
+            else:
+                j = _skip(lines, i)
+                if j < len(lines) and _indent(lines[j]) > child_level - 1:
+                    entry[key.strip()], i = _parse_map(lines, j, _indent(lines[j]))
+                else:
+                    entry[key.strip()] = None
+            j = _skip(lines, i)
+            while j < len(lines) and _indent(lines[j]) == child_level:
+                nxt = _strip_comment(lines[j]).strip()
+                if nxt.startswith("- "):
+                    break
+                more, i = _parse_map(lines, j, child_level)
+                entry.update(more)
+                j = _skip(lines, i)
+            out.append(entry)
+        else:
+            out.append(_scalar(item))
+    return out, i
+
+
+def _parse_literal(lines: list[str], i: int, level: int) -> tuple[str, int]:
+    body: list[str] = []
+    inner = None
+    while i < len(lines):
+        raw = lines[i]
+        if not raw.strip():
+            body.append("")
+            i += 1
+            continue
+        ind = _indent(raw)
+        if ind <= level:
+            break
+        if inner is None:
+            inner = ind
+        body.append(raw[inner:])
+        i += 1
+    while body and body[-1] == "":
+        body.pop()
+    return "\n".join(body) + "\n", i
+
+
+def extract_fence(text: str, lang: str = "yaml") -> str:
+    """Return the first fenced block of the given language."""
+    pattern = re.compile(r"^```" + lang + r"\s*$(.*?)^```\s*$", re.M | re.S)
+    m = pattern.search(text.replace("\r\n", "\n"))
+    if not m:
+        raise RecordError(f"no ```{lang} block found")
+    return m.group(1)
+
+
+# --------------------------------------------------------------------------
+# Records
+# --------------------------------------------------------------------------
+
+@dataclass
+class TaskRecord:
+    task_id: str
+    path: str
+    data: dict[str, Any]
+
+    def __getitem__(self, key: str) -> Any:
+        return self.data.get(key)
+
+    @property
+    def status(self) -> str:
+        return str(self.data.get("status") or "")
+
+    @property
+    def depends_on(self) -> list[str]:
+        return list(self.data.get("depends_on") or [])
+
+    @property
+    def consumes(self) -> list[str]:
+        return list(self.data.get("consumes") or [])
+
+    @property
+    def produces(self) -> list[str]:
+        return list(self.data.get("produces") or [])
+
+    @property
+    def blocked_by(self) -> list[str]:
+        return list(self.data.get("blocked_by") or [])
+
+    @property
+    def write_scope(self) -> list[str]:
+        return list(self.data.get("write_scope") or [])
+
+    @property
+    def observes(self) -> list[str]:
+        """The optional declared extension to the derived observation surface.
+
+        A task's *observation surface* is the tree state it must observe stably
+        for its acceptance criteria to hold - the evidence it takes, as opposed
+        to the paths it reads as input or writes as output. Most of that surface
+        is derivable (`graph.observed_surface`); this field exists for the part
+        that is not, so a task can name a tree it watches without pretending to
+        write it or to read it as an input.
+
+        Absent from `SCH_TASK_REQUIRED` and from `EXTENSION_REQUIRED` on purpose:
+        it is an extension a record may carry, not one every record must.
+        """
+        return [str(p).strip() for p in (self.data.get("observes") or []) if str(p).strip()]
+
+    @property
+    def result_paths(self) -> list[str]:
+        """The `.ai/project/results/R-nnn.md` path implied by each `produces` entry.
+
+        **Derived and reported only.** Whether declaring `produces: R` carries an
+        implicit grant to write `R`'s record is an open architecture decision
+        (A4) and this property does not settle it: it computes where the record
+        would have to go, nothing more. `X-04` continues to test the **declared**
+        `write_scope` alone, and `X-09` reports the gap between the two rather
+        than closing it by assumption - LAW-12.
+
+        Positionally aligned with `produces`, so the two may be zipped.
+        """
+        from aief_exec import RESULTS_DIR
+        return [f"{RESULTS_DIR}/{rid}.md" for rid in self.produces]
+
+    @property
+    def effective_write_scope(self) -> list[str]:
+        """`write_scope` union `result_paths` - **displayed, never enforced.**
+
+        The set a task would need in order to publish everything it declares. It
+        is printed by `aief_exec scope` labelled derived-not-granted so the gap
+        is visible; no check compares anything against it, because doing so would
+        pre-empt A4.
+
+        A union over *paths*, not over pattern strings: a result path already
+        matched by a declared pattern is already in the set and adds no pattern
+        to it. `T-001` declares `.ai/project/results/**` and four `produces`, and
+        its effective scope is therefore its declared scope - the gap is zero,
+        which is the answer, not a rounding of it.
+        """
+        from aief_exec import scope as _scope
+        out = list(self.write_scope)
+        for rel in self.result_paths:
+            if rel in out:
+                continue
+            if any(_scope.glob_to_regex(p).match(rel) for p in self.write_scope):
+                continue
+            out.append(rel)
+        return out
+
+    def read_entries(self, kind: str) -> list[dict[str, Any]]:
+        """`kind` in mandatory | optional | dependency."""
+        rs = self.data.get("read_scope") or {}
+        entries = rs.get(kind) or []
+        return [e for e in entries if isinstance(e, dict)]
+
+    @property
+    def forbidden_reads(self) -> list[str]:
+        rs = self.data.get("read_scope") or {}
+        return list(rs.get("forbidden") or [])
+
+    @property
+    def checkpoint(self) -> dict[str, Any]:
+        return dict(self.data.get("checkpoint") or {})
+
+
+@dataclass
+class ResultRecord:
+    result_id: str
+    path: str
+    data: dict[str, Any]
+
+    @property
+    def status(self) -> str:
+        return str(self.data.get("status") or "")
+
+    @property
+    def inputs(self) -> list[dict[str, Any]]:
+        return [e for e in (self.data.get("inputs") or []) if isinstance(e, dict)]
+
+    @property
+    def deliverables(self) -> list[dict[str, Any]]:
+        """VER-009 FIND-Q9-3: the first form pinned only `inputs`, so a result
+        could be published mid-stream, its own deliverables could move under it,
+        and X-06 still called it CURRENT. Deliverables are pinned too."""
+        return [e for e in (self.data.get("deliverables") or []) if isinstance(e, dict)]
+
+    @property
+    def supersedes(self) -> str:
+        return str(self.data.get("supersedes") or "")
+
+    @property
+    def superseded_by(self) -> str:
+        """The successor this record names - the **predecessor's** half of the link.
+
+        VER-009 FIND-Q9-43. Every superseded record in this repository has
+        carried this field since `R-001`, and until now nothing read it: the
+        whole supersession control was driven from the successor's `supersedes`
+        alone, which put the trigger in the hand of the party a tamperer is
+        already editing. Deleting `supersedes: R-011` and its seal from `R-012`
+        returned X-06 to PASS and left `R-011` freely rewritable.
+
+        The link is declared twice, by two records, and the two declarations
+        can be compared. That comparison is what `X-06` now does; this property
+        is the half it was missing.
+
+        `null`, `~` and an absent key all read as the empty string, which means
+        *this record makes no claim* - not *this record claims it has no
+        successor*. The difference matters: X-06 reports the absence as a blind
+        spot rather than treating it as a denial.
+        """
+        return str(self.data.get("superseded_by") or "")
+
+    @property
+    def supersedes_seal(self) -> dict[str, Any]:
+        """`{path, digest}` - the DC-1 of the record this one supersedes, taken at
+        supersession.
+
+        VER-009 FIND-Q9-28. A superseded record is retained unedited, and until
+        this field existed nothing recorded what "unedited" meant, so the only
+        available test was whether the *tree* had moved - which fires on records
+        nobody touched and falls silent on the one that was rewritten. The seal
+        is written by the successor, over the predecessor's whole file, so the
+        evidence is not in the file it protects.
+        """
+        v = self.data.get("supersedes_seal")
+        return dict(v) if isinstance(v, dict) else {}
+
+    @property
+    def affected(self) -> list[str]:
+        declared = list(self.data.get("affected") or [])
+        return declared or [str(e.get("path") or "") for e in self.deliverables]
+
+    @property
+    def conclusion(self) -> str:
+        return str(self.data.get("conclusion") or "")
+
+    @property
+    def produced_by(self) -> dict[str, Any]:
+        return dict(self.data.get("produced_by") or {})
+
+
+@dataclass
+class Index:
+    path: str
+    sections: dict[str, list[str]] = field(default_factory=dict)
+
+    @property
+    def ids(self) -> list[str]:
+        return [i for ids in self.sections.values() for i in ids]
+
+    def state_of(self, task_id: str) -> str | None:
+        from aief_exec import STATE_HEADINGS
+        for heading, ids in self.sections.items():
+            if task_id in ids:
+                return STATE_HEADINGS.get(heading)
+        return None
+
+
+def parse_index(text: str, path: str) -> Index:
+    """EXECUTION_ARCHITECTURE.md section 4 / AIEF-AMD-014 AMD-49 `index_grammar`:
+    level-2 headings each followed by one identifier per line, nothing else on
+    that line."""
+    idx = Index(path=path)
+    heading: str | None = None
+    in_fence = False
+    for raw in text.replace("\r\n", "\n").split("\n"):
+        line = raw.rstrip()
+        if line.startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if line.startswith("## "):
+            heading = line[3:].strip()
+            idx.sections.setdefault(heading, [])
+            continue
+        if heading is None or not line.strip():
+            continue
+        if line.startswith("#") or line.startswith(">") or line.startswith("|"):
+            continue
+        token = line.strip()
+        if TASK_ID.match(token):
+            idx.sections[heading].append(token)
+        elif heading in idx.sections and idx.sections[heading] is not None:
+            # Prose is permitted only before the first identifier of a section;
+            # once identifiers start, the grammar is one id per line.
+            if idx.sections[heading]:
+                raise RecordError(
+                    f"index line carries more than one identifier or trailing "
+                    f"text under heading {heading!r}: {token!r}"
+                )
+    return idx
+
+
+def _read(repo: Path, rel: str) -> str:
+    return (repo / rel).read_text(encoding="utf-8")
+
+
+def load_index(repo: Path) -> Index:
+    from aief_exec import INDEX_PATH
+    return parse_index(_read(repo, INDEX_PATH), INDEX_PATH)
+
+
+def load_tasks(repo: Path) -> dict[str, TaskRecord]:
+    from aief_exec import TASKS_DIR
+    out: dict[str, TaskRecord] = {}
+    d = repo / TASKS_DIR
+    if not d.is_dir():
+        return out
+    for p in sorted(d.glob("T-*.md")):
+        data = parse_block(extract_fence(p.read_text(encoding="utf-8")))
+        tid = str(data.get("task_id") or "")
+        if not TASK_ID.match(tid):
+            raise RecordError(f"{p.name}: task_id {tid!r} is not T-nnn")
+        if tid in out:
+            raise RecordError(f"duplicate task_id {tid}")
+        rel = f"{TASKS_DIR}/{p.name}"
+        out[tid] = TaskRecord(task_id=tid, path=rel, data=data)
+    return out
+
+
+def load_results(repo: Path) -> dict[str, ResultRecord]:
+    from aief_exec import RESULTS_DIR
+    out: dict[str, ResultRecord] = {}
+    d = repo / RESULTS_DIR
+    if not d.is_dir():
+        return out
+    for p in sorted(d.glob("R-*.md")):
+        data = parse_block(extract_fence(p.read_text(encoding="utf-8")))
+        rid = str(data.get("result_id") or "")
+        if not RESULT_ID.match(rid):
+            raise RecordError(f"{p.name}: result_id {rid!r} is not R-nnn")
+        if rid in out:
+            raise RecordError(f"duplicate result_id {rid}")
+        rel = f"{RESULTS_DIR}/{p.name}"
+        out[rid] = ResultRecord(result_id=rid, path=rel, data=data)
+    return out
+
+
+def file_dc1(repo: Path, rel: str) -> str | None:
+    """DC-1 of a working-tree path, or None if absent."""
+    p = repo / rel
+    if not p.is_file():
+        return None
+    return dc1_digest(p.read_bytes())
+
+
+def roster(repo: Path) -> dict[str, bool]:
+    """Role -> is it assigned. `TPL-task-package.md` acceptance condition 1: the
+    role must appear in project/ROSTER.md and must not be UNASSIGNED, because
+    'a role marked UNASSIGNED cannot be dispatched'."""
+    p = repo / ".ai/project/ROSTER.md"
+    if not p.is_file():
+        # Absence is reported by X-01 as a conformance failure rather than
+        # crashing the plan; an empty roster constrains nothing.
+        return {}
+    text = p.read_text(encoding="utf-8")
+    out: dict[str, bool] = {}
+    for raw in text.replace("\r\n", "\n").split("\n"):
+        line = raw.strip()
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        role = cells[0].strip("`* ")
+        if not role or role.lower() in ("role", "---") or set(role) <= {"-"}:
+            continue
+        out[role] = "UNASSIGNED" not in cells[2].upper()
+    return out
+
+
+def open_item_ids(repo: Path) -> set[str]:
+    """Identifiers listed under the open sections of project/OPEN_ITEMS.md.
+    `Closed` is excluded - a closed item does not block."""
+    text = _read(repo, ".ai/project/OPEN_ITEMS.md")
+    out: set[str] = set()
+    heading = None
+    for raw in text.replace("\r\n", "\n").split("\n"):
+        line = raw.strip()
+        if line.startswith("## "):
+            heading = line[3:].strip()
+            continue
+        if heading is None or heading.lower() == "closed" or not line:
+            continue
+        if line.startswith(("#", ">", "|", "*", "-")):
+            continue
+        if re.fullmatch(r"[A-Z][A-Za-z0-9-]*(…[A-Z0-9-]+)?", line):
+            out.add(line)
+    return out
