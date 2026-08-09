@@ -496,16 +496,44 @@ def x06_result_currency(repo: Path) -> dict[str, Any]:
         # pointing at a path that does not exist with nothing reporting it.
         # A declared seal must name a result record, and it must name the file
         # that record is actually in.
+        #
+        # VER-010 F-1 and F-2. The guard was `if _graph.seal_path(result)`, and
+        # that function returns "" for a declared path that canonicalises to
+        # nothing as well as for no declaration at all. So `./`, `.`, `..`,
+        # `/`, `//`, `../..` and whitespace-only were read as "no seal here" and
+        # skipped the check in silence - the V-2 attack, reproduced inside the
+        # V-2 repair. Declaredness is now read from the raw declaration and from
+        # the block, neither of which any canonicalisation can empty.
+        declared_raw = _graph.seal_declared(result)
         declared_path = _graph.seal_path(result)
-        if declared_path and not link.sealed:
+        if _graph.seal_declared_block(result) and not declared_raw:
             details.append(
-                f"{rid}: pins a supersedes_seal over {declared_path!r}, which "
-                f"names no result record - a result file is "
-                f"{RESULTS_DIR}/R-nnn.md and this is not one. The block carries "
-                f"a digest and establishes no link, so it reads as a seal and "
-                f"protects nothing (V-2). Repair: correct "
+                f"{rid}: carries a supersedes_seal block that declares no path "
+                f"- {sorted(result.supersedes_seal)} and no usable `path`. A "
+                f"seal names the record it seals; this one names nothing, so "
+                f"its digest is over an unstated subject and nothing can be "
+                f"compared against it (F-2). Repair: set "
                 f"{rid}.supersedes_seal.path, or remove the block if {rid} "
                 f"supersedes nothing"
+            )
+        elif declared_raw and not link.sealed:
+            details.append(
+                f"{rid}: pins a supersedes_seal over {declared_raw!r}"
+                + (
+                    f" (canonically {declared_path!r})"
+                    if declared_path and declared_path != declared_raw
+                    else ""
+                )
+                + f", which names no result record - a result file is "
+                f"{RESULTS_DIR}/R-nnn.md and this is not one. The block carries "
+                f"a digest and establishes no link, so it reads as a seal and "
+                f"protects nothing (V-2, F-1). A path is not canonical if it "
+                f"needs `..` resolved, starts at the filesystem root, or "
+                f"differs in case - each names a different file to a reader, or "
+                f"a different file from where the reader stands. Repair: set "
+                f"{rid}.supersedes_seal.path to "
+                f"{RESULTS_DIR}/{link.declared or 'R-nnn'}.md, or remove the "
+                f"block if {rid} supersedes nothing"
             )
         elif link.sealed in results and results[link.sealed].path != declared_path:
             details.append(

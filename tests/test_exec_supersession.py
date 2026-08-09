@@ -265,47 +265,159 @@ class TestASealMayNotNameNothingQuietly:
     the defect was never strictness - it was silence.
     """
 
-    @pytest.mark.parametrize(
-        "spelling",
-        [
-            "./.ai/project/results/R-101.md",
-            ".ai/project/results//R-101.md",
-            ".ai/project/results/../results/R-101.md",
-            ".ai\\project\\results\\R-101.md",
-        ],
-    )
-    def test_separator_noise_still_names_the_predecessor(self, repo, spelling):
+    #: Spellings that name the predecessor unambiguously, whatever the
+    #: separator noise. These resolve, because the alternative - voiding them -
+    #: is what V-2 was.
+    #:
+    #: A pure-backslash path is **deliberately absent** from this list.
+    #: `VER-010` F-5: backslash normalisation pre-dates the V-2 repair - V-2's
+    #: own text says the old code "normalised backslashes" - so a parametrised
+    #: case for it passes against the pre-fix implementation and constrains
+    #: nothing this class exists to constrain. It is retained as behaviour
+    #: coverage in `test_backslashes_normalise_which_pre_dates_this_repair`,
+    #: named for what it actually is.
+    RESOLVING = [
+        "./.ai/project/results/R-101.md",
+        "././.ai/project/results/R-101.md",
+        ".ai/project/results//R-101.md",
+        ".ai/project/./results/R-101.md",
+        "  .ai/project/results/R-101.md  ",
+    ]
+
+    #: Spellings that are declared, name no result record, and must therefore
+    #: **fail** - never resolve, and never pass in silence. Four families:
+    #: canonicalises to nothing (F-1), traversal (F-3, F-4), absolute (F-3),
+    #: and simply wrong (case, directory, extension, id form).
+    REJECTED = [
+        # F-1: declared, canonicalises to the empty string.
+        "./", ".", "..", "/", "//", "../..", "././", "./.",
+        # F-3/F-4: traversal - `..` is not resolved, so none of these names
+        # the file it appears to. The third is the reviewer-deception case:
+        # a human reads `R-101.md` and the old code resolved `R-100`.
+        ".ai/project/results/../results/R-101.md",
+        "../.ai/project/results/R-101.md",
+        ".ai/project/results/R-101.md/../R-100.md",
+        "a/../.ai/project/results/R-101.md",
+        # F-3: absolute - what these name depends on where the reader stands.
+        "/.ai/project/results/R-101.md",
+        "//.ai/project/results/R-101.md",
+        "\\.ai\\project\\results\\R-101.md",
+        # Plainly not the required form.
+        ".ai/project/Results/R-101.md",
+        ".ai/project/results/r-101.md",
+        ".ai/project/results/R-101.MD",
+        ".ai/project/results/old/R-101.md",
+        ".ai/project/results/NOTES.md",
+        ".ai/project/results/R-1.md",
+        "notes/R-101.md",
+        "R-101.md",
+    ]
+
+    @staticmethod
+    def _spell(repo, spelling):
         edit(repo, "R-102", "  path:   .ai/project/results/R-101.md",
              f"  path:   {spelling}")
+
+    def test_the_canonical_path_is_a_link(self, repo):
+        """The control. Everything below is measured against this."""
+        results = records.load_results(repo)
+        assert graph.seal_target(results["R-102"]) == "R-101"
+        assert x06(repo)["status"] == "PASS"
+
+    @pytest.mark.parametrize("spelling", RESOLVING)
+    def test_separator_noise_still_names_the_predecessor(self, repo, spelling):
+        self._spell(repo, spelling)
         results = records.load_results(repo)
         assert graph.seal_target(results["R-102"]) == "R-101"
         assert graph.successors_of(results, "R-101") == ["R-102"]
         assert x06(repo)["status"] == "PASS", x06(repo)["details"]
 
-    @pytest.mark.parametrize(
-        "spelling",
-        [
-            ".ai/project/Results/R-101.md",
-            ".ai/project/results/r-101.md",
-            ".ai/project/results/R-101.MD",
-            "notes/R-101.md",
-            "R-101.md",
-        ],
-    )
-    def test_a_seal_that_names_no_record_fails(self, repo, spelling):
-        edit(repo, "R-102", "  path:   .ai/project/results/R-101.md",
-             f"  path:   {spelling}")
+    def test_backslashes_normalise_which_pre_dates_this_repair(self, repo):
+        """`VER-010` F-5, named honestly.
+
+        Backslash normalisation was in the code V-2 was raised against, so this
+        asserts behaviour that the V-2 repair did not introduce and does not
+        protect. Kept because the behaviour is real and worth pinning; kept
+        **out** of `RESOLVING` because a test that passes against the pre-fix
+        implementation is not evidence for the fix, and counting it as such is
+        the overstated-evidence defect this chain exists to stop.
+        """
+        self._spell(repo, ".ai\\project\\results\\R-101.md")
+        assert graph.seal_target(records.load_results(repo)["R-102"]) == "R-101"
+        assert x06(repo)["status"] == "PASS"
+
+    @pytest.mark.parametrize("spelling", REJECTED)
+    def test_a_declared_path_that_names_no_record_fails(self, repo, spelling):
+        """Every rejection is a **failure**, never a silence.
+
+        `VER-010` F-1 is the whole point of asserting the verdict rather than
+        the absence of a link: before this, eight of these spellings produced
+        no link *and no detail*, which reads to every consumer of
+        `X-06["status"]` as "nothing is wrong here".
+        """
+        self._spell(repo, spelling)
+        assert graph.seal_target(records.load_results(repo)["R-102"]) == ""
         fails_naming(repo, "names no result record")
 
+    def test_a_declared_path_is_never_read_as_no_declaration(self, repo):
+        """F-1 at the seam where it lived: `seal_path` returning `""` must not
+        be readable as "this record declared nothing"."""
+        self._spell(repo, "./")
+        result = records.load_results(repo)["R-102"]
+        assert graph.seal_path(result) == ""          # canonicalises to nothing
+        assert graph.seal_declared(result) == "./"    # but it WAS declared
+        assert graph.seal_declared_block(result)
+
+    def test_a_seal_block_with_no_path_at_all_fails(self, repo):
+        """`VER-010` F-2. Delete the `path:` line, keep `digest:`. Three line
+        deletions across two files was a **smaller** diff than the residual
+        §6.4 discloses, and it was silent."""
+        edit(repo, "R-102", "  path:   .ai/project/results/R-101.md\n")
+        result = records.load_results(repo)["R-102"]
+        assert graph.seal_declared(result) == ""
+        assert graph.seal_declared_block(result)
+        fails_naming(repo, "declares no path")
+
+    @pytest.mark.parametrize("blank", ["", "   ", "null", "~", "''"])
+    def test_a_seal_path_that_parses_to_nothing_fails(self, repo, blank):
+        """The same hole reached through the parser rather than the editor: a
+        `path:` line whose value is blank, `null` or empty quotes."""
+        self._spell(repo, blank)
+        fails_naming(repo, "declares no path")
+
+    def test_a_record_with_no_seal_block_is_not_accused(self, repo):
+        """The converse, so the rules above cannot be satisfied by failing
+        everything. `R-001`, `R-007` and `R-008` carry no seal block and
+        pre-date the convention; they must stay reported, never accused."""
+        drop_seal(repo, "R-101", "R-100")
+        result = records.load_results(repo)["R-101"]
+        assert not graph.seal_declared_block(result)
+        res = x06(repo)
+        assert not any("declares no path" in d for d in res["details"]), res["details"]
+        assert not any("names no result record" in d for d in res["details"])
+
     def test_the_two_character_edit_no_longer_hides_a_rewrite(self, repo):
-        """V-2's attack, end to end. Void the seal path, delete `supersedes`,
-        delete the back-link, then rewrite the predecessor. The auditor measured
-        `X-06 PASS`, 0 details, full check byte-identical to baseline."""
-        edit(repo, "R-102", "  path:   .ai/project/results/R-101.md",
-             "  path:   .ai/project/Results/R-101.md")
+        """V-2's attack, end to end - **including the rewrite it exists for**.
+
+        `VER-010` F-6: the first form of this test stopped after the three
+        edits and never appended to the predecessor, so its name and docstring
+        claimed a rewrite it did not perform. The assertion was sound and the
+        description was not, which is the exact class FIND-Q9-46 and V-1 were.
+        The rewrite is performed now and the test is named for what it does.
+
+        Measured by the independent auditor before the F-1 repair: `X-06 PASS`,
+        0 details, detail-set-identical to a clean run, with `R-102` still
+        carrying `R-101`'s correct published digest.
+        """
+        self._spell(repo, "./")
         edit(repo, "R-102", "supersedes:  R-101\n")
         edit(repo, "R-101", "superseded_by: R-102\n")
-        fails_naming(repo, "names no result record")
+        append(repo, "R-101")
+        res = fails_naming(repo, "names no result record")
+        # The seal block is still there, still correct, and now says so.
+        seal = records.load_results(repo)["R-102"].supersedes_seal
+        assert seal.get("digest") and seal.get("path") == "./"
+        assert res["status"] == "FAIL"
 
     def test_a_seal_pointing_away_from_the_records_file_fails(self, repo):
         """V-4. Renaming the predecessor's file left the seal naming a path

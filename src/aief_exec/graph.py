@@ -122,22 +122,82 @@ def canonical_path(raw: str) -> str:
     answer to a non-canonical spelling is to report it (`X-06`), not to guess at
     it. What must never happen again is neither - resolving nothing and saying
     nothing.
+
+    **`VER-010` F-3 and F-4: `..` is no longer resolved, and a leading `/` is
+    no longer discarded.** The first form of this function popped a `..` off the
+    accumulated path and dropped a leading empty segment, which meant it
+    *guessed* at two families it had no business guessing at. §6.4 requires the
+    seal path to be **exactly** `<RESULTS_DIR>/<R-NNN>.md`, and neither family
+    is:
+
+    * `../.ai/project/results/R-013.md` and `/.ai/…` do not name that file
+      relative to the repository root - what they name depends on where the
+      reader stands - yet both minted a link. That is the same guessing the
+      paragraph above refuses to do for case, decided the other way in the same
+      function.
+    * `.ai/project/results/R-101.md/../R-100.md` resolved to `R-100` and passed
+      while a reviewer reads `R-101.md`. A seal whose declared subject and
+      actual subject differ *to a human* is the failure mode this whole section
+      exists to prevent.
+
+    So `..` is kept as a literal segment and a leading `/` is preserved. Neither
+    can then match the required prefix and result-id form, so both yield no
+    link - and `X-06` **fails** on a declared path that yields no link, which is
+    the half F-1 was missing. Collapsing is confined to what cannot change which
+    file is named: separators, `.` segments and surrounding whitespace.
     """
-    parts: list[str] = []
-    for seg in raw.replace("\\", "/").strip().split("/"):
-        if seg in ("", "."):
-            continue
-        if seg == "..":
-            if parts:
-                parts.pop()
-            continue
-        parts.append(seg)
-    return "/".join(parts)
+    norm = raw.replace("\\", "/").strip()
+    lead = "/" if norm.startswith("/") else ""
+    parts = [seg for seg in norm.split("/") if seg not in ("", ".")]
+    return lead + "/".join(parts)
+
+
+def seal_declared(result: records.ResultRecord) -> str:
+    """The **raw** declared `supersedes_seal.path`. `""` only if none is declared.
+
+    `VER-010` F-1, MAJOR. `seal_path` returned `""` for two different facts -
+    *no path was declared* and *a path was declared and canonicalises to
+    nothing* - and `X-06` used that one value as its declaredness predicate. So
+    the whole family `./`, `.`, `..`, `/`, `//`, `../..`, `././`, `./.` and
+    whitespace-only was treated as "no seal declared" and skipped the check
+    silently. Voiding a seal path with two characters, deleting `supersedes` and
+    deleting the predecessor's `superseded_by` then rewrote a superseded record
+    at `X-06 PASS` with **zero details** - detail-set-identical to a clean run,
+    while the record retained a seal block bearing the predecessor's correct
+    published digest. That is the V-2 attack reproduced inside the repair for
+    it, which is exactly what V-2 itself was.
+
+    The two facts are two functions now. This one answers *did the record
+    declare a path at all*; `seal_path` answers *what does it canonicalise to*;
+    `seal_target` answers *what record does it name*. `X-06` guards on this one,
+    so a declaration that resolves to nothing is a failure and never a silence.
+    """
+    return str(result.supersedes_seal.get("path") or "").strip()
+
+
+def seal_declared_block(result: records.ResultRecord) -> bool:
+    """Whether the record carries a `supersedes_seal` block at all.
+
+    `VER-010` F-2. The same defect from the other side: deleting the `path:`
+    line while leaving `digest:` in place left `seal_declared` empty, so the
+    F-1 guard could not fire either. Three line-deletions across two files, a
+    rewritten predecessor, and `X-06 PASS` - a **smaller** diff than the
+    residual §6.4 discloses. A seal block that carries anything must name the
+    record it seals.
+
+    `R-001`, `R-007` and `R-008` carry no block at all and are unaffected.
+    """
+    return bool(result.supersedes_seal)
 
 
 def seal_path(result: records.ResultRecord) -> str:
-    """The declared `supersedes_seal.path`, canonicalised. `""` if none."""
-    raw = str(result.supersedes_seal.get("path") or "").strip()
+    """The declared `supersedes_seal.path`, canonicalised.
+
+    `""` means *either* nothing was declared *or* what was declared
+    canonicalises to nothing. Callers deciding whether a record made a
+    declaration must use `seal_declared` - see F-1 there.
+    """
+    raw = seal_declared(result)
     return canonical_path(raw) if raw else ""
 
 

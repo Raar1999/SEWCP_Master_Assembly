@@ -330,28 +330,46 @@ The seal path must be exactly `.ai/project/results/R-nnn.md`. `_corroborates` ma
 **basename**, which was tolerable while the match only confirmed a link something else had
 established; it establishes links now, so `notes/R-011.md` mints none.
 
-**And a seal may not name nothing quietly — `V-2`, `V-4`.** The independent verification of
-this repair found the first form of the rule above enforced by *silence*: the path was
-normalised for backslashes and then compared to a literal prefix, so seven spellings of a
-**real, existing** predecessor file — `./.ai/…`, `…/results//R-013.md`,
-`…/../results/R-013.md`, and case variants — resolved to no link, and nothing reported it.
-Inserting two characters into a seal path was therefore a way to delete the seal limb while
-leaving a block that reads as a correct, digested seal — the exact residue the table above
-blesses as sufficient. With `supersedes` and the back-link also removed it gave a silent
-rewrite at `X-06 PASS`, byte-identical to a clean run.
+**And a seal may not name nothing quietly — `V-2`, `V-4`, then `F-1`…`F-4`.** Independent
+verification found the rule above enforced by *silence*: the path was normalised for
+backslashes and compared to a literal prefix, so several spellings of a **real, existing**
+predecessor file resolved to no link and nothing reported it. Inserting two characters into a
+seal path was a way to delete the seal limb while leaving a block that reads as a correct,
+digested seal. **A second verification found the first repair had reproduced the same defect
+one level in** — canonicalisation mapped a *declared* path to the empty string, and the check
+read "canonicalises to nothing" and "nothing was declared" from the same value, so the whole
+family `./ . .. / // ../.. ././ ./.` and whitespace-only skipped the check in silence. The
+attack ran end to end on the real records at `X-06 PASS` with **zero details**.
 
-Two rules close it, and the second is the one that matters:
+Three rules close it. The third is the one both defects turned on:
 
-- Separator noise is **canonicalised**, so a lawfully-spelled path is a link. Case is not
-  folded: `…/Results/…` is a different declaration and guessing at it would be `LAW-12`.
-- A `supersedes_seal.path` that is declared and names **no result record** is a **FAIL**, and
-  a path that names a record which lives in a different file is a **FAIL**. The defect was
-  never strictness. It was that the strict answer was given without saying so.
+- **Separator noise is canonicalised**, so a lawfully-spelled path is a link: `./`, `//`,
+  interior `.`, backslashes and surrounding whitespace. Collapsing is confined to what cannot
+  change *which file is named*.
+- **`..` is not resolved and a leading `/` is not discarded** (`F-3`, `F-4`). Both *guess*:
+  `../.ai/…` and `/.ai/…` name a file that depends on where the reader stands, and
+  `…/results/R-101.md/../R-100.md` resolved to `R-100` while a reviewer reads `R-101.md`.
+  The paragraph above refuses to guess at case; refusing for case and guessing for traversal
+  in the same function was the inconsistency. They yield no link, and no link that is
+  declared is silent.
+- **Declaredness is read from the declaration, never from its canonical form** (`F-1`, `F-2`).
+  A `supersedes_seal.path` that is declared and names no result record is a **FAIL**; a seal
+  block that declares no usable path at all is a **FAIL**; a path naming a record that lives
+  in a different file is a **FAIL**. `graph.seal_declared` answers *was a path declared*,
+  `graph.seal_path` answers *what does it canonicalise to*, and `graph.seal_target` answers
+  *what record does it name*. One value cannot carry two facts again.
 
-That restores the property this section claims — the two fields cannot be removed
-independently without one of them becoming visible — as an enforced rule rather than an
-assertion. `tests/test_exec_supersession.py::TestASealMayNotNameNothingQuietly` runs all
-seven spellings and the auditor's end-to-end attack.
+The defect was never strictness. Twice, it was that the strict answer was given without
+saying so.
+
+That makes the property this section claims — the two fields cannot be removed independently
+without one of them becoming visible — an **enforced rule** rather than an assertion. It was
+an assertion when this paragraph first claimed it, and the claim was false.
+
+`tests/test_exec_supersession.py::TestASealMayNotNameNothingQuietly` is **40 tests**: 5
+resolving spellings, 23 rejected spellings across four families, the backslash case named for
+pre-dating this repair rather than counted as evidence for it, both no-path forms, the F-1
+seam itself, the not-accused converse, the end-to-end attack including the rewrite, and V-4.
 
 **Why the seal limb is kept and not deleted.** Mutant `MU30` — deleting the seal-path limb —
 survived the pass-6 suite, and the audit read that as evidence the limb should go. Deleting
