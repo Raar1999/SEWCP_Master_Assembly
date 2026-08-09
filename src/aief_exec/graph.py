@@ -186,8 +186,51 @@ def seal_declared_block(result: records.ResultRecord) -> bool:
     record it seals.
 
     `R-001`, `R-007` and `R-008` carry no block at all and are unaffected.
+
+    **`VER-011` G-1, MAJOR - the same defect a fourth time, and the reason this
+    reads the raw value.** The first form of this function was
+    `bool(result.supersedes_seal)`, and `ResultRecord.supersedes_seal` coerces
+    anything that is not a mapping to `{}` (`records.py`). So `{}` meant *no
+    block* **and** *a block that did not parse as a mapping*, and both the F-1
+    and the F-2 guard were skipped in silence for the second case - the identical
+    two-facts-one-value defect those guards were built to close.
+
+    It is not theoretical and it is not exotic. Writing the seal in the
+    repository's **own** sequence idiom - the `- path:` / `digest:` shape every
+    `inputs:` and `deliverables:` block in every record already uses - together
+    with deleting `supersedes` and the predecessor's `superseded_by`, rewrote
+    `R-013` on the live records at `X-06 PASS` with a detail set **byte-identical
+    to a clean run**, while `R-014` still displayed `R-013`'s correct published
+    digest to any human reading it. Same cost as F-1: three edits, two files.
+
+    Declaredness is therefore read from the parsed value **before coercion**. A
+    block that is present and not a mapping is declared *and* malformed, which is
+    two failures' worth of information and neither of them silence.
     """
-    return bool(result.supersedes_seal)
+    return seal_block_raw(result) not in (None, "", [], {})
+
+
+def seal_block_raw(result: records.ResultRecord) -> Any:
+    """The `supersedes_seal` value exactly as parsed, before any coercion.
+
+    `VER-011` G-1. `ResultRecord.supersedes_seal` returns `{}` for a block that
+    is not a mapping, which is the right shape for a caller that wants to read
+    `path` and `digest` and the wrong one for a caller asking *did this record
+    declare a seal at all*. Those are the two questions F-1 already separated one
+    level up; this separates them one level down.
+    """
+    return result.data.get("supersedes_seal")
+
+
+def seal_block_malformed(result: records.ResultRecord) -> bool:
+    """A `supersedes_seal` that is declared but is not a `{path, digest}` mapping.
+
+    Declared, so it is not silence; not a mapping, so nothing can be read out of
+    it. `X-06` fails and names the shape it found.
+    """
+    return seal_declared_block(result) and not isinstance(
+        seal_block_raw(result), dict
+    )
 
 
 def seal_path(result: records.ResultRecord) -> str:

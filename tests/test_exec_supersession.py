@@ -33,6 +33,8 @@ import pytest
 
 from aief_exec import checks, graph, records
 
+REPO = Path(__file__).resolve().parents[1]
+
 BODY = (
     "# {rid}\n\n"
     "```yaml\n"
@@ -281,7 +283,12 @@ class TestASealMayNotNameNothingQuietly:
         "././.ai/project/results/R-101.md",
         ".ai/project/results//R-101.md",
         ".ai/project/./results/R-101.md",
-        "  .ai/project/results/R-101.md  ",
+        # Quoted, deliberately. `VER-011` C4: an *unquoted* padded scalar is
+        # stripped by the record parser before any code here sees it, so it
+        # passes against the pre-fix implementation and constrains nothing -
+        # the F-5 defect, reintroduced by its own repair. A quoted scalar is
+        # the only spelling that actually reaches `canonical_path`'s `.strip()`.
+        "'  .ai/project/results/R-101.md  '",
     ]
 
     #: Spellings that are declared, name no result record, and must therefore
@@ -427,6 +434,92 @@ class TestASealMayNotNameNothingQuietly:
             repo / ".ai/project/results/R-101-archived.md"
         )
         fails_naming(repo, "R-101 is at", "not reconciled")
+
+
+class TestASealBlockThatIsNotAMappingIsNotNoSealBlock:
+    """`VER-011` G-1 - the two-facts-one-value defect, found a fourth time.
+
+    `ResultRecord.supersedes_seal` coerces anything that is not a mapping to
+    `{}`, and `seal_declared_block` read `bool({})`. So `{}` meant *no block* and
+    *a block that did not parse as a mapping*, and both the F-1 and the F-2
+    guard - built to close exactly this shape of defect one level up - skipped
+    the malformed case in silence.
+
+    The attack needs no exotic syntax. The **sequence** form `- path:` /
+    `digest:` is the idiom every `inputs:` and `deliverables:` block in every
+    record in this repository already uses, so it is the shape a careless author
+    reaches for and the shape a tamperer can claim was a mistake. On the live
+    records it rewrote `R-013` at `X-06 PASS` with a detail set byte-identical to
+    a clean run, while `R-014` still displayed `R-013`'s correct published digest
+    to a human reader.
+
+    Declaredness is read from the parsed value before coercion now, so a
+    malformed block is declared **and** malformed - two failures' worth of
+    information, and neither of them silence.
+    """
+
+    SEQUENCE = (
+        "supersedes_seal:\n"
+        "    - path:   .ai/project/results/R-100.md\n"
+        "      digest: {d}\n"
+    )
+
+    def _malform(self, repo, replacement):
+        body = (repo / ".ai/project/results/R-101.md").read_text(encoding="utf-8")
+        digest = [ln for ln in body.splitlines() if ln.startswith("  digest: ")][0]
+        edit(repo, "R-101",
+             "supersedes_seal:\n"
+             "  path:   .ai/project/results/R-100.md\n" + digest + "\n",
+             replacement.format(d=digest.split(": ", 1)[1]))
+
+    def test_the_sequence_form_is_rejected_not_ignored(self, repo):
+        self._malform(repo, self.SEQUENCE)
+        result = records.load_results(repo)["R-101"]
+        assert result.supersedes_seal == {}          # coerced, as before
+        assert graph.seal_declared_block(result)     # but still *declared*
+        assert graph.seal_block_malformed(result)
+        fails_naming(repo, "not a {path, digest} mapping", "parsed as list")
+
+    @pytest.mark.parametrize(
+        "shape",
+        [
+            "supersedes_seal: .ai/project/results/R-100.md\n",
+            "supersedes_seal: 12345\n",
+            "supersedes_seal:\n    - .ai/project/results/R-100.md\n",
+        ],
+    )
+    def test_any_non_mapping_shape_is_rejected(self, repo, shape):
+        self._malform(repo, shape)
+        fails_naming(repo, "not a {path, digest} mapping")
+
+    def test_the_full_attack_through_a_malformed_block_is_blocked(self, repo):
+        """G-1 end to end: reshape the block, delete `supersedes`, delete the
+        back-link, rewrite the predecessor. Measured before the repair as
+        `X-06 PASS` with a detail set identical to a clean run."""
+        self._malform(repo, self.SEQUENCE)
+        edit(repo, "R-101", "supersedes:  R-100\n")
+        edit(repo, "R-100", "superseded_by: R-101\n")
+        append(repo, "R-100")
+        fails_naming(repo, "not a {path, digest} mapping")
+
+    def test_a_record_with_no_block_is_still_not_accused(self, repo):
+        """The converse. `R-001`, `R-007` and `R-008` pre-date the seal
+        convention and carry no block; the rule must not reach them."""
+        drop_seal(repo, "R-101", "R-100")
+        result = records.load_results(repo)["R-101"]
+        assert not graph.seal_declared_block(result)
+        assert not graph.seal_block_malformed(result)
+        assert not any(
+            "not a {path, digest} mapping" in d for d in x06(repo)["details"]
+        )
+
+    def test_the_live_records_carry_well_formed_blocks(self):
+        """Asserted against the real tree, because G-1 was demonstrated there
+        and a synthetic-only regression test would not have caught it."""
+        for rid, result in records.load_results(REPO).items():
+            assert not graph.seal_block_malformed(result), rid
+            if graph.seal_declared_block(result):
+                assert isinstance(graph.seal_block_raw(result), dict), rid
 
 
 class TestASealOnlyLinkIsStillGovernedByTheEpoch:

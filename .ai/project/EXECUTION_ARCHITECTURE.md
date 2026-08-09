@@ -352,24 +352,41 @@ Three rules close it. The third is the one both defects turned on:
   The paragraph above refuses to guess at case; refusing for case and guessing for traversal
   in the same function was the inconsistency. They yield no link, and no link that is
   declared is silent.
-- **Declaredness is read from the declaration, never from its canonical form** (`F-1`, `F-2`).
-  A `supersedes_seal.path` that is declared and names no result record is a **FAIL**; a seal
-  block that declares no usable path at all is a **FAIL**; a path naming a record that lives
-  in a different file is a **FAIL**. `graph.seal_declared` answers *was a path declared*,
-  `graph.seal_path` answers *what does it canonicalise to*, and `graph.seal_target` answers
-  *what record does it name*. One value cannot carry two facts again.
+- **Declaredness is read from the declaration, never from its canonical form** (`F-1`, `F-2`),
+  and **never from a coerced one** (`G-1`). A `supersedes_seal.path` that is declared and
+  names no result record is a **FAIL**; a seal block that declares no usable path is a
+  **FAIL**; a block that is present but is not a `{path, digest}` mapping is a **FAIL**; a
+  path naming a record that lives in a different file is a **FAIL**. Four functions, four
+  questions: `graph.seal_block_raw` gives the value before coercion,
+  `graph.seal_declared_block` answers *was a block declared*, `graph.seal_declared` answers
+  *was a path declared*, `graph.seal_path` answers *what does it canonicalise to*, and
+  `graph.seal_target` answers *what record does it name*.
 
-The defect was never strictness. Twice, it was that the strict answer was given without
-saying so.
+**The defect was never strictness — it was that the strict answer was given without saying
+so. That has now happened four times, at four different levels of the same value.** `F-1` was
+a canonical form that meant both "empty" and "absent". `G-1` was a *coerced* form that meant
+both "not a mapping" and "no block": `ResultRecord.supersedes_seal` returns `{}` for either,
+and the guard read `bool({})`. Writing the seal in this repository's **own** `- path:` /
+`digest:` sequence idiom — the shape every `inputs:` and `deliverables:` block already uses —
+rewrote `R-013` on the live records at `X-06 PASS` with a detail set byte-identical to a clean
+run, while `R-014` still displayed `R-013`'s correct published digest to a human reader.
 
-That makes the property this section claims — the two fields cannot be removed independently
-without one of them becoming visible — an **enforced rule** rather than an assertion. It was
-an assertion when this paragraph first claimed it, and the claim was false.
+So the claim this section is entitled to make is narrow, and is stated narrowly: **each of the
+five questions above is now answered by its own function, and every negative answer is a
+reported failure.** The stronger sentence that stood here — that the two fields cannot be
+removed independently without one becoming visible, asserted as an *enforced rule* — has been
+falsified twice by the two audits that followed it, once when it was an assertion and once
+when it was thought to be enforced. It is not restated. What replaces it is §6.5: a control
+whose evidence lives in mutable records the tampering party edits will keep producing this
+shape of defect, and the answer is the ledger, not a fifth adjective.
 
-`tests/test_exec_supersession.py::TestASealMayNotNameNothingQuietly` is **40 tests**: 5
-resolving spellings, 23 rejected spellings across four families, the backslash case named for
-pre-dating this repair rather than counted as evidence for it, both no-path forms, the F-1
-seam itself, the not-accused converse, the end-to-end attack including the rewrite, and V-4.
+`tests/test_exec_supersession.py` carries **78 tests** across three classes, the figure
+`pytest --collect-only` reports and not an estimate:
+`TestASealMayNotNameNothingQuietly` **40** — 1 control, 5 resolving spellings, 1 backslash
+case named for pre-dating this repair rather than counted as evidence for it, 23 rejected
+spellings across four families, the F-1 seam, 1 deleted-path form, 5 parses-to-nothing forms,
+the not-accused converse, the end-to-end attack including the rewrite, and V-4;
+`TestASealBlockThatIsNotAMappingIsNotNoSealBlock` **7**; and 31 in the M1–M10 negative suite.
 
 **Why the seal limb is kept and not deleted.** Mutant `MU30` — deleting the seal-path limb —
 survived the pass-6 suite, and the audit read that as evidence the limb should go. Deleting

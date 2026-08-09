@@ -506,7 +506,19 @@ def x06_result_currency(repo: Path) -> dict[str, Any]:
         # the block, neither of which any canonicalisation can empty.
         declared_raw = _graph.seal_declared(result)
         declared_path = _graph.seal_path(result)
-        if _graph.seal_declared_block(result) and not declared_raw:
+        if _graph.seal_block_malformed(result):
+            details.append(
+                f"{rid}: carries a supersedes_seal that is not a "
+                f"{{path, digest}} mapping - it parsed as "
+                f"{type(_graph.seal_block_raw(result)).__name__}. Nothing can be "
+                f"read out of it, so the record declares a seal and seals "
+                f"nothing (G-1). The sequence form `- path:` / `digest:` is the "
+                f"idiom `inputs` and `deliverables` use and is NOT valid here; a "
+                f"seal is a single mapping. Repair: write "
+                f"{rid}.supersedes_seal as `path:` and `digest:` keys directly "
+                f"under it"
+            )
+        elif _graph.seal_declared_block(result) and not declared_raw:
             details.append(
                 f"{rid}: carries a supersedes_seal block that declares no path "
                 f"- {sorted(result.supersedes_seal)} and no usable `path`. A "
