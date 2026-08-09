@@ -57,10 +57,10 @@ Turbulence is a **requirement, not an outcome.** If flow drops below ≈ 2 L/min
 
 | IF | Interface | Type | Detail |
 |---|---|---|---|
-| CP-IF-1 | To Chuck Support Ring (SEWCP-400) | Kinematic, load-bearing | 3× Ø6 h6 dowels press-fit into the bottom face at Ø306 BC, 60°/180°/300°, engaging radial slots in the Ring's top flange |
+| CP-IF-1 | To Chuck Support Ring (SEWCP-400) | Kinematic, load-bearing | 3× SEWCP-700 locators **seated and screw-retained** in the bottom face at Ø306 BC, 60°/180°/300° — Ø12.0 H7 × 3.0 counterbore receiving the Ø12.000 k6 flange, M4 × 10 SHCS through the locator into the plate; the Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Ring's top flange (ECR-D-001 disposition A) |
 | CP-IF-2 | To Chuck Support Ring — fastening | Fastened, RF-side circuit | 8× **M6 × 1.0 tapped holes**, 12 mm deep, in the bottom face at Ø302 BC, 22.5°+n·45°; upper-circuit bolts enter from beneath the Ring's top flange (DR-9 — these bolts never reach the Base Plate) |
 | CP-IF-3 | To Heater Plate (SEWCP-300) | Thermal choke + fastened | 16× M5 counterbored **radially slotted** clearance holes, 5.5 W × 7.0 L (12 at Ø270 BC, 4 at Ø90 BC), bolts from below into Heater Plate threads; 16× Ti washer seats on the top face |
-| CP-IF-4 | To Heater Plate | Kinematic | 3× Ø6 h6 dowels press-fit into the top face at Ø260 BC, 30°/150°/270°, engaging radial slots in the Heater Plate |
+| CP-IF-4 | To Heater Plate | Kinematic | 3× SEWCP-700 locators **seated and screw-retained** in the top face at Ø260 BC, 30°/150°/270° — Ø12.0 H7 × 3.0 counterbore receiving the Ø12.000 k6 flange, M4 × 10 SHCS through the locator into the plate; the Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Heater Plate (ECR-D-001 disposition A) |
 | CP-IF-5 | To Vacuum Port (SEWCP-800) | Sealed, piloted bore | Central Ø10.0 H8 bore (receives the port-body pilot spigot); flat lapped sealing face on the bottom face, **masked from anodize**, Ø18–Ø32 annulus; 4× M4 × 10 deep tapped holes at Ø38 BC. **The O-ring groove is in the 316L port flange, not in this plate** (see Volume 07 §12) |
 | CP-IF-6 | To Lift Pins (SEWCP-600) | **Loose lateral support** | 3× Ø8.0 H8 bores at Ø200 BC, counterbored Ø12 × 6 deep from below for the SEWCP-601 bushing (bushing bore Ø5.60 — deliberately loose; the pin is guided by the ESC bore, see Volume 05 §12) |
 | CP-IF-7 | To ESC HV feed | Insulated bore | 2× Ø8.0 bores at Ø60 BC, alumina-tube-lined, 0°/180° |
@@ -97,7 +97,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | RF Feedthrough Bracket | SEWCP-900 | CP-IF-8 | Receives RF power at the bolted land |
 | Temperature Sensor Bracket | SEWCP-1000 | CP-IF-9 | Receives spring-loaded RTD probes |
 | Base Plate | SEWCP-100 | Via SEWCP-400 only | **No direct contact — isolation depends on it** |
-| Alignment Pins | SEWCP-700 | CP-IF-1, CP-IF-4 | Hosts 6 press-fit dowels (3 down, 3 up) |
+| Alignment Pins | SEWCP-700 | CP-IF-1, CP-IF-4 | Hosts 6 screw-retained locators (3 down, 3 up) |
 
 ## 5. Critical Dimensions
 
@@ -111,9 +111,11 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D06 | Coolant channel depth | 8.00 | +0.20 / −0 | Medium |
 | CP-D07 | Channel-to-top-face wall | 8.00 | ±0.20 | Medium — thermal |
 | CP-D08 | FSW lid thickness | 6.00 | ±0.10 | Medium |
-| CP-D09 | Kinematic dowel bore (bottom), Ø306 BC | Ø6.000 | H7 / press M6 | **Critical — centering** |
-| CP-D10 | Kinematic dowel bore (top), Ø260 BC | Ø6.000 | H7 / press M6 | **Critical — centering** |
-| CP-D11 | Kinematic dowel bolt-circle position | Ø306 / Ø260 | ⌖ Ø0.020 M @ B,C | **Critical** |
+| CP-D09 | Kinematic locator counterbore (bottom), Ø306 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
+| CP-D09a | Locator retention tapped hole (bottom), coaxial with CP-D09 | M4 × 0.7, 8.0 deep | — | High — retention |
+| CP-D10 | Kinematic locator counterbore (top), Ø260 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
+| CP-D10a | Locator retention tapped hole (top), coaxial with CP-D10 | M4 × 0.7, 8.0 deep | — | High — retention |
+| CP-D11 | Kinematic locator counterbore position | Ø306 / Ø260 | ⌖ Ø0.020 M @ B,C | **Critical** |
 | CP-D12 | Lift pin bore | Ø8.000 | H8 | High — pin alignment |
 | CP-D13 | Lift pin bore position | Ø200 BC | ⌖ Ø0.050 M @ A,B,C | High |
 | CP-D14 | Lift pin bore perpendicularity to Datum A | — | 0.030 over 20 mm | **Critical — pin bind** |
@@ -144,8 +146,8 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | 9 | Finish machine: bores, counterbores, choke pads, RF land, O-ring groove, tapped holes | Single setup where possible to hold CP-D11 |
 | 10 | Orbital-weld the 2× VCR gland stubs | Full-penetration, internally smooth |
 | 11 | Helium leak test, < 1×10⁻⁹ mbar·L/s | Mass spectrometer, He bagged |
-| 12 | Press-fit 6× alignment dowels (SEWCP-700) | 3 bottom, 3 top |
-| 13 | **Mask** channel interior, choke pads, RF land, sealing faces, dowel bores; hard anodize | See §8 |
+| 12 | Install 6× alignment locators (SEWCP-700) | 3 bottom, 3 top; M4 × 10 SHCS, 2.5 N·m, anti-galling dry film |
+| 13 | **Mask** channel interior, choke pads, RF land, sealing faces, locator counterbores and their M4 threads; hard anodize | See §8 |
 | 14 | Strip masks; final lap the top face | To CP-D03 / CP-D04 |
 | 15 | Clean: ultrasonic → DI rinse → IPA → vacuum bake 120 °C / 4 h | Per SEWCP-ENG-001 §10 C1 |
 | 16 | Final inspection and CMM report | Full dimensional per §5 |
@@ -196,7 +198,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | O-ring sealing face | Ra 0.8–1.6 µm, no radial scratches | Seal integrity |
 | Lift pin bores | Ra ≤ 0.8 µm, honed | Pin travel without stick-slip or galling |
 | Bottom face and OD (exposed) | **Type III hard anodize, 50 µm, sealed** | Plasma and handling durability; dielectric protection of the RF-hot body |
-| Dowel bores | Ra ≤ 0.8 µm, masked | Press-fit dimensional integrity |
+| Locator counterbores and M4 retention threads | Ra ≤ 0.8 µm, masked | Flange seating and thread integrity |
 
 > **The masking drawing is as important as the machining drawing.** Five distinct surfaces on this part must be excluded from anodize for three different reasons — thermal (choke face), electrical (RF land), and contamination (channel interior). A single missed mask converts a controlled thermal choke into an unknown one.
 
@@ -205,8 +207,8 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 **GD&T scheme:**
 
 - **Primary datum A** — bottom face (seats on the Support Ring), flatness 0.015.
-- **Datum B** — the Ø306 BC kinematic dowel at 60°.
-- **Datum C** — the Ø306 BC kinematic dowel at 180° (clocking).
+- **Datum B** — the Ø306 BC kinematic locator counterbore at 60°.
+- **Datum C** — the Ø306 BC kinematic locator counterbore at 180° (clocking).
 
 | Control | Feature | Tolerance |
 |---|---|---|
@@ -214,7 +216,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | Flatness | Bottom face (Datum A) | 0.015 |
 | Parallelism | Top face to A | 0.015 |
 | Profile | Choke pad set, coplanar | 0.010 |
-| Position | Kinematic dowel bores | ⌖ Ø0.020 Ⓜ A B C |
+| Position | Kinematic locator counterbores | ⌖ Ø0.020 Ⓜ A B C |
 | Position | Lift pin bores | ⌖ Ø0.050 Ⓜ A B C |
 | Perpendicularity | Lift pin bores to A | 0.030 |
 | Position | Choke fastener holes | ⌖ Ø0.200 Ⓜ A B C |
@@ -223,7 +225,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | Runout | OD to A | 0.20 |
 | Thickness | 20.000 ±0.030 | Measured at 8 points, 45° apart, Ø280 BC |
 
-**Tolerance philosophy:** only three characteristics on this part are tight — plate thickness, top-face flatness/parallelism, and kinematic dowel position. Everything else is opened deliberately. Choke fastener holes at ⌖ Ø0.200 and lift pin bores at ⌖ Ø0.050 are loose *by design*, because those features are located functionally (by Belleville-preloaded slip joints and by ESC-side bushings respectively), not by the plate.
+**Tolerance philosophy:** only three characteristics on this part are tight — plate thickness, top-face flatness/parallelism, and kinematic locator position. Everything else is opened deliberately. Choke fastener holes at ⌖ Ø0.200 and lift pin bores at ⌖ Ø0.050 are loose *by design*, because those features are located functionally (by Belleville-preloaded slip joints and by ESC-side bushings respectively), not by the plate.
 
 ## 10. Assembly Sequence
 
@@ -231,14 +233,14 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 
 1. Complete manufacture per §6 through step 16.
 2. Record as-built thickness at 8 points; enter into the build traveller (feeds the Support Ring lap calculation, DR-3).
-3. Press-fit the 6 alignment dowels (SEWCP-700): 3 into the bottom face at Ø306 BC, 3 into the top face at Ø260 BC. Verify protrusion 5.0 ± 0.1 mm each.
+3. Install the 6 alignment locators (SEWCP-700): 3 into the bottom face at Ø306 BC, 3 into the top face at Ø260 BC. Seat each flange fully in its Ø12.0 H7 × 3.0 counterbore and torque the M4 × 10 SHCS to 2.5 N·m. **Verify boss protrusion 2.50 ± 0.05 mm above the seated flange face** — the boss must remain shorter than the 3.00 mm mating slot is deep, or it bottoms and holds the faces apart (SEWCP-700 §5.1).
 4. Install lift pin bushings (SEWCP-601) into the bottom counterbores; verify bore Ø5.60 +0.05/−0 after installation.
 5. Install alumina liner tubes into the 2 HV feed bores; bond with vacuum-grade epoxy; verify IR > 1 GΩ.
 6. Verify VCR stub cleanliness; cap.
 
 **Installation into the stack — corresponds to §10 steps C2–C5:**
 
-7. **Inverted, off-tool:** with the Cooling Plate bottom-face-up on a padded fixture, seat the Support Ring so the 3 bottom dowels enter its top-flange radial slots. **Confirm each dowel slides freely in its slot** — a bound locator means the slots are mis-clocked, and torquing will crack the ceramic on the first thermal cycle.
+7. **Inverted, off-tool:** with the Cooling Plate bottom-face-up on a padded fixture, seat the Support Ring so the 3 bottom locator bosses enter its top-flange radial slots. **Confirm each boss slides freely in its slot** — a bound locator means the slots are mis-clocked, and torquing will crack the ceramic on the first thermal cycle.
 8. Install the 8× upper-circuit M6 × 16 bolts from beneath the Ring's top flange into the Cooling Plate tapped holes, with Ø16 washers and Belleville stacks. Torque in 3 passes (30 / 70 / 100%), star pattern, to **6.0 N·m**. Re-confirm free slide.
 9. After the assembly has been inverted onto the Base Plate and the lower circuit torqued (Volume 03 §10 Phase 3), measure insulation resistance Cooling Plate → Base Plate: **≥ 1 GΩ at 1000 VDC**. A failure here means a cracked web or a conductive particle bridging it — stop and disassemble.
 10. Place the thickness-sorted set of 16 titanium choke washers on their pads.
@@ -282,7 +284,7 @@ Adding a separate electrode adds a joint, and every RF joint is a contact-resist
 This is the least obvious decision on the part. Hard anodize raises emissivity from ~0.1 to ~0.8. Across the 1.5 mm choke gap at ΔT = 100 K, that changes radiative coupling from ~4 W to ~50 W — a parallel leak path that partially short-circuits the thermal choke and makes R_choke depend on temperature. Leaving the face bright preserves the choke as a nearly pure conduction element, which is what makes it predictable and tunable.
 
 **Why are the choke fastener holes toleranced so loosely (⌖ Ø0.200)?**
-Because they must be loose. The Heater Plate grows 0.4 mm radially relative to this plate across the operating range. Tight fastener holes would either over-constrain the joint (causing bow, FMEA #12 at assembly level) or shear the fasteners. The joint is located by the three kinematic dowels and clamped by Belleville stacks; the fastener holes only need to not interfere.
+Because they must be loose. The Heater Plate grows 0.4 mm radially relative to this plate across the operating range. Tight fastener holes would either over-constrain the joint (causing bow, FMEA #12 at assembly level) or shear the fasteners. The joint is located by the three kinematic locators and clamped by Belleville stacks; the fastener holes only need to not interfere.
 
 ## 13. Why Semiconductor Tools Use This Design
 
@@ -304,7 +306,7 @@ Because they must be loose. The Heater Plate grows 0.4 mm radially relative to t
 
 3. **"No elastomer in the coolant pressure boundary."** A friction-stir-welded lid costs more than an O-ring-sealed one. But an O-ring separating pressurized glycol from high vacuum, over 100 thermal cycles, is a catastrophic-severity failure with a slow-degradation mechanism — the worst combination. I moved that risk from an in-service seal to a one-time manufacturing operation that I can radiograph, proof, and leak-test before the part ever ships.
 
-4. **"I toleranced three features tight and everything else loose — on purpose."** Plate thickness, top-face flatness, and kinematic dowel position are the only tight callouts, because those are the only features that propagate to the wafer plane or the chuck axis. The choke fastener holes are at ⌖ Ø0.200 because the Heater Plate moves 0.4 mm relative to this plate across the operating range — tight holes there would over-constrain the joint and bow the stack. Loose tolerances on that pattern aren't sloppiness, they're the constraint scheme.
+4. **"I toleranced three features tight and everything else loose — on purpose."** Plate thickness, top-face flatness, and kinematic locator position are the only tight callouts, because those are the only features that propagate to the wafer plane or the chuck axis. The choke fastener holes are at ⌖ Ø0.200 because the Heater Plate moves 0.4 mm relative to this plate across the operating range — tight holes there would over-constrain the joint and bow the stack. Loose tolerances on that pattern aren't sloppiness, they're the constraint scheme.
 
 5. **"Stress relief is called out twice and it isn't optional."** This is a 20 mm 6061 plate with a channel milled through most of its lower face. Machining it flat, then anodizing, then discovering 80 µm of bow at final inspection is the classic way to scrap the most expensive part in the stack. Rough machine, relieve, semi-finish, relieve, finish, and lap last — after anodize.
 

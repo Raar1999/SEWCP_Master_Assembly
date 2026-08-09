@@ -31,12 +31,12 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 
 > **The order of rows in the table below is not the hashing order.** DC-2 sorts by path. The table is grouped for reading.
 
-## Registered artifacts (26)
+## Registered artifacts (29)
 
 | Path | DC-1 digest |
 |---|---|
 | `spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md` | `baf9ae50cd3d34a522b9998fc0f9420746ccf57c3b27f358ff0270024d9e2721` |
-| `spec/01_SEWCP-200_Cooling_Plate.md` | `3ae384bd82d3d32cedf22c02c58e09fa14a363c8003d05b52ae1f78c0e6a2597` |
+| `spec/01_SEWCP-200_Cooling_Plate.md` | `f2d228e1730819de3786776a08c4e2526bb0ecb7d1b5b79a493c398d0f2a5355` |
 | `spec/02_SEWCP-300_Heater_Plate.md` | `ab36e082749fa4ea08c9f0f6a6c98cb481491cb601dc4c5cc947ba3634537608` |
 | `spec/03_SEWCP-400_Chuck_Support_Ring.md` | `b00d52899f36f0bfe6a05cc209ca40876ba5fa6fac9169e5d100bc5346a62655` |
 | `spec/04_SEWCP-500_Electrostatic_Chuck.md` | `4a8c39325a2edd0e03ba06b802afb5f7aaf9bb6c4552b22b3b72a67121afaca1` |
@@ -59,12 +59,17 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 | `framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md` | `192ff86128dadfc8382f1894e1a38713f7321ee83aff7891d7e885c31c9dd71e` |
 | `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | `86c8be7f0eafb441c55ad5d5033f6e8e4e684350da262557539e6291b68f2c97` |
 | `framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md` | `486be10eb3bea89fb8c6c99949f1bb48e884cb556879e594cdd778dac5b0b829` |
+| `framework/AIEF-AMD-011_Software_Role_Enablement.md` | `59ecb5eb922f44a55cc42e51663dae9ee251269790958ee27ad93c1ba2ebaa53` |
+| `framework/AIEF-AMD-012_DC-4_Coverage_of_Enabled_Role_Artifacts.md` | `12b7f1b003fd190d99948e378a630d85e405e3c041da31eb8204bb00e702f1d0` |
+| `framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md` | `3d1e6b60c9e9c3ebda88cd073f0a717dc6506cc41388f0568eede8d0a6b99e78` |
 | `framework/SCH-framework-manifest.schema.json` | `ee3d0bdf37156541c13ece46fec9172dabd93e98f32cb88c0ae7a2adff4bb25f` |
-| `framework/framework.manifest.json` | `ae16ccaca5746b81a2a992841fc1d239fd1c8b0c34657c05611e025a9d8395aa` |
+| `framework/framework.manifest.json` | `8af8971b78d762e5db2879e50585a78f4e6d497ea707c664a9c06e1ba7e42ff7` |
 
 **Not registered, by ruling.** `framework/AIEF-ARCH-001_AI_Engineering_Framework_Architecture.md` — superseded by `AIEF-FRZ-001`, authorises nothing, cited by nothing as a live authority (AMD-21, APR-003).
 
-Per-artifact verification after this change: **26 of 26 verify.**
+Per-artifact verification after this change: **29 of 29 verified at the time of that change.**
+
+> **Superseded by measurement, 2026-08-09 (VER-ECR-D-001 F7).** The registry now verifies **28 of 29**. `framework/framework.manifest.json` is registered at `8af8971b…a7e42ff7` and the artifact normalises to `920eb6ee…37814090` — this is the open defect **ECR-D-006**, raised 2026-08-08, and it pre-dates the spec/01 re-registration below. The DC-2 aggregate is computed over the **registry rows**, not the tree, so it reproduces exactly while one registered artifact has drifted. A reader who checks only `frozen_set_hash` — which is what `STATE.md` exposes at boot — gets a green result over content that has changed. That is the failure mode `OI-V-02` predicts and it is now realised; `V-24` remains declared but unimplemented.
 
 ## Registration history
 
@@ -79,16 +84,26 @@ Per-artifact verification after this change: **26 of 26 verify.**
 | 2026-08-08 | `framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-005_Register_AIEF-AMD-009.md`](approvals/APR-005_Register_AIEF-AMD-009.md) |
 | 2026-08-08 | `framework/framework.manifest.json` | `9611d547…9813e557` → `ae16ccac…9d8395aa` | AIEF-AMD-010 rulings AMD-25…AMD-33, disposing Stage 6 pre-flight OQ-1…OQ-10 and OQ-12; approval [`approvals/APR-006_Amend_Framework_Manifest_AMD-010.md`](approvals/APR-006_Amend_Framework_Manifest_AMD-010.md) |
 | 2026-08-08 | `framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-007_Register_AIEF-AMD-010.md`](approvals/APR-007_Register_AIEF-AMD-010.md) |
+| 2026-08-08 | `framework/AIEF-AMD-011_Software_Role_Enablement.md` | **1 added** — authorising instrument, AMD-21 criterion; no manifest re-registration accompanies it (AMD-37 — manifest not amended) | Approval [`approvals/APR-009_Register_AIEF-AMD-011.md`](approvals/APR-009_Register_AIEF-AMD-011.md) |
+| 2026-08-08 | `framework/framework.manifest.json` | `ae16ccac…9d8395aa` → `f06125d2…69707638` | AIEF-AMD-012 ruling AMD-39, disposing OI-C-06 — DC-4 coverage of enabled-role agent artifacts; approval [`approvals/APR-010_Amend_Framework_Manifest_AMD-012.md`](approvals/APR-010_Amend_Framework_Manifest_AMD-012.md) |
+| 2026-08-08 | `framework/AIEF-AMD-012_DC-4_Coverage_of_Enabled_Role_Artifacts.md` | **1 added** — authorising instrument, AMD-21 criterion | Approval [`approvals/APR-011_Register_AIEF-AMD-012.md`](approvals/APR-011_Register_AIEF-AMD-012.md) |
+| 2026-08-08 | `framework/framework.manifest.json` | `f06125d2…69707638` → `8af8971b…a7e42ff7` | AIEF-AMD-013 rulings AMD-42…AMD-48 — V-09 measured domain, lock JSON layout, `build_provenance` content, lock self-measurement, archive entry types, BINDING pin write, DC-1 empty content, AMD-33 run-fixed values; approval [`approvals/APR-012_Amend_Framework_Manifest_AMD-013.md`](approvals/APR-012_Amend_Framework_Manifest_AMD-013.md) |
+| 2026-08-08 | `framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md` | **1 added** — authorising instrument, AMD-21 criterion; also the record of the CMP-BLOCK-006 determination and of the OQ-15 reservation (AMD-41, which itself amends nothing) | Approval [`approvals/APR-013_Register_AIEF-AMD-013.md`](approvals/APR-013_Register_AIEF-AMD-013.md) |
+
+| 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `a637ae18…be7f8b9b54` → `f2d228e1…8d0f2a5355` | ECR-D-001 / `VER-ECR-D-001` F1 — the surviving superseded-geometry row in the §8 surface-finish table; approval [`approvals/APR-015_Alignment_Pin_Clerical_Correction.md`](approvals/APR-015_Alignment_Pin_Clerical_Correction.md) |
+| 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `3ae384bd…c0e6a2597` → `a637ae18…be7f8b9b54` | ECR-D-001 disposition A — alignment pin interface: SEWCP-700 governs; the press-fit dowel bore is corrected to a Ø12.0 H7 × 3.0 locator counterbore with an M4 retention thread, and Datums B/C now name a feature of this part; approval [`approvals/APR-014_Alignment_Pin_Interface_Geometry.md`](approvals/APR-014_Alignment_Pin_Interface_Geometry.md) |
 
 ## Aggregate
 
-**`frozen_set_hash`**, DC-2 over the 26 registered artifacts above:
+**`frozen_set_hash`**, DC-2 over the 29 registered artifacts above:
 
 ```
-80cd3ebe0ce971b079fe598bac401ab959f77c7c900a54caa6e0a09963fdf2e8
+30be551de28bdff80daa576ca3999730c3982156976623b6809d4c0965e2ab18
 ```
 
-Prior value over the 25-member registry, replaced when AIEF-AMD-010 amended the manifest and joined the registry (APR-006, APR-007): `4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22` — reproducible from the superseded membership, retained for audit. Earlier value over the 24-member registry (replaced at APR-004/APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — likewise reproducible and retained.
+Prior value, replaced when `spec/01` was corrected under ECR-D-001 / `APR-015` (Option B): `94cb09e213127fbabf84b18deb2a7361b2109c5a0092d846d931ccec4bed248d` — reproducible from the superseded membership, retained for audit. Prior value over the same 29-member membership, replaced when `spec/01_SEWCP-200_Cooling_Plate.md` was re-registered under ECR-D-001 disposition A (APR-014): `339581565141702a2f5a79f531efa6c745b1af10bf2ccac4f6651af3053d30dc` — reproducible from the superseded membership, retained for audit. Prior value over the 28-member registry, replaced when AIEF-AMD-013 amended the manifest and joined the registry (APR-012, APR-013): `a743cf6fcb9a69b841deaced59cc34fd6adc0a1f31c0c84cab24ab44b80a6a53` — reproducible from the superseded membership, retained for audit. Earlier value over the 27-member registry, replaced when AIEF-AMD-012 amended the manifest and joined the registry (APR-010, APR-011): `f605e92232a8bb50ba241dc6444df5a922c68b0008ded09d2e7134d85f2bd83d` — reproducible from the superseded membership, retained for audit. Earlier value over the 26-member registry, replaced when `AIEF-AMD-011` joined the registry (APR-008, APR-009): `80cd3ebe0ce971b079fe598bac401ab959f77c7c900a54caa6e0a09963fdf2e8` — reproducible from the superseded membership, retained for audit. Earlier value over the 25-member registry, replaced when AIEF-AMD-010 amended the manifest and joined the registry (APR-006, APR-007): `4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22` — reproducible from the superseded membership, retained for audit. Earlier value over the 24-member registry (replaced at APR-004/APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — likewise reproducible and retained.
+
+Reconstruction note (VER-005 FIND-Q5-2): each superseded membership contains the manifest row at the digest then registered — `636cf22b…14b38d3c` in the 24-member set, `9611d547…9813e557` in the 25-member set, `ae16ccac…9d8395aa` in both the 26- and 27-member sets, and `f06125d2…69707638` in the 28-member set.
 
 Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 
@@ -118,4 +133,7 @@ Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 | AIEF-AMD-008 §AMD-21 | Registry scope and registration criterion |
 | AIEF-AMD-009 §AMD-24 | MI-3 namespace ruling — an earlier manifest re-registration |
 | AIEF-AMD-010 §§AMD-25…AMD-34 | Stage 6 constructions (DC-4, DC-5, TF-1/TF-2) and pre-flight dispositions — the manifest change behind the latest re-registration |
-| APR-001 … APR-007 | The seven recorded approvals behind the registry changes above |
+| AIEF-AMD-011 §§AMD-35…AMD-38 | Software role enablement — an earlier registration; no manifest change |
+| AIEF-AMD-012 §§AMD-39/AMD-40 | DC-4 coverage of enabled-role agent artifacts, disposing OI-C-06 — an earlier manifest re-registration |
+| AIEF-AMD-013 §§AMD-41…AMD-48 | CMP-BLOCK-006 determination and OQ-15 reservation (AMD-41, no manifest change); V-09 measured domain and the Stage 6 build constructions OQ-B1…OQ-B5 and the three lower-order items (AMD-42…AMD-48) — the manifest change behind the latest re-registration |
+| APR-001 … APR-013 | The thirteen recorded approvals behind the registry changes above |

@@ -1,70 +1,74 @@
-# Open Items
+# Open Items — Index
 
 > **Instance artifact.** Emitted by aief-compile Stage 3 from `framework.manifest.json` and live repository state.
 > Partition `project` — never touched by framework upgrade. Owner `project-manager`. Mutability mutable.
 
 ---
 
-Read at boot step B7. Every blocker in `STATE.md` resolves here. **This register is authoritative;** `STATE.md` is a derived cache and `ENGINEERING.md` is an index.
+Read at boot step B7. **Bounded T1 index** — `AIEF-AMD-014` §AMD-49, OQ-15 option (a). **Authority: [`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md)**, tier T4, cap null — every item's text, status detail and authority. Load it on cause.
+
+**Mapping.** Each id below is the leading cell of exactly one row there, under the identically-named section; each such row's id appears exactly once here. **Grammar:** one id per line.
 
 ## Blocking
 
-| ID | Item | Blocks | Authority |
-|---|---|---|---|
-| ECR-D-001 | Alignment pin interface: two mutually exclusive geometries | CAD modelling of SEWCP-200 | Design Authority |
-| ECR-D-002 | Channel cross-section does not close: 8+8+6=22 against 20.000 | CAD modelling of SEWCP-200 | Design Authority |
-| ECR-D-003 | Coolant stub interface undimensioned | CAD modelling of SEWCP-200 | Design Authority |
-| ECR-D-004 | Choke counterbore undimensioned; M5x30 exceeds 29.5 mm stack | CAD modelling of SEWCP-200 | Design Authority |
-| CMP-BLOCK-004 | aief-compile not implemented as deterministic software | Compiler Stage 6, V-10 | Software |
-| CMP-BLOCK-005 | Tokenizer, multi-platform, concurrency infrastructure absent | V-09, V-12, V-15, V-18 | Software |
-| C-4 | LICENSE is an unresolved placeholder | Public or external release | Repository owner |
+ECR-D-001
+ECR-D-002
+ECR-D-003
+ECR-D-004
+ECR-D-006
+ECR-D-007
+CMP-BLOCK-004
+CMP-BLOCK-005
+C-4
 
 ## Open, not blocking
 
-| ID | Item | Authority |
-|---|---|---|
-| OI-V-02 | No **standing** check binds `FROZEN.md` to the working tree. `V-24` is **declared** (AIEF-AMD-008 §AMD-19) and **emitted** (Compiler Stage 5, `S-2026-08-08-03`, `core/validation/`) but **not implemented as software** — execution requires CMP-BLOCK-004/-005 infrastructure. The registry is still verified only by hand. This is the root cause of ECR-D-005 and of FIND-4 | qa-engineer + A4 |
-| OI-V-03 | **Everything session `S-2026-08-08-02` produced is unverified.** AIEF-AMD-008, the manifest amendment, APR-002, APR-003, the recomputed aggregate, the eight registry additions, the `BINDING.md` repair, the ECR dispositions and the VER-001 filing all post-date the VER-001 audit and are outside its scope. LAW-05 bars self-verification. Needs an independent cold-context audit | qa-engineer |
-| OI-R-01 | **No `v0.2.0` tag exists**, though `a403059` is "Release 0.2". Tags jump `v0.1.0` → `v0.3.0` and `releases/TAGS.md` does not mention it. Not a LAW-07 breach — LAW-07 governs tag form, not coverage. **No tag is to be created retroactively and no history rewritten** without a human ruling; the gap is recorded so it is not mistaken for a lost release. FIND-8 | repository-engineer |
-| OI-C-01 | `SCH-ledger-entry.schema.json` declares `additionalProperties: true`. DC-3 (AMD-17) covers only the seven declared fields, so any additional field an entry carries is **not protected by the chain**. Tightening to `false` removes the exposure and is a Stage 1 re-emission | chief-systems-engineer |
-| OI-C-02 | `adapters/ADP-ci.md` is **stale**: it states *"All 22 checks are BLOCKING"* and lists phase ranges `V-01 .. V-10` / `V-18 .. V-21` that omit `V-23`, `V-24`, `V-25`. Requires a Stage 4 re-emission. The `adapters` partition is human-only write access and was deliberately not hand-edited. **Required content now fully determined** by AIEF-AMD-010 §AMD-32 (consequence-recording only): 25 checks, all BLOCKING; compile-time range `V-01…V-10` plus `V-23…V-25`; AMD-31 precondition semantics. The re-emission itself remains a Stage 4 action and was not performed | repository-engineer |
-| OI-C-05 | **`referenced_by` completeness is undeclared.** MI-3 tests resolution, not completeness (AIEF-AMD-009 §AMD-24): `BOOT.md` is cited by `adp-claude-code`, `adp-chatgpt`, `adp-generic-llm`, `readme` and `core/CONTEXT_TIERS.md`, yet `boot.referenced_by` is empty and nothing makes that a defect. The three adapters' `depends_on: ["adapters-index", "boot"]` edges may themselves be citations miscoded as build order — the FIND-1 class, forward-directed and therefore V-23-invisible. Observed while ruling AMD-24; outside its directed scope; recorded so it is not lost | A4 ruling, later session |
-| OI-C-04 | Nine `implementation/**/README.md` files carry a UTF-8 **byte-order mark**. They lie outside `.ai/` and are not registered, so `V-25` as scoped does not reach them, and they were **not** repaired — `implementation/` is PR-controlled. Found while validating V-25; recorded so the observation is not lost | documentation-engineer |
-| OI-V-05 | **VER-003 residuals** ([`verification/VER-003`](verification/VER-003_Independent_Verification_Stage_5_Emission.md), Stage 5 emission audit: 8 PASS / 1 FAIL on C7, verdict VERIFIED WITH FINDINGS). FIND-Q3-1 (BLOCKING) **dispositioned**: `.gitignore:34` `MANIFEST` rule hid `core/validation/MANIFEST` from git; negation `!.ai/core/validation/MANIFEST` added and verified stageable. FIND-Q3-2 (MAJOR) **dispositioned** by the VER-003 filing itself (the pre-recorded VER-003 references are true from filing forward). FIND-Q3-3 folds into OI-C-02 (`ADP-ci` stale — now materially inconsistent with the emitted MANIFEST it reads). FIND-Q3-4 (INFO) **open**: `core.autocrlf=true` with no `.gitattributes` — a future checkout may rewrite working-tree files to CRLF and break the literal V-25 working-tree condition; a `.gitattributes` declaring LF for `.ai/**` is a `repository-engineer` action | repository-engineer |
-| OI-P-01 | **Session-record gaps.** `project/sessions/` is empty: session `S-2026-08-08-01` filed no session summary, so its role assignments are unrecoverable and its ECRs carry `role-unrecorded`. That session performed no LAW-09 close and its work is permanently unlogged — a close cannot be performed retroactively by a later session. The VER-001 audit declared no session identifier and is unnumbered. No `.session.lock` exists (DEV-02) | project-manager |
-| OI-V-04 | **VER-002 residual: FIND-Q2-1 only.** `AIEF-FRZ-001` Part 4 Stage 1 still carries the superseded barrier wording with no in-document errata pointer (A4, next amendment). FIND-Q2-2 and FIND-Q2-3 are **dispositioned** by the human-owner's commit-granularity ruling of `S-2026-08-08-03`, executed by `repository-engineer`: commits `d07e931` (AMD-008 state) and `655aa75` (AMD-009 state) make every approval subject recoverable as a git object — `636cf22b…` at `d07e931`, `9611d547…` and `86c8be7f…` at `655aa75` — and place all three sessions' registered work in git history. Report at [`verification/VER-002`](verification/VER-002_Independent_Verification_AIEF-AMD-009.md); filed verbatim by the audited party, VER-001 precedent | A4 |
-| OI-P-02 | `ROSTER.md` marks `qa-engineer`, `project-manager` and `chief-systems-engineer` **UNASSIGNED**, and states *"A role marked UNASSIGNED cannot be dispatched."* Three such roles have been dispatched. The dispatches are authorised at `core/PRECEDENCE.md` rank 1 by live human instruction, which outranks the roster — but the roster record is stale and reviewer-independence cannot be checked against identities that are not recorded. Assignment is a project-manager action and was **not** self-assigned | project-manager |
-| OI-V-06 | **V-14 trial count undeclared** (Stage 6 pre-flight OQ-11). *"All trials"* / *"100% of trials"* carries no declared trial count. Explicitly **not ruled** by AIEF-AMD-010 §AMD-33 — the parameter does not fall out of the Stage 6 constructions, and a number without an engineering basis would be decoration. To be declared with the validation-campaign design, before any V-14 implementation | A4 + human owner, later session |
-| OI-V-08 | **VER-004 residuals** ([`verification/VER-004`](verification/VER-004_Independent_Verification_AIEF-AMD-010.md), AIEF-AMD-010 audit: 9 criteria, 9 PASS, verdict VERIFIED WITH FINDINGS). FIND-Q4-1 (INFO) **open**: the tokenizer pin is trust-on-first-use — at the first authoritative Stage 6 build the measured artifact hashes must be compared against independently published upstream values before the lock is approved (human owner or QA). FIND-Q4-2 (MINOR) **open**: the ustar/pax long-path edge — before the first release build, verify no emitted path exceeds ustar limits and forbid extended headers, or specify pax-header canonicalization (A4 or implementation-spec note). FIND-Q4-3 (MINOR) **dispositioned** at the VER-004 filing: `STATE.open_non_blocking` synced with OI-V-06..08 | human-owner / A4 / qa-engineer |
-| OI-V-07 | **`core/validation/CHECKS.md` and `MANIFEST` stale in two check texts.** AIEF-AMD-010 extended `validation[V-09].verifies` (tokenizer families TF-1/TF-2) and `validation[V-10].verifies` (platforms, DC-4/DC-5); the Stage 5 output emitted at `S-2026-08-08-03` carries the pre-amendment texts. Check count unchanged at 25. Requires a Stage 5 re-emission — compiler work (CMP-BLOCK-004); `core` is framework-only write access and was deliberately not hand-edited (AMD-010 § Blast Radius) | repository-engineer, after CMP-BLOCK-004 |
-| OQ-13 | **Allocation of the compiler implementation work — choice reserved to the human owner, open.** AIEF-AMD-010 §AMD-34 records the lawful mechanism (A4 amendment + LAW-10 human approval, AMD-006 precedent), the three admissible options (enable `software.*` roles in this instance / separate software-profile project / external contract) and an A4 **recommendation** for option (a). No role was enabled, no profile activated, `BINDING.md` untouched. No implementation allocation exists until the owner decides | human-owner |
-| OQ-14 | **Stage 6 execution authorization — reserved to the human owner, open.** Standing instruction of `S-2026-08-08-03`, unchanged by AIEF-AMD-010: Stage 6 does not execute without explicit human authorization, independent of every specification ruling | human-owner |
+OI-V-02
+OI-V-03
+OI-V-04
+OI-V-05
+OI-V-06
+OI-V-07
+OI-V-08
+OI-V-09
+OI-V-10
+OI-C-01
+OI-C-02
+OI-C-04
+OI-C-05
+OI-C-07
+OI-C-08
+OI-C-09
+OI-C-10
+OI-P-01
+OI-P-02
+OI-R-01
+OQ-14
 
 ## Closed
 
-| ID | Item | Closed by | Resolution |
-|---|---|---|---|
-| OQ-1…OQ-10, OQ-12 | Stage 6 pre-flight specification gaps recorded in [`STAGE-6_PREFLIGHT_CMP-BLOCK-004_005.md`](STAGE-6_PREFLIGHT_CMP-BLOCK-004_005.md) (commit `dc811a6`): compiler scope, tokenizer families, release digest, core aggregate, root-file coverage, budget record, distributable, check ordering, campaign scope, build-time reproducibility, V-10 platforms | Ruled by `chief-systems-engineer` · `S-2026-08-08-04` — cold session, raiser (`project-manager · S-2026-08-08-03c`) differs in role and session (AMD-20); instrument [`AIEF-AMD-010`](../../framework/AIEF-AMD-010_Stage_6_Constructions_and_Preflight_Dispositions.md) §§AMD-25…AMD-33; approvals [`approvals/APR-006`](approvals/APR-006_Amend_Framework_Manifest_AMD-010.md), [`approvals/APR-007`](approvals/APR-007_Register_AIEF-AMD-010.md) | OQ-1: Stage-6-only increment admissible for Stage 6; full compiler still required for Release 1.0.0 (AMD-25). OQ-2: TF-1 `cl100k_base` BPE + TF-2 T5 SentencePiece, artifact-pinned (AMD-26). OQ-4/5: **DC-4** declared, root files covered, `MANIFEST.lock` self-excluded, worked example published (AMD-27). OQ-3: **DC-5** raw-octet archive digest, distinct from the aggregate (AMD-28). OQ-6: `budget_measurement` member of `MANIFEST.lock` (AMD-29). OQ-7: deterministic uncompressed ustar tar, not tracked in-repo (AMD-30). OQ-8: compile-time checks precede emission, V-10 excepted (AMD-31). OQ-9: campaign is V-01…V-25, §6.4 enumeration superseded in reading (AMD-32). OQ-10/12: two-execution build-time check; V-10 platforms Windows + one of Linux/macOS (AMD-33). DC-1/DC-2/DC-3 untouched. **Not closed:** OQ-11 → OI-V-06; OQ-13 and OQ-14 → open with the human owner |
-| ECR-Q-003 | Stage 1's barrier *"No later stage may emit into core"* contradicted by the declared outputs of Stages 2, 5 and 6; held one question Compiler Stage 5 had to answer before emitting | Disposition **A**, ruled by `chief-systems-engineer` · `S-2026-08-08-03` — a cold session that did not raise it (AMD-20 identity rule); instrument [`AIEF-AMD-009`](../../framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md) §AMD-23; approval [`approvals/APR-004`](approvals/APR-004_Amend_Framework_Manifest_AMD-009.md) | The barrier protects the **Stage 1 output set**, not the `core/` prefix. Later stages emit only into their own declared subtrees; evaluable as pairwise disjointness of `generation_order[].outputs`, now bound into `V-01`. Stage 2's completion is conforming; `AIEF-FRZ-001` Part 4 Stage 1 barrier row superseded in reading, bytes unchanged. **Stage 5 may lawfully emit `core/validation/**`** |
-| OI-C-03 | `boot.referenced_by` carried `framework` and `sch-state.referenced_by` carried `V-06`; neither a `files[]` id — strict MI-3 reading failed V-01, halting any Stage 1 re-emission. FIND-9 | Ruled by `chief-systems-engineer` · `S-2026-08-08-03`; instrument `AIEF-AMD-009` §AMD-24; approval `approvals/APR-004` | **Strict reading governs:** MI-3 targets range over `files[]` ids only. Both dangling tokens removed — `framework` unrecoverable and not guessed; the `V-06`→`sch-state` relation preserved in `validation[V-06]` and MI-7. Manifest now **passes MI-3 strictly** over all 106 entries. Residual observation recorded as OI-C-05 |
-| ECR-Q-001 | Freeze-set aggregate construction undefined; the recorded value not reproducible by any of thirteen tested constructions | Disposition **A — declare the construction explicitly**, ruled by `chief-systems-engineer` · `S-2026-08-08-02`; instrument [`AIEF-AMD-008`](../../framework/AIEF-AMD-008_Digest_Constructions_and_QA-001_Dispositions.md) §AMD-16; approval [`approvals/APR-002`](approvals/APR-002_Amend_Framework_Manifest_AMD-008.md) | **DC-2** declared normatively in the manifest. Aggregate recomputed over the 24-member registry: `080771b0…f6b6367a`, full 64 characters in both `FROZEN.md` and `STATE.md`. The superseded value is **not recovered** and is marked so. Residual: **V-24 declared, not implemented** — OI-V-02 |
-| ECR-Q-002 | Ledger `entry_hash` construction undefined; held the LAW-09 close and the irreversible `genesis → active` transition | Disposition **A — declare the construction explicitly**, ruled by `chief-systems-engineer` · `S-2026-08-08-02`; instrument `AIEF-AMD-008` §AMD-17; approval `approvals/APR-002` | **DC-3** declared: seven covered fields, canonical line-oriented preimage, `entry_hash` self-excluded, `prev_hash` feeds the successor digest, genesis `null`, two published worked examples. YAML rejected as the serialisation. **No ledger entry was written**; `HEAD` remains at `genesis` |
-| OI-V-01 | Independent QA verification of **ECR-D-005 + Compiler Stage 2** outstanding | Verification report filed at [`verification/VER-001`](verification/VER-001_Independent_Verification_ECR-D-005_and_Stage_2.md) by `chief-systems-engineer` · `S-2026-08-08-02` | Cold-context `qa-engineer` audit: **10 criteria, 10 PASS, 0 fail**. Body filed verbatim; the qa-engineer neither filed nor attested to the filing. Nine findings raised; dispositions at [`reviews/DR-001`](reviews/DR-001_QA-001_Finding_Dispositions.md). Scope reconciled to the wider of the two previously recorded (FIND-6). **Does not extend to `S-2026-08-08-02`** — see OI-V-03 |
-| ECR-D-005 | Freeze registry did not verify: `framework.manifest.json` diverged from its registered hash across releases 0.4, 0.6 and commit `6ce3508` | Disposition **A — re-register**, human-owner; approval [`approvals/APR-001`](approvals/APR-001_Reregister_Framework_Manifest.md) | Registered digest updated; **all four execution actions now complete** — the aggregate and `STATE.frozen_set_hash` were released by ECR-Q-001's disposition. Action 5, the standing check, remains OI-V-02. Divergence was fully attributable to approved amendments AMD-004/006/007 |
-| OI-F-01 | `session_timeout` had no declared value | AIEF-AMD-003 §AMD-09 | 14400 s (4 h), project-overridable |
-| OI-F-02 | Ledger genesis semantics unspecified | AIEF-AMD-003 §AMD-10 | `HEAD.state ∈ {genesis, active}`. At genesis B4 check 1 is vacuous; checks 2 and 3 are operative |
-| CMP-BLOCK-014 | Build-order cycle `LAW-11 ↔ agent-contract` | AIEF-AMD-002 §AMD-06 | `depends_on` corrected; citation preserved as bidirectional `references` edges |
+CMP-BLOCK-006
+CMP-BLOCK-014
+ECR-D-005
+ECR-Q-001
+ECR-Q-002
+ECR-Q-003
+OI-C-03
+OI-C-06
+OI-F-01
+OI-F-02
+OI-V-01
+OQ-1…OQ-12
+OQ-13
+OQ-15
+OQ-B1…B5
 
 ## Recorded risk, not blocking
 
-| ID | Item |
-|---|---|
-| CDR-C3 | Independent cold-context ratification of the AIEF CDR not performed. Recorded at AIEF-FRZ-001 section 6.2. Four consecutive artifacts carry this exposure. |
-| SOD-1 | **Separation of duties.** `core/agents/INDEX.md` states `chief-systems-engineer` *"may not implement what it approved."* Session `S-2026-08-08-02` both ruled and applied, at the direction of the human owner (`core/PRECEDENCE.md` rank 1, recorded in APR-002 and APR-003). Session `S-2026-08-08-03` repeated the departure in identical form for AIEF-AMD-009 (recorded in APR-004 and APR-005 and at `AIEF-AMD-009` § *Separation of Duties*); its mitigating control **was executed**: independent cold-context QA audit filed at [`verification/VER-002`](verification/VER-002_Independent_Verification_AIEF-AMD-009.md) — 9 criteria, 9 PASS, verdict VERIFIED WITH FINDINGS. The departures are authorised, not erased. Mitigating control for `-02` is OI-V-03, still open. Session `S-2026-08-08-04` repeated the departure in identical form for AIEF-AMD-010 (recorded in APR-006/APR-007 and at `AIEF-AMD-010` § *Separation of Duties*); its mitigating control — an independent cold-context QA audit of that session's work — is dispatched by the same directing instruction and is open until filed. |
+CDR-C3
+SOD-1
 
 ## Deviations recorded
 
-| ID | Deviation |
-|---|---|
-| DEV-01 | ~~Compiler Stage 3 executed before Stage 2 at explicit direction.~~ **CLOSED** 2026-08-08 — Stage 2 emitted `core/templates/TPL-current-state.md`; `state.depends_on → tpl-current-state` is satisfied. |
-| DEV-02 | `project/.session.lock` template not emitted. Not declared in `framework.manifest.json`. Runtime artifact created by boot step B4a; format specified in AIEF-FRZ-001 section 1.3. Emitting it requires an A4 manifest amendment. **Consequence observed:** boot step B4a has not executed in any session to date — see OI-P-01. |
+DEV-01
+DEV-02
