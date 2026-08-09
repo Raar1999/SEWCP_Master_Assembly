@@ -36,7 +36,7 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 | Path | DC-1 digest |
 |---|---|
 | `spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md` | `baf9ae50cd3d34a522b9998fc0f9420746ccf57c3b27f358ff0270024d9e2721` |
-| `spec/01_SEWCP-200_Cooling_Plate.md` | `a39e4b24c02b6b61ed74f93f661e0ed74f0323133e62297d51e5390c536b7db5` |
+| `spec/01_SEWCP-200_Cooling_Plate.md` | `36e8d35b1004c22279abc67fe81447632d87a934bf057e8366e5f5a1160abdda` |
 | `spec/02_SEWCP-300_Heater_Plate.md` | `ab36e082749fa4ea08c9f0f6a6c98cb481491cb601dc4c5cc947ba3634537608` |
 | `spec/03_SEWCP-400_Chuck_Support_Ring.md` | `b00d52899f36f0bfe6a05cc209ca40876ba5fa6fac9169e5d100bc5346a62655` |
 | `spec/04_SEWCP-500_Electrostatic_Chuck.md` | `4a8c39325a2edd0e03ba06b802afb5f7aaf9bb6c4552b22b3b72a67121afaca1` |
@@ -94,12 +94,14 @@ Per-artifact verification after this change: **29 of 29 verified at the time of 
 | 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `a637ae18…be7f8b9b54` → `f2d228e1…8d0f2a5355` | ECR-D-001 / `VER-014` F1 — the surviving superseded-geometry row in the §8 surface-finish table; approval [`approvals/APR-017_Alignment_Pin_Clerical_Correction.md`](approvals/APR-017_Alignment_Pin_Clerical_Correction.md) |
 | 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `3ae384bd…c0e6a2597` → `a637ae18…be7f8b9b54` | ECR-D-001 disposition A — alignment pin interface: SEWCP-700 governs; the press-fit dowel bore is corrected to a Ø12.0 H7 × 3.0 locator counterbore with an M4 retention thread, and Datums B/C now name a feature of this part; approval [`approvals/APR-016_Alignment_Pin_Interface_Geometry.md`](approvals/APR-016_Alignment_Pin_Interface_Geometry.md) |
 
+| 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `a39e4b24…536b7db5` → `36e8d35b…160abdda` | ECR-D-002 disposition A — coolant channel depth 8.00 → 6.00 so the Z stack closes at `CP-D02` 20.000, with all nine derived values recomputed; approval [`approvals/APR-019_Cooling_Plate_Channel_Depth.md`](approvals/APR-019_Cooling_Plate_Channel_Depth.md) |
+
 ## Aggregate
 
 **`frozen_set_hash`**, DC-2 over the 29 registered artifacts above:
 
 ```
-8574956e8fd68167edc56d7c98cd7a5c4ff4d4095d6812f4108184ab7d1915f9
+c56e75bc919795fb153d25c04705c9255f9ba0d41c5f59f43d76837e15ec2005
 ```
 
 Prior value, replaced when the unauthorised tap depth was struck under `APR-018`: `30be551de28bdff80daa576ca3999730c3982156976623b6809d4c0965e2ab18` — reproducible from the superseded membership, retained for audit. Prior value, replaced when `spec/01` was corrected under ECR-D-001 / `APR-017` (Option B): `94cb09e213127fbabf84b18deb2a7361b2109c5a0092d846d931ccec4bed248d` — reproducible from the superseded membership, retained for audit. Prior value over the same 29-member membership, replaced when `spec/01_SEWCP-200_Cooling_Plate.md` was re-registered under ECR-D-001 disposition A (APR-016): `339581565141702a2f5a79f531efa6c745b1af10bf2ccac4f6651af3053d30dc` — reproducible from the superseded membership, retained for audit. Prior value over the 28-member registry, replaced when AIEF-AMD-013 amended the manifest and joined the registry (APR-012, APR-013): `a743cf6fcb9a69b841deaced59cc34fd6adc0a1f31c0c84cab24ab44b80a6a53` — reproducible from the superseded membership, retained for audit. Earlier value over the 27-member registry, replaced when AIEF-AMD-012 amended the manifest and joined the registry (APR-010, APR-011): `f605e92232a8bb50ba241dc6444df5a922c68b0008ded09d2e7134d85f2bd83d` — reproducible from the superseded membership, retained for audit. Earlier value over the 26-member registry, replaced when `AIEF-AMD-011` joined the registry (APR-008, APR-009): `80cd3ebe0ce971b079fe598bac401ab959f77c7c900a54caa6e0a09963fdf2e8` — reproducible from the superseded membership, retained for audit. Earlier value over the 25-member registry, replaced when AIEF-AMD-010 amended the manifest and joined the registry (APR-006, APR-007): `4a9e88d91fea4f7b52c2371cbc5438071625b7dd0074ad389f9f9f47b128fc22` — reproducible from the superseded membership, retained for audit. Earlier value over the 24-member registry (replaced at APR-004/APR-005): `080771b0e26e365decebaa4118a27b4a46c73b7beeb3fb599009ce4ef6b6367a` — likewise reproducible and retained.

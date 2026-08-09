@@ -11,7 +11,7 @@ compiler_stage:
   complete:       [1, 2, 3, 4, 5]
   outstanding:    [6]
 last_ledger_seq:  0
-frozen_set_hash:  8574956e8fd68167edc56d7c98cd7a5c4ff4d4095d6812f4108184ab7d1915f9
+frozen_set_hash:  c56e75bc919795fb153d25c04705c9255f9ba0d41c5f59f43d76837e15ec2005
 active_tasks:     []
 blockers:
   - ECR-D-001..004   # defects in the frozen SEWCP specification (D-001 dispositioned A, not closed)

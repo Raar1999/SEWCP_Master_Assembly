@@ -40,16 +40,24 @@ It is deliberately *not* in intimate thermal contact with the Heater Plate. The 
 
 | Parameter | Value | Derivation |
 |---|---|---|
-| Channel cross-section | 10.0 mm W × 8.0 mm D | Selected |
-| Flow area | 80 mm² = 8.0×10⁻⁵ m² | — |
+| Channel cross-section | 10.0 mm W × 6.0 mm D | Depth set by the Z stack: `CP-D07` 8.00 + `CP-D06` + `CP-D08` 6.00 = `CP-D02` 20.000 (ECR-D-002) |
+| Flow area | 60 mm² = 6.0×10⁻⁵ m² | — |
 | Volumetric flow | 4.0 L/min = 6.67×10⁻⁵ m³/s | CP-02 |
-| Mean velocity | **0.83 m/s** | Q/A |
-| Hydraulic diameter | 8.89 mm | 4A/P |
-| Reynolds number | **≈ 7,400** | ρvD/µ — **turbulent**, as required for high h |
-| Convective coefficient | ≈ 5,000 W/m²·K | Dittus-Boelter |
+| Mean velocity | **1.11 m/s** | Q/A |
+| Hydraulic diameter | 7.50 mm | 4A/P |
+| Reynolds number | **≈ 8,300** | ρvD/µ — **turbulent**, as required for high h. Higher than the 8 mm form: velocity gains more than hydraulic diameter loses |
+| Convective coefficient | ≈ 6,500 W/m²·K | Dittus-Boelter, h ∝ Re⁰·⁸/D |
 | Developed path length | ≈ 2.2 m | Serpentine layout |
-| Wetted area | ≈ 0.09 m² | Path × perimeter |
+| Wetted area | ≈ 0.080 m² | Path × perimeter (perimeter 36 → 32 mm) |
 | Coolant ΔT at 3 kW | **10.8 K** | Q / (ṁ·c_p), ṁ = 0.0667 kg/s |
+
+> **`ECR-D-002`: `CP-02`'s pressure drop is NOT re-derived here and must be re-verified.**
+> Reducing the depth from 8.00 to 6.00 mm raises velocity and lowers hydraulic diameter,
+> so ΔP rises materially. `CP-02` declares *4.0 L/min at ΔP < 1.5 bar* and is verified on a
+> **flow bench** — this specification states no ΔP value and none is invented here. The
+> thermal direction is favourable and is stated above: `h` rises ≈ 30 % while wetted area
+> falls ≈ 11 %, so `hA` improves ≈ 16 % and `CP-01`/`CP-11` gain margin. The hydraulic
+> direction is adverse and is open. **`CP-02` shall be verified before build release.**
 
 Turbulence is a **requirement, not an outcome.** If flow drops below ≈ 2 L/min the channel goes transitional, h collapses, and the top-face uniformity requirement (CP-11) is lost. A minimum-flow interlock is required at the system level.
 
@@ -108,7 +116,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D03 | Top face flatness | — | 0.015 TIR | **Critical — wafer plane** |
 | CP-D04 | Top-to-bottom parallelism | — | 0.015 TIR | **Critical — wafer plane** |
 | CP-D05 | Coolant channel width | 10.00 | +0.20 / −0 | Medium |
-| CP-D06 | Coolant channel depth | 8.00 | +0.20 / −0 | Medium |
+| CP-D06 | Coolant channel depth | 6.00 | +0.20 / −0 | **Medium — set by the Z stack, ECR-D-002** |
 | CP-D07 | Channel-to-top-face wall | 8.00 | ±0.20 | Medium — thermal |
 | CP-D08 | FSW lid thickness | 6.00 | ±0.10 | Medium |
 | CP-D09 | Kinematic locator counterbore (bottom), Ø306 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
@@ -127,7 +135,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D20 | M6 tapped holes (Ring upper circuit), Ø302 BC | M6 × 1.0 × 12 deep | ⌖ Ø0.30 Ⓜ | Low |
 | CP-D21 | M5 tapped depth (into Heater Plate side) | — | See SEWCP-300 | — |
 
-**Mass estimate:** Ø320 × 20 mm 6061 solid = 4.34 kg; less channel volume (≈ 0.18 L) and bores ≈ **3.9 kg**. Meets CP-15.
+**Mass estimate:** Ø320 × 20 mm 6061 solid = 4.34 kg; less channel volume (≈ 0.13 L) and bores ≈ **4.0 kg**. Meets CP-15 (≤ 4.2 kg), with the margin narrowed from ≈ 0.3 to ≈ 0.2 kg by the ECR-D-002 depth reduction.
 
 ## 6. Manufacturing Method
 
@@ -274,8 +282,8 @@ Because the Base Plate is chamber-coupled and uncontrolled (FBA-7). Any architec
 **Why is the coolant channel in the bottom face with an FSW lid, rather than the top face?**
 Two reasons. First, the top face must be lapped flat to 15 µm and hold the choke pads coplanar to 10 µm — putting a weld seam there would make that impossible. Second, keeping the weld on the low-stress side, away from the wafer plane, means weld distortion is corrected by the final lap rather than propagating to the wafer.
 
-**Why 10 × 8 mm channel at 4 L/min?**
-The channel is sized backwards from the Reynolds number, not from pressure drop. At 4 L/min the velocity is 0.83 m/s and Re ≈ 7,400 — comfortably turbulent with margin for viscosity increase at low temperature. Sizing for a lower ΔP with a bigger channel would have dropped the flow laminar and cost far more in uniformity than it saved in pump power.
+**Why 10 × 6 mm channel at 4 L/min?**
+The channel is sized backwards from the Reynolds number, not from pressure drop. At 4 L/min the velocity is 1.11 m/s and Re ≈ 8,300 — comfortably turbulent with margin for viscosity increase at low temperature. Sizing for a lower ΔP with a bigger channel would have dropped the flow laminar and cost far more in uniformity than it saved in pump power.
 
 **Why is the plate the RF electrode instead of adding a dedicated one?**
 Adding a separate electrode adds a joint, and every RF joint is a contact-resistance and arcing site. The Cooling Plate is already a large, low-impedance aluminum mass directly beneath the ESC dielectric — it *is* the natural electrode. The cost of this decision is that every service entering it needs an RF break (SEWCP-ENG-001 §6.5), which is a well-understood and bounded cost.
@@ -300,7 +308,7 @@ Because they must be loose. The Heater Plate grows 0.4 mm radially relative to t
 
 ## 14. Interview Talking Points
 
-1. **"I sized the coolant channel from Reynolds number, not pressure drop."** At 4 L/min through a 10 × 8 mm channel, velocity is 0.83 m/s and Re ≈ 7,400 — turbulent with margin. A larger channel would have given a nicer ΔP and quietly dropped the flow laminar, collapsing the convective coefficient and losing the ±1.5 °C uniformity requirement. Turbulence is a design requirement on this part, which is why there's a minimum-flow interlock at 2.5 L/min.
+1. **"I sized the coolant channel from Reynolds number, not pressure drop."** At 4 L/min through a 10 × 6 mm channel, velocity is 1.11 m/s and Re ≈ 8,300 — turbulent with margin. A larger channel would have given a nicer ΔP and quietly dropped the flow laminar, collapsing the convective coefficient and losing the ±1.5 °C uniformity requirement. Turbulence is a design requirement on this part, which is why there's a minimum-flow interlock at 2.5 L/min.
 
 2. **"The masking drawing is as important as the machining drawing."** Five surfaces on this plate are excluded from hard anodize for three different reasons: the choke face and pads because anodize would triple radiative coupling and make contact conductance unpredictable, the RF land because anodize is a dielectric and the joint has to carry 13.56 MHz at under 0.5 mΩ, and the channel interior because flaking anodize fouls the heat exchanger. One missed mask turns a designed thermal choke into an unknown one.
 
