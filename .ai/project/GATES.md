@@ -26,6 +26,58 @@ Profile `mechanical`. Gate topology **terminal**. Disposition is binary per `cor
 
 A gate may pass with actions only if no action is on the critical path. All four defects are on it.
 
+Criteria are declared below. Disposition against them is **not yet taken**: all four ECRs are
+undispositioned, so `C1`–`C4` currently FAIL and the gate status above stands.
+
 ## Criteria
 
-Gate criteria are project-declared. None recorded yet — a `project-manager` action.
+**Declared by the human owner (rank-1), session `S-2026-08-09-14`, option C.** Recorded by
+`software.software-engineer` on that instruction; `project-manager` (A3) is UNASSIGNED in
+[`ROSTER.md`](ROSTER.md) and the role gap is recorded rather than papered over. Criteria are
+binary and evidence-based per `core/laws/LAW-03_release_gates.md`; the framework delegates
+their content to this file (`core/profiles/mechanical/lifecycle/LC-M04_implementation.md`,
+`core/profiles/mechanical/PROFILE.md` §Freeze points).
+
+**Scope of this gate as declared.** These criteria constitute the **design-authority
+precondition for SEWCP-200 CAD**: the frozen specification is coherent and every defect
+raised against it is dispositioned, approved, applied and independently verified. See
+*Deferred* below for what they deliberately do **not** cover.
+
+| ID | Criterion | PASS | FAIL |
+|---|---|---|---|
+| **C1** | `ECR-D-001` carries an approved disposition | An ECR record exists, conforms to `SCH-ecr` with `disposition` non-empty, and a human approval artifact is content-hash-bound to it under `LAW-10` | Any of these absent, or the approval `subject_hash` does not reproduce |
+| **C2** | `ECR-D-002` carries an approved disposition | as C1 | as C1 |
+| **C3** | `ECR-D-003` carries an approved disposition | as C1 | as C1 |
+| **C4** | `ECR-D-004` carries an approved disposition | as C1 | as C1 |
+| **C5** | The frozen specification reflects every approved disposition | Each disposition requiring a specification change is present in `spec/**` and the affected artifacts are re-registered in [`FROZEN.md`](FROZEN.md) with reproducing digests | Any approved disposition unapplied, or any registered digest that does not reproduce |
+| **C6** | Independent verification is recorded per disposition | A verification report exists for each, produced by a role that authored none of the work, disposing every acceptance point `PASS`/`FAIL` on self-obtained evidence (`LAW-05`) | Report missing, or verifier identity equals author identity |
+| **C7** | No ECR against the frozen specification remains undispositioned | The `Blocking` section of [`OPEN_ITEMS.md`](OPEN_ITEMS.md) contains no `ECR-D-*` whose `affected_artifacts` lie under `spec/**` | Any such item present |
+
+`C1`–`C4` are **four separate criteria and are not satisfiable by one approval.** Each of the
+four is an independent engineering decision owned by the Design Authority, and
+[`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md) records all four on the critical path — so
+`LAW-03` rule 3 forbids passing this gate with an action outstanding on any of them, and rule
+4 forbids passing it by deferring one.
+
+### Deferred — recorded, not omitted
+
+`PROFILE.md` §Freeze points and `LC-M04_implementation.md` both fix the LC-M04 freeze point as
+**"Design at LC-M04 exit"**. A criterion requiring the SEWCP-200 CAD to exist and be frozen is
+therefore **derivable from the framework and is deliberately not adopted here**, by the
+owner's decision: this gate is being used as the design-authority precondition for CAD, and
+CAD is the work that follows it.
+
+The consequence is stated plainly rather than left to be discovered: **clearing `C1`–`C7`
+does not discharge the recorded freeze-point requirement.** That requirement stands and must
+be met before the design is treated as frozen. Whether it is met by a later disposition of
+this gate or by a separate checkpoint is an open `project-manager` / rank-1 question.
+
+### Excluded — confirmed by the owner
+
+`ECR-D-006`, `CMP-BLOCK-004`, `CMP-BLOCK-005` and `C-4` appear under `Blocking` in
+[`OPEN_ITEMS.md`](OPEN_ITEMS.md) but are **not** criteria of this gate.
+[`../../ENGINEERING.md`](../../ENGINEERING.md) records positively that *"Neither `ECR-D-005`
+nor Stage 2 will unblock the `LC-M04-EXIT` gate. That gate is held by `ECR-D-001…004`"*, and
+`ECR-D-006` is a framework-manifest defect whose class-D scope is the framework work it
+affects, not the specification. Stage 6, `MANIFEST.lock` and `L-0000001` are excluded on the
+same ground: no recorded criterion cites them.
