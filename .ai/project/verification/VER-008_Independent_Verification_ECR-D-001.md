@@ -103,7 +103,7 @@ reproduce from their declared memberships.
 | R10(b) | **this file** | no |
 | R10(c) | `APR-014`/`APR-015` renumbered to **`APR-016`/`APR-017`** | no |
 | R10(a) | `APR-017`'s false certification corrected in place | no |
-| R10(a) | **The 8.0 mm depth itself — UNRESOLVED.** Pending human decision | **yes** |
+| R10(a) | The 8.0 mm depth **struck** from `spec/01` under `APR-018` (Option A, human-owner). `CP-D09a`/`CP-D10a` now read `depth TBD — ECR-D-007`; the determination is `ECR-D-007` requested action 5 | **decided** |
 
 ## 6 · Verdict
 
@@ -124,4 +124,4 @@ cannot be trusted, and `C6` exists to catch exactly that.
 `ECR-D-007` (geometric consequences), `ECR-D-008` (material), `ECR-D-009` (screw seat) — all
 OPEN, all blocking `C7`. F6 (the `GATES.md` C1 binding wording) needs a ruling. F7/ECR-D-006
 blocks `C5` independently. F12 (FMEA not extended to the six M4 threads) is open and
-unassigned. The 8.0 mm tap depth is pending decision.
+unassigned. The tap depth is `ECR-D-007` requested action 5.

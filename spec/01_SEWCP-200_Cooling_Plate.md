@@ -112,9 +112,9 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D07 | Channel-to-top-face wall | 8.00 | ±0.20 | Medium — thermal |
 | CP-D08 | FSW lid thickness | 6.00 | ±0.10 | Medium |
 | CP-D09 | Kinematic locator counterbore (bottom), Ø306 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
-| CP-D09a | Locator retention tapped hole (bottom), coaxial with CP-D09 | M4 × 0.7, 8.0 deep | — | High — retention |
+| CP-D09a | Locator retention tapped hole (bottom), coaxial with CP-D09 | M4 × 0.7, **depth TBD — ECR-D-007** | — | High — retention |
 | CP-D10 | Kinematic locator counterbore (top), Ø260 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
-| CP-D10a | Locator retention tapped hole (top), coaxial with CP-D10 | M4 × 0.7, 8.0 deep | — | High — retention |
+| CP-D10a | Locator retention tapped hole (top), coaxial with CP-D10 | M4 × 0.7, **depth TBD — ECR-D-007** | — | High — retention |
 | CP-D11 | Kinematic locator counterbore position | Ø306 / Ø260 | ⌖ Ø0.020 M @ B,C | **Critical** |
 | CP-D12 | Lift pin bore | Ø8.000 | H8 | High — pin alignment |
 | CP-D13 | Lift pin bore position | Ø200 BC | ⌖ Ø0.050 M @ A,B,C | High |

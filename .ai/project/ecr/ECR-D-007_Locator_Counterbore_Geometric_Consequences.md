@@ -22,7 +22,7 @@ residual:     null
 
 **D — defect.** The alignment-pin interface geometry is now coherent across the frozen set
 (ECR-D-001, disposition A), but the feature that geometry requires — a **Ø12.000 H7 × 3.00
-counterbore with an M4 × 0.7 × 8.0 retention thread**, at Ø306 BC and Ø260 BC in the Cooling
+counterbore with an M4 × 0.7 retention thread of undetermined depth**, at Ø306 BC and Ø260 BC in the Cooling
 Plate — has **never been assessed against that plate's own keep-out rules**, under either the
 superseded or the current geometry. Under LAW-02 a defect stops the affected work: SEWCP-200
 CAD cannot route the coolant circuit without the missing values.
@@ -68,9 +68,13 @@ M4 × 0.7 tap drill Ø3.30 at Ø260 BC → inner edge **r = 128.35**. Channel ou
 125.00 → **3.35 mm** of wall. §3.1 demands **3.5 mm** of the M5 choke holes and the M6 support
 ring holes — the two most similar features. **3.35 < 3.5**, by 0.15 mm.
 
-The M4 is 8.0 mm deep beneath a 3.00 mm counterbore = **11.0 mm** below the top face, against
-`CP-D07`'s 8.00 mm wall — so it is axially within the channel band and is kept clear only by
-that 3.35 mm of radial wall.
+The M4's **depth is undetermined** — `CP-D09a`/`CP-D10a` read `depth TBD — ECR-D-007` since
+`APR-018`. The first form of this paragraph computed *"8.0 mm deep beneath a 3.00 mm
+counterbore = 11.0 mm below the top face"* from a value an implementing agent had set with no
+authority (`VER-008` R10(a)); that value is struck and the arithmetic with it. What stands is
+the **conditional**: any tap depth exceeding **5.00 mm** below the counterbore floor puts the
+thread past `CP-D07`'s 8.00 mm channel-to-top-face wall, after which it is kept clear of the
+circuit only by the 3.35 mm radial wall questioned above. The depth is requested action 5.
 
 **3.4 The bottom locator leaves 1.00 mm of wall to the plate OD.** Ø306 BC → axis r = 153.00.
 Ø12.000 counterbore → outer edge **r = 159.00**. Plate OD `CP-D01` Ø320.0 ± 0.10 → r = 160.00,
@@ -109,6 +113,11 @@ Four values or rulings, each of which is an engineering decision:
    a k6 interference flange with 50 µm anodize. If rejected, the Ø306 BC bolt circle or the
    flange diameter must move — which reopens `AP-IF-1`/`AP-D03` in SEWCP-700.
 4. **A slot depth for SEWCP-300**, or a recorded ruling that `AP-IF-3` governs it.
+5. **The M4 retention tap depth** for `CP-D09a`/`CP-D10a`. Constraints: an `M4 × 10` screw
+   traversing a 5.50 mm locator needs **4.50–6.70 mm** of engagement; any depth beyond
+   **5.00 mm** below the counterbore floor crosses `CP-D07`'s 8.00 mm wall into the channel
+   band, where item 2's 3.35 mm radial margin becomes the only separation. Added by `APR-018`
+   after an unauthorised 8.0 mm was struck from `spec/01`.
 
 ## 6 · Disposition
 
