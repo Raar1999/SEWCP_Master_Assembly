@@ -4,7 +4,7 @@
 > Satisfies the recorded-human-approval requirement of LAW-01 and LAW-10 for ECR-D-001 disposition A.
 
 ```yaml
-approval_id:   APR-016            # renumbered from APR-014: VER-010 R10-c, a prior session had reserved that id
+approval_id:   APR-016            # renumbered from APR-014: VER-014 R10-c, a prior session had reserved that id
 approver:      human-owner            # BINDING.approval_authority
 timestamp:     2026-08-09T00:00:00Z
 subject_path:  spec/01_SEWCP-200_Cooling_Plate.md

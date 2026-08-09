@@ -16,7 +16,7 @@ active_tasks:     []
 blockers:
   - ECR-D-001..004   # defects in the frozen SEWCP specification (D-001 dispositioned A, not closed)
   - ECR-D-006        # framework manifest digest drift - blocks LC-M04-EXIT C5
-  - ECR-D-007..009   # raised on VER-010: locator geometry, pin material, screw seat - block C7
+  - ECR-D-007..009   # raised on VER-014: locator geometry, pin material, screw seat - block C7
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
   - CMP-BLOCK-006    # V-09 breach; A4 determination filed (AMD-41), remedy is OQ-15

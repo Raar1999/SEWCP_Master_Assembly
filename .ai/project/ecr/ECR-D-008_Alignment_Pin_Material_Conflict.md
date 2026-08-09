@@ -1,7 +1,7 @@
 # ECR-D-008 — Alignment pin material specified two ways
 
 > **Instance artifact.** Partition `project`. Filed per `manifest.templates → tpl-ecr`, schema `core/schemas/SCH-ecr.schema.json`.
-> Raised on `VER-010`. ECR-D-001 §7 previously asserted this was "raised separately" when it was not; that claim is corrected and this is the filing.
+> Raised on `VER-014`. ECR-D-001 §7 previously asserted this was "raised separately" when it was not; that claim is corrected and this is the filing.
 
 ```yaml
 ecr_id:       ECR-D-008

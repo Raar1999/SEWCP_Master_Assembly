@@ -1,7 +1,7 @@
 # APR-018 — Strike the unauthorised M4 tap depth from `spec/01`
 
 > **Instance artifact.** Partition `project`. Schema `core/schemas/SCH-approval.schema.json`, severity BLOCKING.
-> Satisfies LAW-01 and LAW-10 for the repair of `VER-010` finding R10(a).
+> Satisfies LAW-01 and LAW-10 for the repair of `VER-014` finding R10(a).
 
 ```yaml
 approval_id:   APR-018
@@ -11,7 +11,7 @@ subject_path:  spec/01_SEWCP-200_Cooling_Plate.md
 subject_hash:  a39e4b24c02b6b61ed74f93f661e0ed74f0323133e62297d51e5390c536b7db5
 prior_hash:    f2d228e1730819de3786776a08c4e2526bb0ecb7d1b5b79a493c398d0f2a5355
 supersedes:    APR-017                # voided by this edit under LAW-10
-ecr:           ECR-D-001              # repair of a VER-010 finding against its implementation
+ecr:           ECR-D-001              # repair of a VER-014 finding against its implementation
 session:       S-2026-08-09-14
 scope:         Option A - strike the 8.0 mm tap depth. CP-D09a and CP-D10a become
                "M4 x 0.7, depth TBD - ECR-D-007". The depth determination moves to

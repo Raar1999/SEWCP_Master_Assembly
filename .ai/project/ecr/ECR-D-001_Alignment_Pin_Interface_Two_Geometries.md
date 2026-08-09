@@ -12,13 +12,13 @@ disposition:  A - SEWCP-700 GOVERNS; CORRECT SEWCP-200
 ruled_by:     human-owner · S-2026-08-09-14
 approval:       approvals/APR-018_Strike_Unauthorised_Tap_Depth.md
 approval_chain: APR-016 -> APR-017 -> APR-018   # each supersedes the last; APR-018 is terminal
-# LIVENESS IS NOT ASSERTED HERE. VER-010 V1: this field twice named a superseded approval
+# LIVENESS IS NOT ASSERTED HERE. VER-014 R3-F1: this field twice named a superseded approval
 # and twice labelled it LIVE, because the label was written by hand and never rechecked when
 # the next edit voided it. Determine liveness by recomputing DC-1 of the terminal approval's
 # subject_path and comparing with its subject_hash - a claim that cannot go stale.
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    null                   # set on independent verification PASS
-residual:     three - see §7   # VER-010 F11: this field read `none` while §7 read "Not none"
+residual:     three - see §7   # VER-014 F11: this field read `none` while §7 read "Not none"
 ```
 
 ---
@@ -75,7 +75,7 @@ loose dowel in a vacuum chamber is a migrating hard particle."*
 6.05 H8 W × 8.00 L and a position, and **state no depth**. Both mate with a Ø6.000 h6 boss and
 with nothing else.
 
-> **Corrected, `VER-010` F10.** The first form of this paragraph asserted that
+> **Corrected, `VER-014` F10.** The first form of this paragraph asserted that
 > `HP-D09`–`HP-D11` specify 3.00 D. They do not: the Heater Plate volume states no slot depth
 > anywhere, and the only source of 3.0 D at Ø260 BC is `AP-IF-3` in SEWCP-700 itself.
 > Clearance at the Ø260 BC interface is therefore **undecidable from the host volume** and is
@@ -111,7 +111,7 @@ deepening slots in ceramic.
 |---|---|---|
 | `CP-D09` | Kinematic dowel bore (bottom), Ø6.000, H7 / press M6 | Kinematic locator counterbore (bottom), Ø12.000, H7, × 3.00 deep |
 | `CP-D10` | Kinematic dowel bore (top), Ø6.000, H7 / press M6 | Kinematic locator counterbore (top), Ø12.000, H7, × 3.00 deep |
-| `CP-D09a` / `CP-D10a` | — | **New.** M4 × 0.7 tapped hole, **depth TBD — `ECR-D-007`**, coaxial under each counterbore. (An 8.0 mm depth was executed here and **struck** under `APR-018`; `VER-010` V2 found this row still stating it.) |
+| `CP-D09a` / `CP-D10a` | — | **New.** M4 × 0.7 tapped hole, **depth TBD — `ECR-D-007`**, coaxial under each counterbore. (An 8.0 mm depth was executed here and **struck** under `APR-018`; `VER-014` R3-F2 found this row still stating it.) |
 | `CP-IF-1` | 3× Ø6 h6 dowels press-fit into the bottom face | 3× SEWCP-700 locators, flange seated in Ø12.0 H7 × 3.0 counterbores, M4 × 10 SHCS retained |
 | `CP-IF-4` | 3× Ø6 h6 dowels press-fit into the top face | as above, top face |
 | Mating table | *"Hosts 6 press-fit dowels (3 down, 3 up)"* | *"Hosts 6 screw-retained locators (3 down, 3 up)"* |
@@ -127,7 +127,7 @@ The approval names the geometry rows. Nine further references in `spec/01` descr
 feature by its old identity, and leaving them would have made the volume internally
 inconsistent and handed the modeller the ambiguity this ECR exists to remove. They are
 corrected under the same disposition and listed here so the change set is complete on the
-record rather than discoverable only by diff. **`VER-010` F13 found this table itself
+record rather than discoverable only by diff. **`VER-014` F13 found this table itself
 incomplete — the `CP-D11` label and the §10 step 7 edits were executed and not listed. Both
 are nomenclature-only with no dimensional effect, and both are added above.**
 
@@ -149,10 +149,12 @@ already a defect in its own right; under the corrected geometry the plate's own 
 counterbore, so the datum now names something the Cooling Plate actually has. The tolerance
 values are unchanged.
 
-No other volume is touched: `git diff --name-only spec/` returns
-`spec/01_SEWCP-200_Cooling_Plate.md` alone.
+No other volume is touched: `git diff --name-only 70ce9e6 HEAD -- spec/` returns
+`spec/01_SEWCP-200_Cooling_Plate.md` alone. (`VER-014` R4-M5: the first form of this line
+published a bare `git diff --name-only spec/`, which produces no output at HEAD — a command
+that does not yield the output printed beside it.)
 
-> **CORRECTED — `VER-010` F1 and F2, and this is the most important correction in this
+> **CORRECTED — `VER-014` F1 and F2, and this is the most important correction in this
 > record.** The first form of this paragraph claimed *"After these corrections the word dowel
 > does not appear in `spec/01`."* **That was false when written.** §8's surface-finish table
 > still read `| Dowel bores | Ra ≤ 0.8 µm, masked | Press-fit dimensional integrity |` — the
@@ -167,7 +169,7 @@ No other volume is touched: `git diff --name-only spec/` returns
 
 ### 6.2 Interference check performed for the added tapped holes
 
-> **WITHDRAWN IN FULL — `VER-010` F5.** The interference check that stood here was
+> **WITHDRAWN IN FULL — `VER-014` F5.** The interference check that stood here was
 > wrong in its inputs and must not be relied on. It read: *"`CP-D07` fixes the
 > channel-to-top-face wall at 8.00 ± 0.20 mm and `CP-D06` the channel depth at 8.00 mm, in a
 > plate of **26.00 mm overall (`CP-D01`)**."*
@@ -189,12 +191,12 @@ No other volume is touched: `git diff --name-only spec/` returns
 > circuit.** Their **depth is undetermined** — `ECR-D-007` requested action 5 — and the
 > channel routing shall be laid out to clear them once it is set.
 
-> **`VER-010` V3.** This constraint previously handed CAD the figure *"8.0 mm deep … =
+> **`VER-014` R3-F3.** This constraint previously handed CAD the figure *"8.0 mm deep … =
 > 11.0 mm below the top face"* — the exact unauthorised value `APR-018` had been issued to
 > strike from `spec/01`. Deleting a number from the specification while leaving it in the
 > instruction the modeller reads removes nothing. The number is gone from both.
 
-**This constraint lives in an ECR, and the modeller reads the specification.** `VER-010`
+**This constraint lives in an ECR, and the modeller reads the specification.** `VER-014`
 F4 recorded that as a defect in its own right: `spec/01` §3.1 carries a keep-out radius and a
 minimum wall for every other feature and **has no row for the kinematic locators** — and never
 did, for either geometry. Writing that row requires engineering values, so it is dispositioned
@@ -202,7 +204,7 @@ in **ECR-D-007**, not asserted here.
 
 ## 7 · Residual
 
-**Not none.** The first form of this section recorded `residual: none`; `VER-010` F11
+**Not none.** The first form of this section recorded `residual: none`; `VER-014` F11
 and F10 falsified that. The residuals are:
 
 | Residual | Nature | Disposition |
@@ -212,7 +214,7 @@ and F10 falsified that. The residuals are:
 | §3.1 keep-out table has no kinematic-locator row; 1.00 mm OD wall at Ø306 BC; 3.35 mm vs the 3.5 mm demanded of analogous features | Geometric consequences of the approved Ø12.000 counterbore, unassessed by any volume | **Split to `ECR-D-007`** under `APR-017`, Option B |
 
 Two further adjacent defects were found while gathering evidence. They are **not folded in**,
-and — `VER-010` R8(b) — the first form of this section claimed one of them was *"raised
+and — `VER-014` R8(b) — the first form of this section claimed one of them was *"raised
 separately"* when **no such ECR existed anywhere in the repository**. That was a status claim
 published without the fact behind it, which is the same defect as F2 one paragraph earlier.
 Both are now actually filed:
@@ -225,5 +227,5 @@ Both are now actually filed:
   boss, and a bare M4 SHCS head is Ø7.0 across. Retention, not locating geometry.
 
 Both are registered in `OPEN_ITEMS.md` and `OPEN_ITEMS_REGISTER.md` and both block `C7`.
-`VER-010` V8 found this paragraph spliced mid-sentence, announcing two defects and
+`VER-014` R3-F8 found this paragraph spliced mid-sentence, announcing two defects and
 describing one.
