@@ -7,7 +7,7 @@
 ecr_id:       ECR-D-001
 class:        D                      # defect - LAW-02: a defect stops the affected work
 raised_by:    project-manager · S-2026-08-08-01
-status:       VERIFICATION-PENDING   # not CLOSED until C6 independent verification passes
+status:       ENGINEERING-VERIFIED   # NOT CLOSED - see §8. C6 evidence integrity is open (OI-V-11)
 disposition:  A - SEWCP-700 GOVERNS; CORRECT SEWCP-200
 ruled_by:     human-owner · S-2026-08-09-14
 approval:       approvals/APR-018_Strike_Unauthorised_Tap_Depth.md
@@ -17,7 +17,7 @@ approval_chain: APR-016 -> APR-017 -> APR-018   # each supersedes the last; APR-
 # the next edit voided it. Determine liveness by recomputing DC-1 of the terminal approval's
 # subject_path and comparing with its subject_hash - a claim that cannot go stale.
 raised_at:    2026-08-08T01:31:23Z
-closed_at:    null                   # set on independent verification PASS
+closed_at:    null                   # C6 unsatisfied; closure requires OI-V-11 discharged
 residual:     three - see §7   # VER-014 F11: this field read `none` while §7 read "Not none"
 ```
 
@@ -201,6 +201,32 @@ F4 recorded that as a defect in its own right: `spec/01` §3.1 carries a keep-ou
 minimum wall for every other feature and **has no row for the kinematic locators** — and never
 did, for either geometry. Writing that row requires engineering values, so it is dispositioned
 in **ECR-D-007**, not asserted here.
+
+## 8 · Status — human decision, `S-2026-08-09-14`
+
+**The engineering is accepted as verified. The ECR is NOT closed.** Recorded as two facts
+rather than one, because they differ:
+
+**Verified.** Four independent cold-context rounds re-derived the disposition from repository
+bytes. Round 4 confirmed: the decision is made and correctly implemented; no residue of the
+press-fit geometry survives (`grep -ci dowel` → 0); the approval chain reproduces at all four
+links with `APR-018` terminal and live; the three control volumes are byte-identical across
+the whole series; the registry is honest at 28 of 29 with a reproducing DC-2 aggregate; and
+the ECR's account of its own subject is accurate (`W9 RECORD ACCURATE: PASS`).
+
+**Not closed.** `LC-M04-EXIT` C6 requires a verification report that disposes every acceptance
+point. `VER-014` satisfies that on the engineering and has itself failed on bookkeeping in
+four consecutive rounds — an identifier collision moved four times, and finding labels
+colliding with criteria labels in the same file. Both are clerical and neither touches a
+dimension. **Recorded as `OI-V-11`, open against the gate, not against the engineering.**
+
+The human owner ruled that the three remaining Design Authority decisions proceed in parallel
+rather than queue behind this bookkeeping: the gate cannot clear until `OI-V-11` is discharged
+in any case, so nothing is lost by not serialising them.
+
+**What this status does NOT mean.** It does not mean C6 is satisfied, that the ECR may be
+counted toward `C1`, or that the gate may be assessed. `C1` additionally awaits the
+`GATES.md` binding-wording ruling (F6).
 
 ## 7 · Residual
 
