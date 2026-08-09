@@ -140,7 +140,27 @@ def _split_flow(body: str) -> list[str]:
 
 
 def _indent(line: str) -> int:
-    return len(line) - len(line.lstrip(" "))
+    """Indentation depth in spaces. **A tab is a parse error, not a width.**
+
+    `VER-012` L5-B. This counted spaces only, so a tab-indented child line had
+    depth 0: it hoisted itself to top level and its parent key silently became
+    `None`. Two whitespace-only edits to a record - no line deleted, no value
+    changed - restructured the document and rewrote a superseded result at
+    `X-06 PASS`.
+
+    A tab's width is a display convention, not a fact about the document, so
+    there is no correct number to return here. Returning one would be the
+    assumption LAW-12 forbids, and returning zero was the one that produced the
+    defect. The line is rejected instead.
+    """
+    stripped = line.lstrip(" ")
+    if stripped[:1] == "\t":
+        raise RecordError(
+            f"tab indentation is not part of the block grammar and has no "
+            f"defined width, so the nesting this line declares is ambiguous "
+            f"(LAW-12): {line!r}. Repair: indent with spaces"
+        )
+    return len(line) - len(stripped)
 
 
 def parse_block(text: str) -> dict[str, Any]:
@@ -184,6 +204,26 @@ def _parse_map(lines: list[str], i: int, level: int) -> tuple[dict[str, Any], in
         key, _, rest = body.partition(":")
         key = key.strip()
         rest = rest.strip()
+        # `VER-012` L5-A. This was `out[key] = ...` with no duplicate check, so a
+        # document declaring the same key twice had two meanings and the parser
+        # picked one - the last - without saying so. That is precisely the
+        # resolution-by-assumption LAW-12 forbids, and the meaning it picked
+        # satisfied every check: appending a second `supersedes_seal` block
+        # carrying a tampered digest to a successor rewrote its predecessor with
+        # X-06 PASS and detail AND notice sets byte-identical to a clean run,
+        # while the file still displayed the correct digest to a human reader.
+        #
+        # A document that says a thing twice is not a document that says it
+        # once. Which of the two a reader believes is exactly the ambiguity this
+        # parser's contract says it will refuse to resolve.
+        if key in out:
+            raise RecordError(
+                f"line {i + 1}: duplicate key {key!r} at this level. The "
+                f"document declares it more than once and the two declarations "
+                f"are not reconcilable here, so which one governs is undefined "
+                f"(LAW-12). A reader of the file and a reader of the parse would "
+                f"disagree. Repair: delete the declaration that does not govern"
+            )
         i += 1
         if rest == "|":
             block, i = _parse_literal(lines, i, level)
@@ -271,12 +311,29 @@ def _parse_literal(lines: list[str], i: int, level: int) -> tuple[str, int]:
 
 
 def extract_fence(text: str, lang: str = "yaml") -> str:
-    """Return the first fenced block of the given language."""
+    """Return **the** fenced block of the given language.
+
+    `VER-012` L5-E. This returned the **first** match, so a decoy fence inserted
+    above a record's real block was parsed instead of it and the real block was
+    never read - `X-06 PASS`, detail and notice sets byte-identical to a clean
+    run. "First" is a tie-break, and a tie-break is an assumption about which of
+    two documents the author meant (LAW-12).
+
+    A record carries one document. Two is ambiguous and is rejected.
+    """
+    body = text.replace("\r\n", "\n")
     pattern = re.compile(r"^```" + lang + r"\s*$(.*?)^```\s*$", re.M | re.S)
-    m = pattern.search(text.replace("\r\n", "\n"))
-    if not m:
+    found = pattern.findall(body)
+    if not found:
         raise RecordError(f"no ```{lang} block found")
-    return m.group(1)
+    if len(found) > 1:
+        raise RecordError(
+            f"{len(found)} ```{lang} blocks found; a record carries exactly "
+            f"one. Which document governs is undefined and taking the first is "
+            f"a tie-break, not a reading (LAW-12). Repair: remove the blocks "
+            f"that are not the record"
+        )
+    return found[0]
 
 
 # --------------------------------------------------------------------------
@@ -394,6 +451,70 @@ class ResultRecord:
     result_id: str
     path: str
     data: dict[str, Any]
+
+    #: The **shape** of every structured field, checked once at admission.
+    #:
+    #: `VER-012`. Shape is well-formedness and belongs here; *content* - which
+    #: fields must be present, what they must say - is
+    #: `EXECUTION_ARCHITECTURE.md` §6 and is enforced by `X-01` and `X-06`. The
+    #: two are deliberately not merged: restating §6's field list here would
+    #: create the second declaration `FIND-Q9-44` was raised about.
+    #:
+    #: `mapping` - must be a mapping if present.
+    #: `mappings` - must be a sequence, every element a mapping.
+    SHAPES: tuple[tuple[str, str], ...] = (
+        ("produced_by", "mapping"),
+        ("supersedes_seal", "mapping"),
+        ("inputs", "mappings"),
+        ("deliverables", "mappings"),
+    )
+
+    def validate_shape(self) -> None:
+        """Reject a structurally malformed record **at admission**.
+
+        `VER-012` - the root-cause repair. Every accessor below used to coerce:
+        `dict(v) if isinstance(v, dict) else {}`, and
+        `[e for e in ... if isinstance(e, dict)]`. Both map *present but
+        uninterpretable* onto the same value as *absent*, and absent is a
+        passing state. That is the single mechanism behind every defect level
+        this record class has produced - a seal block written as a sequence
+        became "no seal", and a malformed input entry vanished from the pins
+        without a word.
+
+        Coercion is not wrong in an accessor; it is wrong as the **only**
+        reading. So the accessors keep their shapes - callers still get a
+        mapping or a list of mappings and need no isinstance dance - and this
+        method guarantees the coercion is never load-bearing, because a record
+        whose shape does not match is never admitted.
+
+        Called by `load_results`, so no consumer can obtain an unvalidated
+        record through the supported path.
+        """
+        for field_name, shape in self.SHAPES:
+            v = self.data.get(field_name)
+            if v is None:
+                continue
+            if shape == "mapping" and not isinstance(v, dict):
+                raise RecordError(
+                    f"{self.result_id}: {field_name} is "
+                    f"{type(v).__name__}, not a mapping. It is declared and "
+                    f"cannot be read, which is not the same as absent and must "
+                    f"not be silently treated as absent (VER-012)"
+                )
+            if shape == "mappings":
+                if not isinstance(v, list):
+                    raise RecordError(
+                        f"{self.result_id}: {field_name} is "
+                        f"{type(v).__name__}, not a sequence of mappings"
+                    )
+                for n, entry in enumerate(v):
+                    if not isinstance(entry, dict):
+                        raise RecordError(
+                            f"{self.result_id}: {field_name}[{n}] is "
+                            f"{type(entry).__name__}, not a mapping. A "
+                            f"malformed entry used to be dropped from the "
+                            f"pinned set in silence (VER-012)"
+                        )
 
     @property
     def status(self) -> str:
@@ -559,7 +680,9 @@ def load_results(repo: Path) -> dict[str, ResultRecord]:
         if rid in out:
             raise RecordError(f"duplicate result_id {rid}")
         rel = f"{RESULTS_DIR}/{p.name}"
-        out[rid] = ResultRecord(result_id=rid, path=rel, data=data)
+        rec = ResultRecord(result_id=rid, path=rel, data=data)
+        rec.validate_shape()
+        out[rid] = rec
     return out
 
 

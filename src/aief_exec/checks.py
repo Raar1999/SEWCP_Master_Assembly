@@ -456,7 +456,15 @@ def x06_result_currency(repo: Path) -> dict[str, Any]:
     """
     details: list[str] = []
     notices: list[str] = []
-    results = records.load_results(repo)
+    # VER-012. A record that is ambiguous or structurally malformed is rejected
+    # at admission and never becomes a `ResultRecord`, so the failure arrives
+    # here as an exception rather than as a field this check could inspect. It
+    # is reported as a named detail, the pattern `X-01` already uses: an
+    # unreadable record is a check failure, not a crash.
+    try:
+        results = records.load_results(repo)
+    except (records.RecordError, OSError) as exc:
+        return _result("X-06", "Result currency", [f"result records unreadable: {exc}"])
     epoch = _graph.seal_epoch(results)
     derived = _graph.derived_seal_epoch(results)
     if derived != epoch:

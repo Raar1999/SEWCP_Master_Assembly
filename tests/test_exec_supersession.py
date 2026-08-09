@@ -472,13 +472,31 @@ class TestASealBlockThatIsNotAMappingIsNotNoSealBlock:
              "  path:   .ai/project/results/R-100.md\n" + digest + "\n",
              replacement.format(d=digest.split(": ", 1)[1]))
 
-    def test_the_sequence_form_is_rejected_not_ignored(self, repo):
+    def test_the_sequence_form_is_rejected_at_admission(self, repo):
+        """`VER-012` - SUPERSEDED BY ROOT ARCHITECTURE, and strengthened.
+
+        This used to assert an `X-06` detail, because a malformed seal block was
+        admitted and then caught downstream. It is no longer admitted:
+        `ResultRecord.validate_shape` rejects it at load, so no consumer ever
+        sees the coerced `{}`. `X-06` reports the unreadable record instead of
+        inspecting a field that does not exist.
+        """
         self._malform(repo, self.SEQUENCE)
-        result = records.load_results(repo)["R-101"]
-        assert result.supersedes_seal == {}          # coerced, as before
-        assert graph.seal_declared_block(result)     # but still *declared*
-        assert graph.seal_block_malformed(result)
-        fails_naming(repo, "not a {path, digest} mapping", "parsed as list")
+        with pytest.raises(records.RecordError, match="not a mapping"):
+            records.load_results(repo)
+        res = x06(repo)
+        assert res["status"] == "FAIL"
+        assert any("unreadable" in d for d in res["details"]), res["details"]
+
+    def test_the_predicate_itself_still_identifies_a_malformed_block(self):
+        """Admission is authoritative; `seal_block_malformed` is the predicate
+        it and `X-06` both read. Tested directly, because a record constructed
+        outside `load_results` bypasses admission and the predicate is what
+        remains."""
+        bad = records.ResultRecord("R-900", "x.md", {"supersedes_seal": ["a"]})
+        assert graph.seal_declared_block(bad) and graph.seal_block_malformed(bad)
+        ok = records.ResultRecord("R-901", "x.md", {"supersedes_seal": {"path": "p"}})
+        assert not graph.seal_block_malformed(ok)
 
     @pytest.mark.parametrize(
         "shape",
@@ -490,7 +508,8 @@ class TestASealBlockThatIsNotAMappingIsNotNoSealBlock:
     )
     def test_any_non_mapping_shape_is_rejected(self, repo, shape):
         self._malform(repo, shape)
-        fails_naming(repo, "not a {path, digest} mapping")
+        with pytest.raises(records.RecordError, match="not a mapping"):
+            records.load_results(repo)
 
     def test_the_full_attack_through_a_malformed_block_is_blocked(self, repo):
         """G-1 end to end: reshape the block, delete `supersedes`, delete the
@@ -500,7 +519,9 @@ class TestASealBlockThatIsNotAMappingIsNotNoSealBlock:
         edit(repo, "R-101", "supersedes:  R-100\n")
         edit(repo, "R-100", "superseded_by: R-101\n")
         append(repo, "R-100")
-        fails_naming(repo, "not a {path, digest} mapping")
+        with pytest.raises(records.RecordError, match="not a mapping"):
+            records.load_results(repo)
+        assert x06(repo)["status"] == "FAIL"
 
     def test_a_record_with_no_block_is_still_not_accused(self, repo):
         """The converse. `R-001`, `R-007` and `R-008` pre-date the seal

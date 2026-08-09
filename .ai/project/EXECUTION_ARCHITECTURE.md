@@ -462,6 +462,76 @@ requires, at minimum:
 Until that authority exists: no ledger entry is created, `HEAD` stays at `seq: 0`, state
 `genesis`, and the ledger hash construction is not invented here or anywhere else.
 
+### 6.6 · Record admission — the invariant, and who owns it
+
+**This section is the root-cause repair. Sections 6.2–6.4 are its manifestations.**
+
+Five successive independent audits found the same defect at five depths of one value:
+
+| Depth | The two things one value meant | Consequence |
+|---|---|---|
+| link | `successor_of` vs `_corroborates` — two definitions | one deleted line disarmed the seal |
+| path | a path not matching a literal prefix | silently no link |
+| canonical form | a *declared* path canonicalising to `""` | indistinguishable from no path |
+| coerced value | a non-mapping block coerced to `{}` | indistinguishable from no block |
+| document | duplicate key, tab indent, second fence | silently one of two readings |
+
+Each repair added a distinguishing predicate at **one interpretation site**, and the next
+audit picked another. **Four of the five were found in code the previous repair had just
+written.** The mechanism is exact and it is one thing:
+
+> **An input that is *present but uninterpretable* is coerced onto the same value as
+> *absent* — and *absent* is a passing state.**
+
+The cause is not any accessor. It is that the result record was the **only** authoritative
+record class in this repository with no schema and no admission gate (`core/schemas/` carries
+eight: task, approval, ecr, ledger-entry, state, binding, agent, core-manifest — and no
+result). Interpretation was therefore distributed across every accessor and every check limb,
+each independently deciding what "absent" means. The number of such sites is unbounded, which
+is why patching them terminated nothing.
+
+**The invariant.**
+
+> A record is admitted only if it is **unambiguous** and **structurally well-formed**.
+> Anything else is rejected by name. Nothing is reinterpreted, defaulted, tie-broken or
+> coerced on the way in.
+
+**The owner is `src/aief_exec/records.py`, and it always was.** Its docstring has claimed this
+from the first commit — *"raises `RecordError` on anything outside that subset rather than
+guessing — LAW-12: assumption is never a resolution method"* — and did not enforce it. The
+invariant was not missing; it was **nominal**, so the obligation silently devolved onto every
+consumer. Nothing new is invented here. The module is made to do what it already says.
+
+**Enforcement, at admission and nowhere else:**
+
+- **Ambiguity is rejected, not resolved.** A duplicate key at any level, tab indentation
+  (whose width is a display convention, not a fact about the document), and a second `yaml`
+  fence are each *two readings*. Returning one is a tie-break, and a tie-break is the
+  assumption `LAW-12` forbids.
+- **Shape is validated once** — `ResultRecord.validate_shape`, called by `load_results`, so no
+  consumer can obtain an unvalidated record through the supported path. Accessors keep their
+  coercions, because callers should not each write an `isinstance` dance; the guarantee is
+  that a coercion is never *load-bearing*.
+- **Shape is not content.** Which fields must exist and what they must say is §6 and is
+  enforced by `X-01`/`X-06`. Restating §6's field list in `records.py` would create the second
+  declaration `FIND-Q9-44` was raised about.
+
+**Why this class cannot simply move one layer down.** There is no layer below the document.
+The previous four depths were all *interpretations* of an admitted record; admission is the
+boundary at which a byte sequence becomes a record at all, and below it there is only the
+file. A future defect of this class would have to make an *admitted* record mean two things —
+which is what "unambiguous" denies.
+
+**Regression protection** is `tests/test_exec_admission.py`, written against `records.py`
+rather than against `X-06`, so it pins the invariant and not a symptom. Seven mutants aimed at
+the parser and the admission gate — a layer no mutant in any prior campaign had attacked — all
+die.
+
+**Migration impact: zero.** All sixteen live records (results, tasks and the index) were
+scanned before the change and again after: no duplicate keys, no tab indentation, no fence
+anomaly. The stricter rule rejects nothing that exists, and `X-06` reports an unadmitted
+record as a named failure rather than a traceback.
+
 ## 7 · Classification — computed, never declared
 
 `src/aief_exec/graph.py` derives the class of every task and every task pair. No human
