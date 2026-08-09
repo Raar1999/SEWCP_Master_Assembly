@@ -26,6 +26,9 @@ enabled_agents:
   - mechanical.cad-engineer   # A1 - AIEF-AMD-006
   - mechanical.manufacturing-engineer   # A1
   - mechanical.simulation-engineer   # A1
+  - software.software-engineer   # A1 - AIEF-AMD-011
+  - software.test-engineer   # A1 - AIEF-AMD-011
+  - software.platform-engineer   # A1 - AIEF-AMD-011
 ```
 
 ## Notes

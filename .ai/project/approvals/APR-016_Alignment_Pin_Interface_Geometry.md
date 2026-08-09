@@ -1,10 +1,10 @@
-# APR-014 — Alignment pin interface geometry: SEWCP-700 governs
+# APR-016 — Alignment pin interface geometry: SEWCP-700 governs
 
 > **Instance artifact.** Partition `project`. Schema `core/schemas/SCH-approval.schema.json`, severity BLOCKING.
 > Satisfies the recorded-human-approval requirement of LAW-01 and LAW-10 for ECR-D-001 disposition A.
 
 ```yaml
-approval_id:   APR-014
+approval_id:   APR-016            # renumbered from APR-014: VER-008 R10-c, a prior session had reserved that id
 approver:      human-owner            # BINDING.approval_authority
 timestamp:     2026-08-09T00:00:00Z
 subject_path:  spec/01_SEWCP-200_Cooling_Plate.md

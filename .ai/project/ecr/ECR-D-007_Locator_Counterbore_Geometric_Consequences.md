@@ -1,7 +1,7 @@
 # ECR-D-007 — Geometric consequences of the Ø12.000 locator counterbore are unassessed
 
 > **Instance artifact.** Partition `project`. Filed per `manifest.templates → tpl-ecr`, schema `core/schemas/SCH-ecr.schema.json`.
-> Split from ECR-D-001 by human-owner decision, session `S-2026-08-09-14`, Option B, approval [`APR-015`](../approvals/APR-015_Alignment_Pin_Clerical_Correction.md).
+> Split from ECR-D-001 by human-owner decision, session `S-2026-08-09-14`, Option B, approval [`APR-017`](../approvals/APR-017_Alignment_Pin_Clerical_Correction.md).
 
 ```yaml
 ecr_id:       ECR-D-007

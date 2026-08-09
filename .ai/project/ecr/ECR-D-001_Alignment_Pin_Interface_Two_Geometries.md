@@ -10,10 +10,11 @@ raised_by:    project-manager · S-2026-08-08-01
 status:       VERIFICATION-PENDING   # not CLOSED until C6 independent verification passes
 disposition:  A - SEWCP-700 GOVERNS; CORRECT SEWCP-200
 ruled_by:     human-owner · S-2026-08-09-14
-approval:     approvals/APR-014_Alignment_Pin_Interface_Geometry.md
+approval:     approvals/APR-017_Alignment_Pin_Clerical_Correction.md   # LIVE
+approval_superseded: approvals/APR-016_Alignment_Pin_Interface_Geometry.md  # VOID under LAW-10, see §6
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    null                   # set on independent verification PASS
-residual:     none
+residual:     three - see §7   # VER-008 F11: this field read `none` while §7 read "Not none"
 ```
 
 ---
@@ -90,7 +91,7 @@ Rule which volume governs the alignment-pin interface geometry, and correct the 
 
 **SEWCP-700 governs. SEWCP-200 is corrected to the screw-retained shouldered locator.**
 Ruled by `human-owner`, session `S-2026-08-09-14`, approval
-[`APR-014`](../approvals/APR-014_Alignment_Pin_Interface_Geometry.md).
+[`APR-016`](../approvals/APR-016_Alignment_Pin_Interface_Geometry.md).
 
 **Basis recorded, not inferred.** SEWCP-700 carries the quantified derivation — thermal
 interference loss, wear pairing against 1,600 HV alumina, retention, serviceability, and the
@@ -134,7 +135,7 @@ are nomenclature-only with no dimensional effect, and both are added above.**
 | §6 step 13 (masking) | mask *"dowel bores"* | mask *"locator counterbores and their M4 threads"* |
 | §Critical dimensions, `CP-D11` row label | Kinematic **dowel bolt-circle** position | Kinematic **locator counterbore** position |
 | §10 step 7 (assembly) | *"the 3 bottom **dowels** … each **dowel** slides freely"* | *"the 3 bottom **locator bosses** … each **boss** slides freely"* |
-| §8 Surface finish table | *"Dowel bores … Press-fit dimensional integrity"* | *"Locator counterbores and M4 retention threads … Flange seating and thread integrity"* — **added under `APR-015`; see F1 below** |
+| §8 Surface finish table | *"Dowel bores … Press-fit dimensional integrity"* | *"Locator counterbores and M4 retention threads … Flange seating and thread integrity"* — **added under `APR-017`; see F1 below** |
 | §Tolerance philosophy | *"kinematic **dowel** position"* | *"kinematic **locator** position"* (2 places) |
 | §Design rationale (choke fastener holes) | *"located by the three kinematic **dowels**"* | *"located by the three kinematic **locators**"* |
 
@@ -157,7 +158,7 @@ No other volume is touched: `git diff --name-only spec/` returns
 > The claim was produced by a **case-sensitive** `grep -c "dowel"` returning 0 against text
 > reading `Dowel`. A completeness assertion was published on the strength of a check too weak
 > to support it, and that assertion is precisely what would have stopped a reviewer
-> re-checking. The row is corrected under `APR-015`; the claim is re-made only as a
+> re-checking. The row is corrected under `APR-017`; the claim is re-made only as a
 > case-insensitive measurement, `grep -ci` → **0**.
 
 ### 6.2 Interference check performed for the added tapped holes
@@ -174,7 +175,7 @@ No other volume is touched: `git diff --name-only spec/` returns
 >
 > It is withdrawn rather than corrected here, because a correct assessment requires
 > engineering values this ECR has no authority to set. The geometric consequences of the
-> Ø6.000 → Ø12.000 enlargement are split into **ECR-D-007** under `APR-015` (Option B) and
+> Ø6.000 → Ø12.000 enlargement are split into **ECR-D-007** under `APR-017` (Option B) and
 > are dispositioned there, not here.
 
 ### 6.3 Constraint passed to SEWCP-200 CAD
@@ -199,10 +200,13 @@ and F10 falsified that. The residuals are:
 |---|---|---|
 | `spec/03` `SR-IF-4` and line 103, `spec/02` `HP-IF-3` still describe the locators as *"Ø6 h6 dowels **pressed into** the Cooling Plate"* | Retention **method** stated three ways across the frozen set. The **slot geometry** is consistent, so no geometric ambiguity results | Left unchanged **as the approval requires** (those volumes are out of scope). Recorded as a residual, not as consistency |
 | `spec/02` states **no slot depth** at the Ø260 BC interface | Clearance there is undecidable from the host volume | Carried into `ECR-D-007` |
-| §3.1 keep-out table has no kinematic-locator row; 1.00 mm OD wall at Ø306 BC; 3.35 mm vs the 3.5 mm demanded of analogous features | Geometric consequences of the approved Ø12.000 counterbore, unassessed by any volume | **Split to `ECR-D-007`** under `APR-015`, Option B |
+| §3.1 keep-out table has no kinematic-locator row; 1.00 mm OD wall at Ø306 BC; 3.35 mm vs the 3.5 mm demanded of analogous features | Geometric consequences of the approved Ø12.000 counterbore, unassessed by any volume | **Split to `ECR-D-007`** under `APR-017`, Option B |
 
-One further adjacent defect was found while gathering evidence and is **deliberately not
-folded in**: the ICD (`spec/00_…` §Materials) lists SEWCP-700 as **316L**,
+Two further adjacent defects were found while gathering evidence. They are **not folded in**,
+and — `VER-008` R8(b) — the first form of this section claimed one of them was *"raised
+separately"* when **no such ECR existed anywhere in the repository**. That was a status claim
+published without the fact behind it, which is the same defect as F2 one paragraph earlier.
+Both are now actually filed: **`ECR-D-008`** and **`ECR-D-009`**. the ICD (`spec/00_…` §Materials) lists SEWCP-700 as **316L**,
 while SEWCP-700 §7 specifies **Ti-6Al-4V Grade 5** and §6 rejects 316L on wear grounds. That
 is a material conflict, not geometry, and is outside this ECR's requested action. It is
 raised separately and is a candidate `C7` item.
