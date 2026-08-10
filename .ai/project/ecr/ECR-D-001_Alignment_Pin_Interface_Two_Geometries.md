@@ -10,12 +10,18 @@ raised_by:    project-manager · S-2026-08-08-01
 status:       ENGINEERING-VERIFIED   # NOT CLOSED - see §8. C6 evidence integrity is open (OI-V-11)
 disposition:  A - SEWCP-700 GOVERNS; CORRECT SEWCP-200
 ruled_by:     human-owner · S-2026-08-09-14
-approval:       approvals/APR-018_Strike_Unauthorised_Tap_Depth.md
-approval_chain: APR-016 -> APR-017 -> APR-018   # each supersedes the last; APR-018 is terminal
+approval:     approvals/APR-024_Support_Ring.md
+approval_chain: APR-016 -> APR-017 -> APR-018 (spec/01) -> APR-024 (spec/03 residual)
 # LIVENESS IS NOT ASSERTED HERE. VER-014 R3-F1: this field twice named a superseded approval
 # and twice labelled it LIVE, because the label was written by hand and never rechecked when
 # the next edit voided it. Determine liveness by recomputing DC-1 of the terminal approval's
 # subject_path and comparing with its subject_hash - a claim that cannot go stale.
+affected_artifacts:
+  - spec/01_SEWCP-200_Cooling_Plate.md
+  - spec/03_SEWCP-400_Chuck_Support_Ring.md
+evidence:     "See section 3. SEWCP-200 CP-D09/CP-D10 specify a Oe6.000 H7 press bore; SEWCP-700 AP-IF-1 specifies a Oe12.0 H7 x 3.0 counterbore with M4 retention. Both cannot be machined at one location."
+impact:       "See section 4."
+requested_action: "See section 5."
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    null                   # C6 unsatisfied; closure requires OI-V-11 discharged
 residual:     three - see §7   # VER-014 F11: this field read `none` while §7 read "Not none"

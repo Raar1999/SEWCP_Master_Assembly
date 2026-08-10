@@ -12,6 +12,11 @@ disposition:  A - DECLARE THE CONSTRUCTION EXPLICITLY
 ruled_by:     chief-systems-engineer · S-2026-08-08-02
 instrument:   AIEF-AMD-008 §AMD-16
 approval:     approvals/APR-002_Amend_Framework_Manifest_AMD-008.md
+affected_artifacts:
+  - framework/framework.manifest.json
+evidence:     "See the evidence section."
+impact:       "See the impact section."
+requested_action: "See the requested-action section."
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    2026-08-08T02:36:52Z
 ```

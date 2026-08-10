@@ -10,8 +10,17 @@ raised_by:    project-manager · S-2026-08-08-01
 status:       ENGINEERING-IMPLEMENTED   # NOT CLOSED - awaits C6 independent verification
 disposition:  A - REDUCE THE CHANNEL DEPTH 8.00 -> 6.00
 ruled_by:     human-owner · S-2026-08-09-14
-approval:     approvals/APR-019_Cooling_Plate_Channel_Depth.md
-approval_chain: APR-019   # terminal; determine liveness by recomputing its subject_hash
+approval:     approvals/APR-020_Cooling_Plate_coherence_package.md
+approval_chain: APR-019 (spec/01) -> APR-020 (spec/01 completion); APR-021 spec/00, APR-023 spec/06, APR-025 spec/07, APR-026 spec/README
+affected_artifacts:
+  - spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md
+  - spec/01_SEWCP-200_Cooling_Plate.md
+  - spec/06_SEWCP-700_Alignment_Pins.md
+  - spec/07_SEWCP-800_Vacuum_Port.md
+  - spec/README.md
+evidence:     "See section 3. CP-D07 8.00 + CP-D06 8.00 + CP-D08 6.00 = 22.00 against CP-D02 20.000."
+impact:       "See section 4."
+requested_action: "See section 5."
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    null
 residual:     one - CP-02 pressure drop, see §7

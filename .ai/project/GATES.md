@@ -26,8 +26,20 @@ Profile `mechanical`. Gate topology **terminal**. Disposition is binary per `cor
 
 A gate may pass with actions only if no action is on the critical path. All four defects are on it.
 
-Criteria are declared below. Disposition against them is **not yet taken**: all four ECRs are
-undispositioned, so `C1`–`C4` currently FAIL and the gate status above stands.
+**Disposition, session `S-2026-08-10-01`.** All four ECRs are now dispositioned, approved,
+applied and registered. The criteria are **computed, not asserted** — run:
+
+```
+PYTHONPATH=src python -m aief_gate
+```
+
+It prints one line per criterion with the evidence each rests on and exits non-zero unless all
+seven PASS. **That command is the authority for this gate's status**, in preference to any
+sentence in this file, because a sentence does not recompute itself. `C6` is the one criterion
+that is not fully mechanical: the checker confirms a verification report exists and **declares**
+each disposition as its subject, and that verifier identity differs from author identity, but
+whether the verifier obtained its evidence itself is a `LAW-05` reading dispositioned in the
+report. The checker says so rather than implying a judgement it did not make.
 
 ## Criteria
 
@@ -45,13 +57,49 @@ raised against it is dispositioned, approved, applied and independently verified
 
 | ID | Criterion | PASS | FAIL |
 |---|---|---|---|
-| **C1** | `ECR-D-001` carries an approved disposition | An ECR record exists, conforms to `SCH-ecr` with `disposition` non-empty, and a human approval artifact is content-hash-bound to it under `LAW-10` | Any of these absent, or the approval `subject_hash` does not reproduce |
+| **C1** | `ECR-D-001` carries an approved disposition | An ECR record exists, conforms to `SCH-ecr` with `disposition` non-empty, and a human approval artifact is content-hash-bound to it under `LAW-10` — **`LIVE` or `SUPERSEDED-VALID` per the supersession rule below** | Any of these absent, or the approval is **`VOID`** |
 | **C2** | `ECR-D-002` carries an approved disposition | as C1 | as C1 |
 | **C3** | `ECR-D-003` carries an approved disposition | as C1 | as C1 |
 | **C4** | `ECR-D-004` carries an approved disposition | as C1 | as C1 |
 | **C5** | The frozen specification reflects every approved disposition | Each disposition requiring a specification change is present in `spec/**` and the affected artifacts are re-registered in [`FROZEN.md`](FROZEN.md) with reproducing digests | Any approved disposition unapplied, or any registered digest that does not reproduce |
 | **C6** | Independent verification is recorded per disposition | A verification report exists for each, produced by a role that authored none of the work, disposing every acceptance point `PASS`/`FAIL` on self-obtained evidence (`LAW-05`) | Report missing, or verifier identity equals author identity |
 | **C7** | No ECR against the frozen specification remains undispositioned | The `Blocking` section of [`OPEN_ITEMS.md`](OPEN_ITEMS.md) contains no `ECR-D-*` whose `affected_artifacts` lie under `spec/**` | Any such item present |
+
+### Supersession of approvals — ruled by the human owner, `S-2026-08-10-01`
+
+**The problem this rule answers.** `LAW-10` clause 2 invalidates an approval when the bound
+content hash changes, and an approval binds a **whole-file** DC-1. `spec/01` alone carries
+dispositions for `ECR-D-001`, `-002`, `-003`, `-004`, `-007`, `-009` and `-010`. Under a literal
+reading of the FAIL clause, **at most one of `C1`–`C4` could pass at any instant**, and which one
+depended on edit order: `APR-019`'s lawful edit for `ECR-D-002` invalidated `APR-016`/`-017`/
+`-018` and put `C1` into FAIL for a purely mechanical reason. The gate was unsatisfiable by
+construction, and re-approving every prior ECR at each new digest is O(ECRs × edits) and breaks
+again on the next edit.
+
+**The rule.** An approval carries exactly one of three states against the live tree:
+
+| State | Condition |
+|---|---|
+| **`LIVE`** | `subject_hash` equals the current DC-1 of `subject_path` |
+| **`SUPERSEDED-VALID`** | an unbroken chain of approvals on the same `subject_path`, each carrying `prior_hash` equal to its predecessor's `subject_hash`, leads from it to a `LIVE` approval |
+| **`VOID`** | neither |
+
+`C1`–`C4` are satisfied by `LIVE` **or** `SUPERSEDED-VALID`. `VOID` fails.
+
+**Why this is safe rather than a loosening.** The relation is stable under future edits — every
+lawful change appends a link, so every earlier approval stays reachable — and it cannot launder
+an unlawful one: an artifact edited without an approval leaves **no `LIVE` approval on that
+path**, and the entire chain collapses to `VOID` at once. A fork (two approvals declaring the
+same `prior_hash`) is a failure, not a preference, because it makes the approved history
+ambiguous.
+
+**It is computed, not asserted.** `python -m aief_approval verify` decides every state from
+repository bytes and exits non-zero on any failure. `tests/test_approval_chain.py` attacks it
+directly: unapproved edit, broken link, fork, cycle, self-reference, duplicate id, non-hex and
+uppercase digests, registry/tree divergence, and a rollback that must re-`LIVE` an old approval
+while voiding the later ones. **No `LIVE`/`VOID` label is written by hand anywhere** — four
+hand-written liveness labels went stale in this repository before this rule existed (`VER-014`
+R3-F1), which is why the approval artifacts now decline to state their own status.
 
 `C1`–`C4` are **four separate criteria and are not satisfiable by one approval.** Each of the
 four is an independent engineering decision owned by the Design Authority, and

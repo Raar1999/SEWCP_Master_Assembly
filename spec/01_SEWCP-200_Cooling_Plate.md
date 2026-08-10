@@ -65,16 +65,16 @@ Turbulence is a **requirement, not an outcome.** If flow drops below ≈ 2 L/min
 
 | IF | Interface | Type | Detail |
 |---|---|---|---|
-| CP-IF-1 | To Chuck Support Ring (SEWCP-400) | Kinematic, load-bearing | 3× SEWCP-700 locators **seated and screw-retained** in the bottom face at Ø306 BC, 60°/180°/300° — Ø12.0 H7 × 3.0 counterbore receiving the Ø12.000 k6 flange, M4 × 10 SHCS through the locator into the plate; the Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Ring's top flange (ECR-D-001 disposition A) |
+| CP-IF-1 | To Chuck Support Ring (SEWCP-400) | Kinematic, load-bearing | 3× SEWCP-700 **integral shouldered locator screws** in the bottom face at Ø306 BC, 60°/180°/300° — Ø10.0 H7 × 3.00 counterbore receiving the Ø10.000 **h6** flange (close clearance, 0 to 0.024), retained by the locator's own `AP-D13` M4 spigot into `CP-D09a`; driven at the `AP-D14` 3.0 mm hex socket. The Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Ring's top flange (ECR-D-001 disposition A; ECR-D-009) |
 | CP-IF-2 | To Chuck Support Ring — fastening | Fastened, RF-side circuit | 8× **M6 × 1.0 tapped holes**, 12 mm deep, in the bottom face at Ø302 BC, 22.5°+n·45°; upper-circuit bolts enter from beneath the Ring's top flange (DR-9 — these bolts never reach the Base Plate) |
-| CP-IF-3 | To Heater Plate (SEWCP-300) | Thermal choke + fastened | 16× M5 counterbored **radially slotted** clearance holes, 5.5 W × 7.0 L (12 at Ø270 BC, 4 at Ø90 BC), bolts from below into Heater Plate threads; 16× Ti washer seats on the top face |
-| CP-IF-4 | To Heater Plate | Kinematic | 3× SEWCP-700 locators **seated and screw-retained** in the top face at Ø260 BC, 30°/150°/270° — Ø12.0 H7 × 3.0 counterbore receiving the Ø12.000 k6 flange, M4 × 10 SHCS through the locator into the plate; the Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Heater Plate (ECR-D-001 disposition A) |
+| CP-IF-3 | To Heater Plate (SEWCP-300) | Thermal choke + fastened | 16× M5 **radially slotted** clearance holes, 5.5 W × 7.0 L (12 at Ø270 BC, 4 at Ø90 BC), each with a **radially slotted counterbore `CP-D26` 11.0 W × 12.5 L × 2.5 deep** in the bottom face, **anodize-masked**, seating the Belleville and bolt head; **M5 × 25 SHCS** from below into the `HP-D12` inserts (**not M5 × 30** — ECR-D-004); 16× Ti washer seats on the top face |
+| CP-IF-4 | To Heater Plate | Kinematic | 3× SEWCP-700 **integral shouldered locator screws** in the top face at Ø260 BC, **75°/195°/315°** (re-clocked off the outer choke rays — ECR-D-010) — Ø10.0 H7 × 3.00 counterbore receiving the Ø10.000 **h6** flange, retained by the `AP-D13` spigot into `CP-D10a`. The Ø6.000 h6 boss protrudes 2.50 mm and engages radial slots in the Heater Plate (ECR-D-001 disposition A; ECR-D-009; ECR-D-010) |
 | CP-IF-5 | To Vacuum Port (SEWCP-800) | Sealed, piloted bore | Central Ø10.0 H8 bore (receives the port-body pilot spigot); flat lapped sealing face on the bottom face, **masked from anodize**, Ø18–Ø32 annulus; 4× M4 × 10 deep tapped holes at Ø38 BC. **The O-ring groove is in the 316L port flange, not in this plate** (see Volume 07 §12) |
 | CP-IF-6 | To Lift Pins (SEWCP-600) | **Loose lateral support** | 3× Ø8.0 H8 bores at Ø200 BC, counterbored Ø12 × 6 deep from below for the SEWCP-601 bushing (bushing bore Ø5.60 — deliberately loose; the pin is guided by the ESC bore, see Volume 05 §12) |
 | CP-IF-7 | To ESC HV feed | Insulated bore | 2× Ø8.0 bores at Ø60 BC, alumina-tube-lined, 0°/180° |
 | CP-IF-8 | To RF Bracket (SEWCP-900) | Bolted electrical land | Machined flat land, **60 mm circumferential × 18 mm radial, mean radius 137 mm (Ø274 BC), centred at 105°**, on the bottom face; **anodize-masked, Alodine 1200 only**; 2× M6 × 12 deep tapped at r = 137, 98.7° and 111.3° |
 | CP-IF-9 | To Temp Sensor Retainers (SEWCP-1000) | Blind probe ports + retainer mounts | 3× Ø1.7 H8 × 12 deep blind holes entering the bottom face at **r = 40 @ 75°, r = 100 @ 165°, r = 140 @ 225°** (clocked clear of the RF land at 105°); **each cross-vented per DR-6**; plus 2× M4 × 8 deep tapped holes flanking each port at ±9 mm |
-| CP-IF-10 | To coolant system | Fluid | 2× 1/2 in. VCR male gland stubs, orbital-welded, radial at 255° (inlet) / 285° (outlet) |
+| CP-IF-10 | To coolant system | Fluid | 2× radial ports at 255° (inlet) / 285° (outlet). Ø10.0 H9 bore (`CP-D22`) on a centreline **11.00 mm above Datum A** (`CP-D23`), running from the OD to the channel at r = 125.0; the channel is locally deepened to 10.00 (`CP-D25`) so bore and channel are **coaxial** and the section matches. Ø14.0 H8 × 4.0 weld-prep counterbore at the OD (`CP-D24`) receives the 6061 end of a **SEWCP-201 bimetallic transition joint**, orbital-GTAW full penetration; the joint's 316L end carries the 1/2 in. VCR male gland (ECR-D-003) |
 
 ### 3.1 Coolant Channel Keep-Out Zones
 
@@ -91,6 +91,25 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | **RF land envelope** (r = 128 to 146, 93°–117°) | — | **No channel permitted; solid material required for M6 threads** |
 | Plate OD and any external surface | — | 5.0 mm |
 
+> **Port exception — bounded, and declared rather than discovered (ECR-D-003).** At the two
+> coolant ports only, the channel is deepened to `CP-D25` 10.00 mm so the Ø10.0 stub bore is
+> coaxial with it, and it reaches the plate OD through `CP-D22`. Over those two pockets the
+> channel-to-top-face wall is **4.00 mm**, not `CP-D07`'s 8.00, and the *"Plate OD … 5.0 mm"*
+> row above does not apply. Both departures are deliberate, are confined to the two pockets,
+> and every other row of the table applies unchanged. Structural check at `CP-05` 6 bar proof:
+> a 4.00 mm ligament spanning the 10 mm bore carries M = pL²/8 = 7.5 N·mm/mm, so
+> σ = 6M/t² = 45 / 16 = **2.8 MPa** against 276 MPa yield — a margin of order 100×.
+>
+> **Kinematic locators (ECR-D-007 requested action 1).** The row below is added to the table
+> above: *Kinematic locator counterbore Ø10.000 and its coaxial M4 thread — keep-out radius
+> **8.5 mm** from the feature axis (5.0 counterbore radius + 3.5 wall), minimum wall to channel
+> **3.5 mm**.* Constructed on the same basis the table already uses for the M5 choke and M6 ring
+> holes. At the Ø260 BC stations this pulls the channel outer limit to **r ≤ 121.5**, which
+> leaves the M4 tap drill (inner edge r = 128.35) **6.85 mm** of wall — so ECR-D-007 requested
+> action 2 is answered by satisfying this row, not by granting an exception. The Ø306 BC
+> stations lie at r = 153, outside the Ø60–Ø250 annulus, and are governed by the plate OD:
+> the Ø10.000 counterbore leaves **2.00 mm** of annular wall (1.93 mm worst case).
+>
 > **This keep-out table is a direct consequence of DR-2** (no fasteners through the wafer-facing surface). Because all 24 fasteners come from below, the coolant circuit must weave around them. CAD shall route the serpentine to satisfy the table **before** optimizing for path length.
 
 ## 4. Mating Components
@@ -106,6 +125,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | Temperature Sensor Bracket | SEWCP-1000 | CP-IF-9 | Receives spring-loaded RTD probes |
 | Base Plate | SEWCP-100 | Via SEWCP-400 only | **No direct contact — isolation depends on it** |
 | Alignment Pins | SEWCP-700 | CP-IF-1, CP-IF-4 | Hosts 6 screw-retained locators (3 down, 3 up) |
+| Coolant Transition Joint | SEWCP-201 | CP-IF-10 | 2 off. Explosion-bonded 6061/316L; welded to the plate on the 6061 side, carries the VCR gland on the 316L side |
 
 ## 5. Critical Dimensions
 
@@ -119,10 +139,10 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D06 | Coolant channel depth | 6.00 | +0.20 / −0 | **Medium — set by the Z stack, ECR-D-002** |
 | CP-D07 | Channel-to-top-face wall | 8.00 | ±0.20 | Medium — thermal |
 | CP-D08 | FSW lid thickness | 6.00 | ±0.10 | Medium |
-| CP-D09 | Kinematic locator counterbore (bottom), Ø306 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
-| CP-D09a | Locator retention tapped hole (bottom), coaxial with CP-D09 | M4 × 0.7, **depth TBD — ECR-D-007** | — | High — retention |
-| CP-D10 | Kinematic locator counterbore (top), Ø260 BC, 3.00 deep | Ø12.000 | H7 | **Critical — centering** |
-| CP-D10a | Locator retention tapped hole (top), coaxial with CP-D10 | M4 × 0.7, **depth TBD — ECR-D-007** | — | High — retention |
+| CP-D09 | Kinematic locator counterbore (bottom), Ø306 BC, 3.00 deep | **Ø10.000** | H7 | **Critical — centering.** Reduced from Ø12.000 by ECR-D-007 action 3: the Ø12 form left **1.00 mm** of annular wall to the plate OD (0.95 mm at minimum OD); Ø10.000 leaves **2.00 mm** (1.93 worst case) |
+| CP-D09a | Locator retention tapped hole (bottom), coaxial with `CP-D09` | M4 × 0.7. Ø3.30 drilled, **7.80 max to the drill point** below the counterbore floor; **5.00 min full thread**, bottoming tap | — | **High — retention.** Crosses the FSW lid/body plane at z = 6.00: a circumferential weld pass shall lie at or outboard of this bolt circle (ECR-D-007 action 5) |
+| CP-D10 | Kinematic locator counterbore (top), Ø260 BC **@ 75°/195°/315°**, 3.00 deep | **Ø10.000** | H7 | **Critical — centering** (re-clocked, ECR-D-010; Ø12.000 → Ø10.000, ECR-D-007 action 3 — which also moves this counterbore's inner edge from r = 124.0 to **r = 125.0**, closing the §3.2 annulus overlap) |
+| CP-D10a | Locator retention tapped hole (top), coaxial with `CP-D10` | M4 × 0.7. Ø3.30 drilled, **7.80 max to the drill point** below the counterbore floor; **5.00 min full thread**, bottoming tap | — | **High — retention.** 5.00 mm stops exactly at `CP-D07`'s 8.00 mm wall; radial separation is the §3.1 locator row (ECR-D-007 action 5) |
 | CP-D11 | Kinematic locator counterbore position | Ø306 / Ø260 | ⌖ Ø0.020 M @ B,C | **Critical** |
 | CP-D12 | Lift pin bore | Ø8.000 | H8 | High — pin alignment |
 | CP-D13 | Lift pin bore position | Ø200 BC | ⌖ Ø0.050 M @ A,B,C | High |
@@ -133,7 +153,12 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | CP-D18 | RF land flatness | 60 × 18 land, Ø274 BC @ 105° | 0.020 TIR | **Critical — contact R** |
 | CP-D19 | RTD blind bore (3×, r = 40/100/140 @ 75°/165°/225°) | Ø1.700 | H8, depth 12 ±0.2 | High — response |
 | CP-D20 | M6 tapped holes (Ring upper circuit), Ø302 BC | M6 × 1.0 × 12 deep | ⌖ Ø0.30 Ⓜ | Low |
-| CP-D21 | M5 tapped depth (into Heater Plate side) | — | See SEWCP-300 | — |
+| CP-D21 | M5 tapped depth (into Heater Plate side) | — | `HP-D12`, 6.50 blind | — |
+| CP-D22 | Coolant stub bore (2×), radial at 255° / 285° | Ø10.0 | H9 | Medium — flow |
+| CP-D23 | Coolant stub bore centreline above Datum A | 11.00 | ±0.10 | **High — channel breakthrough** |
+| CP-D24 | Stub weld-prep counterbore at the OD (2×), coaxial with `CP-D22` | Ø14.0 × 4.0 deep | H8 | High — weld fit-up |
+| CP-D25 | Channel local depth at the two ports, ramped to `CP-D06` over 15 mm | 10.00 | +0.20 / −0 | Medium — set by `CP-D22` (ECR-D-003) |
+| CP-D26 | Choke fastener counterbore (16×), radially slotted, coaxial with `CP-IF-3` | 11.0 W × 12.5 L × 2.5 deep | +0.20 / −0 | High — head seat, slip interface |
 
 **Mass estimate:** Ø320 × 20 mm 6061 solid = 4.34 kg; less channel volume (≈ 0.13 L) and bores ≈ **4.0 kg**. Meets CP-15 (≤ 4.2 kg), with the margin narrowed from ≈ 0.3 to ≈ 0.2 kg by the ECR-D-002 depth reduction.
 
@@ -145,17 +170,17 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 |---|---|---|
 | 1 | Procure 6061-T651 plate, Ø330 × 30 rough | Certified, ultrasonically inspected for porosity |
 | 2 | Rough machine body OD, faces; stress-relieve | **Mandatory** — 6061 plate carries residual stress that will bow the part after channel machining |
-| 3 | CNC mill the serpentine channel into the **bottom** face | 10 W × 8 D, R5 minimum bend radius, all corners filleted R3 minimum |
+| 3 | CNC mill the serpentine channel into the **bottom** face | 10 W × 6 D (`CP-D05` × `CP-D06`), R5 minimum bend radius, all corners filleted R3 minimum. Deepen to 10 D at the two port pockets per `CP-D25`, ramped back to 6 D over 15 mm |
 | 4 | Machine the FSW lid, 6.00 mm, matching profile | Same 6061-T651 lot |
 | 5 | **Friction stir weld** the lid to the body | Circumferential + internal rib passes; no filler, no flux, no elastomer in the pressure boundary |
 | 6 | NDT the weld — dye penetrant + radiography | Weld defects here are a coolant-into-vacuum event (FMEA #6) |
 | 7 | Hydrostatic proof, 6 bar / 30 min | Before any finish machining |
 | 8 | Semi-finish all faces; second stress relief | |
 | 9 | Finish machine: bores, counterbores, choke pads, RF land, O-ring groove, tapped holes | Single setup where possible to hold CP-D11 |
-| 10 | Orbital-weld the 2× VCR gland stubs | Full-penetration, internally smooth |
+| 10 | Bore `CP-D22` / `CP-D24`; orbital-GTAW the 2× SEWCP-201 transition joints into the weld-prep counterbores | Full-penetration, internally smooth. **6061-to-6061 fusion only** — the Al/316L interface is the explosion bond inside SEWCP-201 and is never a fusion weld (ECR-D-003) |
 | 11 | Helium leak test, < 1×10⁻⁹ mbar·L/s | Mass spectrometer, He bagged |
-| 12 | Install 6× alignment locators (SEWCP-700) | 3 bottom, 3 top; M4 × 10 SHCS, 2.5 N·m, anti-galling dry film |
-| 13 | **Mask** channel interior, choke pads, RF land, sealing faces, locator counterbores and their M4 threads; hard anodize | See §8 |
+| 12 | Install 6× alignment locators (SEWCP-700) | 3 bottom, 3 top. **Integral shouldered locator screws** — no separate fastener. Torque **1.2 N·m** at the `AP-D14` 3.0 mm hex socket, anti-galling dry film on the spigot and flange face (ECR-D-009) |
+| 13 | **Mask** channel interior, choke pads, RF land, sealing faces, locator counterbores and their M4 threads, and the 16× `CP-D26` counterbore floors; hard anodize | See §8. The `CP-D26` floors are masked because that joint **slips ≈ 0.4 mm every thermal cycle** under ≈ 3.9 kN of preload, and hard anodize is friable — bearing a Belleville on it generates wear debris in vacuum (ECR-D-004) |
 | 14 | Strip masks; final lap the top face | To CP-D03 / CP-D04 |
 | 15 | Clean: ultrasonic → DI rinse → IPA → vacuum bake 120 °C / 4 h | Per SEWCP-ENG-001 §10 C1 |
 | 16 | Final inspection and CMM report | Full dimensional per §5 |
@@ -206,7 +231,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | O-ring sealing face | Ra 0.8–1.6 µm, no radial scratches | Seal integrity |
 | Lift pin bores | Ra ≤ 0.8 µm, honed | Pin travel without stick-slip or galling |
 | Bottom face and OD (exposed) | **Type III hard anodize, 50 µm, sealed** | Plasma and handling durability; dielectric protection of the RF-hot body |
-| Locator counterbores and M4 retention threads | Ra ≤ 0.8 µm, masked | Flange seating and thread integrity |
+| Locator counterbores and M4 retention threads | Ra ≤ 0.8 µm, masked | Flange seating and thread integrity. Locators are installed **after** the anodize tank — see §6 steps 12–13 |
 
 > **The masking drawing is as important as the machining drawing.** Five distinct surfaces on this part must be excluded from anodize for three different reasons — thermal (choke face), electrical (RF land), and contamination (channel interior). A single missed mask converts a controlled thermal choke into an unknown one.
 
@@ -227,7 +252,9 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | Position | Kinematic locator counterbores | ⌖ Ø0.020 Ⓜ A B C |
 | Position | Lift pin bores | ⌖ Ø0.050 Ⓜ A B C |
 | Perpendicularity | Lift pin bores to A | 0.030 |
-| Position | Choke fastener holes | ⌖ Ø0.200 Ⓜ A B C |
+| Position | Choke fastener holes and their `CP-D26` counterbores | ⌖ Ø0.200 Ⓜ A B C |
+| Position | Coolant stub bores `CP-D22` | ⌖ Ø0.50 Ⓜ A B C |
+| Parallelism | Coolant stub bore axis to A | 0.20 over 35 mm |
 | Position | Central He bore | ⌖ Ø0.100 Ⓜ A B C |
 | Profile | O-ring groove | 0.050 |
 | Runout | OD to A | 0.20 |
@@ -241,7 +268,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 
 1. Complete manufacture per §6 through step 16.
 2. Record as-built thickness at 8 points; enter into the build traveller (feeds the Support Ring lap calculation, DR-3).
-3. Install the 6 alignment locators (SEWCP-700): 3 into the bottom face at Ø306 BC, 3 into the top face at Ø260 BC. Seat each flange fully in its Ø12.0 H7 × 3.0 counterbore and torque the M4 × 10 SHCS to 2.5 N·m. **Verify boss protrusion 2.50 ± 0.05 mm above the seated flange face** — the boss must remain shorter than the 3.00 mm mating slot is deep, or it bottoms and holds the faces apart (SEWCP-700 §5.1).
+3. Install the 6 alignment locators (SEWCP-700): 3 into the bottom face at Ø306 BC (60°/180°/300°), 3 into the top face at Ø260 BC (**75°/195°/315°**). Each locator is a one-piece shouldered screw: enter the flange in its Ø10.0 H7 × 3.00 counterbore by hand — it is a clearance fit — and torque to **1.2 N·m** at the 3.0 mm hex socket. **Verify boss protrusion 2.50 ± 0.05 mm above the seated flange face** — the boss must remain shorter than the 3.00 mm mating slot is deep, or it bottoms and holds the faces apart (SEWCP-700 §5.1).
 4. Install lift pin bushings (SEWCP-601) into the bottom counterbores; verify bore Ø5.60 +0.05/−0 after installation.
 5. Install alumina liner tubes into the 2 HV feed bores; bond with vacuum-grade epoxy; verify IR > 1 GΩ.
 6. Verify VCR stub cleanliness; cap.
@@ -267,7 +294,7 @@ The channel is confined to the **Ø60 to Ø250 annulus** (outer limit pulled in 
 | 5 | Choke pad anodized in error | Masking error | R_choke unpredictable and high; wafer temperature uncontrollable | 7 | 3 | 5 | **105** | Masking drawing; post-anodize contact-resistance check on all 16 pads |
 | 6 | RF land contact resistance rise | Anodize on land, low preload, oxidation, thermal cycling | I²R heating → arc → plate damage | 8 | 3 | 4 | **96** | Alodine only on land, 8 N·m preload, Belleville, 4-wire check in ATP |
 | 7 | Lift pin bore galling / pin bind | Bore not honed, misalignment, particle ingress | Wafer handling fault, possible wafer breakage | 7 | 4 | 3 | **84** | Ra ≤ 0.8 honed bore, 0.030 perpendicularity, Vespel bushing |
-| 8 | Corrosion / erosion of channel | Glycol degradation, galvanic pair with SS stubs, cavitation | Wall thinning → leak (→ FM #1) | 8 | 3 | 6 | **144** | Inhibited glycol, annual fluid analysis, R5 min bend radii to limit erosion, matched-potential stub design |
+| 8 | Corrosion / erosion of channel | Glycol degradation, galvanic Al/316L couple in the SEWCP-201 transition joint, cavitation | Wall thinning → leak (→ FM #1) | 8 | 3 | 6 | **144** | Inhibited glycol, annual fluid analysis, R5 min bend radii to limit erosion; the dissimilar couple is confined to the short wetted length of the SEWCP-201 explosion bond rather than distributed along an Al-to-SS fusion weld, which is not metallurgically possible in any case (ECR-D-003) |
 | 9 | Freeze burst | Chiller fault below fluid freeze point | Channel rupture | 9 | 2 | 3 | **54** | 50/50 glycol (−37 °C protection), low-temperature interlock |
 | 10 | Virtual leak from RTD blind bores | Un-vented blind holes | Fails pump-down qualification | 5 | 5 | 6 | **150** | DR-6: cross-vent every blind bore |
 | 11 | Thread stripping in M5/M6 tapped holes | Over-torque into aluminum | Loss of preload, joint separation | 6 | 3 | 3 | **54** | Torque schedule, min 2×D thread engagement, consider stainless inserts on rework |

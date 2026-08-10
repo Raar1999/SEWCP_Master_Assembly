@@ -28,6 +28,48 @@
 
 # 1 Executive Summary
 
+
+---
+
+> # ⚠ REV X1 IS SUPERSEDED IN PART — READ THIS FIRST
+>
+> This package was written on **2026-08-07** against the pre-disposition baseline. Since then
+> **eight ECRs have been dispositioned, approved, applied to the frozen specification and
+> re-registered** (session `S-2026-08-10-01`). The numeric errors that would have misled a
+> modeller are corrected in place below, but **this document has not been re-issued**, and a
+> full Rev X2 is recorded as `OI-P-03`.
+>
+> **What changed since Rev X1 was written:**
+>
+> | ECR | Effect on this package |
+> |---|---|
+> | `ECR-D-001` | **HOLD H2 discharged.** SEWCP-700 governs: Ø10.0 H7 × 3.00 counterbore, Ø10.000 h6 flange, Ø6.000 h6 boss protruding 2.50 mm |
+> | `ECR-D-002` | **HOLD H1 discharged.** `ch_depth` **8.0 → 6.0**; `lid_check` now 0.0; every derived flow value moved (Re ≈ 8,300, h ≈ 6,500, 60 mm², 1.11 m/s) |
+> | `ECR-D-003` | **HOLD H3 (stubs) discharged.** `CP-D22`–`CP-D25`: Ø10.0 H9 bore at 11.00 above Datum A, channel locally deepened to 10.00, SEWCP-201 transition joint |
+> | `ECR-D-004` | **HOLD H3 (counterbores) discharged.** `CP-D26` 11.0 W × 12.5 L × 2.5 deep, slotted and anodize-masked; **M5 × 25**, not M5 × 30 |
+> | `ECR-D-007` | §3.1 gains a kinematic-locator keep-out (8.5 mm radius / 3.5 mm wall); `CP-D09a`/`CP-D10a` tap depths declared; counterbores **Ø12.000 → Ø10.000** |
+> | `ECR-D-009` | The locator is now a **one-piece shouldered screw** — no separate M4 fastener. Torque **1.2 N·m** at a 3.0 mm hex socket |
+> | `ECR-D-010` | **Top locators re-clocked Ø260 BC to 75°/195°/315°** — they collided with three outer choke stations at 30°/150°/270° |
+> | `ECR-D-011` | SEWCP-300 only: heater-groove keep-out at the kinematic slots |
+>
+> **All three HOLDs are discharged.** §12 and §13 below are the *record of the defects as
+> raised* and are accurate as history; they no longer describe the current baseline. Where this
+> package and `spec/**` disagree, **`spec/**` governs** — it is the frozen, hash-registered
+> authority and this package is not.
+>
+> **Accuracy note, `VER-016` W10.** An earlier form of this banner said the package's numeric
+> errors were "corrected in place". **That was true only of the ECR-D-002 values.** The
+> `ang_kin_top_*` parameters, timeline step 11, sketch S11 and step 6.34 still carried the
+> superseded **30/150/270** clocking, and `choke_cbore_*` and the stub parameters still read
+> `UNSPECIFIED`. A modeller following §6 in order would have built the very collision
+> `ECR-D-010` was raised to remove. All of those are corrected now. **`params/generated/SEWCP-200.csv`
+> still does not exist** — step 6.02 imports a file that has never been generated, so enter §3
+> by hand or generate the CSV first.
+>
+> Verify the current gate state with `PYTHONPATH=src python -m aief_gate` before modelling.
+
+---
+
 ## 1.1 Purpose of the Component
 
 The Cooling Plate is the **thermal ground and RF bias electrode** of the SEWCP pedestal. It performs four concurrent functions (Vol 01 §1):
@@ -74,7 +116,7 @@ Nominal position in assembly: bottom face at **Z = 20.000**, top face at **Z = 4
 | Lift pin bore perpendicularity | 0.030 over 20 mm | CP-D14 | Ceramic pin bind → fracture |
 | **Top face NOT anodized** | ε ≤ 0.15 | Vol 01 §8 | Radiative shunt across the thermal choke |
 | Coolant channel envelope | Ø60 to Ø250 | Vol 01 §3.1 | Keep-out violation → leak or no thread material |
-| Channel turbulence | Re ≈ 7,400 | Vol 01 §2.1 | Uniformity requirement CP-11 lost |
+| Channel turbulence | Re ≈ 8,300 | Vol 01 §2.1 | Uniformity requirement CP-11 lost |
 | Mass | ≤ 4.2 kg | CP-15 | — |
 
 **Governing design rule: DR-2** — no fastener penetrates the ESC top surface, therefore all 24 stack fasteners enter from below, therefore the coolant circuit must weave around a fixed fastener pattern. **The keep-out table is satisfied before path length is optimised** (Vol 01 §3.1).
@@ -103,13 +145,13 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | F02 | Overall thickness 20.000 ±0.030 | SEWCP-ENG-002 | §5 CP-D02 | Wafer-plane Z-stack element 2 | Vol 00 §4.2 |
 | F03 | Top face, flat 0.015, parallel 0.015 | SEWCP-ENG-002 | §5 CP-D03/D04 | Flatness budget 15 µm allocation | Vol 00 §5.1 |
 | F04 | Bottom face = Datum A, flat 0.015 | SEWCP-ENG-002 | §9 | Primary datum; seats on Support Ring | SR-IF-3 |
-| F05 | Coolant channel 10.0 W × 8.0 D **[HOLD H1]** | SEWCP-ENG-002 | §5 CP-D05/D06, §2.1 | Re ≈ 7,400 at 4 L/min | CP-IF-10 |
-| F06 | Channel-to-top-face wall 8.00 ±0.20 **[HOLD H1]** | SEWCP-ENG-002 | §5 CP-D07 | Thermal path 0.00068 K/W | Vol 00 §4.3 |
-| F07 | FSW lid 6.00 ±0.10 **[HOLD H1]** | SEWCP-ENG-002 | §5 CP-D08, §6 | Pressure boundary, no elastomer | — |
+| F05 | Coolant channel 10.0 W × 6.0 D | SEWCP-ENG-002 | §5 CP-D05/D06, §2.1 | Re ≈ 8,300 at 4 L/min | CP-IF-10 |
+| F06 | Channel-to-top-face wall 8.00 ±0.20 *(was H1 — discharged)* | SEWCP-ENG-002 | §5 CP-D07 | Thermal path 0.00068 K/W | Vol 00 §4.3 |
+| F07 | FSW lid 6.00 ±0.10 *(was H1 — discharged)* | SEWCP-ENG-002 | §5 CP-D08, §6 | Pressure boundary, no elastomer | — |
 | F08 | Channel envelope Ø60–Ø250 | SEWCP-ENG-002 | §3.1 | Solid material under RF land | CP-IF-8 |
 | F09 | Channel keep-out table, 8 classes | SEWCP-ENG-002 | §3.1 | DR-2 consequence | Vol 00 §4.4 |
 | F10 | 8× M6×1.0 tapped, 12 deep, Ø302 BC, 22.5°+n·45°, bottom face | SEWCP-ENG-002 | §3 CP-IF-2, §5 CP-D20 | Upper RF-side bolt circuit, DR-9 | SR-IF-3 |
-| F11 | 6× kinematic locator, Ø306 btm / Ø260 top **[HOLD H2]** | SEWCP-ENG-002 / -007 | CP-IF-1/4, CP-D09/D10/D11 / AP-IF-1 | Kinematic centering, ⌖Ø0.020 | SR-IF-4, HP-IF-3 |
+| F11 | 6× kinematic locator, Ø306 btm / Ø260 top *(was H2 — discharged)* | SEWCP-ENG-002 / -007 | CP-IF-1/4, CP-D09/D10/D11 / AP-IF-1 | Kinematic centering, ⌖Ø0.020 | SR-IF-4, HP-IF-3 |
 | F12 | 16× M5 radial slots 5.5 W × 7.0 L (12 @ Ø270, 4 @ Ø90) | SEWCP-ENG-002 | §3 CP-IF-3 | Allows 0.399 mm radial growth | HP-IF-2 |
 | F13 | 16× choke washer pads Ø22, coplanar 0.010, top face | SEWCP-ENG-002 | §5 CP-D17, §8 | R_choke = 0.1009 K/W | HP-IF-1 |
 | F14 | Central bore Ø10.000 H8 | SEWCP-ENG-002 | §5 CP-D15, CP-IF-5 | Vacuum port pilot spigot | VP-IF-1 |
@@ -124,12 +166,12 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | F23 | 3× Ø1.700 H8 × 12 blind, r=40@75°, 100@165°, 140@225° | SEWCP-ENG-002 | §3 CP-IF-9, §5 CP-D19 | RTD response ≤ 5 s | TS-IF-3 |
 | F24 | 3× cross-vent to RTD blind bores | SEWCP-ENG-002 | §3 CP-IF-9 | **DR-6 / DR-13** — no virtual leaks | Vol 09 §3 |
 | F25 | 6× M4 tapped, 8 deep, ±9 mm flanking RTD ports | SEWCP-ENG-002 | §3 CP-IF-9 | Sensor retainer mounting | TS-IF-1 |
-| F26 | 2× VCR stub interface @ 255°/285° **[HOLD H3]** | SEWCP-ENG-002 | §3 CP-IF-10 | Coolant supply/return | — |
+| F26 | 2× VCR stub interface @ 255°/285° *(was H3 — discharged)* | SEWCP-ENG-002 | §3 CP-IF-10 | Coolant supply/return | — |
 | F27 | Masking zone: top face + 16 pads | SEWCP-ENG-002 | §8 | ε ≤ 0.15; conduction path | Vol 00 §8 |
 | F28 | Masking zone: RF land, Alodine 1200 only | SEWCP-ENG-002 | §8 | Conductive joint | RF-IF-1 |
 | F29 | Masking zone: channel interior | SEWCP-ENG-002 | §8 | Anodize flakes foul the loop | — |
 | F30 | Masking zone: vacuum sealing face | SEWCP-ENG-002 | §8 | Anodize is a poor sealing surface | Vol 07 §8 |
-| F31 | Masking zone: locator bores **[HOLD H2]** | SEWCP-ENG-002 | §8 | Locator fit integrity | — |
+| F31 | Masking zone: locator bores *(was H2 — discharged)* | SEWCP-ENG-002 | §8 | Locator fit integrity | — |
 | F32 | Type III hard anodize 50 µm, bottom face + OD | SEWCP-ENG-002 | §8 | Plasma/handling durability | — |
 | F33 | Datum frame A / B / C | SEWCP-ENG-002 | §9 | GD&T reference | — |
 
@@ -154,18 +196,18 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | Name | Description | Expression | Units | Design Intent | Dependency |
 |---|---|---|---|---|---|
 | `ch_width` | Channel width | `10.0` | mm | CP-D05; flow area | `ch_depth` |
-| `ch_depth` | Channel depth | `8.0` | mm | CP-D06; Re ≈ 7,400 | `ch_width` |
+| `ch_depth` | Channel depth | `6.0` | mm | CP-D06; Re ≈ 8,300 (ECR-D-002, APR-019) | `ch_width` |
 | `ch_top_wall` | Channel to top face | `8.0` | mm | CP-D07; thermal path | `cp_thk` |
-| `lid_thk` | FSW lid thickness | `6.0` | mm | CP-D08 | **CONFLICT — ECR-D-002** |
+| `lid_thk` | FSW lid thickness | `6.0` | mm | CP-D08 | — |
 | `ch_z_top` | Channel top surface Z | `cp_thk - ch_top_wall` | mm | Derived | `cp_thk`, `ch_top_wall` |
 | `ch_z_btm` | Channel bottom surface Z | `ch_z_top - ch_depth` | mm | Derived | `ch_z_top`, `ch_depth` |
-| `lid_check` | **Arithmetic consistency check** | `ch_z_btm - lid_thk` | mm | **Must equal 0. Evaluates to −2.0.** | **ECR-D-002** |
+| `lid_check` | **Arithmetic consistency check** | `ch_z_btm - lid_thk` | mm | **Must equal 0. Now evaluates to 0.0.** | ECR-D-002 closed by APR-019 |
 | `ch_env_id` | Channel envelope inner Ø | `60.0` | mm | Vol 01 §3.1 | — |
 | `ch_env_od` | Channel envelope outer Ø | `250.0` | mm | Vol 01 §3.1; solid under RF land | — |
 | `ch_bend_r` | Minimum bend radius | `5.0` | mm | Vol 01 §6 step 3; erosion | — |
 | `ch_corner_r` | Minimum corner fillet | `3.0` | mm | Vol 01 §6 step 3 | — |
 
-> `lid_check` is deliberately included as a live parameter. It evaluates to **−2.0 mm** against a required 0.0. This is ECR-D-002 made visible in the model.
+> `lid_check` is deliberately included as a live parameter. It now evaluates to **0.0 mm**, as required. **Keep it.** It was what made ECR-D-002 visible in the model, and it is what will catch the same defect if any of the four Z dimensions is ever edited independently of the others.
 
 ## 3.3 Bolt Circles and Clocking
 
@@ -177,7 +219,7 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | `bc_kin_btm` | Kinematic locator BC, bottom | `306.0` | mm | CP-D09/D11 | SR-IF-4 |
 | `bc_kin_top` | Kinematic locator BC, top | `260.0` | mm | CP-D10/D11 | HP-IF-3 |
 | `ang_kin_btm_1/2/3` | Bottom locator angles | `60.0` / `180.0` / `300.0` | deg | Vol 00 §3.2 | Datum B/C |
-| `ang_kin_top_1/2/3` | Top locator angles | `30.0` / `150.0` / `270.0` | deg | Vol 00 §3.2 | — |
+| `ang_kin_top_1/2/3` | Top locator angles | `75.0` / `195.0` / `315.0` | deg | Vol 00 §3.2, re-clocked by ECR-D-010 | — |
 | `bc_choke_out` | Outer choke fastener BC | `270.0` | mm | CP-IF-3 | HP-IF-2 |
 | `ang_choke_out_0` | Outer choke start angle | `0.0` | deg | Vol 00 §3.2 | — |
 | `ang_choke_out_step` | Outer choke increment | `30.0` | deg | 12 off | — |
@@ -202,8 +244,17 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | `ring_tap_depth` | Ring tap depth | `12.0` | mm | CP-IF-2 / CP-D20 | `cp_thk` |
 | `choke_slot_w` | Choke slot width | `5.5` | mm | CP-IF-3; M5 clearance | — |
 | `choke_slot_l` | Choke slot length, radial | `7.0` | mm | CP-IF-3; ±0.75 mm travel | HP thermal growth 0.399 |
-| `choke_cbore_d` | Choke counterbore Ø | **UNSPECIFIED** | mm | **ECR-D-004** | **HOLD H3** |
-| `choke_cbore_dep` | Choke counterbore depth | **UNSPECIFIED** | mm | **ECR-D-004** | **HOLD H3** |
+| `choke_cbore_w` | Choke counterbore slot width | `11.0` | mm | CP-D26 (ECR-D-004) | `choke_slot_w` |
+| `choke_cbore_l` | Choke counterbore slot length, radial | `12.5` | mm | CP-D26 (ECR-D-004) | `choke_cbore_w` |
+| `choke_cbore_dep` | Choke counterbore depth | `2.5` | mm | CP-D26 (ECR-D-004) | `lid_thk` |
+| `kin_cbore_d` | Kinematic locator counterbore Ø | `10.0` | mm | CP-D09/CP-D10 (ECR-D-007) | — |
+| `kin_cbore_dep` | Kinematic locator counterbore depth | `3.0` | mm | CP-D09/CP-D10 | — |
+| `kin_tap_dep` | Locator M4 tap, full thread | `5.0` | mm | CP-D09a/CP-D10a | `kin_cbore_dep` |
+| `stub_bore_d` | Coolant stub bore Ø | `10.0` | mm | CP-D22 (ECR-D-003) | — |
+| `stub_bore_z` | Stub centreline above Datum A | `11.0` | mm | CP-D23 | `stub_bore_d` |
+| `stub_wp_d` | Stub weld-prep counterbore Ø | `14.0` | mm | CP-D24 | `stub_bore_d` |
+| `stub_wp_dep` | Stub weld-prep counterbore depth | `4.0` | mm | CP-D24 | — |
+| `ch_depth_port` | Channel local depth at ports | `10.0` | mm | CP-D25 | `ch_depth` |
 | `choke_pad_dia` | Choke washer pad Ø | `22.0` | mm | CP-D17; = SEWCP-301 OD | ECR-Q-007 |
 | `he_bore` | Central He / pilot bore | `10.0` (H8) | mm | CP-D15; VP pilot Ø9.90 h8 | VP-IF-1 |
 | `vac_seal_id` | Sealing face inner Ø | `18.0` | mm | CP-IF-5 masked annulus | — |
@@ -271,14 +322,14 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | 03 | Extrude `cp_thk` (+Z, New Body) → `CP_BODY` | Base solid | 02 | S1 profile | Plate stock | All |
 | 04 | Construction plane `PL_TOP` @ `cp_thk` | Top-face work plane | 03 | XY offset | Choke side | 13, 20, 21 |
 | 05 | Sketch S2 — datum & clocking construction | Bolt circles + angular rays, construction only | Origin XY | Origin, axes | Establishes Datums B/C reference | 06–24 |
-| 06 | **[HOLD H1]** Sketch S3 — channel centreline | Serpentine path | Origin XY | S2 circles Ø60/Ø250 | Milled into bottom face | 07 |
-| 07 | **[HOLD H1]** Sweep/pocket channel | Coolant circuit | 06 | S3 path, `ch_width`, `ch_depth` | CNC mill | 08, 26 |
-| 08 | **[HOLD H1]** Lid body `CP_LID` | FSW closure | 07 | Channel footprint, `lid_thk` | FSW, no filler | 26 |
+| 06 | *(was H1 — discharged)* Sketch S3 — channel centreline | Serpentine path | Origin XY | S2 circles Ø60/Ø250 | Milled into bottom face | 07 |
+| 07 | *(was H1 — discharged)* Sweep/pocket channel | Coolant circuit | 06 | S3 path, `ch_width`, `ch_depth` | CNC mill | 08, 26 |
+| 08 | *(was H1 — discharged)* Lid body `CP_LID` | FSW closure | 07 | Channel footprint, `lid_thk` | FSW, no filler | 26 |
 | 09 | Ring tapped holes, 8× | Support Ring upper circuit | 03 | S2 `bc_ring`, `ang_ring_0`+n·45 | Tapped from bottom | Assembly |
-| 10 | **[HOLD H2]** Kinematic locators, bottom 3× | Ring centering | 03 | S2 `bc_kin_btm`, 60/180/300 | Precision bore/counterbore | **Datums B, C** |
-| 11 | **[HOLD H2]** Kinematic locators, top 3× | Heater Plate centering | 04 | S2 `bc_kin_top`, 30/150/270 | Same setup as 10 | Assembly |
+| 10 | *(was H2 — discharged)* Kinematic locators, bottom 3× | Ring centering | 03 | S2 `bc_kin_btm`, 60/180/300 | Precision bore/counterbore | **Datums B, C** |
+| 11 | *(was H2 — discharged)* Kinematic locators, top 3× | Heater Plate centering | 04 | S2 `bc_kin_top`, **75/195/315** | Same setup as 10 | Assembly |
 | 12 | Choke slots, 16× radial | M5 clearance with radial float | 03 | S2 `bc_choke_out`/`bc_choke_in` | Slot mill | 13 |
-| 13 | **[HOLD H3]** Choke counterbores, 16× | M5 head + Belleville seat | 12 | Coaxial with 12 | Counterbore | Assembly |
+| 13 | *(was H3 — discharged)* Choke counterbores, 16× | M5 head + Belleville seat | 12 | Coaxial with 12 | Counterbore | Assembly |
 | 14 | Central bore Ø10.0 H8 | Vacuum port pilot | 03 | Origin axis | Reamed | 15, 16 |
 | 15 | Vacuum sealing face (Ø18–Ø32 flat) | Face-seal land | 03 | Bottom face annulus | Lapped, masked | Masking |
 | 16 | Vacuum port taps, 4× M4 | Port retention | 03 | S2 `bc_vac` | Tapped | Assembly |
@@ -290,8 +341,8 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | 22 | RTD blind bores, 3× Ø1.7 × 12 | Sensor ports | 03 | S2 `rtd_r_n` / `rtd_ang_n` | Drilled | 23 |
 | 23 | RTD cross-vents, 3× | **DR-6 / DR-13** no virtual leak | 22 | Intersecting 22 | Cross-drilled | Pump-down qual |
 | 24 | RTD retainer taps, 6× M4 | Sensor retainer mounting | 03 | ±`rtd_tap_offset` from each port | Tapped | Assembly |
-| 25 | **[HOLD H3]** Coolant stub bores, 2× | VCR gland interface | 07 | Radial @ 255°/285° | Bored, orbital-weld prep | 26 |
-| 26 | **[HOLD H1]** Combine `CP_BODY` + `CP_LID` | Represent welded assembly | 08, 25 | Both bodies | FSW joint | Mass, assembly |
+| 25 | *(was H3 — discharged)* Coolant stub bores, 2× | VCR gland interface | 07 | Radial @ 255°/285° | Bored, orbital-weld prep | 26 |
+| 26 | *(was H1 — discharged)* Combine `CP_BODY` + `CP_LID` | Represent welded assembly | 08, 25 | Both bodies | FSW joint | Mass, assembly |
 | 27 | Edge breaks / deburr features | Handling, particle control | 26 | All external edges | Deburr | — |
 | 28 | Sketch S9 — top-face masking zones | 16× Ø22 pads + full top face | 04 | S2 choke BCs | **Masking drawing sheet** | Drawing |
 | 29 | Sketch S10 — bottom-face masking zones | RF land, sealing face, locator bores | 03 | 15, 20 | **Masking drawing sheet** | Drawing |
@@ -307,16 +358,16 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 |---|---|---|---|---|---|---|---|
 | **S1** Outer profile | XY (bottom face, Z=0) | Origin point | — | Ø`cp_od` | Concentric to origin | `cp_od` | **Fully constrained** |
 | **S2** Datum & clocking | XY | Origin point, X axis | 9 construction circles (`bc_*`); 3 construction circles at `rtd_r_n`; angular construction lines at every clocked position | All BC diameters; all angles from +X | Circles concentric to origin; lines coincident to origin, angle-dimensioned to X axis | All `bc_*`, all `ang_*`, all `rtd_r_*` | **Fully constrained** |
-| **S3** Channel centreline **[HOLD H1]** | XY | S2 circles Ø`ch_env_id`, Ø`ch_env_od`; all keep-out feature centres | Serpentine polyline/arc chain | Arc radii ≥ `ch_bend_r`; keep-out offsets per Vol 01 §3.1 | Tangent continuity at every junction; symmetric where applicable | `ch_env_id`, `ch_env_od`, `ch_bend_r` | **Fully constrained — BLOCKED** |
-| **S4** Lid profile **[HOLD H1]** | XY | Channel footprint from S3 | — | `lid_thk` (extrusion) | Offset from channel profile | `lid_thk` | **BLOCKED — ECR-D-002** |
+| **S3** Channel centreline *(was H1 — discharged)* | XY | S2 circles Ø`ch_env_id`, Ø`ch_env_od`; all keep-out feature centres | Serpentine polyline/arc chain | Arc radii ≥ `ch_bend_r`; keep-out offsets per Vol 01 §3.1 | Tangent continuity at every junction; symmetric where applicable | `ch_env_id`, `ch_env_od`, `ch_bend_r` | **Fully constrained — BLOCKED** |
+| **S4** Lid profile *(was H1 — discharged)* | XY | Channel footprint from S3 | — | `lid_thk` (extrusion) | Offset from channel profile | `lid_thk` | **discharged** — ECR-D-002 dispositioned |
 | **S5** Bottom pattern A | XY | S2 `bc_ring`, `bc_vac`, `rtd_r_n` circles + angular rays | — | 8× M6 @ `bc_ring`; 4× M4 @ `bc_vac`; 3× Ø`rtd_bore` | Point-on-circle + coincident to angular ray | `bc_ring`, `bc_vac`, `rtd_*` | **Fully constrained** |
 | **S6** Bottom pattern B | XY | S2 `bc_liftpin`, `bc_hv` circles + rays; origin | — | 3× Ø`lp_bore`; 2× Ø`hv_bore`; 1× Ø`he_bore` | Point-on-circle + ray; He bore concentric to origin | `bc_liftpin`, `bc_hv`, `he_bore` | **Fully constrained** |
 | **S7** Choke slot pattern | XY | S2 `bc_choke_out`, `bc_choke_in` + 16 rays | Radial slot centrelines | `choke_slot_w` × `choke_slot_l`, radial orientation | Slot centreline collinear with radial ray; symmetric about BC | `bc_choke_*`, `choke_slot_*` | **Fully constrained** |
 | **S8** RF land | XY | S2 `bc_rf` circle, `ang_rf_land` ray | Radial bounds `rf_land_r_in` / `rf_land_r_out`; angular bounds ±`rf_land_half_ang` | Land boundary arcs and radial edges; 2× M6 at `rf_tap_ang_1/2` | Arcs concentric to origin; symmetric about the 105° ray | `bc_rf`, `rf_land_*`, `rf_tap_*` | **Fully constrained** |
 | **S9** Top masking zones | `PL_TOP` | S2 `bc_choke_out`, `bc_choke_in` + 16 rays | — | 16× Ø`choke_pad_dia`; full-face boundary Ø`cp_od` | Concentric to each choke position | `choke_pad_dia`, `bc_choke_*` | **Fully constrained** |
 | **S10** Bottom masking zones | XY | RF land boundary (S8); sealing annulus Ø`vac_seal_id`/Ø`vac_seal_od`; locator bores | — | Annulus diameters | Concentric to origin | `vac_seal_id`, `vac_seal_od` | **Fully constrained** (locator zones **HOLD H2**) |
-| **S11** Kinematic locators **[HOLD H2]** | XY and `PL_TOP` | S2 `bc_kin_btm`, `bc_kin_top` + 6 rays | — | **UNRESOLVED** — Ø6.000 H7 bore (Vol 01) *or* Ø12.0 H7 × 3.0 counterbore + M4 tap (Vol 06) | Point-on-circle + ray | `bc_kin_btm`, `bc_kin_top` | **BLOCKED — ECR-D-001** |
-| **S12** Coolant stubs **[HOLD H3]** | Radial planes @ 255°, 285° | Channel cross-section from S3 | Stub bore axis | **UNSPECIFIED** — bore Ø, depth, weld prep, centreline height | Coaxial with channel | `ang_coolant_*` | **BLOCKED — ECR-D-003** |
+| **S11** Kinematic locators *(was H2 — discharged)* | XY and `PL_TOP` | S2 `bc_kin_btm`, `bc_kin_top` + 6 rays | — | **Ø10.000 H7 × 3.00 counterbore + coaxial M4 × 0.7 tap.** Bottom Ø306 BC @ 60/180/300; top Ø260 BC @ **75/195/315** | Point-on-circle + ray | `bc_kin_btm`, `bc_kin_top` | **discharged** — ECR-D-001 A, ECR-D-007 action 3, ECR-D-010 |
+| **S12** Coolant stubs *(was H3 — discharged)* | Radial planes @ 255°, 285° | Channel cross-section from S3 | Stub bore axis | Ø10.0 H9 at 11.00 above Datum A; Ø14.0 H8 × 4.0 weld prep at the OD | **Coaxial** with the locally deepened channel | `ang_coolant_*` | **discharged** — CP-D22…CP-D25 |
 
 **Sketch discipline:** every sketch fully constrained before the next feature is created. No sketch consumes a face of a HOLD feature. S2 is the single source of all angular and radial location — no sketch re-derives a bolt circle independently.
 
@@ -327,17 +378,17 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | # | Operation | Selections | Parameters | Fusion Command | Expected Result | Verification Checkpoint |
 |---|---|---|---|---|---|---|
 | 6.01 | Create design | — | Units mm | File → New Design; Document Settings → mm | Empty design, mm | Units display "mm" |
-| 6.02 | Import parameters | `params/generated/SEWCP-200.csv` | §3 table | Modify → Change Parameters → Import | All §3 params listed, no errors | Parameter count matches §3; `lid_check` = **−2.0** |
+| 6.02 | Import parameters | `params/generated/SEWCP-200.csv` | §3 table | Modify → Change Parameters → Import | All §3 params listed, no errors | Parameter count matches §3; `lid_check` = **0.0** |
 | 6.03 | Rename component | Root | — | Browser → rename → `SEWCP-200_COOLING_PLATE` | Named component | Name matches part number |
 | 6.04 | Sketch S1 | XY plane | `cp_od` | Create Sketch → Center Diameter Circle | Ø320 circle | Sketch fully constrained (black) |
 | 6.05 | Extrude base | S1 profile | `cp_thk`, direction +Z | Create → Extrude, Operation: New Body | Ø320 × 20 disc | Body name `CP_BODY`; height = `cp_thk` |
 | 6.06 | Construction plane | XY plane | offset `cp_thk` | Construct → Offset Plane | `PL_TOP` at Z=20 | Plane coincident with top face |
 | 6.07 | Sketch S2 | XY plane | All `bc_*`, `ang_*`, `rtd_r_*` | Create Sketch → construction circles + lines | Full clocking framework | **Fully constrained; visually verify no two features co-located** |
 | 6.08 | **HOLD H1 — suppress** | — | — | Insert placeholder group, mark suppressed | Timeline placeholder for 6.09–6.12 | Group labelled `HOLD_H1_ECR-D-002` |
-| 6.09 | *(H1)* Sketch S3 channel | XY plane | `ch_env_id`, `ch_env_od`, `ch_bend_r` | Create Sketch → path | Serpentine centreline | **BLOCKED** |
-| 6.10 | *(H1)* Channel pocket | S3 path | `ch_width`, `ch_depth`, `ch_z_btm` | Create → Sweep / Extrude Cut | Channel in bottom face | **BLOCKED** |
-| 6.11 | *(H1)* Sketch S4 + lid | Channel footprint | `lid_thk` | Create → Extrude, New Body | `CP_LID` | **BLOCKED** |
-| 6.12 | *(H1)* Channel fillets | Channel edges | `ch_corner_r` | Modify → Fillet | R3 min all corners | **BLOCKED** |
+| 6.09 | *(H1)* Sketch S3 channel | XY plane | `ch_env_id`, `ch_env_od`, `ch_bend_r` | Create Sketch → path | Serpentine centreline | **discharged** |
+| 6.10 | *(H1)* Channel pocket | S3 path | `ch_width`, `ch_depth`, `ch_z_btm` | Create → Sweep / Extrude Cut | Channel in bottom face | **discharged** |
+| 6.11 | *(H1)* Sketch S4 + lid | Channel footprint | `lid_thk` | Create → Extrude, New Body | `CP_LID` | **discharged** |
+| 6.12 | *(H1)* Channel fillets | Channel edges | `ch_corner_r` | Modify → Fillet | R3 min all corners | **discharged** |
 | 6.13 | Sketch S5 | XY (bottom face) | `bc_ring`, `bc_vac`, `rtd_*` | Create Sketch, project S2 | Hole centres placed | Fully constrained |
 | 6.14 | Ring tapped holes | 8 points from S5 | M6×1.0, `ring_tap_depth` | Create → Hole, Type: Tapped, ISO Metric Profile | 8× M6 × 12 deep, bottom face | Count = 8; angles 22.5+n·45; depth = 12 |
 | 6.15 | Vacuum port taps | 4 points from S5 | M4×0.7, `vac_tap_depth` | Create → Hole, Tapped | 4× M4 × 10 deep @ Ø38 BC | Count = 4; BC = 38 |
@@ -353,20 +404,20 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | 6.25 | Sketch S7 | XY (bottom face) | `bc_choke_*`, `choke_slot_*` | Create Sketch → slot profiles | 16 radial slots | Fully constrained; slot axes radial |
 | 6.26 | Choke slots | 16 profiles from S7 | Through all | Create → Extrude Cut, All | 16× 5.5 × 7.0 radial slots | Count = 16 (12 @ Ø270, 4 @ Ø90) |
 | 6.27 | **HOLD H3 — suppress** | — | — | Placeholder group | Timeline placeholder for 6.28 | Group labelled `HOLD_H3_ECR-D-003/004` |
-| 6.28 | *(H3)* Choke counterbores | Coaxial with 6.26 | `choke_cbore_d`, `choke_cbore_dep` | Create → Hole/Extrude Cut | 16 counterbores | **BLOCKED — undimensioned** |
+| 6.28 | *(H3)* Choke counterbores | Coaxial with 6.26, **bottom face** | `choke_cbore_w` × `choke_cbore_l` × `choke_cbore_dep`, **radially slotted** | Extrude Cut from a slot sketch | 16 slotted counterbores | **discharged** — CP-D26; anodize-masked floors |
 | 6.29 | Sketch S8 | XY (bottom face) | `rf_land_*`, `rf_tap_*` | Create Sketch, project S2 | RF land boundary + 2 tap points | Fully constrained; symmetric about 105° |
 | 6.30 | RF land pocket | S8 land profile | Depth 0.5 relief (face definition) | Create → Extrude Cut | Isolated flat land, 60 × 18 | Land spans r 128–146, 92.45°–117.55° |
 | 6.31 | RF taps | 2 points from S8 | M6×1.0, `rf_tap_depth` | Create → Hole, Tapped | 2× M6 × 12 deep | Angles 98.73° / 111.27° at r = 137 |
 | 6.32 | **HOLD H2 — suppress** | — | — | Placeholder group | Timeline placeholder for 6.33–6.34 | Group labelled `HOLD_H2_ECR-D-001` |
-| 6.33 | *(H2)* Locators, bottom 3× | S11 @ `bc_kin_btm` | **UNRESOLVED** | Create → Hole | 3 features @ 60/180/300 | **BLOCKED — establishes Datums B/C** |
-| 6.34 | *(H2)* Locators, top 3× | S11 @ `bc_kin_top` | **UNRESOLVED** | Create → Hole | 3 features @ 30/150/270 | **BLOCKED** |
-| 6.35 | *(H3)* Coolant stub bores | S12 radial planes | **UNSPECIFIED** | Create → Hole | 2 radial bores @ 255°/285° | **BLOCKED — ECR-D-003** |
-| 6.36 | *(H1)* Combine bodies | `CP_BODY` + `CP_LID` | Operation: Join | Modify → Combine | Single welded solid | **BLOCKED** |
+| 6.33 | *(H2)* Locators, bottom 3× | S11 @ `bc_kin_btm` | **RESOLVED** | Create → Hole | 3 features @ 60/180/300 | **Establishes Datums B/C** — discharged |
+| 6.34 | *(H2)* Locators, top 3× | S11 @ `bc_kin_top` | Ø`kin_cbore_d` H7 × `kin_cbore_dep`, then M4 × 0.7 tap | Create → Hole | 3 features @ **75/195/315** | **discharged** — ECR-D-010 re-clocked these off the choke rays |
+| 6.35 | *(H3)* Coolant stub bores | S12 radial planes | Ø`stub_bore_d` at `stub_bore_z`, then Ø`stub_wp_d` × `stub_wp_dep` at the OD | Create → Hole | 2 radial bores @ 255°/285° | **discharged** — CP-D22/D23/D24; channel locally deepened to `ch_depth_port` |
+| 6.36 | *(H1)* Combine bodies | `CP_BODY` + `CP_LID` | Operation: Join | Modify → Combine | Single welded solid | **discharged** |
 | 6.37 | Edge breaks | All external edges | 0.5 × 45° | Modify → Chamfer | Deburred edges | No sharp external edges |
 | 6.38 | Sketch S9 top masking | `PL_TOP` | `choke_pad_dia`, `bc_choke_*` | Create Sketch, project S2 | 16× Ø22 pad zones + full-face zone | **Pads are zones, NOT extrusions** — verify no material added |
 | 6.39 | Sketch S10 bottom masking | XY | RF land, sealing annulus | Create Sketch | Masking zones defined | Zones match 6.21, 6.30 |
 | 6.40 | Assign material | Body | 6061-T6, ρ = 2700 | Modify → Physical Material | Aluminium 6061 | — |
-| 6.41 | Mass check | Body | — | Inspect → Physical Properties | Mass reported | **≤ `cp_mass_max` (4.2 kg); spec estimate 3.9 kg** |
+| 6.41 | Mass check | Body | — | Inspect → Physical Properties | Mass reported | **≤ `cp_mass_max` (4.2 kg); spec estimate 4.0 kg** |
 | 6.42 | Save + version | — | — | File → Save, milestone `gate/G2` | Versioned design | Version named to match Git tag |
 | 6.43 | Export STEP | Body | — | File → Export → STEP | `SEWCP-200_revX1.step` | Committed to `cad/exports/step/` |
 
@@ -379,12 +430,12 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | **Plate OD Ø320** | Rough turn → finish turn | Unobstructed | Low (±0.10) | CMM / micrometer | Envelope; ≥5 mm wall from channel to external surface |
 | **Overall thickness 20.000** | Grind / lap after anodize | Both faces open | **Very high (±0.030)** — Z-stack element | Micrometer, 8 points at 45°, Ø280 BC | Sets wafer plane height; feeds DR-3 Support Ring lap calculation |
 | **Top face flat 0.015 / parallel 0.015** | Final lap, performed **after** anodize (Vol 01 §6 step 14) | Full face open | **Very high** — propagates directly to wafer plane | CMM, optical flat | 15 µm of the 50 µm wafer-plane flatness budget |
-| **Coolant channel [H1]** | CNC mill into bottom face, R5 min bend, R3 min corners | Open face before FSW — this is why the channel is on the bottom | Medium (+0.20/−0) | Borescope; flow test; radiography of weld | Re ≈ 7,400 turbulent flow; 3 kW heat removal |
-| **FSW lid [H1]** | Friction stir weld, circumferential + internal rib passes | Requires flat, rigid backing | Medium (±0.10) | Dye penetrant + radiography; 6 bar proof; He leak | Eliminates elastomer from the coolant pressure boundary (catastrophic-severity failure mode) |
+| **Coolant channel *(was H1)*** | CNC mill into bottom face, R5 min bend, R3 min corners | Open face before FSW — this is why the channel is on the bottom | Medium (+0.20/−0) | Borescope; flow test; radiography of weld | Re ≈ 8,300 turbulent flow; 3 kW heat removal |
+| **FSW lid *(was H1)*** | Friction stir weld, circumferential + internal rib passes | Requires flat, rigid backing | Medium (±0.10) | Dye penetrant + radiography; 6 bar proof; He leak | Eliminates elastomer from the coolant pressure boundary (catastrophic-severity failure mode) |
 | **Choke pads, 16× Ø22** | Lapped with the top face, masked from anodize | Same setup as top face | **High** — coplanar 0.010 TIR as a set | CMM height map across all 16 | Contact conductance is 53% of R_choke; anodize would make it unpredictable |
 | **Choke slots, 16× 5.5 × 7.0** | Slot mill, through | Bottom face, unobstructed | **Deliberately low (⌖ Ø0.200)** | Pin gauge / CMM | Allows 0.399 mm radial growth of the Heater Plate without over-constraining the joint |
 | **Ring taps, 8× M6 × 12** | Drill + tap, bottom face | Unobstructed | Low (⌖ Ø0.30) | Thread gauge | RF-side bolt circuit (DR-9); never reaches the Base Plate |
-| **Kinematic locators, 6× [H2]** | Precision bore/counterbore, single setup | Both faces — **must be same setup to hold ⌖ Ø0.020** | **Highest positional on the part** | CMM | Chuck axis concentricity; Datums B and C |
+| **Kinematic locators, 6× *(was H2)*** | Precision bore/counterbore, single setup | Both faces — **must be same setup to hold ⌖ Ø0.020** | **Highest positional on the part** | CMM | Chuck axis concentricity; Datums B and C |
 | **Lift pin bores, 3× Ø8.0 H8** | Drill → ream → hone | Through, unobstructed | High (perpendicularity 0.030) | Bore gauge; perpendicularity on CMM | Pin pass-through; **perpendicularity prevents ceramic pin bind and fracture** |
 | **Bushing counterbores, 3× Ø12 H7 × 6** | Counterbore from bottom | Unobstructed | High (H7 press fit) | Bore gauge | Seats SEWCP-601 Vespel bushing; depth = bushing length exactly |
 | **Central bore Ø10.0 H8** | Drill → ream | On axis, unobstructed | Medium | Bore gauge | Receives the Ø9.90 h8 vacuum port pilot spigot |
@@ -394,7 +445,7 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | **RTD blind bores, 3× Ø1.7 × 12** | Small-diameter drill, flat bottom | Bottom face; high L/D (7:1) — **peck drilling required** | High (H8) | Pin gauge; borescope | RTD probe response ≤ 5 s |
 | **RTD cross-vents, 3×** | Cross-drill intersecting each blind bore | Radial access | Low | Airflow / borescope | **DR-6 / DR-13** — a Ø1.7 × 12 blind bore with a Ø1.6 probe in it is a near-perfect virtual leak |
 | **HV feed bores, 2× Ø8.0** | Drill through | Unobstructed | Low | Bore gauge | ESC HV routing; alumina-lined after machining |
-| **Coolant stubs, 2× [H3]** | Deep radial bore through 35 mm of solid; orbital weld | Radial from OD; deep-hole drilling | **UNSPECIFIED** | He leak test | Coolant supply/return; ½ in. VCR |
+| **Coolant stubs, 2× *(was H3)*** | Deep radial bore through 35 mm of solid; orbital weld | Radial from OD; deep-hole drilling | Ø10.0 H9, CL 11.00 above A; Ø14.0 × 4.0 weld prep | He leak test | SEWCP-201 transition joint, then ½ in. VCR |
 | **Hard anodize, 50 µm** | Type III, sealed, after all machining, **before** final lap | Masked: top face, 16 pads, RF land, channel interior, sealing face, locator bores | Medium | Coating thickness; borescope of channel | Plasma and handling durability of the RF-hot body |
 
 **Overriding manufacturing constraint (Vol 01 §6):** *stress relief is called out twice and is not optional.* A 20 mm 6061 plate with a channel milled through most of its lower face will move. The sequence is rough → relieve → semi-finish → relieve → finish → anodize → lap. **The final lap is the last operation.**
@@ -429,8 +480,8 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 
 | Mistake | Detection | Recovery |
 |---|---|---|
-| **Channel 8 + wall 8 + lid 6 = 22 in a 20 mm plate** | `lid_check` parameter evaluates to **−2.0** | **BLOCKING — ECR-D-002.** Do not resolve by assumption. |
-| Locator protrusion 5.0 mm into a 3.0 mm slot | Locator bottoms out; mating faces held 2 mm apart | **BLOCKING — ECR-D-001.** Vol 01 §10 step 3 (5.0) vs Vol 06 AP-D02 (2.50). |
+| Channel + wall + lid ≠ plate thickness | `lid_check` parameter is non-zero | The 8+8+6=22 form was ECR-D-002 and is **closed**: 6 + 8 + 6 = 20.000 (APR-019). The guard stays — a non-zero `lid_check` means someone has edited one Z dimension without the others. |
+| Locator protrusion greater than the 3.00 mm slot depth | Locator bottoms out; mating faces held apart | **Closed** — ECR-D-001 disposition A: `AP-D02` = 2.50 ± 0.05 governs and `spec/01` §10 step 3 now agrees. The guard stays; `spec/06` §5.1 calls this the callout most likely to be got wrong. |
 | RF tap angles entered as literals | Drift from `bc_rf` if the BC ever changes | Use `rf_tap_ang_1/2` expressions; they resolve to 98.73°/111.27° against the spec's rounded 98.7°/111.3°. |
 | Ring taps at Ø296 BC | Misses the Support Ring flange holes | Ø302 BC (CP-IF-2, FBA-3, SR-IF-3). Vol 00 §3.1 Datum B/C at Ø296 is stale (ECR-Q-002). |
 | Bushing counterbore depth ≠ 6.0 | Bushing proud or recessed | Depth = bushing length (LB-D03) exactly. |
@@ -481,10 +532,10 @@ All items **PASS / FAIL**. No partial states.
 | G-16 | **RTD cross-vents** | 3, every blind bore vented (DR-6/DR-13) | ☐ |
 | G-17 | RTD retainer taps | 6, M4 × 8, ±9 mm | ☐ |
 | G-18 | No feature collisions | Zero interference between any two features | ☐ |
-| G-19 | **[H1]** Channel within Ø60–Ø250 envelope | No violation | ☐ **BLOCKED** |
-| G-20 | **[H1]** Keep-out table, all 8 classes | No violation | ☐ **BLOCKED** |
-| G-21 | **[H2]** Kinematic locators | 6, Ø306 btm / Ø260 top | ☐ **BLOCKED** |
-| G-22 | **[H3]** Coolant stubs | 2, @ 255°/285° | ☐ **BLOCKED** |
+| G-19 | *(was H1)* Channel within Ø60–Ø250 envelope | No violation | ☐ |
+| G-20 | *(was H1)* Keep-out table, all 8 classes | No violation | ☐ |
+| G-21 | *(was H2)* Kinematic locators | 6, Ø306 btm / Ø260 top | ☐ |
+| G-22 | *(was H3)* Coolant stubs | 2, @ 255°/285° | ☐ |
 
 ## 9.2 Parameter Verification
 
@@ -496,7 +547,7 @@ All items **PASS / FAIL**. No partial states.
 | P-04 | `rf_tap_ang_1` | 98.73° | ☐ |
 | P-05 | `rf_tap_ang_2` | 111.27° | ☐ |
 | P-06 | `rf_land_half_ang` | 12.547° | ☐ |
-| P-07 | **`lid_check`** | **Must = 0. Currently −2.0** | ☐ **FAIL — ECR-D-002** |
+| P-07 | **`lid_check`** | **Must = 0.** Now 0.0 | ☐ |
 | P-08 | Parameter propagation test | Change `cp_od`, model rebuilds, undo | ☐ |
 | P-09 | Every parameter cites a spec source | Comment field populated | ☐ |
 
@@ -513,7 +564,7 @@ All items **PASS / FAIL**. No partial states.
 | A-07 | Lift pin bores align to ESC Ø5.200 bores | 3/3 concentric within tolerance | ☐ |
 | A-08 | Bushing seats receive Ø12.00 bushing | Press fit achievable | ☐ |
 | A-09 | No contact with Base Plate | Zero | ☐ |
-| A-10 | **[H2]** Locators engage Ring slots (Ø306) and Heater slots (Ø260) | 6/6, slider joints, ±1.0 mm travel | ☐ **BLOCKED** |
+| A-10 | *(was H2)* Locators engage Ring slots (Ø306) and Heater slots (Ø260) | 6/6, slider joints, ±1.0 mm travel | ☐ |
 
 ## 9.4 Manufacturing Verification
 
@@ -525,14 +576,14 @@ All items **PASS / FAIL**. No partial states.
 | M-04 | Masking zones defined | 5 zones (top face+pads, RF land, channel, sealing face, locator bores) | ☐ |
 | M-05 | Mass | ≤ 4.2 kg | ☐ |
 | M-06 | Material assigned | 6061-T6, ρ 2700 | ☐ |
-| M-07 | **[H1]** Channel min wall to every feature | Per keep-out table | ☐ **BLOCKED** |
-| M-08 | **[H3]** Coolant stub weld access | Orbital weld head clearance | ☐ **BLOCKED** |
+| M-07 | *(was H1)* Channel min wall to every feature | Per keep-out table | ☐ |
+| M-08 | *(was H3)* Coolant stub weld access | Orbital weld head clearance | ☐ |
 
 ## 9.5 Drawing Readiness
 
 | # | Check | Criterion | Status |
 |---|---|---|---|
-| D-01 | Datum A/B/C definable on the model | **Requires H2 resolution** | ☐ **BLOCKED** |
+| D-01 | Datum A/B/C definable on the model | **Requires H2 resolution** | ☐ |
 | D-02 | All CP-D01…D21 dimensionable | Yes | ☐ |
 | D-03 | Masking sheet geometry available | S9, S10 complete | ☐ |
 | D-04 | Section planes identified | Channel, RF land, RTD port | ☐ |
@@ -592,11 +643,11 @@ All items **PASS / FAIL**. No partial states.
 |---|---|---|---|
 | DET-1 | 4 | 5:1 | RF land boundary, tap positions, flatness, Alodine note |
 | DET-2 | 4 | 5:1 | RTD blind bore + cross-vent, DR-6/DR-13 note |
-| DET-3 | 4 | 2:1 | Choke slot geometry, radial orientation, counterbore **[H3]** |
+| DET-3 | 4 | 2:1 | Choke slot geometry, radial orientation, counterbore *(was H3)* |
 | DET-4 | 4 | 2:1 | Lift pin bore + bushing counterbore, perpendicularity |
 | DET-5 | 4 | 5:1 | Vacuum sealing face, flatness, lay direction, masking |
-| DET-6 | 3 | 2:1 | FSW joint preparation and weld zone **[H1]** |
-| DET-7 | 4 | 5:1 | Kinematic locator feature **[H2 — BLOCKED]** |
+| DET-6 | 3 | 2:1 | FSW joint preparation and weld zone *(was H1)* |
+| DET-7 | 4 | 5:1 | Kinematic locator feature **[discharged]** |
 
 ## 10.5 Dimensions
 
@@ -606,7 +657,7 @@ Every dimension in Vol 01 §5 (CP-D01 … CP-D21) appears. Placement:
 |---|---|
 | 1 | CP-D01 OD, CP-D02 thickness, CP-D03/D04 flatness & parallelism, CP-D16 sealing face, CP-D18 RF land flatness, full datum frame |
 | 3 | CP-D05 channel W, CP-D06 channel D, CP-D07 top wall, CP-D08 lid **[all H1]** |
-| 4 | CP-D09/D10/D11 locators **[H2]**, CP-D12/D13/D14 lift pin, CP-D15 central bore, CP-D17 pad coplanarity, CP-D19 RTD, CP-D20 ring taps |
+| 4 | CP-D09/D10/D11 locators *(was H2)*, CP-D12/D13/D14 lift pin, CP-D15 central bore, CP-D17 pad coplanarity, CP-D19 RTD, CP-D20 ring taps |
 
 Hole schedule table on Sheet 4: ID, Ø, depth, thread, quantity, bolt circle, angular positions, tolerance, source reference.
 
@@ -646,11 +697,11 @@ Items ballooned to this part in the assembly BOM:
 | Item | Part No. | Description | Qty |
 |---|---|---|---|
 | 2 | SEWCP-200 | Cooling Plate, 6061-T651 | 1 |
-| 2.1 | SEWCP-200-L | FSW Lid **[H1]** | 1 |
+| 2.1 | SEWCP-200-L | FSW Lid *(was H1)* | 1 |
 | 2.2 | SEWCP-601 | Lift Pin Bushing, Vespel SP-1 | 3 |
-| 2.3 | SEWCP-700 | Alignment Pin **[H2]** | 6 |
+| 2.3 | SEWCP-700 | Alignment Pin *(was H2)* | 6 |
 | 2.4 | — | Alumina liner tube, HV bore | 2 |
-| 2.5 | — | VCR gland stub, ½ in., 316L **[H3]** | 2 |
+| 2.5 | — | VCR gland stub, ½ in., 316L *(was H3)* | 2 |
 
 BOM reference on the part drawing: material callout and finish specification only.
 
@@ -803,7 +854,7 @@ A 5.0 mm protrusion into a 3.00 mm deep slot bottoms out by 2.0 mm and holds the
 
 No CP-Dxx entry exists for this feature; it does not appear in Vol 01 §9 tolerances.
 
-**Geometric note (for information, not a proposal).** ½ in. tube OD is 12.70 mm. The channel is 8.00 mm tall. A Ø12.70 radial bore therefore cannot be coaxial with an 8 mm channel without either a local boss, a stepped transition, or a change of channel section at the ports. The plate provides 35 mm of solid material radially between the channel envelope (r = 125) and the OD (r = 160) for the bore to traverse.
+**Geometric note — SUPERSEDED, see the banner at the head of this document.** ½ in. tube OD is 12.70 mm. The channel is **6.00 mm** tall after ECR-D-002, which made this defect worse, not better. A Ø12.70 radial bore therefore cannot be coaxial with an 8 mm channel without either a local boss, a stepped transition, or a change of channel section at the ports. The plate provides 35 mm of solid material radially between the channel envelope (r = 125) and the OD (r = 160) for the bore to traverse.
 
 **CAD impact.** Blocks 2 features (HOLD H3) and Section B-B on drawing Sheet 3.
 
@@ -863,7 +914,33 @@ Resolution is unambiguous in each case (a controlling reference exists and is co
 
 # 13 Release Gate
 
-## ENGINEERING ISSUE DETECTED
+## CURRENT STATE — all four defects dispositioned
+
+**Superseded by session `S-2026-08-10-01`.** The four defects below were real, were correctly
+refused, and are now **dispositioned, approved, applied to the frozen specification and
+re-registered**. Four more (`ECR-D-007`, `-009`, `-010`, `-011`) were found while resolving
+them and are dispositioned in the same package.
+
+| Was blocking | Now |
+|---|---|
+| `ECR-D-001` | Disposition A — SEWCP-700 governs. `APR-016`→`-017`→`-018`, `spec/03` residual closed by `APR-024` |
+| `ECR-D-002` | Disposition A — depth 8.00 → 6.00. `APR-019`; its **unapplied** half (§6 step 3, the machining instruction) completed under `APR-020` |
+| `ECR-D-003` | Disposition A — Ø10.0 coaxial port, SEWCP-201 transition joint. `APR-020` |
+| `ECR-D-004` | Disposition A — `CP-D26` slotted masked counterbore, `M5 × 25`. `APR-020`/`-021`/`-022` |
+
+**HOLD H1, H2 and H3 are discharged.** The whole part may be modelled.
+
+**The authority for this gate is not this document.** Run
+`PYTHONPATH=src python -m aief_gate`, which computes `C1`–`C7` from repository bytes.
+`C6` closes on `VER-015`.
+
+**The section that follows is the record of the defects as raised, on 2026-08-07.** It is
+retained because it is the evidence the disposition rests on. It does not describe the current
+baseline, and where it disagrees with `spec/**`, `spec/**` governs.
+
+---
+
+## ENGINEERING ISSUE DETECTED — *as raised, 2026-08-07; historical*
 
 **Four blocking defects exist in the frozen baseline. This package cannot be released as READY FOR CAD.**
 

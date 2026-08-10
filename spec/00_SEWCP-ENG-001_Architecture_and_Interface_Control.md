@@ -116,10 +116,13 @@ All angular positions are referenced to the 0° / +X axis (Datum B). This map is
 | Thermal-choke fasteners (outer) | Ø270 BC | 0° + n·30° | 12 |
 | RTD blind ports (Cooling Plate) | r = 40 @ 75°; r = 100 @ 165°; r = 140 @ 225° | (re-clocked to clear the RF land at 105°) | 3 |
 | Kinematic radial slots (Ring↔Cooling Plate) | Ø306 BC | 60°, 180°, 300° | 3 |
+| **Kinematic locators (Cooling Plate↔Heater Plate)** | **Ø260 BC** | **75°, 195°, 315°** | **3** |
 | Support Ring fasteners (two independent circuits, DR-9) | Ø302 BC | 22.5° + n·45° | 8 + 8 |
 | Coolant inlet / outlet | Ø320 OD, radial | 255° (in), 285° (out) | 2 |
 
-**Clocking clearance verification:** RTD ports at 105°/225°/345° avoid the outer choke fasteners (30° multiples). The RF strap land at 75° falls between choke fasteners at 60° and 90°. Coolant ports at 255°/285° fall between choke fasteners at 240°/270°/300°. Lift pins (r = 100) and inner choke fasteners (r = 45) are radially separated. **No conflicts.**
+**Clocking clearance verification.** RTD ports at **75°/165°/225°** avoid the outer choke fasteners (30° multiples). The RF strap land at **105°** falls between choke fasteners at 90° and 120°. Coolant ports at 255°/285° fall between choke fasteners at 240°/270°/300°. Lift pins (r = 100) and inner choke fasteners (r = 45) are radially separated. The Ø260 BC kinematic locators at 75°/195°/315° sit 15° from every outer choke station — the maximum a 120°-spaced triad can achieve against a 30° pattern — giving 34.97 mm of centre distance to the nearest Ø22 choke pad against 17.0 mm required.
+
+> **This paragraph was previously wrong twice over and is corrected here (ECR-D-010).** It quoted RTD angles and an RF-land angle that its own table above contradicts, and it **omitted the Ø260 BC kinematic locators entirely** — which is why the collision ECR-D-010 records went undetected: locators at 30°/150°/270° sat on three outer choke rays, overlapping the M5 slot by 4.5 mm radially and the Ø22 washer pad almost completely. **A prose claim of "no conflicts" covering four hand-picked pairs is not a verification.** The clearance is now computed over every declared pair by `python -m aief_clearance`, and this table is that check's input.
 
 ### 3.3 Wafer Handoff Clocking
 
@@ -194,8 +197,8 @@ Governing relation:
 | Heater Plate, 8 mm | 0.00068 | 0.2 K | k = 167 W/m·K (6061) |
 | **Thermal choke** | **0.100** | **30.0 K** | **Ti-6Al-4V washers + 2 contact interfaces** |
 | Cooling Plate to channel, 8 mm | 0.00068 | 0.2 K | k = 167 W/m·K |
-| Coolant convection | 0.00222 | 0.7 K | h ≈ 5000 W/m²·K, A_wetted = 0.09 m² |
-| **Total** | **0.1220** | **36.6 K** | |
+| Coolant convection | 0.00192 | 0.6 K | h ≈ 6500 W/m²·K, A_wetted = 0.080 m² (ECR-D-002) |
+| **Total** | **0.1217** | **36.5 K** | |
 
 Operating envelope: coolant at 20 °C, total power 0–1300 W → wafer 20 °C to 179 °C, **clamped by control to 150 °C** (bond-line limit).
 
@@ -209,7 +212,7 @@ Operating envelope: coolant at 20 °C, total power 0–1300 W → wafer 20 °C t
 |---|---|---|
 | Base Plate ↔ Support Ring | 8× M6 from below, through the ceramic bottom flange, into the SEWCP-401 clamp ring; ceramic captured in compression | **Two-circuit bolting (DR-9):** no fastener bridges the insulating web |
 | Support Ring ↔ Cooling Plate | **3× radial-slot kinematic locators @ 120°** | Thermally centered: plate grows radially about a fixed axis; center stability ≤ 20 µm despite Al/Al₂O₃ CTE mismatch |
-| Cooling Plate ↔ Heater Plate | 16× M5 through **radially slotted** clearance holes, Belleville-preloaded; 3× radial-slot locators | Allows 0.4 mm radial growth differential at ΔT = 130 K without bowing or dowel shear |
+| Cooling Plate ↔ Heater Plate | 16× M5 through **radially slotted** clearance holes, Belleville-preloaded; 3× radial-slot locators | Allows 0.4 mm radial growth differential at ΔT = 130 K without bowing or locator shear |
 | Heater Plate ↔ ESC | Elastomer bond, full-face, 0.40 mm | Compliant shear layer absorbs CTE mismatch; no fasteners penetrate the wafer-facing surface |
 
 > **DR-2: No fastener, dowel, or joint shall penetrate the ESC top surface.** All thermal-stack fasteners are installed **from below**, through counterbored clearance holes in the Cooling Plate, into threaded holes in the Heater Plate. This is why the Cooling Plate coolant circuit must be routed around the fastener pattern (§ Volume 01).
@@ -381,7 +384,7 @@ Every utility entering the RF-hot Cooling Plate is an unintended RF path to grou
 | SEWCP-500 | Electrostatic Chuck | Al₂O₃ 99.6% co-fired, W electrodes | Lapped Ra 0.4 µm mesa tops; Ra 0.8 µm field |
 | SEWCP-600 | Lift Pin | Al₂O₃ 99.8% | Ra 0.2 µm on crown and shaft |
 | SEWCP-601 | Lift Pin Bushing | Vespel SP-1 (alt: Al₂O₃) | Ra 0.8 µm bore |
-| SEWCP-700 | Alignment Pins | 316L (metal/metal); Al₂O₃ (ceramic IF) | Ra 0.4 µm |
+| SEWCP-700 | Alignment Pins | Ti-6Al-4V Grade 5 | Ra 0.4 µm |
 | SEWCP-800 | Vacuum Port | 316L SS | Electropolished Ra ≤ 0.4 µm internal |
 | SEWCP-900 | RF Bracket — conductor | OFHC Cu, **silver plated 8–13 µm, NO nickel underplate** | Ag bright |
 | SEWCP-904 | RF Bracket — deposition shroud | Al₂O₃ 99.5% (**no PEEK** — 15× the loss tangent, heats in the RF field) | As-ground, anti-tracking grooves |
@@ -402,8 +405,8 @@ Every utility entering the RF-hot Cooling Plate is an unintended RF path to grou
 |---|---|---|---|---|---|---|
 | **Lower circuit:** Base Plate ↔ Support Ring bottom flange ↔ SEWCP-401 clamp ring | M6 × 40 SHCS | 8 | A4-70 | **6.0 N·m** | Ø16 flat + Belleville stack | At **ground** potential. 3 passes, star pattern, 30/70/100% |
 | **Upper circuit:** Support Ring top flange ↔ Cooling Plate | M6 × 16 SHCS | 8 | A4-70 | **6.0 N·m** | Ø16 flat + Belleville stack | At **RF** potential. Never bridges the web (DR-9) |
-| Cooling Plate ↔ Heater Plate (outer choke) | M5 × 30 SHCS | 12 | A4-70 | **3.5 N·m** | Ti washer + Belleville | Slotted clearance holes in Heater Plate |
-| Cooling Plate ↔ Heater Plate (inner choke) | M5 × 30 SHCS | 4 | A4-70 | **3.5 N·m** | Ti washer + Belleville | Ø90 BC |
+| Cooling Plate ↔ Heater Plate (outer choke) | **M5 × 25 SHCS** | 12 | A4-70 | **3.5 N·m** | Ti washer + Belleville | Slotted clearance holes **and slotted counterbores in the Cooling Plate** (`CP-IF-3`, `CP-D26`); the threads are `HP-D12` helical inserts in the Heater Plate, per DR-2. **M5 × 30 is struck** — it engages 7.90 mm of an 8.000 mm plate and enters the ESC bond line (ECR-D-004) |
+| Cooling Plate ↔ Heater Plate (inner choke) | **M5 × 25 SHCS** | 4 | A4-70 | **3.5 N·m** | Ti washer + Belleville | Ø90 BC; otherwise as the outer-choke row (ECR-D-004) |
 | Vacuum Port flange | M4 × 16 SHCS | 4 | A4-70 | **1.8 N·m** | Flat | Even, opposing sequence |
 | RF strap to Cooling Plate land | M6 × 16 SHCS | 2 | A4-70, **silver-plated** | **6.0 N·m** | Silver-plated flat + Belleville | High preload (≈6.7 kN, 74% of yield). Torque is *reduced* vs. dry A4-70 because silver plating lowers the nut factor to K ≈ 0.15 — applying 8.0 N·m would yield the bolt |
 | RF bracket clamp to Base Plate | M6 × 20 SHCS | 2 | A4-70 | 6.0 N·m | Flat | Slotted foot, floating |
@@ -421,7 +424,7 @@ Every utility entering the RF-hot Cooling Plate is an unintended RF path to grou
 |---|---|---|
 | **A. Sub-assemblies** | | |
 | A1 | Cooling Plate: machine channel, FSW-seal lid, orbital-weld VCR stubs | Proof 6 bar / 30 min; He leak < 1×10⁻⁹ mbar·L/s; flow ΔP at 4 L/min |
-| A2 | Cooling Plate: install lift pin bushings, kinematic dowels, mask and hard-anodize | Bushing bore Ø5.05 H7; anodize mask verification |
+| A2 | Cooling Plate: install lift pin bushings, kinematic locators (SEWCP-700), mask and hard-anodize | Bushing bore **Ø5.60 +0.05/−0** (`LB-D01`; the previous Ø5.05 H7 contradicted six corroborating statements — ECR-Q-009); anodize mask verification |
 | A3 | Heater Plate: braze MI heater cable into spiral grooves, both zones | Zone resistance ±5%; hipot 1500 VAC; IR > 100 MΩ @ 500 VDC |
 | A4 | Heater Plate: finish-machine bond face and choke face | Flatness 15 µm; bond face Ra 0.4 µm; choke face bright, ε ≤ 0.15 |
 | A5 | **Bond ESC to Heater Plate** in fixture; vacuum-debulk; cure at 60 °C | Bond line 0.40 ± 0.05 mm; ultrasonic C-scan, voids < 2% area, none > Ø3 mm; ESC flatness 10 µm post-bond |

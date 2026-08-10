@@ -77,9 +77,9 @@ The ±1.0 mm slot travel provides **3.1× margin** at the ring interface and **2
 
 | IF | Interface | Type | Detail |
 |---|---|---|---|
-| AP-IF-1 | Locator to Cooling Plate | **Located + retained** | Ø12.0 k6 flange in a Ø12.0 H7 × 3.0 counterbore (transition fit for position); M4 × 10 SHCS through the pin into the plate for retention |
+| AP-IF-1 | Locator to Cooling Plate | **Located + retained, one piece** | **Ø10.000 h6** flange in a **Ø10.0 H7 × 3.00** counterbore (close clearance for position; reduced from Ø12.000 by ECR-D-007 action 3); retention is the locator's **own integral M4 × 0.7 threaded spigot** (`AP-D13`) into the `CP-D09a` / `CP-D10a` M4 x 0.7 tapped hole. **No separate screw** — a Ø8.0 head counterbore cannot exist in a Ø6.000 boss and no standard M4 head fits it (ECR-D-009) |
 | AP-IF-2 | Locator to Support Ring | **Pin-in-radial-slot** | Ø6.000 h6 boss, 2.50 mm protrusion, in a 6.05 H8 W × 8.0 L × 3.0 D radial slot at Ø306 BC (3 places, 60°/180°/300°) |
-| AP-IF-3 | Locator to Heater Plate | **Pin-in-radial-slot** | Ø6.000 h6 boss, 2.50 mm protrusion, in a 6.05 H8 W × 8.0 L × 3.0 D radial slot at Ø260 BC (3 places, 30°/150°/270°) |
+| AP-IF-3 | Locator to Heater Plate | **Pin-in-radial-slot** | Ø6.000 h6 boss, 2.50 mm protrusion, in a 6.05 H8 W × 8.0 L × 3.0 D radial slot at Ø260 BC (3 places, **75°/195°/315°** — re-clocked, ECR-D-010) |
 
 ### 3.1 Installed Locations
 
@@ -113,7 +113,7 @@ All six are the **same part number**. The Cooling Plate hosts every locator; the
 | Cooling Plate | SEWCP-200 | AP-IF-1 | Host part for all 6 locators; screw-retained |
 | Chuck Support Ring | SEWCP-400 | AP-IF-2 | 3 radial slots in the ceramic top flange |
 | Heater Plate | SEWCP-300 | AP-IF-3 | 3 radial slots in the aluminium bottom face |
-| Retaining screws | M4 × 10 SHCS, A4-70 | AP-IF-1 | 6 off, 2.5 N·m, with anti-galling dry film |
+| Retention | **Integral to the locator** (`AP-D13`) | AP-IF-1 | No separate fastener. **1.2 N·m** through the `AP-D14` hex socket, anti-galling dry film on the spigot and flange. The former 2.5 N·m put an M4 A4-70 at ~114 % of yield and was wrong for the superseded screw as well (ECR-D-009) |
 
 ## 5. Critical Dimensions
 
@@ -121,16 +121,18 @@ All six are the **same part number**. The Cooling Plate hosts every locator; the
 |---|---|---|---|---|
 | AP-D01 | **Locating boss diameter** | **Ø6.000** | **h6 (−0 / −0.008)** | **Critical — centring** |
 | AP-D02 | **Boss protrusion above the flange face** | **2.50** | **±0.05** | **Critical — must not bottom in the 3.0 mm slot** |
-| AP-D03 | Flange diameter | Ø12.000 | k6 (+0.012 / +0.001) | **Critical — position transfer** |
+| AP-D03 | Flange diameter | **Ø10.000** | **h6 (−0 / −0.009)** | **Critical — position transfer.** Two changes, recorded together: **k6 → h6** (ECR-D-009 — a part that is screwed in cannot be an interference fit) and **Ø12.000 → Ø10.000** (ECR-D-007 action 3 — the Ø12 counterbore left 1.00 mm of wall to the plate OD at Ø306 BC). Clearance in the Ø10.0 H7 counterbore is **0 to 0.024**, marginally tighter than the Ø12 form it replaces |
 | AP-D04 | Flange thickness | 3.000 | ±0.02 | **Critical — seats flush in the counterbore** |
 | AP-D05 | Boss-to-flange fillet | R0.4 | +0.2 / −0 | High — stress riser |
 | AP-D06 | Boss end chamfer | 0.5 × 30° | ±0.15 | High — lead-in during assembly |
-| AP-D07 | Screw clearance bore | Ø4.3 | +0.1 / −0 | Low |
-| AP-D08 | Counterbore for screw head | Ø8.0 × 2.2 | +0.1 / −0 | Low |
+| AP-D07 | *(struck — ECR-D-009)* | — | — | There is no through screw, so there is no clearance bore |
+| AP-D08 | *(struck — ECR-D-009)* | — | — | A Ø8.0 head counterbore cannot exist in the Ø6.000 boss it was specified in |
 | AP-D09 | Boss-to-flange concentricity | — | 0.010 TIR | **Critical — position transfer** |
 | AP-D10 | Boss perpendicularity to the flange face | — | 0.010 | **Critical — free sliding** |
 | AP-D11 | Boss surface finish | Ra ≤ 0.4 µm | — | High — wear, stick-slip |
-| AP-D12 | Overall length | 5.50 | ±0.05 | Medium |
+| AP-D12 | Overall length, boss end to spigot end | **9.50** | ±0.05 | Medium — was 5.50 before the spigot (ECR-D-009) |
+| AP-D13 | **Integral retention spigot** | **M4 × 0.7 × 4.00 long**, below the flange face | ±0.10 on length | **High — retention** |
+| AP-D14 | Drive socket in the boss end | **3.0 A/F hex × 2.0 deep** | ISO 4762 key size | High — installation torque |
 
 ### 5.1 Mating Slot Dimensions (specified in the host volumes, repeated here for control)
 
@@ -140,7 +142,7 @@ All six are the **same part number**. The Cooling Plate hosts every locator; the
 | — | Slot length, radial | 8.00 | +0.20 / −0 | SR-D18, HP-D10 |
 | — | Slot depth | 3.00 | ±0.10 | SR-D19 |
 | — | Slot position | Ø306 / Ø260 BC | ⌖ Ø0.030–0.050 Ⓜ | SR-D20, HP-D11 |
-| — | Counterbore in Cooling Plate | Ø12.0 H7 × 3.0 | ⌖ Ø0.020 Ⓜ | CP-D09 / CP-D11 |
+| — | Counterbore in Cooling Plate | Ø10.0 H7 × 3.00 | ⌖ Ø0.020 Ⓜ | CP-D09 / CP-D11 |
 
 > **AP-D02 is the callout most likely to be got wrong.** A 2.50 mm boss into a 3.00 mm slot leaves 0.50 mm of bottom clearance. If the boss were made 3.0 mm "to match the slot depth," it would bottom out and hold the mating faces apart — destroying the thermal choke contact, the flatness budget, and the joint preload simultaneously. The boss must always be shorter than the slot is deep.
 
@@ -151,12 +153,12 @@ All six are the **same part number**. The Cooling Plate hosts every locator; the
 | Step | Operation | Notes |
 |---|---|---|
 | 1 | Procure Ti-6Al-4V Grade 5 bar, Ø14 | Certified |
-| 2 | CNC turn the flange, boss, screw bore, and head counterbore in one chucking | Single setup is what holds AP-D09 concentricity |
+| 2 | CNC turn the flange, boss and `AP-D13` spigot in one chucking; broach or mill the `AP-D14` hex socket | Single setup is what holds AP-D09 concentricity |
 | 3 | Part off and face to length | |
-| 4 | **Grind the Ø6.000 h6 boss and the Ø12.000 k6 flange** | Ground, not turned — these are the two fits that carry the whole positional budget |
+| 4 | **Grind the Ø6.000 h6 boss and the Ø10.000 h6 flange** | Ground, not turned — these are the two fits that carry the whole positional budget |
 | 5 | Form the R0.4 fillet and the 0.5 × 30° lead-in chamfer | |
 | 6 | Deburr thoroughly | Burrs at the boss root prevent flush flange seating |
-| 7 | Apply anti-galling treatment to the flange OD | Titanium galls in press/transition fits |
+| 7 | Apply anti-galling treatment to the flange OD **and the `AP-D13` spigot threads** | Titanium galls in close fits and in threads; the spigot is turned under load against 6061 |
 | 8 | Passivate | |
 | 9 | 100% inspect: boss diameter, flange diameter, concentricity, protrusion | |
 | 10 | Ultrasonic clean, DI rinse, vacuum bake 200 °C / 4 h | |
@@ -168,7 +170,7 @@ All six are the **same part number**. The Cooling Plate hosts every locator; the
 | **Screw-retained shoulder locator (selected)** | Positive retention independent of temperature; field-replaceable as a wear item; position set by a ground flange in a ground counterbore |
 | Plain press-fit dowel | **Rejected on thermal grounds.** A Ti dowel in a 6061 hole loses 5.4 µm of interference over ΔT = 60 K (aluminium hole grows 8.5 µm, titanium pin 3.1 µm). Against a typical 10–20 µm interference band, the joint can approach zero interference hot — and a loose dowel in a vacuum chamber is a migrating hard particle. |
 | Press-fit dowel in 316L | Loses only 2.7 µm, but 316L at ~150 HV wears rapidly against a 1,600 HV alumina slot |
-| Integral machined boss on the Cooling Plate | Cheapest and eliminates a part, but not replaceable — a worn boss would scrap a 3.9 kg plate with a welded coolant circuit |
+| Integral machined boss on the Cooling Plate | Cheapest and eliminates a part, but not replaceable — a worn boss would scrap a 4.0 kg plate with a welded coolant circuit |
 | Ceramic locator pin | Excellent wear pair, no galling; brittle in shear and unnecessary given the 128× margin |
 
 ## 7. Material
@@ -198,7 +200,7 @@ The cost is that titanium galls readily in interference fits, which is why the f
 | Surface | Finish | Reason |
 |---|---|---|
 | **Locating boss Ø6.000** | **Ground Ra ≤ 0.4 µm** | Slides against the slot wall through every thermal cycle; roughness causes stick-slip, which converts smooth thermal growth into a series of small jerks that load the ceramic |
-| **Flange OD Ø12.000** | Ground Ra ≤ 0.8 µm, anti-galling treated | Transition fit; titanium galls without treatment |
+| **Flange OD Ø10.000** | Ground Ra ≤ 0.8 µm, anti-galling treated | Transition fit; titanium galls without treatment |
 | Flange seating face | Ra ≤ 0.8 µm, flat | Must seat flush; a proud flange lifts the joint |
 | Boss lead-in chamfer | Ra ≤ 0.8 µm | Assembly lead-in |
 | Boss-to-flange fillet | R0.4, blended | Stress riser control |
@@ -208,7 +210,7 @@ The cost is that titanium galls readily in interference fits, which is why the f
 
 ## 9. Tolerances
 
-**GD&T scheme:** Datum A = flange seating face. Datum B = flange OD Ø12.000.
+**GD&T scheme:** Datum A = flange seating face. Datum B = flange OD Ø10.000.
 
 | Control | Feature | Tolerance |
 |---|---|---|
@@ -216,7 +218,7 @@ The cost is that titanium galls readily in interference fits, which is why the f
 | Perpendicularity | Boss axis to Datum A | 0.010 |
 | Flatness | Flange seating face (A) | 0.010 |
 | Diameter | Boss | Ø6.000 h6 |
-| Diameter | Flange | Ø12.000 k6 |
+| Diameter | Flange | Ø10.000 h6 |
 | Protrusion | 2.50 ±0.05 | — |
 
 **Positional budget chain (per interface):**
@@ -224,10 +226,10 @@ The cost is that titanium galls readily in interference fits, which is why the f
 | Contributor | Value (mm) |
 |---|---|
 | Cooling Plate counterbore position (⌖ Ø0.020) | 0.010 radial |
-| Flange-in-counterbore transition fit | 0.006 |
+| Flange-in-counterbore clearance fit | 0.012 |
 | Boss-to-flange concentricity | 0.005 |
 | Boss-in-slot tangential clearance | 0.038 |
-| **RSS** | **0.041** ✔ within the 0.050 allocation |
+| **RSS** | **0.041** ✔ within the 0.050 allocation — unchanged to three decimals: √(0.010² + 0.012² + 0.005² + 0.038²) = 0.0414. The fit term doubled and the total did not move, because the 0.038 slot clearance dominates, exactly as §14 point 7 says |
 
 Note that **the slot clearance dominates** at 0.038 mm. Tightening the pin's own tolerances further would buy almost nothing; if this budget ever needed to shrink, the correct lever is the slot width, not the pin.
 
@@ -237,11 +239,11 @@ Note that **the slot clearance dominates** at 0.038 mm. Tightening the pin's own
 
 **Installation (Volume 01 §10 step 3):**
 
-1. Verify the Ø12.0 H7 counterbore positions on the Cooling Plate by CMM before installing anything.
+1. Verify the Ø10.0 H7 counterbore positions on the Cooling Plate by CMM before installing anything.
 2. Clean each counterbore; confirm no burrs or chips.
-3. Fit each locator flange into its counterbore. It is a transition fit — light tapping with a soft mallet is acceptable; a press is not required and must not be used.
+3. Enter each locator flange into its counterbore. It is a **close clearance fit** (`AP-D03` Ø10.000 h6 in Ø10.0 H7, 0 to 0.024) and drops in by hand; no tapping and no press.
 4. **Verify the flange is fully seated and flush.** A locator standing proud by even 0.05 mm will hold the joint open.
-5. Install the M4 × 10 retaining screw with anti-galling dry film; torque to **2.5 N·m**.
+5. Engage the `AP-D13` spigot and torque the locator to **1.2 N·m** through the `AP-D14` 3.0 mm hex socket, with anti-galling dry film. The locator *is* the fastener — there is no separate screw (ECR-D-009).
 6. Verify boss protrusion above the plate face: **2.50 ± 0.05 mm** at each of the 6 locations.
 7. Record positions on the build traveller.
 
@@ -280,7 +282,7 @@ Note that **the slot clearance dominates** at 0.038 mm. Tightening the pin's own
 
 **Why not round-pin-plus-diamond-pin, the standard tooling answer.** It is the right answer for a room-temperature fixture and the wrong one here. A round-and-diamond pair fixes a *point*, not an *axis*. The plate then grows away from that point, and the centre moves by half the total differential — 0.163 mm at the ring interface, against a 0.050 mm requirement. It fails by 3× on a requirement that the three-slot scheme meets with 2.5× margin.
 
-**Why screw retention rather than a press fit.** A press fit's interference is temperature-dependent, and in exactly the wrong direction here: the aluminium host hole grows faster than the titanium pin, so interference is lowest when the tool is hot and vibrating. Against a typical 10–20 µm interference band, a 5.4 µm loss over 60 K is a significant fraction. A loose dowel in a vacuum chamber is a migrating hard particle above a wafer. A screw holds independently of temperature, and — equally important — makes the locator a **replaceable wear item**. An integral machined boss would have been cheaper until the first time one wore, at which point it would scrap a 3.9 kg plate with a welded coolant circuit inside it.
+**Why screw retention rather than a press fit.** A press fit's interference is temperature-dependent, and in exactly the wrong direction here: the aluminium host hole grows faster than the titanium pin, so interference is lowest when the tool is hot and vibrating. Against a typical 10–20 µm interference band, a 5.4 µm loss over 60 K is a significant fraction. A loose dowel in a vacuum chamber is a migrating hard particle above a wafer. A screw holds independently of temperature, and — equally important — makes the locator a **replaceable wear item**. An integral machined boss would have been cheaper until the first time one wore, at which point it would scrap a 4.0 kg plate with a welded coolant circuit inside it.
 
 **Why titanium.** Its CTE of 8.6 ppm/K sits close to the alumina slots it runs in, so the ring-interface fit barely changes across the range. Its conductivity of 6.7 W/m·K means six locators add almost nothing to the parasitic heat path — the same property that makes titanium the right choice for the thermal choke washers, applied a second time. And it is non-magnetic, unlike the hardened martensitic stainlesses that would otherwise be the obvious pick.
 

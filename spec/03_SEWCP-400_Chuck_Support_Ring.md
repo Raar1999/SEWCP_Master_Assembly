@@ -77,7 +77,7 @@ The two bolt circuits are **locally self-reacting**: bolt → Base Plate → cer
 | SR-IF-1 | To Base Plate (SEWCP-100) | Clamped, compression | Bottom flange face on Datum A; 8× Ø7.0 clearance holes at Ø302 BC, 22.5°+n·45° |
 | SR-IF-2 | To Lower Clamp Ring (SEWCP-401) | Clamped, compression | 0.50 mm deep × Ø318/Ø286 register counterbore in the bottom flange top face; clamp ring seats in it |
 | SR-IF-3 | To Cooling Plate (SEWCP-200) — fastening | Bolted | 8× Ø7.0 clearance holes at Ø302 BC in the **top** flange, clocked coincident with SR-IF-1; M6 bolts pass upward into tapped holes in the Cooling Plate bottom face |
-| SR-IF-4 | To Cooling Plate — location | **Kinematic** | 3× radial slots, 6.05 H8 W × 8.0 L (radial), at Ø306 BC on 60°/180°/300° in the top flange upper face, engaging Ø6 h6 dowels pressed into the Cooling Plate |
+| SR-IF-4 | To Cooling Plate — location | **Kinematic** | 3× radial slots, 6.05 H8 W × 8.0 L (radial), at Ø306 BC on 60°/180°/300° in the top flange upper face, engaging the Ø6.000 h6 bosses of the 3× SEWCP-700 locators screw-retained in the Cooling Plate. **Not a press fit** — SEWCP-700 §10 step 3 forbids press tooling absolutely (ECR-D-001 residual) |
 | SR-IF-5 | Central bore | Clearance | Ø286 minimum clear through the ring for all utility routing (He, HV, RF, lift actuator) |
 
 ### 3.1 Two-Circuit Bolting Scheme
@@ -100,7 +100,7 @@ This scheme eliminates the insulating shoulder bushings required by the supersed
 | Base Plate | SEWCP-100 | SR-IF-1 | **Sole structural interface to the frozen part (DR-1)** |
 | Lower Clamp Ring | SEWCP-401 | SR-IF-2 | Captures the bottom flange in compression |
 | Cooling Plate | SEWCP-200 | SR-IF-3, SR-IF-4 | Carries it; centers it kinematically; isolates it electrically |
-| Alignment Pins | SEWCP-700 | SR-IF-4 | Receives 3 dowels in radial slots |
+| Alignment Pins | SEWCP-700 | SR-IF-4 | Receives 3 locator bosses in radial slots |
 | All utilities | SEWCP-800/900/1000, -600 | SR-IF-5 | Clearance pass-through only, ≥ 2 mm radial float each |
 
 ## 5. Critical Dimensions
@@ -216,7 +216,7 @@ Note that PEEK wins on both primary performance metrics and is still rejected. C
 | Web OD and ID | As-ground Ra ≤ 0.8 µm | Reduces surface flaw population — thin-wall ceramic strength is surface-controlled |
 | Flange faces (bolt bearing) | Ground Ra ≤ 0.8 µm, flat 0.020 | Even bearing under preload; prevents point loading |
 | Bolt holes | As-drilled, **both ends chamfered 0.3 × 45°** | Edge chipping at hole mouths is the primary crack initiation site |
-| Kinematic slots | Ground Ra ≤ 0.8 µm | Free sliding of the dowel without stick-slip |
+| Kinematic slots | Ground Ra ≤ 0.8 µm | Free sliding of the locator boss without stick-slip |
 | Web-to-flange fillets | R3.0 minimum, ground, no undercut | Stress concentration control |
 | **All edges** | **0.3 × 45° minimum chamfer** | Handling damage control |
 | Clamp ring (SEWCP-401) | Ra ≤ 0.8 µm bearing face, passivated | Even bearing on ceramic; corrosion resistance |
@@ -252,8 +252,8 @@ Note that PEEK wins on both primary performance metrics and is still rejected. C
 
 1. Verify incoming ring: dye-penetrant inspection, dimensional check, no chips at any hole or edge.
 2. Invert the Cooling Plate on a clean, padded fixture, bottom face up.
-3. Place the Support Ring onto the Cooling Plate bottom face, engaging the 3 kinematic dowels into the ring's radial slots.
-4. **Confirm all 3 dowels slide freely in their slots.** A bound locator here will crack the ring on the first thermal cycle.
+3. Place the Support Ring onto the Cooling Plate bottom face, engaging the 3 kinematic locator bosses into the ring's radial slots.
+4. **Confirm all 3 locator bosses slide freely in their slots.** A bound locator here will crack the ring on the first thermal cycle.
 5. Install the 8 upper M6 × 16 bolts through the ring's top flange into the Cooling Plate, with Ø16 flat washers and Belleville stacks. Torque in 3 passes (30 / 70 / 100%), star pattern, to **6.0 N·m**.
 6. Place SEWCP-401 clamp ring into the register counterbore on the bottom flange.
 

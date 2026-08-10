@@ -64,8 +64,8 @@ Both zones are held near 2.0 W/cm² sheath loading — well below the 10–30 W/
 | IF | Interface | Type | Detail |
 |---|---|---|---|
 | HP-IF-1 | To Cooling Plate — thermal | **Thermal choke** | 16× SEWCP-301 Ti washers, Ø22.0 OD × Ø10.5 ID × 1.50 thk, on lapped pads; 1.50 mm vacuum gap elsewhere |
-| HP-IF-2 | To Cooling Plate — fastening | Bolted, floating | 16× M5 threaded holes (12 at Ø270 BC on 30° multiples, 4 at Ø90 BC at 45°+n·90°), **stainless helical inserts**, bolts enter from below; clearance in Cooling Plate is slotted |
-| HP-IF-3 | To Cooling Plate — location | Kinematic | 3× radial slots, 6.05 H8 W × 8.0 L, at Ø260 BC on 30°/150°/270° in the bottom face, engaging Ø6 h6 dowels from the Cooling Plate |
+| HP-IF-2 | To Cooling Plate — fastening | Bolted, floating | 16× M5 threaded holes (12 at Ø270 BC on 30° multiples, 4 at Ø90 BC at 45°+n·90°), **stainless helical inserts, 1×D**, **blind from the choke face, `HP-D12` 6.50 deep** — the hole **shall not break into the HP-IF-4 bond face**, which leaves 1.50 mm of material. **M5 × 25** bolts enter from below and engage 5.40 mm; clearance holes **and their counterbores** in the Cooling Plate are slotted (ECR-D-004) |
+| HP-IF-3 | To Cooling Plate — location | Kinematic | 3× radial slots, 6.05 H8 W × 8.0 L × **3.00 D** (`HP-D09a`), at Ø260 BC on **75°/195°/315°** (re-clocked off the outer choke rays — ECR-D-010) in the bottom face, engaging the Ø6.000 h6 bosses of the SEWCP-700 locators hosted in the Cooling Plate |
 | HP-IF-4 | To ESC (SEWCP-500) | Bonded | Full-face elastomer bond, 0.400 ± 0.050 mm, over Ø297 |
 | HP-IF-5 | To ESC — He port | Sealed transfer | Central Ø6.0 H8 bore; 316L transfer tube with 2× FKM O-rings (Ø4 × 1.5 CS) giving 0.5 mm axial/radial float; secondary FKM O-ring Ø8 × 1.5 in a top-face groove |
 | HP-IF-6 | To ESC — HV feeds | Insulated bores | 2× Ø8.0 bores at Ø60 BC, 0°/180°, alumina-tube-lined; spring-loaded contact pins bear on ESC underside metallization |
@@ -94,6 +94,36 @@ The choke is the defining feature of this interface and is specified quantitativ
 
 **Sorting requirement:** the 16 washers shall be supplied as a **thickness-sorted matched set with total variation ≤ 5 µm**, to protect the flatness budget (SEWCP-ENG-001 §5.1).
 
+### 3.2 Heater-Groove Keep-Out at the Kinematic Slots (ECR-D-011)
+
+The outer heater spiral (§2.2, **r = 78 → 145, 6.00 mm pitch**) and the `HP-IF-3` kinematic
+slots are **machined into the same face** — §6 step 3 mills the grooves into the bottom face,
+and `HP-IF-3` places the slots there too. Routed radially, the spiral and the slots intersect:
+
+| | |
+|---|---|
+| Slot radial extent at Ø260 BC | r = 130 ± 4.0 → **126.0 to 134.0** |
+| Outer-zone turn centres, 78 + 6n | …, 120, **126**, **132**, 138, … |
+| Groove envelope at those turns (3.20 W) | 124.4–127.6 and 130.4–133.6 — **both inside the slot** |
+
+A `HP-D09a` slot 3.00 mm deep therefore cuts a 3.20 mm deep groove containing brazed MI heater
+cable, at **each of the three slot positions**. Neither shortening nor relocating the slot
+escapes it: `AP-06` requires 0.399 mm of thermal travel on a 6.068 mm boss, so the minimum slot
+length is **6.87 mm** against a 6.00 mm pitch, and the only clear annulus between the two zones
+is r = 72–78, **6.00 mm** wide against a 6.05 mm slot.
+
+> **Keep-out.** A volume of **≥ 12 mm radial × ≥ 10 mm tangential**, centred on each `HP-D09a`
+> slot and extending the full groove depth, shall contain **no heater groove**. The outer
+> spiral shall be routed **tangentially around** each keep-out, not interrupted and not
+> detoured radially.
+
+**Why tangentially.** A tangential detour distorts pitch locally; a radial detour leaves a void
+the width of the keep-out. `HP-D08`'s rationale fixes the surface ripple at 4.6 mm of spreading
+material and 6 mm of pitch, so pitch distortion is the smaller perturbation of the two — but it
+is **not zero**, and it is not asserted to be. **`HP-08` (≤ ±1.5 °C across Ø290) shall be
+re-verified by instrumented thermal map against the as-routed spiral**, per its own declared
+verification method. This is a re-verification action, not a waiver.
+
 ## 4. Mating Components
 
 | Mates To | Part No. | Interface | Nature |
@@ -104,7 +134,7 @@ The choke is the defining feature of this interface and is specified quantitativ
 | Lift Pins | SEWCP-600 | HP-IF-7 | Clearance pass-through only; no guidance function |
 | Vacuum Port (He path) | SEWCP-800 | HP-IF-5 | Receives the floating transfer tube |
 | Temperature Sensor Bracket | SEWCP-1000 | HP-IF-8 | Zone control RTDs |
-| Alignment Pins | SEWCP-700 | HP-IF-3 | Receives 3 dowels in radial slots |
+| Alignment Pins | SEWCP-700 | HP-IF-3 | Receives 3 locator bosses in radial slots |
 | Base Plate | SEWCP-100 | None | No interface |
 
 > **The Heater Plate and ESC are procured, bonded, tested, and replaced as a single field-replaceable sub-assembly (SEWCP-350).** They are never separated after bonding.
@@ -123,8 +153,9 @@ The choke is the defining feature of this interface and is specified quantitativ
 | HP-D08 | Groove to bond face (min material) | 4.60 min | — | **Critical — spreading** |
 | HP-D09 | Kinematic slot width | 6.05 | H8 | **Critical — centering** |
 | HP-D10 | Kinematic slot length (radial) | 8.00 | +0.20 / −0 | **Critical — thermal float** |
-| HP-D11 | Kinematic slot position | Ø260 BC | ⌖ Ø0.030 Ⓜ A B C | **Critical** |
-| HP-D12 | M5 tapped holes (16×) | M5 × 0.8, insert | ⌖ Ø0.200 Ⓜ A B C | Low |
+| HP-D09a | **Kinematic slot depth** | **3.00** | **±0.10** | **High — 0.35 mm worst-case clearance on the 2.50 ±0.05 boss; matches `SR-D19` and `AP-IF-3` (ECR-D-007 action 4)** |
+| HP-D11 | Kinematic slot position | Ø260 BC **@ 75°/195°/315°** | ⌖ Ø0.030 Ⓜ A B C | **Critical** (re-clocked, ECR-D-010) |
+| HP-D12 | M5 tapped holes (16×), **blind from the choke face** | M5 × 0.8, 1×D (5.0) stainless helical insert; tapped depth **6.50 +0.30 / −0**, leaving **1.50 mm min** to the bond face | ⌖ Ø0.200 Ⓜ A B C | **High — must not reach HP-IF-4** |
 | HP-D13 | Lift pin clearance bores | Ø6.000 | H8, ⌖ Ø0.100 Ⓜ | Medium |
 | HP-D14 | He transfer bore | Ø6.000 | H8 | High — seal |
 | HP-D15 | HV feed bores | Ø8.000 | H8, ⌖ Ø0.200 Ⓜ | Medium |
@@ -143,7 +174,7 @@ The choke is the defining feature of this interface and is specified quantitativ
 |---|---|---|
 | 1 | Procure 6061-T651 plate, Ø310 × 14 rough | Certified, UT inspected |
 | 2 | Rough machine; stress relieve | |
-| 3 | CNC mill the 2-zone spiral grooves into the **bottom** face, 3.2 × 3.2, 6 mm pitch | Grooves on the choke side, away from the bond face |
+| 3 | CNC mill the 2-zone spiral grooves into the **bottom** face, 3.2 × 3.2, 6 mm pitch | Grooves on the choke side, away from the bond face. **Route the outer spiral tangentially around each `HP-D09a` kinematic-slot keep-out — see §3 (ECR-D-011)** |
 | 4 | Form and fit the MI heater cable (Ø3.0, Inconel 600 sheath, MgO, NiCr conductor) into the grooves | Cold-lead transitions at the OD |
 | 5 | **Vacuum braze** with Al-Si 4047 filler at 595 °C | Full groove fill; no voids — voids are hot spots |
 | 6 | **Re-heat-treat to T6:** solution 530 °C, controlled polymer quench, age 175 °C / 8 h | Restores temper lost during brazing |
@@ -195,7 +226,7 @@ The choke is the defining feature of this interface and is specified quantitativ
 | **Choke face (bottom)** | Lapped **Ra 0.4 µm**, bright as-machined, **ε ≤ 0.15**, no anodize | Emissivity control — anodize would raise ε to ~0.8 and add a ~50 W parallel radiation path that partially defeats the thermal choke |
 | Choke washer contact zones | Lapped Ra ≤ 0.4 µm | Contact conductance is 53% of R_choke; finish is a first-order term, not cosmetic |
 | Heater grooves (post-braze) | Machined flush with the choke face | Proud braze fillets would sit on the choke pads and corrupt R_choke |
-| Bores and slots | Ra ≤ 0.8 µm | Free sliding of dowels and pins |
+| Bores and slots | Ra ≤ 0.8 µm | Free sliding of locator bosses and lift pins |
 | O-ring groove | Ra 0.8–1.6 µm, no radial scratches | Seal integrity |
 | OD and edges | Ra ≤ 1.6 µm, all edges broken 0.5 × 45° | Particle control; bond fillet formation |
 
@@ -242,9 +273,9 @@ The choke is the defining feature of this interface and is specified quantitativ
 
 **Installation into the stack — SEWCP-ENG-001 §10 steps C6–C7:**
 
-11. With the 16 sorted choke washers in place on the Cooling Plate pads, lower SEWCP-350 so the 3 kinematic dowels enter its radial slots.
-12. **Confirm each dowel is free to slide radially in its slot.** A bound locator will bow the plate and stress the bond.
-13. Install 16× M5 bolts from below, through Belleville stacks, torquing in 3 passes (30 / 70 / 100%), star pattern, to **3.5 N·m**.
+11. With the 16 sorted choke washers in place on the Cooling Plate pads, lower SEWCP-350 so the 3 kinematic locator bosses enter its radial slots.
+12. **Confirm each locator boss is free to slide radially in its slot.** A bound locator will bow the plate and stress the bond.
+13. Install 16× **M5 × 25** bolts from below, through Belleville stacks seated in the `CP-D26` counterbores, torquing in 3 passes (30 / 70 / 100%), star pattern, to **3.5 N·m**. **Do not substitute M5 × 30** — it bottoms out and enters the ESC bond line (ECR-D-004).
 14. Re-confirm radial freedom after torque by verifying the plate can be nudged and returns.
 15. Connect heater cold leads to the terminal block; verify continuity and IR through the RF filter box.
 16. Install zone RTDs per Volume 09.

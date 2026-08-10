@@ -5,44 +5,49 @@
 
 ```yaml
 lifecycle_stage:  LC-M04   # Implementation (mechanical profile)
-active_gate:      LC-M04-EXIT   # terminal, BLOCKED
+active_gate:      LC-M04-EXIT   # terminal
 compiler_stage:
   next:           6              # Generate Release - NOT authorized (OQ-14)
   complete:       [1, 2, 3, 4, 5]
   outstanding:    [6]
 last_ledger_seq:  0
-frozen_set_hash:  c56e75bc919795fb153d25c04705c9255f9ba0d41c5f59f43d76837e15ec2005
+frozen_set_hash:  73911786c0795f20b5c5ea5b9ae4a9254d306abaccd9cc9ce54fc55a5d5bc3c2
 active_tasks:     []
 blockers:
-  - ECR-D-001..004   # defects in the frozen SEWCP specification (D-001 dispositioned A, not closed)
-  - ECR-D-006        # framework manifest digest drift - blocks LC-M04-EXIT C5
-  - ECR-D-007..009   # raised on VER-014: locator geometry, pin material, screw seat - block C7
+  - ECR-D-006        # framework manifest drift. NOT under spec/**, not an LC-M04 criterion
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
-  - CMP-BLOCK-006    # V-09 breach; A4 determination filed (AMD-41), remedy is OQ-15
   - C-4              # LICENSE placeholder
 open_non_blocking:
-  - OQ-14, OQ-15                  # human-owner reservations
-  - OI-V-02..10
-  - OI-C-01,02,04,05,07,08,09
-  - OI-P-01..02, OI-R-01
+  - ECR-D-001..004, 007..011   # ALL DISPOSITIONED, approved, applied, registered; close on C6
+  - ECR-Q-009, ECR-Q-010
+  - OQ-14                      # human-owner reservation: Stage 6 authorization
+  - OI-V-02..12
+  - OI-C-01,02,04,05,07,08,09,10,11
+  - OI-P-01..03, OI-R-01
 next_action: |
-  Put OQ-15 to the human owner: the CMP-BLOCK-006 remedy, options (a)-(d) with the
-  A4 recommendation, at OPEN_ITEMS.md and AIEF-AMD-013 AMD-41. Nothing else clears
-  the Stage 6 gate. Order (VER-006 s6a as amended by AMD-41):
-    1. OQ-15 decided and enacted, disposing CMP-BLOCK-006.
-    2. OI-C-09 - src/aief_stage6 delta for AMD-45, by software.software-engineer,
-       re-certified by a distinct software.test-engineer session.
-    3. Cold qa-engineer audit of S-2026-08-08-10 (SOD-1), recomputing AMD-41.
-    4. OQ-14 - explicit human authorization of Stage 6 execution.
-  V-10 second-platform evidence gates the campaign, not Stage 6. CAD stays blocked
-  by ECR-D-001..004 (Design Authority), independent of this track. No Stage 6
-  execution, no MANIFEST.lock, no ledger entry, no tag.
+  LC-M04-EXIT is NOT passed. C1-C5 and C7 PASS; C6 FAILS. Do not start CAD.
+  Run this and believe it over any prose here:
+    PYTHONPATH=src python -m aief_gate
+  C6 fails because VER-015 and VER-016 both declare NOT CLEARED. Evidence in
+  VER-016; dispositions in reviews/DR-004. Both of its blocking findings are
+  repaired - C6 gained the verification-report supersession relation it lacked,
+  and the CAD package's superseded 30/150/270 locator clocking and UNSPECIFIED
+  choke/stub parameters are corrected. What remains is a confirmatory round on
+  those repairs, by qa-engineer, declaring supersedes: VER-016.
+  NOT this session: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push.
 ```
 
 ## Notes — each resolves in full at the artifact cited
 
-- **Reconciliation.** `0 == HEAD.seq`; B4 passes, check 1 vacuous at `genesis`. No LAW-09 close, none possible retroactively: work is in files, unlogged, not lost (OI-P-01).
-- **Compiler stage.** Declared, never inferred (AIEF-AMD-007). Stage 6 outstanding, so B2a cannot execute; `BINDING.core_digest_pin` is `PENDING-STAGE-6`.
-- **Frozen set.** **28 of 29 verify** in [`FROZEN.md`](FROZEN.md) — `framework/framework.manifest.json` does not reproduce against its registered digest (**ECR-D-006**, open, pre-dating this session). 28 → 29 by `AIEF-AMD-013` (`APR-012`, `APR-013`); `spec/01_SEWCP-200_Cooling_Plate.md` re-registered under ECR-D-001 disposition A (`APR-016`, `APR-017`, `APR-018` — the published digest is `APR-018`'s). The DC-2 aggregate is over the registry rows, so it reproduces while that artifact has drifted. No standing check binds the registry to the tree (OI-V-02).
-- **Budget.** `BOOT.md` and `OPEN_ITEMS.md` breach; aggregate far above 6000 under both families. Determination [`AIEF-AMD-013`](../../framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md) §AMD-41; counts and this file's lossless reduction in [`APR-012`](approvals/APR-012_Amend_Framework_Manifest_AMD-013.md). **This file now sits near its own cap with no durable headroom — see OQ-15.**
+- **The gate is computed, never asserted.** Run `python -m aief_gate`. Do not read a status
+  sentence here or anywhere as authority — four hand-written labels went stale before the
+  criteria were made executable (`VER-014` R3-F1).
+- **Approvals are superseded, not void** — relation ruled `S-2026-08-10-01`, stated at
+  [`GATES.md`](GATES.md), computed by `python -m aief_approval`.
+- **Frozen set: 28 of 29 verify.** The exception is `framework/framework.manifest.json`
+  (`ECR-D-006`, pre-dating this session, not under `spec/**`, excluded by name in `GATES.md`).
+  All eleven `spec/**` artifacts reproduce.
+- **Compiler stage** declared, never inferred. B2a awaits Stage 6. `CMP-BLOCK-006` closed.
+- **Budget.** This file breached its own 1100 cap at 1661 after the LC-M04 rewrite and is
+  reduced here. See `OI-C-10` for the index runway.

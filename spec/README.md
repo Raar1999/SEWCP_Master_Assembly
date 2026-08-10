@@ -45,7 +45,7 @@ Every component volume follows the same 14-section structure: Engineering Purpos
 | Wafer plane height above Datum A | **55.920 ± 0.150 mm** |
 | Thermal chain, wafer to coolant | **0.122 K/W** |
 | Thermal choke | **0.100 ± 0.030 K/W** (16× Ti washers) |
-| Coolant | 4 L/min, Re ≈ 7,400, 3 kW capacity |
+| Coolant | 4 L/min, Re ≈ 8,300, 3 kW capacity |
 | Heater | 2 zones, 2000 W, 28.3 kW/m² uniform density |
 | RF bias | 13.56 MHz, ≤1000 W, ≤1500 V peak |
 | Support Ring isolation | 0.195 K/W thermal, 435 Ω at 13.56 MHz |

@@ -7,13 +7,19 @@
 ecr_id:       ECR-D-008
 class:        D                      # defect - LAW-02
 raised_by:    software.software-engineer · S-2026-08-09-14
-status:       OPEN
-disposition:  null                   # Design Authority decision required
-ruled_by:     null
-approval:     null
+status:       ENGINEERING-IMPLEMENTED
+disposition:  A - SEWCP-700 GOVERNS; THE ICD MATERIAL CELL IS CORRECTED
+ruled_by:     human-owner · S-2026-08-10-01
+approval:     approvals/APR-021_ICD_coherence_package.md
+affected_artifacts:
+  - spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md
+  - spec/06_SEWCP-700_Alignment_Pins.md
+evidence:     "See section 3."
+impact:       "See section 4."
+requested_action: "See section 5."
 raised_at:    2026-08-09T00:00:00Z
 closed_at:    null
-residual:     null
+residual:     none
 ```
 
 ---
@@ -54,10 +60,36 @@ Rule which volume governs the alignment-pin material, and correct the other.
 
 ## 6 · Disposition
 
-**None. OPEN.** No option is recommended here: the ICD may be the errant document, or the ICD
+**A — recorded in full at §8.** No option is recommended here: the ICD may be the errant document, or the ICD
 may record a later decision the part volume never absorbed. Determining which is a Design
 Authority act, and enumerating options before that is settled would prejudge it.
 
 ## 7 · Relationship to LC-M04-EXIT
 
 An undispositioned ECR against `spec/**`. **Blocks `C7`.**
+
+## 8 · Disposition — **A**
+
+**`spec/06` governs; the ICD cell is corrected.** Ruled by `human-owner`, `S-2026-08-10-01`,
+approval [`APR-021`](../approvals/APR-021_ICD_coherence_package.md).
+
+`spec/00` §8, the SEWCP-700 row, was `316L (metal/metal); Al₂O₃ (ceramic IF)` and now reads
+**`Ti-6Al-4V Grade 5`**.
+
+**The whole cell was replaced, not the word "316L".** The parenthetical mandated a material
+split by interface type, which requires two part numbers, against `spec/06` §3.1's *"All six are
+the same part number."* Substituting the metal alone would have left that contradiction frozen.
+`spec/06` §6 rejects **both** materials the cell names, on quantified grounds: 316L at ~150 HV
+against a 1,600 HV alumina slot, and a ceramic pin as brittle in shear and unnecessary against
+the 128× margin. **This ECR as raised recorded only the 316L half of the conflict.**
+
+**Zero cascade.** No requirement, margin, budget or dimension in the frozen set derives from the
+ICD cell. Every material-derived value — the §2.3 128× shear margin, the §3.3 fit stack, the §9
+0.041 RSS positional budget, FM #4 / #5 / #8, the 6.7 W/m·K parasitic claim — is already
+computed against Ti-6Al-4V and is untouched. The ICD's own `Ra 0.4 µm` finish cell already
+agreed with `spec/06` §8, which is the signature of a single-cell error rather than of a later
+decision recorded in one place only.
+
+Options **B** (rewrite `spec/06` to 316L, which re-opens a positional budget carrying 0.009 mm
+of margin and leaves a volume arguing against its own material) and **C** (two part variants)
+were presented and not approved.

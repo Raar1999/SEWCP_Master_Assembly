@@ -11,6 +11,11 @@ status:       CLOSED
 disposition:  A - RE-REGISTER        # ruled by human-owner, BINDING.approval_authority
 ruled_by:     human-owner · S-2026-08-08-01
 approval:     approvals/APR-001_Reregister_Framework_Manifest.md
+affected_artifacts:
+  - framework/framework.manifest.json
+evidence:     "See the evidence section."
+impact:       "See the impact section."
+requested_action: "See the requested-action section."
 raised_at:    2026-08-08T01:31:23Z
 closed_at:    2026-08-08T02:36:52Z   # residual ECR-Q-001 discharged; see Execution below
 residual:     none                   # ECR-Q-001 closed by AIEF-AMD-008 §AMD-16
