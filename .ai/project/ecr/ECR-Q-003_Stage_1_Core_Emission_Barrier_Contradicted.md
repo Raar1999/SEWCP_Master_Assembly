@@ -12,7 +12,7 @@ disposition:  A                      # barrier protects the Stage 1 output set
 ruled_by:     chief-systems-engineer · S-2026-08-08-03
 ruled_at:     2026-08-08T05:51:32Z
 instrument:   framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md §AMD-23
-approval:     project/approvals/APR-004_Amend_Framework_Manifest_AMD-009.md
+approval:     approvals/APR-004_Amend_Framework_Manifest_AMD-009.md
 affected_artifacts:
   - framework/AIEF-FRZ-001_Framework_Architecture_Freeze_1.0.0.md
   - framework/framework.manifest.json

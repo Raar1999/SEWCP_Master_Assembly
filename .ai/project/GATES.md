@@ -12,7 +12,7 @@ Profile `mechanical`. Gate topology **terminal**. Disposition is binary per `cor
 | LC-M01-EXIT | Idea | terminal | PASSED |
 | LC-M02-EXIT | Architecture | terminal | PASSED |
 | LC-M03-EXIT | Specification | terminal | PASSED |
-| LC-M04-EXIT | Implementation | terminal | **ACTIVE - BLOCKED** |
+| LC-M04-EXIT | Implementation | terminal | **ACTIVE — status computed, never asserted: `python -m aief_gate`** |
 | LC-M05-EXIT | Verification | terminal | pending |
 | LC-M06-EXIT | Validation | terminal | pending |
 | LC-M07-EXIT | Release | terminal | pending |
@@ -22,12 +22,14 @@ Profile `mechanical`. Gate topology **terminal**. Disposition is binary per `cor
 
 ## Active gate
 
-`LC-M04-EXIT` (Implementation) is **BLOCKED** by ECR-D-001 through ECR-D-004 against the frozen specification.
+`LC-M04-EXIT` (Implementation) is held open by `ECR-D-001` through `ECR-D-004` against the frozen
+specification, and by the independent verification of their dispositions.
 
 A gate may pass with actions only if no action is on the critical path. All four defects are on it.
 
-**Disposition, session `S-2026-08-10-01`.** All four ECRs are now dispositioned, approved,
-applied and registered. The criteria are **computed, not asserted** — run:
+**This file does not state whether the gate is passed, and no longer tries to.** Four hand-written
+status labels went stale in this repository before the criteria were executable (`VER-014` R3-F1),
+and a status sentence cannot recompute itself. The criteria are **computed, not asserted** — run:
 
 ```
 PYTHONPATH=src python -m aief_gate
@@ -36,10 +38,11 @@ PYTHONPATH=src python -m aief_gate
 It prints one line per criterion with the evidence each rests on and exits non-zero unless all
 seven PASS. **That command is the authority for this gate's status**, in preference to any
 sentence in this file, because a sentence does not recompute itself. `C6` is the one criterion
-that is not fully mechanical: the checker confirms a verification report exists and **declares**
-each disposition as its subject, and that verifier identity differs from author identity, but
-whether the verifier obtained its evidence itself is a `LAW-05` reading dispositioned in the
-report. The checker says so rather than implying a judgement it did not make.
+that is not fully mechanical: the checker resolves the **governing** verification report for each
+disposition under the supersession relation below, confirms it **declares** that disposition as
+its subject, that verifier identity differs from author identity, and that its declared verdict
+is `CLEARED` — but whether the verifier obtained its evidence itself is a `LAW-05` reading
+dispositioned in the report. The checker says so rather than implying a judgement it did not make.
 
 ## Criteria
 
@@ -62,7 +65,7 @@ raised against it is dispositioned, approved, applied and independently verified
 | **C3** | `ECR-D-003` carries an approved disposition | as C1 | as C1 |
 | **C4** | `ECR-D-004` carries an approved disposition | as C1 | as C1 |
 | **C5** | The frozen specification reflects every approved disposition | Each disposition requiring a specification change is present in `spec/**` and the affected artifacts are re-registered in [`FROZEN.md`](FROZEN.md) with reproducing digests | Any approved disposition unapplied, or any registered digest that does not reproduce |
-| **C6** | Independent verification is recorded per disposition | A verification report exists for each, produced by a role that authored none of the work, disposing every acceptance point `PASS`/`FAIL` on self-obtained evidence (`LAW-05`) | Report missing, or verifier identity equals author identity |
+| **C6** | Independent verification is recorded per disposition | The **governing** report for that disposition — the one not superseded, per the verification-supersession rule below — declares the ECR as its subject, was produced by a role that authored none of the work, disposes every acceptance point `PASS`/`FAIL` on self-obtained evidence (`LAW-05`), and declares the verdict **`CLEARED`** | Report missing, verifier identity equals author identity, the governing report declares `NOT CLEARED` or no recognised verdict token, or the supersession relation does not resolve to exactly one governing report |
 | **C7** | No ECR against the frozen specification remains undispositioned | The `Blocking` section of [`OPEN_ITEMS.md`](OPEN_ITEMS.md) contains no `ECR-D-*` whose `affected_artifacts` lie under `spec/**` | Any such item present |
 
 ### Supersession of approvals — ruled by the human owner, `S-2026-08-10-01`
@@ -106,6 +109,76 @@ four is an independent engineering decision owned by the Design Authority, and
 [`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md) records all four on the critical path — so
 `LAW-03` rule 3 forbids passing this gate with an action outstanding on any of them, and rule
 4 forbids passing it by deferring one.
+
+### Supersession of verification reports — ruled by the human owner, `S-2026-08-10-04`
+
+**The problem this rule answers.** `C6` collected *every* report declaring the ECR as subject and
+required all of them to clear. An adverse report is permanent, so `VER-015`'s recorded
+`NOT CLEARED` blocked `LC-M04-EXIT` for as long as the file existed —
+[`VER-016`](verification/VER-016_Confirmatory_Round_On_VER-015_Repairs.md) W6 demonstrated in a
+temp copy that a *clearing* `VER-016` filed beside an unmodified `VER-015` still failed, and
+concluded that **the gate was structurally unreachable, and that this was an instrument defect,
+not an engineering one.** The only exits from that state are rewriting an audit record's verdict
+or deleting it, both inadmissible. The approvals layer above was given a supersession relation
+for the identical reason and the verification layer was given none.
+
+**The rule.** A verification report carries exactly one of two states against the live tree, *per
+gated ECR*:
+
+| State | Condition |
+|---|---|
+| **`GOVERNING`** | no report declaring the same ECR as subject validly supersedes it |
+| **`SUPERSEDED`** | a report declaring the same ECR as subject validly supersedes it |
+
+`C6` reads the `GOVERNING` report and ignores the `SUPERSEDED` ones. A superseded report is
+**historical evidence, not erased evidence** — it stays on disk, in full, with its verdict intact.
+
+**A supersession is valid only if it is sealed.** The superseding report declares both:
+
+```yaml
+supersedes:       VER-015, VER-016
+supersedes_seal:
+  - VER-015 <64 lowercase hex, DC-1 of that report's file>
+  - VER-016 <64 lowercase hex, DC-1 of that report's file>
+```
+
+Each of these is a **`C6` failure**: a `supersedes` id with no seal entry; a seal entry with no
+`supersedes` id; a seal naming a report not on disk; a seal that does not reproduce against the
+named report's current DC-1; a report superseding itself; two reports superseding the same
+predecessor (a **fork**); and a graph in which every naming report is superseded, leaving **no
+head**. There is no fallback — where the governing report is underivable the criterion fails
+closed.
+
+**Why this is safe rather than a loosening.** Supersession must be **declared, never inferred from
+ordering**, for the reason `APR-019` already demonstrates. The seal makes it *proved* rather than
+merely asserted: a verifier cannot retire an audit it never read, because it must pin that
+report's bytes. And after supersession the retired report is **more** protected than before — any
+later rewrite of it stops the seal reproducing and fails `C6`, so the relation closes the
+rewrite window rather than opening one. A superseding report that does not itself clear gates
+exactly as its predecessor did. The set is computed **per ECR**, from reports declaring that ECR
+as subject, so a report on an unrelated subject cannot retire this audit.
+
+**The verdict is a closed vocabulary.** `status:` opens with **`CLEARED`** or **`NOT CLEARED`**,
+optionally followed by a separator and free commentary. `C6` parses the leading token and ignores
+the rest, so *"`CLEARED` — 11 PASS, 0 FAIL"* is read as clearing. An unrecognised or absent token
+**fails**; nothing but the declared token reaches `CLEARED`, so the vocabulary cannot be widened
+into a pass by writing something new. The predicate this replaced scanned the whole string for
+`FAIL`, `NOT CLEARED` or `NOT VERIFIED`, which refused that passing tally on the token `FAIL`
+(`VER-016` F-12) — and, in the other direction, **silently passed `ECR-D-001` for a dozen
+sessions** on `VER-014`, whose declared status is `ECR-D-001 NOT CLOSED`, matches none of those
+three keywords, and whose §6 reads *"`ECR-D-001` is NOT CLOSED after four rounds. `LC-M04-EXIT`
+`C6` is not satisfied for it."* `VER-016` F-12 called that predicate fail-safe; it was not.
+
+**It is computed, not asserted.** `python -m aief_gate` decides every state from repository bytes.
+`tests/test_verification_chain.py` attacks it directly: unsealed supersession, a seal over the
+wrong bytes, a rewrite after sealing, a seal without its declaration, a phantom predecessor,
+fork, self-reference, a headless graph, a cross-subject retirement, a superseding report that
+does not clear, self-verification, a body mention offered as verification, and CRLF reports.
+**No `GOVERNING`/`SUPERSEDED` label is written by hand anywhere.**
+
+**Authority.** Raised as [`ECR-D-012`](ecr/ECR-D-012_Verification_Supersession_Undeclared_And_Unbound.md)
+on `VER-016` F-01 and F-12, ruled by the human owner in session `S-2026-08-10-04`, bound by
+[`APR-028`](approvals/APR-028_Verification_Supersession_Relation.md).
 
 ### Deferred — recorded, not omitted
 

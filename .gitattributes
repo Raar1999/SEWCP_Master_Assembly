@@ -1,0 +1,14 @@
+# Line-ending policy.
+#
+# `core.autocrlf=true` is set locally and this repository carried no
+# `.gitattributes`, so every text file is rewritten to CRLF in the working tree
+# on checkout. That is harmless for almost everything here: DC-1 normalises CRLF
+# to LF before hashing, so every digest, seal, registry row and approval binding
+# is immune to it by construction.
+#
+# It is NOT harmless for a generated artifact that is compared byte-for-byte.
+# `params/generated/SEWCP-200.csv` is emitted with LF endings and no byte-order
+# mark, and is imported directly by Fusion 360 at CAD package step 6.02. A
+# stash/checkout round-trip rewrote it to CRLF and broke
+# `python -m aief_params check`, which is how this file came to exist.
+params/generated/*.csv text eol=lf

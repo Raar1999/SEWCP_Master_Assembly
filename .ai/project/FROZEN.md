@@ -97,6 +97,7 @@ Per-artifact verification after this change: **29 of 29 verified at the time of 
 | 2026-08-10 | `spec/06_SEWCP-700_Alignment_Pins.md` | `0d2aa747…` → `da702fe0…` | LC-M04 specification coherence package; approval [`APR-023`](approvals/) |
 | 2026-08-10 | `spec/07_SEWCP-800_Vacuum_Port.md` | `1b7b5914…` → `7558bc5b…` | LC-M04 specification coherence package; approval [`APR-025`](approvals/) |
 | 2026-08-10 | `spec/README.md` | `95da15c6…` → `1d772072…` | LC-M04 specification coherence package; approval [`APR-026`](approvals/) |
+| 2026-08-10 | `spec/06_SEWCP-700_Alignment_Pins.md` | `da702fe0…` → `75cda881…` | `VER-015` F-08 — the `ECR-D-009` locator torque 2.5 → 1.2 N·m had been applied to `spec/01` and **not** to the governing volume, leaving two contradictory torques for one joint; approval [`approvals/APR-027_Alignment_Pin_torque_correction.md`](approvals/APR-027_Alignment_Pin_torque_correction.md), superseding `APR-023` |
 | 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `f2d228e1…8d0f2a5355` → `a39e4b24…536b7db5` | `VER-014` R10(a) — an unauthorised 8.0 mm M4 tap depth struck; `CP-D09a`/`CP-D10a` now read `depth TBD — ECR-D-007`; approval [`approvals/APR-018_Strike_Unauthorised_Tap_Depth.md`](approvals/APR-018_Strike_Unauthorised_Tap_Depth.md) |
 | 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `a637ae18…be7f8b9b54` → `f2d228e1…8d0f2a5355` | ECR-D-001 / `VER-014` F1 — the surviving superseded-geometry row in the §8 surface-finish table; approval [`approvals/APR-017_Alignment_Pin_Clerical_Correction.md`](approvals/APR-017_Alignment_Pin_Clerical_Correction.md) |
 | 2026-08-09 | `spec/01_SEWCP-200_Cooling_Plate.md` | `3ae384bd…c0e6a2597` → `a637ae18…be7f8b9b54` | ECR-D-001 disposition A — alignment pin interface: SEWCP-700 governs; the press-fit dowel bore is corrected to a Ø12.0 H7 × 3.0 locator counterbore with an M4 retention thread, and Datums B/C now name a feature of this part; approval [`approvals/APR-016_Alignment_Pin_Interface_Geometry.md`](approvals/APR-016_Alignment_Pin_Interface_Geometry.md) |
@@ -129,7 +130,27 @@ Mirrored **in full, never truncated** at `STATE.md` field `frozen_set_hash`.
 
 ### Standing verification
 
-**None yet.** Check `V-24` — *every registered path exists and its DC-1 digest matches; the DC-2 aggregate recomputes; every artifact meeting the AMD-21 criterion is registered* — is declared by `AIEF-AMD-008` §AMD-19 and **emitted** by Compiler Stage 5 into `core/validation/` (`S-2026-08-08-03`), but is **not implemented as software**: execution requires the CMP-BLOCK-004/-005 infrastructure. This registry is still verified only by hand. Recorded as **OI-V-02**.
+**Four, and they compute.** Corrected `S-2026-08-10-04` on `VER-016` F-13 — this paragraph read
+*"**None yet** … `V-24` … is **not implemented as software** … This registry is still verified
+only by hand"*, which had been false since `V-24` was implemented.
+
+| Check | Command | Covers |
+|---|---|---|
+| `V-24` | `python -m pytest tests/test_stage6_coverage_and_build.py::test_v24_live_registry` | Every registered path exists, its DC-1 matches, the DC-2 aggregate recomputes, every AMD-21 artifact is registered |
+| Approval chains | `python -m aief_approval verify` | Every approval on every registered path resolves `LIVE` or `SUPERSEDED-VALID`, and the tree state is bound |
+| `LC-M04-EXIT` `C5` | `python -m aief_gate` | All eleven `spec/**` rows reproduce, and every `spec/**` artifact named by an approved ECR is registered |
+| Feature clearance | `python -m aief_clearance` | `spec/00` §3.2's declared map, pair by pair |
+
+`V-24` is declared by `AIEF-AMD-008` §AMD-19, **emitted** by Compiler Stage 5 into
+`core/validation/` (`S-2026-08-08-03`), and **implemented** at
+`src/aief_stage6/preconditions.py::check_v24`, where it runs in the suite. It currently **fails**,
+on the one row `ECR-D-006` names — `framework/framework.manifest.json` — which is the defect it
+exists to catch, reserved to the human owner and excluded from `LC-M04-EXIT` by name in
+[`GATES.md`](GATES.md). A failing check that names its offender is the working state; the
+paragraph it replaced described an absent one.
+
+**OI-V-02** remains open for what is still true of it: `V-24` has no *campaign* infrastructure
+(`CMP-BLOCK-004`/`-005`), so it runs as a test rather than as a validation campaign step.
 
 ## Authority chain
 

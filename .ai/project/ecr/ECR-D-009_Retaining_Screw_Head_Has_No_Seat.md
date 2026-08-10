@@ -10,7 +10,7 @@ raised_by:    software.software-engineer · S-2026-08-09-14
 status:       ENGINEERING-IMPLEMENTED
 disposition:  A - INTEGRAL SHOULDERED LOCATOR SCREW; AP-D07 AND AP-D08 STRUCK
 ruled_by:     human-owner · S-2026-08-10-01
-approval:     approvals/APR-023_Alignment_Pin_coherence_package.md
+approval:     approvals/APR-027_Alignment_Pin_torque_correction.md   # terminal on spec/06; supersedes APR-023
 affected_artifacts:
   - spec/06_SEWCP-700_Alignment_Pins.md
   - spec/01_SEWCP-200_Cooling_Plate.md
@@ -114,8 +114,21 @@ the interference was absent at temperature and was carrying nothing.
 **Torque 2.5 → 1.2 N·m.** The old figure was wrong for the old screw too: an M4 A4-70 bearing on
 the boss end reaches a von Mises stress of ≈512 MPa against a 450 MPa yield — **114 % of
 yield**. The integral spigot bears at the flange face (r_b = 4.5 mm), where 1.2 N·m gives
-≈1,095 N of preload and ≈190 MPa in Ti-6Al-4V, a margin above 4×. `spec/01` §6 step 12 and §10
-step 3 both carried the old value; **both are corrected**, not only the one this ECR named in §2.
+≈1,095 N of preload and ≈190 MPa in Ti-6Al-4V, a margin above 4×.
+
+**Three sites carried the old value, and all three are corrected**: `spec/01` §6 step 12,
+`spec/01` §10 step 3, and — in the **governing** volume — `spec/06` §4 Retention and `spec/06`
+§10 step 5, under [`APR-027`](../approvals/APR-027_Alignment_Pin_torque_correction.md).
+
+> **Correction recorded `S-2026-08-10-04`.** This paragraph read *"`spec/01` §6 step 12 and §10
+> step 3 both carried the old value; **both are corrected**"*. That enumeration was complete for
+> `spec/01` and silently excluded `spec/06`, which was **not** corrected at the time — so the
+> frozen set carried two contradictory torques for one joint, both citing this ECR, and the
+> sentence's confident *"both"* is what made the omission invisible. Found by independent
+> verification, not by the author: `VER-015` F-08, confirmed at `VER-016` W1. This is the third
+> consecutive instance in this repository of a disposition applied to some of its sites and
+> announced as applied to all of them, which is why the enumeration is now explicit about which
+> volume governs.
 
 Options **B** (boss to Ø10.000, which propagates into the alumina Support Ring slot that
 ECR-D-001 deliberately avoided touching), **C** (M3, a 0.1 mm rim) and **D** (retention from the

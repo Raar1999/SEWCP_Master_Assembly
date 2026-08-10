@@ -1,0 +1,106 @@
+Name,Unit,Expression,Comment
+cp_od,mm,320.0,Plate outside diameter; CP-D01 envelope
+cp_thk,mm,20.0,"Overall thickness; Z-stack element 2, CP-D02"
+cp_mass_max,kg,4.2,Mass limit for verification; CP-15
+ch_width,mm,10.0,Channel width; CP-D05; flow area
+ch_depth,mm,6.0,"Channel depth; CP-D06; Re ≈ 8,300 (ECR-D-002, APR-019)"
+ch_top_wall,mm,8.0,Channel to top face; CP-D07; thermal path
+lid_thk,mm,6.0,FSW lid thickness; CP-D08
+ch_z_top,mm,cp_thk - ch_top_wall,Channel top surface Z; Derived
+ch_z_btm,mm,ch_z_top - ch_depth,Channel bottom surface Z; Derived
+lid_check,mm,ch_z_btm - lid_thk,Arithmetic consistency check; Must equal 0. Now evaluates to 0.0.
+ch_env_id,mm,60.0,Channel envelope inner Ø; Vol 01 §3.1
+ch_env_od,mm,250.0,Channel envelope outer Ø; Vol 01 §3.1; solid under RF land
+ch_bend_r,mm,5.0,Minimum bend radius; Vol 01 §6 step 3; erosion
+ch_corner_r,mm,3.0,Minimum corner fillet; Vol 01 §6 step 3
+bc_ring,mm,302.0,Support Ring tapped BC; CP-IF-2
+ang_ring_0,deg,22.5,Ring hole start angle; Vol 00 §3.2
+ang_ring_step,deg,45.0,Ring hole increment; Vol 00 §3.2 (8 off)
+bc_kin_btm,mm,306.0,"Kinematic locator BC, bottom; CP-D09/D11"
+bc_kin_top,mm,260.0,"Kinematic locator BC, top; CP-D10/D11"
+ang_kin_btm_1,deg,60.0,Bottom locator angles; Vol 00 §3.2
+ang_kin_btm_2,deg,180.0,Bottom locator angles; Vol 00 §3.2
+ang_kin_btm_3,deg,300.0,Bottom locator angles; Vol 00 §3.2
+ang_kin_top_1,deg,75.0,"Top locator angles; Vol 00 §3.2, re-clocked by ECR-D-010"
+ang_kin_top_2,deg,195.0,"Top locator angles; Vol 00 §3.2, re-clocked by ECR-D-010"
+ang_kin_top_3,deg,315.0,"Top locator angles; Vol 00 §3.2, re-clocked by ECR-D-010"
+bc_choke_out,mm,270.0,Outer choke fastener BC; CP-IF-3
+ang_choke_out_0,deg,0.0,Outer choke start angle; Vol 00 §3.2
+ang_choke_out_step,deg,30.0,Outer choke increment; 12 off
+bc_choke_in,mm,90.0,Inner choke fastener BC; CP-IF-3
+ang_choke_in_0,deg,45.0,Inner choke start angle; Vol 00 §3.2
+ang_choke_in_step,deg,90.0,Inner choke increment; 4 off
+bc_liftpin,mm,200.0,Lift pin bolt circle; CP-D13
+ang_liftpin_1,deg,30.0,Lift pin angles; Vol 00 §3.2
+ang_liftpin_2,deg,150.0,Lift pin angles; Vol 00 §3.2
+ang_liftpin_3,deg,270.0,Lift pin angles; Vol 00 §3.2
+bc_hv,mm,60.0,HV feed bolt circle; CP-IF-7
+ang_hv_1,deg,0.0,HV feed angles; Vol 00 §3.2
+ang_hv_2,deg,180.0,HV feed angles; Vol 00 §3.2
+bc_vac,mm,38.0,Vacuum port tapped BC; CP-IF-5
+bc_rf,mm,274.0,RF land bolt circle; CP-IF-8
+ang_rf_land,deg,105.0,RF land centre angle; Vol 00 §3.2
+ang_coolant_in,deg,255.0,"Coolant inlet angle; CP-IF-10; H3 discharged, ECR-D-003"
+ang_coolant_out,deg,285.0,"Coolant outlet angle; CP-IF-10; H3 discharged, ECR-D-003"
+ring_tap_size,mm,6.0,Ring tapped hole; CP-IF-2; M6×1.0
+ring_tap_depth,mm,12.0,Ring tap depth; CP-IF-2 / CP-D20
+choke_slot_w,mm,5.5,Choke slot width; CP-IF-3; M5 clearance
+choke_slot_l,mm,7.0,"Choke slot length, radial; CP-IF-3; ±0.75 mm travel"
+choke_cbore_w,mm,11.0,Choke counterbore slot width; CP-D26 (ECR-D-004)
+choke_cbore_l,mm,12.5,"Choke counterbore slot length, radial; CP-D26 (ECR-D-004)"
+choke_cbore_dep,mm,2.5,Choke counterbore depth; CP-D26 (ECR-D-004)
+kin_cbore_d,mm,10.0,Kinematic locator counterbore Ø; CP-D09/CP-D10 (ECR-D-007)
+kin_cbore_dep,mm,3.0,Kinematic locator counterbore depth; CP-D09/CP-D10
+kin_tap_dep,mm,5.0,"Locator M4 tap, full thread; CP-D09a/CP-D10a"
+stub_bore_d,mm,10.0,Coolant stub bore Ø; CP-D22 (ECR-D-003)
+stub_bore_z,mm,11.0,Stub centreline above Datum A; CP-D23
+stub_wp_d,mm,14.0,Stub weld-prep counterbore Ø; CP-D24
+stub_wp_dep,mm,4.0,Stub weld-prep counterbore depth; CP-D24
+ch_depth_port,mm,10.0,Channel local depth at ports; CP-D25
+choke_pad_dia,mm,22.0,Choke washer pad Ø; CP-D17; = SEWCP-301 OD
+he_bore,mm,10.0,Central He / pilot bore; CP-D15; VP pilot Ø9.90 h8; H8
+vac_seal_id,mm,18.0,Sealing face inner Ø; CP-IF-5 masked annulus
+vac_seal_od,mm,32.0,Sealing face outer Ø; CP-IF-5 masked annulus
+vac_tap_size,mm,4.0,Vacuum port tap; CP-IF-5; M4×0.7
+vac_tap_depth,mm,10.0,Vacuum port tap depth; CP-IF-5
+lp_bore,mm,8.0,Lift pin bore Ø; CP-D12; H8
+lp_cbore,mm,12.0,Bushing counterbore Ø; CP-IF-6; H7
+lp_cbore_dep,mm,6.0,Bushing counterbore depth; CP-IF-6; = bushing length
+hv_bore,mm,8.0,HV feed bore Ø; CP-IF-7
+rf_land_circ,mm,60.0,RF land circumferential; CP-IF-8
+rf_land_rad,mm,18.0,RF land radial width; CP-IF-8
+rf_tap_size,mm,6.0,RF land tap; CP-IF-8; M6×1.0
+rf_tap_depth,mm,12.0,RF land tap depth; CP-IF-8
+rf_tap_pitch,mm,30.0,RF tap circumferential pitch; Derived from 98.7°/111.3°
+rtd_bore,mm,1.7,RTD blind bore Ø; CP-D19; H8
+rtd_depth,mm,12.0,RTD blind bore depth; CP-D19
+rtd_r_1,mm,40.0,RTD radii; CP-IF-9
+rtd_r_2,mm,100.0,RTD radii; CP-IF-9
+rtd_r_3,mm,140.0,RTD radii; CP-IF-9
+rtd_ang_1,deg,75.0,RTD angles; CP-IF-9; clears RF land
+rtd_ang_2,deg,165.0,RTD angles; CP-IF-9; clears RF land
+rtd_ang_3,deg,225.0,RTD angles; CP-IF-9; clears RF land
+rtd_vent_dia,mm,1.5,Cross-vent bore Ø; DR-6 / DR-13
+rtd_tap_size,mm,4.0,Retainer tap; CP-IF-9; M4×0.7
+rtd_tap_depth,mm,8.0,Retainer tap depth; CP-IF-9
+rtd_tap_offset,mm,9.0,Retainer tap offset; CP-IF-9 (±9 mm)
+rf_land_r_mean,mm,bc_rf / 2,RF land mean radius; = 137.0
+rf_land_r_in,mm,rf_land_r_mean - rf_land_rad / 2,RF land inner radius; = 128.0
+rf_land_r_out,mm,rf_land_r_mean + rf_land_rad / 2,RF land outer radius; = 146.0
+rf_land_half_ang,deg,(rf_land_circ / 2) / rf_land_r_mean * 180 / PI,RF land half-angle; = 12.547°
+rf_tap_half_ang,deg,(rf_tap_pitch / 2) / rf_land_r_mean * 180 / PI,RF tap half-angle; = 6.273°
+rf_tap_ang_1,deg,ang_rf_land - rf_tap_half_ang,RF tap 1 angle; = 98.73° (spec: 98.7°)
+rf_tap_ang_2,deg,ang_rf_land + rf_tap_half_ang,RF tap 2 angle; = 111.27° (spec: 111.3°)
+z_top,mm,cp_thk,Top face Z (part local); Datum A at Z=0
+asm_z_offset,mm,20.0,Assembly Z placement; Vol 00 §4.2
+tol_thk,mm,0.030,"Tolerance reference, non-driving; CP-D02"
+tol_flat_face,mm,0.015,"Tolerance reference, non-driving; CP-D03/D04"
+tol_pad_coplanar,mm,0.010,"Tolerance reference, non-driving; CP-D17"
+tol_pos_kin,mm,0.020,"Tolerance reference, non-driving; CP-D11"
+tol_pos_liftpin,mm,0.050,"Tolerance reference, non-driving; CP-D13"
+tol_perp_liftpin,mm,0.030,"Tolerance reference, non-driving; CP-D14"
+tol_pos_choke,mm,0.200,"Tolerance reference, non-driving; Vol 01 §9"
+tol_pos_he,mm,0.100,"Tolerance reference, non-driving; Vol 01 §9"
+tol_flat_rf,mm,0.020,"Tolerance reference, non-driving; CP-D18"
+tol_flat_seal,mm,0.010,"Tolerance reference, non-driving; CP-D16"
+tol_runout_od,mm,0.200,"Tolerance reference, non-driving; Vol 01 §9"

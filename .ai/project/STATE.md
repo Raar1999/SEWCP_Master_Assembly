@@ -19,35 +19,38 @@ blockers:
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
   - C-4              # LICENSE placeholder
 open_non_blocking:
-  - ECR-D-001..004, 007..011   # ALL DISPOSITIONED, approved, applied, registered; close on C6
+  - ECR-D-001..004, 007..012   # all dispositioned, approved, applied, registered
   - ECR-Q-009, ECR-Q-010
   - OQ-14                      # human-owner reservation: Stage 6 authorization
-  - OI-V-02..12
-  - OI-C-01,02,04,05,07,08,09,10,11
+  - OI-V-02..10, OI-V-12       # OI-V-11 closed by VER-017
+  - OI-C-01,02,04,05,07..11,13
   - OI-P-01..03, OI-R-01
 next_action: |
-  LC-M04-EXIT is NOT passed. C1-C5 and C7 PASS; C6 FAILS. Do not start CAD.
-  Run this and believe it over any prose here:
-    PYTHONPATH=src python -m aief_gate
-  C6 fails because VER-015 and VER-016 both declare NOT CLEARED. Evidence in
-  VER-016; dispositions in reviews/DR-004. Both of its blocking findings are
-  repaired - C6 gained the verification-report supersession relation it lacked,
-  and the CAD package's superseded 30/150/270 locator clocking and UNSPECIFIED
-  choke/stub parameters are corrected. What remains is a confirmatory round on
-  those repairs, by qa-engineer, declaring supersedes: VER-016.
-  NOT this session: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push.
+  LC-M04-EXIT PASSED, C1-C7. Verify, do not trust this line:
+    PYTHONPATH=src python -m aief_gate     # exit 0, LC-M04 CAD-READY: YES
+
+  NEXT ACTION: OPEN FUSION 360.
+    implementation/01_SEWCP-200_Cooling_Plate/
+      SEWCP-200_CAD_Implementation_Package.md  section 6; read its banner first.
+    Before step 6.02:  PYTHONPATH=src python -m aief_params emit   # 105 params
+
+  This gate is the design-authority PRECONDITION for CAD, not the stage exit.
+  GATES.md 'Deferred' explains what it deliberately does not cover.
+
+  NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
 ```
 
 ## Notes — each resolves in full at the artifact cited
 
-- **The gate is computed, never asserted.** Run `python -m aief_gate`. Do not read a status
-  sentence here or anywhere as authority — four hand-written labels went stale before the
-  criteria were made executable (`VER-014` R3-F1).
-- **Approvals are superseded, not void** — relation ruled `S-2026-08-10-01`, stated at
-  [`GATES.md`](GATES.md), computed by `python -m aief_approval`.
-- **Frozen set: 28 of 29 verify.** The exception is `framework/framework.manifest.json`
-  (`ECR-D-006`, pre-dating this session, not under `spec/**`, excluded by name in `GATES.md`).
-  All eleven `spec/**` artifacts reproduce.
+- **The gate is computed, never asserted.** Four hand-written labels went stale before the
+  criteria were executable (`VER-014` R3-F1). Read no status sentence as authority.
+- **Approvals and verification reports are superseded, not void** — both ruled by the human owner,
+  stated at [`GATES.md`](GATES.md), computed by `aief_approval` and `aief_gate`. The verification
+  relation is **sealed**: `C6` reads `VER-017`, which retires `VER-014`/`-015`/`-016` by pinning
+  their bytes, so they keep their verdicts and editing one now **fails**.
+- **`ECR-D-006` is the one live registry defect** — the framework manifest, not under `spec/**`,
+  excluded by name in `GATES.md`. It is why 28 of 29 rows verify, why 2 of 622 tests fail, and why
+  `aief_approval verify` exits 1 (`VER-017` N-4). Every `spec/**` row and chain resolves, and
+  `spec/**` is unchanged since `5e7ac74`.
 - **Compiler stage** declared, never inferred. B2a awaits Stage 6. `CMP-BLOCK-006` closed.
-- **Budget.** This file breached its own 1100 cap at 1661 after the LC-M04 rewrite and is
-  reduced here. See `OI-C-10` for the index runway.
+- **Budget.** 1100 cap, breached and reduced twice. `OI-C-10` holds the runway.

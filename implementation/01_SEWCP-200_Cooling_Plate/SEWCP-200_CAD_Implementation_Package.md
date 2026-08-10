@@ -62,9 +62,19 @@
 > `ang_kin_top_*` parameters, timeline step 11, sketch S11 and step 6.34 still carried the
 > superseded **30/150/270** clocking, and `choke_cbore_*` and the stub parameters still read
 > `UNSPECIFIED`. A modeller following §6 in order would have built the very collision
-> `ECR-D-010` was raised to remove. All of those are corrected now. **`params/generated/SEWCP-200.csv`
-> still does not exist** — step 6.02 imports a file that has never been generated, so enter §3
-> by hand or generate the CSV first.
+> `ECR-D-010` was raised to remove. All of those are corrected now.
+>
+> **`params/generated/SEWCP-200.csv` now exists and is derived from §3**, `S-2026-08-10-04`, on
+> `VER-016` F-06 — step 6.02 had imported a file that had never been generated. It is **not** a
+> second parameter master: `python -m aief_params check` fails if the CSV and §3 disagree, and
+> `python -m aief_params emit` regenerates it. **§3 governs; edit §3, never the CSV.**
+>
+> **The three HOLD suppression steps are corrected.** Steps 6.08, 6.27 and 6.32 instructed the
+> modeller to insert *suppressed placeholder groups* in place of the channel, the counterbores
+> and the locators. With all three holds discharged, following §6 in order would have left the
+> coolant circuit, the 16 choke counterbores and the six kinematic locators unmodelled. The
+> stale `HOLD` tags on `CP-IF-1`, `CP-IF-4`, `CP-IF-10`, §3.2 and `ang_coolant_*` are cleared in
+> the same pass. §12 and §13 keep theirs — they are the record of the defects as raised.
 >
 > Verify the current gate state with `PYTHONPATH=src python -m aief_gate` before modelling.
 
@@ -91,16 +101,16 @@ Nominal position in assembly: bottom face at **Z = 20.000**, top face at **Z = 4
 
 | IF | Mates To | Nature |
 |---|---|---|
-| CP-IF-1 | Chuck Support Ring SEWCP-400 | Kinematic locators, Ø306 BC bottom face — **HOLD H2** |
+| CP-IF-1 | Chuck Support Ring SEWCP-400 | Kinematic locators, Ø306 BC bottom face — *H2 discharged*, `ECR-D-001` |
 | CP-IF-2 | Chuck Support Ring SEWCP-400 | 8× M6 tapped, Ø302 BC bottom face (RF-side circuit, DR-9) |
 | CP-IF-3 | Heater Plate SEWCP-300 | 16× radially slotted M5 clearance; 16× choke washer pads |
-| CP-IF-4 | Heater Plate SEWCP-300 | Kinematic locators, Ø260 BC top face — **HOLD H2** |
+| CP-IF-4 | Heater Plate SEWCP-300 | Kinematic locators, Ø260 BC top face @ 75°/195°/315° — *H2 discharged*, `ECR-D-001`/`ECR-D-010` |
 | CP-IF-5 | Vacuum Port SEWCP-800 | Ø10.0 H8 piloted bore; masked flat sealing face; 4× M4 @ Ø38 BC |
 | CP-IF-6 | Lift Pins SEWCP-600/601 | 3× Ø8.0 H8 bore + Ø12 H7 × 6 counterbore @ Ø200 BC |
 | CP-IF-7 | ESC HV feed | 2× Ø8.0 alumina-lined bores @ Ø60 BC |
 | CP-IF-8 | RF Bracket SEWCP-900 | 60 × 18 mm land @ Ø274 BC / 105°; 2× M6 tapped |
 | CP-IF-9 | Temp Sensor SEWCP-1000 | 3× Ø1.7 H8 × 12 blind ports + 6× M4 retainer taps |
-| CP-IF-10 | Coolant system | 2× ½ in. VCR stubs, radial @ 255° / 285° — **HOLD H3** |
+| CP-IF-10 | Coolant system | 2× ½ in. VCR stubs, radial @ 255° / 285° — *H3 discharged*, `ECR-D-003` |
 
 **No direct contact with the Base Plate.** Electrical isolation depends on this (Vol 01 §4).
 
@@ -191,7 +201,7 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | `cp_thk` | Overall thickness | `20.0` | mm | **Z-stack element 2, CP-D02** | Drives all Z references |
 | `cp_mass_max` | Mass limit for verification | `4.2` | kg | CP-15 | Check only |
 
-## 3.2 Coolant Circuit — **HOLD H1**
+## 3.2 Coolant Circuit — *HOLD H1 discharged* (`ECR-D-002`, `APR-019`/`APR-020`)
 
 | Name | Description | Expression | Units | Design Intent | Dependency |
 |---|---|---|---|---|---|
@@ -233,8 +243,8 @@ Nothing in this package exists that is not traceable to the frozen baseline.
 | `bc_vac` | Vacuum port tapped BC | `38.0` | mm | CP-IF-5 | VP-IF-1 |
 | `bc_rf` | RF land bolt circle | `274.0` | mm | CP-IF-8 | RF-IF-1 |
 | `ang_rf_land` | RF land centre angle | `105.0` | deg | Vol 00 §3.2 | — |
-| `ang_coolant_in` | Coolant inlet angle | `255.0` | deg | CP-IF-10 | **HOLD H3** |
-| `ang_coolant_out` | Coolant outlet angle | `285.0` | deg | CP-IF-10 | **HOLD H3** |
+| `ang_coolant_in` | Coolant inlet angle | `255.0` | deg | CP-IF-10; H3 discharged, ECR-D-003 | `stub_bore_z` |
+| `ang_coolant_out` | Coolant outlet angle | `285.0` | deg | CP-IF-10; H3 discharged, ECR-D-003 | `stub_bore_z` |
 
 ## 3.4 Feature Dimensions
 
@@ -378,13 +388,13 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | # | Operation | Selections | Parameters | Fusion Command | Expected Result | Verification Checkpoint |
 |---|---|---|---|---|---|---|
 | 6.01 | Create design | — | Units mm | File → New Design; Document Settings → mm | Empty design, mm | Units display "mm" |
-| 6.02 | Import parameters | `params/generated/SEWCP-200.csv` | §3 table | Modify → Change Parameters → Import | All §3 params listed, no errors | Parameter count matches §3; `lid_check` = **0.0** |
+| 6.02 | Import parameters | `params/generated/SEWCP-200.csv` — regenerate first with `PYTHONPATH=src python -m aief_params emit` | §3 table, 105 parameters | Modify → Change Parameters → Import | All §3 params listed, no errors | `python -m aief_params check` exits 0; **105** parameters; `lid_check` = **0.0**; `ang_kin_top_*` = **75/195/315** |
 | 6.03 | Rename component | Root | — | Browser → rename → `SEWCP-200_COOLING_PLATE` | Named component | Name matches part number |
 | 6.04 | Sketch S1 | XY plane | `cp_od` | Create Sketch → Center Diameter Circle | Ø320 circle | Sketch fully constrained (black) |
 | 6.05 | Extrude base | S1 profile | `cp_thk`, direction +Z | Create → Extrude, Operation: New Body | Ø320 × 20 disc | Body name `CP_BODY`; height = `cp_thk` |
 | 6.06 | Construction plane | XY plane | offset `cp_thk` | Construct → Offset Plane | `PL_TOP` at Z=20 | Plane coincident with top face |
 | 6.07 | Sketch S2 | XY plane | All `bc_*`, `ang_*`, `rtd_r_*` | Create Sketch → construction circles + lines | Full clocking framework | **Fully constrained; visually verify no two features co-located** |
-| 6.08 | **HOLD H1 — suppress** | — | — | Insert placeholder group, mark suppressed | Timeline placeholder for 6.09–6.12 | Group labelled `HOLD_H1_ECR-D-002` |
+| 6.08 | ~~*HOLD H1 — suppress*~~ **Discharged — model 6.09–6.12 normally** | — | — | No placeholder. Proceed to 6.09 | Nothing suppressed | `ECR-D-002` closed; `ch_depth` = 6.0, `lid_check` = 0.0 |
 | 6.09 | *(H1)* Sketch S3 channel | XY plane | `ch_env_id`, `ch_env_od`, `ch_bend_r` | Create Sketch → path | Serpentine centreline | **discharged** |
 | 6.10 | *(H1)* Channel pocket | S3 path | `ch_width`, `ch_depth`, `ch_z_btm` | Create → Sweep / Extrude Cut | Channel in bottom face | **discharged** |
 | 6.11 | *(H1)* Sketch S4 + lid | Channel footprint | `lid_thk` | Create → Extrude, New Body | `CP_LID` | **discharged** |
@@ -403,12 +413,12 @@ Timeline order. **Order is binding** — it mirrors the manufacturing sequence s
 | 6.24 | HV feed bores | 2 points from S6 | Ø`hv_bore`, through | Create → Hole, Simple, All | 2× Ø8.0 through @ Ø60 BC | Angles 0/180 |
 | 6.25 | Sketch S7 | XY (bottom face) | `bc_choke_*`, `choke_slot_*` | Create Sketch → slot profiles | 16 radial slots | Fully constrained; slot axes radial |
 | 6.26 | Choke slots | 16 profiles from S7 | Through all | Create → Extrude Cut, All | 16× 5.5 × 7.0 radial slots | Count = 16 (12 @ Ø270, 4 @ Ø90) |
-| 6.27 | **HOLD H3 — suppress** | — | — | Placeholder group | Timeline placeholder for 6.28 | Group labelled `HOLD_H3_ECR-D-003/004` |
+| 6.27 | ~~*HOLD H3 — suppress*~~ **Discharged — model 6.28 normally** | — | — | No placeholder. Proceed to 6.28 | Nothing suppressed | `ECR-D-003`/`ECR-D-004` closed; `CP-D22`–`CP-D26` dimensioned |
 | 6.28 | *(H3)* Choke counterbores | Coaxial with 6.26, **bottom face** | `choke_cbore_w` × `choke_cbore_l` × `choke_cbore_dep`, **radially slotted** | Extrude Cut from a slot sketch | 16 slotted counterbores | **discharged** — CP-D26; anodize-masked floors |
 | 6.29 | Sketch S8 | XY (bottom face) | `rf_land_*`, `rf_tap_*` | Create Sketch, project S2 | RF land boundary + 2 tap points | Fully constrained; symmetric about 105° |
 | 6.30 | RF land pocket | S8 land profile | Depth 0.5 relief (face definition) | Create → Extrude Cut | Isolated flat land, 60 × 18 | Land spans r 128–146, 92.45°–117.55° |
 | 6.31 | RF taps | 2 points from S8 | M6×1.0, `rf_tap_depth` | Create → Hole, Tapped | 2× M6 × 12 deep | Angles 98.73° / 111.27° at r = 137 |
-| 6.32 | **HOLD H2 — suppress** | — | — | Placeholder group | Timeline placeholder for 6.33–6.34 | Group labelled `HOLD_H2_ECR-D-001` |
+| 6.32 | ~~*HOLD H2 — suppress*~~ **Discharged — model 6.33–6.34 normally** | — | — | No placeholder. Proceed to 6.33 | Nothing suppressed | `ECR-D-001` closed; SEWCP-700 governs, Ø10.000 H7 × 3.00 |
 | 6.33 | *(H2)* Locators, bottom 3× | S11 @ `bc_kin_btm` | **RESOLVED** | Create → Hole | 3 features @ 60/180/300 | **Establishes Datums B/C** — discharged |
 | 6.34 | *(H2)* Locators, top 3× | S11 @ `bc_kin_top` | Ø`kin_cbore_d` H7 × `kin_cbore_dep`, then M4 × 0.7 tap | Create → Hole | 3 features @ **75/195/315** | **discharged** — ECR-D-010 re-clocked these off the choke rays |
 | 6.35 | *(H3)* Coolant stub bores | S12 radial planes | Ø`stub_bore_d` at `stub_bore_z`, then Ø`stub_wp_d` × `stub_wp_dep` at the OD | Create → Hole | 2 radial bores @ 255°/285° | **discharged** — CP-D22/D23/D24; channel locally deepened to `ch_depth_port` |
@@ -541,7 +551,7 @@ All items **PASS / FAIL**. No partial states.
 
 | # | Check | Criterion | Status |
 |---|---|---|---|
-| P-01 | All §3 parameters present | Count matches | ☐ |
+| P-01 | All §3 parameters present | **105**; `python -m aief_params check` exits 0 | ☐ |
 | P-02 | Zero hardcoded dimensions | All driven by parameters | ☐ |
 | P-03 | Derived params are expressions | `rf_tap_ang_*`, `rf_land_r_*`, `ch_z_*` | ☐ |
 | P-04 | `rf_tap_ang_1` | 98.73° | ☐ |

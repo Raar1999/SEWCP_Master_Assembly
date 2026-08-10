@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pytest
 
-from aief_exec import records
+from aief_exec import records, scope
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -161,25 +161,49 @@ class TestPublicationDerivations:
             "docs/**",
         ]
 
-    def test_the_live_gap_between_declared_and_effective_is_five_tasks(self):
-        # The reproduced defect, at the level of the derivation: six live tasks
-        # declare `produces` and five of them declare no write scope that reaches
-        # the record they are contracted to publish.
+    def test_the_live_gap_between_declared_and_effective_is_derived(self):
+        # OI-C-12. This asserted `len(producers) == 6` and a fixed list of five
+        # gapped ids, so adding T-007/T-008 for the LC-M04 coherence package broke
+        # it - and adding T-009/T-010 would have broken it again. The task set is
+        # live, monotonically growing project state; AMD-42's `measurement_instant`
+        # governs the same class, and `test_v24_live_registry` already had this
+        # ruled against it in its own comment: a property of the tree at an instant
+        # is not a constant. The PROPERTY is asserted here and the count is derived.
         tasks = records.load_tasks(REPO)
         producers = [t for t in tasks.values() if t.produces]
-        assert len(producers) == 6
-        gapped = [
+        assert producers, "no task declares produces - the derivation is untested"
+        gapped = sorted(
             t.task_id
             for t in producers
             if t.effective_write_scope != t.write_scope
-        ]
-        assert gapped == ["T-002", "T-003", "T-004", "T-005", "T-006"], gapped
+        )
+        # The gap is exactly the producers whose declared write scope does not
+        # reach the record they are contracted to publish. Derived from the
+        # records both ways, so neither side is a hand-maintained list.
+        expected = sorted(
+            t.task_id
+            for t in producers
+            if not all(
+                any(scope.glob_to_regex(pattern).match(rel)
+                    for pattern in t.write_scope)
+                for rel in t.result_paths
+            )
+        )
+        assert gapped == expected, (gapped, expected)
 
 
 class TestLiveRecords:
     def test_every_task_record_loads(self):
+        # OI-C-12: this pinned {T-001..T-006} and broke when T-007/T-008 were
+        # filed. The property is that every task record ON DISK loads and is
+        # keyed by its own id - which is what "every task record loads" says.
+        on_disk = {p.stem for p in (REPO / ".ai/project/tasks").glob("T-*.md")}
         tasks = records.load_tasks(REPO)
-        assert set(tasks) == {"T-001", "T-002", "T-003", "T-004", "T-005", "T-006"}
+        assert set(tasks) == on_disk
+        assert on_disk, "no task records on disk - the loader is untested"
+        for task_id, task in tasks.items():
+            assert task.task_id == task_id
+            assert task.path == f".ai/project/tasks/{task_id}.md"
 
     def test_index_and_records_are_bijective(self):
         idx = records.load_index(REPO)

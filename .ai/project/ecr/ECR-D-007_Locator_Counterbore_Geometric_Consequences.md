@@ -200,7 +200,14 @@ moves Datums B and C and reopens `SR-IF-4`/`SR-D20` in the alumina ring), **C** 
 wall 5.00 mm) and **D** (accept 1.00 mm behind a process qualification) were presented and not
 approved.
 
-**No `ECR-D-012` was raised.** An earlier draft of this section proposed splitting action 3 out
-as a separate, undispositioned ECR. That would have cleared the gate against eight known defects
-while a ninth sat open — the precise manoeuvre `C7` exists to prevent, as `GATES.md` says in
-terms. The action is dispositioned here instead.
+**Action 3 was not split out into a separate ECR.** An earlier draft of this section proposed
+doing so, as an undispositioned record. That would have cleared the gate against eight known
+defects while a ninth sat open — the precise manoeuvre `C7` exists to prevent, as `GATES.md` says
+in terms. The action is dispositioned here instead.
+
+> **Note added `S-2026-08-10-04`.** This paragraph read *"No `ECR-D-012` was raised"* until
+> [`ECR-D-012`](ECR-D-012_Verification_Supersession_Undeclared_And_Unbound.md) was raised under
+> that identifier for an unrelated subject — the `C6` verification-supersession instrument, on
+> `VER-016` F-01. The sentence was true when written and would now read as though action 3 had
+> been split out after all, so it is restated as what it meant. **Action 3 remains dispositioned
+> here and nowhere else.**

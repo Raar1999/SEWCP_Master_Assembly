@@ -18,7 +18,7 @@ from aief_approval.chain import (  # noqa: E402
     load_approvals,
     verify,
 )
-from aief_stage6.digests import dc1_digest  # noqa: E402
+from aief_stage6.digests import dc1_digest, dc1_normalise  # noqa: E402
 
 ECR_DIR = ".ai/project/ecr"
 SCHEMA = ".ai/core/schemas/SCH-ecr.schema.json"
@@ -214,8 +214,80 @@ def _c5(repo: Path, records) -> Criterion:
                      "PASS" if not residue else "FAIL", evidence, residue)
 
 
+def _load_reports(repo: Path) -> dict[str, dict[str, object]]:
+    """Every verification report, keyed by filename, carrying its own DC-1.
+
+    The digest is taken here, over the raw bytes, so the seal check below
+    compares like with like and cannot be satisfied by a re-encoding.
+    """
+    reports: dict[str, dict[str, object]] = {}
+    for p in sorted((repo / VERIF).glob("VER-*.md")):
+        raw = p.read_bytes()
+        # Parse the DC-1-NORMALISED text, not the raw decode. VER-001..VER-014
+        # are CRLF files and VER-015/VER-016 are LF; the YAML fence pattern
+        # requires a bare \n, so a raw decode silently parsed the CRLF reports to
+        # an empty dict and C6 reported "no verification report declares it as
+        # subject" for ECR-D-001 - dropping VER-014, four cold rounds of it, on a
+        # line ending. Normalising first also strips any byte-order mark, and is
+        # the same preimage the seal below is computed over.
+        data = _yaml_of(dc1_normalise(raw).decode("utf-8"))
+        data["_name"] = p.name
+        data["_dc1"] = dc1_digest(raw)
+        reports[p.name] = data
+    return reports
+
+
+def _verdict_of(status: str) -> str | None:
+    """ECR-D-012 disposition A clause 5: `status` opens with a verdict token.
+
+    VER-016 F-12: the predicate was a keyword scan over the raw string, so a
+    genuinely clearing report reading 'VERIFIED - CLEARED. 11 PASS, 0 FAIL' was
+    refused on the token FAIL inside its own passing tally. The field is a
+    keyword slot and nothing said so. It is now a parsed field: the leading
+    token governs and the commentary after it is free text. An unrecognised or
+    absent token returns None and fails, so the vocabulary cannot be widened by
+    writing something new.
+
+    A status that does not conform but plainly announces a non-clearing verdict -
+    the VER-015 and VER-016 form, which predates this vocabulary - is read as NOT
+    CLEARED, so the residue states the substance rather than raising a formatting
+    complaint against a report that manifestly does not clear. That fallback can
+    only ever return NOT CLEARED: nothing reaches CLEARED except the declared
+    leading token, so the vocabulary cannot be widened into a pass.
+    """
+    m = re.match(r"\s*(NOT\s+CLEARED|CLEARED)\b", status, re.I)
+    if m:
+        return "NOT CLEARED" if m.group(1).upper().startswith("NOT") else "CLEARED"
+    if re.search(r"\bFAIL\b|NOT\s+CLEARED|NOT\s+VERIFIED", status, re.I):
+        return "NOT CLEARED"
+    return None
+
+
+def _supersessions(report: dict[str, object]) -> tuple[list[str], dict[str, str]]:
+    """A report's declared `supersedes` ids and its `<VER-id> <SP> <DC-1>` seals."""
+    declared = [
+        s.strip()
+        for s in str(report.get("supersedes", "") or "").split(",")
+        if s.strip() and s.strip().lower() not in ("null", "none")
+    ]
+    seals: dict[str, str] = {}
+    raw_seal = report.get("supersedes_seal")
+    for entry in raw_seal if isinstance(raw_seal, list) else []:
+        m = re.match(r"^(VER-\d+)\s+([0-9a-f]{64})$", str(entry).strip())
+        if m:
+            seals[m.group(1)] = m.group(2)
+    return declared, seals
+
+
 def _c6(repo: Path, records) -> Criterion:
-    """Independent verification is recorded per disposition."""
+    """Independent verification is recorded per disposition.
+
+    ECR-D-012 disposition A, ruled by the human owner S-2026-08-10-04 and
+    declared in GATES.md section 'Supersession of verification reports'. The
+    relation is per-ECR and sealed: a report retires a predecessor only by
+    pinning the DC-1 of the bytes it displaces, so it cannot retire an audit it
+    never read, and a rewrite of the retired report stops the seal reproducing.
+    """
     evidence: list[str] = []
     residue: list[str] = []
     # A report counts only if it DECLARES the ECR as its subject. Matching anywhere
@@ -223,11 +295,12 @@ def _c6(repo: Path, records) -> Criterion:
     # reported C6 PASS for ECR-D-003 and ECR-D-004 on exactly that, before either
     # had ever been verified. That is the false-verification defect this gate
     # exists to catch, so the predicate is the declared subject, not the text.
-    reports: dict[str, dict[str, object]] = {}
-    for p in sorted((repo / VERIF).glob("VER-*.md")):
-        data = _yaml_of(p.read_text(encoding="utf-8"))
-        data["_name"] = p.name
-        reports[p.name] = data
+    reports = _load_reports(repo)
+    by_id = {
+        str(d.get("verification_id", "")).strip(): d
+        for d in reports.values()
+        if str(d.get("verification_id", "")).strip()
+    }
 
     for ecr in GATED_ECRS:
         record = records.get(ecr, {})
@@ -237,31 +310,79 @@ def _c6(repo: Path, records) -> Criterion:
         naming = sorted(
             n for n, d in reports.items() if ecr in str(d.get("subject", ""))
         )
-        # VER-016 finding 1: requiring EVERY report naming the ECR to clear made
-        # C6 unsatisfiable. VER-015's recorded FAIL would block LC-M04-EXIT
-        # permanently, because a later clearing report could not displace it. The
-        # approvals layer was given a supersession relation and the verification
-        # layer was not - the same asymmetry, in the same session, by the same
-        # author. A report that is superseded by name is historical evidence and
-        # no longer gates; supersession must be DECLARED, never inferred from
-        # ordering, for the reason APR-019 already demonstrates.
-        superseded = {
-            s.strip()
-            for d in reports.values()
-            for s in str(d.get("supersedes", "")).split(",")
-            if s.strip()
-        }
-        naming = [
-            n for n in naming
-            if str(reports[n].get("verification_id", "")).strip() not in superseded
-        ] or naming
         if not naming:
             residue.append(
                 f"{ecr}: no verification report declares it as subject "
                 f"(a mention in the body is not verification)"
             )
             continue
+
+        # VER-016 F-01: requiring EVERY report naming the ECR to clear made C6
+        # unsatisfiable - VER-015's recorded FAIL would block LC-M04-EXIT
+        # permanently, because a later clearing report could not displace it.
+        # The approvals layer was given a supersession relation and the
+        # verification layer was not. Supersession is DECLARED, never inferred
+        # from ordering, for the reason APR-019 already demonstrates; and it is
+        # SEALED, because a relation asserted by the party that benefits from it
+        # is not evidence. The set is built only from reports that verify THIS
+        # ECR - a global set let a report on another subject retire this audit.
+        superseded: dict[str, str] = {}  # superseded id -> superseding filename
         for n in naming:
+            d = reports[n]
+            own = str(d.get("verification_id", "")).strip()
+            declared, seals = _supersessions(d)
+            for target in declared:
+                if target == own:
+                    residue.append(f"{ecr}: {n} declares it supersedes itself")
+                    continue
+                if target not in seals:
+                    residue.append(
+                        f"{ecr}: {n} declares supersedes {target} with no "
+                        f"supersedes_seal entry - supersession is unproved"
+                    )
+                    continue
+                if target not in by_id:
+                    residue.append(
+                        f"{ecr}: {n} declares supersedes {target}, which is not "
+                        f"a verification report on disk"
+                    )
+                    continue
+                actual = str(by_id[target].get("_dc1", ""))
+                if seals[target] != actual:
+                    residue.append(
+                        f"{ecr}: {n} seals {target} at {seals[target][:12]}... but "
+                        f"it is {actual[:12]}... - the sealed report has been "
+                        f"rewritten, or was never read"
+                    )
+                    continue
+                if target in superseded and superseded[target] != n:
+                    residue.append(
+                        f"{ecr}: {target} is superseded by both {superseded[target]} "
+                        f"and {n} - a fork makes the verified history ambiguous"
+                    )
+                    continue
+                superseded[target] = n
+            for extra in sorted(set(seals) - set(declared)):
+                residue.append(
+                    f"{ecr}: {n} seals {extra} but does not declare it in "
+                    f"supersedes - the two declarations disagree"
+                )
+
+        governing = [
+            n for n in naming
+            if str(reports[n].get("verification_id", "")).strip() not in superseded
+        ]
+        if not governing:
+            # No silent fallback to the unfiltered set. Every naming report being
+            # superseded means a cycle, or a chain with no head; either way the
+            # governing report is underivable and the criterion fails closed.
+            residue.append(
+                f"{ecr}: every report naming it is superseded - the supersession "
+                f"graph has no head, so no report governs"
+            )
+            continue
+
+        for n in governing:
             d = reports[n]
             verifier = str(d.get("verifier_role", "")).strip()
             author = str(d.get("author_role", "")).strip()
@@ -273,20 +394,31 @@ def _c6(repo: Path, records) -> Criterion:
             # predicate was existence plus role-distinctness, so merely FILING a
             # report - even one whose own verdict is FAIL - flipped C6 to PASS.
             # A criterion that cannot read the verdict of the report it rests on
-            # is not a criterion. The report's declared status now governs.
+            # is not a criterion. The report's declared verdict now governs.
             status = str(d.get("status", "")).strip()
+            verdict = _verdict_of(status)
             if not status:
                 residue.append(f"{ecr}: {n} declares no status")
-            elif re.search(r"\bFAIL\b|NOT CLEARED|NOT VERIFIED", status, re.I):
+            elif verdict is None:
+                residue.append(
+                    f"{ecr}: {n} declares '{status}', which opens with no verdict "
+                    f"token - GATES.md requires CLEARED or NOT CLEARED"
+                )
+            elif verdict == "NOT CLEARED":
                 residue.append(
                     f"{ecr}: {n} declares '{status}' - the report does not clear"
                 )
-        evidence.append(f"{ecr}: subject of {', '.join(naming)}")
+        retired = (
+            " (superseding " + ", ".join(sorted(superseded)) + ")"
+            if superseded else ""
+        )
+        evidence.append(f"{ecr}: governed by {', '.join(governing)}{retired}")
     return Criterion(
         "C6", "Independent verification recorded per disposition",
         "PASS" if not residue else "FAIL", evidence,
         residue + [
-            "MACHINE LIMIT: existence and ECR coverage are checked here. That the "
+            "MACHINE LIMIT: existence, ECR coverage, the sealed supersession "
+            "relation and the declared verdict are checked here. That the "
             "verifier obtained its evidence itself, and authored none of the work, "
             "is a LAW-05 reading and is dispositioned in the report, not here"
         ],
@@ -340,10 +472,32 @@ def _c7(repo: Path, records) -> Criterion:
         if e.startswith("ECR-D-")
         and any(str(a).startswith("spec/") for a in (r.get("affected_artifacts") or []))
     ]
+    # VER-016 F-11: these three lines were unconditional prose, emitted even when
+    # the residue directly contradicted them - the checker printed "all carry a
+    # non-empty disposition" and "is consistent with them" in the same output that
+    # disproved both. The verdict was right and the evidence was false, which
+    # misleads a reader who skims evidence and not residue. Evidence now states
+    # what was found.
+    undisposed = sorted(
+        e for e in spec_scoped
+        if not str(records[e].get("disposition") or "").strip()
+    )
+    divergent = sorted(
+        e for e, r in records.items()
+        if e.startswith("ECR-D-")
+        and (not str(r.get("disposition") or "").strip()) != (e in blocking)
+        and not str(r.get("disposition") or "").strip()
+    ) + sorted(i for i in blocking if i.startswith("ECR-D-") and i not in records)
     evidence = [
         f"{len(records)} ECR records on disk examined directly, not via the index",
-        f"{len(spec_scoped)} bear on spec/**; all carry a non-empty disposition",
-        f"OPEN_ITEMS.md Blocking holds {len(blocking)} ids and is consistent with them",
+        f"{len(spec_scoped)} bear on spec/**; all carry a non-empty disposition"
+        if not undisposed else
+        f"{len(spec_scoped)} bear on spec/**; these carry no disposition: "
+        f"{', '.join(undisposed)}",
+        f"OPEN_ITEMS.md Blocking holds {len(blocking)} ids and is consistent with them"
+        if not divergent else
+        f"OPEN_ITEMS.md Blocking holds {len(blocking)} ids and diverges from the "
+        f"records on {len(divergent)}: {', '.join(divergent)}",
     ]
     return Criterion("C7", "No ECR against the frozen spec remains undispositioned",
                      "PASS" if not residue else "FAIL", evidence, residue)

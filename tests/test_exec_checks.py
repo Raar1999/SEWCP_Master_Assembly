@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pytest
 
-from aief_exec import checks, graph, records
+from aief_exec import checks, graph, records, scope
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -250,13 +250,15 @@ class TestLiveRepositoryOpenFailures:
         assert details == [], details
         results = records.load_results(REPO)
         tasks = records.load_tasks(REPO)
-        # The consumer names the current record, not a superseded ancestor.
-        current = sorted(
-            rid for rid in tasks["T-001"].produces
-            if graph.derived_status(results, results[rid]) == "CURRENT"
-        )
+        # OI-C-12. The consumer names a CURRENT record, not a superseded
+        # ancestor - which is the relation. It was derived from "the one CURRENT
+        # result T-001 produces", and that stopped naming anything the day the
+        # exec-layer head was published by a different task: R-017 supersedes
+        # R-014 and is produced by T-009, so every result T-001 produces is now
+        # superseded. Derived from the consumer's own declaration instead.
+        current = list(tasks["T-004"].consumes)
         assert len(current) == 1, current
-        assert tasks["T-004"].consumes == current, (tasks["T-004"].consumes, current)
+        assert graph.derived_status(results, results[current[0]]) == "CURRENT", current
         # ... and that record is not stale, so nothing derives BLOCKED from it.
         curr = graph.result_currency(REPO, results[current[0]], results)
         assert curr.status == "CURRENT" and curr.usable, curr
@@ -294,11 +296,20 @@ class TestLiveRepositoryOpenFailures:
         assert rows["X-06"]["status"] == "PASS", details
         assert details == [], details
         results = records.load_results(REPO)
-        current = [
+        heads = [
             rid for rid in sorted(results)
             if graph.derived_status(results, results[rid]) == "CURRENT"
         ]
-        assert len(current) == 1, current
+        # OI-C-12. This asserted `len(heads) == 1`, which held only while the
+        # repository had one result chain. It now has three, and a count cannot
+        # express "one head per chain". The record under test is the one that
+        # pins the exec layer, derived rather than named.
+        current = [
+            rid for rid in heads
+            if any(e["path"].startswith("src/aief_exec/")
+                   for e in results[rid].deliverables)
+        ]
+        assert len(current) == 1, (current, heads)
         # The current record still pins the layer it describes - the property
         # that made the old failure possible is not what was removed.
         pinned = {e["path"] for e in results[current[0]].deliverables}
@@ -473,14 +484,33 @@ class TestLiveRepositoryOpenFailures:
         assert converse, details
         assert all(d.startswith("T-001:") for d in converse), converse
         reached = sorted(d.split("results/")[1].split(".md")[0] for d in converse)
-        assert reached == ["R-002", "R-003", "R-004", "R-005", "R-006"], reached
+        # OI-C-12: this pinned ["R-002".."R-006"] and broke the moment T-007/T-008
+        # published R-015/R-016 into the same `.ai/project/results/**` that T-001
+        # reaches. The result set is live, monotonically growing project state.
+        # The PROPERTY is that X-09 reports exactly those results T-001 can reach
+        # and does not produce - derived here from the records, so the expectation
+        # grows with them.
+        tasks = records.load_tasks(REPO)
+        expected = sorted(
+            rid
+            for rid, owner in (
+                (r, t) for t in tasks.values() for r in t.produces
+            )
+            if owner.task_id != "T-001"
+            and any(
+                scope.glob_to_regex(p).match(f".ai/project/results/{rid}.md")
+                for p in tasks["T-001"].write_scope
+            )
+        )
+        assert reached == expected, (reached, expected)
+        assert reached, "T-001 reaches no foreign result - the converse is untested"
         # Each row names the task that does declare it, so the reader is not
         # left to look the owner up.
-        tasks = records.load_tasks(REPO)
-        for rid, owner in zip(reached, ["T-002", "T-003", "T-004", "T-005", "T-006"]):
+        owners = {r: t.task_id for t in tasks.values() for r in t.produces}
+        for rid in reached:
             row = [d for d in converse if f"{rid}.md" in d][0]
-            assert f"- {owner} does" in row, row
-            assert rid in tasks[owner].produces
+            assert f"- {owners[rid]} does" in row, row
+            assert rid in tasks[owners[rid]].produces
         # A4 is reported, never decided: the repair names both declarations.
         assert all("does not decide A4" in d for d in converse), converse
         assert all("narrow" in d and "or add" in d for d in converse), converse

@@ -778,8 +778,23 @@ class TestLivePlan:
                       if graph.derived_status(results, results[rid]) == "SUPERSEDED"]
         current = [rid for rid in sorted(results)
                    if graph.derived_status(results, results[rid]) == "CURRENT"]
-        assert len(current) == 1, current
+        # OI-C-12: this pinned `len(current) == 1`, which held only while exactly
+        # one result chain existed. R-015 (LC-M04 coherence) and R-017 (this
+        # session) are separate chains with separate heads, and a count cannot
+        # express "one head per chain". The PROPERTY is that CURRENT and
+        # SUPERSEDED partition the results, and that nothing superseded is also
+        # current - which is what the count was standing in for.
+        assert current, "no CURRENT result - the derivation is untested"
         assert len(superseded) >= 5, superseded
+        assert set(current) & set(superseded) == set()
+        assert set(current) | set(superseded) == set(results)
+        # Every CURRENT record is the head of its own chain: no other record
+        # declares that it supersedes it.
+        for rid in current:
+            assert not any(
+                rid in (results[other].data.get("supersedes") or "")
+                for other in results if other != rid
+            ), f"{rid} is CURRENT but something supersedes it"
         # Every superseded ancestor is closed and still matches the digest its
         # successor sealed, or is one of the two pre-epoch records that cannot
         # be sealed at all: SUPERSEDED, never STALE, and never REWRITTEN.
@@ -796,19 +811,29 @@ class TestLivePlan:
                 assert sealed == records.file_dc1(REPO, results[rid].path), rid
             else:
                 assert all("unsealed" in d for d in curr.drifted), (rid, curr.drifted)
-        curr = plan.currency[current[0]]
+        # The head of the EXEC-LAYER chain, derived rather than assumed to be the
+        # only CURRENT record - three chains now have heads, and T-004 depends on
+        # exactly one of them.
+        layer = [
+            rid for rid in current
+            if any(e["path"].startswith("src/aief_exec/")
+                   for e in results[rid].deliverables)
+        ]
+        assert len(layer) == 1, (layer, current)
+        head = layer[0]
+        curr = plan.currency[head]
         assert curr.status == "CURRENT", curr
         assert curr.usable
         assert curr.drifted == [], curr.drifted
         # The current record still pins the layer it describes, so the staling
         # relation that produced the old state is intact and simply satisfied.
-        pinned = {e["path"] for e in results[current[0]].deliverables}
+        pinned = {e["path"] for e in results[head].deliverables}
         assert any(p.startswith("src/aief_exec/") for p in pinned), pinned
         assert any(p.startswith("tests/test_exec_") for p in pinned), pinned
-        assert results[current[0]].supersedes in superseded
+        assert results[head].supersedes in superseded
         # T-004 consumes the current record and derives READY from it - the
         # state is read off currency, never off the task record.
-        assert records.load_tasks(REPO)["T-004"].consumes == current
+        assert records.load_tasks(REPO)["T-004"].consumes == [head]
         assert plan.states["T-004"] == "READY"
         assert plan.blocked["T-004"] == [], plan.blocked["T-004"]
 
