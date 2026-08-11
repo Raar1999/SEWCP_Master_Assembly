@@ -459,7 +459,9 @@ def _op_sketch_circle(args):
     # Coincident to the sketch origin removes the two translational degrees of
     # freedom; the diameter dimension removes the third. Together they are what
     # makes the sketch fully constrained rather than merely correct today.
-    if abs(cx) < 1e-9 and abs(cy) < 1e-9:
+    # A model-space-placed centre is already fixed - constraining it again
+    # over-constrains the sketch.
+    if center_model is None and abs(cx) < 1e-9 and abs(cy) < 1e-9:
         sketch.geometricConstraints.addCoincident(circle.centerSketchPoint, sketch.originPoint)
 
     text = adsk.core.Point3D.create(circle.geometry.radius * 1.3, circle.geometry.radius * 1.3, 0)
@@ -764,7 +766,12 @@ def _op_extrude(args):
             % args["sketch"]
         )
     which = args.get("profile", 0)
-    profile = sketch.profiles.item(0) if which == "all" else sketch.profiles.item(int(which))
+    if which == "all":
+        profile = adsk.core.ObjectCollection.create()
+        for i in range(sketch.profiles.count):
+            profile.add(sketch.profiles.item(i))
+    else:
+        profile = sketch.profiles.item(int(which))
 
     op_table = {
         "new_body": adsk.fusion.FeatureOperations.NewBodyFeatureOperation,

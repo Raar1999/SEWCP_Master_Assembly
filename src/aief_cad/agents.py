@@ -141,7 +141,8 @@ class MechanicalDesignAgent:
     #: Primitive forms this agent can reason about. A form it does not know is
     #: an escalation, never a best guess at what the author meant.
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
-             "port_stub", "body_combine")
+             "port_stub", "body_combine", "axial_hole_pattern",
+             "slot_pattern")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -249,6 +250,12 @@ class MechanicalDesignAgent:
 
         if form["form"] == "port_stub":
             return self._build_port_stub(req, form, prior)
+
+        if form["form"] == "axial_hole_pattern":
+            return self._build_axial_holes(req, form, prior)
+
+        if form["form"] == "slot_pattern":
+            return self._build_slots(req, form, prior)
 
         if form["form"] == "body_combine":
             return [
@@ -585,6 +592,166 @@ class MechanicalDesignAgent:
         if not features:
             raise AgentError(f"{req.id}: port_stub declares no ports")
         return features
+
+    def _positions(self, req: Requirement, form: dict[str, Any]
+                   ) -> list[tuple[float, float]]:
+        """Resolve a pattern's hole/slot centres to model XY, mm.
+
+        Accepts a bolt circle with listed azimuth expressions, a bolt circle
+        with start/step/count, or explicit (radius, azimuth) points with an
+        optional tangential offset - every value an expression over the
+        parameter master, so positions stay governed, not restated.
+        """
+        import math as _m
+
+        from aief_cad.expr import evaluate
+
+        env = resolve_all(self._package_parameters)
+
+        def num(expr: Any) -> float:
+            return float(evaluate(str(expr), env))
+
+        out: list[tuple[float, float]] = []
+        pos = form.get("positions") or {}
+        if "bolt_circle_diameter" in pos:
+            r = num(pos["bolt_circle_diameter"]) / 2.0
+            if "azimuths" in pos:
+                az_list = [num(a) for a in pos["azimuths"]]
+            else:
+                start = num(pos["azimuth_start"])
+                step = num(pos["azimuth_step"])
+                az_list = [start + step * i for i in range(int(pos["count"]))]
+            for az in az_list:
+                out.append((r * _m.cos(_m.radians(az)),
+                            r * _m.sin(_m.radians(az))))
+        for p in pos.get("points", []):
+            r, az = num(p["radius"]), num(p["azimuth"])
+            x, y = r * _m.cos(_m.radians(az)), r * _m.sin(_m.radians(az))
+            if "tangential_offset" in p:
+                t = num(p["tangential_offset"])
+                tx, ty = -_m.sin(_m.radians(az)), _m.cos(_m.radians(az))
+                x, y = x + t * tx, y + t * ty
+            out.append((x, y))
+        if not out:
+            raise AgentError(f"{req.id}: pattern declares no positions")
+        return out
+
+    def _build_axial_holes(
+        self, req: Requirement, form: dict[str, Any], prior: str
+    ) -> list[FeatureSpec]:
+        """Pattern of coaxial round holes cut along Z from a stated plane."""
+        base = f"mech.{req.id}"
+        from aief_cad.expr import evaluate
+
+        env = resolve_all(self._package_parameters)
+        centres = self._positions(req, form)
+        sketch = str(form["sketch"])
+        plane = str(form.get("plane", "XY"))
+        z = float(evaluate(str(form.get("plane_z", "0")), env))
+        diameter = _param_ref(req, "diameter", form)
+        depth = _param_ref(req, "depth", form)
+
+        features = [
+            FeatureSpec(
+                id=f"{base}.sketch", kind="sketch",
+                params={"name": sketch, "plane": plane},
+                satisfies=(req.id,),
+                depends_on=tuple(form.get("after", ())) or (prior,),
+                rationale=f"Hole pattern sketch for {req.id} on {plane}.",
+            )
+        ]
+        for i, (x, y) in enumerate(centres, start=1):
+            features.append(FeatureSpec(
+                id=f"{base}.h{i}", kind="sketch_circle",
+                params={"sketch": sketch, "diameter": diameter,
+                        "center_model": [round(x, 6), round(y, 6), z]},
+                satisfies=(req.id,), depends_on=(features[-1].id,),
+                rationale=f"Hole {i} of {len(centres)}, centre governed by "
+                          f"the pattern's parameters.",
+            ))
+        features.append(FeatureSpec(
+            id=f"{base}.cut", kind="extrude",
+            params={"sketch": sketch, "distance": depth,
+                    "direction": str(form.get("direction", "positive")),
+                    "operation": "cut", "profile": "all"},
+            satisfies=(req.id,), depends_on=(features[-1].id,),
+            rationale=f"{len(centres)} hole(s) O({diameter}) x {depth}.",
+        ))
+        return features
+
+    def _build_slots(
+        self, req: Requirement, form: dict[str, Any], prior: str
+    ) -> list[FeatureSpec]:
+        """Pattern of radially-oriented obround slots cut along Z."""
+        import math as _m
+
+        from aief_cad.expr import evaluate
+
+        base = f"mech.{req.id}"
+        env = resolve_all(self._package_parameters)
+
+        def num(expr: Any) -> float:
+            return float(evaluate(str(expr), env))
+
+        centres = self._positions(req, form)
+        width = num(_param_ref(req, "width", form))
+        length = num(_param_ref(req, "length", form))
+        if length <= width:
+            raise AgentError(f"{req.id}: slot length must exceed its width")
+        half_w = width / 2.0
+        half_span = (length - width) / 2.0
+        sketch = str(form["sketch"])
+        depth = _param_ref(req, "depth", form)
+
+        outlines: list[dict[str, Any]] = []
+        for x, y in centres:
+            az = _m.atan2(y, x)
+            u = (_m.cos(az), _m.sin(az))       # radial - the slot's long axis
+            v = (-_m.sin(az), _m.cos(az))      # tangential
+            c1 = (x - u[0] * half_span, y - u[1] * half_span)
+            c2 = (x + u[0] * half_span, y + u[1] * half_span)
+
+            def pt(c, s_v):
+                return [round(c[0] + s_v * v[0] * half_w, 6),
+                        round(c[1] + s_v * v[1] * half_w, 6)]
+
+            outlines.extend([
+                {"type": "line", "start": pt(c1, 1), "end": pt(c2, 1)},
+                {"type": "arc", "center": [round(c2[0], 6), round(c2[1], 6)],
+                 "radius": half_w, "start": pt(c2, 1), "end": pt(c2, -1),
+                 "ccw": False},
+                {"type": "line", "start": pt(c2, -1), "end": pt(c1, -1)},
+                {"type": "arc", "center": [round(c1[0], 6), round(c1[1], 6)],
+                 "radius": half_w, "start": pt(c1, -1), "end": pt(c1, 1),
+                 "ccw": False},
+            ])
+        return [
+            FeatureSpec(
+                id=f"{base}.sketch", kind="sketch",
+                params={"name": sketch, "plane": str(form.get("plane", "XY"))},
+                satisfies=(req.id,),
+                depends_on=tuple(form.get("after", ())) or (prior,),
+                rationale=f"Slot pattern sketch for {req.id}.",
+            ),
+            FeatureSpec(
+                id=f"{base}.outlines", kind="sketch_path",
+                params={"sketch": sketch, "centerline": [],
+                        "footprint": outlines},
+                satisfies=(req.id,), depends_on=(f"{base}.sketch",),
+                rationale=(
+                    f"{len(centres)} radially-oriented obround(s) "
+                    f"{length:g} x {width:g}, ends fully rounded."
+                ),
+            ),
+            FeatureSpec(
+                id=f"{base}.cut", kind="extrude",
+                params={"sketch": sketch, "distance": depth,
+                        "direction": str(form.get("direction", "positive")),
+                        "operation": "cut", "profile": "all"},
+                satisfies=(req.id,), depends_on=(f"{base}.outlines",),
+                rationale=f"Slot cut, depth {depth}.",
+            ),
+        ]
 
     #: Set per contribute() call so _build_channel can resolve parameter
     #: values without threading the package through every _build signature.
