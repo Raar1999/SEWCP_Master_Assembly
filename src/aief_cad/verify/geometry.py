@@ -162,8 +162,14 @@ def verify_geometry(solution: DesignSolution, model: ObservedModel):
         )
 
     # -- intrinsic: extrude distance appears as a real extent ---------------
+    # Valid only for new_body extrudes, and only when no join later extends
+    # the body - a joined stack's extent belongs to the whole stack, which
+    # the package's own acceptance states, not to any single extrude.
     axis_of = {"X": 0, "Y": 1, "Z": 2}
-    for feat in extrudes:
+    has_joins = any(f.params.get("operation") == "join" for f in extrudes)
+    for feat in [f for f in extrudes
+                 if not has_joins
+                 and f.params.get("operation", "new_body") == "new_body"]:
         distance = feat.params.get("distance")
         expected = solution.resolved.get(distance) if isinstance(distance, str) else None
         if expected is None:

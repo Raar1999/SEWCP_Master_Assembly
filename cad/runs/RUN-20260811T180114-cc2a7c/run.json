@@ -1,0 +1,4743 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 20,
+      "executed": 20,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451474.4465582,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "adopted": true,
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451474.4455545,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451474.7169452,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 9
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451474.7078853,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451474.9666588,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451474.9658115,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.2259183,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Titanium 6Al-4V"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.2142482,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.4757977,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.4702835,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.7421606,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.7277002,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.996578,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "AP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.9823234,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.254536,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.2470658,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.522139,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.5145423,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.7847762,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P2_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.7662787,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.0506864,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-FLANGE.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.0287347,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.3009026,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.2928011,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.5665035,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.5558262,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.837213,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P3_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.8193407,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.0978525,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.0818367,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.356075,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_TIP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.3471131,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.6090882,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.5967112,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0018",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.9321282,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 6,
+              "fully_constrained": true,
+              "name": "P4_HEX",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.860905,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451479.4035604,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451479.3747249,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0020",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451479.6466246,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 369.5013933938809,
+                "bbox_max": [
+                  5.0,
+                  5.0,
+                  9.5
+                ],
+                "bbox_min": [
+                  -5.0,
+                  -5.0,
+                  0.0
+                ],
+                "mass_kg": 0.0015105516341082834,
+                "material": "Titanium 6Al-4V",
+                "name": "mech.AP-BOSS.body",
+                "volume_mm3": 340.9823101824568
+              }
+            ],
+            "component": {
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "10.0 mm",
+                "name": "ap_flange_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 10.0
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_flange_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "6.0 mm",
+                "name": "ap_boss_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.000000000000001
+              },
+              {
+                "expression": "2.5 mm",
+                "name": "ap_boss_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.5
+              },
+              {
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 9.5
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_hex_af",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "2.0 mm",
+                "name": "ap_hex_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.0
+              }
+            ],
+            "planes": [
+              {
+                "base": "XY",
+                "name": "PL_FLANGE",
+                "offset_mm": 4.0
+              },
+              {
+                "base": "XY",
+                "name": "PL_BOSS",
+                "offset_mm": 7.000000000000001
+              },
+              {
+                "base": "XY",
+                "name": "PL_TIP",
+                "offset_mm": 9.5
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P1_SPIGOT",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 5.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P2_FLANGE",
+                "plane": "PL_FLANGE",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 3.0000000000000004,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P3_BOSS",
+                "plane": "PL_BOSS",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 6,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "P4_HEX",
+                "plane": "PL_TIP",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451479.638422,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 369.5013933938809,
+            "bbox_max": [
+              5.0,
+              5.0,
+              9.5
+            ],
+            "bbox_min": [
+              -5.0,
+              -5.0,
+              0.0
+            ],
+            "mass_kg": 0.0015105516341082834,
+            "material": "Titanium 6Al-4V",
+            "name": "mech.AP-BOSS.body",
+            "volume_mm3": 340.9823101824568
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "name": "SEWCP-700_ALIGNMENT_PIN",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_d",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_l",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "10.0 mm",
+            "name": "ap_flange_d",
+            "unit": "mm",
+            "value": 10.0
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_flange_h",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "6.0 mm",
+            "name": "ap_boss_d",
+            "unit": "mm",
+            "value": 6.000000000000001
+          },
+          {
+            "expression": "2.5 mm",
+            "name": "ap_boss_h",
+            "unit": "mm",
+            "value": 2.5
+          },
+          {
+            "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+            "name": "ap_len",
+            "unit": "mm",
+            "value": 9.5
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_hex_af",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "2.0 mm",
+            "name": "ap_hex_dep",
+            "unit": "mm",
+            "value": 2.0
+          }
+        ],
+        "planes": [
+          {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset_mm": 4.0
+          },
+          {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset_mm": 7.000000000000001
+          },
+          {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset_mm": 9.5
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P1_SPIGOT",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 5.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 3.0000000000000004,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  1.5
+                ],
+                "start": [
+                  1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  1.5
+                ],
+                "start": [
+                  0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -1.732051,
+                  0.0
+                ],
+                "start": [
+                  -0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  1.732051,
+                  0.0
+                ],
+                "start": [
+                  0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 6,
+            "fully_constrained": true,
+            "name": "P4_HEX",
+            "plane": "PL_TIP",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-700_ALIGNMENT_PIN",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "ap_flange_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_flange_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "ap_boss_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.5",
+                "name": "ap_boss_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_hex_af",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.0",
+                "name": "ap_hex_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-700_ALIGNMENT_PIN"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Titanium 6Al-4V"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset": "ap_spigot_l"
+          },
+          "feature": "thermal.AP-FLANGE-PLANE.plane",
+          "note": "Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "AP-FLANGE-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset": "ap_spigot_l + ap_flange_h"
+          },
+          "feature": "thermal.AP-BOSS-PLANE.plane",
+          "note": "Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "AP-BOSS-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset": "ap_len"
+          },
+          "feature": "thermal.AP-TIP-PLANE.plane",
+          "note": "Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "AP-TIP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                1.732051,
+                0.0,
+                9.5
+              ],
+              [
+                0.866025,
+                1.5,
+                9.5
+              ],
+              [
+                -0.866025,
+                1.5,
+                9.5
+              ],
+              [
+                -1.732051,
+                0.0,
+                9.5
+              ],
+              [
+                -0.866025,
+                -1.5,
+                9.5
+              ],
+              [
+                0.866025,
+                -1.5,
+                9.5
+              ]
+            ],
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0020",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 2,
+        "diagnoses": [
+          {
+            "evidence": "body:AP_BODY.dz: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-SPIGOT",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dx: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dy: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.volume_mm3: expected 341.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-VOL",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.mass_kg: expected 0.00151, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 4.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:AP_BODY.dz",
+            "finding": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-FLANGE.body.dz: expected 3.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-FLANGE.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-BOSS.body.dz: expected 2.5, observed 9.5 (extrude mech.AP-BOSS.extrude declares distance ap_boss_h=2.5; the body measures 9.5000 along Z)",
+            "failed_requirement": "body:mech.AP-BOSS.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-BOSS.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            },
+            "feature": "mech.AP-SPIGOT.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-SPIGOT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0005",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_spigot_d",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0006",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "AP_BODY",
+              "direction": "positive",
+              "distance": "ap_spigot_l",
+              "operation": "new_body",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.extrude",
+            "note": "repair attempt 2: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0007",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-FLANGE on PL_FLANGE.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0009",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_flange_d",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0010",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-FLANGE.body",
+              "direction": "positive",
+              "distance": "ap_flange_h",
+              "operation": "join",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.extrude",
+            "note": "repair attempt 2: Removal of thickness ap_flange_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0011",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            },
+            "feature": "mech.AP-BOSS.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-BOSS on PL_BOSS.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0013",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_boss_d",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0014",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-BOSS.body",
+              "direction": "positive",
+              "distance": "ap_boss_h",
+              "operation": "join",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.extrude",
+            "note": "repair attempt 2: Removal of thickness ap_boss_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0015",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            },
+            "feature": "mech.AP-HEX.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0017",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "ap_hex_dep",
+              "operation": "cut",
+              "sketch": "P4_HEX"
+            },
+            "feature": "mech.AP-HEX.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0019",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP2-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 11 operation(s) of kind(s) extrude, sketch, sketch_circle that bear on 8 failed check(s)"
+      },
+      "sequence_digest": "sha256:b9a734ed7c7a2794064ccf34b5e2b37933ce8aa294ad8c16309be624a43ef9fa",
+      "verdict": {
+        "attempt": 1,
+        "checks": 28,
+        "failed": 8,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 8,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 4,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "extrude mech.AP-BOSS.extrude declares distance ap_boss_h=2.5; the body measures 9.5000 along Z",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": 9.5,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 6,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": 7.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": true,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_TIP.offset_mm"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-700_ALIGNMENT_PIN",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": true,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": 6.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T180114-cc2a7c.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 2,
+      "dispatched": 12,
+      "executed": 12,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.4757977,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.4702835,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.7421606,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.7277002,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.996578,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "AP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.9823234,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.522139,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.5145423,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.7847762,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P2_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.7662787,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.0506864,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-FLANGE.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.0287347,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.5665035,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.5558262,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.837213,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P3_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.8193407,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.0978525,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.0818367,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.6090882,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.5967112,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451479.4035604,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451479.3747249,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T180114-cc2a7c.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451479.897475,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 369.5013933938809,
+                "bbox_max": [
+                  5.0,
+                  5.0,
+                  9.5
+                ],
+                "bbox_min": [
+                  -5.0,
+                  -5.0,
+                  0.0
+                ],
+                "mass_kg": 0.0015105516341082834,
+                "material": "Titanium 6Al-4V",
+                "name": "mech.AP-BOSS.body",
+                "volume_mm3": 340.9823101824568
+              }
+            ],
+            "component": {
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "10.0 mm",
+                "name": "ap_flange_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 10.0
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_flange_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "6.0 mm",
+                "name": "ap_boss_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.000000000000001
+              },
+              {
+                "expression": "2.5 mm",
+                "name": "ap_boss_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.5
+              },
+              {
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 9.5
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_hex_af",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "2.0 mm",
+                "name": "ap_hex_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.0
+              }
+            ],
+            "planes": [
+              {
+                "base": "XY",
+                "name": "PL_FLANGE",
+                "offset_mm": 4.0
+              },
+              {
+                "base": "XY",
+                "name": "PL_BOSS",
+                "offset_mm": 7.000000000000001
+              },
+              {
+                "base": "XY",
+                "name": "PL_TIP",
+                "offset_mm": 9.5
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P1_SPIGOT",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 5.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P2_FLANGE",
+                "plane": "PL_FLANGE",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 3.0000000000000004,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P3_BOSS",
+                "plane": "PL_BOSS",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 6,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "P4_HEX",
+                "plane": "PL_TIP",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451479.8891466,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 369.5013933938809,
+            "bbox_max": [
+              5.0,
+              5.0,
+              9.5
+            ],
+            "bbox_min": [
+              -5.0,
+              -5.0,
+              0.0
+            ],
+            "mass_kg": 0.0015105516341082834,
+            "material": "Titanium 6Al-4V",
+            "name": "mech.AP-BOSS.body",
+            "volume_mm3": 340.9823101824568
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "name": "SEWCP-700_ALIGNMENT_PIN",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_d",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_l",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "10.0 mm",
+            "name": "ap_flange_d",
+            "unit": "mm",
+            "value": 10.0
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_flange_h",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "6.0 mm",
+            "name": "ap_boss_d",
+            "unit": "mm",
+            "value": 6.000000000000001
+          },
+          {
+            "expression": "2.5 mm",
+            "name": "ap_boss_h",
+            "unit": "mm",
+            "value": 2.5
+          },
+          {
+            "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+            "name": "ap_len",
+            "unit": "mm",
+            "value": 9.5
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_hex_af",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "2.0 mm",
+            "name": "ap_hex_dep",
+            "unit": "mm",
+            "value": 2.0
+          }
+        ],
+        "planes": [
+          {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset_mm": 4.0
+          },
+          {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset_mm": 7.000000000000001
+          },
+          {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset_mm": 9.5
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P1_SPIGOT",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 5.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 3.0000000000000004,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  1.5
+                ],
+                "start": [
+                  1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  1.5
+                ],
+                "start": [
+                  0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -1.732051,
+                  0.0
+                ],
+                "start": [
+                  -0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  1.732051,
+                  0.0
+                ],
+                "start": [
+                  0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 6,
+            "fully_constrained": true,
+            "name": "P4_HEX",
+            "plane": "PL_TIP",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "repair attempt 2: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "repair attempt 2: Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0011",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0014",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "repair attempt 2: Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0015",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0017",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0019",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP2-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 3,
+        "diagnoses": [
+          {
+            "evidence": "body:AP_BODY.dz: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-SPIGOT",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dx: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dy: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.volume_mm3: expected 341.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-VOL",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.mass_kg: expected 0.00151, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 4.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:AP_BODY.dz",
+            "finding": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-FLANGE.body.dz: expected 3.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-FLANGE.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-BOSS.body.dz: expected 2.5, observed 9.5 (extrude mech.AP-BOSS.extrude declares distance ap_boss_h=2.5; the body measures 9.5000 along Z)",
+            "failed_requirement": "body:mech.AP-BOSS.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-BOSS.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            },
+            "feature": "mech.AP-SPIGOT.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-SPIGOT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0005",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_spigot_d",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0006",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "AP_BODY",
+              "direction": "positive",
+              "distance": "ap_spigot_l",
+              "operation": "new_body",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.extrude",
+            "note": "repair attempt 3: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0007",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-FLANGE on PL_FLANGE.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0009",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_flange_d",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0010",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-FLANGE.body",
+              "direction": "positive",
+              "distance": "ap_flange_h",
+              "operation": "join",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.extrude",
+            "note": "repair attempt 3: Removal of thickness ap_flange_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0011",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            },
+            "feature": "mech.AP-BOSS.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-BOSS on PL_BOSS.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0013",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_boss_d",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0014",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-BOSS.body",
+              "direction": "positive",
+              "distance": "ap_boss_h",
+              "operation": "join",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.extrude",
+            "note": "repair attempt 3: Removal of thickness ap_boss_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0015",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            },
+            "feature": "mech.AP-HEX.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0017",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "ap_hex_dep",
+              "operation": "cut",
+              "sketch": "P4_HEX"
+            },
+            "feature": "mech.AP-HEX.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0019",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP3-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 11 operation(s) of kind(s) extrude, sketch, sketch_circle that bear on 8 failed check(s)"
+      },
+      "sequence_digest": "sha256:1ac6c171e33f48c5f85c5cf1f1b2055ee61d10e706d0ea0363d7f87e6316c12b",
+      "verdict": {
+        "attempt": 2,
+        "checks": 28,
+        "failed": 8,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 8,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 4,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "extrude mech.AP-BOSS.extrude declares distance ap_boss_h=2.5; the body measures 9.5000 along Z",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": 9.5,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 6,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": 7.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": true,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_TIP.offset_mm"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-700_ALIGNMENT_PIN",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": true,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": 6.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T180114-cc2a7c.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 3,
+      "dispatched": 12,
+      "executed": 12,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.4757977,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.4702835,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.7421606,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.7277002,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451475.996578,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "AP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451475.9823234,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.522139,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.5145423,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451476.7847762,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P2_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451476.7662787,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.0506864,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-FLANGE.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.0287347,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.5665035,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.5558262,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451477.837213,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P3_BOSS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451477.8193407,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.0978525,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.0818367,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451478.6090882,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451478.5967112,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T180114-cc2a7c.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451479.4035604,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "mech.AP-BOSS.body"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451479.3747249,
+          "status": "OK"
+        },
+        {
+          "command_id": "A3-RUN-20260811T180114-cc2a7c.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451480.1615126,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 369.5013933938809,
+                "bbox_max": [
+                  5.0,
+                  5.0,
+                  9.5
+                ],
+                "bbox_min": [
+                  -5.0,
+                  -5.0,
+                  0.0
+                ],
+                "mass_kg": 0.0015105516341082834,
+                "material": "Titanium 6Al-4V",
+                "name": "mech.AP-BOSS.body",
+                "volume_mm3": 340.9823101824568
+              }
+            ],
+            "component": {
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-700_ALIGNMENT_PIN v1",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "4.0 mm",
+                "name": "ap_spigot_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "10.0 mm",
+                "name": "ap_flange_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 10.0
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_flange_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "6.0 mm",
+                "name": "ap_boss_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.000000000000001
+              },
+              {
+                "expression": "2.5 mm",
+                "name": "ap_boss_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.5
+              },
+              {
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 9.5
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "ap_hex_af",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "2.0 mm",
+                "name": "ap_hex_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.0
+              }
+            ],
+            "planes": [
+              {
+                "base": "XY",
+                "name": "PL_FLANGE",
+                "offset_mm": 4.0
+              },
+              {
+                "base": "XY",
+                "name": "PL_BOSS",
+                "offset_mm": 7.000000000000001
+              },
+              {
+                "base": "XY",
+                "name": "PL_TIP",
+                "offset_mm": 9.5
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P1_SPIGOT",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 5.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P2_FLANGE",
+                "plane": "PL_FLANGE",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 3.0000000000000004,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "P3_BOSS",
+                "plane": "PL_BOSS",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "start": [
+                      0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      -0.866025,
+                      1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -1.732051,
+                      0.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "start": [
+                      -0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      1.732051,
+                      0.0
+                    ],
+                    "start": [
+                      0.866025,
+                      -1.5
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 6,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "P4_HEX",
+                "plane": "PL_TIP",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451480.1532407,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 369.5013933938809,
+            "bbox_max": [
+              5.0,
+              5.0,
+              9.5
+            ],
+            "bbox_min": [
+              -5.0,
+              -5.0,
+              0.0
+            ],
+            "mass_kg": 0.0015105516341082834,
+            "material": "Titanium 6Al-4V",
+            "name": "mech.AP-BOSS.body",
+            "volume_mm3": 340.9823101824568
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "name": "SEWCP-700_ALIGNMENT_PIN",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-700_ALIGNMENT_PIN v1",
+          "persisted_name": "SEWCP-700_ALIGNMENT_PIN",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_d",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "4.0 mm",
+            "name": "ap_spigot_l",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "10.0 mm",
+            "name": "ap_flange_d",
+            "unit": "mm",
+            "value": 10.0
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_flange_h",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "6.0 mm",
+            "name": "ap_boss_d",
+            "unit": "mm",
+            "value": 6.000000000000001
+          },
+          {
+            "expression": "2.5 mm",
+            "name": "ap_boss_h",
+            "unit": "mm",
+            "value": 2.5
+          },
+          {
+            "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+            "name": "ap_len",
+            "unit": "mm",
+            "value": 9.5
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "ap_hex_af",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "2.0 mm",
+            "name": "ap_hex_dep",
+            "unit": "mm",
+            "value": 2.0
+          }
+        ],
+        "planes": [
+          {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset_mm": 4.0
+          },
+          {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset_mm": 7.000000000000001
+          },
+          {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset_mm": 9.5
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P1_SPIGOT",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 5.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 3.0000000000000004,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  1.5
+                ],
+                "start": [
+                  1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  1.5
+                ],
+                "start": [
+                  0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -1.732051,
+                  0.0
+                ],
+                "start": [
+                  -0.866025,
+                  1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -1.732051,
+                  0.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  0.866025,
+                  -1.5
+                ],
+                "start": [
+                  -0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  1.732051,
+                  0.0
+                ],
+                "start": [
+                  0.866025,
+                  -1.5
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 6,
+            "fully_constrained": true,
+            "name": "P4_HEX",
+            "plane": "PL_TIP",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "repair attempt 3: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "repair attempt 3: Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0011",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0014",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "repair attempt 3: Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0015",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0017",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0019",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP3-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "sequence_digest": "sha256:1ac6c171e33f48c5f85c5cf1f1b2055ee61d10e706d0ea0363d7f87e6316c12b",
+      "verdict": {
+        "attempt": 3,
+        "checks": 28,
+        "failed": 8,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 8,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 4,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "extrude mech.AP-BOSS.extrude declares distance ap_boss_h=2.5; the body measures 9.5000 along Z",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": 9.5,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 6,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": 7.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": true,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 4.0,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": 4.0,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 9.5,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_TIP.offset_mm"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-700_ALIGNMENT_PIN",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": 9.5,
+                "passed": true,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": true,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": 6.000000000000001,
+                "passed": true,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T180114-cc2a7c.S1",
+        "verdict": "FAIL"
+      }
+    }
+  ],
+  "component": "SEWCP-700_ALIGNMENT_PIN",
+  "domains": [
+    "geometry",
+    "structural",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [
+    "attempt limit 3 reached with 8 check(s) still failing"
+  ],
+  "finished_at": 1786451480.181567,
+  "package_digest": "sha256:cc2a7ca6622d31b60e3a70d1c0226ccfa0dd57a0904edfb1fa63e9ccd9f1c066",
+  "package_id": "SEWCP-700-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:436471c7257a8ae33abb0de65c35dcb17c6f35000155460d29b32e9571028b04",
+  "run_id": "RUN-20260811T180114-cc2a7c",
+  "solution_digest": "sha256:fd8d3e24a4d6034e1fb6ab434ee2eedcbcd790aea1af4c39c3c1fec0abab0097",
+  "solution_id": "RUN-20260811T180114-cc2a7c.S1",
+  "started_at": 1786451474.361601,
+  "verdict": "FAIL"
+}

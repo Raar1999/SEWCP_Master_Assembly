@@ -1,0 +1,3387 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 4,
+      "executed": 3,
+      "execution_halt": "OP-0004 (assign_material) did not execute - ERROR: RuntimeError: no body to assign material to",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451337.171391,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-700_ALIGNMENT_PIN",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451336.7680619,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451337.4521024,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 9
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451337.4414668,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451338.7900903,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "first_saved": true,
+              "name": "SEWCP-700_ALIGNMENT_PIN v0",
+              "persisted_name": "SEWCP-700_ALIGNMENT_PIN"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451337.9483874,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0004",
+          "error": {
+            "kind": "RuntimeError",
+            "message": "no body to assign material to",
+            "trace": "Traceback (most recent call last):\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 191, in notify\n    observed = handler(cmd.get(\"args\") or {})\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 876, in _op_assign_material\n    raise RuntimeError(\"no body to assign material to\")\nRuntimeError: no body to assign material to\n"
+          },
+          "executed": false,
+          "finished_at": 1786451339.0870144,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.0808923,
+          "status": "ERROR"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {
+          "name": "SEWCP-700_ALIGNMENT_PIN",
+          "units": "mm"
+        },
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-700_ALIGNMENT_PIN",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "ap_flange_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_flange_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "ap_boss_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.5",
+                "name": "ap_boss_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_hex_af",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.0",
+                "name": "ap_hex_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-700_ALIGNMENT_PIN"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Titanium 6Al-4V"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                1.732051,
+                0.0,
+                9.5
+              ],
+              [
+                0.866025,
+                1.5,
+                9.5
+              ],
+              [
+                -0.866025,
+                1.5,
+                9.5
+              ],
+              [
+                -1.732051,
+                0.0,
+                9.5
+              ],
+              [
+                -0.866025,
+                -1.5,
+                9.5
+              ],
+              [
+                0.866025,
+                -1.5,
+                9.5
+              ]
+            ],
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset": "ap_spigot_l"
+          },
+          "feature": "thermal.AP-FLANGE-PLANE.plane",
+          "note": "Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "AP-FLANGE-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset": "ap_spigot_l + ap_flange_h"
+          },
+          "feature": "thermal.AP-BOSS-PLANE.plane",
+          "note": "Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "AP-BOSS-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset": "ap_len"
+          },
+          "feature": "thermal.AP-TIP-PLANE.plane",
+          "note": "Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "AP-TIP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0020",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 2,
+        "diagnoses": [
+          {
+            "evidence": "bodies.count: expected 1, observed 0 (delta 1 exceeds tolerance 1e-06)",
+            "failed_requirement": "bodies.count",
+            "finding": "ACC-BODY-COUNT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-SPIGOT",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dx: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dy: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "features.count: expected 4, observed 0 (delta 4 exceeds tolerance 1e-06)",
+            "failed_requirement": "features.count",
+            "finding": "ACC-FEATURES",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.volume_mm3: expected 341.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-VOL",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.mass_kg: expected 0.00151, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "bodies.count: expected '>= 1', observed 0 (the solution extrudes a solid but the model reports no body)",
+            "failed_requirement": "bodies.count",
+            "finding": "GEO-BODY-PRESENT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 4.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:AP_BODY.dz",
+            "finding": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-FLANGE.body.dz: expected 3.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-FLANGE.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-BOSS.body.dz: expected 2.5, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-BOSS.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-BOSS.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "plane:PL_FLANGE.offset_mm: expected 4.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE-PLANE",
+            "finding": "ACC-PL-FLANGE",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_BOSS.offset_mm: expected 7.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-BOSS-PLANE",
+            "finding": "ACC-PL-BOSS",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TIP.offset_mm: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-TIP-PLANE",
+            "finding": "ACC-PL-TIP",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "sketch:P4_HEX.exists: expected True, observed False (boolean mismatch)",
+            "failed_requirement": "AP-HEX",
+            "finding": "ACC-SK-HEX",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_FLANGE.exists: expected True, observed False (construction plane 'PL_FLANGE' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_FLANGE.exists",
+            "finding": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_BOSS.exists: expected True, observed False (construction plane 'PL_BOSS' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_BOSS.exists",
+            "finding": "IF-PLANE-thermal.AP-BOSS-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TIP.exists: expected True, observed False (construction plane 'PL_TIP' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TIP.exists",
+            "finding": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "component.name: expected 'SEWCP-700_ALIGNMENT_PIN', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "component.name",
+            "finding": "ACC-NAME",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 9, observed 0 (delta 9 exceeds tolerance 1e-06)",
+            "failed_requirement": "parameters.count",
+            "finding": "ACC-PARAM-COUNT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_len.value: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-HEX",
+            "finding": "ACC-LEN",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_len.is_derived: expected True, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "parameter:ap_len.is_derived",
+            "finding": "ACC-LEN-DERIVED",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_boss_d.value: expected 6.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-BOSS",
+            "finding": "ACC-BOSS-D",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 9, observed 0 (9 declared parameter(s) absent from the model: ap_boss_d, ap_boss_h, ap_flange_d, ap_flange_h, ap_hex_af, ap_hex_dep, ap_len, ap_spigot_d ...)",
+            "failed_requirement": "parameters.count",
+            "finding": "CON-PARAM-PRESENT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "sketch:*.fully_constrained: expected True, observed '6 not constrained' (P1_SPIGOT: absent; P1_SPIGOT: absent; P2_FLANGE: absent; P2_FLANGE: absent; P3_BOSS: absent; P3_BOSS: absent)",
+            "failed_requirement": "sketch:*.fully_constrained",
+            "finding": "CON-SKETCH-CONSTRAINED",
+            "likely_cause": "the sketch carries degrees of freedom the solution requires it not to have; a later feature located against it can move",
+            "proposed_correction": "re-dispatch the sketch and its dimensioning operations",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "parameters": [
+                {
+                  "comment": "",
+                  "expression": "4.0",
+                  "name": "ap_spigot_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "4.0",
+                  "name": "ap_spigot_l",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "10.0",
+                  "name": "ap_flange_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "ap_flange_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "6.0",
+                  "name": "ap_boss_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "2.5",
+                  "name": "ap_boss_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                  "name": "ap_len",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "ap_hex_af",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "2.0",
+                  "name": "ap_hex_dep",
+                  "unit": "mm"
+                }
+              ]
+            },
+            "feature": "setup.parameters",
+            "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+            "op": "set_parameters",
+            "op_id": "RP2-OP-0002",
+            "satisfies": []
+          },
+          {
+            "args": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            },
+            "feature": "mech.AP-SPIGOT.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-SPIGOT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0005",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_spigot_d",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0006",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "AP_BODY",
+              "direction": "positive",
+              "distance": "ap_spigot_l",
+              "operation": "new_body",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.extrude",
+            "note": "repair attempt 2: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0007",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-FLANGE on PL_FLANGE.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0008",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_flange_d",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0009",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-FLANGE.body",
+              "direction": "positive",
+              "distance": "ap_flange_h",
+              "operation": "join",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.extrude",
+            "note": "repair attempt 2: Removal of thickness ap_flange_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0010",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            },
+            "feature": "mech.AP-BOSS.sketch",
+            "note": "repair attempt 2: Profile sketch for AP-BOSS on PL_BOSS.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0011",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_boss_d",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0012",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-BOSS.body",
+              "direction": "positive",
+              "distance": "ap_boss_h",
+              "operation": "join",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.extrude",
+            "note": "repair attempt 2: Removal of thickness ap_boss_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0013",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            },
+            "feature": "mech.AP-HEX.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0014",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "ap_hex_dep",
+              "operation": "cut",
+              "sketch": "P4_HEX"
+            },
+            "feature": "mech.AP-HEX.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0016",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_FLANGE",
+              "offset": "ap_spigot_l"
+            },
+            "feature": "thermal.AP-FLANGE-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0017",
+            "satisfies": [
+              "AP-FLANGE-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_BOSS",
+              "offset": "ap_spigot_l + ap_flange_h"
+            },
+            "feature": "thermal.AP-BOSS-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0018",
+            "satisfies": [
+              "AP-BOSS-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TIP",
+              "offset": "ap_len"
+            },
+            "feature": "thermal.AP-TIP-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0019",
+            "satisfies": [
+              "AP-TIP-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP2-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 15 operation(s) of kind(s) construction_sketch, extrude, offset_plane, parameters, sketch, sketch_circle that bear on 25 failed check(s)"
+      },
+      "sequence_digest": "sha256:81fbd96fddec47236d94630bb26640d91146a5d1d2a2cc48934eb6c6ff5783b7",
+      "verdict": {
+        "attempt": 1,
+        "checks": 29,
+        "failed": 25,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 11,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 4 exceeds tolerance 1e-06",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 7,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": false,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_FLANGE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_BOSS' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-BOSS-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_BOSS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TIP' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TIP.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 9 exceeds tolerance 1e-06",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "9 declared parameter(s) absent from the model: ap_boss_d, ap_boss_h, ap_flange_d, ap_flange_h, ap_hex_af, ap_hex_dep, ap_len, ap_spigot_d ...",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "P1_SPIGOT: absent; P1_SPIGOT: absent; P2_FLANGE: absent; P2_FLANGE: absent; P3_BOSS: absent; P3_BOSS: absent",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "6 not constrained",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T175856-8b8da6.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 2,
+      "dispatched": 5,
+      "executed": 4,
+      "execution_halt": "RP2-OP-0008 (create_sketch) did not execute - REJECTED: bad_argument: plane 'PL_FLANGE' not found. Base planes: XY, XZ, YZ. Construction planes: none",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451337.4521024,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 9
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451337.4414668,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.3190813,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.311727,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.5786967,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.56221,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.834499,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "AP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.8143523,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0005",
+          "error": {
+            "kind": "bad_argument",
+            "message": "plane 'PL_FLANGE' not found. Base planes: XY, XZ, YZ. Construction planes: none"
+          },
+          "executed": false,
+          "finished_at": 1786451340.0673969,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786451340.0668473,
+          "status": "REJECTED"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {},
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "ap_flange_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_flange_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "ap_boss_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.5",
+                "name": "ap_boss_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_hex_af",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.0",
+                "name": "ap_hex_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "RP2-OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "repair attempt 2: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0008",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "repair attempt 2: Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "repair attempt 2: Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0011",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0012",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "repair attempt 2: Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0014",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0016",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset": "ap_spigot_l"
+          },
+          "feature": "thermal.AP-FLANGE-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0017",
+          "satisfies": [
+            "AP-FLANGE-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset": "ap_spigot_l + ap_flange_h"
+          },
+          "feature": "thermal.AP-BOSS-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0018",
+          "satisfies": [
+            "AP-BOSS-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset": "ap_len"
+          },
+          "feature": "thermal.AP-TIP-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0019",
+          "satisfies": [
+            "AP-TIP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP2-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 3,
+        "diagnoses": [
+          {
+            "evidence": "bodies.count: expected 1, observed 0 (delta 1 exceeds tolerance 1e-06)",
+            "failed_requirement": "bodies.count",
+            "finding": "ACC-BODY-COUNT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-SPIGOT",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dx: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dy: expected 10.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "features.count: expected 4, observed 0 (delta 4 exceeds tolerance 1e-06)",
+            "failed_requirement": "features.count",
+            "finding": "ACC-FEATURES",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.volume_mm3: expected 341.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-VOL",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.mass_kg: expected 0.00151, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-MASS",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "bodies.count: expected '>= 1', observed 0 (the solution extrudes a solid but the model reports no body)",
+            "failed_requirement": "bodies.count",
+            "finding": "GEO-BODY-PRESENT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:AP_BODY.dz: expected 4.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:AP_BODY.dz",
+            "finding": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-FLANGE.body.dz: expected 3.0, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-FLANGE.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:mech.AP-BOSS.body.dz: expected 2.5, observed None (named body is not present in the observed model)",
+            "failed_requirement": "body:mech.AP-BOSS.body.dz",
+            "finding": "GEO-EXTENT-mech.AP-BOSS.extrude",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "plane:PL_FLANGE.offset_mm: expected 4.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-FLANGE-PLANE",
+            "finding": "ACC-PL-FLANGE",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_BOSS.offset_mm: expected 7.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-BOSS-PLANE",
+            "finding": "ACC-PL-BOSS",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TIP.offset_mm: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-TIP-PLANE",
+            "finding": "ACC-PL-TIP",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "sketch:P4_HEX.exists: expected True, observed False (boolean mismatch)",
+            "failed_requirement": "AP-HEX",
+            "finding": "ACC-SK-HEX",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_FLANGE.exists: expected True, observed False (construction plane 'PL_FLANGE' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_FLANGE.exists",
+            "finding": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_BOSS.exists: expected True, observed False (construction plane 'PL_BOSS' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_BOSS.exists",
+            "finding": "IF-PLANE-thermal.AP-BOSS-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TIP.exists: expected True, observed False (construction plane 'PL_TIP' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TIP.exists",
+            "finding": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "document.units: expected 'mm', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "document.units",
+            "finding": "ACC-UNITS",
+            "likely_cause": "the document was created in a different length unit, which rescales every dimension in the solution",
+            "proposed_correction": "the document unit cannot be corrected in place without reinterpreting existing geometry - escalate",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "component.name: expected 'SEWCP-700_ALIGNMENT_PIN', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "component.name",
+            "finding": "ACC-NAME",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 9, observed 0 (delta 9 exceeds tolerance 1e-06)",
+            "failed_requirement": "parameters.count",
+            "finding": "ACC-PARAM-COUNT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_len.value: expected 9.5, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-HEX",
+            "finding": "ACC-LEN",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_len.is_derived: expected True, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "parameter:ap_len.is_derived",
+            "finding": "ACC-LEN-DERIVED",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:ap_boss_d.value: expected 6.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "AP-BOSS",
+            "finding": "ACC-BOSS-D",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 9, observed 0 (9 declared parameter(s) absent from the model: ap_boss_d, ap_boss_h, ap_flange_d, ap_flange_h, ap_hex_af, ap_hex_dep, ap_len, ap_spigot_d ...)",
+            "failed_requirement": "parameters.count",
+            "finding": "CON-PARAM-PRESENT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "sketch:*.fully_constrained: expected True, observed '6 not constrained' (P1_SPIGOT: absent; P1_SPIGOT: absent; P2_FLANGE: absent; P2_FLANGE: absent; P3_BOSS: absent; P3_BOSS: absent)",
+            "failed_requirement": "sketch:*.fully_constrained",
+            "finding": "CON-SKETCH-CONSTRAINED",
+            "likely_cause": "the sketch carries degrees of freedom the solution requires it not to have; a later feature located against it can move",
+            "proposed_correction": "re-dispatch the sketch and its dimensioning operations",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "document.units: expected 'mm', observed None (every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them)",
+            "failed_requirement": "document.units",
+            "finding": "CON-UNITS",
+            "likely_cause": "the document was created in a different length unit, which rescales every dimension in the solution",
+            "proposed_correction": "the document unit cannot be corrected in place without reinterpreting existing geometry - escalate",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "parameters": [
+                {
+                  "comment": "",
+                  "expression": "4.0",
+                  "name": "ap_spigot_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "4.0",
+                  "name": "ap_spigot_l",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "10.0",
+                  "name": "ap_flange_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "ap_flange_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "6.0",
+                  "name": "ap_boss_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "2.5",
+                  "name": "ap_boss_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                  "name": "ap_len",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "ap_hex_af",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "2.0",
+                  "name": "ap_hex_dep",
+                  "unit": "mm"
+                }
+              ]
+            },
+            "feature": "setup.parameters",
+            "note": "repair attempt 3: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+            "op": "set_parameters",
+            "op_id": "RP3-OP-0002",
+            "satisfies": []
+          },
+          {
+            "args": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            },
+            "feature": "mech.AP-SPIGOT.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-SPIGOT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0005",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_spigot_d",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0006",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "AP_BODY",
+              "direction": "positive",
+              "distance": "ap_spigot_l",
+              "operation": "new_body",
+              "sketch": "P1_SPIGOT"
+            },
+            "feature": "mech.AP-SPIGOT.extrude",
+            "note": "repair attempt 3: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0007",
+            "satisfies": [
+              "AP-SPIGOT"
+            ]
+          },
+          {
+            "args": {
+              "name": "P2_FLANGE",
+              "plane": "PL_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-FLANGE on PL_FLANGE.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0008",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_flange_d",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0009",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-FLANGE.body",
+              "direction": "positive",
+              "distance": "ap_flange_h",
+              "operation": "join",
+              "sketch": "P2_FLANGE"
+            },
+            "feature": "mech.AP-FLANGE.extrude",
+            "note": "repair attempt 3: Removal of thickness ap_flange_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0010",
+            "satisfies": [
+              "AP-FLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "P3_BOSS",
+              "plane": "PL_BOSS"
+            },
+            "feature": "mech.AP-BOSS.sketch",
+            "note": "repair attempt 3: Profile sketch for AP-BOSS on PL_BOSS.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0011",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "ap_boss_d",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.circle",
+            "note": "repair attempt 3: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0012",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "mech.AP-BOSS.body",
+              "direction": "positive",
+              "distance": "ap_boss_h",
+              "operation": "join",
+              "sketch": "P3_BOSS"
+            },
+            "feature": "mech.AP-BOSS.extrude",
+            "note": "repair attempt 3: Removal of thickness ap_boss_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0013",
+            "satisfies": [
+              "AP-BOSS"
+            ]
+          },
+          {
+            "args": {
+              "name": "P4_HEX",
+              "plane": "PL_TIP"
+            },
+            "feature": "mech.AP-HEX.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0014",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "ap_hex_dep",
+              "operation": "cut",
+              "sketch": "P4_HEX"
+            },
+            "feature": "mech.AP-HEX.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0016",
+            "satisfies": [
+              "AP-HEX"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_FLANGE",
+              "offset": "ap_spigot_l"
+            },
+            "feature": "thermal.AP-FLANGE-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0017",
+            "satisfies": [
+              "AP-FLANGE-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_BOSS",
+              "offset": "ap_spigot_l + ap_flange_h"
+            },
+            "feature": "thermal.AP-BOSS-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0018",
+            "satisfies": [
+              "AP-BOSS-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TIP",
+              "offset": "ap_len"
+            },
+            "feature": "thermal.AP-TIP-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0019",
+            "satisfies": [
+              "AP-TIP-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP3-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 15 operation(s) of kind(s) construction_sketch, extrude, offset_plane, parameters, sketch, sketch_circle that bear on 27 failed check(s)"
+      },
+      "sequence_digest": "sha256:a3e5893b0c3bd5c56cf5e06104311102b69c50bb1252bb8b6bf75cd3d505c44d",
+      "verdict": {
+        "attempt": 2,
+        "checks": 29,
+        "failed": 27,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 11,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 4 exceeds tolerance 1e-06",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 7,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": false,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_FLANGE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_BOSS' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-BOSS-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_BOSS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TIP' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TIP.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 9,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 9 exceeds tolerance 1e-06",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "9 declared parameter(s) absent from the model: ap_boss_d, ap_boss_h, ap_flange_d, ap_flange_h, ap_hex_af, ap_hex_dep, ap_len, ap_spigot_d ...",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "P1_SPIGOT: absent; P1_SPIGOT: absent; P2_FLANGE: absent; P2_FLANGE: absent; P3_BOSS: absent; P3_BOSS: absent",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "6 not constrained",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T175856-8b8da6.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 3,
+      "dispatched": 5,
+      "executed": 4,
+      "execution_halt": "RP3-OP-0008 (create_sketch) did not execute - REJECTED: bad_argument: plane 'PL_FLANGE' not found. Base planes: XY, XZ, YZ. Construction planes: none",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T175856-8b8da6.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451337.4521024,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 9
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451337.4414668,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.3190813,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "P1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.311727,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.5786967,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "P1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.56221,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T175856-8b8da6.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786451339.834499,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "AP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786451339.8143523,
+          "status": "OK"
+        },
+        {
+          "command_id": "A3-RUN-20260811T175856-8b8da6.S1-0005",
+          "error": {
+            "kind": "bad_argument",
+            "message": "plane 'PL_FLANGE' not found. Base planes: XY, XZ, YZ. Construction planes: none"
+          },
+          "executed": false,
+          "finished_at": 1786451340.304224,
+          "fusion": {
+            "document": "SEWCP-700_ALIGNMENT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786451340.3036335,
+          "status": "REJECTED"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {},
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "ap_spigot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "ap_flange_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_flange_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "ap_boss_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.5",
+                "name": "ap_boss_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "ap_spigot_l + ap_flange_h + ap_boss_h",
+                "name": "ap_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "ap_hex_af",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.0",
+                "name": "ap_hex_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "repair attempt 3: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "RP3-OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "P1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.AP-SPIGOT.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0005",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_spigot_d",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0006",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "AP_BODY",
+            "direction": "positive",
+            "distance": "ap_spigot_l",
+            "operation": "new_body",
+            "sketch": "P1_SPIGOT"
+          },
+          "feature": "mech.AP-SPIGOT.extrude",
+          "note": "repair attempt 3: Solid of thickness ap_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0007",
+          "satisfies": [
+            "AP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "P2_FLANGE",
+            "plane": "PL_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-FLANGE on PL_FLANGE.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0008",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_flange_d",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0009",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-FLANGE.body",
+            "direction": "positive",
+            "distance": "ap_flange_h",
+            "operation": "join",
+            "sketch": "P2_FLANGE"
+          },
+          "feature": "mech.AP-FLANGE.extrude",
+          "note": "repair attempt 3: Removal of thickness ap_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0010",
+          "satisfies": [
+            "AP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "P3_BOSS",
+            "plane": "PL_BOSS"
+          },
+          "feature": "mech.AP-BOSS.sketch",
+          "note": "repair attempt 3: Profile sketch for AP-BOSS on PL_BOSS.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0011",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ap_boss_d",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.circle",
+          "note": "repair attempt 3: Outer profile dimensioned by ap_boss_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0012",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "mech.AP-BOSS.body",
+            "direction": "positive",
+            "distance": "ap_boss_h",
+            "operation": "join",
+            "sketch": "P3_BOSS"
+          },
+          "feature": "mech.AP-BOSS.extrude",
+          "note": "repair attempt 3: Removal of thickness ap_boss_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0013",
+          "satisfies": [
+            "AP-BOSS"
+          ]
+        },
+        {
+          "args": {
+            "name": "P4_HEX",
+            "plane": "PL_TIP"
+          },
+          "feature": "mech.AP-HEX.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0014",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "ap_hex_dep",
+            "operation": "cut",
+            "sketch": "P4_HEX"
+          },
+          "feature": "mech.AP-HEX.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0016",
+          "satisfies": [
+            "AP-HEX"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_FLANGE",
+            "offset": "ap_spigot_l"
+          },
+          "feature": "thermal.AP-FLANGE-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for CP-IF-1, located by ap_spigot_l so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0017",
+          "satisfies": [
+            "AP-FLANGE-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_BOSS",
+            "offset": "ap_spigot_l + ap_flange_h"
+          },
+          "feature": "thermal.AP-BOSS-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for CP-IF-4, located by ap_spigot_l + ap_flange_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0018",
+          "satisfies": [
+            "AP-BOSS-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TIP",
+            "offset": "ap_len"
+          },
+          "feature": "thermal.AP-TIP-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for AP-TIP-PLANE, located by ap_len so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0019",
+          "satisfies": [
+            "AP-TIP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP3-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "sequence_digest": "sha256:a3e5893b0c3bd5c56cf5e06104311102b69c50bb1252bb8b6bf75cd3d505c44d",
+      "verdict": {
+        "attempt": 3,
+        "checks": 29,
+        "failed": 27,
+        "reports": [
+          {
+            "checks": 11,
+            "failed": 11,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-SPIGOT",
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 10.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE",
+                "subject": "body:AP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 4 exceeds tolerance 1e-06",
+                "expected": 4,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 341.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.00151,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-MASS",
+                "subject": "body:AP_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 4.0,
+                "id": "GEO-EXTENT-mech.AP-SPIGOT.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:AP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 3.0,
+                "id": "GEO-EXTENT-mech.AP-FLANGE.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-FLANGE.body.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "named body is not present in the observed model",
+                "expected": 2.5,
+                "id": "GEO-EXTENT-mech.AP-BOSS.extrude",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "body:mech.AP-BOSS.body.dz"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 7,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 4.0,
+                "id": "ACC-PL-FLANGE",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-FLANGE-PLANE",
+                "subject": "plane:PL_FLANGE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 7.0,
+                "id": "ACC-PL-BOSS",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS-PLANE",
+                "subject": "plane:PL_BOSS.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-PL-TIP",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-TIP-PLANE",
+                "subject": "plane:PL_TIP.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-HEX",
+                "observed": false,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "sketch:P4_HEX.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_FLANGE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-FLANGE-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_FLANGE.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_BOSS' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-BOSS-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_BOSS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TIP' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.AP-TIP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TIP.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 9,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-700_ALIGNMENT_PIN",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 9 exceeds tolerance 1e-06",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 9.5,
+                "id": "ACC-LEN",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-HEX",
+                "subject": "parameter:ap_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-LEN-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:ap_len.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 6.0,
+                "id": "ACC-BOSS-D",
+                "observed": null,
+                "passed": false,
+                "requirement": "AP-BOSS",
+                "subject": "parameter:ap_boss_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "9 declared parameter(s) absent from the model: ap_boss_d, ap_boss_h, ap_flange_d, ap_flange_h, ap_hex_af, ap_hex_dep, ap_len, ap_spigot_d ...",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "P1_SPIGOT: absent; P1_SPIGOT: absent; P2_FLANGE: absent; P2_FLANGE: absent; P3_BOSS: absent; P3_BOSS: absent",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "6 not constrained",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T175856-8b8da6.S1",
+        "verdict": "FAIL"
+      }
+    }
+  ],
+  "component": "SEWCP-700_ALIGNMENT_PIN",
+  "domains": [
+    "geometry",
+    "structural",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [
+    "attempt limit 3 reached with 27 check(s) still failing"
+  ],
+  "finished_at": 1786451340.4737058,
+  "package_digest": "sha256:8b8da66b04ad2c92e2f9d36d2ffacdb2cb64ba58ab60956b39509b71475c8ccc",
+  "package_id": "SEWCP-700-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:d19ebfc78352d6a45b5e17628a29abf8ee28cb05b34abf169ee7906a1f7a28ef",
+  "run_id": "RUN-20260811T175856-8b8da6",
+  "solution_digest": "sha256:2c2f20f56ee62a4c90d92ffb34b114a79782c5916d926cebf2292df64b38c61c",
+  "solution_id": "RUN-20260811T175856-8b8da6.S1",
+  "started_at": 1786451336.6950748,
+  "verdict": "FAIL"
+}

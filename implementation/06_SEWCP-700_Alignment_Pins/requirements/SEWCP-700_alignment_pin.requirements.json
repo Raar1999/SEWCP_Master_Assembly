@@ -1,0 +1,117 @@
+{
+  "package_id": "SEWCP-700-REQ-001",
+  "component": "SEWCP-700_ALIGNMENT_PIN",
+  "authority": [
+    "spec/06_SEWCP-700_Alignment_Pins.md Rev A (FROZEN) - AP-D01..AP-D06, AP-D09..AP-D14, section 6 material (ECR-D-008: Ti-6Al-4V Grade 5), as amended by ECR-D-009 (integral shouldered locator screw) and ECR-D-007 action 3 (flange O12 -> O10)",
+    "spec/01_SEWCP-200_Cooling_Plate.md CP-IF-1/CP-IF-4 (mating counterbores, verified in the SEWCP-200 model)"
+  ],
+  "scope": {
+    "document_name": "SEWCP-700_ALIGNMENT_PIN",
+    "units": "mm",
+    "bounded": "The single integral part: M4 retention spigot, O10.000 h6 flange, O6.000 h6 locating boss, 3.0 A/F hex drive socket, Ti-6Al-4V. Datum: Z=0 at the spigot end; overall 9.50 (AP-D12 = spigot 4.00 + flange 3.00 + boss 2.50, closed by the derived ap_len).",
+    "modelling_conventions": "The M4 spigot is modelled at nominal thread diameter (simplified thread). AP-D05 (R0.4 fillet) and AP-D06 (0.5 x 30 chamfer) are machined edge features deferred to the drawing, the same convention as the SEWCP-200 edge breaks; AP-D09/D10/D11 (concentricity, perpendicularity, finish) are inspection callouts - concentricity holds by construction on the shared axis.",
+    "open_state": "None of ECR-Q-011, the path-length item, or CP-02 bears on this part."
+  },
+
+  "parameters": [
+    {"name": "ap_spigot_d", "expression": "4.0", "unit": "mm", "source": "AP-D13 M4 x 0.7, nominal"},
+    {"name": "ap_spigot_l", "expression": "4.0", "unit": "mm", "source": "AP-D13"},
+    {"name": "ap_flange_d", "expression": "10.0", "unit": "mm", "source": "AP-D03 h6 (ECR-D-007 action 3)"},
+    {"name": "ap_flange_h", "expression": "3.0", "unit": "mm", "source": "AP-D04"},
+    {"name": "ap_boss_d", "expression": "6.0", "unit": "mm", "source": "AP-D01 h6"},
+    {"name": "ap_boss_h", "expression": "2.5", "unit": "mm", "source": "AP-D02"},
+    {"name": "ap_len", "expression": "ap_spigot_l + ap_flange_h + ap_boss_h", "unit": "mm", "source": "AP-D12 = 9.50, closed arithmetically"},
+    {"name": "ap_hex_af", "expression": "3.0", "unit": "mm", "source": "AP-D14"},
+    {"name": "ap_hex_dep", "expression": "2.0", "unit": "mm", "source": "AP-D14"}
+  ],
+
+  "material": {
+    "name": "Titanium 6Al-4V",
+    "density": 4430,
+    "source": "spec/06 section 6 (ECR-D-008)"
+  },
+
+  "requirements": [
+    {"id": "AP-SPIGOT", "kind": "geometry",
+     "statement": "Integral M4 x 0.7 retention spigot, 4.00 long, below the flange face - the part is its own fastener (ECR-D-009).",
+     "source": "spec/06 AP-D13", "unit": "mm",
+     "value": {"form": "disc", "plane": "XY", "sketch": "P1_SPIGOT",
+       "diameter": "ap_spigot_d", "thickness": "ap_spigot_l",
+       "direction": "positive", "operation": "new_body", "body": "AP_BODY"}},
+    {"id": "AP-FLANGE-PLANE", "kind": "interface",
+     "statement": "The flange underside plane at the spigot/flange junction - the face that seats flush in the O10.0 H7 counterbore (0 to 0.024 clearance).",
+     "source": "spec/06 AP-D03/AP-D04; spec/01 CP-IF-1/CP-IF-4", "unit": "mm",
+     "value": {"form": "datum_plane", "name": "PL_FLANGE", "base": "XY",
+       "offset": "ap_spigot_l", "interface": "CP-IF-1", "after": []}},
+    {"id": "AP-FLANGE", "kind": "geometry",
+     "statement": "O10.000 h6 flange, 3.000 thick - position transfer into the plate counterbore.",
+     "source": "spec/06 AP-D03/AP-D04", "unit": "mm",
+     "value": {"form": "disc", "plane": "PL_FLANGE", "sketch": "P2_FLANGE",
+       "diameter": "ap_flange_d", "thickness": "ap_flange_h",
+       "direction": "positive", "operation": "join",
+       "after": ["thermal.AP-FLANGE-PLANE.plane"]}},
+    {"id": "AP-BOSS-PLANE", "kind": "interface",
+     "statement": "The flange top face plane - the boss protrusion datum.",
+     "source": "spec/06 AP-D02", "unit": "mm",
+     "value": {"form": "datum_plane", "name": "PL_BOSS", "base": "XY",
+       "offset": "ap_spigot_l + ap_flange_h", "interface": "CP-IF-4", "after": []}},
+    {"id": "AP-BOSS", "kind": "geometry",
+     "statement": "O6.000 h6 locating boss protruding 2.50 - engages the mating radial slot; must not bottom in the 3.0 slot.",
+     "source": "spec/06 AP-D01/AP-D02", "unit": "mm",
+     "value": {"form": "disc", "plane": "PL_BOSS", "sketch": "P3_BOSS",
+       "diameter": "ap_boss_d", "thickness": "ap_boss_h",
+       "direction": "positive", "operation": "join",
+       "after": ["thermal.AP-BOSS-PLANE.plane"]}},
+    {"id": "AP-TIP-PLANE", "kind": "interface",
+     "statement": "The boss end plane at overall length 9.50 - drive-socket datum.",
+     "source": "spec/06 AP-D12/AP-D14", "unit": "mm",
+     "value": {"form": "datum_plane", "name": "PL_TIP", "base": "XY",
+       "offset": "ap_len", "interface": null, "after": []}},
+    {"id": "AP-HEX", "kind": "geometry",
+     "statement": "3.0 A/F hex drive socket, 2.0 deep, in the boss end (ISO 4762 key). Circumradius A/F divided by sqrt(3) = 1.7320508.",
+     "source": "spec/06 AP-D14", "unit": "mm",
+     "value": {"form": "profile_cut", "sketch": "P4_HEX", "plane": "PL_TIP",
+       "depth": "ap_hex_dep", "direction": "negative",
+       "after": ["mech.AP-BOSS.extrude", "thermal.AP-TIP-PLANE.plane"],
+       "points": [
+         ["1.732051", "0", "ap_len"],
+         ["0.866025", "1.5", "ap_len"],
+         ["-0.866025", "1.5", "ap_len"],
+         ["-1.732051", "0", "ap_len"],
+         ["-0.866025", "-1.5", "ap_len"],
+         ["0.866025", "-1.5", "ap_len"]]}},
+    {"id": "AP-MASS", "kind": "structural",
+     "statement": "Single Ti-6Al-4V part, ~341 mm3, ~1.5 g - verified from the observed body with the material assigned.",
+     "source": "spec/06 section 6", "unit": "kg"},
+    {"id": "MFG-AP", "kind": "manufacturing",
+     "statement": "Turned in one setup boss-to-flange for AP-D09/AP-D10 (0.010 concentricity and perpendicularity); thread rolled or single-pointed; anti-galling dry film on spigot and flange face at assembly (ECR-D-009).",
+     "source": "spec/06 sections 6 and 10"}
+  ],
+
+  "interfaces": [
+    {"id": "AP-IF-1", "mates_to": "SEWCP-200 Cooling Plate", "nature": "Flange in O10.0 H7 counterbore (0-0.024), spigot into CP-D09a/CP-D10a M4 - both mating features verified in the SEWCP-200 model", "source": "spec/01 CP-IF-1/CP-IF-4"},
+    {"id": "AP-IF-2", "mates_to": "SEWCP-300/SEWCP-400 radial slots", "nature": "O6.000 h6 boss in 3.0 mm slots, 2.50 engagement", "source": "spec/06 AP-D01/AP-D02"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-700_ALIGNMENT_PIN"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 9},
+    {"id": "ACC-LEN", "check": "parameter", "subject": "parameter:ap_len.value", "expect": 9.5, "tolerance": 1e-06, "requirement": "AP-HEX"},
+    {"id": "ACC-LEN-DERIVED", "check": "constraint", "subject": "parameter:ap_len.is_derived", "expect": true},
+    {"id": "ACC-BOSS-D", "check": "parameter", "subject": "parameter:ap_boss_d.value", "expect": 6.0, "tolerance": 1e-06, "requirement": "AP-BOSS"},
+
+    {"id": "ACC-PL-FLANGE", "check": "interface", "subject": "plane:PL_FLANGE.offset_mm", "expect": 4.0, "tolerance": 0.0001, "requirement": "AP-FLANGE-PLANE"},
+    {"id": "ACC-PL-BOSS", "check": "interface", "subject": "plane:PL_BOSS.offset_mm", "expect": 7.0, "tolerance": 0.0001, "requirement": "AP-BOSS-PLANE"},
+    {"id": "ACC-PL-TIP", "check": "interface", "subject": "plane:PL_TIP.offset_mm", "expect": 9.5, "tolerance": 0.0001, "requirement": "AP-TIP-PLANE"},
+    {"id": "ACC-SK-HEX", "check": "interface", "subject": "sketch:P4_HEX.exists", "expect": true, "requirement": "AP-HEX"},
+
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:AP_BODY.dz", "expect": 9.5, "tolerance": 0.001, "requirement": "AP-SPIGOT"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:AP_BODY.dx", "expect": 10.0, "tolerance": 0.01, "requirement": "AP-FLANGE"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:AP_BODY.dy", "expect": 10.0, "tolerance": 0.01, "requirement": "AP-FLANGE"},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 4},
+    {"id": "ACC-VOL", "check": "geometry", "subject": "body:AP_BODY.volume_mm3", "expect": 341.0, "tolerance": 5.0, "requirement": "AP-MASS"},
+    {"id": "ACC-MASS", "check": "mass", "subject": "body:AP_BODY.mass_kg", "expect": 0.00151, "tolerance": 0.0003, "requirement": "AP-MASS"}
+  ]
+}

@@ -142,7 +142,7 @@ class MechanicalDesignAgent:
     #: an escalation, never a best guess at what the author meant.
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
              "port_stub", "body_combine", "axial_hole_pattern",
-             "slot_pattern", "transverse_drill")
+             "slot_pattern", "transverse_drill", "profile_cut")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -206,7 +206,9 @@ class MechanicalDesignAgent:
                     kind="sketch",
                     params={"name": sketch, "plane": plane, "fully_constrained": True},
                     satisfies=(req.id,),
-                    depends_on=(prior,),
+                    # `after` is additive: a disc on a derived plane needs
+                    # both its build-order anchor and the plane's feature.
+                    depends_on=(prior,) + tuple(form.get("after", ())),
                     rationale=f"Profile sketch for {req.id} on {plane}.",
                 ),
                 FeatureSpec(
@@ -230,8 +232,9 @@ class MechanicalDesignAgent:
                         "direction": str(form.get("direction", "positive")),
                         "operation": str(form.get("operation", "new_body")),
                         **({"body_name": str(form["body"])} if "body" in form
-                           else ({} if form.get("operation") == "cut"
-                                 else {"body_name": f"{base}.body"})),
+                           else ({"body_name": f"{base}.body"}
+                                 if form.get("operation", "new_body")
+                                 == "new_body" else {})),
                     },
                     satisfies=(req.id,),
                     depends_on=(f"{base}.circle",),
@@ -256,6 +259,36 @@ class MechanicalDesignAgent:
 
         if form["form"] == "transverse_drill":
             return self._build_transverse_drills(req, form, prior)
+
+        if form["form"] == "profile_cut":
+            base_id = f"mech.{req.id}"
+            from aief_cad.expr import evaluate
+            env = resolve_all(self._package_parameters)
+            pts = [[round(float(evaluate(str(c), env)), 6) for c in p]
+                   for p in form["points"]]
+            sketch = str(form["sketch"])
+            return [
+                FeatureSpec(
+                    id=f"{base_id}.sketch", kind="sketch",
+                    params={"name": sketch, "plane": str(form["plane"])},
+                    satisfies=(req.id,),
+                    depends_on=(prior,) + tuple(form.get("after", ())),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.profile", kind="sketch_profile",
+                    params={"sketch": sketch, "points": pts},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.sketch",),
+                    rationale=form.get("rationale", ""),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.cut", kind="extrude",
+                    params={"sketch": sketch,
+                            "distance": _param_ref(req, "depth", form),
+                            "direction": str(form.get("direction", "negative")),
+                            "operation": "cut"},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.profile",),
+                ),
+            ]
 
         if form["form"] == "slot_pattern":
             return self._build_slots(req, form, prior)

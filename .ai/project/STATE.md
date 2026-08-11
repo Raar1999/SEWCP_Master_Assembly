@@ -33,8 +33,8 @@ next_action: |
   verified from observed Fusion state; evidence cad/runs/; doc saved v4;
   observed mass 3.995 kg (CP-15 in-model; scale at build).
 
-  NEXT: SEWCP-200 drawing package (S9/S10 masks, edge breaks, sheets)
-  or the next component volume.
+  SEWCP-700 pin complete: PASS 25/25, exported (cad/DELIVERABLES.md).
+  NEXT: SEWCP-300 heater plate volume, or the SEWCP-200 drawing stage.
 
   Open: ECR-Q-011 (rib 5.0 provisional), path 1.64 vs ~2.2 m, CP-02.
   NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
