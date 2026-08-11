@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import json
 import re
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -338,9 +339,11 @@ def check_v02(manifest: Manifest) -> Check:
                    "PASS" if not failures else "FAIL", counts, failures)
 
 
-def check_v03(manifest: Manifest) -> Check:
+def check_v03(manifest: Manifest, repo_root: Path) -> Check:
     """V-03: 'Every law, agent, template, schema, workflow and check reference
-    resolves' (validation[V-03].verifies)."""
+    resolves' (validation[V-03].verifies), PLUS the bounded-register split
+    half AIEF-AMD-014 AMD-49 bound into this check - see
+    `_bounded_register_split`."""
     failures: list[str] = []
     roles = _role_ids(manifest) | {"human-owner"}
     law_ids = {l["id"] for l in manifest.data["laws"]}
@@ -382,10 +385,147 @@ def check_v03(manifest: Manifest) -> Check:
         if phase["workflow"] not in file_ids:
             failures.append(f"runtime phase {phase['phase']} workflow unresolved")
 
+    split = _bounded_register_split(manifest, repo_root)
+    failures += split.failures
+
     return _result("V-03", "Cross-reference validation",
                    "PASS" if not failures else "FAIL",
-                   {"roles": len(roles), "laws": len(law_ids), "checks": len(check_ids)},
+                   {"roles": len(roles), "laws": len(law_ids),
+                    "checks": len(check_ids),
+                    "register_pairs": split.pairs,
+                    "mapped_identifiers": split.identifiers},
                    failures)
+
+
+@dataclass(frozen=True)
+class _SplitResult:
+    pairs: int
+    identifiers: int
+    failures: list[str]
+
+
+_INDEX_ID = re.compile(r"^[A-Za-z][A-Za-z0-9-]*(?:…[A-Za-z0-9-]+)?$")
+_REGISTER_ROW = re.compile(r"^\|\s*([^|]+?)\s*\|")
+
+
+def _md_sections(text: str, *, rows: bool) -> dict[str, list[str]]:
+    """Level-2 headings to their identifiers, under the AMD-49 grammar.
+
+    `rows=False` reads an index: one identifier per line, nothing else on that
+    line. `rows=True` reads a register: the leading cell of each table row.
+    """
+    out: dict[str, list[str]] = {}
+    current: str | None = None
+    for line in text.split("\n"):
+        if line.startswith("## "):
+            current = line[3:].strip()
+            out[current] = []
+            continue
+        if current is None:
+            continue
+        if rows:
+            if (line.startswith("|") and not line.startswith("|---")
+                    and not re.match(r"^\|\s*ID\s*\|", line)):
+                m = _REGISTER_ROW.match(line)
+                if m:
+                    out[current].append(m.group(1).strip())
+        else:
+            s = line.strip()
+            if s and not s.startswith((">", "|", "#", "-", "*", "`")):
+                out[current].append(s)
+    return out
+
+
+def _bounded_register_split(manifest: Manifest, repo_root: Path) -> _SplitResult:
+    """The half of validation[V-03] that AIEF-AMD-014 AMD-49 declared and that
+    was never implemented.
+
+    validation[V-03].verifies: 'for every pair declared in
+    metadata.reproducible.bounded_register_split.pairs the declared mapping
+    holds in both directions - for the open-items pair the identifier bijection
+    of mapping_open_items ... - and the index conforms to index_grammar. A
+    missing, duplicated or section-mismatched identifier on either side, or an
+    index line carrying anything beyond one identifier, is a BLOCKING defect'.
+
+    Implemented S-2026-08-11-06. It was declared BLOCKING by an approved
+    amendment and checked by nothing for four sessions, and it found two live
+    breaks the moment it ran: five register rows carrying a decorated leading
+    cell instead of a bare identifier, and two rows sitting in a register
+    section the index did not agree with. A ruling without a check is a
+    convention - the AMD-19/AMD-26 lesson, applied to AMD-49.
+
+    The state pair is deliberately NOT checked here: `mapping_state` is a
+    section-name correspondence over a YAML block rather than an identifier
+    bijection, and asserting the wrong relation is worse than asserting none.
+    Recorded as the declared residual of this implementation.
+    """
+    declared = manifest.reproducible.get("bounded_register_split")
+    if not declared:
+        return _SplitResult(0, 0, [])
+    failures: list[str] = []
+    pairs = declared.get("pairs", [])
+    checked = 0
+    identifiers = 0
+
+    for pair in pairs:
+        index_id, register_id = pair.get("index"), pair.get("register")
+        entry_i = manifest.files_by_id.get(index_id)
+        entry_r = manifest.files_by_id.get(register_id)
+        if not entry_i or not entry_r:
+            failures.append(
+                f"bounded_register_split pair {index_id}/{register_id}: "
+                f"a member does not resolve in files[]")
+            continue
+        if index_id != "open-items":
+            continue  # see the docstring: the state pair's relation differs
+        checked += 1
+        p_i = repo_root / ".ai" / entry_i["path"]
+        p_r = repo_root / ".ai" / entry_r["path"]
+        if not p_i.is_file() or not p_r.is_file():
+            failures.append(
+                f"bounded_register_split pair {index_id}: "
+                f"{'index' if not p_i.is_file() else 'register'} absent from the tree")
+            continue
+        idx = _md_sections(p_i.read_text(encoding="utf-8"), rows=False)
+        reg = _md_sections(p_r.read_text(encoding="utf-8"), rows=True)
+
+        for section, ids in idx.items():
+            for token in ids:
+                if not _INDEX_ID.match(token):
+                    failures.append(
+                        f"{entry_i['path']} section '{section}': index line "
+                        f"{token!r} carries more than one identifier - "
+                        f"index_grammar requires one id per line")
+            dupes = sorted({t for t in ids if ids.count(t) > 1})
+            if dupes:
+                failures.append(
+                    f"{entry_i['path']} section '{section}': duplicated "
+                    f"identifier(s) {dupes}")
+            identifiers += len(ids)
+
+        for section in sorted(set(idx) | set(reg)):
+            a, b = idx.get(section), reg.get(section)
+            if a is None or b is None:
+                failures.append(
+                    f"bounded_register_split: section '{section}' exists in "
+                    f"{'the register' if a is None else 'the index'} only - "
+                    f"the mapping is section-wise and a heading must appear in both")
+                continue
+            for missing in sorted(set(a) - set(b)):
+                failures.append(
+                    f"section '{section}': {missing} is in the index and is not "
+                    f"the leading cell of any register row")
+            for extra in sorted(set(b) - set(a)):
+                failures.append(
+                    f"section '{section}': {extra} leads a register row and is "
+                    f"not in the index")
+            rdupes = sorted({t for t in b if b.count(t) > 1})
+            if rdupes:
+                failures.append(
+                    f"section '{section}': duplicated register leading cell(s) "
+                    f"{rdupes}")
+
+    return _SplitResult(checked, identifiers, failures)
 
 
 def check_v04(manifest: Manifest) -> Check:
@@ -744,7 +884,7 @@ def run_preconditions(
     return [
         check_v01(manifest, repo_root),
         check_v02(manifest),
-        check_v03(manifest),
+        check_v03(manifest, repo_root),
         check_v04(manifest),
         check_v05(manifest, repo_root),
         check_v06(manifest, repo_root),

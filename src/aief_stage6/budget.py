@@ -193,12 +193,19 @@ def measure_text(
     token_cap 200), but its content contains the budget record - a count of
     the final lock inside the lock is a fixed point no construction defines.
     Resolved normatively by AMD-45 (lock_self_measurement): the emitted lock
-    octets are measured under both families against the 200 cap AFTER
-    serialisation and before the archive is built, outside the record, and a
-    breach halts the build exactly as an in-record breach does
+    octets are measured under both families AFTER serialisation and before
+    the archive is built, outside the record, and a breach halts the build
+    exactly as an in-record breach does
     (budget_measurement_record.verdict_rule). AMD-51 leaves this check
     unaffected; the cap is separately charged to the aggregate comparison in
     `measure`.
+
+    **Which octets** is declared by AMD-54 (AIEF-AMD-015, disposing
+    ECR-D-014): the boot-read prefix, not the whole document. Callers pass
+    the prefix - `lock.boot_read_prefix` computes it - and `label` records
+    what was measured, so a report never claims to have measured more than
+    it did. The whole-document reading was unsatisfiable by any conforming
+    lock and made the first authorised Stage 6 build a permanent halt.
     """
     counts = {t.family_id: t.count(text) for t in tokenizers.families}
     governing = max(counts.values())

@@ -25,6 +25,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from aief_stage6.binding import render_pin_update
+from aief_stage6.build import Authorization
 from aief_stage6.distributable import (
     UstarPathLimit,
     archive_name,
@@ -32,8 +33,17 @@ from aief_stage6.distributable import (
     build_archive,
     ustar_fits,
 )
-from aief_stage6.lock import build_lock_object, serialise_lock
-from aief_stage6.paths import WriteGuardViolation, assert_write_allowed
+from aief_stage6.lock import (
+    LockPrefixUndefined,
+    boot_read_prefix,
+    build_lock_object,
+    serialise_lock,
+)
+from aief_stage6.paths import (
+    CANONICAL_STAGE6_WRITES,
+    WriteGuardViolation,
+    assert_write_allowed,
+)
 
 from test_stage6_certification_coverage_budget import make_manifest
 
@@ -51,16 +61,32 @@ SCH_CORE_REQUIRED = [
     "aggregate_digest",
 ]
 
-#: core_aggregate.lock_serialisation declared member order.
-LOCK_MEMBER_ORDER = [
-    "framework_version",
-    "build_provenance",
-    "hash_algorithm",
-    "normalisation",
-    "aggregate_digest",
-    "budget_measurement",
-    "files",
-]
+def _declared_member_order() -> list[str]:
+    """The member order `core_aggregate.lock_serialisation` declares, READ FROM
+    THE MANIFEST rather than transcribed.
+
+    This was a transcribed constant. `AIEF-AMD-015` §AMD-55 moved
+    `aggregate_digest` from fifth position to second and the constant went
+    stale, asserting a superseded ruling against a conforming implementation -
+    the same snapshot-pinned-as-constant defect `OI-C-12` ruled on and `R-017`
+    repaired at the property. The order now comes from the authority: the
+    clause names the members in emission order after the words 'member order',
+    so parse them from it and the test tracks the ruling by construction.
+    """
+    manifest = json.loads(
+        (REPO_ROOT / "framework" / "framework.manifest.json").read_text(
+            encoding="utf-8")
+    )
+    clause = (manifest["metadata"]["reproducible"]["digest_constructions"]
+              ["core_aggregate"]["lock_serialisation"])
+    segment = clause.split("member order", 1)[1].split(";", 1)[0]
+    order = [name.strip() for name in segment.split(",")]
+    assert order, clause
+    return order
+
+
+#: core_aggregate.lock_serialisation declared member order, from the manifest.
+LOCK_MEMBER_ORDER = _declared_member_order()
 
 PASS_BUDGET = {"verdict": "PASS", "totals_t0_t1": {"TF-1": 1, "TF-2": 1}}
 
@@ -91,6 +117,43 @@ class TestLock:
         # digest read stays within the 200-token cap'.
         octets = serialise_lock(build_lock([("BOOT.md", Z)]))
         assert octets.index(b'"aggregate_digest"') < octets.index(b'"files"')
+
+    def test_boot_read_prefix_ends_at_the_aggregate_digest_line(self):
+        # AMD-54: 'the serialised lock from its first octet through the
+        # terminal LF of the line carrying the aggregate_digest member'.
+        text = serialise_lock(build_lock([("BOOT.md", Z), ("FRAMEWORK.md", O)])
+                              ).decode("utf-8")
+        prefix = boot_read_prefix(text)
+        assert text.startswith(prefix)
+        assert prefix.endswith("\n")
+        assert '"aggregate_digest"' in prefix
+        # The heavy members are outside it - that is the whole point.
+        assert '"files"' not in prefix
+        assert '"budget_measurement"' not in prefix
+        # Exactly one line beyond the aggregate_digest line is excluded.
+        assert prefix.count("\n") == text[:text.index('"aggregate_digest"')
+                                          ].count("\n") + 1
+
+    def test_boot_read_prefix_carries_no_run_scoped_value(self):
+        """AMD-55's reason for moving the member. If build_id or timestamp were
+        inside the measured region, the cap would bound a quantity that varies
+        with the length of a free-form identifier rather than one the
+        specification determines."""
+        a = boot_read_prefix(serialise_lock(build_lock_object(
+            make_manifest([]), "mech", [("BOOT.md", Z)], dict(PASS_BUDGET),
+            manifest_dc1=Z, build_id="b", timestamp="t")).decode("utf-8"))
+        b = boot_read_prefix(serialise_lock(build_lock_object(
+            make_manifest([]), "mech", [("BOOT.md", Z)], dict(PASS_BUDGET),
+            manifest_dc1=Z, build_id="stage6-" + "x" * 200,
+            timestamp="2026-08-11T00:00:00Z")).decode("utf-8"))
+        assert a == b
+
+    def test_boot_read_prefix_undefined_halts_rather_than_falls_back(self):
+        """A fallback is how a cap comes to bound a quantity nobody declared."""
+        with pytest.raises(LockPrefixUndefined):
+            boot_read_prefix('{\n  "framework_version": "1.0.0"\n}\n')
+        with pytest.raises(LockPrefixUndefined):
+            boot_read_prefix('{"aggregate_digest": "' + Z + '"')  # no LF
 
     def test_all_sch_core_manifest_required_fields_present(self):
         lock = build_lock([("BOOT.md", Z)])
@@ -323,3 +386,66 @@ class TestWriteGuard:
         assert_write_allowed(
             fixture_repo / "build" / "stage6" / "MANIFEST.lock", fixture_repo)
         assert_write_allowed(tmp_path / "elsewhere" / "anyfile", fixture_repo)
+
+    # ----------------------------------------------------------------------
+    # Canonical mode. The guard widens by EXACTLY two paths and by nothing
+    # else. These tests exist because "authorized" must not come to mean
+    # "unguarded" - an authorization that opened `.ai/**` would let a build
+    # rewrite the very artifacts B2a exists to protect.
+    # ----------------------------------------------------------------------
+
+    @pytest.mark.parametrize("rel", CANONICAL_STAGE6_WRITES)
+    def test_canonical_mode_allows_exactly_the_two_declared_outputs(
+        self, fixture_repo, rel
+    ):
+        assert_write_allowed(fixture_repo / Path(rel), fixture_repo,
+                             canonical_stage6=True)
+
+    @pytest.mark.parametrize("rel", [
+        ".ai/BOOT.md",
+        ".ai/FRAMEWORK.md",
+        ".ai/core/laws/LAW-01_architecture_freeze.md",
+        ".ai/project/STATE.md",
+        ".ai/project/FROZEN.md",
+        ".ai/core/MANIFEST.lock.bak",
+        ".ai/core/profiles/mechanical/PROFILE.md",
+        "framework/framework.manifest.json",
+        "spec/01_SEWCP-200_Cooling_Plate.md",
+    ])
+    def test_canonical_mode_refuses_every_other_readonly_path(
+        self, fixture_repo, rel
+    ):
+        with pytest.raises(WriteGuardViolation):
+            assert_write_allowed(fixture_repo / Path(rel), fixture_repo,
+                                 canonical_stage6=True)
+
+    def test_the_allow_list_is_exactly_the_two_generation_order_6_outputs(self):
+        assert set(CANONICAL_STAGE6_WRITES) == {
+            ".ai/core/MANIFEST.lock", ".ai/project/BINDING.md"}
+
+    def test_default_is_still_refused(self, fixture_repo):
+        """Omitting the flag must not fall through to permissive. A caller that
+        does not present an authorization writes no canonical byte."""
+        for rel in CANONICAL_STAGE6_WRITES:
+            with pytest.raises(WriteGuardViolation):
+                assert_write_allowed(fixture_repo / Path(rel), fixture_repo)
+
+
+class TestAuthorization:
+    """OQ-14 is carried as evidence, not as a boolean."""
+
+    def test_every_field_is_required(self):
+        for kwargs in (
+            {"authority": "", "recorded_at": "2026-08-11", "instruction": "go"},
+            {"authority": "human-owner", "recorded_at": "", "instruction": "go"},
+            {"authority": "human-owner", "recorded_at": "2026-08-11",
+             "instruction": "   "},
+        ):
+            with pytest.raises(ValueError):
+                Authorization(**kwargs)
+
+    def test_complete_record_is_accepted_and_travels_with_the_build(self):
+        a = Authorization("human-owner", "2026-08-11", "execute it autonomously")
+        assert a.as_record() == {
+            "authority": "human-owner", "recorded_at": "2026-08-11",
+            "instruction": "execute it autonomously"}

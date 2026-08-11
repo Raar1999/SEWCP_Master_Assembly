@@ -1,0 +1,98 @@
+{
+ "record": "LINEAGE_ROSTER",
+ "session": "S-2026-08-11-06",
+ "purpose": "Distilled from the bridge observation named below, which is under a gitignored path (cad/bridge/obs/). Without this record cad/LINEAGE_CENSUS.md would cite evidence a clone does not carry.",
+ "source_observation": {
+  "path": "cad/bridge/obs/ADM-1786469127-list_documents.obs.json",
+  "tracked_in_git": false,
+  "sha256_raw_octets": "29985f6968fef2711561e2f2d3301e67c3b47eb92429d3da7aaaea7fef467122",
+  "observed_at_utc": "2026-08-11T17:25:29Z",
+  "fusion": {
+   "document": "SEWCP-000_MASTER_ASSEMBLY v6",
+   "version": "2704.1.53"
+  },
+  "folder": "Automata"
+ },
+ "roster_size": 15,
+ "authoritative": [
+  {
+   "name": "SEWCP-000_MASTER_ASSEMBLY",
+   "version": 6,
+   "id": "urn:adsk.wipprod:dm.lineage:mrzDte2jQPmpOUjkHtqdwg"
+  },
+  {
+   "name": "SEWCP-1000_RETAINER",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:OgxUY0d9SK2YkEPXUz5HIA"
+  },
+  {
+   "name": "SEWCP-200_COOLING_PLATE",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:Bv-XxqZ6St-HOhXhFEaWaw"
+  },
+  {
+   "name": "SEWCP-300_HEATER_PLATE",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:t6Fu9jXoSIuqLifomxpPbQ"
+  },
+  {
+   "name": "SEWCP-400_SUPPORT_RING",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:pcZtbk4zRJ6XeA_kqWXXcw"
+  },
+  {
+   "name": "SEWCP-500_ESC_PUCK",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:J4N_VRDwQR-NlQR5Sl9pFg"
+  },
+  {
+   "name": "SEWCP-600_LIFT_PIN",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:AC0d1piXT3uIZ-r4LAeuiw"
+  },
+  {
+   "name": "SEWCP-700_ALIGNMENT_PIN",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:hD6s1e5fQO2y_3bMi4s0Uw"
+  },
+  {
+   "name": "SEWCP-800_PORT_BODY",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:57nBymVUSoCGUNrj50FRiA"
+  },
+  {
+   "name": "SEWCP-901_RF_STRAP",
+   "version": 1,
+   "id": "urn:adsk.wipprod:dm.lineage:scDapbt6Q-GB_IVL7wVLKg"
+  },
+  {
+   "name": "SEWCP-902_SADDLE",
+   "version": 1,
+   "id": "urn:adsk.wipprod:dm.lineage:LSt7GS_WReSy6gzDGpZYEA"
+  }
+ ],
+ "quarantined": [
+  {
+   "name": "ZZ-DERIVATIVE-STUCK_SEWCP-200-20260811",
+   "version": 7,
+   "id": "urn:adsk.wipprod:dm.lineage:WoAxyypMTw6xu9URnJdThg"
+  },
+  {
+   "name": "ZZ-SUPERSEDED-BLOCK_SEWCP-902-20260811",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:HrY3qvIYTQOVErReu60G7Q"
+  },
+  {
+   "name": "ZZ-SUPERSEDED-FREE-S_SEWCP-901-20260811",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:VGIDVJ6bSv2906tGL6aHhQ"
+  },
+  {
+   "name": "ZZ-SUPERSEDED-HOLES25_SEWCP-901-20260811",
+   "version": 2,
+   "id": "urn:adsk.wipprod:dm.lineage:g7BHnQL5T7ymp5uO0DNuCA"
+  }
+ ],
+ "disposition": "All four quarantined lineages PRESERVE - DECISIONS_S-2026-08-11-06 DEC-08. No lineage deleted. Analysis: cad/LINEAGE_CENSUS.md.",
+ "limit": "The roster is AS LAST OBSERVED, not as now. The bridge is not live in the session that wrote this record. Re-run list_documents before acting on it, and key any action on the lineage id, never the name."
+}

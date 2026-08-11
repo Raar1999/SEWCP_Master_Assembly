@@ -11,29 +11,27 @@ compiler_stage:
   complete:       [1, 2, 3, 4, 5]
   outstanding:    [6]
 last_ledger_seq:  0
-frozen_set_hash:  e558734052f3b8114a6c1db8b853cf034429414aedb9b31f7bc2f0572f592ddf
+frozen_set_hash:  701db1fd2facde42c6e0a1a937261e4e48a4fbe587450a2ae58259b8f618aa50
 active_tasks:     []
 blockers:
-  - ECR-D-006        # framework manifest drift. NOT under spec/**, not an LC-M04 criterion
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
   - C-4              # LICENSE placeholder
 open_non_blocking:
-  - ECR-D-001..004, 007..012   # all dispositioned, approved, applied, registered
-  - ECR-Q-012                  # raised at assembly integration - owner-reserved
-  - ECR-Q-009, ECR-Q-010, ECR-Q-011
-  - OQ-14                      # human-owner reservation: Stage 6 authorization
-  - OI-V-02..10, OI-V-12       # OI-V-11 closed by VER-017
-  - OI-C-01,02,04,05,07..11,13
-  - OI-CAD-03                  # 2 quarantined lineages, owner disposition
+  - ECR-D-001..004, 006..014   # all dispositioned; 006/014 await OI-V-13 closure
+  - ECR-Q-009..013
+  - OQ-14                      # authorization GIVEN by the owner; emission pending
+  - OI-V-02..10, OI-V-12, OI-V-13
+  - OI-C-01,02,04,05,07..11,13,14,15
+  - OI-CAD-03                  # 4 quarantined lineages, all PRESERVE (DEC-08)
   - OI-P-01..03, OI-R-01
 next_action: |
-  ALL ENGINEERING ITEMS RESOLVED under delegated authority
-  (DECISIONS_S-2026-08-11-05, APR-029..032): D-013 A, Q-012 hanger,
-  Q-011 rib 5.0, coolant 1.64 accepted. Gate C1-C7 YES. Assembly PASS
-  7.6997 kg, re-exported; drawings+BOM regenerated; FSV 19/19.
-  Open: CP-02/CP-11 physical; OI-CAD-03 (4 quarantined lineages).
-  NOT now: Stage 6 (OQ-14), ECR-D-006, push before 2026-09-01.
+  RELEASE AUDIT COMPLETE - DECISIONS_S-2026-08-11-06 DEC-05..10, result R-022.
+  D-006 A (APR-033/034); D-014 raised+A at the first Stage 6 build (AMD-015,
+  APR-035/036); V-25 CRLF cured; V-03 register half implemented. NO CAD CHANGED.
+  Computed: gate YES; chains OK; V-24 31/31; Stage 6 PREVIEW OK 12/12; 799 tests
+  pass. PVR-001: 91 of 137 need hardware, 0 verified. NOT DONE: Stage 6 CANONICAL
+  emission (host permission). OWED: OI-V-13 - D-006/D-014 applied, NOT closed.
 ```
 
 ## Notes — each resolves in full at the artifact cited

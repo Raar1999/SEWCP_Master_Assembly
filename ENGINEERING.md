@@ -16,7 +16,7 @@ Read this first, then the canonical artifacts it references.
 | **Project** | SEWCP — Semiconductor Electrostatic Wafer Chuck Platform |
 | **Product** | 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment |
 | **Engineering baseline** | SEWCP Rev A — **FROZEN** |
-| **Governing framework** | AIEF 1.0.0 — **FROZEN**, thirteen amendments |
+| **Governing framework** | AIEF 1.0.0 — **FROZEN**, **fifteen** amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
 | **Repository release** | Last tag **v0.10.0**, on the Stage 5 release commit. **`HEAD` is past it** — `git describe --tags` reports `v0.10.0-16-g5e7ac74`, and `--exact-match` therefore *fails*. Corrected `S-2026-08-10-04`: this row published the `--exact-match` form as a passing verification, and it has not passed since the first commit after the tag |
@@ -102,6 +102,7 @@ Recovering an in-progress project without conversation history:
 | AMD-012 — DC-4 coverage of enabled-role artifacts (OI-C-06 disposition) | [`framework/AIEF-AMD-012_DC-4_Coverage_of_Enabled_Role_Artifacts.md`](framework/AIEF-AMD-012_DC-4_Coverage_of_Enabled_Role_Artifacts.md) |
 | AMD-013 — boot-budget determination (CMP-BLOCK-006) and Stage 6 build constructions (OQ-B1…B5) | [`framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md`](framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_Build_Constructions.md) |
 | AMD-014 — OQ-15 enactment, bounded register split | [`framework/AIEF-AMD-014_OQ-15_Enactment_Bounded_Register_Split.md`](framework/AIEF-AMD-014_OQ-15_Enactment_Bounded_Register_Split.md) |
+| AMD-015 — lock boot-read prefix, `aggregate_digest` member order (ECR-D-014) | [`framework/AIEF-AMD-015_Lock_Boot_Read_Prefix_And_Member_Order.md`](framework/AIEF-AMD-015_Lock_Boot_Read_Prefix_And_Member_Order.md) |
 | Framework manifest — single source of truth | [`framework/framework.manifest.json`](framework/framework.manifest.json) |
 | Manifest schema | [`framework/SCH-framework-manifest.schema.json`](framework/SCH-framework-manifest.schema.json) |
 
@@ -127,7 +128,7 @@ Recovering an in-progress project without conversation history:
 | 3 | Generate Project Layer | ✅ **COMPLETE** — 8 artifacts *(ahead of Stage 2; deviation DEV-01, now closed)* |
 | 4 | Generate Adapters | ✅ **COMPLETE** — 5 adapters + `CLAUDE.md` host hook |
 | 5 | Generate Validation | ✅ **COMPLETE** — `core/validation/CHECKS.md` + `MANIFEST`, 25 checks, stage barrier PASS; verified by VER-003 |
-| 6 | Generate Release | ⏳ outstanding — **gates boot step B2a**; blocked by CMP-BLOCK-004 and **awaiting explicit human authorization** |
+| 6 | Generate Release | ⏳ **PREVIEW BUILD PASSES** — all twelve AMD-31 compile-time preconditions PASS, byte-identical across two executions, lock boot-read prefix 69/200, DC-4 and DC-5 computed. **`OQ-14` authorization has been given by the human owner** (`DECISIONS_S-2026-08-11-06` DEC-10). The **canonical emission** of `core/MANIFEST.lock` and the `BINDING.core_digest_pin` write is **not performed** — blocked by the host permission layer, not by any engineering condition. **B2a therefore remains unsatisfied** |
 
 ## 7 · Engineering Status
 
@@ -137,11 +138,11 @@ Recovering an in-progress project without conversation history:
 |---|---|
 | Lifecycle stage | `LC-M04` Implementation · gate `LC-M04-EXIT` **PASSES `C1`–`C7`** — computed, not asserted: run `PYTHONPATH=src python -m aief_gate`. This is the design-authority **precondition for CAD**, not the stage exit; see `GATES.md` §*Deferred* |
 | Specification | Rev A frozen, 9 components, 142 requirements |
-| Framework | AIEF 1.0.0 frozen, **thirteen amendments**; Stages 1–5 emitted |
+| Framework | AIEF 1.0.0 frozen, **fifteen amendments**; Stages 1–5 emitted. `AIEF-AMD-015` disposes `ECR-D-014`, raised at the first authorised Stage 6 build |
 | Agents | 5 universal + 4 `mechanical` + 3 `software` (enabled by AMD-011; `active_profile` unchanged), all persisted on disk |
-| Frozen set | **29** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); **28 verify**, the exception being `framework/framework.manifest.json` (ECR-D-006, not under `spec/**`). Seven `spec/**` artifacts re-registered `S-2026-08-10-01` under `APR-020`…`APR-026` |
+| Frozen set | **31** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); **31 verify** — computed by `V-24`, never read from this cell. Corrected `S-2026-08-11-06`: this row read *"29 … 28 verify"* and was the state `ECR-D-006` records. Registry 29 → 30 (`APR-033`/`APR-034`, the `AIEF-AMD-014` registration owed since `S-2026-08-08-12` and never performed) → 31 (`APR-035`/`APR-036`, `AIEF-AMD-015`) |
 | Ledger | genesis, `HEAD.seq = 0`, reconciled with `STATE`. No LAW-09 close has been performed |
-| Repository | **Local only. `HEAD` is 14 commits ahead of `origin/main`** and push is deferred until **2026-09-01** by standing instruction — verify with `git rev-list --count origin/main..HEAD`, never by reading this cell. Corrected `S-2026-08-10-04`: it read *"`HEAD == origin/main`"*, which had been false since the first unpushed commit. Approval-provenance commits: `d07e931` (Release 0.8 — Stage 2 templates + AMD-008 state, manifest at APR-002's subject `636cf22b…`), `655aa75` (AMD-009 state, manifest at APR-004's subject `9611d547…`, AMD-009 at APR-005's subject `86c8be7f…`), `be75798` (Release 0.9 sync, tag v0.9.0). The Stage 5 release commit adds `core/validation/**`, VER-003 and the `.gitignore` negation |
+| Repository | **Local only**, push deferred to **2026-09-01** by standing instruction — verify the distance with `git rev-list --count origin/main..HEAD`, **never by reading this cell**, which is the defect this row has now carried twice. Approval-provenance commits: `d07e931`, `655aa75`, `be75798`, and `8546960` — whose manifest blob reproduces `APR-006`'s subject `ae16ccac…` and is the git object the `ECR-D-006` attribution rests on |
 
 > **Approval provenance.** Each approval's subject is recoverable as a git object: `git show d07e931:framework/framework.manifest.json` normalises to APR-002's `subject_hash`; `git show 655aa75:framework/framework.manifest.json` to APR-004's; `git show 655aa75:framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` to APR-005's. This discharges VER-002 findings FIND-Q2-2 and FIND-Q2-3.
 
@@ -200,7 +201,7 @@ no validation-campaign infrastructure), `OI-V-03` (all session `S-2026-08-08-02`
 > PYTHONPATH=src python -m aief_gate          # C1..C7; exits 0, prints LC-M04 CAD-READY: YES
 > PYTHONPATH=src python -m aief_clearance     # spec/00 s3.2 feature clearance; exits 0
 > PYTHONPATH=src python -m aief_params emit   # 105 parameters, derived from package section 3
-> PYTHONPATH=src python -m pytest tests/ -q   # 621 pass, 2 fail
+> PYTHONPATH=src python -m pytest tests/ -q   # 799 pass, 0 fail
 > PYTHONPATH=src python -m aief_approval verify   # approval-chain integrity
 > ```
 >

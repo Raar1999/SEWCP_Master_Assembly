@@ -24,6 +24,7 @@ from aief_stage6.digests import dc1_digest  # noqa: E402
 
 _YAML_BLOCK = re.compile(r"```yaml\n(.*?)\n```", re.DOTALL)
 _SCALAR = re.compile(r"^([a-z_]+):[ \t]*(.*)$")
+_SEQ_ITEM = re.compile(r"^[ \t]+-[ \t]+(.*)$")
 _HEX64 = re.compile(r"^[0-9a-f]{64}$")
 _REGISTRY_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*`([0-9a-f]{64})`\s*\|")
 
@@ -81,10 +82,17 @@ class ChainReport:
         return not self.failures and all(c.ok for c in self.chains.values())
 
     def state_of(self, approval_id: str) -> State | None:
-        for chain in self.chains.values():
-            if approval_id in chain.states:
-                return chain.states[approval_id]
-        return None
+        """The state of an approval across every subject it binds.
+
+        A multi-subject approval is **void if any one of its subjects changes** -
+        the LAW-10 clause 2 reading `APR-003` states of itself - so the weakest
+        state across its bindings governs. For the single-subject case, which is
+        every other approval on disk, this is the state itself.
+        """
+        rank = {State.VOID: 0, State.SUPERSEDED_VALID: 1, State.LIVE: 2}
+        found = [c.states[approval_id] for c in self.chains.values()
+                 if approval_id in c.states]
+        return min(found, key=lambda s: rank[s]) if found else None
 
 
 def _strip_comment(value: str) -> str:
@@ -94,29 +102,68 @@ def _strip_comment(value: str) -> str:
     return cut.strip()
 
 
-def _parse_yaml_block(text: str) -> dict[str, str]:
-    """Read the first fenced yaml block as flat `key: value` scalars.
+def _parse_yaml_block(text: str) -> dict[str, str | list[str]]:
+    """Read the first fenced yaml block as `key: value` scalars and block
+    sequences.
 
-    Indented continuation lines belong to a multi-line scalar and are skipped -
-    every field this module needs is single-line. A hand parser is used rather
-    than a yaml dependency because the check must run on a bare interpreter.
+    Indented continuation lines that are not sequence items belong to a
+    multi-line scalar and are skipped - every scalar field this module needs is
+    single-line. A hand parser is used rather than a yaml dependency because the
+    check must run on a bare interpreter.
+
+    **Block sequences are read, not discarded.** An approval may lawfully bind
+    several subjects in one instrument - `APR-003` binds eight, and says why in
+    its own body - and LAW-10 clause 1 asks that an approval *name what it
+    approved*, not that it name exactly one thing. Reading such a value as an
+    empty scalar reported a LAW-10 violation that no rule produces, and skipped
+    the record, so its bindings went unchecked entirely. Found `S-2026-08-11-06`.
     """
     match = _YAML_BLOCK.search(text)
     if not match:
         return {}
-    out: dict[str, str] = {}
+    out: dict[str, str | list[str]] = {}
+    current_key: str | None = None
     for line in match.group(1).splitlines():
-        if not line.strip() or line.startswith(("#", " ", "\t")):
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        item = _SEQ_ITEM.match(line)
+        if item and current_key is not None:
+            seq = out.get(current_key)
+            if not isinstance(seq, list):
+                seq = []
+                out[current_key] = seq
+            seq.append(_strip_comment(item.group(1)))
+            continue
+        if line.startswith((" ", "\t")):
             continue
         m = _SCALAR.match(line)
         if not m:
+            current_key = None
             continue
         key, raw = m.group(1), _strip_comment(m.group(2))
+        current_key = key
         if raw in {"", "null", "~"}:
+            # Either a null scalar or the header of a block sequence. Seed it as
+            # the empty scalar; a following sequence item replaces it with a
+            # list, and none leaves it null - which is what both mean.
             out[key] = ""
         else:
             out[key] = raw
+            current_key = None
     return out
+
+
+def _as_list(value: str | list[str] | None) -> list[str]:
+    if value is None or value == "":
+        return []
+    return list(value) if isinstance(value, list) else [value]
+
+
+def _scalar(value: str | list[str] | None) -> str:
+    """A field this module reads as a scalar. A sequence where a scalar is
+    required is not silently collapsed - it returns empty, and the caller's
+    own required-field failure fires."""
+    return value if isinstance(value, str) else ""
 
 
 def load_approvals(repo: Path) -> tuple[list[ApprovalRecord], list[str]]:
@@ -131,9 +178,9 @@ def load_approvals(repo: Path) -> tuple[list[ApprovalRecord], list[str]]:
     for path in sorted(directory.glob("APR-*.md")):
         rel = path.relative_to(repo).as_posix()
         fields = _parse_yaml_block(path.read_text(encoding="utf-8"))
-        approval_id = fields.get("approval_id", "")
-        subject_path = fields.get("subject_path", "")
-        subject_hash = fields.get("subject_hash", "")
+        approval_id = _scalar(fields.get("approval_id"))
+        subject_paths = _as_list(fields.get("subject_path"))
+        subject_hashes = _as_list(fields.get("subject_hash"))
 
         if not approval_id:
             failures.append(f"{rel}: no approval_id")
@@ -145,32 +192,51 @@ def load_approvals(repo: Path) -> tuple[list[ApprovalRecord], list[str]]:
             )
             continue
         seen[approval_id] = rel
-        if not subject_path:
+        if not subject_paths:
             failures.append(f"{approval_id} ({rel}): no subject_path - LAW-10 clause 1")
             continue
-        if not _HEX64.match(subject_hash):
+        # A multi-subject approval binds each subject individually and is void if
+        # any one of them changes - the LAW-10 clause 2 reading APR-003 states of
+        # itself. Pairing is positional, so an unequal count is not a formatting
+        # slip: it leaves at least one named subject with no digest bound to it,
+        # which is exactly the clause 1 defect.
+        if len(subject_hashes) != len(subject_paths):
             failures.append(
-                f"{approval_id}: subject_hash {subject_hash!r} is not 64 lowercase hex"
+                f"{approval_id}: {len(subject_paths)} subject_path entries against "
+                f"{len(subject_hashes)} subject_hash entries - every named subject "
+                f"must carry its own bound digest, LAW-10 clause 1"
             )
             continue
 
-        prior = fields.get("prior_hash", "") or None
+        prior = _scalar(fields.get("prior_hash")) or None
         if prior is not None and not _HEX64.match(prior):
             failures.append(
                 f"{approval_id}: prior_hash {prior!r} is not 64 lowercase hex or null"
             )
             prior = None
-        records.append(
-            ApprovalRecord(
-                approval_id=approval_id,
-                subject_path=subject_path,
-                subject_hash=subject_hash,
-                prior_hash=prior,
-                ecr=fields.get("ecr") or None,
-                supersedes=fields.get("supersedes") or None,
-                source=rel,
+
+        malformed = False
+        for subject_hash in subject_hashes:
+            if not _HEX64.match(subject_hash):
+                failures.append(
+                    f"{approval_id}: subject_hash {subject_hash!r} is not 64 lowercase hex"
+                )
+                malformed = True
+        if malformed:
+            continue
+
+        for subject_path, subject_hash in zip(subject_paths, subject_hashes):
+            records.append(
+                ApprovalRecord(
+                    approval_id=approval_id,
+                    subject_path=subject_path,
+                    subject_hash=subject_hash,
+                    prior_hash=prior,
+                    ecr=_scalar(fields.get("ecr")) or None,
+                    supersedes=_scalar(fields.get("supersedes")) or None,
+                    source=rel,
+                )
             )
-        )
     return records, failures
 
 

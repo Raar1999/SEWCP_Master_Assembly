@@ -23,6 +23,8 @@ from aief_stage6.build import run
 from aief_stage6.paths import find_repo_root
 from aief_stage6.tokenizers import TokenizerProbe
 
+from test_stage6_certification_lock_archive_guard import LOCK_MEMBER_ORDER
+
 REPO = find_repo_root(Path(__file__).resolve())
 
 
@@ -61,10 +63,11 @@ def test_full_pipeline_with_stub_families(tmp_path):
     for member in ("framework_version", "build_provenance", "hash_algorithm",
                    "normalisation", "files", "aggregate_digest"):
         assert member in lock
-    # core_aggregate.lock_serialisation member order.
-    assert list(lock) == ["framework_version", "build_provenance",
-                          "hash_algorithm", "normalisation", "aggregate_digest",
-                          "budget_measurement", "files"]
+    # core_aggregate.lock_serialisation member order - read from the clause,
+    # not transcribed. AIEF-AMD-015 AMD-55 moved aggregate_digest to second
+    # position and a transcribed list went stale here too; see
+    # test_stage6_certification_lock_archive_guard._declared_member_order.
+    assert list(lock) == LOCK_MEMBER_ORDER
     assert lock["aggregate_digest"] == outcome.dc4_aggregate
     assert len(lock["files"]) == 75
     paths = [p for p, _ in lock["files"]]

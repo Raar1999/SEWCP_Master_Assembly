@@ -1,14 +1,53 @@
-# Line-ending policy.
+# Line-ending policy: LF everywhere, in the index AND in the working tree.
 #
 # `core.autocrlf=true` is set locally and this repository carried no
-# `.gitattributes`, so every text file is rewritten to CRLF in the working tree
-# on checkout. That is harmless for almost everything here: DC-1 normalises CRLF
-# to LF before hashing, so every digest, seal, registry row and approval binding
-# is immune to it by construction.
+# `.gitattributes`, so every text file was rewritten to CRLF in the working
+# tree on checkout. That is harmless for almost everything here: DC-1
+# normalises CRLF to LF before hashing, so every digest, seal, registry row and
+# approval binding is immune to it by construction.
 #
-# It is NOT harmless for a generated artifact that is compared byte-for-byte.
-# `params/generated/SEWCP-200.csv` is emitted with LF endings and no byte-order
-# mark, and is imported directly by Fusion 360 at CAD package step 6.02. A
-# stash/checkout round-trip rewrote it to CRLF and broke
-# `python -m aief_params check`, which is how this file came to exist.
+# It is NOT harmless in two places.
+#
+# 1. A generated artifact compared byte-for-byte.
+#    `params/generated/SEWCP-200.csv` is emitted with LF endings and no
+#    byte-order mark and is imported directly by Fusion 360 at CAD package step
+#    6.02. A stash/checkout round-trip rewrote it to CRLF and broke
+#    `python -m aief_params check`, which is how this file first came to exist.
+#
+# 2. Check V-25, which reads the WORKING TREE and not the index: "Every text
+#    artifact under .ai/ and every artifact registered in project/FROZEN.md ...
+#    uses LF line endings exclusively". A checkout under `core.autocrlf=true`
+#    therefore breaks V-25 by construction, and V-25 is an AMD-31 compile-time
+#    precondition of Compiler Stage 6. This is exactly the exposure recorded at
+#    OI-V-05 FIND-Q3-4 ("a future checkout may rewrite working-tree files to
+#    CRLF and break the literal V-25 working-tree condition; a `.gitattributes`
+#    declaring LF for `.ai/**` is a `repository-engineer` action"), and it was
+#    realised: 62 files carried CR at the start of session S-2026-08-11-06.
+#
+# WHY ONE BLANKET RULE RATHER THAN A LIST OF PARTITIONS. The first repair here
+# declared `.ai/**`, `spec/**`, `framework/**` and `*.py` - the V-25 domain plus
+# the tooling. That left `cad/**`, `releases/**`, `implementation/**` and
+# `ENGINEERING.md` under autocrlf, and 48 tracked files were still CRLF in the
+# working tree immediately after the repair. Enumerating partitions means the
+# next partition is missed the same way.
+#
+# The blanket rule is safe here because it was checked rather than assumed:
+# EVERY tracked file in this repository decodes as UTF-8 and contains no NUL
+# octet - 232 `.md`, 91 `.py`, 79 `.gitkeep`, 69 `.json`, one `.csv`, one
+# `.manifest`, and four extensionless text artifacts (`.ai/core/VERSION`,
+# `.ai/core/validation/MANIFEST`, `.ai/project/ledger/HEAD`, `LICENSE`). There
+# is no binary content to damage. Re-run that check before adding any.
+#
+# `text` is stated explicitly rather than left to `text=auto` heuristics, so
+# the outcome does not depend on git's content sniffing.
+#
+# No registered digest moves under any of this: DC-1 normalises CRLF to LF
+# before hashing, so it is a working-tree and index-normalisation repair only.
+# Verified by comparing the DC-1 of every affected file before and after.
+
+* text eol=lf
+
+# Kept explicit for the two cases whose reasons are recorded above, so that
+# deleting the blanket rule does not silently un-fix them.
 params/generated/*.csv text eol=lf
+.gitattributes         text eol=lf

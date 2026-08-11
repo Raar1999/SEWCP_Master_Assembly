@@ -2,14 +2,12 @@
 
 > **Instance artifact**, partition `project`, owner `project-manager`, mutable.
 
-Read at B7. **Bounded T1 index** — `AIEF-AMD-014` §AMD-49.
-**Authority: [`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md)**, tier T4, cap null.
-Each id below leads exactly one row there under the identically-named section, and each such
-row's id appears exactly once here. **Grammar: one id per line.**
+Read at B7. Bounded T1 index, `AIEF-AMD-014` §AMD-49.
+Authority: [`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md), T4, cap null.
+Bijective by id, section by section. One id per line.
 
 ## Blocking
 
-ECR-D-006
 CMP-BLOCK-004
 CMP-BLOCK-005
 C-4
@@ -27,10 +25,12 @@ ECR-D-010
 ECR-D-011
 ECR-D-012
 ECR-D-013
+ECR-D-014
 ECR-Q-009
 ECR-Q-010
 ECR-Q-011
 ECR-Q-012
+ECR-Q-013
 OI-V-02
 OI-V-03
 OI-V-04
@@ -41,6 +41,8 @@ OI-V-08
 OI-V-09
 OI-V-10
 OI-V-12
+OI-V-13
+ECR-D-006
 OI-C-01
 OI-C-02
 OI-C-04
@@ -51,6 +53,8 @@ OI-C-09
 OI-C-10
 OI-C-11
 OI-C-13
+OI-C-14
+OI-C-15
 OI-CAD-03
 OI-P-01
 OI-P-02

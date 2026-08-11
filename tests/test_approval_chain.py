@@ -295,8 +295,137 @@ def test_inline_comment_after_a_value_does_not_corrupt_the_link(repo: Path) -> N
 
 
 # --------------------------------------------------------------------------
+# Multi-subject approvals - one instrument, several bound subjects
+# --------------------------------------------------------------------------
+
+
+def _multi_approval(repo: Path, approval_id: str,
+                    pairs: list[tuple[str, str]],
+                    hashes: list[str] | None = None) -> None:
+    """Write an approval whose subject_path and subject_hash are block
+    sequences, as `APR-003` is."""
+    paths = "\n".join(f"  - {p}" for p, _ in pairs)
+    digests = hashes if hashes is not None else [d for _, d in pairs]
+    body = "\n".join(f"  - {d}" for d in digests)
+    target = repo / ".ai" / "project" / "approvals" / f"{approval_id}_multi.md"
+    target.write_text(
+        f"# {approval_id}\n\n```yaml\napproval_id:   {approval_id}\n"
+        f"approver:      human-owner\n"
+        f"subject_path:\n{paths}\n"
+        f"subject_hash:\n{body}\n"
+        f"prior_hash:    null   # none previously registered\n```\n",
+        encoding="utf-8",
+    )
+
+
+def _write_named(repo: Path, rel: str, text: str) -> str:
+    target = repo / rel
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(text, encoding="utf-8")
+    return dc1_digest(target.read_bytes())
+
+
+def test_multi_subject_approval_binds_every_subject(repo: Path) -> None:
+    """A block sequence is a lawful subject_path. Reading it as an empty scalar
+    reported a LAW-10 clause 1 violation no rule produces, and - worse - skipped
+    the record, so none of its bindings was checked at all. Found S-2026-08-11-06
+    on the live APR-003."""
+    pairs = [(f"spec/multi{i}.md", _write_named(repo, f"spec/multi{i}.md", f"v{i}\n"))
+             for i in range(3)]
+    _multi_approval(repo, "APR-900", pairs)
+    _registry(repo, dict(pairs))
+    report = verify(repo)
+    assert report.ok, report.failures
+    for path, _ in pairs:
+        assert report.chains[path].states["APR-900"] is State.LIVE
+    assert report.state_of("APR-900") is State.LIVE
+
+
+def test_multi_subject_approval_is_void_if_any_one_subject_changes(
+    repo: Path,
+) -> None:
+    """APR-003 states the rule of itself: 'void if any one of the eight
+    changes'. The weakest binding governs the approval's state, and the changed
+    path fails its own chain."""
+    pairs = [(f"spec/multi{i}.md", _write_named(repo, f"spec/multi{i}.md", f"v{i}\n"))
+             for i in range(3)]
+    _multi_approval(repo, "APR-900", pairs)
+    _registry(repo, dict(pairs))
+    (repo / "spec/multi1.md").write_text("tampered\n", encoding="utf-8")
+    report = verify(repo)
+    assert not report.ok
+    assert report.chains["spec/multi1.md"].failures
+    assert report.state_of("APR-900") is State.VOID
+    # The untouched subjects are still bound - the tamper is localised, and the
+    # approval's aggregate state is the weakest of its bindings, not the best.
+    assert report.chains["spec/multi0.md"].states["APR-900"] is State.LIVE
+
+
+def test_multi_subject_unequal_path_and_hash_counts_is_rejected(
+    repo: Path,
+) -> None:
+    """Positional pairing means an unequal count leaves a named subject with no
+    digest bound to it - the clause 1 defect, not a formatting slip."""
+    pairs = [(f"spec/multi{i}.md", _write_named(repo, f"spec/multi{i}.md", f"v{i}\n"))
+             for i in range(3)]
+    _multi_approval(repo, "APR-900", pairs, hashes=[pairs[0][1], pairs[1][1]])
+    _registry(repo, dict(pairs))
+    report = verify(repo)
+    assert any("subject_path entries against" in f for f in report.failures), \
+        report.failures
+
+
+def test_multi_subject_with_one_malformed_digest_is_rejected(repo: Path) -> None:
+    pairs = [(f"spec/multi{i}.md", _write_named(repo, f"spec/multi{i}.md", f"v{i}\n"))
+             for i in range(3)]
+    _multi_approval(repo, "APR-900", pairs,
+                    hashes=[pairs[0][1], "not-a-digest", pairs[2][1]])
+    _registry(repo, dict(pairs))
+    report = verify(repo)
+    assert any("not 64 lowercase hex" in f for f in report.failures), report.failures
+    # Rejected whole: a partially-read multi-subject approval would bind some
+    # subjects and silently drop the rest.
+    assert all("APR-900" not in c.states for c in report.chains.values())
+
+
+def test_live_repository_apr003_binds_all_eight_subjects() -> None:
+    """The live instance of the defect. APR-003 binds eight framework artifacts
+    in one instrument and says why in its own body. Every one of the eight must
+    resolve against the tree."""
+    report = verify(REPO)
+    bound = [p for p, c in report.chains.items() if "APR-003" in c.states]
+    assert len(bound) == 8, bound
+    for path in bound:
+        assert report.chains[path].states["APR-003"] is State.LIVE, path
+        assert report.chains[path].ok, report.chains[path].failures
+    assert not any("APR-003" in f for f in report.failures), report.failures
+
+
+# --------------------------------------------------------------------------
 # The live repository
 # --------------------------------------------------------------------------
+
+
+def test_live_repository_the_whole_chain_is_clean() -> None:
+    """The release condition: no registered path sits at bytes no approval
+    reaches, and no approval is structurally malformed. This is the standing
+    check ECR-D-006's root cause OI-V-02 says did not exist."""
+    report = verify(REPO)
+    assert report.ok, report.failures + [
+        f"{p}: {c.failures}" for p, c in report.chains.items() if c.failures
+    ]
+
+
+def test_live_repository_framework_manifest_is_bound_to_its_tree_state() -> None:
+    """ECR-D-006 regression lock. The manifest is the one path that sat at bytes
+    no approval named, for three sessions. If this fails again, the registry and
+    the tree have parted company again."""
+    path = "framework/framework.manifest.json"
+    report = verify(REPO, [path])
+    chain = report.chains[path]
+    assert chain.ok, chain.failures
+    assert chain.registered_digest == chain.tree_digest
+    assert State.LIVE in chain.states.values()
 
 
 def test_live_repository_spec01_chain_resolves(  ) -> None:
