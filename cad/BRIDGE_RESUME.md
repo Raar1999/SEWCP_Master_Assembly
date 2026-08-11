@@ -21,6 +21,40 @@ restarts self-serving.
 In Fusion: **UTILITIES → ADD-INS (Shift+S) → AIEF_CAD_Bridge → Run toggle ON.**
 (Recommended: also switch its "Run on Startup" toggle ON.)
 
+> UI-automation of this click was attempted (UIA tree walk, keyboard
+> navigation, DPI-corrected pointer injection) and is **abandoned**: the
+> QML dialog is opaque to UIA, and the desktop session is in active human
+> use, so synthetic input is unsafe — it lands in whatever window is
+> foreground. This click is the single genuinely human-gated step.
+> Clicking Run loads the **repaired lifecycle shell** (identity-without-
+> persistence; failed attempts discard instead of saving — see
+> `cad/DOCUMENT_LIFECYCLE.md`).
+
+## Step 1b — automated after the click: orphan deletion
+
+```
+python -m aief_cad --session S-2026-08-11-04 op delete_data_file --args "{\"name\":\"ZZ-ORPHAN-BLANK-SHELL_SEWCP-300-20260811\",\"protected\":[\"SEWCP-200_COOLING_PLATE\",\"SEWCP-300_HEATER_PLATE\",\"SEWCP-400_SUPPORT_RING\",\"SEWCP-500_ESC_PUCK\",\"SEWCP-600_LIFT_PIN\",\"SEWCP-700_ALIGNMENT_PIN\",\"SEWCP-800_PORT_BODY\",\"SEWCP-901_RF_STRAP\",\"SEWCP-902_SADDLE\",\"SEWCP-1000_RETAINER\",\"SEWCP-000_MASTER_ASSEMBLY\"]}" --timeout 180
+python -m aief_cad --session S-2026-08-11-04 op delete_data_file --args "{\"name\":\"ZZ-INTERIM-ATTEMPT_SEWCP-901-20260811\",\"protected\":[\"SEWCP-200_COOLING_PLATE\",\"SEWCP-300_HEATER_PLATE\",\"SEWCP-400_SUPPORT_RING\",\"SEWCP-500_ESC_PUCK\",\"SEWCP-600_LIFT_PIN\",\"SEWCP-700_ALIGNMENT_PIN\",\"SEWCP-800_PORT_BODY\",\"SEWCP-901_RF_STRAP\",\"SEWCP-902_SADDLE\",\"SEWCP-1000_RETAINER\",\"SEWCP-000_MASTER_ASSEMBLY\"]}" --timeout 180
+```
+
+`ZZ-SUPERSEDED-FREE-S_SEWCP-901-20260811` is **HISTORICAL / PRESERVE**
+(the geometry-phase verified strap; its exports were overwritten by the
+re-issue) — do not delete without an owner decision. Classification:
+`cad/DOCUMENT_LIFECYCLE.md`.
+
+## Step 1c — automated: controlled failure/recovery validation
+
+```
+python -m aief_cad --session S-2026-08-11-04 op list_documents --timeout 120   (count authoritative designs = N)
+python -m aief_cad --session S-2026-08-11-04 run implementation/08_SEWCP-900_RF_Feedthrough_Bracket/requirements/SEWCP-901_rf_strap.requirements.json
+```
+
+Run the strap package with a deliberately broken acceptance value in a
+COPY of the package (or rely on the recorded fake-bridge tests), then
+`list_documents` again: the saved-design count must still be N, no new
+`SEWCP-901…` lineage, and the run record must show
+`failure_disposition: discarded`.
+
 ## Step 2 — automated (paste as-is)
 
 ```

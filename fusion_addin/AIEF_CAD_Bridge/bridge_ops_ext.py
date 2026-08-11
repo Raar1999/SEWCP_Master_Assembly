@@ -18,14 +18,39 @@ def _app():
     return adsk.core.Application.get()
 
 
+def _design_of(doc):
+    try:
+        return adsk.fusion.Design.cast(
+            doc.products.itemByProductType("DesignProductType"))
+    except Exception:
+        return None
+
+
+def _intended_name(doc):
+    """Identity bound at setup on a not-yet-persisted document."""
+    try:
+        design = _design_of(doc)
+        if design is None:
+            return None
+        attr = design.attributes.itemByName("aief", "intended_name")
+        return attr.value if attr is not None else None
+    except Exception:
+        return None
+
+
 def _persisted_name(doc):
+    """Saved design name, else the bound-but-unsaved intended identity.
+
+    Lifecycle rule: identity binds early, persistence happens only at the
+    verified save (`save_document`). Nothing else may first-save."""
     try:
         if doc is not None and doc.isSaved:
             data_file = doc.dataFile
-            return data_file.name if data_file is not None else None
+            if data_file is not None:
+                return data_file.name
     except Exception:
         pass
-    return None
+    return _intended_name(doc)
 
 
 def _find_document(name):
@@ -41,19 +66,23 @@ def _find_document(name):
 
 
 def op_save_document(args):
-    """Save the named (or active) design, committing a new version."""
+    """Save the named (or active) design, committing a new version.
+
+    The ONLY operation allowed to first-save: persistence is the reward of
+    a verified increment, dispatched by the lifecycle layer on PASS."""
     app = _app()
     name = args.get("name")
     doc = _find_document(name) if name else app.activeDocument
     if doc is None:
         raise RuntimeError("save_document: no open document named %r" % name)
     if not doc.isSaved:
-        if not name:
+        first_name = name or _intended_name(doc)
+        if not first_name:
             raise RuntimeError(
                 "save_document: an unnamed never-saved document cannot be "
                 "first-saved safely"
             )
-        _first_save(doc, name)
+        _first_save(doc, first_name)
         data_file = doc.dataFile
         return {"document": {"name": _persisted_name(doc), "saved": True,
                              "first_saved": True,
@@ -113,10 +142,12 @@ def _first_save(doc, name):
 def op_rename_component(args):
     """Component identity under the ruled persisted-name semantics.
 
-    Overrides the shell op: on a never-saved document the identity is
-    realised by performing the first save under the required name - the
-    lifecycle action Fusion ties naming to - instead of failing against
-    the display-name binding.
+    Overrides the shell op. On a never-saved document the identity is
+    BOUND (an `aief:intended_name` design attribute) but NOT persisted -
+    the previous form first-saved here, which is exactly how failed runs
+    left blank persistent designs behind (the ZZ-ORPHAN-BLANK-SHELL /
+    ZZ-INTERIM defect class). Persistence now happens only at the
+    verified `save_document`.
     """
     app = _app()
     doc = app.activeDocument
@@ -126,12 +157,21 @@ def op_rename_component(args):
     root = design.rootComponent
     name = args["name"]
     if _persisted_name(doc) == name:
-        return {"component": {"name": root.name, "persisted_name": name}}
+        return {"component": {"name": root.name, "persisted_name": name,
+                              "saved": bool(doc.isSaved) if doc else None}}
     if doc is not None and not doc.isSaved:
-        _first_save(doc, name)
-        return {"component": {"name": root.name,
-                              "persisted_name": _persisted_name(doc),
-                              "first_saved": True}}
+        try:
+            existing = design.attributes.itemByName("aief", "intended_name")
+            if existing is not None:
+                existing.value = name
+            else:
+                design.attributes.add("aief", "intended_name", name)
+        except Exception as exc:
+            raise RuntimeError(
+                "rename_component: could not bind the intended identity: %s"
+                % exc)
+        return {"component": {"name": root.name, "persisted_name": name,
+                              "identity_bound": True, "saved": False}}
     root.name = name
     return {"component": {"name": root.name}}
 
@@ -425,6 +465,36 @@ def op_close_document(args):
     return {"document": {"name": closed_display, "closed": True}}
 
 
+def op_discard_document(args):
+    """Close a never-persisted document, discarding it entirely - the
+    failure-recovery primitive. Refuses a saved document (that is
+    revert_document's job), so an authoritative design can never be
+    discarded by a failure path."""
+    app = _app()
+    name = args.get("name")
+    doc = None
+    if name:
+        for i in range(app.documents.count):
+            d = app.documents.item(i)
+            if d.name == name or _persisted_name(d) == name:
+                doc = d
+                break
+    else:
+        doc = app.activeDocument
+    if doc is None:
+        # Nothing to discard is success for a recovery path: the goal is
+        # the absence of the artifact.
+        return {"document": {"name": name, "discarded": False,
+                             "absent": True}}
+    if doc.isSaved:
+        raise RuntimeError(
+            "discard_document: %r is persisted; a saved design is never "
+            "discarded by recovery - use revert_document" % name)
+    display = doc.name
+    doc.close(False)
+    return {"document": {"name": name or display, "discarded": True}}
+
+
 def op_delete_data_file(args):
     """Delete a saved design by exact name (or pinned id). Refuses protected
     names and open documents - deletion is dispatched only after
@@ -684,6 +754,7 @@ OPS = {
     "extrude": op_extrude,
     "assign_material": op_assign_material,
     "save_document": op_save_document,
+    "discard_document": op_discard_document,
     "revert_document": op_revert_document,
     "rename_component": op_rename_component,
     "export_model": op_export_model,

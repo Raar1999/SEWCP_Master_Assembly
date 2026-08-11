@@ -353,15 +353,38 @@ def _op_ping(args):
     }
 
 
+def _intended_doc_name(doc):
+    """The identity bound at setup, before persistence - a design attribute.
+
+    Document-lifecycle rule: identity is bound early (rename_component
+    writes this attribute on a never-saved document) but persistence
+    happens only at the verified save. A failed attempt therefore leaves
+    nothing saved - the defect that motivated this was blank persistent
+    designs first-saved at setup by runs that later failed."""
+    try:
+        if doc is None:
+            return None
+        design = adsk.fusion.Design.cast(doc.products.itemByProductType(
+            "DesignProductType"))
+        if design is None:
+            return None
+        attr = design.attributes.itemByName("aief", "intended_name")
+        return attr.value if attr is not None else None
+    except Exception:
+        return None
+
+
 def _persisted_doc_name(doc):
-    """The saved design name, None when unsaved or unavailable."""
+    """The saved design name; falls back to the bound-but-unsaved intended
+    identity; None when neither exists."""
     try:
         if doc is not None and doc.isSaved:
             data_file = doc.dataFile
-            return data_file.name if data_file is not None else None
+            if data_file is not None:
+                return data_file.name
     except Exception:
         pass
-    return None
+    return _intended_doc_name(doc)
 
 
 def _op_new_document(args):
@@ -938,6 +961,8 @@ def _op_observe(args):
         # is bound to it - carries Fusion's version suffix ("<name> v<N>").
         # dataFile.name is the persisted design name and never does. dataFile
         # raises on a never-saved document, hence the guard and the except.
+        # An unsaved document may carry a bound-but-unpersisted identity
+        # (the intended-name attribute); `saved` keeps the persistence truth.
         persisted = None
         if doc is not None and doc.isSaved:
             try:
@@ -945,6 +970,8 @@ def _op_observe(args):
                 persisted = data_file.name if data_file is not None else None
             except Exception:
                 persisted = None
+        if persisted is None:
+            persisted = _intended_doc_name(doc)
         out["document"] = {
             "name": doc.name if doc else None,
             "persisted_name": persisted,

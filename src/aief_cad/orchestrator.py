@@ -227,7 +227,9 @@ class Orchestrator:
         if record.verdict == "PASS" and self.save_on_pass:
             # Lifecycle automation: a verified increment is persisted as a
             # document version. A failed save never falsifies the verdict -
-            # it is recorded as an escalation instead.
+            # it is recorded as an escalation instead. This is the ONLY
+            # point at which a run persists a document: identity is bound at
+            # setup without saving, so persistence is the reward of PASS.
             try:
                 obs = self.bridge.send(self._lifecycle_command(
                     rid, solution, "save_document",
@@ -239,10 +241,40 @@ class Orchestrator:
                         f"save_document did not execute: {obs.error_message()}")
             except Exception as exc:  # noqa: BLE001 - recorded, not raised
                 record.escalations.append(f"save_document failed: {exc}")
+        elif record.verdict != "PASS":
+            self._dispose_failed_document(rid, solution, record)
 
         record.finished_at = time.time()
         self._write(record)
         return record
+
+    def _dispose_failed_document(self, rid: str, solution: DesignSolution,
+                                 record: RunRecord) -> None:
+        """A failed attempt must not leave its document behind.
+
+        Never-persisted -> discard (close without saving); persisted
+        baseline that the run adopted and dirtied -> revert to the last
+        verified version. `discard_document` refuses saved documents by
+        contract, so trying it first can never destroy an authoritative
+        design - the refusal routes to revert. Failures here are recorded
+        as escalations, never raised: the verdict already stands.
+        """
+        name = _document_name(solution)
+        try:
+            obs = self.bridge.send(self._lifecycle_command(
+                rid, solution, "discard_document", {"name": name}))
+            record.attempts[-1]["failure_disposition"] = obs.raw
+            if obs.ok:
+                return
+            obs = self.bridge.send(self._lifecycle_command(
+                rid, solution, "revert_document", {"name": name}))
+            record.attempts[-1]["failure_disposition_revert"] = obs.raw
+            if not obs.ok:
+                record.escalations.append(
+                    "failure disposition: neither discard nor revert "
+                    f"executed for {name!r} - a document may remain open")
+        except Exception as exc:  # noqa: BLE001 - recorded, not raised
+            record.escalations.append(f"failure disposition failed: {exc}")
 
     def _lifecycle_command(self, rid: str, solution: DesignSolution,
                            op: str, args: dict[str, Any]) -> Command:

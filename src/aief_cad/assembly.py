@@ -286,12 +286,36 @@ class AssemblyRunner:
                               "description": f"AIEF {rid} assembly verified"},
                              timeout_s=420.0)
                 record["saved"] = saved.raw.get("observed")
+            elif not verdict["passed"]:
+                self._dispose_failed(package, record)
         except AssemblyError as exc:
             record["verdict"] = "ERROR"
             record["error"] = str(exc)
+            self._dispose_failed(package, record)
         record["finished_at"] = time.time()
         record["record_digest"] = digest_of(canonical_json(record))
-        d = self.runs_dir / rid
+        return self._write(record)
+
+    def _dispose_failed(self, package: AssemblyPackage,
+                        record: dict[str, Any]) -> None:
+        """A failed assembly attempt must not leave its document behind:
+        discard when never persisted; revert when it dirtied a saved
+        baseline. Recorded, never raised - the verdict already stands."""
+        try:
+            obs = self.bridge.send(self._command(
+                record["run_id"], 9000, "discard_document",
+                {"name": package.document}))
+            record["failure_disposition"] = obs.raw
+            if not obs.ok:
+                obs = self.bridge.send(self._command(
+                    record["run_id"], 9001, "revert_document",
+                    {"name": package.document}))
+                record["failure_disposition_revert"] = obs.raw
+        except Exception as exc:  # noqa: BLE001
+            record["failure_disposition_error"] = str(exc)
+
+    def _write(self, record: dict[str, Any]) -> dict[str, Any]:
+        d = self.runs_dir / record["run_id"]
         d.mkdir(parents=True, exist_ok=True)
         (d / "run.json").write_bytes(
             json.dumps(record, indent=2, sort_keys=True).encode("utf-8")
