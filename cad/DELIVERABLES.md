@@ -22,17 +22,45 @@ System-level interface verification from observed evidence:
 | SEWCP-700 | 〃 | `SEWCP-700\stl\...stl` | 47484 | `2e11e883034a39ec` |
 | SEWCP-800 | SEWCP-800_PORT_BODY | `SEWCP-800\step\...step` | 24353 | `2f252ebe73d5f949` |
 | SEWCP-800 | 〃 | `SEWCP-800\stl\...stl` | 119084 | `c10b5060b185ec10` |
-| SEWCP-900 | SEWCP-901_RF_STRAP | `SEWCP-900\step\...step` | 210963 | `0fa0b630338e69c5` |
-| SEWCP-900 | 〃 | `SEWCP-900\stl\...stl` | 30684 | `c55872fe8c7e1a01` |
+| SEWCP-900 | SEWCP-901_RF_STRAP | `SEWCP-900\step\...step` | 213957 | `43e40d594f50efc6` |
+| SEWCP-900 | 〃 | `SEWCP-900\stl\...stl` | 31084 | `21ef8a6506a5d5ee` |
 | SEWCP-900 | SEWCP-902_SADDLE | `SEWCP-900\step\...step` | 12128 | `d0687503758de8d4` |
 | SEWCP-900 | 〃 | `SEWCP-900\stl\...stl` | 17084 | `80c411c6da33bb6a` |
 | SEWCP-1000 | SEWCP-1000_RETAINER | `SEWCP-1000\step\...step` | 36629 | `49f6ac15ef110170` |
 | SEWCP-1000 | 〃 | `SEWCP-1000\stl\...stl` | 72884 | `673512ab84767231` |
 
-## Drawing-stage register (deferred features, consolidated)
+> **SEWCP-901 re-issue (`S-2026-08-11-02`).** The free-state neutral-S model
+> could not mate the CP-IF-8 land; re-derived to the installed form and
+> re-verified (`RUN-20260811T200254-ca7080`, PASS 15/15). Digests above are
+> the re-issue. The superseded lineage is preserved in the Fusion project as
+> `ZZ-SUPERSEDED-FREE-S_SEWCP-901-20260811`.
 
-Fillets/chamfers/edge breaks and finishes on every part · SEWCP-200 masking
-sketches S9/S10 and RTD cross-vent DR-6 details as drawn views · SR-D16
-register (degenerate as tabulated — candidate ECR-Q) · SEWCP-904 shroud
-envelope (no dimensional authority) · EC-D14 He groove layout · SEWCP-901
-flat pattern · SC spring-clip detail · the Fusion assembly document.
+## Drawing-stage register — DISCHARGED `S-2026-08-11-02`
+
+The deferred items above are now realised as drawing content (edge breaks and
+finishes as standard notes; SEWCP-200 masking S9/S10 + DR-6 as the masking
+sheet; SEWCP-901 flat pattern with bend stations; SR-D16 / SEWCP-904 / EC-D14
+/ SC spring-clip carried as explicit drawing and BOM notes with their open
+records), the indentured BOM, and the Fusion assembly document. Register:
+
+| Deliverable | File (under the root) | Bytes | sha256 (first 16) |
+|---|---|---|---|
+| Master assembly (Fusion, cloud) | `SEWCP-000_MASTER_ASSEMBLY` — verified `RUN-20260811T200919-f6cb5e` PASS, 19 occurrences | — | — |
+| Assembly STEP/f3d export | **PENDING** — `cad/BRIDGE_RESUME.md` (OI-CAD-02) | — | — |
+| Indentured BOM Rev A | `BOM\SEWCP-000_BOM_RevA.csv` | 4346 | `59785024f5051279` |
+| Assembly drawing Sh1–3 (plan, elevation+BOM, fasteners) | `DRAWINGS\SEWCP-000\SEWCP-000-DRW-001_Sh1..3.svg/.pdf` + provenance | 2880–45351 | `9ecc9161c6de4a48` `5533bd54156be520` `d3fc7f2a13bdf696` `2032b8ce551323d3` `6b25165cdb0950d1` `c0324f2ac1db66db` `b7dec6f966171bfe` |
+| SEWCP-200 drawing (geometry + masking sheet) | `DRAWINGS\SEWCP-200\…Sh1,Sh2` | 11474–48855 | `6fcbbe0411e703f6` `7002fcc0416412b2` `0e10af6f935a36f7` `bcbc2a9182d44bb3` `081df22f843702ab` |
+| SEWCP-300 drawing | `DRAWINGS\SEWCP-300\…Sh1` | 1134–43188 | `a209340591dce845` `c7f54fb3899926f3` `e0215aec84acab6d` |
+| SEWCP-400 drawing | `DRAWINGS\SEWCP-400\…Sh1` | 1271–42060 | `688ef989098f788a` `ddd9d48883869a25` `103f2bb2ab5e6e13` |
+| SEWCP-500 drawing | `DRAWINGS\SEWCP-500\…Sh1` | 845–39476 | `6ce7130ce15ab448` `11fc34672b791847` `d58fdedff3e47e5d` |
+| SEWCP-600 drawing | `DRAWINGS\SEWCP-600\…Sh1` | 1011–30581 | `0550fd378354210b` `b0e8fe35cfdd0584` `a5e21300fc05ce24` |
+| SEWCP-700 drawing | `DRAWINGS\SEWCP-700\…Sh1` | 1416–32027 | `15034f04de158209` `e7185078fcd3a5b0` `5f63dbd1b1f9f86c` |
+| SEWCP-800 drawing | `DRAWINGS\SEWCP-800\…Sh1` | 1641–37489 | `93cea412e2a555c2` `cc3ab7a0d9601dda` `859995aa9630a8e3` |
+| SEWCP-901 drawing (installed form + flat pattern) | `DRAWINGS\SEWCP-901\…Sh1` | 1669–28501 | `9d5c28a14fd7edca` `8d908f9bf09e80c2` `2d4d94fb4063cff1` |
+| SEWCP-902 drawing (ECR-Q-012 provisional) | `DRAWINGS\SEWCP-902\…Sh1` | 819–25513 | `2fbd1eb83c636a7b` `2244d786c80c4280` `216282d2550632f8` |
+| SEWCP-1000 drawing | `DRAWINGS\SEWCP-1000\…Sh1` | 861–29351 | `09ff7019171faec8` `442dc28d2e204300` `1d894f6288db0d1d` |
+
+Every drawing dimension traces via its `.provenance.json` sidecar. Carried
+open on this register: ECR-Q-011, ECR-D-013, ECR-Q-012, OI-CAD-01,
+OI-CAD-02, CP-02 (physical), SEWCP-904 envelope, EC-D14 layout, SR-D16
+degeneracy — see `.ai/project/OPEN_ITEMS.md`.

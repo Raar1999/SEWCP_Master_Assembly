@@ -1,0 +1,101 @@
+{
+ "checks": [
+  {
+   "id": "FSV-REGISTRY",
+   "passed": true,
+   "statement": "all ten registry designs exist in the Fusion project",
+   "detail": "present (10)"
+  },
+  {
+   "id": "FSV-ASM-VERDICT",
+   "passed": true,
+   "statement": "assembly verification verdict is PASS",
+   "detail": "PASS"
+  },
+  {
+   "id": "FSV-ASM-COUNT",
+   "passed": true,
+   "statement": "19 occurrences observed",
+   "detail": "19"
+  },
+  {
+   "id": "FSV-Z-SEWCP-400",
+   "passed": true,
+   "statement": "SEWCP-400 occupies [-0.3, 20.0] (spec/00 \u00a74.2)",
+   "detail": "observed [-0.300, 20.000]"
+  },
+  {
+   "id": "FSV-Z-SEWCP-200",
+   "passed": true,
+   "statement": "SEWCP-200 occupies [20.0, 40.0] (spec/00 \u00a74.2)",
+   "detail": "observed [20.000, 40.000]"
+  },
+  {
+   "id": "FSV-Z-SEWCP-300",
+   "passed": true,
+   "statement": "SEWCP-300 occupies [41.5, 49.5] (spec/00 \u00a74.2)",
+   "detail": "observed [41.500, 49.500]"
+  },
+  {
+   "id": "FSV-Z-SEWCP-500",
+   "passed": true,
+   "statement": "SEWCP-500 occupies [49.9, 55.9] (spec/00 \u00a74.2)",
+   "detail": "observed [49.900, 55.900]"
+  },
+  {
+   "id": "FSV-WAFER-PLANE",
+   "passed": true,
+   "statement": "stack top at 55.900; wafer plane 55.920 via 0.020 mesa (callout)",
+   "detail": "55.900"
+  },
+  {
+   "id": "FSV-INTERFACES",
+   "passed": true,
+   "statement": "system interfaces 12/12 (component-level evidence)",
+   "detail": "12/12"
+  },
+  {
+   "id": "FSV-MATERIALS",
+   "passed": true,
+   "statement": "model materials match spec except the recorded OI-CAD-01 defect",
+   "detail": "defect rows: ['SEWCP-600']"
+  },
+  {
+   "id": "FSV-BOM",
+   "passed": true,
+   "statement": "BOM cross-checks clean (4 ways)",
+   "detail": "clean"
+  },
+  {
+   "id": "FSV-DRAWINGS",
+   "passed": true,
+   "statement": "11 drawings rendered (SVG+PDF) with fully-sourced dimensions",
+   "detail": "missing: []; unsourced dims: 0; dims total: 75"
+  },
+  {
+   "id": "FSV-MANIFEST-BOM",
+   "passed": true,
+   "statement": "BOM digest recorded in the deliverable manifest",
+   "detail": "59785024f5051279"
+  },
+  {
+   "id": "FSV-MANIFEST-STRAP",
+   "passed": true,
+   "statement": "re-issued strap STEP digest recorded",
+   "detail": "43e40d594f50efc6"
+  },
+  {
+   "id": "FSV-RESIDUES",
+   "passed": true,
+   "statement": "every residue of this run is registered as an open item",
+   "detail": "ECR-D-013, ECR-Q-012, OI-CAD-01, OI-CAD-02"
+  }
+ ],
+ "passed": true,
+ "known_defects_carried": [
+  "SEWCP-200 occurrence bound to v4 content (OI-CAD-02)",
+  "SEWCP-600 material Steel vs spec alumina (OI-CAD-01)"
+ ],
+ "assembly_run": "RUN-20260811T200919-f6cb5e",
+ "note": "PASS here means: every CAD-verifiable property of the final design verifies from observed evidence, and every non-verifiable or blocked item is explicitly carried."
+}

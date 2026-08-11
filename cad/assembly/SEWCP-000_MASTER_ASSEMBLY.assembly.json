@@ -1,0 +1,324 @@
+{
+ "package_id": "SEWCP-000-ASM-001",
+ "document": "SEWCP-000_MASTER_ASSEMBLY",
+ "units": "mm",
+ "authority": [
+  "spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md s3.2 (clocking, binding), s4.2 (nominal Z build), s4.1 (stack)",
+  "spec/01 CP-IF-5/8/9; spec/06 AP-IF-1..3, AP-D02/D12/D13; spec/07 VP-D02/D04; spec/05 LP-D02; spec/08 RS-D04/RF-IF-1; spec/09 TS-IF-1",
+  "cad/runs/SYSTEM_INTERFACES.json - 12/12 feature-fit evidence, component level"
+ ],
+ "notes": [
+  "SEWCP-301 choke washers (16x Ti, 1.50) are deliberately unmodelled (CP package: pads are treatment zones, washer supplies the gap) - the HP placement at 41.5 represents them; BOM carries them from spec/00 s4.2/s9.",
+  "SEWCP-401 clamp ring, SEWCP-601 bushings, SEWCP-903 hardware, SEWCP-904 shroud, SEWCP-1001..1003 sensor parts: no verified geometry exists (deferred/degenerate register, cad/DELIVERABLES.md) - BOM from spec only.",
+  "SR as-supplied 20.30 model placed with top at 20.000 (lap-to-fit DR-3): 0.30 lap allowance shows below Datum A by representation.",
+  "Lift pin park Z is actuator-defined; 1.0 recess below the ESC face chosen and recorded (not a spec value).",
+  "Saddle placement provisional under ECR-Q-012; strap seat convention 0.25 discrepancy recorded there.",
+  "Assembly-level interference is verified at the z-band/placement level here; feature fits are the 12/12 component-level evidence."
+ ],
+ "occurrences": [
+  {
+   "occurrence_id": "SR",
+   "design": "SEWCP-400_SUPPORT_RING",
+   "translate_mm": [
+    0,
+    0,
+    -0.3
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -0.3,
+    20.0
+   ],
+   "provenance": "spec/00 s4.2 row 1: lapped functional height 20.000, Datum D (top face) at Z=20.000; model is as-supplied 20.30 (DR-3), so the un-lapped 0.30 allowance sits below Datum A - representation note in the run record"
+  },
+  {
+   "occurrence_id": "CP",
+   "design": "SEWCP-200_COOLING_PLATE",
+   "translate_mm": [
+    0,
+    0,
+    20.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    20.0,
+    40.0
+   ],
+   "provenance": "spec/00 s4.2 row 2: CP 20.000 thick, bottom at Z=20.000"
+  },
+  {
+   "occurrence_id": "HP",
+   "design": "SEWCP-300_HEATER_PLATE",
+   "translate_mm": [
+    0,
+    0,
+    41.5
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    41.5,
+    49.5
+   ],
+   "provenance": "spec/00 s4.2 rows 3-4: choke washer 1.500 (SEWCP-301, unmodelled by CP package decision), HP 8.000"
+  },
+  {
+   "occurrence_id": "EC",
+   "design": "SEWCP-500_ESC_PUCK",
+   "translate_mm": [
+    0,
+    0,
+    49.9
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    49.9,
+    55.9
+   ],
+   "provenance": "spec/00 s4.2 rows 5-6: bond 0.400, ESC 6.000; mesas 0.020 are a drawing callout, not solid geometry"
+  },
+  {
+   "occurrence_id": "LP1",
+   "design": "SEWCP-600_LIFT_PIN",
+   "translate_mm": [
+    86.60254,
+    50.0,
+    -40.1
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -40.1,
+    54.9
+   ],
+   "provenance": "spec/00 s3.2: lift pin bores O200 BC at 30 deg; park Z: tip recessed 1.0 below the ESC top face (55.9-1.0-95.0=-40.1) - engineering judgment, actuator-defined, recorded; LP-D02 length 95.0"
+  },
+  {
+   "occurrence_id": "LP2",
+   "design": "SEWCP-600_LIFT_PIN",
+   "translate_mm": [
+    -86.60254,
+    50.0,
+    -40.1
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -40.1,
+    54.9
+   ],
+   "provenance": "spec/00 s3.2: lift pin bores O200 BC at 150 deg; park Z: tip recessed 1.0 below the ESC top face (55.9-1.0-95.0=-40.1) - engineering judgment, actuator-defined, recorded; LP-D02 length 95.0"
+  },
+  {
+   "occurrence_id": "LP3",
+   "design": "SEWCP-600_LIFT_PIN",
+   "translate_mm": [
+    -0.0,
+    -100.0,
+    -40.1
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -40.1,
+    54.9
+   ],
+   "provenance": "spec/00 s3.2: lift pin bores O200 BC at 270 deg; park Z: tip recessed 1.0 below the ESC top face (55.9-1.0-95.0=-40.1) - engineering judgment, actuator-defined, recorded; LP-D02 length 95.0"
+  },
+  {
+   "occurrence_id": "APT1",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    33.64648,
+    125.57036,
+    33.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    33.0,
+    42.5
+   ],
+   "provenance": "spec/00 s3.2: CP-HP locators O260 BC at 75 deg (ECR-D-010 clocking); CP top face 40.0, counterbore 3.0 (AP-IF-1), spigot 4.0 below floor (AP-D13): 40-3-4=33; boss to 42.5 (AP-D02)"
+  },
+  {
+   "occurrence_id": "APT2",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    -125.57036,
+    -33.64648,
+    33.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    33.0,
+    42.5
+   ],
+   "provenance": "spec/00 s3.2: CP-HP locators O260 BC at 195 deg (ECR-D-010 clocking); CP top face 40.0, counterbore 3.0 (AP-IF-1), spigot 4.0 below floor (AP-D13): 40-3-4=33; boss to 42.5 (AP-D02)"
+  },
+  {
+   "occurrence_id": "APT3",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    91.92388,
+    -91.92388,
+    33.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    33.0,
+    42.5
+   ],
+   "provenance": "spec/00 s3.2: CP-HP locators O260 BC at 315 deg (ECR-D-010 clocking); CP top face 40.0, counterbore 3.0 (AP-IF-1), spigot 4.0 below floor (AP-D13): 40-3-4=33; boss to 42.5 (AP-D02)"
+  },
+  {
+   "occurrence_id": "APB1",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    76.5,
+    132.50189,
+    27.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 180.0,
+   "z_band": [
+    17.5,
+    27.0
+   ],
+   "provenance": "spec/00 s3.2: Ring-CP slots O306 BC at 60 deg; flipped Rx180: boss 17.5-20 in the SR slot (AP-IF-2), flange 20-23 in the CP bottom counterbore, spigot 23-27"
+  },
+  {
+   "occurrence_id": "APB2",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    -153.0,
+    0.0,
+    27.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 180.0,
+   "z_band": [
+    17.5,
+    27.0
+   ],
+   "provenance": "spec/00 s3.2: Ring-CP slots O306 BC at 180 deg; flipped Rx180: boss 17.5-20 in the SR slot (AP-IF-2), flange 20-23 in the CP bottom counterbore, spigot 23-27"
+  },
+  {
+   "occurrence_id": "APB3",
+   "design": "SEWCP-700_ALIGNMENT_PIN",
+   "translate_mm": [
+    76.5,
+    -132.50189,
+    27.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 180.0,
+   "z_band": [
+    17.5,
+    27.0
+   ],
+   "provenance": "spec/00 s3.2: Ring-CP slots O306 BC at 300 deg; flipped Rx180: boss 17.5-20 in the SR slot (AP-IF-2), flange 20-23 in the CP bottom counterbore, spigot 23-27"
+  },
+  {
+   "occurrence_id": "VP",
+   "design": "SEWCP-800_PORT_BODY",
+   "translate_mm": [
+    0,
+    0,
+    20.0
+   ],
+   "rotate_z_deg": 0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -90.0,
+    28.0
+   ],
+   "provenance": "spec/07 VP-IF-1 + spec/01 CP-IF-5: flange sealing face on the CP bottom face Z=20; spigot 8.0 (VP-D04) up into the O10.0 H8 bore; bolts at O38 BC 45+n*90 in both models"
+  },
+  {
+   "occurrence_id": "RS",
+   "design": "SEWCP-901_RF_STRAP",
+   "translate_mm": [
+    0,
+    0,
+    0
+   ],
+   "rotate_z_deg": 105.0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    -46.68821,
+    20.0
+   ],
+   "provenance": "spec/00 s3.2: RF strap land 105 deg; the repaired installed-form model is in the Datum-A radial frame (x=radius), so rotation alone places it; pad top face on the CP-IF-8 land at Z=20"
+  },
+  {
+   "occurrence_id": "SB",
+   "design": "SEWCP-902_SADDLE",
+   "translate_mm": [
+    -14.49387,
+    54.09185,
+    0.0
+   ],
+   "rotate_z_deg": 105.0,
+   "rotate_x_deg": 0,
+   "z_band": [
+    0.0,
+    7.5
+   ],
+   "provenance": "PROVISIONAL - ECR-Q-012: seated at Datum A under the strap run mid-radius (r=56, run x 35..77.7), per the SEWCP-902 package convention; mounting architecture owner-reserved"
+  },
+  {
+   "occurrence_id": "TR1",
+   "design": "SEWCP-1000_RETAINER",
+   "translate_mm": [
+    10.35276,
+    38.63703,
+    8.0
+   ],
+   "rotate_z_deg": 165,
+   "rotate_x_deg": 0,
+   "z_band": [
+    8.0,
+    20.0
+   ],
+   "provenance": "spec/01 CP-IF-9: RTD port r=40 at 75 deg; retainer hangs from the CP bottom face (Z 8..20); mount axis tangential (CP flank taps +/-9 tangential; T3_MOUNT holes on local x), so rz=75+90"
+  },
+  {
+   "occurrence_id": "TR2",
+   "design": "SEWCP-1000_RETAINER",
+   "translate_mm": [
+    -96.59258,
+    25.8819,
+    8.0
+   ],
+   "rotate_z_deg": 255,
+   "rotate_x_deg": 0,
+   "z_band": [
+    8.0,
+    20.0
+   ],
+   "provenance": "spec/01 CP-IF-9: RTD port r=100 at 165 deg; retainer hangs from the CP bottom face (Z 8..20); mount axis tangential (CP flank taps +/-9 tangential; T3_MOUNT holes on local x), so rz=165+90"
+  },
+  {
+   "occurrence_id": "TR3",
+   "design": "SEWCP-1000_RETAINER",
+   "translate_mm": [
+    -98.99495,
+    -98.99495,
+    8.0
+   ],
+   "rotate_z_deg": 315,
+   "rotate_x_deg": 0,
+   "z_band": [
+    8.0,
+    20.0
+   ],
+   "provenance": "spec/01 CP-IF-9: RTD port r=140 at 225 deg; retainer hangs from the CP bottom face (Z 8..20); mount axis tangential (CP flank taps +/-9 tangential; T3_MOUNT holes on local x), so rz=225+90"
+  }
+ ]
+}

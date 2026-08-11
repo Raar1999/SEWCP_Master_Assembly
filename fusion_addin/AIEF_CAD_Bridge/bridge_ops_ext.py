@@ -300,6 +300,386 @@ def op_extrude(args):
                         if ext.bodies.count else None}}
 
 
+# --------------------------------------------------------------------------
+# Document-management and assembly vocabulary
+#
+# Generic by construction: identity is a persisted design name, placement is
+# a stated transform, observation is actual state. No component knowledge.
+# --------------------------------------------------------------------------
+
+MM_PER_CM = 10.0
+
+
+def _find_data_file(name, file_id=None):
+    """Resolve a saved design. An id pins the exact file; a bare name must be
+    unique - two files sharing a name is exactly the ambiguity that must
+    refuse rather than guess."""
+    folder = _home_folder()
+    files = folder.dataFiles
+    names = []
+    matches = []
+    for i in range(files.count):
+        df = files.item(i)
+        names.append(df.name)
+        if file_id is not None:
+            try:
+                if df.id == file_id:
+                    return df
+            except Exception:
+                pass
+        elif df.name == name:
+            matches.append(df)
+    if file_id is not None:
+        raise RuntimeError("no saved design with id %r in folder %r"
+                           % (file_id, folder.name))
+    if len(matches) == 1:
+        return matches[0]
+    if len(matches) > 1:
+        raise RuntimeError("ambiguous: %d saved designs named %r; "
+                           "select by id" % (len(matches), name))
+    raise RuntimeError("no saved design named %r in folder %r; present: [%s]"
+                       % (name, folder.name, ", ".join(sorted(names))))
+
+
+def op_list_documents(args):
+    """Enumerate open documents and the home folder's saved designs - the
+    observation orphan classification consumes."""
+    app = _app()
+    open_docs = []
+    for i in range(app.documents.count):
+        doc = app.documents.item(i)
+        row = {"display_name": doc.name,
+               "persisted_name": _persisted_name(doc),
+               "saved": bool(doc.isSaved)}
+        try:
+            row["modified"] = bool(doc.isModified)
+        except Exception:
+            row["modified"] = None
+        try:
+            df = doc.dataFile if doc.isSaved else None
+            row["version"] = df.versionNumber if df is not None else None
+        except Exception:
+            row["version"] = None
+        open_docs.append(row)
+    folder = _home_folder()
+    saved = []
+    files = folder.dataFiles
+    for i in range(files.count):
+        df = files.item(i)
+        row = {"name": df.name}
+        try:
+            row["version"] = df.versionNumber
+        except Exception:
+            row["version"] = None
+        try:
+            row["id"] = df.id
+        except Exception:
+            row["id"] = None
+        try:
+            row["created"] = df.dateCreated
+        except Exception:
+            row["created"] = None
+        saved.append(row)
+    return {"open_documents": open_docs,
+            "folder": {"name": folder.name},
+            "saved_designs": saved}
+
+
+def op_open_document(args):
+    """Open (and activate) a saved design by its persisted name or id."""
+    app = _app()
+    name = args.get("name")
+    if name and not args.get("id"):
+        doc = _find_document(name)
+        if doc is not None:
+            doc.activate()
+            return {"document": {"name": name, "opened": False,
+                                 "activated": True}}
+    df = _find_data_file(name, args.get("id"))
+    opened = app.documents.open(df, True)
+    if opened is None:
+        raise RuntimeError("open_document: open failed for %r" % name)
+    return {"document": {"name": _persisted_name(opened), "opened": True,
+                         "activated": True, "version": df.versionNumber}}
+
+
+def op_close_document(args):
+    """Close a named open document, discarding unsaved changes.
+
+    Display name is matched before persisted name: display names carry the
+    version suffix and stay unique when two files share a persisted name."""
+    name = args["name"]
+    app = _app()
+    doc = None
+    for i in range(app.documents.count):
+        d = app.documents.item(i)
+        if d.name == name:
+            doc = d
+            break
+    if doc is None:
+        doc = _find_document(name)
+    if doc is None:
+        raise RuntimeError("close_document: no open document named %r" % name)
+    closed_display = doc.name
+    doc.close(False)
+    return {"document": {"name": closed_display, "closed": True}}
+
+
+def op_delete_data_file(args):
+    """Delete a saved design by exact name (or pinned id). Refuses protected
+    names and open documents - deletion is dispatched only after
+    classification proves it safe, and this guard holds that proof at the
+    boundary."""
+    name = args["name"]
+    protected = set(args.get("protected") or [])
+    if name in protected:
+        raise RuntimeError("delete_data_file: %r is protected" % name)
+    if _find_document(name) is not None:
+        raise RuntimeError("delete_data_file: %r is open; close it first" % name)
+    df = _find_data_file(name, args.get("id"))
+    ok = df.deleteMe()
+    if not ok:
+        raise RuntimeError("delete_data_file: Fusion refused to delete %r "
+                           "(referenced by another design?)" % name)
+    return {"deleted": {"name": name}}
+
+
+def op_rename_data_file(args):
+    """Rename a saved design, pinned by id - the non-destructive resolution
+    of a name collision: history is preserved, ambiguity is removed."""
+    df = _find_data_file(args.get("name"), args.get("id"))
+    old = df.name
+    df.name = args["new_name"]
+    return {"renamed": {"from": old, "to": df.name, "id": args.get("id")}}
+
+
+def _matrix_from_args(args):
+    """Placement = Rz(rotate_z) . Rx(rotate_x), then translation (mm).
+
+    rotate_x supports flipped installations (a pin entered from the far
+    face); rotate_z is the clocking rotation the azimuth maps demand."""
+    import math
+
+    core = adsk.core
+    origin = core.Point3D.create(0, 0, 0)
+    matrix = core.Matrix3D.create()
+    rot_x = float(args.get("rotate_x_deg") or 0.0)
+    if rot_x:
+        matrix.setToRotation(math.radians(rot_x),
+                             core.Vector3D.create(1, 0, 0), origin)
+    rot_z = float(args.get("rotate_z_deg") or 0.0)
+    if rot_z:
+        mz = core.Matrix3D.create()
+        mz.setToRotation(math.radians(rot_z),
+                         core.Vector3D.create(0, 0, 1), origin)
+        matrix.transformBy(mz)
+    t = args.get("translate_mm") or [0.0, 0.0, 0.0]
+    matrix.translation = core.Vector3D.create(
+        float(t[0]) / MM_PER_CM, float(t[1]) / MM_PER_CM,
+        float(t[2]) / MM_PER_CM)
+    return matrix
+
+
+def _capture_position(design):
+    try:
+        if design.snapshots.hasPendingSnapshot:
+            design.snapshots.add()
+    except Exception:
+        pass
+
+
+def op_insert_occurrence(args):
+    """Insert a saved design into the active design as a referenced
+    occurrence at a stated transform - the native assembly primitive.
+    Verified component geometry is reused, never remodelled."""
+    app = _app()
+    design = adsk.fusion.Design.cast(app.activeProduct)
+    if design is None:
+        raise RuntimeError("insert_occurrence: no active design")
+    df = _find_data_file(args["name"], args.get("id"))
+    if args.get("use_latest_version"):
+        # The session's lineage cache can serve a stale tip after an
+        # out-of-session save; the explicit latest-version object bypasses
+        # it (found repairing a v4-bound insert whose true tip was v5).
+        try:
+            lv = df.latestVersion
+            if lv is not None:
+                df = lv
+        except Exception:
+            pass
+    matrix = _matrix_from_args(args)
+    occ = design.rootComponent.occurrences.addByInsert(df, matrix, True)
+    if occ is None:
+        raise RuntimeError("insert_occurrence: Fusion returned no occurrence "
+                           "for %r" % args["name"])
+    if args.get("ground"):
+        occ.isGrounded = True
+    _capture_position(design)
+    return {"occurrence": {
+        "name": occ.name,
+        "component": occ.component.name,
+        "source_design": args["name"],
+        "grounded": bool(occ.isGrounded),
+    }}
+
+
+def _find_occurrence(design, name):
+    occs = design.rootComponent.occurrences
+    names = []
+    for i in range(occs.count):
+        occ = occs.item(i)
+        names.append(occ.name)
+        if occ.name == name or occ.component.name == name:
+            return occ
+    raise RuntimeError("no occurrence named %r; present: [%s]"
+                       % (name, ", ".join(names)))
+
+
+def op_transform_occurrence(args):
+    """Re-place a named occurrence at a stated transform."""
+    app = _app()
+    design = adsk.fusion.Design.cast(app.activeProduct)
+    if design is None:
+        raise RuntimeError("transform_occurrence: no active design")
+    occ = _find_occurrence(design, args["name"])
+    was_grounded = bool(occ.isGrounded)
+    if was_grounded:
+        occ.isGrounded = False
+    matrix = _matrix_from_args(args)
+    try:
+        occ.transform2 = matrix
+    except Exception:
+        occ.transform = matrix
+    if was_grounded or args.get("ground"):
+        occ.isGrounded = True
+    _capture_position(design)
+    return {"occurrence": {"name": occ.name, "transformed": True}}
+
+
+def op_delete_occurrence(args):
+    """Remove a named occurrence from the active design."""
+    app = _app()
+    design = adsk.fusion.Design.cast(app.activeProduct)
+    if design is None:
+        raise RuntimeError("delete_occurrence: no active design")
+    occ = _find_occurrence(design, args["name"])
+    name = occ.name
+    if not occ.deleteMe():
+        raise RuntimeError("delete_occurrence: Fusion refused to delete %r"
+                           % name)
+    return {"deleted": {"name": name}}
+
+
+def op_data_file_info(args):
+    """Diagnostic: what the data platform reports for one saved design -
+    tip version, version list, and whether a newer version is visible."""
+    df = _find_data_file(args.get("name"), args.get("id"))
+    out = {"name": df.name}
+    for attr in ("versionNumber", "latestVersionNumber", "isCloudOnly"):
+        try:
+            out[attr] = getattr(df, attr)
+        except Exception as exc:
+            out[attr] = "ERR:%s" % exc
+    try:
+        versions = df.versions
+        out["versions"] = [versions.item(i).versionNumber
+                           for i in range(versions.count)]
+    except Exception as exc:
+        out["versions"] = "ERR:%s" % exc
+    try:
+        lv = df.latestVersion
+        out["latest_version_number"] = lv.versionNumber if lv else None
+    except Exception as exc:
+        out["latest_version_number"] = "ERR:%s" % exc
+    return {"data_file": out}
+
+
+def op_update_references(args):
+    """Bring every referenced design in the active document up to its
+    latest version - the repair for an insert that bound a stale one."""
+    app = _app()
+    doc = app.activeDocument
+    if doc is None:
+        raise RuntimeError("update_references: no active document")
+    ok = doc.updateAllReferences()
+    return {"references": {"updated": bool(ok)}}
+
+
+def op_observe_assembly(args):
+    """Actual assembly state: every occurrence with identity, source design,
+    transform, assembly-space bounds and mass. The only input to assembly
+    verification - intent is never consulted."""
+    import math
+
+    app = _app()
+    design = adsk.fusion.Design.cast(app.activeProduct)
+    if design is None:
+        raise RuntimeError("observe_assembly: no active design")
+    doc = app.activeDocument
+    root = design.rootComponent
+    occs = root.occurrences
+    rows = []
+    for i in range(occs.count):
+        occ = occs.item(i)
+        row = {"name": occ.name, "component": occ.component.name,
+               "grounded": bool(occ.isGrounded)}
+        try:
+            src_doc = occ.component.parentDesign.parentDocument
+            src_df = src_doc.dataFile if src_doc.isSaved else None
+            row["source_design"] = src_df.name if src_df is not None else None
+            row["source_version"] = (src_df.versionNumber
+                                     if src_df is not None else None)
+        except Exception:
+            row["source_design"] = None
+        try:
+            m = occ.transform2
+        except Exception:
+            m = occ.transform
+        cells = m.asArray()
+        row["translate_mm"] = [cells[3] * MM_PER_CM, cells[7] * MM_PER_CM,
+                               cells[11] * MM_PER_CM]
+        row["rotate_z_deg"] = math.degrees(math.atan2(cells[4], cells[0]))
+        # m22: +1 upright, -1 flipped by Rx(180) - the two placements the
+        # vocabulary can command.
+        row["z_axis_scale"] = cells[10]
+        try:
+            props = occ.physicalProperties
+            row["mass_kg"] = props.mass
+            row["volume_mm3"] = props.volume * (MM_PER_CM ** 3)
+        except Exception:
+            pass
+        bmin = [None, None, None]
+        bmax = [None, None, None]
+        bodies = 0
+        for j in range(occ.component.bRepBodies.count):
+            body = occ.component.bRepBodies.item(j)
+            try:
+                proxy = body.createForAssemblyContext(occ)
+                bb = proxy.boundingBox
+                lo = [bb.minPoint.x, bb.minPoint.y, bb.minPoint.z]
+                hi = [bb.maxPoint.x, bb.maxPoint.y, bb.maxPoint.z]
+            except Exception:
+                continue
+            bodies += 1
+            for k in range(3):
+                v_lo = lo[k] * MM_PER_CM
+                v_hi = hi[k] * MM_PER_CM
+                if bmin[k] is None or v_lo < bmin[k]:
+                    bmin[k] = v_lo
+                if bmax[k] is None or v_hi > bmax[k]:
+                    bmax[k] = v_hi
+        row["bodies"] = bodies
+        if bmin[0] is not None:
+            row["bbox_min"] = bmin
+            row["bbox_max"] = bmax
+        rows.append(row)
+    persisted = _persisted_name(doc)
+    return {"document": {"name": doc.name if doc else None,
+                         "persisted_name": persisted,
+                         "saved": bool(doc.isSaved) if doc else None},
+            "occurrences": rows}
+
+
 OPS = {
     "extrude": op_extrude,
     "assign_material": op_assign_material,
@@ -307,4 +687,15 @@ OPS = {
     "revert_document": op_revert_document,
     "rename_component": op_rename_component,
     "export_model": op_export_model,
+    "list_documents": op_list_documents,
+    "rename_data_file": op_rename_data_file,
+    "open_document": op_open_document,
+    "close_document": op_close_document,
+    "delete_data_file": op_delete_data_file,
+    "insert_occurrence": op_insert_occurrence,
+    "update_references": op_update_references,
+    "data_file_info": op_data_file_info,
+    "transform_occurrence": op_transform_occurrence,
+    "delete_occurrence": op_delete_occurrence,
+    "observe_assembly": op_observe_assembly,
 }

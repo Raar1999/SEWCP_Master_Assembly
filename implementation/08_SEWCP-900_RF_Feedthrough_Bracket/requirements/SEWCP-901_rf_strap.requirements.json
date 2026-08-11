@@ -1,85 +1,293 @@
 {
-  "package_id": "SEWCP-901-REQ-001",
-  "component": "SEWCP-901_RF_STRAP",
-  "authority": [
-    "spec/08_SEWCP-900_RF_Feedthrough_Bracket.md Rev A (FROZEN) - RS-D01..RS-D07, section 6 (OFHC C10100, formed R20, silver 8-13 um direct on copper per DR-7)"
-  ],
-  "scope": {
-    "document_name": "SEWCP-901_RF_STRAP",
-    "units": "mm",
-    "bounded": "The formed strap solid: 50.0 wide x 0.50 thick, developed 180.0, S-form compliance path R20 from the 8.0 feedthrough level up to the chuck terminal level. Terminal bolt holes 2x O6.6 at 25 centres in the chuck-end pad.",
-    "modelling_conventions": "DECISION (design agent): the compliance path is modelled as the neutral S - flat 58.6 at z=8, 90 deg up-arc R20, 90 deg reverse arc R20, flat 58.6 at z=48 - closing RS-D03 = 180.0 developed exactly; the formed part's +/-2 tolerance absorbs the difference from the as-installed flexure, which is the part's purpose (RS-D05). Only the chuck-end pad holes are modelled; the feedthrough end clamps. Plating (RS-D08/D09), edge radii (RS-D11) and pad flatness (RS-D10) are process/drawing callouts.",
-    "open_state": "SEWCP-904 shroud envelope has no dimensional authority in spec/08 (material, grooves and assembly gaps only) - recorded as a requirement gap for the drawing stage; not invented here."
+ "package_id": "SEWCP-901-REQ-001",
+ "component": "SEWCP-901_RF_STRAP",
+ "authority": [
+  "spec/08_SEWCP-900_RF_Feedthrough_Bracket.md Rev A (FROZEN) - RS-D01..RS-D07, section 6 (OFHC C10100, formed R20, silver 8-13 um direct on copper per DR-7)"
+ ],
+ "scope": {
+  "document_name": "SEWCP-901_RF_STRAP",
+  "units": "mm",
+  "bounded": "The formed strap solid: 50.0 wide x 0.50 thick, developed 180.0, S-form compliance path R20 from the 8.0 feedthrough level up to the chuck terminal level. Terminal bolt holes 2x O6.6 at 25 centres in the chuck-end pad.",
+  "modelling_conventions": "DECISION (design agent, repaired at assembly integration): the strap is modelled in the INSTALLED form, in the Datum-A radial frame (x = radius at the 105 deg ray, z = height above Datum A). The free neutral-S of the previous issue placed the terminal pad at z=48 / r=148.2 where no land exists - the pad could not mate spec/01 CP-IF-8 (land on the CP BOTTOM face, z=20, r 128..146) and the loop swept the heater-plate band. Installed path: vertical feedthrough leg at x=15 (inside the OD60 aperture, FBA-5, clearing the SEWCP-800 tube), R20 90-deg bend, run at z=8.0 (RS-D04), two R20 arcs of 45.06938 deg (RS-D05) rising 11.75 to the pad mid-plane 19.75, pad flat 40.0 ending at the land outer radius 146.0; holes at r=137.0 on the CP tap radius, 9.0 from the end. Developed length closes RS-D03 = 180.0 exactly; the leg length 34.43821 absorbs the balance (feedthrough terminal is external scope and clamps along the leg). Only the chuck-end pad holes are modelled. Plating, edge radii and pad flatness remain process/drawing callouts.",
+  "open_state": "SEWCP-904 shroud envelope has no dimensional authority in spec/08 (material, grooves and assembly gaps only) - recorded as a requirement gap for the drawing stage; not invented here."
+ },
+ "parameters": [
+  {
+   "name": "rs_width",
+   "expression": "50.0",
+   "unit": "mm",
+   "source": "RS-D01"
   },
-
-  "parameters": [
-    {"name": "rs_width", "expression": "50.0", "unit": "mm", "source": "RS-D01"},
-    {"name": "rs_thk", "expression": "0.5", "unit": "mm", "source": "RS-D02"},
-    {"name": "rs_dev", "expression": "180.0", "unit": "mm", "source": "RS-D03"},
-    {"name": "rs_h", "expression": "8.0", "unit": "mm", "source": "RS-D04"},
-    {"name": "rs_loop_r", "expression": "20.0", "unit": "mm", "source": "RS-D05"},
-    {"name": "rs_hole_d", "expression": "6.6", "unit": "mm", "source": "RS-D07"},
-    {"name": "rs_hole_pitch", "expression": "25.0", "unit": "mm", "source": "RS-D07"}
-  ],
-
-  "material": {
-    "name": "Copper",
-    "density": 8940,
-    "source": "spec/08 section 6 - OFHC C10100, silver-plated"
+  {
+   "name": "rs_thk",
+   "expression": "0.5",
+   "unit": "mm",
+   "source": "RS-D02"
   },
-
-  "requirements": [
-    {"id": "RS-FORM", "kind": "geometry",
-     "statement": "50.0 x 0.50 strip, developed 180.0, formed R20 S-compliance from z=8 to z=48: flats 58.6 each, two 90 deg arcs of 31.4 each.",
-     "source": "spec/08 RS-D01..RS-D05", "unit": "mm",
-     "value": {"form": "swept_strip", "sketch": "R1_SIDE", "plane": "PL_STRAP",
-       "thickness": "rs_thk", "width": "rs_width", "plane_az_deg": "0",
-       "body": "RS_BODY",
-       "side_path": [
-         {"type": "line", "start": ["0", "rs_h"], "end": ["58.6", "rs_h"]},
-         {"type": "arc", "center": ["58.6", "rs_h + rs_loop_r"],
-          "radius": "rs_loop_r", "start": ["58.6", "rs_h"],
-          "end": ["58.6 + rs_loop_r", "rs_h + rs_loop_r"], "ccw": true},
-         {"type": "arc", "center": ["58.6 + 2 * rs_loop_r", "rs_h + rs_loop_r"],
-          "radius": "rs_loop_r",
-          "start": ["58.6 + rs_loop_r", "rs_h + rs_loop_r"],
-          "end": ["58.6 + 2 * rs_loop_r", "rs_h + 2 * rs_loop_r"],
-          "ccw": false},
-         {"type": "line", "start": ["58.6 + 2 * rs_loop_r", "rs_h + 2 * rs_loop_r"],
-          "end": ["157.2", "rs_h + 2 * rs_loop_r"]}
-       ],
-       "rationale": "Neutral S closing dev=180: 58.6 + 31.4 + 31.4 + 58.6"}},
-    {"id": "RS-HOLES", "kind": "geometry",
-     "statement": "2x O6.6 terminal bolt holes at 25 centres in the chuck-end pad, through the 0.5 strip, centred 9 mm from the strap end.",
-     "source": "spec/08 RS-D06/RS-D07", "unit": "mm",
-     "value": {"form": "transverse_drill", "sketch_prefix": "R2",
-       "diameter": "rs_hole_d",
-       "drills": [
-         {"id": "hole1", "plane_az_deg": "90", "plane_offset": "-12.5",
-          "center": ["148.2", "-12.5", "rs_h + 2 * rs_loop_r"],
-          "length": "4", "rationale": "Pad hole 1; vertical through the flat pad - modelled as a short symmetric drill normal to the pad."},
-         {"id": "hole2", "plane_az_deg": "90", "plane_offset": "12.5",
-          "center": ["148.2", "12.5", "rs_h + 2 * rs_loop_r"],
-          "length": "4", "rationale": "Pad hole 2."}]}},
-    {"id": "MFG-RS", "kind": "manufacturing",
-     "statement": "Blank, deburr R0.5, single R20 mandrel form, anneal, pickle, silver 8-13 um DIRECTLY on copper (no nickel underplate - DR-7), flatten pads to 0.05 TIR, 4-wire <= 3 mOhm.",
-     "source": "spec/08 section 6"}
-  ],
-
-  "interfaces": [
-    {"id": "RS-IF-1", "mates_to": "SEWCP-200 RF land", "nature": "2x M6 at 25 centres onto the plate's rf taps (98.73/111.27 - verified)", "source": "spec/01 CP-IF-8"}
-  ],
-
-  "acceptance": [
-    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
-    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-901_RF_STRAP"},
-    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 7},
-    {"id": "ACC-WIDTH", "check": "parameter", "subject": "parameter:rs_width.value", "expect": 50.0, "tolerance": 1e-06, "requirement": "RS-FORM"},
-    {"id": "ACC-LOOP-R", "check": "parameter", "subject": "parameter:rs_loop_r.value", "expect": 20.0, "tolerance": 1e-06, "requirement": "RS-FORM"},
-    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
-    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:RS_BODY.dy", "expect": 50.0, "tolerance": 0.05, "requirement": "RS-FORM"},
-    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:RS_BODY.dz", "expect": 40.5, "tolerance": 0.1, "requirement": "RS-FORM"},
-    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:RS_BODY.dx", "expect": 157.7, "tolerance": 0.1, "requirement": "RS-FORM"},
-    {"id": "ACC-SK-SIDE", "check": "interface", "subject": "sketch:R1_SIDE.exists", "expect": true, "requirement": "RS-FORM"}
-  ]
+  {
+   "name": "rs_dev",
+   "expression": "180.0",
+   "unit": "mm",
+   "source": "RS-D03"
+  },
+  {
+   "name": "rs_h",
+   "expression": "8.0",
+   "unit": "mm",
+   "source": "RS-D04"
+  },
+  {
+   "name": "rs_loop_r",
+   "expression": "20.0",
+   "unit": "mm",
+   "source": "RS-D05"
+  },
+  {
+   "name": "rs_hole_d",
+   "expression": "6.6",
+   "unit": "mm",
+   "source": "RS-D07"
+  },
+  {
+   "name": "rs_hole_pitch",
+   "expression": "25.0",
+   "unit": "mm",
+   "source": "RS-D07"
+  }
+ ],
+ "material": {
+  "name": "Copper",
+  "density": 8940,
+  "source": "spec/08 section 6 - OFHC C10100, silver-plated"
+ },
+ "requirements": [
+  {
+   "id": "RS-FORM",
+   "kind": "geometry",
+   "statement": "50.0 x 0.50 strip, developed 180.0, installed form: leg 34.43821 at x=15, R20 bend, run 42.6815 at z=8, two R20 arcs of 45.06938 deg rising to the 19.75 pad mid-plane, pad flat 40.0 to x=146 (land outer radius).",
+   "source": "spec/08 RS-D01..RS-D05",
+   "unit": "mm",
+   "value": {
+    "form": "swept_strip",
+    "sketch": "R1_SIDE",
+    "plane": "PL_STRAP",
+    "thickness": "rs_thk",
+    "width": "rs_width",
+    "plane_az_deg": "0",
+    "body": "RS_BODY",
+    "side_path": [
+     {
+      "type": "line",
+      "start": [
+       "15.0",
+       "-46.43821"
+      ],
+      "end": [
+       "15.0",
+       "-12.0"
+      ]
+     },
+     {
+      "type": "arc",
+      "center": [
+       "35.0",
+       "-12.0"
+      ],
+      "radius": "rs_loop_r",
+      "start": [
+       "15.0",
+       "-12.0"
+      ],
+      "end": [
+       "35.0",
+       "rs_h"
+      ],
+      "ccw": false
+     },
+     {
+      "type": "line",
+      "start": [
+       "35.0",
+       "rs_h"
+      ],
+      "end": [
+       "77.6815",
+       "rs_h"
+      ]
+     },
+     {
+      "type": "arc",
+      "center": [
+       "77.6815",
+       "rs_h + rs_loop_r"
+      ],
+      "radius": "rs_loop_r",
+      "start": [
+       "77.6815",
+       "rs_h"
+      ],
+      "end": [
+       "91.84075",
+       "13.875"
+      ],
+      "ccw": true
+     },
+     {
+      "type": "arc",
+      "center": [
+       "106",
+       "-0.25"
+      ],
+      "radius": "rs_loop_r",
+      "start": [
+       "91.84075",
+       "13.875"
+      ],
+      "end": [
+       "106",
+       "19.75"
+      ],
+      "ccw": false
+     },
+     {
+      "type": "line",
+      "start": [
+       "106",
+       "19.75"
+      ],
+      "end": [
+       "146.0",
+       "19.75"
+      ]
+     }
+    ],
+    "rationale": "Installed S closing dev=180: 34.43821 + 31.41593 + 42.6815 + 2x15.73218 + 40.0; pad top face at Z=20.000 on the CP-IF-8 land."
+   }
+  },
+  {
+   "id": "RS-HOLES",
+   "kind": "geometry",
+   "statement": "2x O6.6 terminal bolt holes at 25 centres in the chuck-end pad, through the 0.5 strip, centred 9 mm from the strap end - at r=137.0, the CP-IF-8 tap radius. NOTE: the 25.0 pitch (RS-D07) does not close against the plate taps at 98.73/111.27 deg (chord 29.94) - raised as ECR-D-013, owner-reserved; the frozen RS-D07 value is kept until ruled.",
+   "source": "spec/08 RS-D06/RS-D07",
+   "unit": "mm",
+   "value": {
+    "form": "transverse_drill",
+    "sketch_prefix": "R2",
+    "diameter": "rs_hole_d",
+    "drills": [
+     {
+      "id": "hole1",
+      "plane_az_deg": "90",
+      "plane_offset": "-12.5",
+      "center": [
+       "137.0",
+       "-12.5",
+       "19.75"
+      ],
+      "length": "4",
+      "rationale": "Pad hole 1; vertical through the flat pad - modelled as a short symmetric drill normal to the pad."
+     },
+     {
+      "id": "hole2",
+      "plane_az_deg": "90",
+      "plane_offset": "12.5",
+      "center": [
+       "137.0",
+       "12.5",
+       "19.75"
+      ],
+      "length": "4",
+      "rationale": "Pad hole 2."
+     }
+    ]
+   }
+  },
+  {
+   "id": "MFG-RS",
+   "kind": "manufacturing",
+   "statement": "Blank, deburr R0.5, single R20 mandrel form, anneal, pickle, silver 8-13 um DIRECTLY on copper (no nickel underplate - DR-7), flatten pads to 0.05 TIR, 4-wire <= 3 mOhm.",
+   "source": "spec/08 section 6"
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "RS-IF-1",
+   "mates_to": "SEWCP-200 RF land",
+   "nature": "2x M6 at 25 centres onto the plate's rf taps (98.73/111.27 - verified)",
+   "source": "spec/01 CP-IF-8"
+  }
+ ],
+ "acceptance": [
+  {
+   "id": "ACC-UNITS",
+   "check": "constraint",
+   "subject": "document.units",
+   "expect": "mm"
+  },
+  {
+   "id": "ACC-NAME",
+   "check": "constraint",
+   "subject": "component.name",
+   "expect": "SEWCP-901_RF_STRAP"
+  },
+  {
+   "id": "ACC-PARAM-COUNT",
+   "check": "parameter",
+   "subject": "parameters.count",
+   "expect": 7
+  },
+  {
+   "id": "ACC-WIDTH",
+   "check": "parameter",
+   "subject": "parameter:rs_width.value",
+   "expect": 50.0,
+   "tolerance": 1e-06,
+   "requirement": "RS-FORM"
+  },
+  {
+   "id": "ACC-LOOP-R",
+   "check": "parameter",
+   "subject": "parameter:rs_loop_r.value",
+   "expect": 20.0,
+   "tolerance": 1e-06,
+   "requirement": "RS-FORM"
+  },
+  {
+   "id": "ACC-BODY-COUNT",
+   "check": "geometry",
+   "subject": "bodies.count",
+   "expect": 1
+  },
+  {
+   "id": "ACC-BODY-DY",
+   "check": "geometry",
+   "subject": "body:RS_BODY.dy",
+   "expect": 50.0,
+   "tolerance": 0.05,
+   "requirement": "RS-FORM"
+  },
+  {
+   "id": "ACC-BODY-DZ",
+   "check": "geometry",
+   "subject": "body:RS_BODY.dz",
+   "expect": 66.688,
+   "tolerance": 0.1,
+   "requirement": "RS-FORM"
+  },
+  {
+   "id": "ACC-BODY-DX",
+   "check": "geometry",
+   "subject": "body:RS_BODY.dx",
+   "expect": 131.5,
+   "tolerance": 0.1,
+   "requirement": "RS-FORM"
+  },
+  {
+   "id": "ACC-SK-SIDE",
+   "check": "interface",
+   "subject": "sketch:R1_SIDE.exists",
+   "expect": true,
+   "requirement": "RS-FORM"
+  }
+ ]
 }

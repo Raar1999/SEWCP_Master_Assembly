@@ -14,28 +14,26 @@ last_ledger_seq:  0
 frozen_set_hash:  73911786c0795f20b5c5ea5b9ae4a9254d306abaccd9cc9ce54fc55a5d5bc3c2
 active_tasks:     []
 blockers:
+  - ECR-D-013        # strap pitch vs plate taps - fails C7 until owner rules
   - ECR-D-006        # framework manifest drift. NOT under spec/**, not an LC-M04 criterion
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
   - C-4              # LICENSE placeholder
 open_non_blocking:
   - ECR-D-001..004, 007..012   # all dispositioned, approved, applied, registered
-  - ECR-Q-009, ECR-Q-010
+  - ECR-Q-012                  # raised at assembly integration - owner-reserved
+  - ECR-Q-009, ECR-Q-010, ECR-Q-011
   - OQ-14                      # human-owner reservation: Stage 6 authorization
   - OI-V-02..10, OI-V-12       # OI-V-11 closed by VER-017
   - OI-C-01,02,04,05,07..11,13
+  - OI-CAD-01, OI-CAD-02       # bridge-resume residues, cad/BRIDGE_RESUME.md
   - OI-P-01..03, OI-R-01
 next_action: |
-  LC-M04-EXIT PASSED, C1-C7. Verify: PYTHONPATH=src python -m aief_gate
-
-  ALL NINE COMPONENT VOLUMES CAD-COMPLETE, verified from observed
-  Fusion state; system interfaces 12/12 (cad/runs/SYSTEM_INTERFACES.json);
-  exports + drawing-stage register at cad/DELIVERABLES.md.
-
-  NEXT: the drawing/documentation stage and the Fusion assembly document.
-
-  Open: ECR-Q-011 (rib 5.0 provisional), path 1.64 vs ~2.2 m, CP-02.
-  NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
+  C7 now FAILS on the raised ECR-D-013, by design. POST-GEOMETRY COMPLETE
+  (S-2026-08-11-02): assembly verified+saved, 11 drawings, BOM, final
+  verification 15/15 - cad/POST_GEOMETRY_RUN.md governs the detail.
+  NEXT: cad/BRIDGE_RESUME.md closes OI-CAD-01/-02 (one click + script).
+  NOT now: Stage 6 (OQ-14), ECR-D-006, push before 2026-09-01.
 ```
 
 ## Notes — each resolves in full at the artifact cited

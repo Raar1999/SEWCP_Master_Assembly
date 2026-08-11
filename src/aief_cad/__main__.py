@@ -208,11 +208,73 @@ def cmd_replay(args) -> int:
     return 0 if same else 1
 
 
+def cmd_op(args) -> int:
+    """Dispatch one named operation with literal JSON args - the admin and
+    lifecycle path (list_documents, open/close, insert_occurrence, exports).
+    Solution-compiled geometry still goes through `run`; this never does
+    design work, which is why it takes no package."""
+    bridge = FileQueueBridge()
+    op_args = json.loads(args.args) if args.args else {}
+    cmd = Command(
+        command_id=f"ADM-{int(time.time())}-{args.op}",
+        op=args.op,
+        args=op_args,
+        issued_by="mechanical.cad-engineer",
+        session=args.session,
+        solution_id="-",
+        model_target={},
+        idempotency_key=f"adm-{args.op}-{time.time()}",
+        timeout_s=args.timeout,
+    )
+    try:
+        obs = bridge.send(cmd, reuse=False)
+    except BridgeNotRunning as exc:
+        print(f"NOT RUNNING: {exc}")
+        return 1
+    print(json.dumps(obs.raw, indent=2, sort_keys=True))
+    return 0 if obs.ok else 1
+
+
+def cmd_assembly(args) -> int:
+    """Build (or preview) an assembly package against live Fusion."""
+    from aief_cad.assembly import AssemblyRunner, load_assembly_package
+
+    package = load_assembly_package(args.package)
+    print(f"assembly    {package.package_id}  {short(package.digest)}")
+    print(f"document    {package.document}")
+    print(f"occurrences {len(package.occurrences)} of "
+          f"{len(package.designs())} designs")
+    if args.dry_run:
+        for o in package.occurrences:
+            rx = f" rx {o.rotate_x_deg}" if o.rotate_x_deg else ""
+            print(f"  {o.occurrence_id:12s} {o.design:26s} "
+                  f"t {list(o.translate_mm)} rz {o.rotate_z_deg}{rx}")
+        print("Nothing was sent.")
+        return 0
+    runner = AssemblyRunner(session=args.session)
+    record = runner.run(package, save_on_pass=not args.no_save)
+    verdict = record.get("verdict")
+    print(f"verdict     {verdict}")
+    for c in (record.get("verification") or {}).get("checks", []):
+        mark = "PASS" if c["passed"] else "FAIL"
+        if not c["passed"]:
+            print(f"  {mark} {c['id']}: {c['statement']} - {c['detail']}")
+    print(f"recorded    cad/runs/{record['run_id']}/run.json")
+    return 0 if verdict == "PASS" else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="aief-cad", description=__doc__)
     ap.add_argument("--session", default="unrecorded-session")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
+    p = sub.add_parser("op"); p.add_argument("op"); p.add_argument("--args", default="")
+    p.add_argument("--timeout", type=float, default=120.0)
+    p.set_defaults(fn=cmd_op)
+    p = sub.add_parser("assembly"); p.add_argument("package")
+    p.add_argument("--no-save", action="store_true")
+    p.add_argument("--dry-run", action="store_true")
+    p.set_defaults(fn=cmd_assembly)
     p = sub.add_parser("status"); p.add_argument("package", nargs="?"); p.set_defaults(fn=cmd_status)
     p = sub.add_parser("ping"); p.add_argument("--timeout", type=float, default=20.0)
     p.set_defaults(fn=cmd_ping)

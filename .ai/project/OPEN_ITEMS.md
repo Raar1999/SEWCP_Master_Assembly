@@ -10,6 +10,7 @@ row's id appears exactly once here. **Grammar: one id per line.**
 ## Blocking
 
 ECR-D-006
+ECR-D-013
 CMP-BLOCK-004
 CMP-BLOCK-005
 C-4
@@ -29,6 +30,7 @@ ECR-D-012
 ECR-Q-009
 ECR-Q-010
 ECR-Q-011
+ECR-Q-012
 OI-V-02
 OI-V-03
 OI-V-04
@@ -49,6 +51,8 @@ OI-C-09
 OI-C-10
 OI-C-11
 OI-C-13
+OI-CAD-01
+OI-CAD-02
 OI-P-01
 OI-P-02
 OI-P-03
