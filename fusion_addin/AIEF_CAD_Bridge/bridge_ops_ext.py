@@ -214,7 +214,68 @@ def op_assign_material(args):
     return {"material": {"name": found.name, "applied_to": applied}}
 
 
+def op_extrude(args):
+    """Extrude with deterministic profile selection.
+
+    Overrides the shell op to add area-based selection: 'smallest' and
+    'largest' pick a profile by area - the deterministic way to cut an
+    annular groove from a two-circle sketch, where index order is not
+    guaranteed by Fusion.
+    """
+    app = _app()
+    design = adsk.fusion.Design.cast(app.activeProduct)
+    root = design.rootComponent
+    sketch = None
+    for i in range(root.sketches.count):
+        if root.sketches.item(i).name == args["sketch"]:
+            sketch = root.sketches.item(i)
+            break
+    if sketch is None:
+        raise RuntimeError("extrude: sketch %r not found" % args["sketch"])
+    if sketch.profiles.count == 0:
+        raise RuntimeError("sketch %r yields no closed profile" % args["sketch"])
+
+    which = args.get("profile", 0)
+    if which == "all":
+        profile = adsk.core.ObjectCollection.create()
+        for i in range(sketch.profiles.count):
+            profile.add(sketch.profiles.item(i))
+    elif which in ("smallest", "largest"):
+        ranked = sorted(
+            (sketch.profiles.item(i) for i in range(sketch.profiles.count)),
+            key=lambda p: p.areaProperties().area,
+        )
+        profile = ranked[0] if which == "smallest" else ranked[-1]
+    else:
+        profile = sketch.profiles.item(int(which))
+
+    op_table = {
+        "new_body": adsk.fusion.FeatureOperations.NewBodyFeatureOperation,
+        "join": adsk.fusion.FeatureOperations.JoinFeatureOperation,
+        "cut": adsk.fusion.FeatureOperations.CutFeatureOperation,
+        "intersect": adsk.fusion.FeatureOperations.IntersectFeatureOperation,
+    }
+    extrudes = root.features.extrudeFeatures
+    ext_input = extrudes.createInput(profile, op_table[args.get("operation", "new_body")])
+    distance = args["distance"]
+    direction = args.get("direction", "positive")
+    if direction == "symmetric":
+        ext_input.setSymmetricExtent(
+            adsk.core.ValueInput.createByString(distance), True)
+    else:
+        expr = distance if direction == "positive" else "-(%s)" % distance
+        ext_input.setDistanceExtent(False, adsk.core.ValueInput.createByString(expr))
+    ext = extrudes.add(ext_input)
+    body_name = args.get("body_name")
+    if body_name and ext.bodies.count:
+        ext.bodies.item(0).name = body_name
+    return {"extrude": {"bodies": ext.bodies.count,
+                        "body_name": ext.bodies.item(0).name
+                        if ext.bodies.count else None}}
+
+
 OPS = {
+    "extrude": op_extrude,
     "assign_material": op_assign_material,
     "save_document": op_save_document,
     "revert_document": op_revert_document,

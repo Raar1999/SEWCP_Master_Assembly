@@ -1,0 +1,100 @@
+{
+  "package_id": "SEWCP-1000-REQ-001",
+  "component": "SEWCP-1000_RETAINER",
+  "authority": [
+    "spec/09_SEWCP-1000_Temperature_Sensor_Bracket.md Rev A (FROZEN) - TR-D01, TR-D02, TR-D04, TR-D07, TR-D08, sections 6/8 (6061-T6, Alodine 1200)",
+    "spec/01_SEWCP-200_Cooling_Plate.md CP-IF-9 (M4 retainer taps flanking each port at +/-9 mm - verified in the SEWCP-200 model); spec/00 DR-13"
+  ],
+  "scope": {
+    "document_name": "SEWCP-1000_RETAINER",
+    "units": "mm",
+    "bounded": "The retainer body: 24 x 16 x 12 block centred on the probe axis, O1.75 probe bore through, 2x mounting clearance holes at 18.0 spacing, O3.0 strain-relief clamp bore, 2.0 W x 1.0 D vent slot on the mounting face. Datum: Z=0 at the mounting face, probe axis at the origin.",
+    "modelling_conventions": "Mounting holes are O4.5 - the standard ISO M4 clearance for the CP-IF-9 taps; the strain-relief bore runs horizontally along Y at x=+8, z=6, clear of the probe bore - both agent decisions, recorded. The SC-D spring clip is a formed 0.10 Inconel 718 foil detail deferred to its own drawing. TR-D03/TR-D05/TR-D06 are assembly/inspection callouts.",
+    "open_state": "No dependency on ECR-Q-011, the path-length item, or CP-02."
+  },
+
+  "parameters": [
+    {"name": "tr_len", "expression": "24.0", "unit": "mm", "source": "TR-D01"},
+    {"name": "tr_wid", "expression": "16.0", "unit": "mm", "source": "TR-D01"},
+    {"name": "tr_hgt", "expression": "12.0", "unit": "mm", "source": "TR-D01"},
+    {"name": "tr_probe_d", "expression": "1.75", "unit": "mm", "source": "TR-D02"},
+    {"name": "tr_mount_pitch", "expression": "18.0", "unit": "mm", "source": "TR-D04"},
+    {"name": "tr_mount_d", "expression": "4.5", "unit": "mm", "source": "ISO M4 clearance for CP-IF-9 taps (agent decision)"},
+    {"name": "tr_clamp_d", "expression": "3.0", "unit": "mm", "source": "TR-D07"},
+    {"name": "tr_vent_w", "expression": "2.0", "unit": "mm", "source": "TR-D08"},
+    {"name": "tr_vent_dep", "expression": "1.0", "unit": "mm", "source": "TR-D08"}
+  ],
+
+  "material": {
+    "name": "Aluminum 6061",
+    "density": 2700,
+    "source": "spec/09 sections 6/8 - 6061-T6, Alodine 1200"
+  },
+
+  "requirements": [
+    {"id": "TR-BODY", "kind": "geometry",
+     "statement": "24 x 16 x 12 body block, centred on the probe axis, mounting face down.",
+     "source": "spec/09 TR-D01", "unit": "mm",
+     "value": {"form": "profile_cut", "sketch": "T1_BODY", "plane": "XY",
+       "depth": "tr_hgt", "direction": "positive",
+       "operation": "new_body", "body": "TR_BODY",
+       "points": [["-12", "-8", "0"], ["12", "-8", "0"],
+                  ["12", "8", "0"], ["-12", "8", "0"]]}},
+    {"id": "TR-BORES", "kind": "geometry",
+     "statement": "O1.75 probe bore through on the axis; 2x O4.5 mounting holes at 18.0 spacing, through.",
+     "source": "spec/09 TR-D02/TR-D04; spec/01 CP-IF-9", "unit": "mm",
+     "value": {"form": "axial_hole_pattern", "sketch": "T2_BORES",
+       "diameter": "tr_probe_d", "depth": "tr_hgt",
+       "positions": {"points": [{"radius": "0", "azimuth": "0"}]},
+       "after": ["mech.TR-BODY.cut"]}},
+    {"id": "TR-MOUNT", "kind": "geometry",
+     "statement": "2x O4.5 mounting clearance holes at +/-9.0 on X, through.",
+     "source": "spec/09 TR-D04", "unit": "mm",
+     "value": {"form": "axial_hole_pattern", "sketch": "T3_MOUNT",
+       "diameter": "tr_mount_d", "depth": "tr_hgt",
+       "positions": {"points": [
+         {"radius": "tr_mount_pitch / 2", "azimuth": "0"},
+         {"radius": "tr_mount_pitch / 2", "azimuth": "180"}]},
+       "after": ["mech.TR-BODY.cut"]}},
+    {"id": "TR-CLAMP", "kind": "geometry",
+     "statement": "O3.0 strain-relief clamp bore, horizontal along Y at x=+8, z=6 - the lead exits sideways, clear of the probe axis.",
+     "source": "spec/09 TR-D07", "unit": "mm",
+     "value": {"form": "transverse_drill", "sketch_prefix": "T4",
+       "diameter": "tr_clamp_d",
+       "drills": [
+         {"id": "clamp", "plane_az_deg": "90", "plane_offset": "0",
+          "center": ["8", "0", "6"], "length": "tr_wid + 2",
+          "rationale": "Clamp bore through the 16 mm width at x=+8, z=6."}]}},
+    {"id": "TR-VENT", "kind": "geometry",
+     "statement": "2.0 W x 1.0 D vent slot in the mounting face, from the probe bore to the +X edge - clears the plate cross-vent (DR-13; no trapped volume at the probe entry).",
+     "source": "spec/09 TR-D08; spec/00 DR-13", "unit": "mm",
+     "value": {"form": "slot_pattern", "sketch": "T5_VENT",
+       "width": "tr_vent_w", "length": "tr_len / 2",
+       "depth": "tr_vent_dep", "direction": "positive",
+       "positions": {"points": [{"radius": "tr_len / 4", "azimuth": "0"}]},
+       "after": ["mech.TR-BODY.cut"]}},
+    {"id": "MFG-TR", "kind": "manufacturing",
+     "statement": "CNC machined from 6061-T6 bar, 5 identical parts in one setup; Alodine 1200 conductive coating - the retainer stays RF-bonded to the plate.",
+     "source": "spec/09 sections 6/8"}
+  ],
+
+  "interfaces": [
+    {"id": "TR-IF-1", "mates_to": "SEWCP-200 Cooling Plate", "nature": "2x M4 at 18.0 spacing onto the CP-IF-9 flanking taps; probe bore concentric to the plate RTD bore (TR-D03, 0.10 TIR at assembly)", "source": "spec/01 CP-IF-9"},
+    {"id": "TR-IF-2", "mates_to": "RTD probe + SC spring clip", "nature": "O1.75 guidance bore; clip preload 7.5 N (assembly)", "source": "spec/09 TR-D02/TR-D05"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-1000_RETAINER"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 9},
+    {"id": "ACC-PROBE-D", "check": "parameter", "subject": "parameter:tr_probe_d.value", "expect": 1.75, "tolerance": 1e-06, "requirement": "TR-BORES"},
+    {"id": "ACC-PITCH", "check": "parameter", "subject": "parameter:tr_mount_pitch.value", "expect": 18.0, "tolerance": 1e-06, "requirement": "TR-MOUNT"},
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:TR_BODY.dz", "expect": 12.0, "tolerance": 0.001, "requirement": "TR-BODY"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:TR_BODY.dx", "expect": 24.0, "tolerance": 0.01, "requirement": "TR-BODY"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:TR_BODY.dy", "expect": 16.0, "tolerance": 0.01, "requirement": "TR-BODY"},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 5},
+    {"id": "ACC-SK-VENT", "check": "interface", "subject": "sketch:T5_VENT.exists", "expect": true, "requirement": "TR-VENT"}
+  ]
+}
+

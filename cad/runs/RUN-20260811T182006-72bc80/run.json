@@ -1,0 +1,1786 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 22,
+      "executed": 22,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452606.5685272,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "adopted": true,
+              "name": "SEWCP-1000_RETAINER v1",
+              "persisted_name": "SEWCP-1000_RETAINER",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452606.5676425,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452606.833189,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 9
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452606.824265,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452607.0829647,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "name": "SEWCP-1000_RETAINER v1",
+              "persisted_name": "SEWCP-1000_RETAINER"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452607.082169,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452607.4017384,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Aluminum 6061"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452607.3424373,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452607.6006167,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "T1_BODY",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452607.5931427,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452607.8764925,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "T1_BODY",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452607.8430254,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452608.113055,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "TR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452608.098961,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452608.3646991,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "T2_BORES",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452608.3584774,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452608.6298957,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "T2_BORES"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452608.616387,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452608.8928454,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "TR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452608.8771803,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452609.1392426,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "T3_MOUNT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452609.1325102,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452609.403399,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "T3_MOUNT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452609.3895962,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452609.663184,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "T3_MOUNT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452609.6464818,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452609.9174914,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "TR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452609.8985028,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452610.1767251,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "name": "PL_CLAMP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452610.1561682,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452610.4252748,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "T4_CLAMP",
+              "plane": "PL_CLAMP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452610.411671,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452610.688472,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "T4_CLAMP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452610.6665256,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0018",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452610.9477959,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "TR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452610.9222186,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452611.1856732,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "T5_VENT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452611.1765318,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0020",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452611.4822497,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 2,
+              "curves": 4,
+              "fully_constrained": true,
+              "lines": 2,
+              "name": "T5_VENT",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452611.4317443,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0021",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452611.716995,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "TR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452611.6859581,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182006-72bc80.S1-0022",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452611.9493108,
+          "fusion": {
+            "document": "SEWCP-1000_RETAINER v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 2163.9716134806404,
+                "bbox_max": [
+                  12.0,
+                  8.0,
+                  12.000000000000002
+                ],
+                "bbox_min": [
+                  -12.0,
+                  -8.0,
+                  0.0
+                ],
+                "mass_kg": 0.011059538199096247,
+                "material": "Aluminum 6061",
+                "name": "TR_BODY",
+                "volume_mm3": 4096.125258924537
+              }
+            ],
+            "component": {
+              "name": "SEWCP-1000_RETAINER v1",
+              "persisted_name": "SEWCP-1000_RETAINER"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-1000_RETAINER v1",
+              "persisted_name": "SEWCP-1000_RETAINER",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude5",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "24.0 mm",
+                "name": "tr_len",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 24.000000000000004
+              },
+              {
+                "expression": "16.0 mm",
+                "name": "tr_wid",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 16.0
+              },
+              {
+                "expression": "12.0 mm",
+                "name": "tr_hgt",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 12.000000000000002
+              },
+              {
+                "expression": "1.75 mm",
+                "name": "tr_probe_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 1.75
+              },
+              {
+                "expression": "18.0 mm",
+                "name": "tr_mount_pitch",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 18.0
+              },
+              {
+                "expression": "4.5 mm",
+                "name": "tr_mount_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.5
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "tr_clamp_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "2.0 mm",
+                "name": "tr_vent_w",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 2.0
+              },
+              {
+                "expression": "1.0 mm",
+                "name": "tr_vent_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 1.0
+              }
+            ],
+            "planes": [
+              {
+                "name": "PL_CLAMP",
+                "offset_mm": 12.125000000000002
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      12.0,
+                      -8.0
+                    ],
+                    "start": [
+                      -12.0,
+                      -8.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      12.0,
+                      8.0
+                    ],
+                    "start": [
+                      12.0,
+                      -8.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -12.0,
+                      8.0
+                    ],
+                    "start": [
+                      12.0,
+                      8.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -12.0,
+                      -8.0
+                    ],
+                    "start": [
+                      -12.0,
+                      8.0
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "T1_BODY",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 0.8750000000000001,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "T2_BORES",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      9.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.25,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -9.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.25,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 2,
+                "dimensions": 2,
+                "fully_constrained": true,
+                "name": "T3_MOUNT",
+                "plane": "XY",
+                "profiles": 2
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      8.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 1.5000000000000002,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "T4_CLAMP",
+                "plane": "PL_CLAMP",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      11.0,
+                      1.0
+                    ],
+                    "start": [
+                      1.0,
+                      1.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      11.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      11.0,
+                      1.0
+                    ],
+                    "mid": [
+                      12.000000000000002,
+                      -6.123233995736766e-17
+                    ],
+                    "radius": 1.0,
+                    "start": [
+                      11.0,
+                      -1.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      1.0,
+                      -1.0
+                    ],
+                    "start": [
+                      11.0,
+                      -1.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      1.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      1.0,
+                      -1.0
+                    ],
+                    "mid": [
+                      0.0,
+                      -7.754553812077691e-17
+                    ],
+                    "radius": 1.0,
+                    "start": [
+                      0.9999999999999999,
+                      1.0
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "T5_VENT",
+                "plane": "XY",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452611.9407892,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 2163.9716134806404,
+            "bbox_max": [
+              12.0,
+              8.0,
+              12.000000000000002
+            ],
+            "bbox_min": [
+              -12.0,
+              -8.0,
+              0.0
+            ],
+            "mass_kg": 0.011059538199096247,
+            "material": "Aluminum 6061",
+            "name": "TR_BODY",
+            "volume_mm3": 4096.125258924537
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-1000_RETAINER v1",
+          "name": "SEWCP-1000_RETAINER",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-1000_RETAINER"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-1000_RETAINER v1",
+          "persisted_name": "SEWCP-1000_RETAINER",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude5",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "24.0 mm",
+            "name": "tr_len",
+            "unit": "mm",
+            "value": 24.000000000000004
+          },
+          {
+            "expression": "16.0 mm",
+            "name": "tr_wid",
+            "unit": "mm",
+            "value": 16.0
+          },
+          {
+            "expression": "12.0 mm",
+            "name": "tr_hgt",
+            "unit": "mm",
+            "value": 12.000000000000002
+          },
+          {
+            "expression": "1.75 mm",
+            "name": "tr_probe_d",
+            "unit": "mm",
+            "value": 1.75
+          },
+          {
+            "expression": "18.0 mm",
+            "name": "tr_mount_pitch",
+            "unit": "mm",
+            "value": 18.0
+          },
+          {
+            "expression": "4.5 mm",
+            "name": "tr_mount_d",
+            "unit": "mm",
+            "value": 4.5
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "tr_clamp_d",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "2.0 mm",
+            "name": "tr_vent_w",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "1.0 mm",
+            "name": "tr_vent_dep",
+            "unit": "mm",
+            "value": 1.0
+          }
+        ],
+        "planes": [
+          {
+            "base": null,
+            "name": "PL_CLAMP",
+            "offset_mm": 12.125000000000002
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  12.0,
+                  -8.0
+                ],
+                "start": [
+                  -12.0,
+                  -8.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  12.0,
+                  8.0
+                ],
+                "start": [
+                  12.0,
+                  -8.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -12.0,
+                  8.0
+                ],
+                "start": [
+                  12.0,
+                  8.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -12.0,
+                  -8.0
+                ],
+                "start": [
+                  -12.0,
+                  8.0
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "T1_BODY",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 0.8750000000000001,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "T2_BORES",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  9.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.25,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -9.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.25,
+                "type": "circle"
+              }
+            ],
+            "curves": 2,
+            "fully_constrained": true,
+            "name": "T3_MOUNT",
+            "plane": "XY",
+            "profiles": 2
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  8.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 1.5000000000000002,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "T4_CLAMP",
+            "plane": "PL_CLAMP",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  11.0,
+                  1.0
+                ],
+                "start": [
+                  1.0,
+                  1.0
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  11.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  11.0,
+                  1.0
+                ],
+                "mid": [
+                  12.000000000000002,
+                  -6.123233995736766e-17
+                ],
+                "radius": 1.0,
+                "start": [
+                  11.0,
+                  -1.0
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  1.0,
+                  -1.0
+                ],
+                "start": [
+                  11.0,
+                  -1.0
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  1.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  1.0,
+                  -1.0
+                ],
+                "mid": [
+                  0.0,
+                  -7.754553812077691e-17
+                ],
+                "radius": 1.0,
+                "start": [
+                  0.9999999999999999,
+                  1.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "T5_VENT",
+            "plane": "XY",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-1000_RETAINER",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "24.0",
+                "name": "tr_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "16.0",
+                "name": "tr_wid",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "12.0",
+                "name": "tr_hgt",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "1.75",
+                "name": "tr_probe_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "18.0",
+                "name": "tr_mount_pitch",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.5",
+                "name": "tr_mount_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "tr_clamp_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "2.0",
+                "name": "tr_vent_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "1.0",
+                "name": "tr_vent_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-1000_RETAINER"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Aluminum 6061"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "T1_BODY",
+            "plane": "XY"
+          },
+          "feature": "mech.TR-BODY.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "TR-BODY"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                -12.0,
+                -8.0,
+                0.0
+              ],
+              [
+                12.0,
+                -8.0,
+                0.0
+              ],
+              [
+                12.0,
+                8.0,
+                0.0
+              ],
+              [
+                -12.0,
+                8.0,
+                0.0
+              ]
+            ],
+            "sketch": "T1_BODY"
+          },
+          "feature": "mech.TR-BODY.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "TR-BODY"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "TR_BODY",
+            "direction": "positive",
+            "distance": "tr_hgt",
+            "operation": "new_body",
+            "sketch": "T1_BODY"
+          },
+          "feature": "mech.TR-BODY.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "TR-BODY"
+          ]
+        },
+        {
+          "args": {
+            "name": "T2_BORES",
+            "plane": "XY"
+          },
+          "feature": "mech.TR-BORES.sketch",
+          "note": "Hole pattern sketch for TR-BORES on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "TR-BORES"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diameter": "tr_probe_d",
+            "sketch": "T2_BORES"
+          },
+          "feature": "mech.TR-BORES.h1",
+          "note": "Hole 1 of 1, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "TR-BORES"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "tr_hgt",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "T2_BORES"
+          },
+          "feature": "mech.TR-BORES.cut",
+          "note": "1 hole(s) O(tr_probe_d) x tr_hgt.",
+          "op": "extrude",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "TR-BORES"
+          ]
+        },
+        {
+          "args": {
+            "name": "T3_MOUNT",
+            "plane": "XY"
+          },
+          "feature": "mech.TR-MOUNT.sketch",
+          "note": "Hole pattern sketch for TR-MOUNT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "TR-MOUNT"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "diameter": "tr_mount_d",
+            "sketch": "T3_MOUNT"
+          },
+          "feature": "mech.TR-MOUNT.h1",
+          "note": "Hole 1 of 2, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "TR-MOUNT"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -9.0,
+              0.0,
+              0.0
+            ],
+            "diameter": "tr_mount_d",
+            "sketch": "T3_MOUNT"
+          },
+          "feature": "mech.TR-MOUNT.h2",
+          "note": "Hole 2 of 2, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "TR-MOUNT"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "tr_hgt",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "T3_MOUNT"
+          },
+          "feature": "mech.TR-MOUNT.cut",
+          "note": "2 hole(s) O(tr_mount_d) x tr_hgt.",
+          "op": "extrude",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "TR-MOUNT"
+          ]
+        },
+        {
+          "args": {
+            "az_deg": "90.0 deg",
+            "name": "PL_CLAMP"
+          },
+          "feature": "mech.TR-CLAMP.CLAMP.plane",
+          "note": "Clamp bore through the 16 mm width at x=+8, z=6.",
+          "op": "radial_plane",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "TR-CLAMP"
+          ]
+        },
+        {
+          "args": {
+            "name": "T4_CLAMP",
+            "plane": "PL_CLAMP"
+          },
+          "feature": "mech.TR-CLAMP.CLAMP.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "TR-CLAMP"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              8.0,
+              0.0,
+              6.0
+            ],
+            "diameter": "tr_clamp_d",
+            "sketch": "T4_CLAMP"
+          },
+          "feature": "mech.TR-CLAMP.CLAMP.circle",
+          "note": "",
+          "op": "sketch_circle",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "TR-CLAMP"
+          ]
+        },
+        {
+          "args": {
+            "direction": "symmetric",
+            "distance": "tr_wid + 2",
+            "operation": "cut",
+            "sketch": "T4_CLAMP"
+          },
+          "feature": "mech.TR-CLAMP.CLAMP.cut",
+          "note": "Clamp bore through the 16 mm width at x=+8, z=6.",
+          "op": "extrude",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "TR-CLAMP"
+          ]
+        },
+        {
+          "args": {
+            "name": "T5_VENT",
+            "plane": "XY"
+          },
+          "feature": "mech.TR-VENT.sketch",
+          "note": "Slot pattern sketch for TR-VENT.",
+          "op": "create_sketch",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "TR-VENT"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "end": [
+                  11.0,
+                  1.0
+                ],
+                "start": [
+                  1.0,
+                  1.0
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  11.0,
+                  0.0
+                ],
+                "end": [
+                  11.0,
+                  -1.0
+                ],
+                "radius": 1.0,
+                "start": [
+                  11.0,
+                  1.0
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  1.0,
+                  -1.0
+                ],
+                "start": [
+                  11.0,
+                  -1.0
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  1.0,
+                  0.0
+                ],
+                "end": [
+                  1.0,
+                  1.0
+                ],
+                "radius": 1.0,
+                "start": [
+                  1.0,
+                  -1.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "T5_VENT"
+          },
+          "feature": "mech.TR-VENT.outlines",
+          "note": "1 radially-oriented obround(s) 12 x 2, ends fully rounded.",
+          "op": "sketch_path",
+          "op_id": "OP-0020",
+          "satisfies": [
+            "TR-VENT"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "tr_vent_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "T5_VENT"
+          },
+          "feature": "mech.TR-VENT.cut",
+          "note": "Slot cut, depth tr_vent_dep.",
+          "op": "extrude",
+          "op_id": "OP-0021",
+          "satisfies": [
+            "TR-VENT"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0022",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T182006-72bc80-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786452612.958461,
+        "fusion": {
+          "document": "SEWCP-1000_RETAINER v1",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "name": "SEWCP-1000_RETAINER",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786452612.1941347,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:a4c67092ba820cd99213257436586fdcdd8839734afd0818e82ec94e1810f86f",
+      "verdict": {
+        "attempt": 1,
+        "checks": 17,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 7,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 12.0,
+                "id": "ACC-BODY-DZ",
+                "observed": 12.000000000000002,
+                "passed": true,
+                "requirement": "TR-BODY",
+                "subject": "body:TR_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 24.0,
+                "id": "ACC-BODY-DX",
+                "observed": 24.0,
+                "passed": true,
+                "requirement": "TR-BODY",
+                "subject": "body:TR_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 16.0,
+                "id": "ACC-BODY-DY",
+                "observed": 16.0,
+                "passed": true,
+                "requirement": "TR-BODY",
+                "subject": "body:TR_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 5,
+                "id": "ACC-FEATURES",
+                "observed": 5,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 12.0,
+                "id": "GEO-EXTENT-mech.TR-BODY.cut",
+                "observed": 12.000000000000002,
+                "passed": true,
+                "requirement": null,
+                "subject": "body:TR_BODY.dz"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 1,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-VENT",
+                "observed": true,
+                "passed": true,
+                "requirement": "TR-VENT",
+                "subject": "sketch:T5_VENT.exists"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-1000_RETAINER",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-1000_RETAINER",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 1.75,
+                "id": "ACC-PROBE-D",
+                "observed": 1.75,
+                "passed": true,
+                "requirement": "TR-BORES",
+                "subject": "parameter:tr_probe_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 18.0,
+                "id": "ACC-PITCH",
+                "observed": 18.0,
+                "passed": true,
+                "requirement": "TR-MOUNT",
+                "subject": "parameter:tr_mount_pitch.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 9,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 9,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T182006-72bc80.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-1000_RETAINER",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786452613.0998383,
+  "package_digest": "sha256:72bc8022d919f6edc088373eeeadb5a09c5d9f268ed67711596742bf3827769d",
+  "package_id": "SEWCP-1000-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:38416ca2423b1097a1fb4e06ac5647651408883f5d265a86c91ab643dc8648ba",
+  "run_id": "RUN-20260811T182006-72bc80",
+  "solution_digest": "sha256:7991a6056b9876272169c8657de6aaae2c883a2c173ab7f0c5dce89b2eba9082",
+  "solution_id": "RUN-20260811T182006-72bc80.S1",
+  "started_at": 1786452606.5182817,
+  "verdict": "PASS"
+}

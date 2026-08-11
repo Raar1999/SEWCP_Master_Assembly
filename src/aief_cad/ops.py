@@ -151,7 +151,8 @@ OP_SPECS: dict[str, OpSpec] = {
     ),
     "extrude": OpSpec(
         required={"sketch": _is_str, "distance": _is_expr},
-        optional={"profile": lambda v: _is_num(v) or v == "all", "direction": _is_str,
+        optional={"profile": lambda v: _is_num(v) or v in ("all", "smallest", "largest"),
+                  "direction": _is_str,
                   "operation": _is_str, "body_name": _is_str},
         doc="Extrude a sketch profile. `operation` is new_body | join | cut.",
     ),

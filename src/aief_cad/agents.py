@@ -142,7 +142,7 @@ class MechanicalDesignAgent:
     #: an escalation, never a best guess at what the author meant.
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
              "port_stub", "body_combine", "axial_hole_pattern",
-             "slot_pattern", "transverse_drill", "profile_cut")
+             "slot_pattern", "transverse_drill", "profile_cut", "ring_groove")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -260,6 +260,54 @@ class MechanicalDesignAgent:
         if form["form"] == "transverse_drill":
             return self._build_transverse_drills(req, form, prior)
 
+        if form["form"] == "ring_groove":
+            base_id = f"mech.{req.id}"
+            from aief_cad.expr import evaluate
+            env = resolve_all(self._package_parameters)
+            mean = float(evaluate(str(_param_ref(req, "mean_diameter", form)), env))
+            width = float(evaluate(str(_param_ref(req, "groove_width", form)), env))
+            z = float(evaluate(str(form.get("plane_z", "0")), env))
+            sketch = str(form["sketch"])
+
+            def circle(d):
+                r = d / 2.0
+                return [
+                    {"type": "arc", "center": [0.0, 0.0], "radius": r,
+                     "start": [r, 0.0], "end": [-r, 0.0], "ccw": True},
+                    {"type": "arc", "center": [0.0, 0.0], "radius": r,
+                     "start": [-r, 0.0], "end": [r, 0.0], "ccw": True},
+                ]
+
+            return [
+                FeatureSpec(
+                    id=f"{base_id}.sketch", kind="sketch",
+                    params={"name": sketch, "plane": str(form.get("plane", "XY"))},
+                    satisfies=(req.id,),
+                    depends_on=(prior,) + tuple(form.get("after", ())),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.rings", kind="sketch_path",
+                    params={"sketch": sketch, "centerline": [],
+                            "footprint": circle(mean - width)
+                            + circle(mean + width)},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.sketch",),
+                    rationale=(
+                        f"Annular groove walls at O{mean - width:g} and "
+                        f"O{mean + width:g} (mean O{mean:g}, width {width:g}); "
+                        f"the ring is cut by smallest-area profile selection, "
+                        f"leaving the inner sealing land intact."
+                    ),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.cut", kind="extrude",
+                    params={"sketch": sketch,
+                            "distance": _param_ref(req, "depth", form),
+                            "direction": str(form.get("direction", "negative")),
+                            "operation": "cut", "profile": "smallest"},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.rings",),
+                ),
+            ]
+
         if form["form"] == "profile_cut":
             base_id = f"mech.{req.id}"
             from aief_cad.expr import evaluate
@@ -285,7 +333,9 @@ class MechanicalDesignAgent:
                     params={"sketch": sketch,
                             "distance": _param_ref(req, "depth", form),
                             "direction": str(form.get("direction", "negative")),
-                            "operation": "cut"},
+                            "operation": str(form.get("operation", "cut")),
+                            **({"body_name": str(form["body"])}
+                               if "body" in form else {})},
                     satisfies=(req.id,), depends_on=(f"{base_id}.profile",),
                 ),
             ]
@@ -930,7 +980,7 @@ class ManufacturingAgent:
 
     name = "mechanical.manufacturing-engineer"
     domain = "manufacturing"
-    owns = ("manufacturing",)
+    owns = ("manufacturing", "material")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         constraints: list[dict[str, Any]] = []
@@ -980,6 +1030,7 @@ AGENT_REGISTRY: dict[str, type] = {
     "thermal": ThermalInterfaceAgent,
     "interface": ThermalInterfaceAgent,
     "manufacturing": ManufacturingAgent,
+    "material": ManufacturingAgent,
 }
 
 

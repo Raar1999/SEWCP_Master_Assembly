@@ -1,0 +1,2511 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 34,
+      "executed": 34,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452788.2642045,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-800_PORT_BODY",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452787.9487796,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452788.5455148,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 16
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452788.5331068,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452789.6193767,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "first_saved": true,
+              "name": "SEWCP-800_PORT_BODY v0",
+              "persisted_name": "SEWCP-800_PORT_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452788.7953656,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452790.169344,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Stainless Steel"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452789.9041028,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452790.440739,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V1_SPIGOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452790.4345956,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452790.6922076,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V1_SPIGOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452790.6793234,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452790.9676805,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452790.9555528,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452791.2163763,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V2_FLANGE",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452791.2097144,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452791.4768872,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V2_FLANGE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452791.462487,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452791.7292411,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452791.7126892,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452791.9783468,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V7_BOLTS",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452791.9711666,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452792.2417753,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V7_BOLTS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452792.2256565,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452792.4956627,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "V7_BOLTS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452792.4764166,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452792.7488425,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 3,
+              "fully_constrained": true,
+              "name": "V7_BOLTS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452792.730173,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452793.498975,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "V7_BOLTS"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452793.47396,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452793.7931871,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452793.7631214,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452794.6509295,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V8_GROOVE",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452794.6437473,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0018",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452794.8412876,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 4,
+              "curves": 4,
+              "fully_constrained": true,
+              "lines": 0,
+              "name": "V8_GROOVE",
+              "profiles": 2
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452794.7911084,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452795.074168,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452795.0490317,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0020",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452795.3133783,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_TUBE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452795.304538,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0021",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452795.568237,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V3_TUBE",
+              "plane": "PL_TUBE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452795.5586603,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0022",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452795.8349319,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V3_TUBE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452795.812971,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0023",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452796.0934186,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452796.0704403,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0024",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452796.3350842,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V4_BORE",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452796.3261034,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0025",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452796.6008458,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V4_BORE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452796.5795503,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0026",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452796.844459,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452796.8222256,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0027",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452797.106661,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V5_TUBE_ID",
+              "plane": "PL_TUBE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452797.09601,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0028",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452797.3646219,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V5_TUBE_ID"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452797.3406868,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0029",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452797.6248903,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452797.6020927,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0030",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452798.3331645,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_TUBE_END"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452798.3227508,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0031",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452798.6665637,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "V6_SEAT",
+              "plane": "PL_TUBE_END"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452798.6535933,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0032",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452798.940021,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "V6_SEAT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452798.9130151,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0033",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452799.1923122,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "VP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452799.171401,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T182307-5ec844.S1-0034",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452799.4397156,
+          "fusion": {
+            "document": "SEWCP-800_PORT_BODY v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 10065.819941734377,
+                "bbox_max": [
+                  25.0,
+                  25.0,
+                  8.000000000000007
+                ],
+                "bbox_min": [
+                  -25.0,
+                  -25.0,
+                  -110.0
+                ],
+                "mass_kg": 0.16427295308637038,
+                "material": "Stainless Steel",
+                "name": "VP_BODY",
+                "volume_mm3": 20534.1191357963
+              }
+            ],
+            "component": {
+              "name": "SEWCP-800_PORT_BODY v1",
+              "persisted_name": "SEWCP-800_PORT_BODY"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-800_PORT_BODY v1",
+              "persisted_name": "SEWCP-800_PORT_BODY",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude5",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude6",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude7",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude8",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "50.0 mm",
+                "name": "vp_flange_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 50.0
+              },
+              {
+                "expression": "10.0 mm",
+                "name": "vp_flange_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 10.0
+              },
+              {
+                "expression": "9.9 mm",
+                "name": "vp_spigot_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 9.9
+              },
+              {
+                "expression": "8.0 mm",
+                "name": "vp_spigot_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 8.0
+              },
+              {
+                "expression": "4.0 mm",
+                "name": "vp_bore_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.0
+              },
+              {
+                "expression": "24.5 mm",
+                "name": "vp_groove_mean",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 24.5
+              },
+              {
+                "expression": "3.2 mm",
+                "name": "vp_groove_w",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.2000000000000006
+              },
+              {
+                "expression": "1.9 mm",
+                "name": "vp_groove_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 1.9
+              },
+              {
+                "expression": "4.5 mm",
+                "name": "vp_bolt_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.5
+              },
+              {
+                "expression": "38.0 mm",
+                "name": "vp_bolt_bc",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 38.0
+              },
+              {
+                "expression": "6.35 mm",
+                "name": "vp_tube_od",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.35
+              },
+              {
+                "expression": "1.0 mm",
+                "name": "vp_tube_wall",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 1.0
+              },
+              {
+                "expression": "vp_tube_od - 2 * vp_tube_wall",
+                "name": "vp_tube_id",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 4.35
+              },
+              {
+                "expression": "100.0 mm",
+                "name": "vp_tube_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 100.0
+              },
+              {
+                "expression": "6.0 mm",
+                "name": "vp_seat_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.000000000000001
+              },
+              {
+                "expression": "5.0 mm",
+                "name": "vp_seat_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 5.0
+              }
+            ],
+            "planes": [
+              {
+                "base": "XY",
+                "name": "PL_TUBE",
+                "offset_mm": -10.0
+              },
+              {
+                "base": "XY",
+                "name": "PL_TUBE_END",
+                "offset_mm": -110.0
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 4.95,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V1_SPIGOT",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 25.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V2_FLANGE",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      13.435029,
+                      13.435029
+                    ],
+                    "construction": false,
+                    "radius": 2.250000000000001,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -13.435029,
+                      13.435029
+                    ],
+                    "construction": false,
+                    "radius": 2.250000000000001,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -13.435029,
+                      -13.435029
+                    ],
+                    "construction": false,
+                    "radius": 2.250000000000001,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      13.435029,
+                      -13.435029
+                    ],
+                    "construction": false,
+                    "radius": 2.250000000000001,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 4,
+                "fully_constrained": true,
+                "name": "V7_BOLTS",
+                "plane": "XY",
+                "profiles": 4
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -10.649999999999999,
+                      1.304248841091931e-15
+                    ],
+                    "mid": [
+                      6.521244205459655e-16,
+                      10.649999999999999
+                    ],
+                    "radius": 10.649999999999999,
+                    "start": [
+                      10.649999999999999,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      10.649999999999999,
+                      -1.304248841091931e-15
+                    ],
+                    "mid": [
+                      -6.521244205459655e-16,
+                      -10.649999999999999
+                    ],
+                    "radius": 10.649999999999999,
+                    "start": [
+                      -10.649999999999999,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -13.85,
+                      1.6961358168190842e-15
+                    ],
+                    "mid": [
+                      8.480679084095421e-16,
+                      13.85
+                    ],
+                    "radius": 13.85,
+                    "start": [
+                      13.85,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      13.85,
+                      -1.6961358168190842e-15
+                    ],
+                    "mid": [
+                      -8.480679084095421e-16,
+                      -13.85
+                    ],
+                    "radius": 13.85,
+                    "start": [
+                      -13.85,
+                      0.0
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "V8_GROOVE",
+                "plane": "XY",
+                "profiles": 2
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 3.175,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V3_TUBE",
+                "plane": "PL_TUBE",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V4_BORE",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.175,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V5_TUBE_ID",
+                "plane": "PL_TUBE",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 3.0000000000000004,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "V6_SEAT",
+                "plane": "PL_TUBE_END",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452799.427639,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 10065.819941734377,
+            "bbox_max": [
+              25.0,
+              25.0,
+              8.000000000000007
+            ],
+            "bbox_min": [
+              -25.0,
+              -25.0,
+              -110.0
+            ],
+            "mass_kg": 0.16427295308637038,
+            "material": "Stainless Steel",
+            "name": "VP_BODY",
+            "volume_mm3": 20534.1191357963
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-800_PORT_BODY v1",
+          "name": "SEWCP-800_PORT_BODY",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-800_PORT_BODY"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-800_PORT_BODY v1",
+          "persisted_name": "SEWCP-800_PORT_BODY",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude5",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude6",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude7",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude8",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "50.0 mm",
+            "name": "vp_flange_d",
+            "unit": "mm",
+            "value": 50.0
+          },
+          {
+            "expression": "10.0 mm",
+            "name": "vp_flange_h",
+            "unit": "mm",
+            "value": 10.0
+          },
+          {
+            "expression": "9.9 mm",
+            "name": "vp_spigot_d",
+            "unit": "mm",
+            "value": 9.9
+          },
+          {
+            "expression": "8.0 mm",
+            "name": "vp_spigot_l",
+            "unit": "mm",
+            "value": 8.0
+          },
+          {
+            "expression": "4.0 mm",
+            "name": "vp_bore_d",
+            "unit": "mm",
+            "value": 4.0
+          },
+          {
+            "expression": "24.5 mm",
+            "name": "vp_groove_mean",
+            "unit": "mm",
+            "value": 24.5
+          },
+          {
+            "expression": "3.2 mm",
+            "name": "vp_groove_w",
+            "unit": "mm",
+            "value": 3.2000000000000006
+          },
+          {
+            "expression": "1.9 mm",
+            "name": "vp_groove_dep",
+            "unit": "mm",
+            "value": 1.9
+          },
+          {
+            "expression": "4.5 mm",
+            "name": "vp_bolt_d",
+            "unit": "mm",
+            "value": 4.5
+          },
+          {
+            "expression": "38.0 mm",
+            "name": "vp_bolt_bc",
+            "unit": "mm",
+            "value": 38.0
+          },
+          {
+            "expression": "6.35 mm",
+            "name": "vp_tube_od",
+            "unit": "mm",
+            "value": 6.35
+          },
+          {
+            "expression": "1.0 mm",
+            "name": "vp_tube_wall",
+            "unit": "mm",
+            "value": 1.0
+          },
+          {
+            "expression": "vp_tube_od - 2 * vp_tube_wall",
+            "name": "vp_tube_id",
+            "unit": "mm",
+            "value": 4.35
+          },
+          {
+            "expression": "100.0 mm",
+            "name": "vp_tube_l",
+            "unit": "mm",
+            "value": 100.0
+          },
+          {
+            "expression": "6.0 mm",
+            "name": "vp_seat_d",
+            "unit": "mm",
+            "value": 6.000000000000001
+          },
+          {
+            "expression": "5.0 mm",
+            "name": "vp_seat_dep",
+            "unit": "mm",
+            "value": 5.0
+          }
+        ],
+        "planes": [
+          {
+            "base": "XY",
+            "name": "PL_TUBE",
+            "offset_mm": -10.0
+          },
+          {
+            "base": "XY",
+            "name": "PL_TUBE_END",
+            "offset_mm": -110.0
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 4.95,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V1_SPIGOT",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 25.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V2_FLANGE",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  13.435029,
+                  13.435029
+                ],
+                "construction": false,
+                "radius": 2.250000000000001,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -13.435029,
+                  13.435029
+                ],
+                "construction": false,
+                "radius": 2.250000000000001,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -13.435029,
+                  -13.435029
+                ],
+                "construction": false,
+                "radius": 2.250000000000001,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  13.435029,
+                  -13.435029
+                ],
+                "construction": false,
+                "radius": 2.250000000000001,
+                "type": "circle"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "V7_BOLTS",
+            "plane": "XY",
+            "profiles": 4
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -10.649999999999999,
+                  1.304248841091931e-15
+                ],
+                "mid": [
+                  6.521244205459655e-16,
+                  10.649999999999999
+                ],
+                "radius": 10.649999999999999,
+                "start": [
+                  10.649999999999999,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  10.649999999999999,
+                  -1.304248841091931e-15
+                ],
+                "mid": [
+                  -6.521244205459655e-16,
+                  -10.649999999999999
+                ],
+                "radius": 10.649999999999999,
+                "start": [
+                  -10.649999999999999,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -13.85,
+                  1.6961358168190842e-15
+                ],
+                "mid": [
+                  8.480679084095421e-16,
+                  13.85
+                ],
+                "radius": 13.85,
+                "start": [
+                  13.85,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  13.85,
+                  -1.6961358168190842e-15
+                ],
+                "mid": [
+                  -8.480679084095421e-16,
+                  -13.85
+                ],
+                "radius": 13.85,
+                "start": [
+                  -13.85,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "V8_GROOVE",
+            "plane": "XY",
+            "profiles": 2
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 3.175,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V3_TUBE",
+            "plane": "PL_TUBE",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V4_BORE",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.175,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V5_TUBE_ID",
+            "plane": "PL_TUBE",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 3.0000000000000004,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "V6_SEAT",
+            "plane": "PL_TUBE_END",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-800_PORT_BODY",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "50.0",
+                "name": "vp_flange_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "vp_flange_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "9.9",
+                "name": "vp_spigot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "vp_spigot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.0",
+                "name": "vp_bore_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "24.5",
+                "name": "vp_groove_mean",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.2",
+                "name": "vp_groove_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "1.9",
+                "name": "vp_groove_dep",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "4.5",
+                "name": "vp_bolt_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "38.0",
+                "name": "vp_bolt_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.35",
+                "name": "vp_tube_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "1.0",
+                "name": "vp_tube_wall",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "vp_tube_od - 2 * vp_tube_wall",
+                "name": "vp_tube_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "100.0",
+                "name": "vp_tube_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "vp_seat_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "5.0",
+                "name": "vp_seat_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-800_PORT_BODY"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Stainless Steel"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "V1_SPIGOT",
+            "plane": "XY"
+          },
+          "feature": "mech.VP-SPIGOT.sketch",
+          "note": "Profile sketch for VP-SPIGOT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "VP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "vp_spigot_d",
+            "sketch": "V1_SPIGOT"
+          },
+          "feature": "mech.VP-SPIGOT.circle",
+          "note": "Outer profile dimensioned by vp_spigot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "VP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "VP_BODY",
+            "direction": "positive",
+            "distance": "vp_spigot_l",
+            "operation": "new_body",
+            "sketch": "V1_SPIGOT"
+          },
+          "feature": "mech.VP-SPIGOT.extrude",
+          "note": "Solid of thickness vp_spigot_l. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "VP-SPIGOT"
+          ]
+        },
+        {
+          "args": {
+            "name": "V2_FLANGE",
+            "plane": "XY"
+          },
+          "feature": "mech.VP-FLANGE.sketch",
+          "note": "Profile sketch for VP-FLANGE on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "VP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "vp_flange_d",
+            "sketch": "V2_FLANGE"
+          },
+          "feature": "mech.VP-FLANGE.circle",
+          "note": "Outer profile dimensioned by vp_flange_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "VP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "vp_flange_h",
+            "operation": "join",
+            "sketch": "V2_FLANGE"
+          },
+          "feature": "mech.VP-FLANGE.extrude",
+          "note": "Removal of thickness vp_flange_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "VP-FLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "V7_BOLTS",
+            "plane": "XY"
+          },
+          "feature": "mech.VP-BOLTS.sketch",
+          "note": "Hole pattern sketch for VP-BOLTS on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              13.435029,
+              13.435029,
+              0.0
+            ],
+            "diameter": "vp_bolt_d",
+            "sketch": "V7_BOLTS"
+          },
+          "feature": "mech.VP-BOLTS.h1",
+          "note": "Hole 1 of 4, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -13.435029,
+              13.435029,
+              0.0
+            ],
+            "diameter": "vp_bolt_d",
+            "sketch": "V7_BOLTS"
+          },
+          "feature": "mech.VP-BOLTS.h2",
+          "note": "Hole 2 of 4, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -13.435029,
+              -13.435029,
+              0.0
+            ],
+            "diameter": "vp_bolt_d",
+            "sketch": "V7_BOLTS"
+          },
+          "feature": "mech.VP-BOLTS.h3",
+          "note": "Hole 3 of 4, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              13.435029,
+              -13.435029,
+              0.0
+            ],
+            "diameter": "vp_bolt_d",
+            "sketch": "V7_BOLTS"
+          },
+          "feature": "mech.VP-BOLTS.h4",
+          "note": "Hole 4 of 4, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "vp_flange_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "V7_BOLTS"
+          },
+          "feature": "mech.VP-BOLTS.cut",
+          "note": "4 hole(s) O(vp_bolt_d) x vp_flange_h.",
+          "op": "extrude",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "VP-BOLTS"
+          ]
+        },
+        {
+          "args": {
+            "name": "V8_GROOVE",
+            "plane": "XY"
+          },
+          "feature": "mech.VP-GROOVE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "VP-GROOVE"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -10.65,
+                  0.0
+                ],
+                "radius": 10.65,
+                "start": [
+                  10.65,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  10.65,
+                  0.0
+                ],
+                "radius": 10.65,
+                "start": [
+                  -10.65,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -13.85,
+                  0.0
+                ],
+                "radius": 13.85,
+                "start": [
+                  13.85,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  13.85,
+                  0.0
+                ],
+                "radius": 13.85,
+                "start": [
+                  -13.85,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "V8_GROOVE"
+          },
+          "feature": "mech.VP-GROOVE.rings",
+          "note": "Annular groove walls at O21.3 and O27.7 (mean O24.5, width 3.2); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "VP-GROOVE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "vp_groove_dep",
+            "operation": "cut",
+            "profile": "smallest",
+            "sketch": "V8_GROOVE"
+          },
+          "feature": "mech.VP-GROOVE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "VP-GROOVE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TUBE",
+            "offset": "0 - vp_flange_h"
+          },
+          "feature": "thermal.VP-TUBE-PLANE.plane",
+          "note": "Mating datum for VP-TUBE-PLANE, located by 0 - vp_flange_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0020",
+          "satisfies": [
+            "VP-TUBE-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "V3_TUBE",
+            "plane": "PL_TUBE"
+          },
+          "feature": "mech.VP-TUBE.sketch",
+          "note": "Profile sketch for VP-TUBE on PL_TUBE.",
+          "op": "create_sketch",
+          "op_id": "OP-0021",
+          "satisfies": [
+            "VP-TUBE"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "vp_tube_od",
+            "sketch": "V3_TUBE"
+          },
+          "feature": "mech.VP-TUBE.circle",
+          "note": "Outer profile dimensioned by vp_tube_od; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0022",
+          "satisfies": [
+            "VP-TUBE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "vp_tube_l",
+            "operation": "join",
+            "sketch": "V3_TUBE"
+          },
+          "feature": "mech.VP-TUBE.extrude",
+          "note": "Removal of thickness vp_tube_l, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0023",
+          "satisfies": [
+            "VP-TUBE"
+          ]
+        },
+        {
+          "args": {
+            "name": "V4_BORE",
+            "plane": "XY"
+          },
+          "feature": "mech.VP-BORE.sketch",
+          "note": "Hole pattern sketch for VP-BORE on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0024",
+          "satisfies": [
+            "VP-BORE"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diameter": "vp_bore_d",
+            "sketch": "V4_BORE"
+          },
+          "feature": "mech.VP-BORE.h1",
+          "note": "Hole 1 of 1, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0025",
+          "satisfies": [
+            "VP-BORE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "symmetric",
+            "distance": "2 * (vp_spigot_l + vp_flange_h)",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "V4_BORE"
+          },
+          "feature": "mech.VP-BORE.cut",
+          "note": "1 hole(s) O(vp_bore_d) x 2 * (vp_spigot_l + vp_flange_h).",
+          "op": "extrude",
+          "op_id": "OP-0026",
+          "satisfies": [
+            "VP-BORE"
+          ]
+        },
+        {
+          "args": {
+            "name": "V5_TUBE_ID",
+            "plane": "PL_TUBE"
+          },
+          "feature": "mech.VP-TUBE-ID.sketch",
+          "note": "Hole pattern sketch for VP-TUBE-ID on PL_TUBE.",
+          "op": "create_sketch",
+          "op_id": "OP-0027",
+          "satisfies": [
+            "VP-TUBE-ID"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              0.0,
+              0.0,
+              -10.0
+            ],
+            "diameter": "vp_tube_id",
+            "sketch": "V5_TUBE_ID"
+          },
+          "feature": "mech.VP-TUBE-ID.h1",
+          "note": "Hole 1 of 1, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0028",
+          "satisfies": [
+            "VP-TUBE-ID"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "vp_tube_l",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "V5_TUBE_ID"
+          },
+          "feature": "mech.VP-TUBE-ID.cut",
+          "note": "1 hole(s) O(vp_tube_id) x vp_tube_l.",
+          "op": "extrude",
+          "op_id": "OP-0029",
+          "satisfies": [
+            "VP-TUBE-ID"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TUBE_END",
+            "offset": "0 - (vp_flange_h + vp_tube_l)"
+          },
+          "feature": "thermal.VP-SEAT-PLANE.plane",
+          "note": "Mating datum for VP-SEAT-PLANE, located by 0 - (vp_flange_h + vp_tube_l) so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0030",
+          "satisfies": [
+            "VP-SEAT-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "V6_SEAT",
+            "plane": "PL_TUBE_END"
+          },
+          "feature": "mech.VP-SEAT.sketch",
+          "note": "Hole pattern sketch for VP-SEAT on PL_TUBE_END.",
+          "op": "create_sketch",
+          "op_id": "OP-0031",
+          "satisfies": [
+            "VP-SEAT"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              0.0,
+              0.0,
+              -110.0
+            ],
+            "diameter": "vp_seat_d",
+            "sketch": "V6_SEAT"
+          },
+          "feature": "mech.VP-SEAT.h1",
+          "note": "Hole 1 of 1, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0032",
+          "satisfies": [
+            "VP-SEAT"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "vp_seat_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "V6_SEAT"
+          },
+          "feature": "mech.VP-SEAT.cut",
+          "note": "1 hole(s) O(vp_seat_d) x vp_seat_dep.",
+          "op": "extrude",
+          "op_id": "OP-0033",
+          "satisfies": [
+            "VP-SEAT"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0034",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T182307-5ec844-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786452800.45992,
+        "fusion": {
+          "document": "SEWCP-800_PORT_BODY v1",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "name": "SEWCP-800_PORT_BODY",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786452799.6909375,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:aec3e4c33bdc7ed0cffb8b52d17d9e3fcb5826ae087e29bbbe8f6a506a4d6e99",
+      "verdict": {
+        "attempt": 1,
+        "checks": 20,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 6,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 118.0,
+                "id": "ACC-BODY-DZ",
+                "observed": 118.0,
+                "passed": true,
+                "requirement": "VP-TUBE",
+                "subject": "body:VP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 50.0,
+                "id": "ACC-BODY-DX",
+                "observed": 50.0,
+                "passed": true,
+                "requirement": "VP-FLANGE",
+                "subject": "body:VP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 50.0,
+                "id": "ACC-BODY-DY",
+                "observed": 50.0,
+                "passed": true,
+                "requirement": "VP-FLANGE",
+                "subject": "body:VP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 8,
+                "id": "ACC-FEATURES",
+                "observed": 8,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 3,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": -10.0,
+                "id": "ACC-PL-TUBE",
+                "observed": -10.0,
+                "passed": true,
+                "requirement": "VP-TUBE-PLANE",
+                "subject": "plane:PL_TUBE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": -110.0,
+                "id": "ACC-PL-END",
+                "observed": -110.0,
+                "passed": true,
+                "requirement": "VP-SEAT-PLANE",
+                "subject": "plane:PL_TUBE_END.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-GROOVE",
+                "observed": true,
+                "passed": true,
+                "requirement": "VP-GROOVE",
+                "subject": "sketch:V8_GROOVE.exists"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 11,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-800_PORT_BODY",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-800_PORT_BODY",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 16,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 16,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 4.35,
+                "id": "ACC-TUBE-ID",
+                "observed": 4.35,
+                "passed": true,
+                "requirement": "VP-TUBE-ID",
+                "subject": "parameter:vp_tube_id.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-TUBE-ID-DERIVED",
+                "observed": true,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:vp_tube_id.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 24.5,
+                "id": "ACC-GROOVE-MEAN",
+                "observed": 24.5,
+                "passed": true,
+                "requirement": "VP-GROOVE",
+                "subject": "parameter:vp_groove_mean.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 16,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 16,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T182307-5ec844.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-800_PORT_BODY",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786452800.5733004,
+  "package_digest": "sha256:5ec844c3b1570585b1e11b4078ff7270b2486ba300733af3ab7f771e79103e16",
+  "package_id": "SEWCP-800-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:556efed964f1e94831f0020b080656d725fe33086c9e502d8c231fbbffe10102",
+  "run_id": "RUN-20260811T182307-5ec844",
+  "solution_digest": "sha256:93a71bf210e842b4eebf21e64b068e56b623543775a421ffd13a57218773dd7d",
+  "solution_id": "RUN-20260811T182307-5ec844.S1",
+  "started_at": 1786452787.7110546,
+  "verdict": "PASS"
+}

@@ -1,0 +1,68 @@
+{
+  "package_id": "SEWCP-600-REQ-001",
+  "component": "SEWCP-600_LIFT_PIN",
+  "authority": [
+    "spec/05_SEWCP-600_Lift_Pins.md Rev A (FROZEN) - LP-D01, LP-D02, LP-D06, LP-D07, section 6 (centreless-ground 99.8% alumina), LP-10 (no metal wafer contact)",
+    "spec/01_SEWCP-200_Cooling_Plate.md CP-IF-6 (O8.0 H8 pass-through, SEWCP-601 bushing seat - verified in the SEWCP-200 model)"
+  ],
+  "scope": {
+    "document_name": "SEWCP-600_LIFT_PIN",
+    "units": "mm",
+    "bounded": "The single alumina pin: O5.000 h6 shaft, 95.00 overall, O8.00 x 3.00 foot flange. Datum: Z=0 at the foot end.",
+    "modelling_conventions": "The R50 tip crown (0.063 mm sagitta over O5), the R1.0 blends (LP-D05/D08) and the 90 deg foot seat cone (LP-D09) are ground features deferred to the drawing, per the established edge-feature convention. Straightness, finish and set-matching (LP-D03/D10/D11/D12) are inspection callouts.",
+    "open_state": "No dependency on ECR-Q-011, the path-length item, or CP-02."
+  },
+
+  "parameters": [
+    {"name": "lp_shaft_d", "expression": "5.0", "unit": "mm", "source": "LP-D01 h6"},
+    {"name": "lp_len", "expression": "95.0", "unit": "mm", "source": "LP-D02"},
+    {"name": "lp_foot_d", "expression": "8.0", "unit": "mm", "source": "LP-D06"},
+    {"name": "lp_foot_h", "expression": "3.0", "unit": "mm", "source": "LP-D07"}
+  ],
+
+  "material": {
+    "name": "Aluminum Oxide",
+    "density": 3900,
+    "source": "spec/05 section 6 - 99.8% alumina, selected; LP-10 forbids metal"
+  },
+
+  "requirements": [
+    {"id": "LP-SHAFT", "kind": "geometry",
+     "statement": "O5.000 h6 shaft, 95.00 overall - guide fit in the SEWCP-601 bushing, He sealing surface, Paschen-safe.",
+     "source": "spec/05 LP-D01/LP-D02", "unit": "mm",
+     "value": {"form": "disc", "plane": "XY", "sketch": "L1_SHAFT",
+       "diameter": "lp_shaft_d", "thickness": "lp_len",
+       "direction": "positive", "operation": "new_body", "body": "LP_BODY"}},
+    {"id": "LP-FOOT", "kind": "geometry",
+     "statement": "O8.00 x 3.00 foot flange at the actuator end - seat and retention; the highest-bending-moment section.",
+     "source": "spec/05 LP-D06/LP-D07", "unit": "mm",
+     "value": {"form": "disc", "plane": "XY", "sketch": "L2_FOOT",
+       "diameter": "lp_foot_d", "thickness": "lp_foot_h",
+       "direction": "positive", "operation": "join"}},
+    {"id": "LP-10", "kind": "material",
+     "statement": "No metal may contact the wafer backside - the pin is monolithic 99.8% alumina; sapphire is the qualified alternate.",
+     "source": "spec/05 LP-10, section 6"},
+    {"id": "MFG-LP", "kind": "manufacturing",
+     "statement": "Centreless-ground shaft for LP-D03 straightness and Ra 0.2; crown and blends ground, no undercut; pins supplied in matched sets of 3 (LP-D12).",
+     "source": "spec/05 sections 6 and 10"}
+  ],
+
+  "interfaces": [
+    {"id": "LP-IF-1", "mates_to": "SEWCP-200 Cooling Plate / SEWCP-601 bushing", "nature": "O5.000 h6 in the O5.60 bushing bore - deliberately loose lateral support (verified plate side)", "source": "spec/01 CP-IF-6; spec/05 LP-IF-3"},
+    {"id": "LP-IF-2", "mates_to": "Wafer backside", "nature": "R50 alumina crown point contact", "source": "spec/05 LP-D04, LP-10"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-600_LIFT_PIN"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 4},
+    {"id": "ACC-SHAFT-D", "check": "parameter", "subject": "parameter:lp_shaft_d.value", "expect": 5.0, "tolerance": 1e-06, "requirement": "LP-SHAFT"},
+    {"id": "ACC-LEN", "check": "parameter", "subject": "parameter:lp_len.value", "expect": 95.0, "tolerance": 1e-06, "requirement": "LP-SHAFT"},
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:LP_BODY.dz", "expect": 95.0, "tolerance": 0.001, "requirement": "LP-SHAFT"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:LP_BODY.dx", "expect": 8.0, "tolerance": 0.01, "requirement": "LP-FOOT"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:LP_BODY.dy", "expect": 8.0, "tolerance": 0.01, "requirement": "LP-FOOT"},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 2},
+    {"id": "ACC-VOL", "check": "geometry", "subject": "body:LP_BODY.volume_mm3", "expect": 1957.0, "tolerance": 10.0, "requirement": "LP-SHAFT"}
+  ]
+}

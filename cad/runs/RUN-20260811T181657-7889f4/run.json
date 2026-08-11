@@ -1,0 +1,1555 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 4,
+      "executed": 3,
+      "execution_halt": "OP-0004 (assign_material) did not execute - ERROR: RuntimeError: no material matching 'Aluminum Oxide' in any loaded library",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T181657-7889f4.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452418.0089812,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-600_LIFT_PIN",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452417.7526307,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T181657-7889f4.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452418.2954164,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 4
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452418.2883456,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T181657-7889f4.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452419.2564168,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "first_saved": true,
+              "name": "SEWCP-600_LIFT_PIN v0",
+              "persisted_name": "SEWCP-600_LIFT_PIN"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452418.538034,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T181657-7889f4.S1-0004",
+          "error": {
+            "kind": "RuntimeError",
+            "message": "no material matching 'Aluminum Oxide' in any loaded library",
+            "trace": "Traceback (most recent call last):\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 191, in notify\n    observed = handler(cmd.get(\"args\") or {})\n  File \"C:\\Users\\<user>\\AppData\\Roaming\\Autodesk\\Autodesk Fusion 360\\API\\AddIns\\AIEF_CAD_Bridge\\bridge_ops_ext.py\", line 201, in op_assign_material\n    raise RuntimeError(\"no material matching %r in any loaded library\"\n                       % args[\"material\"])\nRuntimeError: no material matching 'Aluminum Oxide' in any loaded library\n"
+          },
+          "executed": false,
+          "finished_at": 1786452420.0604753,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786452419.5373714,
+          "status": "ERROR"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {
+          "name": "SEWCP-600_LIFT_PIN",
+          "units": "mm"
+        },
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-600_LIFT_PIN",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "5.0",
+                "name": "lp_shaft_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "95.0",
+                "name": "lp_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "lp_foot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "lp_foot_h",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-600_LIFT_PIN"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Aluminum Oxide"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "L1_SHAFT",
+            "plane": "XY"
+          },
+          "feature": "mech.LP-SHAFT.sketch",
+          "note": "Profile sketch for LP-SHAFT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "lp_shaft_d",
+            "sketch": "L1_SHAFT"
+          },
+          "feature": "mech.LP-SHAFT.circle",
+          "note": "Outer profile dimensioned by lp_shaft_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "LP_BODY",
+            "direction": "positive",
+            "distance": "lp_len",
+            "operation": "new_body",
+            "sketch": "L1_SHAFT"
+          },
+          "feature": "mech.LP-SHAFT.extrude",
+          "note": "Solid of thickness lp_len. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "name": "L2_FOOT",
+            "plane": "XY"
+          },
+          "feature": "mech.LP-FOOT.sketch",
+          "note": "Profile sketch for LP-FOOT on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "lp_foot_d",
+            "sketch": "L2_FOOT"
+          },
+          "feature": "mech.LP-FOOT.circle",
+          "note": "Outer profile dimensioned by lp_foot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "lp_foot_h",
+            "operation": "join",
+            "sketch": "L2_FOOT"
+          },
+          "feature": "mech.LP-FOOT.extrude",
+          "note": "Removal of thickness lp_foot_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0011",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 2,
+        "diagnoses": [
+          {
+            "evidence": "bodies.count: expected 1, observed 0 (delta 1 exceeds tolerance 1e-06)",
+            "failed_requirement": "bodies.count",
+            "finding": "ACC-BODY-COUNT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:LP_BODY.dz: expected 95.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-SHAFT",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:LP_BODY.dx: expected 8.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-FOOT",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:LP_BODY.dy: expected 8.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-FOOT",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "features.count: expected 2, observed 0 (delta 2 exceeds tolerance 1e-06)",
+            "failed_requirement": "features.count",
+            "finding": "ACC-FEATURES",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:LP_BODY.volume_mm3: expected 1957.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-SHAFT",
+            "finding": "ACC-VOL",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "bodies.count: expected '>= 1', observed 0 (the solution extrudes a solid but the model reports no body)",
+            "failed_requirement": "bodies.count",
+            "finding": "GEO-BODY-PRESENT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "component.name: expected 'SEWCP-600_LIFT_PIN', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "component.name",
+            "finding": "ACC-NAME",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 4, observed 0 (delta 4 exceeds tolerance 1e-06)",
+            "failed_requirement": "parameters.count",
+            "finding": "ACC-PARAM-COUNT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:lp_shaft_d.value: expected 5.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-SHAFT",
+            "finding": "ACC-SHAFT-D",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:lp_len.value: expected 95.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "LP-SHAFT",
+            "finding": "ACC-LEN",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 4, observed 0 (4 declared parameter(s) absent from the model: lp_foot_d, lp_foot_h, lp_len, lp_shaft_d)",
+            "failed_requirement": "parameters.count",
+            "finding": "CON-PARAM-PRESENT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "sketch:*.fully_constrained: expected True, observed '4 not constrained' (L1_SHAFT: absent; L1_SHAFT: absent; L2_FOOT: absent; L2_FOOT: absent)",
+            "failed_requirement": "sketch:*.fully_constrained",
+            "finding": "CON-SKETCH-CONSTRAINED",
+            "likely_cause": "the sketch carries degrees of freedom the solution requires it not to have; a later feature located against it can move",
+            "proposed_correction": "re-dispatch the sketch and its dimensioning operations",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "parameters": [
+                {
+                  "comment": "",
+                  "expression": "5.0",
+                  "name": "lp_shaft_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "95.0",
+                  "name": "lp_len",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "8.0",
+                  "name": "lp_foot_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "lp_foot_h",
+                  "unit": "mm"
+                }
+              ]
+            },
+            "feature": "setup.parameters",
+            "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+            "op": "set_parameters",
+            "op_id": "RP2-OP-0002",
+            "satisfies": []
+          },
+          {
+            "args": {
+              "name": "L1_SHAFT",
+              "plane": "XY"
+            },
+            "feature": "mech.LP-SHAFT.sketch",
+            "note": "repair attempt 2: Profile sketch for LP-SHAFT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0005",
+            "satisfies": [
+              "LP-SHAFT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "lp_shaft_d",
+              "sketch": "L1_SHAFT"
+            },
+            "feature": "mech.LP-SHAFT.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by lp_shaft_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0006",
+            "satisfies": [
+              "LP-SHAFT"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "LP_BODY",
+              "direction": "positive",
+              "distance": "lp_len",
+              "operation": "new_body",
+              "sketch": "L1_SHAFT"
+            },
+            "feature": "mech.LP-SHAFT.extrude",
+            "note": "repair attempt 2: Solid of thickness lp_len. Built from the datum face upward so the primary datum sits at zero.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0007",
+            "satisfies": [
+              "LP-SHAFT"
+            ]
+          },
+          {
+            "args": {
+              "name": "L2_FOOT",
+              "plane": "XY"
+            },
+            "feature": "mech.LP-FOOT.sketch",
+            "note": "repair attempt 2: Profile sketch for LP-FOOT on XY.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0008",
+            "satisfies": [
+              "LP-FOOT"
+            ]
+          },
+          {
+            "args": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "diameter": "lp_foot_d",
+              "sketch": "L2_FOOT"
+            },
+            "feature": "mech.LP-FOOT.circle",
+            "note": "repair attempt 2: Outer profile dimensioned by lp_foot_d; centred on the origin so the part axis is the document axis.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0009",
+            "satisfies": [
+              "LP-FOOT"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "lp_foot_h",
+              "operation": "join",
+              "sketch": "L2_FOOT"
+            },
+            "feature": "mech.LP-FOOT.extrude",
+            "note": "repair attempt 2: Removal of thickness lp_foot_h, as the requirement states.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0010",
+            "satisfies": [
+              "LP-FOOT"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP2-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 7 operation(s) of kind(s) construction_sketch, extrude, parameters, sketch, sketch_circle that bear on 13 failed check(s)"
+      },
+      "sequence_digest": "sha256:651f8c105b838bac7ea709c3e6d1fc68ff064ad6b654211f526a670c0fafa28c",
+      "verdict": {
+        "attempt": 1,
+        "checks": 18,
+        "failed": 13,
+        "reports": [
+          {
+            "checks": 7,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 95.0,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-SHAFT",
+                "subject": "body:LP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 8.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-FOOT",
+                "subject": "body:LP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 8.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-FOOT",
+                "subject": "body:LP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 2 exceeds tolerance 1e-06",
+                "expected": 2,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 1957.0,
+                "id": "ACC-VOL",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-SHAFT",
+                "subject": "body:LP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 1,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "this solution realises no interface feature, so there is nothing for this verifier to check. Deferred interfaces: LP-IF-1, LP-IF-2",
+                "expected": "no interface realised in this bounded solution",
+                "id": "IF-NONE-IN-SCOPE",
+                "observed": 2,
+                "passed": true,
+                "requirement": null,
+                "subject": "solution.interfaces"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 10,
+            "failed": 6,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-600_LIFT_PIN",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 4 exceeds tolerance 1e-06",
+                "expected": 4,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 5.0,
+                "id": "ACC-SHAFT-D",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-SHAFT",
+                "subject": "parameter:lp_shaft_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 95.0,
+                "id": "ACC-LEN",
+                "observed": null,
+                "passed": false,
+                "requirement": "LP-SHAFT",
+                "subject": "parameter:lp_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "4 declared parameter(s) absent from the model: lp_foot_d, lp_foot_h, lp_len, lp_shaft_d",
+                "expected": 4,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "L1_SHAFT: absent; L1_SHAFT: absent; L2_FOOT: absent; L2_FOOT: absent",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "4 not constrained",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T181657-7889f4.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 2,
+      "dispatched": 8,
+      "executed": 8,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T181657-7889f4.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452418.2954164,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 4
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452418.2883456,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452420.4053097,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "L1_SHAFT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452420.3927157,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452420.660181,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "L1_SHAFT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452420.6481693,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452420.9054158,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "LP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452420.8918703,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452421.1631973,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "L2_FOOT",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452421.1570117,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452421.4396574,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "L2_FOOT"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452421.422223,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452421.9520414,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "LP_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452421.9319692,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T181657-7889f4.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786452422.4498432,
+          "fusion": {
+            "document": "SEWCP-600_LIFT_PIN v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 1621.0618092523332,
+                "bbox_max": [
+                  4.0,
+                  4.0,
+                  95.0
+                ],
+                "bbox_min": [
+                  -4.0,
+                  -4.0,
+                  0.0
+                ],
+                "mass_kg": 0.0153641159520129,
+                "material": "Steel",
+                "name": "LP_BODY",
+                "volume_mm3": 1957.2122231863568
+              }
+            ],
+            "component": {
+              "name": "SEWCP-600_LIFT_PIN v0",
+              "persisted_name": "SEWCP-600_LIFT_PIN"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-600_LIFT_PIN v1",
+              "persisted_name": "SEWCP-600_LIFT_PIN",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "5.0 mm",
+                "name": "lp_shaft_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 5.0
+              },
+              {
+                "expression": "95.0 mm",
+                "name": "lp_len",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 95.0
+              },
+              {
+                "expression": "8.0 mm",
+                "name": "lp_foot_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 8.0
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "lp_foot_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              }
+            ],
+            "planes": [],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 2.5,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "L1_SHAFT",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 4.0,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "L2_FOOT",
+                "plane": "XY",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786452422.4461102,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 1621.0618092523332,
+            "bbox_max": [
+              4.0,
+              4.0,
+              95.0
+            ],
+            "bbox_min": [
+              -4.0,
+              -4.0,
+              0.0
+            ],
+            "mass_kg": 0.0153641159520129,
+            "material": "Steel",
+            "name": "LP_BODY",
+            "volume_mm3": 1957.2122231863568
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-600_LIFT_PIN v0",
+          "name": "SEWCP-600_LIFT_PIN",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-600_LIFT_PIN"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-600_LIFT_PIN v1",
+          "persisted_name": "SEWCP-600_LIFT_PIN",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "5.0 mm",
+            "name": "lp_shaft_d",
+            "unit": "mm",
+            "value": 5.0
+          },
+          {
+            "expression": "95.0 mm",
+            "name": "lp_len",
+            "unit": "mm",
+            "value": 95.0
+          },
+          {
+            "expression": "8.0 mm",
+            "name": "lp_foot_d",
+            "unit": "mm",
+            "value": 8.0
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "lp_foot_h",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          }
+        ],
+        "planes": [],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 2.5,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "L1_SHAFT",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 4.0,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "L2_FOOT",
+            "plane": "XY",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "5.0",
+                "name": "lp_shaft_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "95.0",
+                "name": "lp_len",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "lp_foot_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "lp_foot_h",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "RP2-OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "L1_SHAFT",
+            "plane": "XY"
+          },
+          "feature": "mech.LP-SHAFT.sketch",
+          "note": "repair attempt 2: Profile sketch for LP-SHAFT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0005",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "lp_shaft_d",
+            "sketch": "L1_SHAFT"
+          },
+          "feature": "mech.LP-SHAFT.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by lp_shaft_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0006",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "LP_BODY",
+            "direction": "positive",
+            "distance": "lp_len",
+            "operation": "new_body",
+            "sketch": "L1_SHAFT"
+          },
+          "feature": "mech.LP-SHAFT.extrude",
+          "note": "repair attempt 2: Solid of thickness lp_len. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0007",
+          "satisfies": [
+            "LP-SHAFT"
+          ]
+        },
+        {
+          "args": {
+            "name": "L2_FOOT",
+            "plane": "XY"
+          },
+          "feature": "mech.LP-FOOT.sketch",
+          "note": "repair attempt 2: Profile sketch for LP-FOOT on XY.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0008",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "lp_foot_d",
+            "sketch": "L2_FOOT"
+          },
+          "feature": "mech.LP-FOOT.circle",
+          "note": "repair attempt 2: Outer profile dimensioned by lp_foot_d; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0009",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "lp_foot_h",
+            "operation": "join",
+            "sketch": "L2_FOOT"
+          },
+          "feature": "mech.LP-FOOT.extrude",
+          "note": "repair attempt 2: Removal of thickness lp_foot_h, as the requirement states.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0010",
+          "satisfies": [
+            "LP-FOOT"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP2-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T181657-7889f4-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786452424.1056316,
+        "fusion": {
+          "document": "SEWCP-600_LIFT_PIN v1",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "name": "SEWCP-600_LIFT_PIN",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786452423.3864725,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:765e9ce82aa3a6719ba4a523be99e499bac2bb8556709b7a4998e5ae3417e869",
+      "verdict": {
+        "attempt": 2,
+        "checks": 18,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 7,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 95.0,
+                "id": "ACC-BODY-DZ",
+                "observed": 95.0,
+                "passed": true,
+                "requirement": "LP-SHAFT",
+                "subject": "body:LP_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 8.0,
+                "id": "ACC-BODY-DX",
+                "observed": 8.0,
+                "passed": true,
+                "requirement": "LP-FOOT",
+                "subject": "body:LP_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 8.0,
+                "id": "ACC-BODY-DY",
+                "observed": 8.0,
+                "passed": true,
+                "requirement": "LP-FOOT",
+                "subject": "body:LP_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 2,
+                "id": "ACC-FEATURES",
+                "observed": 2,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1957.0,
+                "id": "ACC-VOL",
+                "observed": 1957.2122231863568,
+                "passed": true,
+                "requirement": "LP-SHAFT",
+                "subject": "body:LP_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 1,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "this solution realises no interface feature, so there is nothing for this verifier to check. Deferred interfaces: LP-IF-1, LP-IF-2",
+                "expected": "no interface realised in this bounded solution",
+                "id": "IF-NONE-IN-SCOPE",
+                "observed": 2,
+                "passed": true,
+                "requirement": null,
+                "subject": "solution.interfaces"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 10,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-600_LIFT_PIN",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-600_LIFT_PIN",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 4,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 4,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5.0,
+                "id": "ACC-SHAFT-D",
+                "observed": 5.0,
+                "passed": true,
+                "requirement": "LP-SHAFT",
+                "subject": "parameter:lp_shaft_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 95.0,
+                "id": "ACC-LEN",
+                "observed": 95.0,
+                "passed": true,
+                "requirement": "LP-SHAFT",
+                "subject": "parameter:lp_len.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 4,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 4,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T181657-7889f4.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-600_LIFT_PIN",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786452424.205938,
+  "package_digest": "sha256:7889f4032e3f8d5cf9d78b7f748eaad278ffaba88e052f77bf2875cbc93b0520",
+  "package_id": "SEWCP-600-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:871d52b300adfea000e5e12e3f4698b2219a44ce167f6abc51816702451d8890",
+  "run_id": "RUN-20260811T181657-7889f4",
+  "solution_digest": "sha256:ec6349a13126a86f73689f0679270c9b7094bd4eb56687e9503d8c8b56eaa191",
+  "solution_id": "RUN-20260811T181657-7889f4.S1",
+  "started_at": 1786452417.6523886,
+  "verdict": "PASS"
+}
