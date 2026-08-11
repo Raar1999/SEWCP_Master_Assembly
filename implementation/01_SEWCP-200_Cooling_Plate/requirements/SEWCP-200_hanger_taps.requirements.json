@@ -1,0 +1,80 @@
+{
+ "package_id": "SEWCP-200-REQ-006",
+ "component": "SEWCP-200_COOLING_PLATE",
+ "authority": [
+  "spec/01_SEWCP-200_Cooling_Plate.md Rev A CP-IF-8 as amended by APR-031: 2x M6 x 1.0 x 12 bracket taps, bottom face, r = 150 at 88/122 deg",
+  "spec/08 RF-IF-3 (hanger mounts to the RF-hot plate)"
+ ],
+ "scope": {
+  "document_name": "SEWCP-200_COOLING_PLATE",
+  "units": "mm",
+  "bounded": "Two tapped holes only, modelled per the below-face simplified-thread convention (O6.0 x 12 from the bottom face). Adopts the existing verified document; changes nothing else.",
+  "modelling_conventions": "Same convention as SEWCP-200-REQ-004 taps: nominal-diameter cylinder at tap depth."
+ },
+ "parameters_from": "../../../params/generated/SEWCP-200.csv",
+ "parameters_source": "SEWCP-200_CAD_Implementation_Package.md section 3, via aief_params emit",
+ "requirements": [
+  {
+   "id": "CP-HANGER-TAP",
+   "kind": "geometry",
+   "statement": "2x M6x1.0 x 12 bracket taps at r=150, 88/122 deg, bottom face (CP-IF-8 as amended; ECR-Q-012 DEC-02 addendum).",
+   "source": "spec/01 CP-IF-8 (APR-031)",
+   "unit": "mm",
+   "value": {
+    "form": "axial_hole_pattern",
+    "sketch": "S6_HANGER_TAP",
+    "diameter": "6.0",
+    "depth": "12.0",
+    "direction": "positive",
+    "positions": {
+     "points": [
+      {
+       "radius": "150.0",
+       "azimuth": "88.0"
+      },
+      {
+       "radius": "150.0",
+       "azimuth": "122.0"
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "CP-IF-8",
+   "mates_to": "SEWCP-902 hanger",
+   "nature": "2x M6 bracket taps realised (RF-IF-3 mounting)",
+   "source": "spec/01 CP-IF-8; spec/08 RF-IF-3"
+  }
+ ],
+ "acceptance": [
+  {
+   "id": "ACC-UNITS",
+   "check": "constraint",
+   "subject": "document.units",
+   "expect": "mm"
+  },
+  {
+   "id": "ACC-NAME",
+   "check": "constraint",
+   "subject": "component.name",
+   "expect": "SEWCP-200_COOLING_PLATE"
+  },
+  {
+   "id": "ACC-BODY-COUNT",
+   "check": "geometry",
+   "subject": "bodies.count",
+   "expect": 1
+  },
+  {
+   "id": "ACC-VOL",
+   "check": "geometry",
+   "subject": "body:CP_BODY.volume_mm3",
+   "expect": 1479108.9,
+   "tolerance": 1.0,
+   "requirement": "CP-HANGER-TAP"
+  }
+ ]
+}

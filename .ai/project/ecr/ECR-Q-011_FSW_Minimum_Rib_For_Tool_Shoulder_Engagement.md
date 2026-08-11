@@ -8,12 +8,12 @@
 ecr_id:       ECR-Q-011
 class:        Q                      # ambiguity / missing input - LAW-02
 raised_by:    mechanical.cad-engineer · S-2026-08-11-01
-status:       OPEN
-disposition:  null
-ruled_by:     null
-ruled_at:     null
-instrument:   null
-approval:     null
+status:       DISPOSITIONED
+disposition:  (a) with constraint - rib 5.0 confirmed; FSW internal-rib passes constrained to a tapered probe, tip dia <= 4.0, seam tracking <= +/-0.5, penetration 6.5-7.0 (the shoulder rides the continuous lid); supplier capability confirmed at RFQ; channel unchanged
+ruled_by:     claude-under-owner-delegation (owner-delegated engineering authority, mission 2026-08-11 s1; NOT a human approval)
+ruled_at:     2026-08-11T00:00:00Z
+instrument:   .ai/project/decisions/DECISIONS_S-2026-08-11-05.md DEC-03
+approval:     APR-029 (spec/01)
 affected_artifacts:
   - implementation/01_SEWCP-200_Cooling_Plate/cad/SEWCP-200_MDR-001_Coolant_Channel_Routing_Topology.md
   - implementation/01_SEWCP-200_Cooling_Plate/requirements/SEWCP-200_coolant_channel.requirements.json

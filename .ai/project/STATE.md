@@ -11,10 +11,9 @@ compiler_stage:
   complete:       [1, 2, 3, 4, 5]
   outstanding:    [6]
 last_ledger_seq:  0
-frozen_set_hash:  73911786c0795f20b5c5ea5b9ae4a9254d306abaccd9cc9ce54fc55a5d5bc3c2
+frozen_set_hash:  e558734052f3b8114a6c1db8b853cf034429414aedb9b31f7bc2f0572f592ddf
 active_tasks:     []
 blockers:
-  - ECR-D-013        # strap pitch vs plate taps - fails C7 until owner rules
   - ECR-D-006        # framework manifest drift. NOT under spec/**, not an LC-M04 criterion
   - CMP-BLOCK-004    # Stage 6 increment certified; full compiler absent
   - CMP-BLOCK-005    # Stage 6 slice delivered; campaign infrastructure absent
@@ -29,11 +28,11 @@ open_non_blocking:
   - OI-CAD-03                  # 2 quarantined lineages, owner disposition
   - OI-P-01..03, OI-R-01
 next_action: |
-  C7 now FAILS on the raised ECR-D-013, by design. POST-GEOMETRY COMPLETE
-  (S-2026-08-11-02): assembly verified+saved, 11 drawings, BOM, final
-  verification 17/17 - cad/POST_GEOMETRY_RUN.md governs the detail.
-  OI-CAD-01/-02 CLOSED live (REPAIRS_S-2026-08-11-04): assembly 7.6731
-  kg verified+exported; lifecycle fix validated (fail run persisted 0).
+  ALL ENGINEERING ITEMS RESOLVED under delegated authority
+  (DECISIONS_S-2026-08-11-05, APR-029..032): D-013 A, Q-012 hanger,
+  Q-011 rib 5.0, coolant 1.64 accepted. Gate C1-C7 YES. Assembly PASS
+  7.6997 kg, re-exported; drawings+BOM regenerated; FSV 19/19.
+  Open: CP-02/CP-11 physical; OI-CAD-03 (4 quarantined lineages).
   NOT now: Stage 6 (OQ-14), ECR-D-006, push before 2026-09-01.
 ```
 

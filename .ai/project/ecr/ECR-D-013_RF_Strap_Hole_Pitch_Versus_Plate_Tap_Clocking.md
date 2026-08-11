@@ -8,12 +8,12 @@
 ecr_id:       ECR-D-013
 class:        D                      # defect - two frozen volumes disagree
 raised_by:    mechanical.design-engineer · S-2026-08-11-02
-status:       OPEN
-disposition:  null
-ruled_by:     null                   # owner ruling required - spec/** change either way
-ruled_at:     null
-instrument:   null
-approval:     null
+status:       DISPOSITIONED
+disposition:  A - strap holes made coincident with the CP-IF-8 taps (29.94 in-plane centres); RS-D07 re-defined; plate unchanged
+ruled_by:     claude-under-owner-delegation (owner-delegated engineering authority, mission 2026-08-11 s1; NOT a human approval)
+ruled_at:     2026-08-11T00:00:00Z
+instrument:   .ai/project/decisions/DECISIONS_S-2026-08-11-05.md DEC-01
+approval:     APR-030 (spec/08), APR-029 (spec/01 chain unaffected by this ECR but co-registered)
 affected_artifacts:
   - spec/01_SEWCP-200_Cooling_Plate.md
   - spec/08_SEWCP-900_RF_Feedthrough_Bracket.md

@@ -50,9 +50,9 @@
   },
   {
    "name": "rs_hole_pitch",
-   "expression": "25.0",
+   "expression": "29.94010",
    "unit": "mm",
-   "source": "RS-D07"
+   "source": "RS-D07 (ECR-D-013 DEC-01: coincident with the CP-IF-8 taps; chord of 98.7/111.3 deg at r=137)"
   }
  ],
  "material": {
@@ -167,7 +167,7 @@
   {
    "id": "RS-HOLES",
    "kind": "geometry",
-   "statement": "2x O6.6 terminal bolt holes at 25 centres in the chuck-end pad, through the 0.5 strip, centred 9 mm from the strap end - at r=137.0, the CP-IF-8 tap radius. NOTE: the 25.0 pitch (RS-D07) does not close against the plate taps at 98.73/111.27 deg (chord 29.94) - raised as ECR-D-013, owner-reserved; the frozen RS-D07 value is kept until ruled.",
+   "statement": "2x O6.6 terminal bolt holes COINCIDENT with the CP-IF-8 taps (pad-plane positions x=136.1797, y=+/-14.9700 in the radial frame; 29.94 centres). ECR-D-013 disposition A, DEC-01, APR-030.",
    "source": "spec/08 RS-D06/RS-D07",
    "unit": "mm",
    "value": {
@@ -178,10 +178,10 @@
      {
       "id": "hole1",
       "plane_az_deg": "90",
-      "plane_offset": "-12.5",
+      "plane_offset": "14.97005",
       "center": [
-       "137.0",
-       "-12.5",
+       "136.17965",
+       "14.97005",
        "19.75"
       ],
       "length": "4",
@@ -190,10 +190,10 @@
      {
       "id": "hole2",
       "plane_az_deg": "90",
-      "plane_offset": "12.5",
+      "plane_offset": "-14.97005",
       "center": [
-       "137.0",
-       "12.5",
+       "136.17965",
+       "-14.97005",
        "19.75"
       ],
       "length": "4",

@@ -105,9 +105,10 @@ def cp_drawing() -> Drawing:
 
     sh1 = Sheet("SEWCP-200-DRW-001 Sh 1", "Geometry", views=[top, side],
                 notes=STANDARD_NOTES + [
-        "COOLANT CHANNEL PER MDR-001 ROUTING RECORD; RIB 5.0 PROVISIONAL — ECR-Q-011 OPEN.",
+        "COOLANT CHANNEL PER MDR-001; RIB 5.0 CONFIRMED (ECR-Q-011 DEC-03): FSW RIB PASSES — TAPERED PROBE TIP ⌀≤4.0, TRACKING ≤±0.5, PENETRATION 6.5–7.0.",
         "FSW LID PER spec/01 §6 STEP 5; RADIOGRAPH PER PROCESS NOTES.",
         "CLOCKING PER spec/00 §3.2 — BINDING; DO NOT RE-CLOCK.",
+        "2× M6×12 BRACKET TAPS AT r=150, 88°/122°, BOTTOM FACE (CP-IF-8 AS AMENDED, APR-031).",
     ])
     _dim_table(sh1, spec_dim_table("01_SEWCP-200_Cooling_Plate.md", "CP-D")[:24],
                at=(14, 58))
@@ -462,6 +463,9 @@ def rs_drawing() -> Drawing:
     form.add(Dim("linear", (106, 19.75), p2=(146, 19.75),
                  source="decision: pad flat 40.0 ending at land outer r=146 (repair record, RUN-20260811T200254)",
                  text="PAD FLAT 40.0 TO r=146", offset=8))
+    form.add(Dim("note", (136.18, 19.75),
+                 source="RS-D07 as amended (APR-032): holes at r=136.18, ±14.97 — tap-coincident",
+                 text="2× ⌀6.6 AT TAP POSITIONS (r 136.18)", angle_deg=310))
     flat = View("FLAT PATTERN", origin=(105, 250), scale=1.0)
     wid = P["rs_width"]
     flat.add(Polyline(((0, -wid / 2), (P["rs_dev"], -wid / 2),
@@ -469,15 +473,15 @@ def rs_drawing() -> Drawing:
     for s in _RS_STATIONS[1:-1]:
         flat.add(Line((s, -wid / 2), (s, wid / 2), layer="center"))
     for y in (-P["rs_hole_pitch"] / 2, P["rs_hole_pitch"] / 2):
-        flat.add(Circle((171.0, y), P["rs_hole_d"]))
+        flat.add(Circle((170.18, y), P["rs_hole_d"]))
     flat.add(Dim("linear", (0, -wid / 2), p2=(P["rs_dev"], -wid / 2),
                  source=src("rs_dev"), text="180.0 ±2.0 DEVELOPED (RS-D03)",
                  offset=8))
     flat.add(Dim("linear", (0, -wid / 2), p2=(0, wid / 2), source=src("rs_width"),
                  text="50.0 ±0.5 (RS-D01)", offset=8))
-    flat.add(Dim("note", (171.0, P["rs_hole_pitch"] / 2),
-                 source="parameter:rs_hole_pitch — CONFLICTS WITH PLATE TAPS, ECR-D-013 OPEN",
-                 text=f"2× ⌀{P['rs_hole_d']:g} AT {P['rs_hole_pitch']:g} CTRS — SEE ECR-D-013",
+    flat.add(Dim("note", (170.18, P["rs_hole_pitch"] / 2),
+                 source="parameter:rs_hole_pitch (RS-D07 as amended: tap-coincident, ECR-D-013 DEC-01, APR-030/032)",
+                 text=f"2× ⌀{P['rs_hole_d']:g} AT {P['rs_hole_pitch']:.2f} CTRS — COINCIDENT WITH CP-IF-8 TAPS",
                  angle_deg=45))
     flat.add(Dim("note", (140.0, -wid / 2),
                  source="decision: bend stations from installed-form derivation (RUN-20260811T200254)",
@@ -487,7 +491,7 @@ def rs_drawing() -> Drawing:
                views=[form, flat], notes=STANDARD_NOTES + [
         "0.50 C10100 OFHC STRIP; SILVER 8–13 µm DIRECTLY ON COPPER — NO NICKEL (RS-D08/09, DR-7).",
         "FORM ON R20 MANDREL; ANNEAL; FLATTEN PADS 0.05 TIR; 4-WIRE ≤ 3 mΩ.",
-        "HOLE PITCH 25.0 (RS-D07) DOES NOT CLOSE AGAINST PLATE TAPS 98.73°/111.27° — ECR-D-013 OPEN, OWNER-RESERVED. DO NOT DRILL UNTIL RULED.",
+        "HOLES COINCIDENT WITH CP-IF-8 TAPS: 29.94 CTRS AT PAD STATION 9.82 FROM END (ECR-D-013 DISPOSITION A, DEC-01).",
         "SEWCP-904 DEPOSITION SHROUD: NO DIMENSIONAL AUTHORITY IN spec/08 — CARRIED (NOT DRAWN).",
     ])
     d = Drawing("SEWCP-901-DRW-001", "RF STRAP SEWCP-901", "A", sheets=[sh])
@@ -496,34 +500,67 @@ def rs_drawing() -> Drawing:
 
 def sb_drawing() -> Drawing:
     P = load_params(IMPL / "08_SEWCP-900_RF_Feedthrough_Bracket/requirements/SEWCP-902_saddle.requirements.json")
-    src = lambda n: f"parameter:{n} (SEWCP-902-REQ-001)"
-    top = View("TOP", origin=(120, 110), scale=2.2)
-    L, W, H = P["sb_len"], P["sb_wid"], P["sb_hgt"]
-    top.add(Polyline(((-L / 2, -W / 2), (L / 2, -W / 2), (L / 2, W / 2),
-                      (-L / 2, W / 2)), closed=True))
-    for y in (-P["sb_hole_pitch"] / 2, P["sb_hole_pitch"] / 2):
-        top.add(Circle((0, y), P["sb_hole_d"]))
-    top.add(Dim("linear", (-L / 2, -W / 2), p2=(L / 2, -W / 2), source=src("sb_len"),
-                text=f"{L:g}", offset=8))
-    top.add(Dim("linear", (L / 2, -W / 2), p2=(L / 2, W / 2), source=src("sb_wid"),
-                text=f"{W:g} +0.5/−0 (SB-D02)", offset=8))
-    top.add(Dim("linear", (0, -P["sb_hole_pitch"] / 2),
-                p2=(0, P["sb_hole_pitch"] / 2), source=src("sb_hole_pitch"),
-                text=f"{P['sb_hole_pitch']:g} CTRS 2× ⌀{P['sb_hole_d']:g} (SB-D03)",
-                offset=-14))
-    side = View("SIDE", origin=(280, 105), scale=2.2)
-    side.add(Polyline(((-L / 2, 0), (L / 2, 0), (L / 2, H), (-L / 2, H)),
+    src = lambda n: f"parameter:{n} (SEWCP-902-REQ-002)"
+    import math as m
+    fx = 150.0 * m.cos(m.radians(17.0))
+    fy = 150.0 * m.sin(m.radians(17.0))
+    x_in, x_out = fx - 9, fx + 9
+    y_in, y_out = fy - 9, fy + 9
+    ry0, ry1 = fy - 5, fy + 5
+    plan = View("PLAN (LOOKING UP AT THE CP FACE)", origin=(105, 118), scale=1.15)
+    outline = [(68, -ry1), (x_in, -ry1), (x_in, -y_out), (x_out, -y_out),
+               (x_out, -y_in), (x_in, -y_in), (x_in, -ry0), (76, -ry0),
+               (76, ry0), (x_in, ry0), (x_in, y_in), (x_out, y_in),
+               (x_out, y_out), (x_in, y_out), (x_in, ry1), (68, ry1)]
+    plan.add(Polyline(tuple(outline), closed=True))
+    plan.add(Polyline(((68, -31), (76, -31), (76, 31), (68, 31)),
+                      closed=True, layer="hidden"))
+    for sgn in (1, -1):
+        plan.add(Polyline(((68, sgn * 25.25), (76, sgn * 25.25),
+                           (76, sgn * 30.25), (68, sgn * 30.25)),
+                          closed=True, layer="hidden"))
+        plan.add(Circle((fx, sgn * fy), P["sb_hole_d"]))
+    plan.add(Polyline(((35, -25), (146, -25), (146, 25), (35, 25)),
+                      closed=True, layer="phantom"))
+    plan.add(Dim("linear", (68, -ry1), p2=(x_out, -ry1),
+                 source=src("sb_rail_w"),
+                 text=f"{x_out - 68:.2f} OVERALL", offset=10))
+    plan.add(Dim("note", (fx, fy), source="spec/08 SB-D03 (APR-032): holes at CP-IF-8 bracket taps r=150, ±17°",
+                 text=f"2× ⌀{P['sb_hole_d']:g} AT r=150, 88°/122° TAPS", angle_deg=40))
+    plan.add(Dim("note", (72, 28), source="spec/08 SB-D02 (APR-030): cheeks guide the 50.0 strap at 50.5",
+                 text="CHEEKS 50.5 GAP", angle_deg=140))
+    plan.add(Dim("note", (100, -25), source="observed strap installed form (phantom)",
+                 text="SEWCP-901 STRAP (REF)", angle_deg=250))
+    side = View("SECTION AT STRAP AXIS", origin=(190, 215), scale=1.4)
+    side.add(Polyline(((68, 15), (140.2, 15), (140.2, 20), (68, 20)),
                       closed=True))
-    side.add(Dim("linear", (L / 2 + 3, 0), p2=(L / 2 + 3, H), source=src("sb_hgt"),
-                 text=f"{H:g} (SB-D01: SETS RS-D04=8.0)", offset=4))
-    sh = Sheet("SEWCP-902-DRW-001 Sh 1", "Strap saddle", views=[top, side],
+    side.add(Polyline(((68, 8.25), (76, 8.25), (76, 15), (68, 15)),
+                      closed=True))
+    side.add(Polyline(((68, 8.0), (76, 8.0), (76, 8.25), (68, 8.25)),
+                      closed=True, layer="hidden"))
+    side.add(Line((30, 20), (150, 20), layer="phantom"))
+    side.add(Text((32, 21.5), "CP BOTTOM FACE Z=20 (RF-HOT)", 2.0))
+    side.add(Line((30, 0), (150, 0), layer="phantom"))
+    side.add(Text((32, 1.5), "BASE PLATE Z=0 (GROUND)", 2.0))
+    side.add(Polyline(((35, 7.75), (77.7, 7.75), (77.7, 8.25), (35, 8.25)),
+                      closed=True, layer="phantom"))
+    side.add(Dim("linear", (60, 0), p2=(60, 8.0), source="spec/08 SB-D04 (≥8.0 min to ground)",
+                 text="8.0 MIN TO GROUND (SB-D04)", offset=-18))
+    side.add(Dim("linear", (66, 8.25), p2=(66, 20), source=src("sb_drop"),
+                 text=f"{P['sb_drop']:g} DROP (SB-D01: BEARING 8.25)", offset=-6))
+    side.add(Dim("linear", (142, 15), p2=(142, 20), source=src("sb_web"),
+                 text=f"{P['sb_web']:g} WEB", offset=4))
+    sh = Sheet("SEWCP-902-DRW-001 Sh 1", "Strap support hanger", views=[plan, side],
                notes=STANDARD_NOTES + [
-        "MOUNTING ARCHITECTURE UNRESOLVED — ECR-Q-012 OPEN, OWNER-RESERVED: AS-MODELLED BASE-SEATED FORM CONTRADICTS RF-IF-3 (PLATE-HUNG) AND SB-D04 (≥8.0 TO BASE PLATE). DO NOT FABRICATE UNTIL RULED.",
-        "ALODINE 1200 (CONDUCTIVE) — NOT ANODIZE.",
-        "HEIGHT INTERPRETS STRAP TOP FACE AT 8.0; SEWCP-901 PACKAGE USES MID-PLANE — 0.25 CONVENTION DELTA RECORDED IN ECR-Q-012.",
+        "PLATE-HUNG HANGER PER ECR-Q-012 DISPOSITION (DEC-02 + ADDENDUM, APR-031/032): MOUNTS TO THE RF-HOT COOLING PLATE — NOT TO GROUND (RF-IF-3).",
+        "BEARS ON THE STRAP TOP FACE AT 8.25: RS-D04 MID-PLANE = 8.0 EXACTLY (SB-D01).",
+        "ALL SURFACES ≥ 8.0 FROM THE GROUNDED BASE PLATE (SB-D04) — MINIMUM AT THE CHEEK TIPS.",
+        "M6 × 16 SHCS, 6.0 N·m INTO THE CP BRACKET TAPS (r=150, 88°/122°); GRIP 5.0, ENGAGEMENT 11.",
+        "CNC ONE PIECE FROM 6061-T6 12.7 PLATE; ALODINE 1200 (CONDUCTIVE) — NOT ANODIZE.",
     ])
-    d = Drawing("SEWCP-902-DRW-001", "STRAP SADDLE SEWCP-902", "A", sheets=[sh])
-    return _std(d, "6061-T6", "ALODINE 1200", "2.2:1")
+    d = Drawing("SEWCP-902-DRW-001", "STRAP SUPPORT HANGER SEWCP-902", "B",
+                sheets=[sh])
+    return _std(d, "6061-T6", "ALODINE 1200", "1.15:1 / 1.6:1")
 
 
 # --------------------------------------------------------------- SEWCP-1000

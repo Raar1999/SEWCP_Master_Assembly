@@ -161,3 +161,31 @@ verifies, and every non-verifiable or blocked item is explicitly carried.
 - CP-02 flow-bench ΔP: **NOT CAD-VERIFIABLE** — carried.
 - FSW minimum rib (ECR-Q-011): supplier input — carried OPEN.
 - Hardware mass confirmation, bond C-scan, CMM stack measurement: physical — carried.
+
+## S-2026-08-11-05 — Owner-delegated engineering resolution (final)
+
+Under the owner's written delegation (mission 2026-08-11 §1), all four
+carried engineering items were resolved with full provenance
+(`.ai/project/decisions/DECISIONS_S-2026-08-11-05.md`, APR-029…APR-032):
+
+- **ECR-D-013 → A**: strap holes tap-coincident (29.94 centres); SEWCP-901
+  rebuilt PASS 15/15, re-exported.
+- **ECR-Q-012 → plate-hung hanger**: SEWCP-902 re-architected Rev B and
+  built PASS 15/15; CP gains 2 bracket taps. The first tap placement
+  (RF-IF-3's literal window) was caught **by the ACC-VOL check** colliding
+  with the choke slots; the feasibility sweep proved the whole ±40 mm
+  window occupied and the corrected r = 150, 88°/122° placement was
+  re-issued (DEC-02 addendum). The failed attempt auto-reverted the plate
+  (failure disposition in production).
+- **ECR-Q-011 → rib 5.0 confirmed** with an FSW tool-envelope constraint
+  (spec/01 §6 step 5); channel unchanged.
+- **Coolant path → design-basis estimate, 1.64 m accepted** with margin
+  derivation; CP-02/CP-11 remain CAD COMPLETE — PHYSICAL VERIFICATION
+  REQUIRED.
+
+Assembly re-integrated (19 occurrences, **PASS**, 7.6997 kg, saved,
+STEP+f3d re-exported); drawings 200/901/902(Rev B)/000 regenerated; BOM
+regenerated CLEAN against `cad/runs/ASSEMBLY_S-2026-08-11-05/`.
+**FINAL SYSTEM VERIFICATION: 19/19 PASS.** Gate: `LC-M04 CAD-READY: YES`
+(C1–C7). Transport-layer `drain()` id-parsing defect found and fixed with
+the historical queue sweep recorded.

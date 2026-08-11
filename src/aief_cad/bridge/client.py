@@ -175,10 +175,17 @@ class FileQueueBridge:
         )
 
     def drain(self) -> int:
-        """Remove stale command files with no matching observation. Returns count."""
+        """Remove stale command files with no matching observation. Returns count.
+
+        The command id is everything before the ``.cmd.json`` suffix - ids
+        legitimately contain dots (``RUN-...S1-0007``), so splitting on the
+        first dot mis-derived the observation name and swept processed
+        history (defect found S-2026-08-11-05; observations were unaffected).
+        """
         n = 0
         for p in sorted(self.queue_dir.glob("*.cmd.json")):
-            if not self.observation_path(p.name.split(".", 1)[0]).exists():
+            command_id = p.name[: -len(".cmd.json")]
+            if not self.observation_path(command_id).exists():
                 p.unlink()
                 n += 1
         return n

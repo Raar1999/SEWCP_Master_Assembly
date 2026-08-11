@@ -1,0 +1,2111 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 21,
+      "executed": 21,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468801.804399,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-902_SADDLE",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468801.5467978,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468802.083215,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 5
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468802.0773246,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468802.3278446,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "identity_bound": true,
+              "name": "(Unsaved)",
+              "persisted_name": "SEWCP-902_SADDLE",
+              "saved": false
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468802.3270404,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468802.650943,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Aluminum 6061"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468802.5909865,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468803.1265223,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "B1_PLATE",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468803.1213152,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468803.4847791,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 16,
+              "fully_constrained": true,
+              "name": "B1_PLATE",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468803.3866663,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468803.6640217,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SB_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468803.6380827,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468803.904588,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "B2_DROP",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468803.8988652,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468804.1603603,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "B2_DROP",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468804.13424,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468804.4105701,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SB_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468804.4002328,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468804.6577919,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "B3_CHEEK_P",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468804.649184,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468804.9622133,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "B3_CHEEK_P",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468804.9287598,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468805.2104378,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SB_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468805.1938457,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468805.4652362,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "B4_CHEEK_N",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468805.4593794,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468805.731774,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "B4_CHEEK_N",
+              "profiles": 1
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468805.7096794,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468805.9895215,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SB_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468805.9737432,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468806.233773,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "B5_HOLES",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468806.226786,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0018",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468806.5152688,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "B5_HOLES"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468806.503023,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468806.7790542,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "B5_HOLES"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468806.7676802,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0020",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468807.0570495,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SB_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468807.0328755,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T225001-ca1f16.S1-0021",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786468807.2962363,
+          "fusion": {
+            "document": "SEWCP-902_SADDLE",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 8971.740939146557,
+                "bbox_max": [
+                  152.4457,
+                  52.8558,
+                  0.0
+                ],
+                "bbox_min": [
+                  68.0,
+                  -52.8558,
+                  -12.000000000000002
+                ],
+                "mass_kg": 0.043251069312064974,
+                "material": "Aluminum 6061",
+                "name": "SB_BODY",
+                "volume_mm3": 16018.914560024064
+              }
+            ],
+            "component": {
+              "name": "(Unsaved)",
+              "persisted_name": "SEWCP-902_SADDLE"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-902_SADDLE",
+              "persisted_name": "SEWCP-902_SADDLE",
+              "saved": false,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude5",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "5.0 mm",
+                "name": "sb_web",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 5.0
+              },
+              {
+                "expression": "11.75 mm",
+                "name": "sb_drop",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 11.75
+              },
+              {
+                "expression": "12.0 mm",
+                "name": "sb_total",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 12.000000000000002
+              },
+              {
+                "expression": "6.6 mm",
+                "name": "sb_hole_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.6
+              },
+              {
+                "expression": "10.0 mm",
+                "name": "sb_rail_w",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 10.0
+              }
+            ],
+            "planes": [],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      -48.8558
+                    ],
+                    "start": [
+                      68.0,
+                      -48.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      -52.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      -48.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      152.4457,
+                      -52.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      -52.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      152.4457,
+                      -34.8558
+                    ],
+                    "start": [
+                      152.4457,
+                      -52.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      -34.8558
+                    ],
+                    "start": [
+                      152.4457,
+                      -34.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      -38.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      -34.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      -38.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      -38.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      38.8558
+                    ],
+                    "start": [
+                      76.0,
+                      -38.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      38.8558
+                    ],
+                    "start": [
+                      76.0,
+                      38.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      34.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      38.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      152.4457,
+                      34.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      34.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      152.4457,
+                      52.8558
+                    ],
+                    "start": [
+                      152.4457,
+                      34.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      52.8558
+                    ],
+                    "start": [
+                      152.4457,
+                      52.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      134.4457,
+                      48.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      52.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      48.8558
+                    ],
+                    "start": [
+                      134.4457,
+                      48.8558
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      -48.8558
+                    ],
+                    "start": [
+                      68.0,
+                      48.8558
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 16,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "B1_PLATE",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      -31.0
+                    ],
+                    "start": [
+                      68.0,
+                      -31.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      31.0
+                    ],
+                    "start": [
+                      76.0,
+                      -31.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      31.0
+                    ],
+                    "start": [
+                      76.0,
+                      31.0
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      -31.0
+                    ],
+                    "start": [
+                      68.0,
+                      31.0
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "B2_DROP",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      25.25
+                    ],
+                    "start": [
+                      68.0,
+                      25.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      30.25
+                    ],
+                    "start": [
+                      76.0,
+                      25.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      30.25
+                    ],
+                    "start": [
+                      76.0,
+                      30.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      25.25
+                    ],
+                    "start": [
+                      68.0,
+                      30.25
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "B3_CHEEK_P",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      -30.25
+                    ],
+                    "start": [
+                      68.0,
+                      -30.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      76.0,
+                      -25.25
+                    ],
+                    "start": [
+                      76.0,
+                      -30.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      -25.25
+                    ],
+                    "start": [
+                      76.0,
+                      -25.25
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      68.0,
+                      -30.25
+                    ],
+                    "start": [
+                      68.0,
+                      -25.25
+                    ],
+                    "type": "line"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "B4_CHEEK_N",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      143.445713,
+                      43.855756
+                    ],
+                    "construction": false,
+                    "radius": 3.3000000000000007,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      143.445713,
+                      -43.855756
+                    ],
+                    "construction": false,
+                    "radius": 3.3000000000000007,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 2,
+                "dimensions": 2,
+                "fully_constrained": true,
+                "name": "B5_HOLES",
+                "plane": "XY",
+                "profiles": 2
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786468807.2885983,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 8971.740939146557,
+            "bbox_max": [
+              152.4457,
+              52.8558,
+              0.0
+            ],
+            "bbox_min": [
+              68.0,
+              -52.8558,
+              -12.000000000000002
+            ],
+            "mass_kg": 0.043251069312064974,
+            "material": "Aluminum 6061",
+            "name": "SB_BODY",
+            "volume_mm3": 16018.914560024064
+          }
+        ],
+        "component": {
+          "display_name": "(Unsaved)",
+          "name": "SEWCP-902_SADDLE",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-902_SADDLE"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-902_SADDLE",
+          "persisted_name": "SEWCP-902_SADDLE",
+          "saved": false,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude5",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "5.0 mm",
+            "name": "sb_web",
+            "unit": "mm",
+            "value": 5.0
+          },
+          {
+            "expression": "11.75 mm",
+            "name": "sb_drop",
+            "unit": "mm",
+            "value": 11.75
+          },
+          {
+            "expression": "12.0 mm",
+            "name": "sb_total",
+            "unit": "mm",
+            "value": 12.000000000000002
+          },
+          {
+            "expression": "6.6 mm",
+            "name": "sb_hole_d",
+            "unit": "mm",
+            "value": 6.6
+          },
+          {
+            "expression": "10.0 mm",
+            "name": "sb_rail_w",
+            "unit": "mm",
+            "value": 10.0
+          }
+        ],
+        "planes": [],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  -48.8558
+                ],
+                "start": [
+                  68.0,
+                  -48.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  -52.8558
+                ],
+                "start": [
+                  134.4457,
+                  -48.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  152.4457,
+                  -52.8558
+                ],
+                "start": [
+                  134.4457,
+                  -52.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  152.4457,
+                  -34.8558
+                ],
+                "start": [
+                  152.4457,
+                  -52.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  -34.8558
+                ],
+                "start": [
+                  152.4457,
+                  -34.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  -38.8558
+                ],
+                "start": [
+                  134.4457,
+                  -34.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  -38.8558
+                ],
+                "start": [
+                  134.4457,
+                  -38.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  38.8558
+                ],
+                "start": [
+                  76.0,
+                  -38.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  38.8558
+                ],
+                "start": [
+                  76.0,
+                  38.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  34.8558
+                ],
+                "start": [
+                  134.4457,
+                  38.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  152.4457,
+                  34.8558
+                ],
+                "start": [
+                  134.4457,
+                  34.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  152.4457,
+                  52.8558
+                ],
+                "start": [
+                  152.4457,
+                  34.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  52.8558
+                ],
+                "start": [
+                  152.4457,
+                  52.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  134.4457,
+                  48.8558
+                ],
+                "start": [
+                  134.4457,
+                  52.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  48.8558
+                ],
+                "start": [
+                  134.4457,
+                  48.8558
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  -48.8558
+                ],
+                "start": [
+                  68.0,
+                  48.8558
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 16,
+            "fully_constrained": true,
+            "name": "B1_PLATE",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  -31.0
+                ],
+                "start": [
+                  68.0,
+                  -31.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  31.0
+                ],
+                "start": [
+                  76.0,
+                  -31.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  31.0
+                ],
+                "start": [
+                  76.0,
+                  31.0
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  -31.0
+                ],
+                "start": [
+                  68.0,
+                  31.0
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "B2_DROP",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  25.25
+                ],
+                "start": [
+                  68.0,
+                  25.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  30.25
+                ],
+                "start": [
+                  76.0,
+                  25.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  30.25
+                ],
+                "start": [
+                  76.0,
+                  30.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  25.25
+                ],
+                "start": [
+                  68.0,
+                  30.25
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "B3_CHEEK_P",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  -30.25
+                ],
+                "start": [
+                  68.0,
+                  -30.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  76.0,
+                  -25.25
+                ],
+                "start": [
+                  76.0,
+                  -30.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  -25.25
+                ],
+                "start": [
+                  76.0,
+                  -25.25
+                ],
+                "type": "line"
+              },
+              {
+                "construction": false,
+                "end": [
+                  68.0,
+                  -30.25
+                ],
+                "start": [
+                  68.0,
+                  -25.25
+                ],
+                "type": "line"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "B4_CHEEK_N",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  143.445713,
+                  43.855756
+                ],
+                "construction": false,
+                "radius": 3.3000000000000007,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  143.445713,
+                  -43.855756
+                ],
+                "construction": false,
+                "radius": 3.3000000000000007,
+                "type": "circle"
+              }
+            ],
+            "curves": 2,
+            "fully_constrained": true,
+            "name": "B5_HOLES",
+            "plane": "XY",
+            "profiles": 2
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-902_SADDLE",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "5.0",
+                "name": "sb_web",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "11.75",
+                "name": "sb_drop",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "12.0",
+                "name": "sb_total",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.6",
+                "name": "sb_hole_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "10.0",
+                "name": "sb_rail_w",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-902_SADDLE"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "density": 2700.0,
+            "material": "Aluminum 6061"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "B1_PLATE",
+            "plane": "XY"
+          },
+          "feature": "mech.SB-PLATE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "SB-PLATE"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                68.0,
+                -48.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                -48.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                -52.8558,
+                0.0
+              ],
+              [
+                152.4457,
+                -52.8558,
+                0.0
+              ],
+              [
+                152.4457,
+                -34.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                -34.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                -38.8558,
+                0.0
+              ],
+              [
+                76.0,
+                -38.8558,
+                0.0
+              ],
+              [
+                76.0,
+                38.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                38.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                34.8558,
+                0.0
+              ],
+              [
+                152.4457,
+                34.8558,
+                0.0
+              ],
+              [
+                152.4457,
+                52.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                52.8558,
+                0.0
+              ],
+              [
+                134.4457,
+                48.8558,
+                0.0
+              ],
+              [
+                68.0,
+                48.8558,
+                0.0
+              ]
+            ],
+            "sketch": "B1_PLATE"
+          },
+          "feature": "mech.SB-PLATE.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "SB-PLATE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "SB_BODY",
+            "direction": "negative",
+            "distance": "sb_web",
+            "operation": "new_body",
+            "sketch": "B1_PLATE"
+          },
+          "feature": "mech.SB-PLATE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "SB-PLATE"
+          ]
+        },
+        {
+          "args": {
+            "name": "B2_DROP",
+            "plane": "XY"
+          },
+          "feature": "mech.SB-DROP.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "SB-DROP"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                68.0,
+                -31.0,
+                0.0
+              ],
+              [
+                76.0,
+                -31.0,
+                0.0
+              ],
+              [
+                76.0,
+                31.0,
+                0.0
+              ],
+              [
+                68.0,
+                31.0,
+                0.0
+              ]
+            ],
+            "sketch": "B2_DROP"
+          },
+          "feature": "mech.SB-DROP.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "SB-DROP"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sb_drop",
+            "operation": "join",
+            "sketch": "B2_DROP"
+          },
+          "feature": "mech.SB-DROP.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "SB-DROP"
+          ]
+        },
+        {
+          "args": {
+            "name": "B3_CHEEK_P",
+            "plane": "XY"
+          },
+          "feature": "mech.SB-CHEEK-P.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "SB-CHEEK-P"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                68.0,
+                25.25,
+                0.0
+              ],
+              [
+                76.0,
+                25.25,
+                0.0
+              ],
+              [
+                76.0,
+                30.25,
+                0.0
+              ],
+              [
+                68.0,
+                30.25,
+                0.0
+              ]
+            ],
+            "sketch": "B3_CHEEK_P"
+          },
+          "feature": "mech.SB-CHEEK-P.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "SB-CHEEK-P"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sb_total",
+            "operation": "join",
+            "sketch": "B3_CHEEK_P"
+          },
+          "feature": "mech.SB-CHEEK-P.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "SB-CHEEK-P"
+          ]
+        },
+        {
+          "args": {
+            "name": "B4_CHEEK_N",
+            "plane": "XY"
+          },
+          "feature": "mech.SB-CHEEK-N.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "SB-CHEEK-N"
+          ]
+        },
+        {
+          "args": {
+            "points": [
+              [
+                68.0,
+                -30.25,
+                0.0
+              ],
+              [
+                76.0,
+                -30.25,
+                0.0
+              ],
+              [
+                76.0,
+                -25.25,
+                0.0
+              ],
+              [
+                68.0,
+                -25.25,
+                0.0
+              ]
+            ],
+            "sketch": "B4_CHEEK_N"
+          },
+          "feature": "mech.SB-CHEEK-N.profile",
+          "note": "",
+          "op": "sketch_profile",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "SB-CHEEK-N"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sb_total",
+            "operation": "join",
+            "sketch": "B4_CHEEK_N"
+          },
+          "feature": "mech.SB-CHEEK-N.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "SB-CHEEK-N"
+          ]
+        },
+        {
+          "args": {
+            "name": "B5_HOLES",
+            "plane": "XY"
+          },
+          "feature": "mech.SB-HOLES.sketch",
+          "note": "Hole pattern sketch for SB-HOLES on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "SB-HOLES"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              143.445713,
+              43.855756,
+              0.0
+            ],
+            "diameter": "sb_hole_d",
+            "sketch": "B5_HOLES"
+          },
+          "feature": "mech.SB-HOLES.h1",
+          "note": "Hole 1 of 2, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "SB-HOLES"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              143.445713,
+              -43.855756,
+              0.0
+            ],
+            "diameter": "sb_hole_d",
+            "sketch": "B5_HOLES"
+          },
+          "feature": "mech.SB-HOLES.h2",
+          "note": "Hole 2 of 2, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "SB-HOLES"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sb_web",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "B5_HOLES"
+          },
+          "feature": "mech.SB-HOLES.cut",
+          "note": "2 hole(s) O(sb_hole_d) x sb_web.",
+          "op": "extrude",
+          "op_id": "OP-0020",
+          "satisfies": [
+            "SB-HOLES"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0021",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T225001-ca1f16-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786468809.2892458,
+        "fusion": {
+          "document": "SEWCP-902_SADDLE v0",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "first_saved": true,
+            "name": "SEWCP-902_SADDLE",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786468807.5567107,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:35154519d91b12fa9e663f41586f5d562b0f4f03dcab8fa884835d4e829bc818",
+      "verdict": {
+        "attempt": 1,
+        "checks": 15,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 6,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 84.446,
+                "id": "ACC-BODY-DX",
+                "observed": 84.44569999999999,
+                "passed": true,
+                "requirement": "SB-PLATE",
+                "subject": "body:SB_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 105.712,
+                "id": "ACC-BODY-DY",
+                "observed": 105.7116,
+                "passed": true,
+                "requirement": "SB-PLATE",
+                "subject": "body:SB_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 12.0,
+                "id": "ACC-BODY-DZ",
+                "observed": 12.000000000000002,
+                "passed": true,
+                "requirement": "SB-CHEEK-P",
+                "subject": "body:SB_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 16018.9,
+                "id": "ACC-VOL",
+                "observed": 16018.914560024064,
+                "passed": true,
+                "requirement": "SB-PLATE",
+                "subject": "body:SB_BODY.volume_mm3"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 1,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "this solution realises no interface feature, so there is nothing for this verifier to check. Deferred interfaces: SB-IF-1, SB-IF-2",
+                "expected": "no interface realised in this bounded solution",
+                "id": "IF-NONE-IN-SCOPE",
+                "observed": 2,
+                "passed": true,
+                "requirement": null,
+                "subject": "solution.interfaces"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 8,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-902_SADDLE",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-902_SADDLE",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 5,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5.0,
+                "id": "ACC-WEB",
+                "observed": 5.0,
+                "passed": true,
+                "requirement": "SB-PLATE",
+                "subject": "parameter:sb_web.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 5,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T225001-ca1f16.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-902_SADDLE",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786468809.414326,
+  "package_digest": "sha256:ca1f1636ac36037fce91d048283e3e8c9c31390b2d4017269674b6f9c22ec347",
+  "package_id": "SEWCP-902-REQ-002",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:dfdce2eec3b2ceee003e45b74a2ca383ddf71d77f50b578cc26e0f5617bcd677",
+  "run_id": "RUN-20260811T225001-ca1f16",
+  "solution_digest": "sha256:7057e878cac290aa02b4cb7550f6166c53b69aeb529b97783fad74c7344c3365",
+  "solution_id": "RUN-20260811T225001-ca1f16.S1",
+  "started_at": 1786468801.3564737,
+  "verdict": "PASS"
+}

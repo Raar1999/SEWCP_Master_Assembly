@@ -8,12 +8,12 @@
 ecr_id:       ECR-Q-012
 class:        Q                      # ambiguity / missing input - LAW-02
 raised_by:    mechanical.design-engineer · S-2026-08-11-02
-status:       OPEN
-disposition:  null
-ruled_by:     null
-ruled_at:     null
-instrument:   null
-approval:     null
+status:       DISPOSITIONED
+disposition:  Plate-hung hanger (option a) - support from above at 8.25, all surfaces >= 8.0 from ground, RF-hot by mounting; SB-D01..D04 re-dimensioned; CP-IF-8 gains the two bracket taps; strap seat convention resolved as top-face bearing at 8.25 (mid-plane 8.0)
+ruled_by:     claude-under-owner-delegation (owner-delegated engineering authority, mission 2026-08-11 s1; NOT a human approval)
+ruled_at:     2026-08-11T00:00:00Z
+instrument:   .ai/project/decisions/DECISIONS_S-2026-08-11-05.md DEC-02
+approval:     APR-029 (spec/01), APR-030 (spec/08)
 affected_artifacts:
   - spec/08_SEWCP-900_RF_Feedthrough_Bracket.md
   - implementation/08_SEWCP-900_RF_Feedthrough_Bracket/requirements/SEWCP-902_saddle.requirements.json

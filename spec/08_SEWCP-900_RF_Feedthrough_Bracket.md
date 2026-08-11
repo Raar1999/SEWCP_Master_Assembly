@@ -107,7 +107,7 @@ Process deposition builds conductive films on every exposed surface, gradually s
 |---|---|---|---|
 | RF-IF-1 | Strap to Cooling Plate (SEWCP-200) | **Bolted electrical joint** | 60 × 18 mm land at Ø274 BC, 105°; 2× M6 × 16 silver-plated SHCS at r = 137, 98.7°/111.3°; **6.0 N·m**; silver-plated washers + Belleville |
 | RF-IF-2 | Strap to RF vacuum feedthrough | **Bolted electrical joint** | 2× M6 to the feedthrough terminal; silver-plated hardware; **6.0 N·m** (feedthrough is chamber-mounted, external scope) |
-| RF-IF-3 | Bracket to Cooling Plate | Bolted, structural | 2× M6 × 16 at Ø274 BC ±40 mm circumferential; **the bracket mounts to the RF-hot plate, not to ground** (§12) |
+| RF-IF-3 | Bracket to Cooling Plate | Bolted, structural | 2× M6 × 16 at **r = 150, 105° ± 17° (88°/122°)** — the former Ø274 BC ±40 mm window is fully occupied by the 30°-pitch choke stations and the land (found by the ACC-VOL check, DEC-02 addendum); **the bracket mounts to the RF-hot plate, not to ground** (§12) |
 | RF-IF-4 | Bracket to strap | Saddle clamp | Non-conductive-critical clamp capturing the strap at mid-span, setting h = 8.0 mm above the Base Plate |
 | RF-IF-5 | Through the Base Plate | **Clearance only** | Strap passes the central aperture with **≥ 2 mm radial clearance (DR-1)** and **≥ 8 mm to any grounded surface (RF-09)** |
 | RF-IF-6 | Deposition shroud to bracket | Clipped | SEWCP-904 attaches to the bracket only; **does not touch grounded structure (DR-12)** |
@@ -147,7 +147,7 @@ The strap is only half the circuit. The return path is **chamber ground → Base
 | RS-D04 | **Installed height above the Base Plate** | **8.0** | **±1.0** | **Critical — inductance (RF-05)** |
 | RS-D05 | Compliance loop radius | R20 | ±2 | **Critical — RF-12** |
 | RS-D06 | Terminal pad, chuck end | 50 × 18 | ±0.5 | High |
-| RS-D07 | Terminal bolt holes | 2× Ø6.6 at 25 mm centres | ⌖ Ø0.5 Ⓜ | High |
+| RS-D07 | Terminal bolt holes | 2× Ø6.6, **coincident with the CP-IF-8 taps** (r = 137 at 98.7°/111.3° → 29.94 mm centres in the pad plane; pad centred on the land) — *ECR-D-013 disposition A, DEC-01* | ⌖ Ø0.5 Ⓜ | High |
 | RS-D08 | **Silver plating thickness** | **8 to 13 µm** | — | **Critical — RF-07, oxidation** |
 | RS-D09 | **Underplate** | **NONE — silver directly on copper** | — | **Critical (DR-7)** |
 | RS-D10 | Terminal pad flatness | 0.05 TIR | — | **Critical — contact resistance** |
@@ -157,10 +157,10 @@ The strap is only half the circuit. The return path is **chamber ground → Base
 
 | Ref | Dimension | Nominal | Tolerance | Criticality |
 |---|---|---|---|---|
-| SB-D01 | Saddle height, setting strap h | To give RS-D04 = 8.0 | ±0.3 | **Critical — inductance** |
-| SB-D02 | Saddle width | 54.0 | +0.5 / −0 | Medium |
-| SB-D03 | Mounting hole positions | 2× M6 clearance | ⌖ Ø0.5 Ⓜ | Medium |
-| SB-D04 | Minimum clearance, any bracket surface to Base Plate | 8.0 min | — | **Critical — RF-09** |
+| SB-D01 | Strap bearing plane (sets RS-D04) | Bearing face **8.25** above the Base Plate, on the strap **top** face → strap mid-plane 8.0 | ±0.3 | **Critical — inductance** |
+| SB-D02 | Bracket form | **Plate-hung hanger** (ECR-Q-012 disposition, DEC-02): one-piece 6061 U-plate, 5.0 web, mounted to the Cooling Plate bottom face (Z = 20); rails 10 wide at ±(34.4…44.4) from the strap axis, radial 68→140; saddle drop at radial 68–76 bearing at 8.25; cheeks to 8.0 guiding the 50.0 strap at 50.5 | ±0.3 form | High |
+| SB-D03 | Mounting hole positions | 2× Ø6.6 clearance **at the CP-IF-8 bracket taps** (r = 150, 88°/122°); M6 × 16 SHCS, 6.0 N·m | ⌖ Ø0.5 Ⓜ | Medium |
+| SB-D04 | Minimum clearance, any bracket surface to Base Plate | 8.0 min — satisfied by construction (minimum Z = 8.0 at the cheek tips; the bracket is RF-hot, mounted to the hot plate per RF-IF-3) | — | **Critical — RF-09** |
 
 ### 5.3 SEWCP-903 Terminal Hardware Set
 

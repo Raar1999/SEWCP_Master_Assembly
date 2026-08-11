@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 OUT_ROOT = Path(r"D:\AIEF_CAD_OUTPUT\SEWCP")
-ASM_RUN = ROOT / "cad/runs/RUN-20260811T200919-f6cb5e/run.json"
+ASM_RUN = ROOT / "cad/runs/ASSEMBLY_S-2026-08-11-05/run.json"
 
 REGISTRY = {"SEWCP-200", "SEWCP-300", "SEWCP-400", "SEWCP-500", "SEWCP-600",
             "SEWCP-700", "SEWCP-800", "SEWCP-901", "SEWCP-902", "SEWCP-1000"}
@@ -68,6 +68,13 @@ def main() -> int:
         check(f"FSV-Z-{pn}", ok,
               f"{pn} occupies [{lo}, {hi}] (spec/00 §4.2)",
               f"observed [{o['bbox_min'][2]:.3f}, {o['bbox_max'][2]:.3f}]")
+    sb = next(o for o in occs
+              if (o.get("source_design") or "").startswith("SEWCP-902"))
+    check("FSV-Z-SEWCP-902",
+          abs(sb["bbox_min"][2] - 8.0) <= 0.05 and
+          abs(sb["bbox_max"][2] - 20.0) <= 0.05,
+          "hanger occupies [8.0, 20.0] (SB-D04 minimum to ground)",
+          f"observed [{sb['bbox_min'][2]:.3f}, {sb['bbox_max'][2]:.3f}]")
     ec = next(o for o in occs
               if (o.get("source_design") or "").startswith("SEWCP-500"))
     check("FSV-WAFER-PLANE", abs(ec["bbox_max"][2] - 55.9) <= 0.05,
@@ -128,17 +135,19 @@ def main() -> int:
     strap_hash = hashlib.sha256(strap.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-STRAP", strap_hash in manifest,
           "re-issued strap STEP digest recorded", strap_hash)
+    hanger = OUT_ROOT / "SEWCP-900/step/SEWCP-902_SADDLE.step"
+    hanger_hash = hashlib.sha256(hanger.read_bytes()).hexdigest()[:16]
+    check("FSV-MANIFEST-HANGER", hanger_hash in manifest,
+          "hanger STEP digest recorded", hanger_hash)
     asm = OUT_ROOT / "ASSEMBLY/SEWCP-000_MASTER_ASSEMBLY.step"
     asm_hash = hashlib.sha256(asm.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-ASM", asm_hash in manifest,
           "assembly STEP exported and digest recorded", asm_hash)
-    repairs = json.loads((ROOT / "cad/runs/REPAIRS_S-2026-08-11-04.json"
-                          ).read_text(encoding="utf-8"))
-    final_obs = repairs["assembly_final"]["observed"]
+    final_obs = run["observed_assembly"]
     cp = next(o for o in final_obs["occurrences"]
               if (o.get("source_design") or "").startswith("SEWCP-200"))
-    check("FSV-CP-CONTENT", abs(cp.get("mass_kg", 0) - 3.9954) < 0.001,
-          "assembly CP occurrence carries the verified content",
+    check("FSV-CP-CONTENT", abs(cp.get("mass_kg", 0) - 3.9936) < 0.001,
+          "assembly CP occurrence carries the verified content (with taps)",
           f"mass {cp.get('mass_kg', 0):.4f} kg")
 
     # -- open residues are recorded, not silent ----------------------------

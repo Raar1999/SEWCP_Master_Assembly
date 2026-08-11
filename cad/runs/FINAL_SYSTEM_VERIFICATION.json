@@ -43,6 +43,12 @@
    "detail": "observed [49.900, 55.900]"
   },
   {
+   "id": "FSV-Z-SEWCP-902",
+   "passed": true,
+   "statement": "hanger occupies [8.0, 20.0] (SB-D04 minimum to ground)",
+   "detail": "observed [8.000, 20.000]"
+  },
+  {
    "id": "FSV-WAFER-PLANE",
    "passed": true,
    "statement": "stack top at 55.900; wafer plane 55.920 via 0.020 mesa (callout)",
@@ -70,31 +76,37 @@
    "id": "FSV-DRAWINGS",
    "passed": true,
    "statement": "11 drawings rendered (SVG+PDF) with fully-sourced dimensions",
-   "detail": "missing: []; unsourced dims: 0; dims total: 75"
+   "detail": "missing: []; unsourced dims: 0; dims total: 79"
   },
   {
    "id": "FSV-MANIFEST-BOM",
    "passed": true,
    "statement": "BOM digest recorded in the deliverable manifest",
-   "detail": "3a1f5ba14a81593d"
+   "detail": "bca24310b3bdd083"
   },
   {
    "id": "FSV-MANIFEST-STRAP",
    "passed": true,
    "statement": "re-issued strap STEP digest recorded",
-   "detail": "43e40d594f50efc6"
+   "detail": "c1465a8f66b1feb7"
+  },
+  {
+   "id": "FSV-MANIFEST-HANGER",
+   "passed": true,
+   "statement": "hanger STEP digest recorded",
+   "detail": "9760c381cc8b6c95"
   },
   {
    "id": "FSV-MANIFEST-ASM",
    "passed": true,
    "statement": "assembly STEP exported and digest recorded",
-   "detail": "ae02bad55b49cfdf"
+   "detail": "8a53f53f0e64d372"
   },
   {
    "id": "FSV-CP-CONTENT",
    "passed": true,
-   "statement": "assembly CP occurrence carries the verified content",
-   "detail": "mass 3.9954 kg"
+   "statement": "assembly CP occurrence carries the verified content (with taps)",
+   "detail": "mass 3.9936 kg"
   },
   {
    "id": "FSV-RESIDUES",
@@ -105,6 +117,6 @@
  ],
  "passed": true,
  "known_defects_carried": [],
- "assembly_run": "RUN-20260811T200919-f6cb5e",
+ "assembly_run": "ASSEMBLY_S-2026-08-11-05",
  "note": "PASS here means: every CAD-verifiable property of the final design verifies from observed evidence, and every non-verifiable or blocked item is explicitly carried."
 }

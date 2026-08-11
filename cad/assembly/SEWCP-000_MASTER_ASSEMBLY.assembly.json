@@ -12,8 +12,8 @@
   "SEWCP-401 clamp ring, SEWCP-601 bushings, SEWCP-903 hardware, SEWCP-904 shroud, SEWCP-1001..1003 sensor parts: no verified geometry exists (deferred/degenerate register, cad/DELIVERABLES.md) - BOM from spec only.",
   "SR as-supplied 20.30 model placed with top at 20.000 (lap-to-fit DR-3): 0.30 lap allowance shows below Datum A by representation.",
   "Lift pin park Z is actuator-defined; 1.0 recess below the ESC face chosen and recorded (not a spec value).",
-  "Saddle placement provisional under ECR-Q-012; strap seat convention 0.25 discrepancy recorded there.",
-  "Assembly-level interference is verified at the z-band/placement level here; feature fits are the 12/12 component-level evidence."
+  "Assembly-level interference is verified at the z-band/placement level here; feature fits are the 12/12 component-level evidence.",
+  "SEWCP-902 re-architected as the plate-hung hanger (ECR-Q-012 DEC-02); placement no longer provisional."
  ],
  "occurrences": [
   {
@@ -254,23 +254,23 @@
     -46.68821,
     20.0
    ],
-   "provenance": "spec/00 s3.2: RF strap land 105 deg; the repaired installed-form model is in the Datum-A radial frame (x=radius), so rotation alone places it; pad top face on the CP-IF-8 land at Z=20"
+   "provenance": "spec/00 s3.2: RF strap land 105 deg; the repaired installed-form model is in the Datum-A radial frame (x=radius), so rotation alone places it; pad top face on the CP-IF-8 land at Z=20; holes tap-coincident per ECR-D-013 DEC-01 (APR-030/032 re-issue)"
   },
   {
    "occurrence_id": "SB",
    "design": "SEWCP-902_SADDLE",
    "translate_mm": [
-    -14.49387,
-    54.09185,
-    0.0
+    0.0,
+    0.0,
+    20.0
    ],
    "rotate_z_deg": 105.0,
    "rotate_x_deg": 0,
    "z_band": [
-    0.0,
-    7.5
+    8.0,
+    20.0
    ],
-   "provenance": "PROVISIONAL - ECR-Q-012: seated at Datum A under the strap run mid-radius (r=56, run x 35..77.7), per the SEWCP-902 package convention; mounting architecture owner-reserved"
+   "provenance": "ECR-Q-012 disposition DEC-02 + addendum (APR-031/032): plate-hung hanger, local frame x=radius@105deg, z=0 at the CP bottom-face mounting plane, material down to world 8.0 (SB-D04 minimum); bearing at 8.25 sets RS-D04=8.0; feet bolted at the CP-IF-8 bracket taps r=150, 88/122 deg"
   },
   {
    "occurrence_id": "TR1",

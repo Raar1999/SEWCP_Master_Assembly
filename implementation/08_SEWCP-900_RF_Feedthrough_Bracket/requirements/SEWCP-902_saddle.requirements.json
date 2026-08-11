@@ -1,68 +1,387 @@
 {
-  "package_id": "SEWCP-902-REQ-001",
-  "component": "SEWCP-902_SADDLE",
-  "authority": [
-    "spec/08_SEWCP-900_RF_Feedthrough_Bracket.md Rev A (FROZEN) - SB-D01..SB-D04, section 6 (6061-T6, Alodine 1200 conductive - not anodize)"
-  ],
-  "scope": {
-    "document_name": "SEWCP-902_SADDLE",
-    "units": "mm",
-    "bounded": "The saddle block supporting the strap run at RS-D04: 54.0 wide (SB-D02) x 36.0 long x 7.5 high, 2x M6 clearance holes at 25 centres.",
-    "modelling_conventions": "DECISIONS (design agent, recorded): saddle height 7.5 = RS-D04 8.0 minus the 0.5 strap thickness, so the strap top face runs at 8.0 (SB-D01); block length 36.0 gives 5.5 margin beyond the 25-centre holes; hole spacing matches the strap terminal pitch; O6.6 = ISO M6 clearance. SB-D04 (8.0 min clearance to Base Plate) is an assembly property.",
-    "open_state": "SEWCP-904 shroud envelope gap carried (see SEWCP-901 package)."
+ "package_id": "SEWCP-902-REQ-002",
+ "component": "SEWCP-902_SADDLE",
+ "authority": [
+  "spec/08_SEWCP-900_RF_Feedthrough_Bracket.md Rev A as amended by APR-030 - SB-D01..SB-D04 (plate-hung hanger, ECR-Q-012 disposition DEC-02), RF-IF-3, RS-D04",
+  "spec/01 CP-IF-8 as amended by APR-031 (bracket taps r=150 at 88/122 deg)"
+ ],
+ "scope": {
+  "document_name": "SEWCP-902_SADDLE",
+  "units": "mm",
+  "bounded": "The plate-hung strap-support hanger, one 6061 piece. Local frame: x = radius along the 105-deg ray, y = chord, z = 0 at the CP bottom-face mounting plane, material extruded DOWN (negative z). Assembly placement: rotate_z 105, translate (0,0,20).",
+  "modelling_conventions": "DECISION (DEC-02, owner-delegated): U-plate web 5.0 (z 0..-5): rails 10 wide at y=+/-(38.8558..48.8558) spanning x 134.4457..76; crossbar x 68..76 full width; feet 18x18 centred on the tap stations (143.4457, +/-43.8558); saddle drop x 68..76, y +/-31, z to -11.75 (bearing face at world 8.25 = strap top); cheeks x 68..76, y +/-(25.25..30.25), z to -12.0 (world 8.0 = SB-D04 minimum); 2x O6.6 through the 5.0 feet web. Placement corrected per DEC-02 addendum (APR-031/032).",
+  "open_state": "SEWCP-904 shroud envelope gap carried (unchanged)."
+ },
+ "parameters": [
+  {
+   "name": "sb_web",
+   "expression": "5.0",
+   "unit": "mm",
+   "source": "SB-D02 (APR-030)"
   },
-
-  "parameters": [
-    {"name": "sb_wid", "expression": "54.0", "unit": "mm", "source": "SB-D02"},
-    {"name": "sb_len", "expression": "36.0", "unit": "mm", "source": "agent decision - 25 pitch + margin"},
-    {"name": "sb_hgt", "expression": "8.0 - 0.5", "unit": "mm", "source": "SB-D01 = RS-D04 - strap thickness, derived"},
-    {"name": "sb_hole_d", "expression": "6.6", "unit": "mm", "source": "ISO M6 clearance (SB-D03)"},
-    {"name": "sb_hole_pitch", "expression": "25.0", "unit": "mm", "source": "SB-D03 = RS-D07 pitch"}
-  ],
-
-  "material": {
-    "name": "Aluminum 6061",
-    "density": 2700,
-    "source": "spec/08 section 6 - 6061-T6, Alodine 1200"
+  {
+   "name": "sb_drop",
+   "expression": "11.75",
+   "unit": "mm",
+   "source": "SB-D01: 20.0 - 8.25 bearing"
   },
-
-  "requirements": [
-    {"id": "SB-BODY", "kind": "geometry",
-     "statement": "Saddle block 36.0 x 54.0 x 7.5, top face carrying the strap at the RS-D04 height.",
-     "source": "spec/08 SB-D01/SB-D02", "unit": "mm",
-     "value": {"form": "profile_cut", "sketch": "B1_BODY", "plane": "XY",
-       "depth": "sb_hgt", "direction": "positive",
-       "operation": "new_body", "body": "SB_BODY",
-       "points": [["-18", "-27", "0"], ["18", "-27", "0"],
-                  ["18", "27", "0"], ["-18", "27", "0"]]}},
-    {"id": "SB-HOLES", "kind": "geometry",
-     "statement": "2x O6.6 M6 clearance holes at 25 centres, through.",
-     "source": "spec/08 SB-D03", "unit": "mm",
-     "value": {"form": "axial_hole_pattern", "sketch": "B2_HOLES",
-       "diameter": "sb_hole_d", "depth": "sb_hgt",
-       "positions": {"points": [
-         {"radius": "sb_hole_pitch / 2", "azimuth": "0"},
-         {"radius": "sb_hole_pitch / 2", "azimuth": "180"}]},
-       "after": ["mech.SB-BODY.cut"]}},
-    {"id": "MFG-SB", "kind": "manufacturing",
-     "statement": "CNC from 6061-T6; deburr; Alodine 1200 chromate conversion (conductive) - not anodize; clean; bake.",
-     "source": "spec/08 section 6"}
-  ],
-
-  "interfaces": [
-    {"id": "SB-IF-1", "mates_to": "SEWCP-901 RF Strap", "nature": "Strap run supported at 8.0 installed height", "source": "spec/08 SB-D01, RS-D04"}
-  ],
-
-  "acceptance": [
-    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
-    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-902_SADDLE"},
-    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 5},
-    {"id": "ACC-HGT", "check": "parameter", "subject": "parameter:sb_hgt.value", "expect": 7.5, "tolerance": 1e-06, "requirement": "SB-BODY"},
-    {"id": "ACC-HGT-DERIVED", "check": "constraint", "subject": "parameter:sb_hgt.is_derived", "expect": true},
-    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
-    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:SB_BODY.dz", "expect": 7.5, "tolerance": 0.001, "requirement": "SB-BODY"},
-    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:SB_BODY.dx", "expect": 36.0, "tolerance": 0.01, "requirement": "SB-BODY"},
-    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:SB_BODY.dy", "expect": 54.0, "tolerance": 0.01, "requirement": "SB-BODY"},
-    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 2}
-  ]
+  {
+   "name": "sb_total",
+   "expression": "12.0",
+   "unit": "mm",
+   "source": "SB-D04: 20.0 - 8.0 minimum"
+  },
+  {
+   "name": "sb_hole_d",
+   "expression": "6.6",
+   "unit": "mm",
+   "source": "SB-D03"
+  },
+  {
+   "name": "sb_rail_w",
+   "expression": "10.0",
+   "unit": "mm",
+   "source": "SB-D02"
+  }
+ ],
+ "material": {
+  "name": "Aluminum 6061",
+  "density": 2700,
+  "source": "spec/08 section 5.2 - 6061, Alodine 1200 (conductive)"
+ },
+ "requirements": [
+  {
+   "id": "SB-PLATE",
+   "kind": "geometry",
+   "statement": "U-plate web 5.0: rails + crossbar + feet, mounted to the CP bottom face (SB-D02).",
+   "source": "spec/08 SB-D02 (APR-030)",
+   "unit": "mm",
+   "value": {
+    "form": "profile_cut",
+    "sketch": "B1_PLATE",
+    "plane": "XY",
+    "depth": "sb_web",
+    "direction": "negative",
+    "operation": "new_body",
+    "body": "SB_BODY",
+    "points": [
+     [
+      "68.0",
+      "-48.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "-48.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "-52.8558",
+      "0"
+     ],
+     [
+      "152.4457",
+      "-52.8558",
+      "0"
+     ],
+     [
+      "152.4457",
+      "-34.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "-34.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "-38.8558",
+      "0"
+     ],
+     [
+      "76.0",
+      "-38.8558",
+      "0"
+     ],
+     [
+      "76.0",
+      "38.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "38.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "34.8558",
+      "0"
+     ],
+     [
+      "152.4457",
+      "34.8558",
+      "0"
+     ],
+     [
+      "152.4457",
+      "52.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "52.8558",
+      "0"
+     ],
+     [
+      "134.4457",
+      "48.8558",
+      "0"
+     ],
+     [
+      "68.0",
+      "48.8558",
+      "0"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "SB-DROP",
+   "kind": "geometry",
+   "statement": "Saddle drop block x 68..76, y +/-31, to z -11.75: bearing face at world 8.25 sets RS-D04 = 8.0 (SB-D01).",
+   "source": "spec/08 SB-D01 (APR-030)",
+   "unit": "mm",
+   "value": {
+    "form": "profile_cut",
+    "sketch": "B2_DROP",
+    "plane": "XY",
+    "depth": "sb_drop",
+    "direction": "negative",
+    "operation": "join",
+    "points": [
+     [
+      "68",
+      "-31",
+      "0"
+     ],
+     [
+      "76",
+      "-31",
+      "0"
+     ],
+     [
+      "76",
+      "31",
+      "0"
+     ],
+     [
+      "68",
+      "31",
+      "0"
+     ]
+    ],
+    "after": [
+     "mech.SB-PLATE.cut"
+    ]
+   }
+  },
+  {
+   "id": "SB-CHEEK-P",
+   "kind": "geometry",
+   "statement": "Cheek +y: x 68..76, y 25.25..30.25, to z -12.0 (world 8.0, SB-D04 minimum; guides the strap laterally at 50.5).",
+   "source": "spec/08 SB-D02/SB-D04 (APR-030)",
+   "unit": "mm",
+   "value": {
+    "form": "profile_cut",
+    "sketch": "B3_CHEEK_P",
+    "plane": "XY",
+    "depth": "sb_total",
+    "direction": "negative",
+    "operation": "join",
+    "points": [
+     [
+      "68",
+      "25.25",
+      "0"
+     ],
+     [
+      "76",
+      "25.25",
+      "0"
+     ],
+     [
+      "76",
+      "30.25",
+      "0"
+     ],
+     [
+      "68",
+      "30.25",
+      "0"
+     ]
+    ],
+    "after": [
+     "mech.SB-DROP.cut"
+    ]
+   }
+  },
+  {
+   "id": "SB-CHEEK-N",
+   "kind": "geometry",
+   "statement": "Cheek -y: mirror of SB-CHEEK-P.",
+   "source": "spec/08 SB-D02/SB-D04 (APR-030)",
+   "unit": "mm",
+   "value": {
+    "form": "profile_cut",
+    "sketch": "B4_CHEEK_N",
+    "plane": "XY",
+    "depth": "sb_total",
+    "direction": "negative",
+    "operation": "join",
+    "points": [
+     [
+      "68",
+      "-30.25",
+      "0"
+     ],
+     [
+      "76",
+      "-30.25",
+      "0"
+     ],
+     [
+      "76",
+      "-25.25",
+      "0"
+     ],
+     [
+      "68",
+      "-25.25",
+      "0"
+     ]
+    ],
+    "after": [
+     "mech.SB-CHEEK-P.cut"
+    ]
+   }
+  },
+  {
+   "id": "SB-HOLES",
+   "kind": "geometry",
+   "statement": "2x O6.6 clearance through the feet web at the CP-IF-8 bracket taps (r=150, +/-17 deg local) (SB-D03).",
+   "source": "spec/08 SB-D03 (APR-030); spec/01 CP-IF-8 (APR-029)",
+   "unit": "mm",
+   "value": {
+    "form": "axial_hole_pattern",
+    "sketch": "B5_HOLES",
+    "diameter": "sb_hole_d",
+    "depth": "sb_web",
+    "direction": "negative",
+    "positions": {
+     "points": [
+      {
+       "radius": "150.0",
+       "azimuth": "17.0"
+      },
+      {
+       "radius": "150.0",
+       "azimuth": "-17.0"
+      }
+     ]
+    },
+    "after": [
+     "mech.SB-CHEEK-N.cut"
+    ]
+   }
+  },
+  {
+   "id": "MFG-SB",
+   "kind": "manufacturing",
+   "statement": "CNC one piece from 6061-T6 12.7 plate; deburr; Alodine 1200 (conductive - the bracket is RF-hot); clean; bake.",
+   "source": "spec/08 section 5.2/section 7"
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "SB-IF-1",
+   "mates_to": "SEWCP-200 Cooling Plate",
+   "nature": "2x M6x16 SHCS into the CP-IF-8 bracket taps; web 5.0 grip, 11 engagement",
+   "source": "spec/08 RF-IF-3/SB-D03; spec/01 CP-IF-8"
+  },
+  {
+   "id": "SB-IF-2",
+   "mates_to": "SEWCP-901 RF Strap",
+   "nature": "Bearing at world 8.25 on the strap top face (RS-D04 = 8.0 mid-plane); cheeks guide 50.0 strap at 50.5",
+   "source": "spec/08 SB-D01, RS-D04"
+  }
+ ],
+ "acceptance": [
+  {
+   "id": "ACC-UNITS",
+   "check": "constraint",
+   "subject": "document.units",
+   "expect": "mm"
+  },
+  {
+   "id": "ACC-NAME",
+   "check": "constraint",
+   "subject": "component.name",
+   "expect": "SEWCP-902_SADDLE"
+  },
+  {
+   "id": "ACC-PARAM-COUNT",
+   "check": "parameter",
+   "subject": "parameters.count",
+   "expect": 5
+  },
+  {
+   "id": "ACC-WEB",
+   "check": "parameter",
+   "subject": "parameter:sb_web.value",
+   "expect": 5.0,
+   "tolerance": 1e-06,
+   "requirement": "SB-PLATE"
+  },
+  {
+   "id": "ACC-BODY-COUNT",
+   "check": "geometry",
+   "subject": "bodies.count",
+   "expect": 1
+  },
+  {
+   "id": "ACC-BODY-DX",
+   "check": "geometry",
+   "subject": "body:SB_BODY.dx",
+   "expect": 84.446,
+   "tolerance": 0.05,
+   "requirement": "SB-PLATE"
+  },
+  {
+   "id": "ACC-BODY-DY",
+   "check": "geometry",
+   "subject": "body:SB_BODY.dy",
+   "expect": 105.712,
+   "tolerance": 0.05,
+   "requirement": "SB-PLATE"
+  },
+  {
+   "id": "ACC-BODY-DZ",
+   "check": "geometry",
+   "subject": "body:SB_BODY.dz",
+   "expect": 12.0,
+   "tolerance": 0.02,
+   "requirement": "SB-CHEEK-P"
+  },
+  {
+   "id": "ACC-VOL",
+   "check": "geometry",
+   "subject": "body:SB_BODY.volume_mm3",
+   "expect": 16018.9,
+   "tolerance": 2.0,
+   "requirement": "SB-PLATE"
+  }
+ ]
 }
