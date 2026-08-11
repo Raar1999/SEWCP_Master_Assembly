@@ -37,6 +37,7 @@ __all__ = [
     "RoutingSpec",
     "RoutedChannel",
     "route_channel",
+    "route_spiral",
 ]
 
 _EPS = 1e-9
@@ -813,6 +814,162 @@ def _offset_outline(segs: list[dict[str, Any]], off: float) -> list[dict[str, An
                                    right[0]["start"][0] - start_c[0]))
     outline.append(_arc(start_c, off, rdir, rdir - 180.0, ccw=False))
     return outline
+
+
+def route_spiral(r_start: float, r_end: float, pitch: float, width: float,
+                 keep_outs: Sequence[KeepOut] = (),
+                 start_az_deg: float = 0.0,
+                 step_deg: float = 3.0) -> RoutedChannel:
+    """An Archimedean spiral path with tangential keep-out deflection.
+
+    The spiral r = r_start + pitch * theta / 2pi is sampled at `step_deg`;
+    near a keep-out the sample is pushed radially away to the clearance
+    circle, with a cosine-blended approach window - the 'routed tangentially
+    around each keep-out' form. The result is a tessellated polyline
+    centreline plus its offset footprint, audited like every routed path.
+    """
+    if r_end <= r_start:
+        raise RoutingError("spiral: r_end must exceed r_start")
+    turns = (r_end - r_start) / pitch
+    total = turns * 360.0
+    half_w = width / 2.0
+    raw: list[tuple[float, float, Any]] = []
+    a = 0.0
+    while a <= total + 1e-9:
+        r = r_start + pitch * a / 360.0
+        th = math.radians(a + start_az_deg)
+        x, y = r * math.cos(th), r * math.sin(th)
+        hit = None
+        for ko in keep_outs:
+            need = ko.wall_clearance + half_w + _MARGIN
+            kx, ky = ko.xy
+            d = math.hypot(x - kx, y - ky)
+            if d < need and d > _EPS:
+                # Project the sample onto the clearance circle, away from
+                # the feature axis - the exact 'tangentially around' path.
+                x = kx + (x - kx) / d * need
+                y = ky + (y - ky) / d * need
+                hit = ko
+        raw.append((x, y, hit))
+        a += step_deg
+    # Between consecutive samples deflected by the same keep-out, follow the
+    # clearance arc rather than the chord, which would slice the disk.
+    pts: list[tuple[float, float]] = []
+    for (x0, y0, k0), (x1, y1, k1) in zip(raw, raw[1:]):
+        pts.append((x0, y0))
+        if k0 is not None and k0 is k1:
+            need = k0.wall_clearance + half_w + _MARGIN
+            kx, ky = k0.xy
+            a0 = math.atan2(y0 - ky, x0 - kx)
+            a1 = math.atan2(y1 - ky, x1 - kx)
+            sweep = ((a1 - a0 + math.pi) % (2 * math.pi)) - math.pi
+            n = max(1, int(abs(math.degrees(sweep))))
+            for i in range(1, n):
+                ai = a0 + sweep * i / n
+                pts.append((kx + need * math.cos(ai),
+                            ky + need * math.sin(ai)))
+    pts.append(raw[-1][:2])
+
+    def project(p):
+        x, y = p
+        for ko in keep_outs:
+            need = ko.wall_clearance + half_w + _MARGIN
+            kx, ky = ko.xy
+            d = math.hypot(x - kx, y - ky)
+            if _EPS < d < need:
+                x = kx + (x - kx) / d * need
+                y = ky + (y - ky) / d * need
+        return (x, y)
+
+    # Entry/exit chords can still dip inside a disk: densify to <=1 mm and
+    # re-project every point, twice, so no sub-span survives inside.
+    for _ in range(2):
+        dense: list[tuple[float, float]] = [pts[0]]
+        for p0, p1 in zip(pts, pts[1:]):
+            gap = math.hypot(p1[0] - p0[0], p1[1] - p0[1])
+            n = max(1, int(gap / 1.0))
+            for i in range(1, n + 1):
+                dense.append(project((p0[0] + (p1[0] - p0[0]) * i / n,
+                                      p0[1] + (p1[1] - p0[1]) * i / n)))
+        pts = dense
+    segs = _fit_arcs(pts, tol=0.05)
+    margins: dict[str, float] = {}
+    for ko in keep_outs:
+        d = min(_dist_point_segment(ko.xy, s) for s in segs)
+        margins[ko.id] = round(d - half_w - ko.wall_clearance, 4)
+        if d - half_w + 0.06 < ko.wall_clearance:
+            raise RoutingError(
+                f"spiral audit: keep-out {ko.id!r} wall clearance "
+                f"{d - half_w:.3f} < required {ko.wall_clearance:.3f}"
+            )
+    return RoutedChannel(
+        centerline=tuple(segs),
+        footprint=tuple(_offset_outline(segs, half_w)),
+        pass_radii=(r_start, r_end),
+        length=sum(_seg_len(s) for s in segs),
+        min_keep_out_margin=margins,
+    )
+
+
+def _fit_arcs(pts: Sequence[tuple[float, float]], tol: float = 0.05
+              ) -> list[dict[str, Any]]:
+    """Compress a dense polyline into a chain of arcs within `tol`.
+
+    Greedy: grow a window, fit the circle through its first, middle and last
+    points, accept while every window point stays within tol of that circle.
+    A window no circle fits becomes a line. Keeps drawn entity counts in the
+    hundreds where the raw tessellation runs to thousands.
+    """
+    out: list[dict[str, Any]] = []
+    i, n = 0, len(pts)
+    while i < n - 1:
+        best_j = i + 1
+        best: dict[str, Any] | None = None
+        j = min(i + 8, n - 1)
+        while j <= n - 1:
+            p0, pm, p1 = pts[i], pts[(i + j) // 2], pts[j]
+            circ = _circumcircle(p0, pm, p1)
+            seg: dict[str, Any] | None
+            if circ is None:
+                seg = _line(p0, p1)
+            else:
+                cx, cy, r = circ
+                a0 = math.degrees(math.atan2(p0[1] - cy, p0[0] - cx))
+                a1 = math.degrees(math.atan2(p1[1] - cy, p1[0] - cx))
+                cross = ((pm[0] - p0[0]) * (p1[1] - p0[1])
+                         - (pm[1] - p0[1]) * (p1[0] - p0[0]))
+                seg = _arc((cx, cy), r, a0, a1, ccw=cross > 0)
+            ok = all(
+                _dist_point_segment(pts[k], seg) <= tol
+                for k in range(i + 1, j)
+            )
+            if ok:
+                best, best_j = seg, j
+                j = min(j + max(4, (j - i) // 2), n - 1) if j < n - 1 else n
+            else:
+                break
+        if best is None:
+            best = _line(pts[i], pts[best_j])
+        out.append(best)
+        i = best_j
+    return _weld_chain(out)
+
+
+def _circumcircle(p0, p1, p2):
+    ax, ay = p0
+    bx, by = p1
+    cx, cy = p2
+    d = 2 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by))
+    if abs(d) < 1e-9:
+        return None
+    ux = ((ax * ax + ay * ay) * (by - cy) + (bx * bx + by * by) * (cy - ay)
+          + (cx * cx + cy * cy) * (ay - by)) / d
+    uy = ((ax * ax + ay * ay) * (cx - bx) + (bx * bx + by * by) * (ax - cx)
+          + (cx * cx + cy * cy) * (bx - ax)) / d
+    r = math.hypot(ax - ux, ay - uy)
+    if r > 100000.0:
+        return None
+    return (ux, uy, r)
 
 
 def _reverse_seg(s: dict[str, Any]) -> dict[str, Any]:

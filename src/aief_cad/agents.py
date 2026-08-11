@@ -143,7 +143,7 @@ class MechanicalDesignAgent:
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
              "port_stub", "body_combine", "axial_hole_pattern",
              "slot_pattern", "transverse_drill", "profile_cut", "ring_groove",
-             "swept_strip")
+             "swept_strip", "spiral_groove")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -263,6 +263,63 @@ class MechanicalDesignAgent:
 
         if form["form"] == "swept_strip":
             return self._build_swept_strip(req, form, prior)
+
+        if form["form"] == "spiral_groove":
+            base_id = f"mech.{req.id}"
+            from aief_cad.expr import evaluate
+            from aief_cad.routing import KeepOut, route_spiral
+            env = resolve_all(self._package_parameters)
+
+            def num(key: str) -> float:
+                return float(evaluate(str(_param_ref(req, key, form)), env))
+
+            kos = tuple(
+                KeepOut(str(k["id"]), float(k["r"]), float(k["az_deg"]),
+                        float(k["wall_clearance"]))
+                for k in form.get("keep_outs", [])
+            )
+            routed = route_spiral(
+                r_start=num("r_start"), r_end=num("r_end"),
+                pitch=num("pitch"), width=num("width"), keep_outs=kos,
+                start_az_deg=float(form.get("start_az_deg", 0.0)),
+            )
+            sketch = str(form["sketch"])
+            return [
+                FeatureSpec(
+                    id=f"{base_id}.sketch", kind="sketch",
+                    params={"name": sketch,
+                            "plane": str(form.get("plane", "XY"))},
+                    satisfies=(req.id,),
+                    depends_on=(prior,) + tuple(form.get("after", ())),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.path", kind="sketch_path",
+                    params={"sketch": sketch,
+                            "centerline": list(routed.centerline),
+                            "footprint": list(routed.footprint),
+                            "keep_outs": [
+                                {"id": k.id, "r": k.r, "az_deg": k.az_deg,
+                                 "wall_clearance": k.wall_clearance}
+                                for k in kos],
+                            "width": num("width"),
+                            "length": routed.length},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.sketch",),
+                    rationale=(
+                        f"Spiral r {num('r_start'):g}->{num('r_end'):g}, "
+                        f"pitch {num('pitch'):g}, developed "
+                        f"{routed.length:.0f} mm, audited against "
+                        f"{len(kos)} keep-out(s)."
+                    ),
+                ),
+                FeatureSpec(
+                    id=f"{base_id}.cut", kind="extrude",
+                    params={"sketch": sketch,
+                            "distance": _param_ref(req, "depth", form),
+                            "direction": str(form.get("direction", "positive")),
+                            "operation": "cut", "profile": "all"},
+                    satisfies=(req.id,), depends_on=(f"{base_id}.path",),
+                ),
+            ]
 
         if form["form"] == "ring_groove":
             base_id = f"mech.{req.id}"
