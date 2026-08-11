@@ -495,6 +495,25 @@ def op_discard_document(args):
     return {"document": {"name": name or display, "discarded": True}}
 
 
+def op_save_as_new_lineage(args):
+    """Save the active (or named) saved design as a NEW lineage under a new
+    name - the repair for a lineage whose cloud reference-derivative is
+    stuck: opens resolve the true tip while inserts bind a stale version,
+    so the content is re-homed and the stale lineage retired."""
+    app = _app()
+    name = args.get("source")
+    doc = _find_document(name) if name else app.activeDocument
+    if doc is None:
+        raise RuntimeError("save_as_new_lineage: no open document %r" % name)
+    new_name = args["new_name"]
+    doc.saveAs(new_name, _home_folder(),
+               args.get("description") or "AIEF lineage re-home", "")
+    df = doc.dataFile
+    return {"document": {"name": _persisted_name(doc),
+                         "new_lineage": True,
+                         "version": df.versionNumber if df else None}}
+
+
 def op_delete_data_file(args):
     """Delete a saved design by exact name (or pinned id). Refuses protected
     names and open documents - deletion is dispatched only after
@@ -754,6 +773,7 @@ OPS = {
     "extrude": op_extrude,
     "assign_material": op_assign_material,
     "save_document": op_save_document,
+    "save_as_new_lineage": op_save_as_new_lineage,
     "discard_document": op_discard_document,
     "revert_document": op_revert_document,
     "rename_component": op_rename_component,

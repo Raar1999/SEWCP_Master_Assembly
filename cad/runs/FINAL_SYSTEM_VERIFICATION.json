@@ -57,8 +57,8 @@
   {
    "id": "FSV-MATERIALS",
    "passed": true,
-   "statement": "model materials match spec except the recorded OI-CAD-01 defect",
-   "detail": "defect rows: ['SEWCP-600']"
+   "statement": "model materials match spec (OI-CAD-01 repaired, REPAIRS_S-2026-08-11-04)",
+   "detail": "defect rows: none"
   },
   {
    "id": "FSV-BOM",
@@ -76,13 +76,25 @@
    "id": "FSV-MANIFEST-BOM",
    "passed": true,
    "statement": "BOM digest recorded in the deliverable manifest",
-   "detail": "59785024f5051279"
+   "detail": "3a1f5ba14a81593d"
   },
   {
    "id": "FSV-MANIFEST-STRAP",
    "passed": true,
    "statement": "re-issued strap STEP digest recorded",
    "detail": "43e40d594f50efc6"
+  },
+  {
+   "id": "FSV-MANIFEST-ASM",
+   "passed": true,
+   "statement": "assembly STEP exported and digest recorded",
+   "detail": "ae02bad55b49cfdf"
+  },
+  {
+   "id": "FSV-CP-CONTENT",
+   "passed": true,
+   "statement": "assembly CP occurrence carries the verified content",
+   "detail": "mass 3.9954 kg"
   },
   {
    "id": "FSV-RESIDUES",
@@ -92,10 +104,7 @@
   }
  ],
  "passed": true,
- "known_defects_carried": [
-  "SEWCP-200 occurrence bound to v4 content (OI-CAD-02)",
-  "SEWCP-600 material Steel vs spec alumina (OI-CAD-01)"
- ],
+ "known_defects_carried": [],
  "assembly_run": "RUN-20260811T200919-f6cb5e",
  "note": "PASS here means: every CAD-verifiable property of the final design verifies from observed evidence, and every non-verifiable or blocked item is explicitly carried."
 }

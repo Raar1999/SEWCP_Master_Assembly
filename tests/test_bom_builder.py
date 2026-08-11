@@ -53,8 +53,18 @@ def test_fastener_schedule_is_parsed_from_the_frozen_spec():
     assert all(r.spec_source == "spec/00 §9 (verbatim)" for r in hw)
 
 
-def test_lift_pin_material_defect_is_flagged_not_hidden():
+def test_repair_record_supersedes_run_record_material():
+    # The SEWCP-600 Steel defect (OI-CAD-01) was repaired in Fusion and the
+    # fresh observation recorded in cad/runs/REPAIRS_S-2026-08-11-04.json;
+    # the immutable run record still says Steel, the newer evidence wins.
     rows = build_bom(RUN)
     lp = next(r for r in rows if r.part_number == "SEWCP-600")
-    assert "DEFECT" in lp.notes and "Steel" in lp.notes
-    assert lp.material == "Al2O3 99.8%"   # the spec value governs the BOM
+    assert "DEFECT" not in lp.notes
+    assert lp.material == "Al2O3 99.8%"
+
+
+def test_material_mismatch_detection_still_works():
+    from sedep.bom.builder import _material_matches
+    assert not _material_matches("Al2O3 99.8%", "Steel")
+    assert _material_matches("Al2O3 99.8%", "Aluminum Oxide")
+    assert _material_matches("6061-T6", "Aluminum 6061")

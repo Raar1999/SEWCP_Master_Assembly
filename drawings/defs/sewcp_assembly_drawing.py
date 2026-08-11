@@ -120,7 +120,7 @@ def assembly_drawing() -> Drawing:
                 "Elevation + indentured BOM", views=[elev], notes=[
         "HEIGHTS ARE OBSERVED OCCURRENCE BOUNDS; NOMINAL AUTHORITY spec/00 §4.2.",
         "FULL BOM: BOM/SEWCP-000_BOM_RevA.csv (CROSS-CHECKED 4 WAYS).",
-        "SEWCP-600 MODEL MATERIAL DEFECT (Steel vs Al2O3) — REPAIR PER cad/BRIDGE_RESUME.md.",
+        "SEWCP-600 MATERIAL CORRECTED TO 99.8% ALUMINA (REPAIRS_S-2026-08-11-04).",
     ])
     sh2.tables.append(Table(at=(180, 30), col_widths=(10, 26, 62, 12, 30, 34),
                             rows=tuple(tbl), title="INDENTURED BOM (SEWCP-000)",

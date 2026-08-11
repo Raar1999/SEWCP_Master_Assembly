@@ -1,3 +1,13 @@
+# ✅ COMPLETED `S-2026-08-11-04` — kept as procedure record
+
+> Every step below was executed after the owner's one click re-armed
+> the bridge. Evidence: `cad/runs/REPAIRS_S-2026-08-11-04.json`.
+> OI-CAD-01 and OI-CAD-02 are CLOSED. The CP rebind required one
+> extra measure the procedure did not anticipate: the old lineage's
+> cloud reference-derivative was durably stuck at v4, so the verified
+> content was re-homed to a fresh lineage (`save_as_new_lineage` op)
+> and the stuck lineage quarantined under OI-CAD-03.
+
 # Bridge resume procedure — one human click, then four commands
 
 > Written by session `S-2026-08-11-02` on entering controlled recovery.

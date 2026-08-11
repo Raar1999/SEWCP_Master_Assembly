@@ -16,8 +16,8 @@ System-level interface verification from observed evidence:
 | SEWCP-400 | 〃 | `SEWCP-400\stl\...stl` | 221884 | `c0105f5a4d9b93a6` |
 | SEWCP-500 | SEWCP-500_ESC_PUCK | `SEWCP-500\step\...step` | 11741 | `b29c8887fa5b6b4d` |
 | SEWCP-500 | 〃 | `SEWCP-500\stl\...stl` | 43284 | `2ab6c8ffeaf865fd` |
-| SEWCP-600 | SEWCP-600_LIFT_PIN | `SEWCP-600\step\...step` | 7426 | `cd3ad9c68fde061f` |
-| SEWCP-600 | 〃 | `SEWCP-600\stl\...stl` | 33384 | `9c17baa3279a3ba7` |
+| SEWCP-600 | SEWCP-600_LIFT_PIN | `SEWCP-600\step\...step` | 7780 | `bfa6610d6272e12c` |
+| SEWCP-600 | 〃 | `SEWCP-600\stl\...stl` | 33384 | `157aa14883b13fa7` |
 | SEWCP-700 | SEWCP-700_ALIGNMENT_PIN | `SEWCP-700\step\...step` | 17750 | `59544dcd1dc1162b` |
 | SEWCP-700 | 〃 | `SEWCP-700\stl\...stl` | 47484 | `2e11e883034a39ec` |
 | SEWCP-800 | SEWCP-800_PORT_BODY | `SEWCP-800\step\...step` | 24353 | `2f252ebe73d5f949` |
@@ -45,10 +45,11 @@ records), the indentured BOM, and the Fusion assembly document. Register:
 
 | Deliverable | File (under the root) | Bytes | sha256 (first 16) |
 |---|---|---|---|
-| Master assembly (Fusion, cloud) | `SEWCP-000_MASTER_ASSEMBLY` — verified `RUN-20260811T200919-f6cb5e` PASS, 19 occurrences | — | — |
-| Assembly STEP/f3d export | **PENDING** — `cad/BRIDGE_RESUME.md` (OI-CAD-02) | — | — |
-| Indentured BOM Rev A | `BOM\SEWCP-000_BOM_RevA.csv` | 4346 | `59785024f5051279` |
-| Assembly drawing Sh1–3 (plan, elevation+BOM, fasteners) | `DRAWINGS\SEWCP-000\SEWCP-000-DRW-001_Sh1..3.svg/.pdf` + provenance | 2880–45351 | `9ecc9161c6de4a48` `5533bd54156be520` `d3fc7f2a13bdf696` `2032b8ce551323d3` `6b25165cdb0950d1` `c0324f2ac1db66db` `b7dec6f966171bfe` |
+| Master assembly (Fusion, cloud, v5) | `SEWCP-000_MASTER_ASSEMBLY` — verified `RUN-20260811T200919-f6cb5e` PASS + final re-verification `REPAIRS_S-2026-08-11-04` (19 occurrences, 7.6731 kg, CP lineage re-homed, LP alumina) | — | — |
+| Assembly STEP | `ASSEMBLY\SEWCP-000_MASTER_ASSEMBLY.step` | 1225171 | `ae02bad55b49cfdf` |
+| Assembly f3d | `ASSEMBLY\SEWCP-000_MASTER_ASSEMBLY.f3d` | 58873 | `353b80b05060938a` |
+| Indentured BOM Rev A | `BOM\SEWCP-000_BOM_RevA.csv` (regenerated after OI-CAD-01 repair) | 4297 | `3a1f5ba14a81593d` |
+| Assembly drawing Sh1–3 (plan, elevation+BOM, fasteners; regenerated after repairs) | `DRAWINGS\SEWCP-000\SEWCP-000-DRW-001_Sh1..3.svg/.pdf` + provenance | 2880–45338 | `9ecc9161c6de4a48` `c5ada967fe4ba1c3` `1a25f5f18e4173c6` `0ebc10b19c0fbd68` `6b25165cdb0950d1` `348346037c4b41a2` `b7dec6f966171bfe` |
 | SEWCP-200 drawing (geometry + masking sheet) | `DRAWINGS\SEWCP-200\…Sh1,Sh2` | 11474–48855 | `6fcbbe0411e703f6` `7002fcc0416412b2` `0e10af6f935a36f7` `bcbc2a9182d44bb3` `081df22f843702ab` |
 | SEWCP-300 drawing | `DRAWINGS\SEWCP-300\…Sh1` | 1134–43188 | `a209340591dce845` `c7f54fb3899926f3` `e0215aec84acab6d` |
 | SEWCP-400 drawing | `DRAWINGS\SEWCP-400\…Sh1` | 1271–42060 | `688ef989098f788a` `ddd9d48883869a25` `103f2bb2ab5e6e13` |
@@ -60,7 +61,11 @@ records), the indentured BOM, and the Fusion assembly document. Register:
 | SEWCP-902 drawing (ECR-Q-012 provisional) | `DRAWINGS\SEWCP-902\…Sh1` | 819–25513 | `2fbd1eb83c636a7b` `2244d786c80c4280` `216282d2550632f8` |
 | SEWCP-1000 drawing | `DRAWINGS\SEWCP-1000\…Sh1` | 861–29351 | `09ff7019171faec8` `442dc28d2e204300` `1d894f6288db0d1d` |
 
-Every drawing dimension traces via its `.provenance.json` sidecar. Carried
-open on this register: ECR-Q-011, ECR-D-013, ECR-Q-012, OI-CAD-01,
-OI-CAD-02, CP-02 (physical), SEWCP-904 envelope, EC-D14 layout, SR-D16
-degeneracy — see `.ai/project/OPEN_ITEMS.md`.
+Every drawing dimension traces via its `.provenance.json` sidecar.
+**OI-CAD-01 and OI-CAD-02 closed** by `cad/runs/REPAIRS_S-2026-08-11-04.json`
+(LP alumina repair; CP lineage re-home + assembly re-verify + exports).
+The SEWCP-200 part exports above predate the re-home and remain valid — the
+re-homed lineage carries byte-equivalent verified content (vol 1479787.4,
+3.9954 kg). Carried open: ECR-Q-011, ECR-D-013, ECR-Q-012, CP-02 (physical),
+SEWCP-904 envelope, EC-D14 layout, SR-D16 degeneracy, OI-CAD-03 (two
+quarantined lineages, owner disposition) — see `.ai/project/OPEN_ITEMS.md`.

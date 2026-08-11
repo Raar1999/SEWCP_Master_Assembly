@@ -33,8 +33,7 @@ Z_BANDS = {
     "SEWCP-500": (49.9, 55.9),
 }
 
-KNOWN_DEFECTS = {"SEWCP-600 material Steel vs spec alumina (OI-CAD-01)",
-                 "SEWCP-200 occurrence bound to v4 content (OI-CAD-02)"}
+KNOWN_DEFECTS: set[str] = set()   # OI-CAD-01/-02 repaired - REPAIRS_S-2026-08-11-04
 
 
 def main() -> int:
@@ -88,9 +87,10 @@ def main() -> int:
     from sedep.bom.builder import cross_check
     rows = build_bom(ASM_RUN)
     defects = [r.part_number for r in rows if "DEFECT" in r.notes]
-    check("FSV-MATERIALS", defects == ["SEWCP-600"],
-          "model materials match spec except the recorded OI-CAD-01 defect",
-          f"defect rows: {defects}")
+    check("FSV-MATERIALS", defects == [],
+          "model materials match spec (OI-CAD-01 repaired, "
+          "REPAIRS_S-2026-08-11-04)",
+          f"defect rows: {defects or 'none'}")
 
     # -- BOM / model / registry / manifest consistency ---------------------
     faults = cross_check(rows, ASM_RUN)
@@ -128,6 +128,18 @@ def main() -> int:
     strap_hash = hashlib.sha256(strap.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-STRAP", strap_hash in manifest,
           "re-issued strap STEP digest recorded", strap_hash)
+    asm = OUT_ROOT / "ASSEMBLY/SEWCP-000_MASTER_ASSEMBLY.step"
+    asm_hash = hashlib.sha256(asm.read_bytes()).hexdigest()[:16]
+    check("FSV-MANIFEST-ASM", asm_hash in manifest,
+          "assembly STEP exported and digest recorded", asm_hash)
+    repairs = json.loads((ROOT / "cad/runs/REPAIRS_S-2026-08-11-04.json"
+                          ).read_text(encoding="utf-8"))
+    final_obs = repairs["assembly_final"]["observed"]
+    cp = next(o for o in final_obs["occurrences"]
+              if (o.get("source_design") or "").startswith("SEWCP-200"))
+    check("FSV-CP-CONTENT", abs(cp.get("mass_kg", 0) - 3.9954) < 0.001,
+          "assembly CP occurrence carries the verified content",
+          f"mass {cp.get('mass_kg', 0):.4f} kg")
 
     # -- open residues are recorded, not silent ----------------------------
     open_items = (ROOT / ".ai/project/OPEN_ITEMS.md").read_text(encoding="utf-8")

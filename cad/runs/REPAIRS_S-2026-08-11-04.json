@@ -1,0 +1,583 @@
+{
+ "record": "REPAIRS_S-2026-08-11-04",
+ "written_at": 1786465193.7545176,
+ "closes": [
+  "OI-CAD-01",
+  "OI-CAD-02"
+ ],
+ "material_repairs": [
+  {
+   "part": "SEWCP-600",
+   "design": "SEWCP-600_LIFT_PIN",
+   "observed_after": {
+    "material": "Aluminum Oxide",
+    "mass_kg": 0.007633127670426791
+   },
+   "authority": "spec/05 section 6 - 99.8 percent alumina; LP-10 forbids metal",
+   "exports": {
+    "step": {
+     "bytes": 7780,
+     "sha256_16": "bfa6610d6272e12c"
+    },
+    "stl": {
+     "bytes": 33384,
+     "sha256_16": "157aa14883b13fa7"
+    }
+   }
+  }
+ ],
+ "cp_lineage_rehome": {
+  "reason": "old lineage's cloud reference-derivative durably served v4 content to inserts while opens resolved the verified tip - proven across two sessions, update-refs, re-insert and latest-version pinning",
+  "old_lineage": "ZZ-DERIVATIVE-STUCK_SEWCP-200-20260811 (v7 history, quarantined, owner disposition)",
+  "new_lineage": "SEWCP-200_COOLING_PLATE v1 == verified content vol 1479787.4488881913 mass 3.995426111998116 Al 6061"
+ },
+ "assembly_final": {
+  "document": "SEWCP-000_MASTER_ASSEMBLY v5",
+  "verify": "PASS (19 occurrences)",
+  "total_mass_kg": 7.6731,
+  "observed": {
+   "document": {
+    "name": "SEWCP-000_MASTER_ASSEMBLY v5",
+    "persisted_name": "SEWCP-000_MASTER_ASSEMBLY",
+    "saved": true
+   },
+   "occurrences": [
+    {
+     "bbox_max": [
+      159.0,
+      159.0,
+      20.000000000000004
+     ],
+     "bbox_min": [
+      -159.0,
+      -159.0,
+      -0.3
+     ],
+     "bodies": 1,
+     "component": "SEWCP-400_SUPPORT_RING v2",
+     "grounded": true,
+     "mass_kg": 0.5168233551672233,
+     "name": "SEWCP-400_SUPPORT_RING v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-400_SUPPORT_RING",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      0.0,
+      -0.3
+     ],
+     "volume_mm3": 132518.80901723675,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      150.0,
+      150.0,
+      49.5
+     ],
+     "bbox_min": [
+      -150.0,
+      -150.0,
+      41.5
+     ],
+     "bodies": 1,
+     "component": "SEWCP-300_HEATER_PLATE v2",
+     "grounded": true,
+     "mass_kg": 1.233809756361758,
+     "name": "SEWCP-300_HEATER_PLATE v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-300_HEATER_PLATE",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      0.0,
+      41.5
+     ],
+     "volume_mm3": 456966.5764302808,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      148.5,
+      148.5,
+      55.9
+     ],
+     "bbox_min": [
+      -148.5,
+      -148.5,
+      49.900000000000006
+     ],
+     "bodies": 1,
+     "component": "SEWCP-500_ESC_PUCK v2",
+     "grounded": true,
+     "mass_kg": 1.6196007660357576,
+     "name": "SEWCP-500_ESC_PUCK v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-500_ESC_PUCK",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      0.0,
+      49.900000000000006
+     ],
+     "volume_mm3": 415282.2477014764,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      90.60254,
+      54.0,
+      54.900000000000006
+     ],
+     "bbox_min": [
+      82.60254,
+      46.0,
+      -40.099999999999994
+     ],
+     "bodies": 1,
+     "component": "SEWCP-600_LIFT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.007633127670426791,
+     "name": "SEWCP-600_LIFT_PIN v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-600_LIFT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      86.60254,
+      50.0,
+      -40.099999999999994
+     ],
+     "volume_mm3": 1957.2122231863568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      -82.60254,
+      54.0,
+      54.900000000000006
+     ],
+     "bbox_min": [
+      -90.60254,
+      46.0,
+      -40.099999999999994
+     ],
+     "bodies": 1,
+     "component": "SEWCP-600_LIFT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.007633127670426791,
+     "name": "SEWCP-600_LIFT_PIN v2:2",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-600_LIFT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      -86.60254,
+      50.0,
+      -40.099999999999994
+     ],
+     "volume_mm3": 1957.2122231863568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      4.0,
+      -96.0,
+      54.900000000000006
+     ],
+     "bbox_min": [
+      -4.0,
+      -104.0,
+      -40.099999999999994
+     ],
+     "bodies": 1,
+     "component": "SEWCP-600_LIFT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.007633127670426791,
+     "name": "SEWCP-600_LIFT_PIN v2:3",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-600_LIFT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      -100.0,
+      -40.099999999999994
+     ],
+     "volume_mm3": 1957.2122231863568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      38.64648,
+      130.57036,
+      42.5
+     ],
+     "bbox_min": [
+      28.646479999999997,
+      120.57036,
+      33.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      33.64648,
+      125.57036,
+      33.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      -120.57036,
+      -28.646479999999997,
+      42.5
+     ],
+     "bbox_min": [
+      -130.57036,
+      -38.64648,
+      33.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:2",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      -125.57036,
+      -33.64648,
+      33.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      96.92388,
+      -86.92388,
+      42.5
+     ],
+     "bbox_min": [
+      86.92388,
+      -96.92388,
+      33.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:3",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      91.92388,
+      -91.92388,
+      33.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      81.5,
+      137.50189,
+      27.0
+     ],
+     "bbox_min": [
+      71.5,
+      127.50189,
+      17.5
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:4",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      76.5,
+      132.50189,
+      27.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": -1.0
+    },
+    {
+     "bbox_max": [
+      -148.0,
+      4.999999999999999,
+      27.0
+     ],
+     "bbox_min": [
+      -158.0,
+      -5.000000000000001,
+      17.5
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:5",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      -153.0,
+      0.0,
+      27.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": -1.0
+    },
+    {
+     "bbox_max": [
+      81.5,
+      -127.50189,
+      27.0
+     ],
+     "bbox_min": [
+      71.5,
+      -137.50189,
+      17.5
+     ],
+     "bodies": 1,
+     "component": "SEWCP-700_ALIGNMENT_PIN v2",
+     "grounded": true,
+     "mass_kg": 0.0015105516341082834,
+     "name": "SEWCP-700_ALIGNMENT_PIN v2:6",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-700_ALIGNMENT_PIN",
+     "source_version": 2,
+     "translate_mm": [
+      76.5,
+      -132.50189,
+      27.0
+     ],
+     "volume_mm3": 340.9823101824568,
+     "z_axis_scale": -1.0
+    },
+    {
+     "bbox_max": [
+      25.0,
+      25.0,
+      28.000000000000007
+     ],
+     "bbox_min": [
+      -25.0,
+      -25.0,
+      -90.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-800_PORT_BODY v2",
+     "grounded": true,
+     "mass_kg": 0.16427295308637038,
+     "name": "SEWCP-800_PORT_BODY v2:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-800_PORT_BODY",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      0.0,
+      20.0
+     ],
+     "volume_mm3": 20534.1191357963,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      20.33056474196453,
+      147.73712822233927,
+      20.0
+     ],
+     "bbox_min": [
+      -62.00043100347037,
+      7.776929810200739,
+      -46.68821
+     ],
+     "bodies": 1,
+     "component": "SEWCP-901_RF_STRAP v2",
+     "grounded": true,
+     "mass_kg": 0.04004441604960249,
+     "name": "SEWCP-901_RF_STRAP v2:1",
+     "rotate_z_deg": 105.00000000000001,
+     "source_design": "SEWCP-901_RF_STRAP",
+     "source_version": 2,
+     "translate_mm": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "volume_mm3": 4479.241168859339,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      16.244870121650223,
+      78.46662909097128,
+      7.5
+     ],
+     "bbox_min": [
+      -45.23261012165022,
+      29.71707090902871,
+      0.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-902_SADDLE v2",
+     "grounded": true,
+     "mass_kg": 0.03798041626809743,
+     "name": "SEWCP-902_SADDLE v2:1",
+     "rotate_z_deg": 105.00000000000001,
+     "source_design": "SEWCP-902_SADDLE",
+     "source_version": 2,
+     "translate_mm": [
+      -14.49387,
+      54.09185,
+      0.0
+     ],
+     "volume_mm3": 14066.820840036087,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      24.014422276288986,
+      49.47026515154279,
+      20.0
+     ],
+     "bbox_min": [
+      -3.3089022762889853,
+      27.803794848457205,
+      8.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-1000_RETAINER v2",
+     "grounded": true,
+     "mass_kg": 0.011059538199096247,
+     "name": "SEWCP-1000_RETAINER v2:1",
+     "rotate_z_deg": 165.0,
+     "source_design": "SEWCP-1000_RETAINER",
+     "source_version": 2,
+     "translate_mm": [
+      10.35276,
+      38.63703,
+      8.0
+     ],
+     "volume_mm3": 4096.125258924537,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      -85.75934484845719,
+      39.54356227628899,
+      20.0
+     ],
+     "bbox_min": [
+      -107.42581515154279,
+      12.220237723711014,
+      8.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-1000_RETAINER v2",
+     "grounded": true,
+     "mass_kg": 0.011059538199096247,
+     "name": "SEWCP-1000_RETAINER v2:2",
+     "rotate_z_deg": -105.00000000000001,
+     "source_design": "SEWCP-1000_RETAINER",
+     "source_version": 2,
+     "translate_mm": [
+      -96.59258,
+      25.8819,
+      8.0
+     ],
+     "volume_mm3": 4096.125258924537,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      -84.85281437626907,
+      -84.85281437626904,
+      20.0
+     ],
+     "bbox_min": [
+      -113.13708562373094,
+      -113.13708562373095,
+      8.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-1000_RETAINER v2",
+     "grounded": true,
+     "mass_kg": 0.011059538199096247,
+     "name": "SEWCP-1000_RETAINER v2:3",
+     "rotate_z_deg": -45.000000000000014,
+     "source_design": "SEWCP-1000_RETAINER",
+     "source_version": 2,
+     "translate_mm": [
+      -98.99495,
+      -98.99495,
+      8.0
+     ],
+     "volume_mm3": 4096.125258924537,
+     "z_axis_scale": 1.0
+    },
+    {
+     "bbox_max": [
+      160.0,
+      160.0,
+      40.0
+     ],
+     "bbox_min": [
+      -160.0,
+      -160.0,
+      20.0
+     ],
+     "bodies": 1,
+     "component": "SEWCP-200_COOLING_PLATE v1",
+     "grounded": true,
+     "mass_kg": 3.995426111998116,
+     "name": "SEWCP-200_COOLING_PLATE v1:1",
+     "rotate_z_deg": 0.0,
+     "source_design": "SEWCP-200_COOLING_PLATE",
+     "source_version": 1,
+     "translate_mm": [
+      0.0,
+      0.0,
+      20.0
+     ],
+     "volume_mm3": 1479787.4488881913,
+     "z_axis_scale": 1.0
+    }
+   ]
+  },
+  "exports": {
+   "step": {
+    "bytes": 1225171,
+    "sha256_16": "ae02bad55b49cfdf"
+   },
+   "f3d": {
+    "bytes": 58873,
+    "sha256_16": "353b80b05060938a"
+   }
+  }
+ },
+ "census": "13 saved: 11 authoritative + ZZ-DERIVATIVE-STUCK_SEWCP-200 (quarantine, documented) + ZZ-SUPERSEDED-FREE-S_SEWCP-901 (historical, owner-reserved)",
+ "deleted": [
+  "ZZ-ORPHAN-BLANK-SHELL_SEWCP-300-20260811",
+  "ZZ-INTERIM-ATTEMPT_SEWCP-901-20260811"
+ ],
+ "controlled_failure_validation": {
+  "run": "RUN-20260811T213959-12925c",
+  "verdict": "FAIL (deliberate)",
+  "failure_disposition": "discarded",
+  "census_before": 12,
+  "census_after": 12
+ }
+}

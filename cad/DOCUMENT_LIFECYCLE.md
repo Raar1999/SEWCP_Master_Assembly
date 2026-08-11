@@ -71,9 +71,21 @@ claiming persistence).
 
 | Design | Class | Action |
 |---|---|---|
-| `ZZ-ORPHAN-BLANK-SHELL_SEWCP-300-20260811` | ORPHAN / DELETE | proven blank, unreferenced; delete via `delete_data_file` when the bridge is up |
-| `ZZ-INTERIM-ATTEMPT_SEWCP-901-20260811` | TEMPORARY / DELETE | superseded by the verified re-issue; run evidence lives in the repository |
+| `ZZ-ORPHAN-BLANK-SHELL_SEWCP-300-20260811` | ORPHAN / DELETE | **DELETED** `S-2026-08-11-04` via the guarded op |
+| `ZZ-INTERIM-ATTEMPT_SEWCP-901-20260811` | TEMPORARY / DELETE | **DELETED** `S-2026-08-11-04` via the guarded op |
 | `ZZ-SUPERSEDED-FREE-S_SEWCP-901-20260811` | HISTORICAL / PRESERVE | the geometry-phase verified strap; its exports were overwritten by the re-issue, so this design is the last embodiment of the superseded baseline — deletion is an owner decision |
+
+Added `S-2026-08-11-04`: `ZZ-DERIVATIVE-STUCK_SEWCP-200-20260811` —
+HISTORICAL / QUARANTINE (OI-CAD-03). The original CP lineage's cloud
+reference-derivative durably served v4 content to `addByInsert` while
+`documents.open` resolved the verified tip (proven across cold sessions,
+update-refs, re-insert, latest-version pinning and two content-neutral
+version bumps). The verified content was re-homed to a fresh lineage that
+now backs the assembly; the stuck lineage holds the v1..v7 history and
+awaits owner disposition. **Live validation of the lifecycle fix**: a
+deliberately failing run (`RUN-20260811T213959-12925c`) built geometry,
+failed verification, was **discarded** by the failure disposition, and the
+saved-design census was identical before and after (12 = 12).
 
 Deletion is dispatched through the guarded `delete_data_file` op
 (refuses protected names and open documents). If the host permission layer

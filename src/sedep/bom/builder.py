@@ -138,7 +138,9 @@ def build_bom(assembly_run: str | Path) -> list[BomRow]:
         counts[pn] = counts.get(pn, 0) + 1
         versions.setdefault(pn, set()).add(o.get("source_version"))
 
-    # Observed materials come from the per-component verified run records.
+    # Observed materials come from the per-component verified run records,
+    # superseded by any later repair record's fresh observation - the run
+    # records are immutable evidence, the repair record is newer evidence.
     si = json.loads((ROOT / "cad/runs/SYSTEM_INTERFACES.json"
                      ).read_text(encoding="utf-8"))
     names = {}
@@ -149,6 +151,11 @@ def build_bom(assembly_run: str | Path) -> list[BomRow]:
                         ).read_text(encoding="utf-8"))
         bodies = r["attempts"][-1]["observed_model"].get("bodies", [])
         observed_material[pn] = bodies[0].get("material") if bodies else None
+    for rep in sorted(ROOT.glob("cad/runs/REPAIRS_*.json")):
+        body = json.loads(rep.read_text(encoding="utf-8"))
+        for row in body.get("material_repairs", []):
+            observed_material[row["part"]] = \
+                row["observed_after"]["material"]
 
     rows = [BomRow(0, "SEWCP-000", "MASTER ASSEMBLY", 1, "—",
                    "spec/00 §4 / §10", "Fusion assembly (cloud)",
@@ -160,7 +167,8 @@ def build_bom(assembly_run: str | Path) -> list[BomRow]:
         obs = observed_material.get(pn)
         note = finish
         if pn == "SEWCP-200":
-            note += "; occurrence rebind to V5 pending (BRIDGE_RESUME)"
+            note += ("; lineage re-homed 2026-08-11 (stuck cloud "
+                     "derivative) - REPAIRS_S-2026-08-11-04")
         if obs and not _material_matches(mat, obs):
             note += (f"; DEFECT: model material {obs!r} vs spec {mat!r} - "
                      "repair in BRIDGE_RESUME")

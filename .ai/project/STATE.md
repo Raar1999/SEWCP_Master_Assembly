@@ -26,13 +26,14 @@ open_non_blocking:
   - OQ-14                      # human-owner reservation: Stage 6 authorization
   - OI-V-02..10, OI-V-12       # OI-V-11 closed by VER-017
   - OI-C-01,02,04,05,07..11,13
-  - OI-CAD-01, OI-CAD-02       # bridge-resume residues, cad/BRIDGE_RESUME.md
+  - OI-CAD-03                  # 2 quarantined lineages, owner disposition
   - OI-P-01..03, OI-R-01
 next_action: |
   C7 now FAILS on the raised ECR-D-013, by design. POST-GEOMETRY COMPLETE
   (S-2026-08-11-02): assembly verified+saved, 11 drawings, BOM, final
-  verification 15/15 - cad/POST_GEOMETRY_RUN.md governs the detail.
-  NEXT: cad/BRIDGE_RESUME.md closes OI-CAD-01/-02 (one click + script).
+  verification 17/17 - cad/POST_GEOMETRY_RUN.md governs the detail.
+  OI-CAD-01/-02 CLOSED live (REPAIRS_S-2026-08-11-04): assembly 7.6731
+  kg verified+exported; lifecycle fix validated (fail run persisted 0).
   NOT now: Stage 6 (OQ-14), ECR-D-006, push before 2026-09-01.
 ```
 
