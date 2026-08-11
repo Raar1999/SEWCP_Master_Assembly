@@ -29,20 +29,15 @@ next_action: |
   LC-M04-EXIT PASSED, C1-C7. Verify, do not trust this line:
     PYTHONPATH=src python -m aief_gate     # exit 0, LC-M04 CAD-READY: YES
 
-  SEWCP-200 CAD MODEL COMPLETE (2026-08-11): five requirement packages
-  REQ-001..REQ-005 designed by the domain agents and verified from
-  observed Fusion state (32/32, 69/69, 25/25, 20/20, 19/19). Evidence:
-  cad/runs/. Fusion document saved at version 4 by the lifecycle layer.
-  Observed mass 3.995 kg - CP-15 verified in-model; scale check at build.
+  SEWCP-200 CAD MODEL COMPLETE 2026-08-11: REQ-001..005 agent-designed,
+  verified from observed Fusion state; evidence cad/runs/; doc saved v4;
+  observed mass 3.995 kg (CP-15 in-model; scale at build).
 
-  NEXT ACTION: the SEWCP-200 drawing package (masking sketches S9/S10,
-  edge-break notes, dimensioned sheets - deferred there by REQ-004/005),
-  or open the next component volume.
+  NEXT: SEWCP-200 drawing package (S9/S10 masks, edge breaks, sheets)
+  or the next component volume.
 
-  Open, carried: ECR-Q-011 (FSW rib, 5.0 provisional), developed path
-  1.64 m vs ~2.2 m design basis, CP-02 flow bench, ECR-D-006.
-
-  NOT now: Stage 6 (OQ-14), ledger, tag, push before 2026-09-01.
+  Open: ECR-Q-011 (rib 5.0 provisional), path 1.64 vs ~2.2 m, CP-02.
+  NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
 ```
 
 ## Notes — each resolves in full at the artifact cited
