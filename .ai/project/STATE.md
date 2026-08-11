@@ -26,15 +26,12 @@ open_non_blocking:
   - OI-C-01,02,04,05,07..11,13
   - OI-P-01..03, OI-R-01
 next_action: |
-  LC-M04-EXIT PASSED, C1-C7. Verify, do not trust this line:
-    PYTHONPATH=src python -m aief_gate     # exit 0, LC-M04 CAD-READY: YES
+  LC-M04-EXIT PASSED, C1-C7. Verify: PYTHONPATH=src python -m aief_gate
 
-  SEWCP-200 CAD MODEL COMPLETE 2026-08-11: REQ-001..005 agent-designed,
-  verified from observed Fusion state; evidence cad/runs/; doc saved v4;
-  observed mass 3.995 kg (CP-15 in-model; scale at build).
+  SEWCP-200 model (REQ-001..005) and SEWCP-700 pin complete, verified
+  from observed Fusion state; evidence cad/runs/, cad/DELIVERABLES.md.
 
-  SEWCP-700 pin complete: PASS 25/25, exported (cad/DELIVERABLES.md).
-  NEXT: SEWCP-300 heater plate volume, or the SEWCP-200 drawing stage.
+  NEXT: SEWCP-300 heater plate, or the SEWCP-200 drawing stage.
 
   Open: ECR-Q-011 (rib 5.0 provisional), path 1.64 vs ~2.2 m, CP-02.
   NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
