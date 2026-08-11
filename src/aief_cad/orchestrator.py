@@ -88,11 +88,13 @@ class Orchestrator:
         session: str = "unrecorded-session",
         issued_by: str = "mechanical.cad-engineer",
         max_attempts: int = 3,
+        save_on_pass: bool = False,
     ) -> None:
         self.bridge = bridge or FileQueueBridge()
         self.runs_dir = Path(runs_dir or RUNS_DIR)
         self.session = session
         self.issued_by = issued_by
+        self.save_on_pass = save_on_pass
         if max_attempts < 1:
             raise OrchestratorError("max_attempts must be at least 1")
         self.max_attempts = max_attempts
@@ -222,9 +224,40 @@ class Orchestrator:
             ops = plan.ops
             attempt += 1
 
+        if record.verdict == "PASS" and self.save_on_pass:
+            # Lifecycle automation: a verified increment is persisted as a
+            # document version. A failed save never falsifies the verdict -
+            # it is recorded as an escalation instead.
+            try:
+                obs = self.bridge.send(self._lifecycle_command(
+                    rid, solution, "save_document",
+                    {"name": _document_name(solution),
+                     "description": f"AIEF {rid} verified"}))
+                record.attempts[-1]["saved"] = obs.raw
+                if not obs.ok:
+                    record.escalations.append(
+                        f"save_document did not execute: {obs.error_message()}")
+            except Exception as exc:  # noqa: BLE001 - recorded, not raised
+                record.escalations.append(f"save_document failed: {exc}")
+
         record.finished_at = time.time()
         self._write(record)
         return record
+
+    def _lifecycle_command(self, rid: str, solution: DesignSolution,
+                           op: str, args: dict[str, Any]) -> Command:
+        return Command(
+            command_id=f"LC-{rid}-{op}",
+            op=op,
+            args=args,
+            issued_by=self.issued_by,
+            session=self.session,
+            solution_id=solution.solution_id,
+            model_target={"document": _document_name(solution),
+                          "solution": solution.solution_id},
+            idempotency_key=digest_of(canonical_json(
+                {"lifecycle": op, "run": rid})),
+        )
 
     # -- persistence -------------------------------------------------------
 

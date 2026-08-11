@@ -142,7 +142,7 @@ class MechanicalDesignAgent:
     #: an escalation, never a best guess at what the author meant.
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
              "port_stub", "body_combine", "axial_hole_pattern",
-             "slot_pattern")
+             "slot_pattern", "transverse_drill")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -253,6 +253,9 @@ class MechanicalDesignAgent:
 
         if form["form"] == "axial_hole_pattern":
             return self._build_axial_holes(req, form, prior)
+
+        if form["form"] == "transverse_drill":
+            return self._build_transverse_drills(req, form, prior)
 
         if form["form"] == "slot_pattern":
             return self._build_slots(req, form, prior)
@@ -677,6 +680,72 @@ class MechanicalDesignAgent:
             satisfies=(req.id,), depends_on=(features[-1].id,),
             rationale=f"{len(centres)} hole(s) O({diameter}) x {depth}.",
         ))
+        return features
+
+    def _build_transverse_drills(
+        self, req: Requirement, form: dict[str, Any], prior: str
+    ) -> list[FeatureSpec]:
+        """Small horizontal drills on stated axes - vents and cross-drills.
+
+        Each entry states its axis by the normal azimuth of its sketch plane,
+        the plane's offset from the origin, the drill centre in model space
+        and a symmetric length, all as expressions over the parameter master.
+        The symmetric cut makes the result independent of plane orientation.
+        """
+        import math as _m
+
+        from aief_cad.expr import evaluate
+
+        base = f"mech.{req.id}"
+        env = resolve_all(self._package_parameters)
+
+        def num(expr: Any) -> float:
+            return float(evaluate(str(expr), env))
+
+        features: list[FeatureSpec] = []
+        for entry in form.get("drills", []):
+            did = str(entry["id"]).upper()
+            az = num(entry["plane_az_deg"])
+            offset = num(entry["plane_offset"])
+            cx, cy, cz = (num(v) for v in entry["center"])
+            plane = f"PL_{did}"
+            sketch = f"{form.get('sketch_prefix', 'SV')}_{did}"
+            pb = f"{base}.{did}"
+            depends = (features[-1].id,) if features else (
+                tuple(form.get("after", ())) or (prior,))
+            features.extend([
+                FeatureSpec(
+                    id=f"{pb}.plane", kind="radial_plane",
+                    params={"name": plane, "az_deg": f"{az} deg",
+                            **({"offset": str(entry["plane_offset"])}
+                               if abs(offset) > 1e-9 else {})},
+                    satisfies=(req.id,), depends_on=depends,
+                    rationale=entry.get("rationale", f"Axis plane for {did}."),
+                ),
+                FeatureSpec(
+                    id=f"{pb}.sketch", kind="sketch",
+                    params={"name": sketch, "plane": plane},
+                    satisfies=(req.id,), depends_on=(f"{pb}.plane",),
+                ),
+                FeatureSpec(
+                    id=f"{pb}.circle", kind="sketch_circle",
+                    params={"sketch": sketch,
+                            "diameter": _param_ref(req, "diameter", form),
+                            "center_model": [round(cx, 6), round(cy, 6),
+                                             round(cz, 6)]},
+                    satisfies=(req.id,), depends_on=(f"{pb}.sketch",),
+                ),
+                FeatureSpec(
+                    id=f"{pb}.cut", kind="extrude",
+                    params={"sketch": sketch,
+                            "distance": str(entry["length"]),
+                            "direction": "symmetric", "operation": "cut"},
+                    satisfies=(req.id,), depends_on=(f"{pb}.circle",),
+                    rationale=entry.get("rationale", ""),
+                ),
+            ])
+        if not features:
+            raise AgentError(f"{req.id}: transverse_drill declares no drills")
         return features
 
     def _build_slots(

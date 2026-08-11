@@ -29,15 +29,20 @@ next_action: |
   LC-M04-EXIT PASSED, C1-C7. Verify, do not trust this line:
     PYTHONPATH=src python -m aief_gate     # exit 0, LC-M04 CAD-READY: YES
 
-  NEXT ACTION: OPEN FUSION 360.
-    implementation/01_SEWCP-200_Cooling_Plate/
-      SEWCP-200_CAD_Implementation_Package.md  section 6; read its banner first.
-    Before step 6.02:  PYTHONPATH=src python -m aief_params emit   # 105 params
+  SEWCP-200 CAD MODEL COMPLETE (2026-08-11): five requirement packages
+  REQ-001..REQ-005 designed by the domain agents and verified from
+  observed Fusion state (32/32, 69/69, 25/25, 20/20, 19/19). Evidence:
+  cad/runs/. Fusion document saved at version 4 by the lifecycle layer.
+  Observed mass 3.995 kg - CP-15 verified in-model; scale check at build.
 
-  This gate is the design-authority PRECONDITION for CAD, not the stage exit.
-  GATES.md 'Deferred' explains what it deliberately does not cover.
+  NEXT ACTION: the SEWCP-200 drawing package (masking sketches S9/S10,
+  edge-break notes, dimensioned sheets - deferred there by REQ-004/005),
+  or open the next component volume.
 
-  NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.
+  Open, carried: ECR-Q-011 (FSW rib, 5.0 provisional), developed path
+  1.64 m vs ~2.2 m design basis, CP-02 flow bench, ECR-D-006.
+
+  NOT now: Stage 6 (OQ-14), ledger, tag, push before 2026-09-01.
 ```
 
 ## Notes — each resolves in full at the artifact cited

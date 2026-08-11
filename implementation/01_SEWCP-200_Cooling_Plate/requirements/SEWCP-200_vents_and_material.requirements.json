@@ -1,0 +1,88 @@
+{
+  "package_id": "SEWCP-200-REQ-005",
+  "component": "SEWCP-200_COOLING_PLATE",
+  "authority": [
+    "spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md DR-6 (no trapped volumes; every blind hole in a vacuum-exposed part vented), FMEA row 10",
+    "spec/01_SEWCP-200_Cooling_Plate.md Rev A (FROZEN) - CP-IF-9 (each RTD port cross-vented per DR-6), CP-15, section 7 (6061-T6)",
+    "implementation/01_SEWCP-200_Cooling_Plate/SEWCP-200_CAD_Implementation_Package.md feature strategy rows 23 and 30, steps 6.40, M-06"
+  ],
+  "scope": {
+    "document_name": "SEWCP-200_COOLING_PLATE",
+    "units": "mm",
+    "steps": "6.23 (cross-vents) + 6.40 (material)",
+    "bounded": "The three DR-6 cross-vents for the RTD blind ports, the 6061-T6 physical material assignment, and the CP-15 mass verification. Continues the saved document.",
+    "vent_routing_decision": "DECISION (design agent): each vent is the shortest safe O(rtd_vent_dia) path from the port's blind-end level (rtd_depth - rtd_vent_dia/2 above Datum A) to an already-vented volume. VENT1 (r40@75) drills to the central He bore - an OD entry would be an infeasible ~80:1 drill. VENT2 (r100@165) drills the chord to the coaxial-radius lift-pin bore at 150 deg, 26 mm. VENT3 (r140@225) drills radially to the OD, 20 mm. ALTERNATIVES REJECTED: all-OD entry (RTD1 infeasible), bottom-face angled drills (would breach the masked sealing/land zones and complicate the lapped face). All paths verified clear of the channel envelope (vents span radii the channel cannot occupy at z 6-12) and of neighbouring features by azimuth. Chord/OD centres are precomputed from the parameter clockings and cited here; the z level stays parametric.",
+    "deferred": "Masking sketches S9/S10 (features 28/29) and edge breaks (27) move to the drawing package - their only consumer is the drawing sheet. Retainer-tap venting is the SEWCP-1000 retainer interface's stated practice (vented fasteners) and is recorded as an observation, not modelled here.",
+    "open_state": "ECR-Q-011 (rib, provisional 5.0), the developed-path shortfall, and CP-02 remain open; none of this work depends on them."
+  },
+  "parameters_from": "../../../params/generated/SEWCP-200.csv",
+  "parameters_source": "SEWCP-200_CAD_Implementation_Package.md section 3, via `python -m aief_params emit`",
+
+  "material": {
+    "name": "Aluminum 6061",
+    "density": 2700,
+    "source": "spec/01 section 7; implementation package step 6.40"
+  },
+
+  "requirements": [
+    {"id": "CP-VENT", "kind": "geometry",
+     "statement": "Each RTD blind port is cross-vented per DR-6 with an O(rtd_vent_dia) drill at the blind-end level, into an already-vented volume: VENT1 to the central He bore, VENT2 to the lift-pin bore at 150 deg, VENT3 to the plate OD. No trapped volume remains at the three ports.",
+     "source": "spec/00 DR-6, FMEA 10; spec/01 CP-IF-9",
+     "unit": "mm",
+     "verification": "Vent planes and sketches observed; pump-down qualification (hardware)",
+     "value": {
+       "form": "transverse_drill",
+       "sketch_prefix": "SV",
+       "diameter": "rtd_vent_dia",
+       "drills": [
+         {"id": "vent1", "plane_az_deg": "rtd_ang_1", "plane_offset": "21",
+          "center": ["21 * 0.2588190451", "21 * 0.96592582628",
+                     "rtd_depth - rtd_vent_dia / 2"],
+          "length": "42",
+          "rationale": "RTD1 (r40@75) vented into the central He bore: run r0-42 crosses no channel (no pass wall below r62.9) and no neighbouring feature at 75 deg."},
+         {"id": "vent2", "plane_az_deg": "rtd_ang_2 + 82.5",
+          "plane_offset": "0",
+          "center": ["-91.597", "37.941", "rtd_depth - rtd_vent_dia / 2"],
+          "length": "28",
+          "rationale": "RTD2 (r100@165) vented via the 26 mm chord to the lift-pin bore (r100@150); the chord midpoint sits on the 157.5 deg radial at r99.14, between the channel passes at 82.9 and 118.4."},
+         {"id": "vent3", "plane_az_deg": "rtd_ang_3", "plane_offset": "149.5",
+          "center": ["-105.713", "-105.713",
+                     "rtd_depth - rtd_vent_dia / 2"],
+          "length": "23",
+          "rationale": "RTD3 (r140@225) vented radially to the OD, 20 mm run r138-161, clear of the ring taps (202.5/247.5) and choke stations (210/240) by azimuth."}
+       ]
+     }},
+    {"id": "CP-15", "kind": "structural",
+     "statement": "Mass <= 4.2 kg with 6061-T6 assigned (rho 2700). The section 5 estimate is ~4.0 kg after the channel and bores; the observed model mass verifies it.",
+     "source": "spec/01 CP-15, section 5, section 7",
+     "unit": "kg",
+     "verification": "Observed body mass (model); scale (hardware)"},
+    {"id": "MFG-VENT", "kind": "manufacturing",
+     "statement": "Vents are gun-drilled O1.5 at depths 20-36 mm (13:1 to 24:1), each from an open access: through the He bore, through the lift-pin bore, and from the OD - drilled at step 9 with the other bores, before anodize masking.",
+     "source": "spec/01 section 6 step 9; DR-6"}
+  ],
+
+  "interfaces": [
+    {"id": "CP-IF-9", "mates_to": "SEWCP-1000 Temp Sensor Retainers", "nature": "Blind ports now DR-6 vented; retainer-tap venting is the retainer interface's vented-fastener practice", "source": "spec/01 CP-IF-9"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-200_COOLING_PLATE"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 105},
+    {"id": "ACC-VENT-D", "check": "parameter", "subject": "parameter:rtd_vent_dia.value", "expect": 1.5, "tolerance": 1e-06, "requirement": "CP-VENT"},
+
+    {"id": "ACC-PL-V1", "check": "interface", "subject": "plane:PL_VENT1.exists", "expect": true, "requirement": "CP-VENT"},
+    {"id": "ACC-PL-V2", "check": "interface", "subject": "plane:PL_VENT2.exists", "expect": true, "requirement": "CP-VENT"},
+    {"id": "ACC-PL-V3", "check": "interface", "subject": "plane:PL_VENT3.exists", "expect": true, "requirement": "CP-VENT"},
+    {"id": "ACC-SK-V1", "check": "interface", "subject": "sketch:SV_VENT1.exists", "expect": true, "requirement": "CP-VENT"},
+    {"id": "ACC-SK-V2", "check": "interface", "subject": "sketch:SV_VENT2.exists", "expect": true, "requirement": "CP-VENT"},
+    {"id": "ACC-SK-V3", "check": "interface", "subject": "sketch:SV_VENT3.exists", "expect": true, "requirement": "CP-VENT"},
+
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:CP_BODY.dz", "expect": 20.0, "tolerance": 0.001},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 29, "requirement": "CP-VENT"},
+    {"id": "ACC-MATERIAL", "check": "geometry", "subject": "body:CP_BODY.material", "expect": "Aluminum 6061", "requirement": "CP-15"},
+    {"id": "ACC-MASS", "check": "mass", "subject": "body:CP_BODY.mass_kg", "expect": 4.05, "tolerance": 0.15, "requirement": "CP-15"}
+  ]
+}

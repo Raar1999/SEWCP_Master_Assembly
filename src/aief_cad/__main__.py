@@ -127,8 +127,29 @@ def cmd_plan(args) -> int:
     return 0
 
 
+def cmd_revert(args) -> int:
+    """Recover the package's document to its last saved version."""
+    pkg = load_package(args.package)
+    name = str(pkg.scope.get("document_name") or pkg.component)
+    bridge = FileQueueBridge()
+    cmd = Command(
+        command_id=f"REVERT-{int(time.time())}",
+        op="revert_document",
+        args={"name": name},
+        issued_by="mechanical.cad-engineer",
+        session=args.session,
+        solution_id="-",
+        model_target={"document": name},
+        idempotency_key=f"revert-{int(time.time())}",
+    )
+    obs = bridge.send(cmd, reuse=False)
+    print(json.dumps(obs.raw, indent=2, sort_keys=True))
+    return 0 if obs.ok else 1
+
+
 def cmd_run(args) -> int:
-    orch = Orchestrator(session=args.session, max_attempts=args.max_attempts)
+    orch = Orchestrator(session=args.session, max_attempts=args.max_attempts,
+                        save_on_pass=args.save_on_pass)
     record = orch.run(args.package, run_id=args.run_id)
 
     _bar(f"RUN {record.run_id}")
@@ -198,7 +219,10 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("plan"); p.add_argument("package"); p.set_defaults(fn=cmd_plan)
     p = sub.add_parser("run"); p.add_argument("package")
     p.add_argument("--run-id"); p.add_argument("--max-attempts", type=int, default=3)
+    p.add_argument("--save-on-pass", action="store_true")
     p.set_defaults(fn=cmd_run)
+    p = sub.add_parser("revert"); p.add_argument("package")
+    p.set_defaults(fn=cmd_revert)
     p = sub.add_parser("replay"); p.add_argument("run"); p.add_argument("package")
     p.set_defaults(fn=cmd_replay)
 

@@ -178,7 +178,7 @@ class _CommandHandler(adsk.core.CustomEventHandler):
                 ))
                 return
             op = cmd.get("op")
-            handler = _OPS.get(op)
+            handler = _ext_op(op) or _OPS.get(op)
             if handler is None:
                 _write_observation(command_id, _observation(
                     "REJECTED", False,
@@ -207,6 +207,46 @@ class _CommandHandler(adsk.core.CustomEventHandler):
 
 class _Rejected(Exception):
     """The command is malformed. Refused, not attempted."""
+
+
+# --------------------------------------------------------------------------
+# Hot-reloadable operation extension
+#
+# `bridge_ops_ext.py` beside this file is (re)loaded whenever its mtime
+# changes, and its OPS dict overlays _OPS. New and changed operations land
+# there, so deploying them needs no add-in restart - the one lifecycle
+# action Fusion gives no API for. Only a change to THIS shell still needs
+# a manual Stop/Run, which is the isolated platform limitation.
+# --------------------------------------------------------------------------
+
+_EXT_STATE = {"mtime": None, "module": None}
+
+
+def _ext_op(op):
+    import importlib.util
+
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "bridge_ops_ext.py")
+    try:
+        mtime = os.path.getmtime(path)
+    except OSError:
+        return None
+    if _EXT_STATE["mtime"] != mtime:
+        try:
+            spec = importlib.util.spec_from_file_location("aief_bridge_ops_ext", path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            _EXT_STATE["module"] = module
+            _EXT_STATE["mtime"] = mtime
+        except Exception:
+            # A broken extension must not take the shell down; the stale
+            # module (or nothing) keeps serving and the defect surfaces as
+            # unknown_operation rather than a dead bridge.
+            return None
+    module = _EXT_STATE["module"]
+    if module is None:
+        return None
+    return getattr(module, "OPS", {}).get(op)
 
 
 # --------------------------------------------------------------------------
