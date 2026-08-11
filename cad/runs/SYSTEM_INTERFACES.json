@@ -1,0 +1,89 @@
+{
+  "checks": [
+    {
+      "detail": "gap +0.000",
+      "id": "IF-AP-CB",
+      "passed": true,
+      "statement": "AP flange O10.000 h6 in CP O10.000 H7 counterbore"
+    },
+    {
+      "detail": "delta +0.0000",
+      "id": "IF-AP-DEPTH",
+      "passed": true,
+      "statement": "AP flange 3.000 seats in CP 3.000 counterbore"
+    },
+    {
+      "detail": "gap +0.050",
+      "id": "IF-AP-SR",
+      "passed": true,
+      "statement": "AP boss O6.000 in SR slot 6.05 H8"
+    },
+    {
+      "detail": "gap +0.050",
+      "id": "IF-AP-HP",
+      "passed": true,
+      "statement": "AP boss O6.000 in HP slot 6.05 H8"
+    },
+    {
+      "detail": "gap +0.500",
+      "id": "IF-AP-ENGAGE",
+      "passed": true,
+      "statement": "AP boss 2.50 protrusion in 3.00 slot depth (0.35 worst-case rule)"
+    },
+    {
+      "detail": "gap +0.200",
+      "id": "IF-LP-EC",
+      "passed": true,
+      "statement": "LP shaft O5.000 h6 guided by EC bore O5.200 H8"
+    },
+    {
+      "detail": "gap +1.000",
+      "id": "IF-LP-HP",
+      "passed": true,
+      "statement": "LP shaft clears HP O6.000 bore"
+    },
+    {
+      "detail": "gap +0.000",
+      "id": "IF-LP-CP",
+      "passed": true,
+      "statement": "LP foot O8.00 within CP O8.0 H8 pass-through"
+    },
+    {
+      "detail": "gap +0.100",
+      "id": "IF-VP-PILOT",
+      "passed": true,
+      "statement": "VP spigot O9.90 h8 in CP O10.0 H8 bore"
+    },
+    {
+      "detail": "delta +0.0000",
+      "id": "IF-VP-BC",
+      "passed": true,
+      "statement": "VP O38 bolt BC equals CP vac tap BC"
+    },
+    {
+      "detail": "gap +1.500",
+      "id": "IF-HP-M5",
+      "passed": true,
+      "statement": "HP M5 6.5 blind leaves 1.50 to the 8.000 bond face"
+    },
+    {
+      "detail": "delta +0.0000",
+      "id": "IF-ZSTACK",
+      "passed": true,
+      "statement": "Observed stack CP 20 + HP 8 + EC 6 = 34.000"
+    }
+  ],
+  "runs": {
+    "SEWCP-1000_RETAINER": "RUN-20260811T182006-72bc80",
+    "SEWCP-200_COOLING_PLATE": "RUN-20260811T173519-e4b939",
+    "SEWCP-300_HEATER_PLATE": "RUN-20260811T190752-d6ed1a",
+    "SEWCP-400_SUPPORT_RING": "RUN-20260811T183556-788260",
+    "SEWCP-500_ESC_PUCK": "RUN-20260811T190948-f4cbe2",
+    "SEWCP-600_LIFT_PIN": "RUN-20260811T181657-7889f4",
+    "SEWCP-700_ALIGNMENT_PIN": "RUN-20260811T180247-cc2a7c",
+    "SEWCP-800_PORT_BODY": "RUN-20260811T182307-5ec844",
+    "SEWCP-901_RF_STRAP": "RUN-20260811T182956-f4b73d",
+    "SEWCP-902_SADDLE": "RUN-20260811T183108-3744d3"
+  },
+  "verdict": "PASS"
+}

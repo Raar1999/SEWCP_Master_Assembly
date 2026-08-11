@@ -1,0 +1,73 @@
+{
+  "package_id": "SEWCP-500-REQ-001",
+  "component": "SEWCP-500_ESC_PUCK",
+  "authority": [
+    "spec/04_SEWCP-500_Electrostatic_Chuck.md Rev A (FROZEN) - EC-D01, EC-D02, EC-D15..EC-D19, section 6 (co-fired multilayer alumina, buried tungsten electrodes)"
+  ],
+  "scope": {
+    "document_name": "SEWCP-500_ESC_PUCK",
+    "units": "mm",
+    "bounded": "The ceramic puck solid: O297.0 x 6.000, 3x O5.200 H8 lift-pin bores at O200 BC (30/150/270), central O1.50 He port. Datum: Z=0 at the bond face; mesa plane at 6.000 (+0.020 mesa height is a surface-texture land).",
+    "modelling_conventions": "The 20 um mesa array (EC-D04..EC-D07), seal band (EC-D08..EC-D10), buried tungsten electrodes (EC-D11..EC-D13), HV pads (EC-D20) and the He distribution groove (EC-D14 - its layout diameter is unstated) are co-fired/screened process layers and lapped surface textures: they are drawing/process callouts, not machinable solids, per the established mask-zone convention. EC-D19 chamfers defer to the drawing (no counterbore permitted - Paschen, DR-4).",
+    "open_state": "EC-D14 groove layout is a recorded requirement gap for the drawing stage. No dependency on ECR-Q-011, the CP path item, or CP-02."
+  },
+
+  "parameters": [
+    {"name": "ec_od", "expression": "297.0", "unit": "mm", "source": "EC-D01"},
+    {"name": "ec_thk", "expression": "6.0", "unit": "mm", "source": "EC-D02"},
+    {"name": "ec_lp_d", "expression": "5.2", "unit": "mm", "source": "EC-D16 H8"},
+    {"name": "ec_lp_bc", "expression": "200.0", "unit": "mm", "source": "EC-D17"},
+    {"name": "ec_he_d", "expression": "1.5", "unit": "mm", "source": "EC-D15"}
+  ],
+
+  "material": {
+    "name": "Aluminum Oxide",
+    "density": 3900,
+    "source": "spec/04 section 6 - co-fired alumina"
+  },
+
+  "requirements": [
+    {"id": "EC-BODY", "kind": "geometry",
+     "statement": "O297.0 x 6.000 puck; bond face at Z=0, mesa plane at 6.000.",
+     "source": "spec/04 EC-D01/EC-D02", "unit": "mm",
+     "value": {"form": "disc", "plane": "XY", "sketch": "E1_BODY",
+       "diameter": "ec_od", "thickness": "ec_thk",
+       "direction": "positive", "operation": "new_body", "body": "EC_BODY"}},
+    {"id": "EC-LP", "kind": "geometry",
+     "statement": "3x O5.200 H8 lift-pin bores, through, O200 BC at 30/150/270; no counterbore permitted (Paschen, DR-4); 0.3 x 45 chamfers both ends per EC-D19 (drawing).",
+     "source": "spec/04 EC-D16..EC-D19", "unit": "mm",
+     "value": {"form": "axial_hole_pattern", "sketch": "E2_LP",
+       "diameter": "ec_lp_d", "depth": "ec_thk",
+       "positions": {"bolt_circle_diameter": "ec_lp_bc",
+         "azimuths": ["30", "150", "270"]},
+       "after": ["mech.EC-BODY.extrude"]}},
+    {"id": "EC-HE", "kind": "geometry",
+     "statement": "Central O1.50 He port, through.",
+     "source": "spec/04 EC-D15", "unit": "mm",
+     "value": {"form": "axial_hole_pattern", "sketch": "E3_HE",
+       "diameter": "ec_he_d", "depth": "ec_thk",
+       "positions": {"points": [{"radius": "0", "azimuth": "0"}]},
+       "after": ["mech.EC-LP.cut"]}},
+    {"id": "MFG-EC", "kind": "manufacturing",
+     "statement": "Co-fired multilayer alumina; screen-printed D-shaped tungsten electrodes at the 0.300 dielectric depth; mesas and seal band lapped to 0.010 TIR coplanarity at 20 um height.",
+     "source": "spec/04 section 6"}
+  ],
+
+  "interfaces": [
+    {"id": "EC-IF-1", "mates_to": "SEWCP-300 Heater Plate", "nature": "Bond face to HP bond face (HP-IF-4)", "source": "spec/02 HP-IF-4"},
+    {"id": "EC-IF-2", "mates_to": "SEWCP-600 Lift Pins", "nature": "O5.200 H8 guides over the O5.000 h6 pins - the guiding fit (DR-4 Paschen-safe)", "source": "spec/04 EC-D16; spec/05 LP-D01"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-500_ESC_PUCK"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 5},
+    {"id": "ACC-LP-D", "check": "parameter", "subject": "parameter:ec_lp_d.value", "expect": 5.2, "tolerance": 1e-06, "requirement": "EC-LP"},
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:EC_BODY.dz", "expect": 6.0, "tolerance": 0.001, "requirement": "EC-BODY"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:EC_BODY.dx", "expect": 297.0, "tolerance": 0.01, "requirement": "EC-BODY"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:EC_BODY.dy", "expect": 297.0, "tolerance": 0.01, "requirement": "EC-BODY"},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 3},
+    {"id": "ACC-MASS", "check": "mass", "subject": "body:EC_BODY.mass_kg", "expect": 1.62, "tolerance": 0.03, "requirement": "MFG-EC"}
+  ]
+}

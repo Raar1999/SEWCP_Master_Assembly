@@ -813,7 +813,31 @@ def _offset_outline(segs: list[dict[str, Any]], off: float) -> list[dict[str, An
     rdir = math.degrees(math.atan2(right[0]["start"][1] - start_c[1],
                                    right[0]["start"][0] - start_c[0]))
     outline.append(_arc(start_c, off, rdir, rdir - 180.0, ccw=False))
-    return outline
+    return _weld_loop(outline)
+
+
+def _weld_loop(outline: list[dict[str, Any]], tol: float = 0.3
+               ) -> list[dict[str, Any]]:
+    """Snap sub-tolerance gaps in a closed outline so profiles close.
+
+    Arc-fitted chains carry micro-kinks below the geometric audit's concern
+    but above a CAD kernel's profile-closure tolerance; welding the endpoint
+    chain (and the loop seam) keeps the outline a closed profile.
+    """
+    out = [dict(outline[0])]
+    for seg in outline[1:]:
+        seg = dict(seg)
+        prev_end = out[-1]["end"]
+        gap = math.hypot(seg["start"][0] - prev_end[0],
+                         seg["start"][1] - prev_end[1])
+        if 0 < gap <= tol:
+            seg["start"] = list(prev_end)
+        out.append(seg)
+    seam = math.hypot(out[0]["start"][0] - out[-1]["end"][0],
+                      out[0]["start"][1] - out[-1]["end"][1])
+    if 0 < seam <= tol:
+        out[-1]["end"] = list(out[0]["start"])
+    return [s for s in out if _seg_len(s) > 1e-6]
 
 
 def route_spiral(r_start: float, r_end: float, pitch: float, width: float,

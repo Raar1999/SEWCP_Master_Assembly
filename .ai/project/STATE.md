@@ -28,10 +28,11 @@ open_non_blocking:
 next_action: |
   LC-M04-EXIT PASSED, C1-C7. Verify: PYTHONPATH=src python -m aief_gate
 
-  SEWCP-200 model (REQ-001..005) and SEWCP-700 pin complete, verified
-  from observed Fusion state; evidence cad/runs/, cad/DELIVERABLES.md.
+  ALL NINE COMPONENT VOLUMES CAD-COMPLETE, verified from observed
+  Fusion state; system interfaces 12/12 (cad/runs/SYSTEM_INTERFACES.json);
+  exports + drawing-stage register at cad/DELIVERABLES.md.
 
-  NEXT: SEWCP-300 heater plate, or the SEWCP-200 drawing stage.
+  NEXT: the drawing/documentation stage and the Fusion assembly document.
 
   Open: ECR-Q-011 (rib 5.0 provisional), path 1.64 vs ~2.2 m, CP-02.
   NOT now: Stage 6 (OQ-14), ECR-D-006, ledger, tag, push before 2026-09-01.

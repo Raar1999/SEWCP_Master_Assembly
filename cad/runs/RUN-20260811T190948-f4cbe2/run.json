@@ -1,0 +1,1165 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 16,
+      "executed": 16,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455588.559644,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-500_ESC_PUCK",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455588.449222,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455588.9529715,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 5
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455588.9493418,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455590.09927,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "first_saved": true,
+              "name": "SEWCP-500_ESC_PUCK v0",
+              "persisted_name": "SEWCP-500_ESC_PUCK"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455589.4496565,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455590.5717022,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Aluminum Oxide"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455590.3599024,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455590.8626678,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "E1_BODY",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455590.8592007,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455591.5127325,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "E1_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455591.5058415,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455591.866934,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "EC_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455591.8600738,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455592.1135304,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "E2_LP",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455592.1096427,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455592.3688357,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "E2_LP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455592.359298,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455592.617388,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "E2_LP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455592.6091938,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455592.8786957,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 3,
+              "fully_constrained": true,
+              "name": "E2_LP"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455592.8695014,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455593.1210735,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "EC_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455593.110966,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455593.3739243,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "E3_HE",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455593.3699067,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455593.631215,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "E3_HE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455593.620422,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455593.8790083,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "EC_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455593.869311,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T190948-f4cbe2.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786455594.122331,
+          "fusion": {
+            "document": "SEWCP-500_ESC_PUCK v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 144348.0614154415,
+                "bbox_max": [
+                  148.5,
+                  148.5,
+                  6.000000000000001
+                ],
+                "bbox_min": [
+                  -148.5,
+                  -148.5,
+                  0.0
+                ],
+                "mass_kg": 1.6196007660357576,
+                "material": "Aluminum Oxide",
+                "name": "EC_BODY",
+                "volume_mm3": 415282.2477014764
+              }
+            ],
+            "component": {
+              "name": "SEWCP-500_ESC_PUCK v0",
+              "persisted_name": "SEWCP-500_ESC_PUCK"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-500_ESC_PUCK v1",
+              "persisted_name": "SEWCP-500_ESC_PUCK",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "297.0 mm",
+                "name": "ec_od",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 297.0
+              },
+              {
+                "expression": "6.0 mm",
+                "name": "ec_thk",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.000000000000001
+              },
+              {
+                "expression": "5.2 mm",
+                "name": "ec_lp_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 5.2
+              },
+              {
+                "expression": "200.0 mm",
+                "name": "ec_lp_bc",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 200.0
+              },
+              {
+                "expression": "1.5 mm",
+                "name": "ec_he_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 1.5000000000000002
+              }
+            ],
+            "planes": [],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 148.5,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "E1_BODY",
+                "plane": "XY",
+                "profiles": 1
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      86.60254,
+                      50.0
+                    ],
+                    "construction": false,
+                    "radius": 2.599999999999998,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -86.60254,
+                      50.0
+                    ],
+                    "construction": false,
+                    "radius": 2.599999999999998,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      -100.0
+                    ],
+                    "construction": false,
+                    "radius": 2.6,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 3,
+                "dimensions": 3,
+                "fully_constrained": true,
+                "name": "E2_LP",
+                "plane": "XY",
+                "profiles": 3
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "radius": 0.7500000000000001,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 1,
+                "dimensions": 1,
+                "fully_constrained": true,
+                "name": "E3_HE",
+                "plane": "XY",
+                "profiles": 1
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786455594.119901,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 144348.0614154415,
+            "bbox_max": [
+              148.5,
+              148.5,
+              6.000000000000001
+            ],
+            "bbox_min": [
+              -148.5,
+              -148.5,
+              0.0
+            ],
+            "mass_kg": 1.6196007660357576,
+            "material": "Aluminum Oxide",
+            "name": "EC_BODY",
+            "volume_mm3": 415282.2477014764
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-500_ESC_PUCK v0",
+          "name": "SEWCP-500_ESC_PUCK",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-500_ESC_PUCK"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-500_ESC_PUCK v1",
+          "persisted_name": "SEWCP-500_ESC_PUCK",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "297.0 mm",
+            "name": "ec_od",
+            "unit": "mm",
+            "value": 297.0
+          },
+          {
+            "expression": "6.0 mm",
+            "name": "ec_thk",
+            "unit": "mm",
+            "value": 6.000000000000001
+          },
+          {
+            "expression": "5.2 mm",
+            "name": "ec_lp_d",
+            "unit": "mm",
+            "value": 5.2
+          },
+          {
+            "expression": "200.0 mm",
+            "name": "ec_lp_bc",
+            "unit": "mm",
+            "value": 200.0
+          },
+          {
+            "expression": "1.5 mm",
+            "name": "ec_he_d",
+            "unit": "mm",
+            "value": 1.5000000000000002
+          }
+        ],
+        "planes": [],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 148.5,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "E1_BODY",
+            "plane": "XY",
+            "profiles": 1
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  86.60254,
+                  50.0
+                ],
+                "construction": false,
+                "radius": 2.599999999999998,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -86.60254,
+                  50.0
+                ],
+                "construction": false,
+                "radius": 2.599999999999998,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  0.0,
+                  -100.0
+                ],
+                "construction": false,
+                "radius": 2.6,
+                "type": "circle"
+              }
+            ],
+            "curves": 3,
+            "fully_constrained": true,
+            "name": "E2_LP",
+            "plane": "XY",
+            "profiles": 3
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "radius": 0.7500000000000001,
+                "type": "circle"
+              }
+            ],
+            "curves": 1,
+            "fully_constrained": true,
+            "name": "E3_HE",
+            "plane": "XY",
+            "profiles": 1
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-500_ESC_PUCK",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "297.0",
+                "name": "ec_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.0",
+                "name": "ec_thk",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "5.2",
+                "name": "ec_lp_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "200.0",
+                "name": "ec_lp_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "1.5",
+                "name": "ec_he_d",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-500_ESC_PUCK"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "density": 3900.0,
+            "material": "Aluminum Oxide"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "E1_BODY",
+            "plane": "XY"
+          },
+          "feature": "mech.EC-BODY.sketch",
+          "note": "Profile sketch for EC-BODY on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "EC-BODY"
+          ]
+        },
+        {
+          "args": {
+            "center": [
+              0.0,
+              0.0
+            ],
+            "diameter": "ec_od",
+            "sketch": "E1_BODY"
+          },
+          "feature": "mech.EC-BODY.circle",
+          "note": "Outer profile dimensioned by ec_od; centred on the origin so the part axis is the document axis.",
+          "op": "sketch_circle",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "EC-BODY"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "EC_BODY",
+            "direction": "positive",
+            "distance": "ec_thk",
+            "operation": "new_body",
+            "sketch": "E1_BODY"
+          },
+          "feature": "mech.EC-BODY.extrude",
+          "note": "Solid of thickness ec_thk. Built from the datum face upward so the primary datum sits at zero.",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "EC-BODY"
+          ]
+        },
+        {
+          "args": {
+            "name": "E2_LP",
+            "plane": "XY"
+          },
+          "feature": "mech.EC-LP.sketch",
+          "note": "Hole pattern sketch for EC-LP on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "EC-LP"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              86.60254,
+              50.0,
+              0.0
+            ],
+            "diameter": "ec_lp_d",
+            "sketch": "E2_LP"
+          },
+          "feature": "mech.EC-LP.h1",
+          "note": "Hole 1 of 3, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "EC-LP"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -86.60254,
+              50.0,
+              0.0
+            ],
+            "diameter": "ec_lp_d",
+            "sketch": "E2_LP"
+          },
+          "feature": "mech.EC-LP.h2",
+          "note": "Hole 2 of 3, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "EC-LP"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -0.0,
+              -100.0,
+              0.0
+            ],
+            "diameter": "ec_lp_d",
+            "sketch": "E2_LP"
+          },
+          "feature": "mech.EC-LP.h3",
+          "note": "Hole 3 of 3, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "EC-LP"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "ec_thk",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "E2_LP"
+          },
+          "feature": "mech.EC-LP.cut",
+          "note": "3 hole(s) O(ec_lp_d) x ec_thk.",
+          "op": "extrude",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "EC-LP"
+          ]
+        },
+        {
+          "args": {
+            "name": "E3_HE",
+            "plane": "XY"
+          },
+          "feature": "mech.EC-HE.sketch",
+          "note": "Hole pattern sketch for EC-HE on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "EC-HE"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diameter": "ec_he_d",
+            "sketch": "E3_HE"
+          },
+          "feature": "mech.EC-HE.h1",
+          "note": "Hole 1 of 1, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "EC-HE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "ec_thk",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "E3_HE"
+          },
+          "feature": "mech.EC-HE.cut",
+          "note": "1 hole(s) O(ec_he_d) x ec_thk.",
+          "op": "extrude",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "EC-HE"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0016",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T190948-f4cbe2-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786455595.026024,
+        "fusion": {
+          "document": "SEWCP-500_ESC_PUCK v1",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "name": "SEWCP-500_ESC_PUCK",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786455594.3702738,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:ba68e467c5b98a1cc75bd5b64fdda30be3e243829398348c8448e328074b1266",
+      "verdict": {
+        "attempt": 1,
+        "checks": 18,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 8,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 6.0,
+                "id": "ACC-BODY-DZ",
+                "observed": 6.000000000000001,
+                "passed": true,
+                "requirement": "EC-BODY",
+                "subject": "body:EC_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 297.0,
+                "id": "ACC-BODY-DX",
+                "observed": 297.0,
+                "passed": true,
+                "requirement": "EC-BODY",
+                "subject": "body:EC_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 297.0,
+                "id": "ACC-BODY-DY",
+                "observed": 297.0,
+                "passed": true,
+                "requirement": "EC-BODY",
+                "subject": "body:EC_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 3,
+                "id": "ACC-FEATURES",
+                "observed": 3,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1.62,
+                "id": "ACC-MASS",
+                "observed": 1.6196007660357576,
+                "passed": true,
+                "requirement": "MFG-EC",
+                "subject": "body:EC_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 6.0,
+                "id": "GEO-EXTENT-mech.EC-BODY.extrude",
+                "observed": 6.000000000000001,
+                "passed": true,
+                "requirement": null,
+                "subject": "body:EC_BODY.dz"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 1,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "this solution realises no interface feature, so there is nothing for this verifier to check. Deferred interfaces: EC-IF-1, EC-IF-2",
+                "expected": "no interface realised in this bounded solution",
+                "id": "IF-NONE-IN-SCOPE",
+                "observed": 2,
+                "passed": true,
+                "requirement": null,
+                "subject": "solution.interfaces"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-500_ESC_PUCK",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-500_ESC_PUCK",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 5,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5.2,
+                "id": "ACC-LP-D",
+                "observed": 5.2,
+                "passed": true,
+                "requirement": "EC-LP",
+                "subject": "parameter:ec_lp_d.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 5,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 5,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "CON-SKETCH-CONSTRAINED",
+                "observed": "0 not constrained",
+                "passed": true,
+                "requirement": null,
+                "subject": "sketch:*.fully_constrained"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T190948-f4cbe2.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-500_ESC_PUCK",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786455595.241078,
+  "package_digest": "sha256:f4cbe28131d3001758e62cce2db16e7c0574ef105bfb118deafa83639533145e",
+  "package_id": "SEWCP-500-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:842d62b1d36c4f8b306265f646ce713f03a9d3cc4d74030e6fd07d34f4693964",
+  "run_id": "RUN-20260811T190948-f4cbe2",
+  "solution_digest": "sha256:7d494a703b17b65f8a3839ca568e427e11e87dda9ce09fe259d23ed7ac8c1c27",
+  "solution_id": "RUN-20260811T190948-f4cbe2.S1",
+  "started_at": 1786455588.1993906,
+  "verdict": "PASS"
+}
