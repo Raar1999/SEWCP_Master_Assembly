@@ -1,0 +1,215 @@
+{
+  "package_id": "SEWCP-200-REQ-002",
+  "component": "SEWCP-200_COOLING_PLATE",
+  "authority": [
+    "spec/01_SEWCP-200_Cooling_Plate.md Rev A (FROZEN) - CP-D05, CP-D06, CP-D07, CP-D08, section 2.1, section 3.1 (keep-out table incl. the ECR-D-007 locator row), section 6, CP-IF-10",
+    "spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md section 3.2",
+    "implementation/01_SEWCP-200_Cooling_Plate/cad/SEWCP-200_MDR-001_Coolant_Channel_Routing_Topology.md - ruled topology: concentric bifilar counterflow arc serpentine; pass schedule left as a checkable derivation",
+    "implementation/01_SEWCP-200_Cooling_Plate/SEWCP-200_CAD_Implementation_Package.md section 6 steps 6.08-6.12"
+  ],
+  "scope": {
+    "document_name": "SEWCP-200_COOLING_PLATE",
+    "units": "mm",
+    "steps": "6.08-6.12",
+    "bounded": "The coolant channel (S3 + pocket), the two-piece split at the faying plane, and the FSW lid body CP_LID. Continues the existing saved document; the base solid, S1/S2 and PL_TOP from SEWCP-200-REQ-001 are prerequisites.",
+    "deferred": "Port pockets CP-D25 (local deepening to 10.00 with the 15 mm ramp), stub bores CP-D22/D23/D24, and the body+lid combine (feature strategy row 26) belong to the stubs package - they realise CP-IF-10 fully and are modelled with it. The channel terminals stop at centreline r=120 on the port azimuths so the pockets attach coaxially.",
+    "modelling_note": "S3 is modelled on PL_FAY (XY offset ch_z_btm), not on XY as the Rev X1 sketch plan table shows: the pocket cut then extrudes ch_depth upward from the faying plane, which is the geometry spec/01 section 6 step 3 describes. Equivalent geometry; to be captured in the OI-P-03 Rev X2 re-issue.",
+    "rib_design_value": "Rib between adjacent walls is 5.0 mm - the MDR-001 section 4 illustrative figure. No frozen artifact constrains it; whether FSW tool shoulder engagement demands a larger minimum is ECR-Q-011, raised per MDR-001 section 5 rather than assumed."
+  },
+  "parameters_from": "../../../params/generated/SEWCP-200.csv",
+  "parameters_source": "SEWCP-200_CAD_Implementation_Package.md section 3, via `python -m aief_params emit`",
+
+  "requirements": [
+    {
+      "id": "CP-CH",
+      "kind": "geometry",
+      "statement": "Serpentine coolant channel, 10.00 W x 6.00 D (CP-D05 x CP-D06), milled into the body from the faying plane; wall confined to the O60-O250 annulus and clear of every section 3.1 keep-out row including the ECR-D-007 locator row; R5 minimum centreline bend; topology per MDR-001: concentric bifilar counterflow arc serpentine, pass schedule derived against the table, terminals at the CP-IF-10 port azimuths.",
+      "source": "spec/01 CP-D05/D06, section 3.1; MDR-001; CP-IF-10",
+      "unit": "mm",
+      "verification": "G-19 envelope, G-20 keep-out table, M-07 min wall - computed from the observed sketch",
+      "value": {
+        "form": "annular_channel",
+        "sketch": "S3",
+        "plane": "PL_FAY",
+        "after": ["thermal.CP-FAY.plane"],
+        "direction": "positive",
+        "envelope_inner_diameter": "ch_env_id",
+        "envelope_outer_diameter": "ch_env_od",
+        "width": "ch_width",
+        "depth": "ch_depth",
+        "min_bend_radius": "ch_bend_r",
+        "rib": 5.0,
+        "ports": {
+          "inlet_az_deg": 255.0,
+          "outlet_az_deg": 285.0,
+          "terminal_r": 120.0
+        },
+        "keep_outs": [
+          {"id": "he_bore", "r": 0.0, "az_deg": 0.0, "wall_clearance": 15.0},
+          {"id": "hv_0", "r": 30.0, "az_deg": 0.0, "wall_clearance": 12.0},
+          {"id": "hv_180", "r": 30.0, "az_deg": 180.0, "wall_clearance": 12.0},
+          {"id": "rtd_1", "r": 40.0, "az_deg": 75.0, "wall_clearance": 6.0},
+          {"id": "choke_in_45", "r": 45.0, "az_deg": 45.0, "wall_clearance": 8.0},
+          {"id": "choke_in_135", "r": 45.0, "az_deg": 135.0, "wall_clearance": 8.0},
+          {"id": "choke_in_225", "r": 45.0, "az_deg": 225.0, "wall_clearance": 8.0},
+          {"id": "choke_in_315", "r": 45.0, "az_deg": 315.0, "wall_clearance": 8.0},
+          {"id": "liftpin_30", "r": 100.0, "az_deg": 30.0, "wall_clearance": 12.0},
+          {"id": "liftpin_150", "r": 100.0, "az_deg": 150.0, "wall_clearance": 12.0},
+          {"id": "liftpin_270", "r": 100.0, "az_deg": 270.0, "wall_clearance": 12.0},
+          {"id": "rtd_2", "r": 100.0, "az_deg": 165.0, "wall_clearance": 6.0},
+          {"id": "kin_top_75", "r": 130.0, "az_deg": 75.0, "wall_clearance": 8.5},
+          {"id": "kin_top_195", "r": 130.0, "az_deg": 195.0, "wall_clearance": 8.5},
+          {"id": "kin_top_315", "r": 130.0, "az_deg": 315.0, "wall_clearance": 8.5},
+          {"id": "rtd_3", "r": 140.0, "az_deg": 225.0, "wall_clearance": 6.0},
+          {"id": "choke_out_0", "r": 135.0, "az_deg": 0.0, "wall_clearance": 8.0},
+          {"id": "choke_out_30", "r": 135.0, "az_deg": 30.0, "wall_clearance": 8.0},
+          {"id": "choke_out_60", "r": 135.0, "az_deg": 60.0, "wall_clearance": 8.0},
+          {"id": "choke_out_90", "r": 135.0, "az_deg": 90.0, "wall_clearance": 8.0},
+          {"id": "choke_out_120", "r": 135.0, "az_deg": 120.0, "wall_clearance": 8.0},
+          {"id": "choke_out_150", "r": 135.0, "az_deg": 150.0, "wall_clearance": 8.0},
+          {"id": "choke_out_180", "r": 135.0, "az_deg": 180.0, "wall_clearance": 8.0},
+          {"id": "choke_out_210", "r": 135.0, "az_deg": 210.0, "wall_clearance": 8.0},
+          {"id": "choke_out_240", "r": 135.0, "az_deg": 240.0, "wall_clearance": 8.0},
+          {"id": "choke_out_270", "r": 135.0, "az_deg": 270.0, "wall_clearance": 8.0},
+          {"id": "choke_out_300", "r": 135.0, "az_deg": 300.0, "wall_clearance": 8.0},
+          {"id": "choke_out_330", "r": 135.0, "az_deg": 330.0, "wall_clearance": 8.0},
+          {"id": "ring_0", "r": 151.0, "az_deg": 22.5, "wall_clearance": 9.0},
+          {"id": "ring_1", "r": 151.0, "az_deg": 67.5, "wall_clearance": 9.0},
+          {"id": "ring_2", "r": 151.0, "az_deg": 112.5, "wall_clearance": 9.0},
+          {"id": "ring_3", "r": 151.0, "az_deg": 157.5, "wall_clearance": 9.0},
+          {"id": "ring_4", "r": 151.0, "az_deg": 202.5, "wall_clearance": 9.0},
+          {"id": "ring_5", "r": 151.0, "az_deg": 247.5, "wall_clearance": 9.0},
+          {"id": "ring_6", "r": 151.0, "az_deg": 292.5, "wall_clearance": 9.0},
+          {"id": "ring_7", "r": 151.0, "az_deg": 337.5, "wall_clearance": 9.0}
+        ]
+      }
+    },
+    {
+      "id": "CP-FAY",
+      "kind": "interface",
+      "statement": "The FSW lid/body faying plane lies at z = 6.00 (ch_z_btm; equal to lid_thk by the lid_check identity). A named construction plane locates the channel sketch and the future weld documentation, so the joint height moves with the parameter stack.",
+      "source": "spec/01 CP-D08, section 6 steps 3-5; ECR-D-002 Z stack",
+      "unit": "mm",
+      "verification": "Plane present at ch_z_btm above Datum A",
+      "value": {
+        "form": "datum_plane",
+        "name": "PL_FAY",
+        "base": "XY",
+        "offset": "ch_z_btm",
+        "interface": null,
+        "after": []
+      }
+    },
+    {
+      "id": "CP-SPLIT",
+      "kind": "geometry",
+      "statement": "Two-piece construction: the lid volume (full O320 disc, z 0 to lid_thk) is removed from CP_BODY so the body is the machined 14 mm piece with the channel groove opening at its underside, exactly as manufactured before welding.",
+      "source": "spec/01 section 6 steps 2-5 (two-piece, FSW); CP-D08",
+      "unit": "mm",
+      "verification": "CP_BODY spans z 6.00-20.00 (dz = cp_thk - lid_thk)",
+      "value": {
+        "form": "disc",
+        "plane": "XY",
+        "sketch": "S4A",
+        "diameter": "cp_od",
+        "thickness": "lid_thk",
+        "direction": "positive",
+        "operation": "cut"
+      }
+    },
+    {
+      "id": "CP-D08",
+      "kind": "geometry",
+      "statement": "FSW lid, 6.00 mm thick, matching the body profile (O320), as a separate body CP_LID occupying z 0 to 6.00. Welded at step 5 with circumferential plus internal rib passes; the combine that represents the welded assembly is feature-strategy row 26, deferred with the stubs.",
+      "source": "spec/01 CP-D08, section 6 steps 4-5",
+      "unit": "mm",
+      "verification": "Body CP_LID present, dz = 6.00, O320",
+      "value": {
+        "form": "disc",
+        "plane": "XY",
+        "sketch": "S4",
+        "diameter": "cp_od",
+        "thickness": "lid_thk",
+        "direction": "positive",
+        "operation": "new_body",
+        "body": "CP_LID"
+      }
+    },
+    {
+      "id": "CP-11",
+      "kind": "thermal",
+      "statement": "Radial temperature uniformity of the top face <= 1.5 degC across O280 at 3 kW. The section 2.1 design basis quotes ~2.2 m developed path; the derived schedule's length is reported by the router and any material shortfall is an engineering observation for the owner, not silently absorbed.",
+      "source": "spec/01 CP-11, section 2.1; MDR-001 section 4",
+      "verification": "Thermal map (hardware); path length reported at solution level"
+    },
+    {
+      "id": "CP-02",
+      "kind": "thermal",
+      "statement": "4.0 L/min at dP < 1.5 bar. NOT re-derived after ECR-D-002 and shall be verified on a flow bench before build release - restated here so no package appears to close it.",
+      "source": "spec/01 CP-02, section 2.1 note",
+      "verification": "Flow bench, before build release"
+    },
+    {
+      "id": "CP-05",
+      "kind": "structural",
+      "statement": "Proof pressure 6 bar / 30 min after welding, before finish machining. The channel geometry this package cuts is the pressure boundary interior.",
+      "source": "spec/01 CP-05, section 6 step 7",
+      "verification": "Hydrostatic proof"
+    },
+    {
+      "id": "MFG-FSW-RIB",
+      "kind": "manufacturing",
+      "statement": "Internal FSW rib passes weld the lid to the ribs between channel passes. The 5.0 mm design rib is not backed by a stated tool-shoulder minimum; ECR-Q-011 asks for one, and the routing is revisited if the answer exceeds 5.0.",
+      "source": "spec/01 section 6 step 5; MDR-001 section 5; ECR-Q-011"
+    },
+    {
+      "id": "MFG-MASK-CH",
+      "kind": "manufacturing",
+      "statement": "The channel interior is masked from hard anodize (step 13). Anodize in the coolant circuit is friable in flow and defeats the bare-aluminium wetted surface the design basis assumes.",
+      "source": "spec/01 section 6 step 13, section 8"
+    }
+  ],
+
+  "interfaces": [
+    {"id": "CP-IF-10", "mates_to": "Coolant system", "nature": "Fluid - partially realised: channel terminals at the 255/285 port azimuths; stub bores and port pockets deferred to the stubs package", "source": "spec/01 CP-IF-10"}
+  ],
+
+  "manufacturing": [
+    {
+      "id": "MFG-FSW",
+      "statement": "Two-piece 6061-T651, friction stir welded at the z=6.00 faying plane; circumferential pass at or outboard of the O306 bolt circle (ECR-D-007 action 5); no elastomer in the pressure boundary.",
+      "process": "Friction stir welding",
+      "source": "spec/01 section 6; CP-D09a"
+    }
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-200_COOLING_PLATE"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 105},
+
+    {"id": "ACC-CH-WIDTH", "check": "parameter", "subject": "parameter:ch_width.value", "expect": 10.0, "tolerance": 1e-06, "requirement": "CP-CH"},
+    {"id": "ACC-CH-DEPTH", "check": "parameter", "subject": "parameter:ch_depth.value", "expect": 6.0, "tolerance": 1e-06, "requirement": "CP-CH"},
+    {"id": "ACC-CH-TOPWALL", "check": "parameter", "subject": "parameter:ch_top_wall.value", "expect": 8.0, "tolerance": 1e-06},
+    {"id": "ACC-LID-THK", "check": "parameter", "subject": "parameter:lid_thk.value", "expect": 6.0, "tolerance": 1e-06, "requirement": "CP-D08"},
+    {"id": "ACC-CH-ZBTM", "check": "parameter", "subject": "parameter:ch_z_btm.value", "expect": 6.0, "tolerance": 1e-06, "requirement": "CP-FAY"},
+    {"id": "ACC-CH-ZTOP", "check": "parameter", "subject": "parameter:ch_z_top.value", "expect": 12.0, "tolerance": 1e-06},
+    {"id": "ACC-LID-CHECK", "check": "parameter", "subject": "parameter:lid_check.value", "expect": 0.0, "tolerance": 1e-06},
+    {"id": "ACC-ZBTM-DERIVED", "check": "constraint", "subject": "parameter:ch_z_btm.is_derived", "expect": true},
+
+    {"id": "ACC-PLFAY-EXISTS", "check": "interface", "subject": "plane:PL_FAY.exists", "expect": true, "requirement": "CP-FAY"},
+    {"id": "ACC-PLFAY-Z", "check": "interface", "subject": "plane:PL_FAY.offset_mm", "expect": 6.0, "tolerance": 0.0001, "requirement": "CP-FAY"},
+
+    {"id": "ACC-S3-EXISTS", "check": "interface", "subject": "sketch:S3.exists", "expect": true, "requirement": "CP-CH"},
+    {"id": "ACC-S3-CONSTRAINED", "check": "constraint", "subject": "sketch:S3.fully_constrained", "expect": true, "requirement": "CP-CH"},
+
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 2, "requirement": "CP-D08"},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:CP_BODY.dz", "expect": 14.0, "tolerance": 0.001, "requirement": "CP-SPLIT"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:CP_BODY.dx", "expect": 320.0, "tolerance": 0.01},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:CP_BODY.dy", "expect": 320.0, "tolerance": 0.01},
+    {"id": "ACC-LID-DZ", "check": "geometry", "subject": "body:CP_LID.dz", "expect": 6.0, "tolerance": 0.001, "requirement": "CP-D08"},
+    {"id": "ACC-LID-DX", "check": "geometry", "subject": "body:CP_LID.dx", "expect": 320.0, "tolerance": 0.01, "requirement": "CP-D08"},
+    {"id": "ACC-LID-DY", "check": "geometry", "subject": "body:CP_LID.dy", "expect": 320.0, "tolerance": 0.01, "requirement": "CP-D08"},
+    {"id": "ACC-LID-VOL", "check": "geometry", "subject": "body:CP_LID.volume_mm3", "expect": 482548.03, "tolerance": 100.0, "requirement": "CP-D08"}
+  ]
+}

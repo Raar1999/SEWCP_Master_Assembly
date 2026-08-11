@@ -1,0 +1,1870 @@
+{
+  "command_id": "REVERIFY-20260811T145626-0001",
+  "note": "observe-only re-verification after manual document save; no mutating operation dispatched",
+  "observation": {
+    "command_id": "REVERIFY-20260811T145626-0001",
+    "error": null,
+    "executed": true,
+    "finished_at": 1786440386.2027593,
+    "fusion": {
+      "document": "SEWCP-200_COOLING_PLATE v1",
+      "version": "2704.1.53"
+    },
+    "observed": {
+      "bodies": [
+        {
+          "area_mm2": 180955.73684677208,
+          "bbox_max": [
+            160.0,
+            160.0,
+            20.0
+          ],
+          "bbox_min": [
+            -160.0,
+            -160.0,
+            0.0
+          ],
+          "mass_kg": 12.62668919330864,
+          "material": "Steel",
+          "name": "CP_BODY",
+          "volume_mm3": 1608495.4386380434
+        }
+      ],
+      "component": {
+        "name": "SEWCP-200_COOLING_PLATE v1"
+      },
+      "document": {
+        "design_type": "parametric",
+        "name": "SEWCP-200_COOLING_PLATE v1",
+        "saved": true,
+        "units": "mm"
+      },
+      "features": [
+        {
+          "name": "Extrude1",
+          "type": "ExtrudeFeature"
+        }
+      ],
+      "parameters": [
+        {
+          "expression": "320.0 mm",
+          "name": "cp_od",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 320.0
+        },
+        {
+          "expression": "20.0 mm",
+          "name": "cp_thk",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 20.0
+        },
+        {
+          "expression": "4.2 kg",
+          "name": "cp_mass_max",
+          "unit": "kg",
+          "unit_basis": "length",
+          "value": 4.2
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "ch_width",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "6.0 mm",
+          "name": "ch_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 6.000000000000001
+        },
+        {
+          "expression": "8.0 mm",
+          "name": "ch_top_wall",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 8.0
+        },
+        {
+          "expression": "6.0 mm",
+          "name": "lid_thk",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 6.000000000000001
+        },
+        {
+          "expression": "cp_thk - ch_top_wall",
+          "name": "ch_z_top",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 11.999999999999998
+        },
+        {
+          "expression": "ch_z_top - ch_depth",
+          "name": "ch_z_btm",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 5.999999999999998
+        },
+        {
+          "expression": "ch_z_btm - lid_thk",
+          "name": "lid_check",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": -2.220446049250313e-15
+        },
+        {
+          "expression": "60.0 mm",
+          "name": "ch_env_id",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 60.0
+        },
+        {
+          "expression": "250.0 mm",
+          "name": "ch_env_od",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 250.0
+        },
+        {
+          "expression": "5.0 mm",
+          "name": "ch_bend_r",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 5.0
+        },
+        {
+          "expression": "3.0 mm",
+          "name": "ch_corner_r",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 3.0000000000000004
+        },
+        {
+          "expression": "302.0 mm",
+          "name": "bc_ring",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 302.0
+        },
+        {
+          "expression": "22.5 deg",
+          "name": "ang_ring_0",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 22.5
+        },
+        {
+          "expression": "45.0 deg",
+          "name": "ang_ring_step",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 45.0
+        },
+        {
+          "expression": "306.0 mm",
+          "name": "bc_kin_btm",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 306.0
+        },
+        {
+          "expression": "260.0 mm",
+          "name": "bc_kin_top",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 260.0
+        },
+        {
+          "expression": "60.0 deg",
+          "name": "ang_kin_btm_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 59.99999999999999
+        },
+        {
+          "expression": "180.0 deg",
+          "name": "ang_kin_btm_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 180.0
+        },
+        {
+          "expression": "300.0 deg",
+          "name": "ang_kin_btm_3",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 300.0
+        },
+        {
+          "expression": "75.0 deg",
+          "name": "ang_kin_top_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 75.0
+        },
+        {
+          "expression": "195.0 deg",
+          "name": "ang_kin_top_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 195.0
+        },
+        {
+          "expression": "315.0 deg",
+          "name": "ang_kin_top_3",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 315.0
+        },
+        {
+          "expression": "270.0 mm",
+          "name": "bc_choke_out",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 270.0
+        },
+        {
+          "expression": "0.0 deg",
+          "name": "ang_choke_out_0",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 0.0
+        },
+        {
+          "expression": "30.0 deg",
+          "name": "ang_choke_out_step",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 29.999999999999996
+        },
+        {
+          "expression": "90.0 mm",
+          "name": "bc_choke_in",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 90.0
+        },
+        {
+          "expression": "45.0 deg",
+          "name": "ang_choke_in_0",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 45.0
+        },
+        {
+          "expression": "90.0 deg",
+          "name": "ang_choke_in_step",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 90.0
+        },
+        {
+          "expression": "200.0 mm",
+          "name": "bc_liftpin",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 200.0
+        },
+        {
+          "expression": "30.0 deg",
+          "name": "ang_liftpin_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 29.999999999999996
+        },
+        {
+          "expression": "150.0 deg",
+          "name": "ang_liftpin_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 150.0
+        },
+        {
+          "expression": "270.0 deg",
+          "name": "ang_liftpin_3",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 270.0
+        },
+        {
+          "expression": "60.0 mm",
+          "name": "bc_hv",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 60.0
+        },
+        {
+          "expression": "0.0 deg",
+          "name": "ang_hv_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 0.0
+        },
+        {
+          "expression": "180.0 deg",
+          "name": "ang_hv_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 180.0
+        },
+        {
+          "expression": "38.0 mm",
+          "name": "bc_vac",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 38.0
+        },
+        {
+          "expression": "274.0 mm",
+          "name": "bc_rf",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 274.0
+        },
+        {
+          "expression": "105.0 deg",
+          "name": "ang_rf_land",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 105.00000000000001
+        },
+        {
+          "expression": "255.0 deg",
+          "name": "ang_coolant_in",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 255.00000000000003
+        },
+        {
+          "expression": "285.0 deg",
+          "name": "ang_coolant_out",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 285.0
+        },
+        {
+          "expression": "6.0 mm",
+          "name": "ring_tap_size",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 6.000000000000001
+        },
+        {
+          "expression": "12.0 mm",
+          "name": "ring_tap_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 12.000000000000002
+        },
+        {
+          "expression": "5.5 mm",
+          "name": "choke_slot_w",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 5.5
+        },
+        {
+          "expression": "7.0 mm",
+          "name": "choke_slot_l",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 7.0
+        },
+        {
+          "expression": "11.0 mm",
+          "name": "choke_cbore_w",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 11.0
+        },
+        {
+          "expression": "12.5 mm",
+          "name": "choke_cbore_l",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 12.5
+        },
+        {
+          "expression": "2.5 mm",
+          "name": "choke_cbore_dep",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 2.5
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "kin_cbore_d",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "3.0 mm",
+          "name": "kin_cbore_dep",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 3.0000000000000004
+        },
+        {
+          "expression": "5.0 mm",
+          "name": "kin_tap_dep",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 5.0
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "stub_bore_d",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "11.0 mm",
+          "name": "stub_bore_z",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 11.0
+        },
+        {
+          "expression": "14.0 mm",
+          "name": "stub_wp_d",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 14.0
+        },
+        {
+          "expression": "4.0 mm",
+          "name": "stub_wp_dep",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 4.0
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "ch_depth_port",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "22.0 mm",
+          "name": "choke_pad_dia",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 22.0
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "he_bore",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "18.0 mm",
+          "name": "vac_seal_id",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 18.0
+        },
+        {
+          "expression": "32.0 mm",
+          "name": "vac_seal_od",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 32.0
+        },
+        {
+          "expression": "4.0 mm",
+          "name": "vac_tap_size",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 4.0
+        },
+        {
+          "expression": "10.0 mm",
+          "name": "vac_tap_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 10.0
+        },
+        {
+          "expression": "8.0 mm",
+          "name": "lp_bore",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 8.0
+        },
+        {
+          "expression": "12.0 mm",
+          "name": "lp_cbore",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 12.000000000000002
+        },
+        {
+          "expression": "6.0 mm",
+          "name": "lp_cbore_dep",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 6.000000000000001
+        },
+        {
+          "expression": "8.0 mm",
+          "name": "hv_bore",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 8.0
+        },
+        {
+          "expression": "60.0 mm",
+          "name": "rf_land_circ",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 60.0
+        },
+        {
+          "expression": "18.0 mm",
+          "name": "rf_land_rad",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 18.0
+        },
+        {
+          "expression": "6.0 mm",
+          "name": "rf_tap_size",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 6.000000000000001
+        },
+        {
+          "expression": "12.0 mm",
+          "name": "rf_tap_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 12.000000000000002
+        },
+        {
+          "expression": "30.0 mm",
+          "name": "rf_tap_pitch",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 30.0
+        },
+        {
+          "expression": "1.7 mm",
+          "name": "rtd_bore",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 1.7
+        },
+        {
+          "expression": "12.0 mm",
+          "name": "rtd_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 12.000000000000002
+        },
+        {
+          "expression": "40.0 mm",
+          "name": "rtd_r_1",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 40.0
+        },
+        {
+          "expression": "100.0 mm",
+          "name": "rtd_r_2",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 100.0
+        },
+        {
+          "expression": "140.0 mm",
+          "name": "rtd_r_3",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 140.0
+        },
+        {
+          "expression": "75.0 deg",
+          "name": "rtd_ang_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 75.0
+        },
+        {
+          "expression": "165.0 deg",
+          "name": "rtd_ang_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 165.0
+        },
+        {
+          "expression": "225.0 deg",
+          "name": "rtd_ang_3",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 225.0
+        },
+        {
+          "expression": "1.5 mm",
+          "name": "rtd_vent_dia",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 1.5000000000000002
+        },
+        {
+          "expression": "4.0 mm",
+          "name": "rtd_tap_size",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 4.0
+        },
+        {
+          "expression": "8.0 mm",
+          "name": "rtd_tap_depth",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 8.0
+        },
+        {
+          "expression": "9.0 mm",
+          "name": "rtd_tap_offset",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 9.0
+        },
+        {
+          "expression": "bc_rf / 2",
+          "name": "rf_land_r_mean",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 137.0
+        },
+        {
+          "expression": "rf_land_r_mean - rf_land_rad / 2",
+          "name": "rf_land_r_in",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 128.0
+        },
+        {
+          "expression": "rf_land_r_mean + rf_land_rad / 2",
+          "name": "rf_land_r_out",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 146.0
+        },
+        {
+          "expression": "( ( rf_land_circ / 2 ) / rf_land_r_mean * 180 / PI ) * 1 deg",
+          "name": "rf_land_half_ang",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 12.546521061258902
+        },
+        {
+          "expression": "( ( rf_tap_pitch / 2 ) / rf_land_r_mean * 180 / PI ) * 1 deg",
+          "name": "rf_tap_half_ang",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 6.273260530629451
+        },
+        {
+          "expression": "ang_rf_land - rf_tap_half_ang",
+          "name": "rf_tap_ang_1",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 98.72673946937056
+        },
+        {
+          "expression": "ang_rf_land + rf_tap_half_ang",
+          "name": "rf_tap_ang_2",
+          "unit": "deg",
+          "unit_basis": "angle",
+          "value": 111.27326053062946
+        },
+        {
+          "expression": "cp_thk",
+          "name": "z_top",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 20.0
+        },
+        {
+          "expression": "20.0 mm",
+          "name": "asm_z_offset",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 20.0
+        },
+        {
+          "expression": "0.030 mm",
+          "name": "tol_thk",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.03
+        },
+        {
+          "expression": "0.015 mm",
+          "name": "tol_flat_face",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.015
+        },
+        {
+          "expression": "0.010 mm",
+          "name": "tol_pad_coplanar",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.01
+        },
+        {
+          "expression": "0.020 mm",
+          "name": "tol_pos_kin",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.02
+        },
+        {
+          "expression": "0.050 mm",
+          "name": "tol_pos_liftpin",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.05000000000000001
+        },
+        {
+          "expression": "0.030 mm",
+          "name": "tol_perp_liftpin",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.03
+        },
+        {
+          "expression": "0.200 mm",
+          "name": "tol_pos_choke",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.20000000000000004
+        },
+        {
+          "expression": "0.100 mm",
+          "name": "tol_pos_he",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.10000000000000002
+        },
+        {
+          "expression": "0.020 mm",
+          "name": "tol_flat_rf",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.02
+        },
+        {
+          "expression": "0.010 mm",
+          "name": "tol_flat_seal",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.01
+        },
+        {
+          "expression": "0.200 mm",
+          "name": "tol_runout_od",
+          "unit": "mm",
+          "unit_basis": "length",
+          "value": 0.20000000000000004
+        }
+      ],
+      "planes": [
+        {
+          "base": "XY",
+          "name": "PL_TOP",
+          "offset_mm": 20.0
+        }
+      ],
+      "sketches": [
+        {
+          "construction_curves": 0,
+          "curves": 1,
+          "dimensions": 1,
+          "fully_constrained": true,
+          "name": "S1",
+          "plane": "XY",
+          "profiles": 1
+        },
+        {
+          "construction_curves": 11,
+          "curves": 11,
+          "dimensions": 11,
+          "fully_constrained": true,
+          "name": "S2",
+          "plane": "XY",
+          "profiles": 0
+        }
+      ]
+    },
+    "protocol": "aief-cad/1",
+    "started_at": 1786440386.1871734,
+    "status": "OK"
+  },
+  "observed_model": {
+    "bodies": [
+      {
+        "area_mm2": 180955.73684677208,
+        "bbox_max": [
+          160.0,
+          160.0,
+          20.0
+        ],
+        "bbox_min": [
+          -160.0,
+          -160.0,
+          0.0
+        ],
+        "mass_kg": 12.62668919330864,
+        "material": "Steel",
+        "name": "CP_BODY",
+        "volume_mm3": 1608495.4386380434
+      }
+    ],
+    "component": {
+      "name": "SEWCP-200_COOLING_PLATE v1"
+    },
+    "document": {
+      "design_type": "parametric",
+      "name": "SEWCP-200_COOLING_PLATE v1",
+      "saved": true,
+      "units": "mm"
+    },
+    "features": [
+      {
+        "name": "Extrude1",
+        "type": "ExtrudeFeature"
+      }
+    ],
+    "material": null,
+    "parameters": [
+      {
+        "expression": "320.0 mm",
+        "name": "cp_od",
+        "unit": "mm",
+        "value": 320.0
+      },
+      {
+        "expression": "20.0 mm",
+        "name": "cp_thk",
+        "unit": "mm",
+        "value": 20.0
+      },
+      {
+        "expression": "4.2 kg",
+        "name": "cp_mass_max",
+        "unit": "kg",
+        "value": 4.2
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "ch_width",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "6.0 mm",
+        "name": "ch_depth",
+        "unit": "mm",
+        "value": 6.000000000000001
+      },
+      {
+        "expression": "8.0 mm",
+        "name": "ch_top_wall",
+        "unit": "mm",
+        "value": 8.0
+      },
+      {
+        "expression": "6.0 mm",
+        "name": "lid_thk",
+        "unit": "mm",
+        "value": 6.000000000000001
+      },
+      {
+        "expression": "cp_thk - ch_top_wall",
+        "name": "ch_z_top",
+        "unit": "mm",
+        "value": 11.999999999999998
+      },
+      {
+        "expression": "ch_z_top - ch_depth",
+        "name": "ch_z_btm",
+        "unit": "mm",
+        "value": 5.999999999999998
+      },
+      {
+        "expression": "ch_z_btm - lid_thk",
+        "name": "lid_check",
+        "unit": "mm",
+        "value": -2.220446049250313e-15
+      },
+      {
+        "expression": "60.0 mm",
+        "name": "ch_env_id",
+        "unit": "mm",
+        "value": 60.0
+      },
+      {
+        "expression": "250.0 mm",
+        "name": "ch_env_od",
+        "unit": "mm",
+        "value": 250.0
+      },
+      {
+        "expression": "5.0 mm",
+        "name": "ch_bend_r",
+        "unit": "mm",
+        "value": 5.0
+      },
+      {
+        "expression": "3.0 mm",
+        "name": "ch_corner_r",
+        "unit": "mm",
+        "value": 3.0000000000000004
+      },
+      {
+        "expression": "302.0 mm",
+        "name": "bc_ring",
+        "unit": "mm",
+        "value": 302.0
+      },
+      {
+        "expression": "22.5 deg",
+        "name": "ang_ring_0",
+        "unit": "deg",
+        "value": 22.5
+      },
+      {
+        "expression": "45.0 deg",
+        "name": "ang_ring_step",
+        "unit": "deg",
+        "value": 45.0
+      },
+      {
+        "expression": "306.0 mm",
+        "name": "bc_kin_btm",
+        "unit": "mm",
+        "value": 306.0
+      },
+      {
+        "expression": "260.0 mm",
+        "name": "bc_kin_top",
+        "unit": "mm",
+        "value": 260.0
+      },
+      {
+        "expression": "60.0 deg",
+        "name": "ang_kin_btm_1",
+        "unit": "deg",
+        "value": 59.99999999999999
+      },
+      {
+        "expression": "180.0 deg",
+        "name": "ang_kin_btm_2",
+        "unit": "deg",
+        "value": 180.0
+      },
+      {
+        "expression": "300.0 deg",
+        "name": "ang_kin_btm_3",
+        "unit": "deg",
+        "value": 300.0
+      },
+      {
+        "expression": "75.0 deg",
+        "name": "ang_kin_top_1",
+        "unit": "deg",
+        "value": 75.0
+      },
+      {
+        "expression": "195.0 deg",
+        "name": "ang_kin_top_2",
+        "unit": "deg",
+        "value": 195.0
+      },
+      {
+        "expression": "315.0 deg",
+        "name": "ang_kin_top_3",
+        "unit": "deg",
+        "value": 315.0
+      },
+      {
+        "expression": "270.0 mm",
+        "name": "bc_choke_out",
+        "unit": "mm",
+        "value": 270.0
+      },
+      {
+        "expression": "0.0 deg",
+        "name": "ang_choke_out_0",
+        "unit": "deg",
+        "value": 0.0
+      },
+      {
+        "expression": "30.0 deg",
+        "name": "ang_choke_out_step",
+        "unit": "deg",
+        "value": 29.999999999999996
+      },
+      {
+        "expression": "90.0 mm",
+        "name": "bc_choke_in",
+        "unit": "mm",
+        "value": 90.0
+      },
+      {
+        "expression": "45.0 deg",
+        "name": "ang_choke_in_0",
+        "unit": "deg",
+        "value": 45.0
+      },
+      {
+        "expression": "90.0 deg",
+        "name": "ang_choke_in_step",
+        "unit": "deg",
+        "value": 90.0
+      },
+      {
+        "expression": "200.0 mm",
+        "name": "bc_liftpin",
+        "unit": "mm",
+        "value": 200.0
+      },
+      {
+        "expression": "30.0 deg",
+        "name": "ang_liftpin_1",
+        "unit": "deg",
+        "value": 29.999999999999996
+      },
+      {
+        "expression": "150.0 deg",
+        "name": "ang_liftpin_2",
+        "unit": "deg",
+        "value": 150.0
+      },
+      {
+        "expression": "270.0 deg",
+        "name": "ang_liftpin_3",
+        "unit": "deg",
+        "value": 270.0
+      },
+      {
+        "expression": "60.0 mm",
+        "name": "bc_hv",
+        "unit": "mm",
+        "value": 60.0
+      },
+      {
+        "expression": "0.0 deg",
+        "name": "ang_hv_1",
+        "unit": "deg",
+        "value": 0.0
+      },
+      {
+        "expression": "180.0 deg",
+        "name": "ang_hv_2",
+        "unit": "deg",
+        "value": 180.0
+      },
+      {
+        "expression": "38.0 mm",
+        "name": "bc_vac",
+        "unit": "mm",
+        "value": 38.0
+      },
+      {
+        "expression": "274.0 mm",
+        "name": "bc_rf",
+        "unit": "mm",
+        "value": 274.0
+      },
+      {
+        "expression": "105.0 deg",
+        "name": "ang_rf_land",
+        "unit": "deg",
+        "value": 105.00000000000001
+      },
+      {
+        "expression": "255.0 deg",
+        "name": "ang_coolant_in",
+        "unit": "deg",
+        "value": 255.00000000000003
+      },
+      {
+        "expression": "285.0 deg",
+        "name": "ang_coolant_out",
+        "unit": "deg",
+        "value": 285.0
+      },
+      {
+        "expression": "6.0 mm",
+        "name": "ring_tap_size",
+        "unit": "mm",
+        "value": 6.000000000000001
+      },
+      {
+        "expression": "12.0 mm",
+        "name": "ring_tap_depth",
+        "unit": "mm",
+        "value": 12.000000000000002
+      },
+      {
+        "expression": "5.5 mm",
+        "name": "choke_slot_w",
+        "unit": "mm",
+        "value": 5.5
+      },
+      {
+        "expression": "7.0 mm",
+        "name": "choke_slot_l",
+        "unit": "mm",
+        "value": 7.0
+      },
+      {
+        "expression": "11.0 mm",
+        "name": "choke_cbore_w",
+        "unit": "mm",
+        "value": 11.0
+      },
+      {
+        "expression": "12.5 mm",
+        "name": "choke_cbore_l",
+        "unit": "mm",
+        "value": 12.5
+      },
+      {
+        "expression": "2.5 mm",
+        "name": "choke_cbore_dep",
+        "unit": "mm",
+        "value": 2.5
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "kin_cbore_d",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "3.0 mm",
+        "name": "kin_cbore_dep",
+        "unit": "mm",
+        "value": 3.0000000000000004
+      },
+      {
+        "expression": "5.0 mm",
+        "name": "kin_tap_dep",
+        "unit": "mm",
+        "value": 5.0
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "stub_bore_d",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "11.0 mm",
+        "name": "stub_bore_z",
+        "unit": "mm",
+        "value": 11.0
+      },
+      {
+        "expression": "14.0 mm",
+        "name": "stub_wp_d",
+        "unit": "mm",
+        "value": 14.0
+      },
+      {
+        "expression": "4.0 mm",
+        "name": "stub_wp_dep",
+        "unit": "mm",
+        "value": 4.0
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "ch_depth_port",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "22.0 mm",
+        "name": "choke_pad_dia",
+        "unit": "mm",
+        "value": 22.0
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "he_bore",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "18.0 mm",
+        "name": "vac_seal_id",
+        "unit": "mm",
+        "value": 18.0
+      },
+      {
+        "expression": "32.0 mm",
+        "name": "vac_seal_od",
+        "unit": "mm",
+        "value": 32.0
+      },
+      {
+        "expression": "4.0 mm",
+        "name": "vac_tap_size",
+        "unit": "mm",
+        "value": 4.0
+      },
+      {
+        "expression": "10.0 mm",
+        "name": "vac_tap_depth",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "expression": "8.0 mm",
+        "name": "lp_bore",
+        "unit": "mm",
+        "value": 8.0
+      },
+      {
+        "expression": "12.0 mm",
+        "name": "lp_cbore",
+        "unit": "mm",
+        "value": 12.000000000000002
+      },
+      {
+        "expression": "6.0 mm",
+        "name": "lp_cbore_dep",
+        "unit": "mm",
+        "value": 6.000000000000001
+      },
+      {
+        "expression": "8.0 mm",
+        "name": "hv_bore",
+        "unit": "mm",
+        "value": 8.0
+      },
+      {
+        "expression": "60.0 mm",
+        "name": "rf_land_circ",
+        "unit": "mm",
+        "value": 60.0
+      },
+      {
+        "expression": "18.0 mm",
+        "name": "rf_land_rad",
+        "unit": "mm",
+        "value": 18.0
+      },
+      {
+        "expression": "6.0 mm",
+        "name": "rf_tap_size",
+        "unit": "mm",
+        "value": 6.000000000000001
+      },
+      {
+        "expression": "12.0 mm",
+        "name": "rf_tap_depth",
+        "unit": "mm",
+        "value": 12.000000000000002
+      },
+      {
+        "expression": "30.0 mm",
+        "name": "rf_tap_pitch",
+        "unit": "mm",
+        "value": 30.0
+      },
+      {
+        "expression": "1.7 mm",
+        "name": "rtd_bore",
+        "unit": "mm",
+        "value": 1.7
+      },
+      {
+        "expression": "12.0 mm",
+        "name": "rtd_depth",
+        "unit": "mm",
+        "value": 12.000000000000002
+      },
+      {
+        "expression": "40.0 mm",
+        "name": "rtd_r_1",
+        "unit": "mm",
+        "value": 40.0
+      },
+      {
+        "expression": "100.0 mm",
+        "name": "rtd_r_2",
+        "unit": "mm",
+        "value": 100.0
+      },
+      {
+        "expression": "140.0 mm",
+        "name": "rtd_r_3",
+        "unit": "mm",
+        "value": 140.0
+      },
+      {
+        "expression": "75.0 deg",
+        "name": "rtd_ang_1",
+        "unit": "deg",
+        "value": 75.0
+      },
+      {
+        "expression": "165.0 deg",
+        "name": "rtd_ang_2",
+        "unit": "deg",
+        "value": 165.0
+      },
+      {
+        "expression": "225.0 deg",
+        "name": "rtd_ang_3",
+        "unit": "deg",
+        "value": 225.0
+      },
+      {
+        "expression": "1.5 mm",
+        "name": "rtd_vent_dia",
+        "unit": "mm",
+        "value": 1.5000000000000002
+      },
+      {
+        "expression": "4.0 mm",
+        "name": "rtd_tap_size",
+        "unit": "mm",
+        "value": 4.0
+      },
+      {
+        "expression": "8.0 mm",
+        "name": "rtd_tap_depth",
+        "unit": "mm",
+        "value": 8.0
+      },
+      {
+        "expression": "9.0 mm",
+        "name": "rtd_tap_offset",
+        "unit": "mm",
+        "value": 9.0
+      },
+      {
+        "expression": "bc_rf / 2",
+        "name": "rf_land_r_mean",
+        "unit": "mm",
+        "value": 137.0
+      },
+      {
+        "expression": "rf_land_r_mean - rf_land_rad / 2",
+        "name": "rf_land_r_in",
+        "unit": "mm",
+        "value": 128.0
+      },
+      {
+        "expression": "rf_land_r_mean + rf_land_rad / 2",
+        "name": "rf_land_r_out",
+        "unit": "mm",
+        "value": 146.0
+      },
+      {
+        "expression": "( ( rf_land_circ / 2 ) / rf_land_r_mean * 180 / PI ) * 1 deg",
+        "name": "rf_land_half_ang",
+        "unit": "deg",
+        "value": 12.546521061258902
+      },
+      {
+        "expression": "( ( rf_tap_pitch / 2 ) / rf_land_r_mean * 180 / PI ) * 1 deg",
+        "name": "rf_tap_half_ang",
+        "unit": "deg",
+        "value": 6.273260530629451
+      },
+      {
+        "expression": "ang_rf_land - rf_tap_half_ang",
+        "name": "rf_tap_ang_1",
+        "unit": "deg",
+        "value": 98.72673946937056
+      },
+      {
+        "expression": "ang_rf_land + rf_tap_half_ang",
+        "name": "rf_tap_ang_2",
+        "unit": "deg",
+        "value": 111.27326053062946
+      },
+      {
+        "expression": "cp_thk",
+        "name": "z_top",
+        "unit": "mm",
+        "value": 20.0
+      },
+      {
+        "expression": "20.0 mm",
+        "name": "asm_z_offset",
+        "unit": "mm",
+        "value": 20.0
+      },
+      {
+        "expression": "0.030 mm",
+        "name": "tol_thk",
+        "unit": "mm",
+        "value": 0.03
+      },
+      {
+        "expression": "0.015 mm",
+        "name": "tol_flat_face",
+        "unit": "mm",
+        "value": 0.015
+      },
+      {
+        "expression": "0.010 mm",
+        "name": "tol_pad_coplanar",
+        "unit": "mm",
+        "value": 0.01
+      },
+      {
+        "expression": "0.020 mm",
+        "name": "tol_pos_kin",
+        "unit": "mm",
+        "value": 0.02
+      },
+      {
+        "expression": "0.050 mm",
+        "name": "tol_pos_liftpin",
+        "unit": "mm",
+        "value": 0.05000000000000001
+      },
+      {
+        "expression": "0.030 mm",
+        "name": "tol_perp_liftpin",
+        "unit": "mm",
+        "value": 0.03
+      },
+      {
+        "expression": "0.200 mm",
+        "name": "tol_pos_choke",
+        "unit": "mm",
+        "value": 0.20000000000000004
+      },
+      {
+        "expression": "0.100 mm",
+        "name": "tol_pos_he",
+        "unit": "mm",
+        "value": 0.10000000000000002
+      },
+      {
+        "expression": "0.020 mm",
+        "name": "tol_flat_rf",
+        "unit": "mm",
+        "value": 0.02
+      },
+      {
+        "expression": "0.010 mm",
+        "name": "tol_flat_seal",
+        "unit": "mm",
+        "value": 0.01
+      },
+      {
+        "expression": "0.200 mm",
+        "name": "tol_runout_od",
+        "unit": "mm",
+        "value": 0.20000000000000004
+      }
+    ],
+    "planes": [
+      {
+        "base": "XY",
+        "name": "PL_TOP",
+        "offset_mm": 20.0
+      }
+    ],
+    "sketches": [
+      {
+        "construction_curves": 0,
+        "curves": 1,
+        "fully_constrained": true,
+        "name": "S1",
+        "plane": "XY",
+        "profiles": 1
+      },
+      {
+        "construction_curves": 11,
+        "curves": 11,
+        "fully_constrained": true,
+        "name": "S2",
+        "plane": "XY",
+        "profiles": 0
+      }
+    ]
+  },
+  "package_digest": "sha256:5ab8e1a2c552ebb5f8a605e4fbca128b7c8c30d32990414f25531659fc388282",
+  "package_id": "SEWCP-200-REQ-001",
+  "reverify_of": "RUN-20260811T144928-5ab8e1",
+  "session": "S-2026-08-11-01",
+  "solution_digest": "sha256:f4e23682c865b5a043ff22e2e9974b73f1a002f324207f1d3cfb84acb78be62c",
+  "solution_id": "REVERIFY.S1",
+  "verdict": {
+    "attempt": 1,
+    "checks": 32,
+    "failed": 1,
+    "reports": [
+      {
+        "checks": 7,
+        "failed": 0,
+        "findings": [
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 1,
+            "id": "ACC-BODY-COUNT",
+            "observed": 1,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "bodies.count"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 20.0,
+            "id": "ACC-BODY-DZ",
+            "observed": 20.0,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "body:CP_BODY.dz"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 320.0,
+            "id": "ACC-BODY-DX",
+            "observed": 320.0,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "body:CP_BODY.dx"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 320.0,
+            "id": "ACC-BODY-DY",
+            "observed": 320.0,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "body:CP_BODY.dy"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 1608495.44,
+            "id": "ACC-BODY-VOL",
+            "observed": 1608495.4386380434,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "body:CP_BODY.volume_mm3"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": ">= 1",
+            "id": "GEO-BODY-PRESENT",
+            "observed": 1,
+            "passed": true,
+            "requirement": null,
+            "subject": "bodies.count"
+          },
+          {
+            "area": "geometry",
+            "detail": "",
+            "expected": 20.0,
+            "id": "GEO-EXTENT-mech.CP-D01.extrude",
+            "observed": 20.0,
+            "passed": true,
+            "requirement": null,
+            "subject": "body:CP_BODY.dz"
+          }
+        ],
+        "passed": true,
+        "verifier": "geometry"
+      },
+      {
+        "checks": 4,
+        "failed": 0,
+        "findings": [
+          {
+            "area": "interface",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-PLTOP-EXISTS",
+            "observed": true,
+            "passed": true,
+            "requirement": "CP-IF-4",
+            "subject": "plane:PL_TOP.exists"
+          },
+          {
+            "area": "interface",
+            "detail": "",
+            "expected": 20.0,
+            "id": "ACC-PLTOP-Z",
+            "observed": 20.0,
+            "passed": true,
+            "requirement": "CP-IF-4",
+            "subject": "plane:PL_TOP.offset_mm"
+          },
+          {
+            "area": "interface",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-S2-EXISTS",
+            "observed": true,
+            "passed": true,
+            "requirement": "CP-S2",
+            "subject": "sketch:S2.exists"
+          },
+          {
+            "area": "interface",
+            "detail": "",
+            "expected": 20.0,
+            "id": "IF-PLANE-thermal.CP-IF-4.plane",
+            "observed": 20.0,
+            "passed": true,
+            "requirement": null,
+            "subject": "plane:PL_TOP.offset_mm"
+          }
+        ],
+        "passed": true,
+        "verifier": "interface"
+      },
+      {
+        "checks": 21,
+        "failed": 1,
+        "findings": [
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": "mm",
+            "id": "ACC-UNITS",
+            "observed": "mm",
+            "passed": true,
+            "requirement": null,
+            "subject": "document.units"
+          },
+          {
+            "area": "constraint",
+            "detail": "value mismatch",
+            "expected": "SEWCP-200_COOLING_PLATE",
+            "id": "ACC-NAME",
+            "observed": "SEWCP-200_COOLING_PLATE v1",
+            "passed": false,
+            "requirement": null,
+            "subject": "component.name"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 105,
+            "id": "ACC-PARAM-COUNT",
+            "observed": 105,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameters.count"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 20.0,
+            "id": "ACC-CP-THK",
+            "observed": 20.0,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "parameter:cp_thk.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 320.0,
+            "id": "ACC-CP-OD",
+            "observed": 320.0,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "parameter:cp_od.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 0.0,
+            "id": "ACC-LID-CHECK",
+            "observed": -2.220446049250313e-15,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:lid_check.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 75.0,
+            "id": "ACC-KIN-TOP-1",
+            "observed": 75.0,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:ang_kin_top_1.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 195.0,
+            "id": "ACC-KIN-TOP-2",
+            "observed": 195.0,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:ang_kin_top_2.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 315.0,
+            "id": "ACC-KIN-TOP-3",
+            "observed": 315.0,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:ang_kin_top_3.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 98.7267,
+            "id": "ACC-RF-TAP-1",
+            "observed": 98.72673946937056,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:rf_tap_ang_1.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 111.2733,
+            "id": "ACC-RF-TAP-2",
+            "observed": 111.27326053062946,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:rf_tap_ang_2.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-LID-DERIVED",
+            "observed": true,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:lid_check.is_derived"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-RFTAP-DERIVED",
+            "observed": true,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:rf_tap_ang_1.is_derived"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-S1-CONSTRAINED",
+            "observed": true,
+            "passed": true,
+            "requirement": "CP-D01",
+            "subject": "sketch:S1.fully_constrained"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": true,
+            "id": "ACC-S2-CONSTRAINED",
+            "observed": true,
+            "passed": true,
+            "requirement": "CP-S2",
+            "subject": "sketch:S2.fully_constrained"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 11,
+            "id": "ACC-S2-CIRCLES",
+            "observed": 11,
+            "passed": true,
+            "requirement": "CP-S2",
+            "subject": "sketch:S2.construction_curves"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": 105,
+            "id": "CON-PARAM-PRESENT",
+            "observed": 105,
+            "passed": true,
+            "requirement": null,
+            "subject": "parameters.count"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": "every parameter equals its resolved expression",
+            "id": "CON-PARAM-VALUE",
+            "observed": "0 mismatched",
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:*.value"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": "every declared derivation is an expression in the model",
+            "id": "CON-PARAM-DERIVED",
+            "observed": "0 flattened to literals",
+            "passed": true,
+            "requirement": null,
+            "subject": "parameter:*.is_derived"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": true,
+            "id": "CON-SKETCH-CONSTRAINED",
+            "observed": "0 not constrained",
+            "passed": true,
+            "requirement": null,
+            "subject": "sketch:*.fully_constrained"
+          },
+          {
+            "area": "constraint",
+            "detail": "",
+            "expected": "mm",
+            "id": "CON-UNITS",
+            "observed": "mm",
+            "passed": true,
+            "requirement": null,
+            "subject": "document.units"
+          }
+        ],
+        "passed": false,
+        "verifier": "constraint"
+      }
+    ],
+    "solution_id": "REVERIFY.S1",
+    "verdict": "FAIL"
+  }
+}

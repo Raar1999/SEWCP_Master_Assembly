@@ -95,6 +95,16 @@ simulation_results/
 .env.local
 secrets.yaml
 
+# ── AIEF CAD bridge ────────────────────────────────────────────────────
+# The file queue is the transport, not the record. Every command and every
+# observation is copied verbatim into cad/runs/<run>/run.json, which IS
+# tracked - so the audit trail survives without committing the scratch that
+# carried it. `state/` holds the add-in heartbeat and idempotency markers,
+# which are machine-local by definition.
+cad/bridge/queue/
+cad/bridge/obs/
+cad/bridge/state/
+
 # ── Explicitly TRACKED (negations) ─────────────────────────────────────
 # Released neutral geometry and drawings are part of the record.
 !cad/exports/step/*.step

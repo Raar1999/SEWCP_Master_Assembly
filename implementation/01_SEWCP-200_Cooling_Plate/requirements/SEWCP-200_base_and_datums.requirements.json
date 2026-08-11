@@ -1,0 +1,177 @@
+{
+  "package_id": "SEWCP-200-REQ-001",
+  "component": "SEWCP-200_COOLING_PLATE",
+  "authority": [
+    "spec/01_SEWCP-200_Cooling_Plate.md Rev A (FROZEN) - CP-D01, CP-D02, CP-IF-3, CP-IF-4, section 6, section 9",
+    "spec/00_SEWCP-ENG-001_Architecture_and_Interface_Control.md section 3.2, section 4.2",
+    "implementation/01_SEWCP-200_Cooling_Plate/SEWCP-200_CAD_Implementation_Package.md section 6 steps 6.01-6.07"
+  ],
+  "scope": {
+    "document_name": "SEWCP-200_COOLING_PLATE",
+    "units": "mm",
+    "steps": "6.01-6.07",
+    "bounded": "Base solid, top-face datum plane, and the S2 bolt-circle construction framework. Every feature that enters the plate from below (6.13 onward) is out of scope for this package and is not silently omitted: it is simply not stated here, and the interface verifier reports the interfaces this package does not realise.",
+    "deferred": "S2 angular rays. The bridge implements them, but Fusion's angular sketch dimension is unreliable at clockings at or beyond 180 deg, and eight of this part's clocked positions are. Building them is a separate package once that is resolved; nothing here depends on them."
+  },
+  "parameters_from": "../../../params/generated/SEWCP-200.csv",
+  "parameters_source": "SEWCP-200_CAD_Implementation_Package.md section 3, via `python -m aief_params emit`",
+
+  "requirements": [
+    {
+      "id": "CP-D01",
+      "kind": "geometry",
+      "statement": "Plate outside diameter Ø320.0 ±0.10, overall thickness 20.000 ±0.030, built upward from the bottom face so Datum A lies at Z=0.",
+      "source": "spec/01 section 5 CP-D01, CP-D02",
+      "unit": "mm",
+      "verification": "CMM / micrometer, 8 points at 45 deg on Ø280 BC",
+      "value": {
+        "form": "disc",
+        "plane": "XY",
+        "sketch": "S1",
+        "diameter": "cp_od",
+        "thickness": "cp_thk",
+        "direction": "positive",
+        "body": "CP_BODY"
+      }
+    },
+    {
+      "id": "CP-S2",
+      "kind": "geometry",
+      "statement": "A single locating sketch carries every bolt circle and radial reference. All later features project it; no feature re-derives a bolt circle independently or picks up a model edge.",
+      "source": "implementation package section 5 sketch S2, section 8.4",
+      "verification": "Sketch present and fully constrained; later features reference it",
+      "value": {
+        "form": "locating_sketch",
+        "plane": "XY",
+        "sketch": "S2",
+        "circles": [
+          {"diameter": "bc_ring"},
+          {"diameter": "bc_kin_btm"},
+          {"diameter": "bc_kin_top"},
+          {"diameter": "bc_choke_out"},
+          {"diameter": "bc_choke_in"},
+          {"diameter": "bc_liftpin"},
+          {"diameter": "bc_hv"},
+          {"diameter": "bc_vac"},
+          {"diameter": "bc_rf"},
+          {"diameter": "ch_env_id"},
+          {"diameter": "ch_env_od"}
+        ],
+        "rays": []
+      }
+    },
+    {
+      "id": "CP-IF-4",
+      "kind": "interface",
+      "statement": "The top face carries the Heater Plate interface. A named construction plane at the top face locates every top-side feature, so the interface height moves with the thickness parameter instead of being re-entered.",
+      "source": "spec/01 CP-IF-3, CP-IF-4; spec/00 section 4.2 (top face at assembly Z=40.000)",
+      "unit": "mm",
+      "verification": "Plane present at cp_thk above Datum A",
+      "value": {
+        "form": "datum_plane",
+        "name": "PL_TOP",
+        "base": "XY",
+        "offset": "cp_thk",
+        "interface": "CP-IF-4",
+        "after": ["mech.CP-D01.extrude"]
+      }
+    },
+    {
+      "id": "CP-08",
+      "kind": "thermal",
+      "statement": "Top face flatness <= 0.015 mm TIR over Ø300, and the top face is NOT anodized - emissivity <= 0.15. A radiative shunt across the thermal choke defeats the deliberate thermal break.",
+      "source": "spec/01 section 2 CP-08, section 8",
+      "verification": "CMM, optical flat; coating inspection"
+    },
+    {
+      "id": "CP-11",
+      "kind": "thermal",
+      "statement": "Radial temperature uniformity of the top face <= 1.5 degC across Ø280 at 3 kW. The coolant circuit is confined to the Ø60-Ø250 annulus and must satisfy the section 3.1 keep-out table before path length is optimised.",
+      "source": "spec/01 section 2 CP-11, section 3.1",
+      "verification": "Thermal map",
+      "value": {
+        "envelope": {"inner_diameter": "ch_env_id", "outer_diameter": "ch_env_od"},
+        "keep_out": "spec/01 section 3.1, eight classes plus the ECR-D-007 locator row"
+      }
+    },
+    {
+      "id": "CP-15",
+      "kind": "structural",
+      "statement": "Mass <= 4.2 kg. The solid blank is 4.34 kg; the channel and bores bring it to about 4.0 kg.",
+      "source": "spec/01 section 2 CP-15, section 5 mass estimate",
+      "unit": "kg",
+      "verification": "Scale"
+    },
+    {
+      "id": "MFG-STRESS",
+      "kind": "manufacturing",
+      "statement": "Stress relief is called out twice and is not optional: rough -> relieve -> semi-finish -> relieve -> finish -> anodize -> lap. The final lap of the top face is the last operation.",
+      "source": "spec/01 section 6 steps 2 and 8, section 6 closing note"
+    },
+    {
+      "id": "MFG-PADS",
+      "kind": "manufacturing",
+      "statement": "The 16 choke washer pads are surface-treatment and coplanarity zones, not raised geometry. Modelling them as bosses injects 1.50 mm into the Z-stack; the 1.50 mm gap comes from the SEWCP-301 washer.",
+      "source": "implementation package section 4 critical strategy note; spec/01 CP-D17"
+    }
+  ],
+
+  "interfaces": [
+    {"id": "CP-IF-1", "mates_to": "SEWCP-400 Chuck Support Ring", "nature": "Kinematic, load-bearing", "source": "spec/01 CP-IF-1"},
+    {"id": "CP-IF-2", "mates_to": "SEWCP-400 Chuck Support Ring", "nature": "Fastened, RF-side circuit", "source": "spec/01 CP-IF-2"},
+    {"id": "CP-IF-3", "mates_to": "SEWCP-300 Heater Plate", "nature": "Thermal choke + fastened", "source": "spec/01 CP-IF-3"},
+    {"id": "CP-IF-4", "mates_to": "SEWCP-300 Heater Plate", "nature": "Kinematic", "source": "spec/01 CP-IF-4"},
+    {"id": "CP-IF-5", "mates_to": "SEWCP-800 Vacuum Port", "nature": "Sealed, piloted bore", "source": "spec/01 CP-IF-5"},
+    {"id": "CP-IF-6", "mates_to": "SEWCP-600 Lift Pins", "nature": "Loose lateral support", "source": "spec/01 CP-IF-6"},
+    {"id": "CP-IF-7", "mates_to": "ESC HV feed", "nature": "Insulated bore", "source": "spec/01 CP-IF-7"},
+    {"id": "CP-IF-8", "mates_to": "SEWCP-900 RF Bracket", "nature": "Bolted electrical land", "source": "spec/01 CP-IF-8"},
+    {"id": "CP-IF-9", "mates_to": "SEWCP-1000 Temp Sensor Retainers", "nature": "Blind probe ports", "source": "spec/01 CP-IF-9"},
+    {"id": "CP-IF-10", "mates_to": "Coolant system", "nature": "Fluid", "source": "spec/01 CP-IF-10"}
+  ],
+
+  "manufacturing": [
+    {
+      "id": "MFG-FSW",
+      "statement": "Two-piece 6061-T651 construction, friction stir welded. No elastomer in the coolant pressure boundary. The lid/body faying plane lies at z = 6.00 and a circumferential weld pass must lie at or outboard of the Ø306 bolt circle.",
+      "process": "Friction stir welding",
+      "source": "spec/01 section 6; CP-D09a; ECR-D-007 requested action 5"
+    },
+    {
+      "id": "MFG-MASK",
+      "statement": "Five surfaces are excluded from hard anodize for three different reasons - thermal, electrical and contamination. A single missed mask converts a controlled thermal choke into an unknown one.",
+      "process": "Type III hard anodize, 50 um, masked",
+      "source": "spec/01 section 8"
+    }
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-200_COOLING_PLATE"},
+
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 105},
+    {"id": "ACC-CP-THK", "check": "parameter", "subject": "parameter:cp_thk.value", "expect": 20.0, "tolerance": 1e-06, "requirement": "CP-D01"},
+    {"id": "ACC-CP-OD", "check": "parameter", "subject": "parameter:cp_od.value", "expect": 320.0, "tolerance": 1e-06, "requirement": "CP-D01"},
+    {"id": "ACC-LID-CHECK", "check": "parameter", "subject": "parameter:lid_check.value", "expect": 0.0, "tolerance": 1e-06},
+    {"id": "ACC-KIN-TOP-1", "check": "parameter", "subject": "parameter:ang_kin_top_1.value", "expect": 75.0, "tolerance": 0.0001},
+    {"id": "ACC-KIN-TOP-2", "check": "parameter", "subject": "parameter:ang_kin_top_2.value", "expect": 195.0, "tolerance": 0.0001},
+    {"id": "ACC-KIN-TOP-3", "check": "parameter", "subject": "parameter:ang_kin_top_3.value", "expect": 315.0, "tolerance": 0.0001},
+    {"id": "ACC-RF-TAP-1", "check": "parameter", "subject": "parameter:rf_tap_ang_1.value", "expect": 98.7267, "tolerance": 0.001},
+    {"id": "ACC-RF-TAP-2", "check": "parameter", "subject": "parameter:rf_tap_ang_2.value", "expect": 111.2733, "tolerance": 0.001},
+    {"id": "ACC-LID-DERIVED", "check": "constraint", "subject": "parameter:lid_check.is_derived", "expect": true},
+    {"id": "ACC-RFTAP-DERIVED", "check": "constraint", "subject": "parameter:rf_tap_ang_1.is_derived", "expect": true},
+
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1, "requirement": "CP-D01"},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:CP_BODY.dz", "expect": 20.0, "tolerance": 0.001, "requirement": "CP-D01"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:CP_BODY.dx", "expect": 320.0, "tolerance": 0.01, "requirement": "CP-D01"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:CP_BODY.dy", "expect": 320.0, "tolerance": 0.01, "requirement": "CP-D01"},
+    {"id": "ACC-BODY-VOL", "check": "geometry", "subject": "body:CP_BODY.volume_mm3", "expect": 1608495.44, "tolerance": 200.0, "requirement": "CP-D01"},
+
+    {"id": "ACC-PLTOP-EXISTS", "check": "interface", "subject": "plane:PL_TOP.exists", "expect": true, "requirement": "CP-IF-4"},
+    {"id": "ACC-PLTOP-Z", "check": "interface", "subject": "plane:PL_TOP.offset_mm", "expect": 20.0, "tolerance": 0.0001, "requirement": "CP-IF-4"},
+    {"id": "ACC-S2-EXISTS", "check": "interface", "subject": "sketch:S2.exists", "expect": true, "requirement": "CP-S2"},
+
+    {"id": "ACC-S1-CONSTRAINED", "check": "constraint", "subject": "sketch:S1.fully_constrained", "expect": true, "requirement": "CP-D01"},
+    {"id": "ACC-S2-CONSTRAINED", "check": "constraint", "subject": "sketch:S2.fully_constrained", "expect": true, "requirement": "CP-S2"},
+    {"id": "ACC-S2-CIRCLES", "check": "constraint", "subject": "sketch:S2.construction_curves", "expect": 11, "requirement": "CP-S2"}
+  ]
+}

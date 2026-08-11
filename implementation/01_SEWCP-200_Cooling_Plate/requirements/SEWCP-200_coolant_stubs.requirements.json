@@ -1,0 +1,115 @@
+{
+  "package_id": "SEWCP-200-REQ-003",
+  "component": "SEWCP-200_COOLING_PLATE",
+  "authority": [
+    "spec/01_SEWCP-200_Cooling_Plate.md Rev A (FROZEN) - CP-D22, CP-D23, CP-D24, CP-D25, CP-IF-10, section 6 steps 5 and 10 (ECR-D-003 as applied)",
+    "implementation/01_SEWCP-200_Cooling_Plate/SEWCP-200_CAD_Implementation_Package.md - S12, feature strategy rows 25-26, section 3 stub parameters"
+  ],
+  "scope": {
+    "document_name": "SEWCP-200_COOLING_PLATE",
+    "units": "mm",
+    "steps": "6.25-6.28 (stubs) + feature-strategy row 26 (combine)",
+    "bounded": "The two coolant port pockets (CP-D25, ramped), the two radial stub bores (CP-D22/D23), the two weld-prep counterbores (CP-D24), and the CP_BODY+CP_LID combine representing the welded assembly. Continues the saved document; verified base and channel state are prerequisites and are not rebuilt.",
+    "deferred": "The SEWCP-201 bimetallic transition joints are a separate component and are not modelled here. Below-face features from steps 6.13 onward remain out of scope.",
+    "open_state": "ECR-Q-011 (FSW minimum rib) remains OPEN; the channel's 5.0 mm rib is provisional and this package does not depend on it. The ~1.64 m developed path versus the ~2.2 m section 2.1 design basis remains an open engineering observation; port geometry is fixed by CP-IF-10 and is independent of both."
+  },
+  "parameters_from": "../../../params/generated/SEWCP-200.csv",
+  "parameters_source": "SEWCP-200_CAD_Implementation_Package.md section 3, via `python -m aief_params emit`",
+
+  "requirements": [
+    {
+      "id": "CP-STUB",
+      "kind": "geometry",
+      "statement": "Two radial coolant stubs at 255 (inlet) and 285 (outlet): O10.0 H9 bore (CP-D22) on a centreline 11.00 above Datum A (CP-D23) from the OD to the channel at r=125; O14.0 H8 x 4.0 weld-prep counterbore at the OD (CP-D24); channel locally deepened to 10.00 so bore and pocket section are coaxial, ramped back to 6.00 over 15 mm (CP-D25).",
+      "source": "spec/01 CP-D22..CP-D25, CP-IF-10 (ECR-D-003)",
+      "unit": "mm",
+      "verification": "Bores and pockets present in the observed model; planes and sketches verified; section coaxiality by construction from the parameter stack",
+      "value": {
+        "form": "port_stub",
+        "sketch_prefix": "S12",
+        "outer_diameter": "cp_od",
+        "channel_envelope_outer_diameter": "ch_env_od",
+        "channel_width": "ch_width",
+        "pocket_floor_z": "ch_z_btm",
+        "pocket_roof_z": "ch_z_top",
+        "pocket_depth": "ch_depth_port",
+        "bore_axis_z": "stub_bore_z",
+        "bore_diameter": "stub_bore_d",
+        "counterbore_diameter": "stub_wp_d",
+        "counterbore_depth": "stub_wp_dep",
+        "ramp_length": 15.0,
+        "pocket_full_length": 6.0,
+        "ports": [
+          {"id": "in", "az_deg": 255.0},
+          {"id": "out", "az_deg": 285.0}
+        ]
+      }
+    },
+    {
+      "id": "CP-COMBINE",
+      "kind": "geometry",
+      "statement": "CP_BODY and CP_LID are joined into one body representing the friction-stir-welded assembly (spec/01 section 6 step 5), after the stub features so the pocket cuts act on the two-piece state the machining sequence produces.",
+      "source": "spec/01 section 6 step 5; implementation package feature strategy row 26",
+      "verification": "One body named CP_BODY, full 20.00 mm stack",
+      "value": {
+        "form": "body_combine",
+        "target": "CP_BODY",
+        "tool": "CP_LID",
+        "operation": "join"
+      }
+    },
+    {
+      "id": "MFG-GTAW",
+      "kind": "manufacturing",
+      "statement": "The SEWCP-201 transition joints are orbital-GTAW welded into the CP-D24 counterbores, full penetration, 6061-to-6061 fusion only - the Al/316L interface is the explosion bond inside SEWCP-201 and is never a fusion weld.",
+      "source": "spec/01 section 6 step 10 (ECR-D-003)"
+    },
+    {
+      "id": "CP-05",
+      "kind": "structural",
+      "statement": "Proof pressure 6 bar / 30 min after welding. The port-pocket 4.00 mm top ligament carries 2.8 MPa against 276 MPa yield (spec/01 section 3.1 port exception).",
+      "source": "spec/01 CP-05, section 3.1",
+      "verification": "Hydrostatic proof (hardware)"
+    }
+  ],
+
+  "interfaces": [
+    {"id": "CP-IF-10", "mates_to": "Coolant system", "nature": "Fluid - realised in-plate: pockets, bores and weld preps at 255/285; the SEWCP-201 joints and VCR glands are the mating component", "source": "spec/01 CP-IF-10"}
+  ],
+
+  "manufacturing": [
+    {
+      "id": "MFG-STUB-SEQ",
+      "statement": "Stub bores and weld preps are machined after the FSW weld and proof test (section 6 steps 7-10); the pockets are milled with the channel at step 3. The model applies them to the joined state via the combine at row 26.",
+      "process": "Bore + orbital weld prep",
+      "source": "spec/01 section 6"
+    }
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-200_COOLING_PLATE"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 105},
+    {"id": "ACC-STUB-D", "check": "parameter", "subject": "parameter:stub_bore_d.value", "expect": 10.0, "tolerance": 1e-06, "requirement": "CP-STUB"},
+    {"id": "ACC-STUB-Z", "check": "parameter", "subject": "parameter:stub_bore_z.value", "expect": 11.0, "tolerance": 1e-06, "requirement": "CP-STUB"},
+    {"id": "ACC-WP-D", "check": "parameter", "subject": "parameter:stub_wp_d.value", "expect": 14.0, "tolerance": 1e-06, "requirement": "CP-STUB"},
+    {"id": "ACC-WP-DEP", "check": "parameter", "subject": "parameter:stub_wp_dep.value", "expect": 4.0, "tolerance": 1e-06, "requirement": "CP-STUB"},
+    {"id": "ACC-POCKET-DEPTH", "check": "parameter", "subject": "parameter:ch_depth_port.value", "expect": 10.0, "tolerance": 1e-06, "requirement": "CP-STUB"},
+
+    {"id": "ACC-PL-IN-PROF", "check": "interface", "subject": "plane:PL_STUB_IN_PROF.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-PL-IN-OD", "check": "interface", "subject": "plane:PL_STUB_IN_OD.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-PL-OUT-PROF", "check": "interface", "subject": "plane:PL_STUB_OUT_PROF.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-PL-OUT-OD", "check": "interface", "subject": "plane:PL_STUB_OUT_OD.exists", "expect": true, "requirement": "CP-STUB"},
+
+    {"id": "ACC-SK-IN-WEDGE", "check": "interface", "subject": "sketch:S12_IN_WEDGE.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-SK-OUT-WEDGE", "check": "interface", "subject": "sketch:S12_OUT_WEDGE.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-SK-IN-BORE", "check": "interface", "subject": "sketch:S12_IN_BORE.exists", "expect": true, "requirement": "CP-STUB"},
+    {"id": "ACC-SK-OUT-BORE", "check": "interface", "subject": "sketch:S12_OUT_BORE.exists", "expect": true, "requirement": "CP-STUB"},
+
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1, "requirement": "CP-COMBINE"},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:CP_BODY.dz", "expect": 20.0, "tolerance": 0.001, "requirement": "CP-COMBINE"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:CP_BODY.dx", "expect": 320.0, "tolerance": 0.01},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:CP_BODY.dy", "expect": 320.0, "tolerance": 0.01},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 11, "requirement": "CP-STUB"}
+  ]
+}

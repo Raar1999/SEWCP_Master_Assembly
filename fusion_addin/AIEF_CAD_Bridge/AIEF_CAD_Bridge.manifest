@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "aief-cad-bridge",
+    "author": "SEWCP / AIEF",
+    "description": {
+        "": "Executes bounded AIEF CAD operations from a file queue and reports observed model state."
+    },
+    "version": "1.0.0",
+    "runOnStartup": false,
+    "supportedOS": "windows|mac",
+    "editEnabled": true
+}
