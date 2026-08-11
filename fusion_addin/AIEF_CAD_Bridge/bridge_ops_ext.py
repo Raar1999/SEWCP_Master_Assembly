@@ -231,7 +231,12 @@ def op_extrude(args):
             sketch = root.sketches.item(i)
             break
     if sketch is None:
-        raise RuntimeError("extrude: sketch %r not found" % args["sketch"])
+        raise RuntimeError(
+            "extrude: sketch %r not found; visible: [%s] in doc %r"
+            % (args["sketch"],
+               ", ".join(root.sketches.item(i).name
+                         for i in range(root.sketches.count)),
+               app.activeDocument.name if app.activeDocument else None))
     if sketch.profiles.count == 0:
         raise RuntimeError("sketch %r yields no closed profile" % args["sketch"])
 

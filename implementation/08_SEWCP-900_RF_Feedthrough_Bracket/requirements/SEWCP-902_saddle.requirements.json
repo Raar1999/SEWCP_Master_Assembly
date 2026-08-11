@@ -1,0 +1,68 @@
+{
+  "package_id": "SEWCP-902-REQ-001",
+  "component": "SEWCP-902_SADDLE",
+  "authority": [
+    "spec/08_SEWCP-900_RF_Feedthrough_Bracket.md Rev A (FROZEN) - SB-D01..SB-D04, section 6 (6061-T6, Alodine 1200 conductive - not anodize)"
+  ],
+  "scope": {
+    "document_name": "SEWCP-902_SADDLE",
+    "units": "mm",
+    "bounded": "The saddle block supporting the strap run at RS-D04: 54.0 wide (SB-D02) x 36.0 long x 7.5 high, 2x M6 clearance holes at 25 centres.",
+    "modelling_conventions": "DECISIONS (design agent, recorded): saddle height 7.5 = RS-D04 8.0 minus the 0.5 strap thickness, so the strap top face runs at 8.0 (SB-D01); block length 36.0 gives 5.5 margin beyond the 25-centre holes; hole spacing matches the strap terminal pitch; O6.6 = ISO M6 clearance. SB-D04 (8.0 min clearance to Base Plate) is an assembly property.",
+    "open_state": "SEWCP-904 shroud envelope gap carried (see SEWCP-901 package)."
+  },
+
+  "parameters": [
+    {"name": "sb_wid", "expression": "54.0", "unit": "mm", "source": "SB-D02"},
+    {"name": "sb_len", "expression": "36.0", "unit": "mm", "source": "agent decision - 25 pitch + margin"},
+    {"name": "sb_hgt", "expression": "8.0 - 0.5", "unit": "mm", "source": "SB-D01 = RS-D04 - strap thickness, derived"},
+    {"name": "sb_hole_d", "expression": "6.6", "unit": "mm", "source": "ISO M6 clearance (SB-D03)"},
+    {"name": "sb_hole_pitch", "expression": "25.0", "unit": "mm", "source": "SB-D03 = RS-D07 pitch"}
+  ],
+
+  "material": {
+    "name": "Aluminum 6061",
+    "density": 2700,
+    "source": "spec/08 section 6 - 6061-T6, Alodine 1200"
+  },
+
+  "requirements": [
+    {"id": "SB-BODY", "kind": "geometry",
+     "statement": "Saddle block 36.0 x 54.0 x 7.5, top face carrying the strap at the RS-D04 height.",
+     "source": "spec/08 SB-D01/SB-D02", "unit": "mm",
+     "value": {"form": "profile_cut", "sketch": "B1_BODY", "plane": "XY",
+       "depth": "sb_hgt", "direction": "positive",
+       "operation": "new_body", "body": "SB_BODY",
+       "points": [["-18", "-27", "0"], ["18", "-27", "0"],
+                  ["18", "27", "0"], ["-18", "27", "0"]]}},
+    {"id": "SB-HOLES", "kind": "geometry",
+     "statement": "2x O6.6 M6 clearance holes at 25 centres, through.",
+     "source": "spec/08 SB-D03", "unit": "mm",
+     "value": {"form": "axial_hole_pattern", "sketch": "B2_HOLES",
+       "diameter": "sb_hole_d", "depth": "sb_hgt",
+       "positions": {"points": [
+         {"radius": "sb_hole_pitch / 2", "azimuth": "0"},
+         {"radius": "sb_hole_pitch / 2", "azimuth": "180"}]},
+       "after": ["mech.SB-BODY.cut"]}},
+    {"id": "MFG-SB", "kind": "manufacturing",
+     "statement": "CNC from 6061-T6; deburr; Alodine 1200 chromate conversion (conductive) - not anodize; clean; bake.",
+     "source": "spec/08 section 6"}
+  ],
+
+  "interfaces": [
+    {"id": "SB-IF-1", "mates_to": "SEWCP-901 RF Strap", "nature": "Strap run supported at 8.0 installed height", "source": "spec/08 SB-D01, RS-D04"}
+  ],
+
+  "acceptance": [
+    {"id": "ACC-UNITS", "check": "constraint", "subject": "document.units", "expect": "mm"},
+    {"id": "ACC-NAME", "check": "constraint", "subject": "component.name", "expect": "SEWCP-902_SADDLE"},
+    {"id": "ACC-PARAM-COUNT", "check": "parameter", "subject": "parameters.count", "expect": 5},
+    {"id": "ACC-HGT", "check": "parameter", "subject": "parameter:sb_hgt.value", "expect": 7.5, "tolerance": 1e-06, "requirement": "SB-BODY"},
+    {"id": "ACC-HGT-DERIVED", "check": "constraint", "subject": "parameter:sb_hgt.is_derived", "expect": true},
+    {"id": "ACC-BODY-COUNT", "check": "geometry", "subject": "bodies.count", "expect": 1},
+    {"id": "ACC-BODY-DZ", "check": "geometry", "subject": "body:SB_BODY.dz", "expect": 7.5, "tolerance": 0.001, "requirement": "SB-BODY"},
+    {"id": "ACC-BODY-DX", "check": "geometry", "subject": "body:SB_BODY.dx", "expect": 36.0, "tolerance": 0.01, "requirement": "SB-BODY"},
+    {"id": "ACC-BODY-DY", "check": "geometry", "subject": "body:SB_BODY.dy", "expect": 54.0, "tolerance": 0.01, "requirement": "SB-BODY"},
+    {"id": "ACC-FEATURES", "check": "geometry", "subject": "features.count", "expect": 2}
+  ]
+}

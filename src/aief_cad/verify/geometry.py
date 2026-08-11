@@ -188,11 +188,14 @@ def verify_geometry(solution: DesignSolution, model: ObservedModel):
                 )
             )
             continue
-        # An extrude on a planar sketch grows along the plane normal; for the
-        # base planes this layer emits, that is the axis the sketch does not lie in.
-        normal = {"XY": "Z", "XZ": "Y", "YZ": "X"}.get(
-            _plane_of(solution, feat.params.get("sketch", "")), "Z"
-        )
+        # An extrude on a planar sketch grows along the plane normal; that
+        # axis is only known for the base planes. A sketch on a derived
+        # plane has no chartable normal here, so its extent is left to the
+        # package's own acceptance rather than mis-measured.
+        plane_name = _plane_of(solution, feat.params.get("sketch", ""))
+        if plane_name not in ("XY", "XZ", "YZ"):
+            continue
+        normal = {"XY": "Z", "XZ": "Y", "YZ": "X"}[plane_name]
         got = body.extent(axis_of[normal])
         ok = got is not None and abs(got - float(expected)) <= 1e-3
         findings.append(

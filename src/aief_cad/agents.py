@@ -142,7 +142,8 @@ class MechanicalDesignAgent:
     #: an escalation, never a best guess at what the author meant.
     FORMS = ("disc", "plate", "locating_sketch", "annular_channel",
              "port_stub", "body_combine", "axial_hole_pattern",
-             "slot_pattern", "transverse_drill", "profile_cut", "ring_groove")
+             "slot_pattern", "transverse_drill", "profile_cut", "ring_groove",
+             "swept_strip")
 
     def contribute(self, package: RequirementPackage) -> DesignContribution:
         features: list[FeatureSpec] = []
@@ -259,6 +260,9 @@ class MechanicalDesignAgent:
 
         if form["form"] == "transverse_drill":
             return self._build_transverse_drills(req, form, prior)
+
+        if form["form"] == "swept_strip":
+            return self._build_swept_strip(req, form, prior)
 
         if form["form"] == "ring_groove":
             base_id = f"mech.{req.id}"
@@ -764,6 +768,87 @@ class MechanicalDesignAgent:
             rationale=f"{len(centres)} hole(s) O({diameter}) x {depth}.",
         ))
         return features
+
+    def _build_swept_strip(
+        self, req: Requirement, form: dict[str, Any], prior: str
+    ) -> list[FeatureSpec]:
+        """A formed constant-thickness strip: side profile swept across a width.
+
+        The side path (lines and arcs in the (u, z) plane at a stated azimuth)
+        is offset by half the thickness on each side using the routing layer's
+        tangent-offset machinery, capped, tessellated to a polygon, and
+        extruded symmetrically to the strip width - the general form of bent
+        straps, clips and formed brackets.
+        """
+        import math as _m
+
+        from aief_cad import routing as _rt
+        from aief_cad.expr import evaluate
+
+        base = f"mech.{req.id}"
+        env = resolve_all(self._package_parameters)
+
+        def num(expr: Any) -> float:
+            return float(evaluate(str(expr), env))
+
+        thickness = num(_param_ref(req, "thickness", form))
+        az = num(form.get("plane_az_deg", 0.0))
+        segs = []
+        for s in form["side_path"]:
+            if s["type"] == "line":
+                segs.append({"type": "line",
+                             "start": [num(s["start"][0]), num(s["start"][1])],
+                             "end": [num(s["end"][0]), num(s["end"][1])]})
+            else:
+                segs.append({"type": "arc",
+                             "center": [num(s["center"][0]), num(s["center"][1])],
+                             "radius": num(s["radius"]),
+                             "start": [num(s["start"][0]), num(s["start"][1])],
+                             "end": [num(s["end"][0]), num(s["end"][1])],
+                             "ccw": bool(s["ccw"])})
+        outline = _rt._offset_outline(segs, thickness / 2.0)
+        pts_2d = []
+        for s in outline:
+            pts_2d.extend(_rt._sample_segment(s, step=1.0)[:-1])
+        ux, uy = _m.cos(_m.radians(az)), _m.sin(_m.radians(az))
+        points = [[round(u * ux, 5), round(u * uy, 5), round(z, 5)]
+                  for u, z in pts_2d]
+        sketch = str(form["sketch"])
+        plane = str(form.get("plane", f"PL_{req.id}"))
+        return [
+            FeatureSpec(
+                id=f"{base}.plane", kind="radial_plane",
+                params={"name": plane, "az_deg": f"{az + 90.0} deg"},
+                satisfies=(req.id,),
+                depends_on=(prior,) + tuple(form.get("after", ())),
+                rationale="Side-profile plane containing the strip path.",
+            ),
+            FeatureSpec(
+                id=f"{base}.sketch", kind="sketch",
+                params={"name": sketch, "plane": plane},
+                satisfies=(req.id,),
+                depends_on=(f"{base}.plane",),
+            ),
+            FeatureSpec(
+                id=f"{base}.profile", kind="sketch_profile",
+                params={"sketch": sketch, "points": points,
+                        "side_path_provenance": form.get("rationale", "")},
+                satisfies=(req.id,), depends_on=(f"{base}.sketch",),
+                rationale=(
+                    f"Strip side profile: {len(segs)} path segment(s) at "
+                    f"thickness {thickness:g}, tessellated to "
+                    f"{len(points)} points."
+                ),
+            ),
+            FeatureSpec(
+                id=f"{base}.extrude", kind="extrude",
+                params={"sketch": sketch,
+                        "distance": _param_ref(req, "width", form),
+                        "direction": "symmetric", "operation": "new_body",
+                        "body_name": str(form.get("body", f"{base}.body"))},
+                satisfies=(req.id,), depends_on=(f"{base}.profile",),
+            ),
+        ]
 
     def _build_transverse_drills(
         self, req: Requirement, form: dict[str, Any], prior: str
