@@ -1,0 +1,5471 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 4,
+      "executed": 3,
+      "execution_halt": "OP-0004 (assign_material) did not execute - ERROR: RuntimeError: no material matching 'Aluminum Oxide' in any loaded library",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453416.5567648,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "name": "SEWCP-400_SUPPORT_RING",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453416.2773528,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453416.8514824,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 16
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453416.8390617,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453417.8716586,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "first_saved": true,
+              "name": "SEWCP-400_SUPPORT_RING v0",
+              "persisted_name": "SEWCP-400_SUPPORT_RING"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453417.105012,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0004",
+          "error": {
+            "kind": "RuntimeError",
+            "message": "no material matching 'Aluminum Oxide' in any loaded library",
+            "trace": "Traceback (most recent call last):\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 191, in notify\n    observed = handler(cmd.get(\"args\") or {})\n  File \"C:\\Users\\<user>\\AppData\\Roaming\\Autodesk\\Autodesk Fusion 360\\API\\AddIns\\AIEF_CAD_Bridge\\bridge_ops_ext.py\", line 201, in op_assign_material\n    raise RuntimeError(\"no material matching %r in any loaded library\"\n                       % args[\"material\"])\nRuntimeError: no material matching 'Aluminum Oxide' in any loaded library\n"
+          },
+          "executed": false,
+          "finished_at": 1786453418.8265758,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786453418.4172235,
+          "status": "ERROR"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {
+          "name": "SEWCP-400_SUPPORT_RING",
+          "units": "mm"
+        },
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-400_SUPPORT_RING",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "20.3",
+                "name": "sr_h_supplied",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "300.0",
+                "name": "sr_web_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "294.0",
+                "name": "sr_web_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "14.0",
+                "name": "sr_web_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.0",
+                "name": "sr_fl_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "286.0",
+                "name": "sr_fl_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "(sr_h_supplied - sr_web_h) / 2",
+                "name": "sr_fl_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "7.0",
+                "name": "sr_bolt_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "302.0",
+                "name": "sr_bolt_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.05",
+                "name": "sr_slot_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "sr_slot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "sr_slot_dep",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "306.0",
+                "name": "sr_slot_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.5",
+                "name": "sr_reg_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "285.5",
+                "name": "sr_reg_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "0.5",
+                "name": "sr_reg_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-400_SUPPORT_RING"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "material": "Aluminum Oxide"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "G1_BFL",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BFLANGE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.rings",
+          "note": "Annular groove walls at O286 and O318 (mean O302, width 16); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "SR_BODY",
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "new_body",
+            "profile": "smallest",
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_WEB",
+            "offset": "sr_fl_h"
+          },
+          "feature": "thermal.SR-WEB-PLANE.plane",
+          "note": "Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "SR-WEB-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G2_WEB",
+            "plane": "PL_WEB"
+          },
+          "feature": "mech.SR-WEB.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -147.0,
+                  0.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  147.0,
+                  0.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  -147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -150.0,
+                  0.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  150.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  150.0,
+                  0.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  -150.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.rings",
+          "note": "Annular groove walls at O294 and O300 (mean O297, width 3); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_web_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TFL",
+            "offset": "sr_fl_h + sr_web_h"
+          },
+          "feature": "thermal.SR-TFL-PLANE.plane",
+          "note": "Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "SR-TFL-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G3_TFL",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.rings",
+          "note": "Annular groove walls at O286 and O318 (mean O302, width 16); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G4_BOLT_B",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BOLT-B.sketch",
+          "note": "Hole pattern sketch for SR-BOLT-B on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h1",
+          "note": "Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h2",
+          "note": "Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h3",
+          "note": "Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h4",
+          "note": "Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0020",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h5",
+          "note": "Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0021",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h6",
+          "note": "Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0022",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h7",
+          "note": "Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0023",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h8",
+          "note": "Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0024",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.cut",
+          "note": "8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "OP-0025",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "name": "G5_BOLT_T",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-BOLT-T.sketch",
+          "note": "Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+          "op": "create_sketch",
+          "op_id": "OP-0026",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h1",
+          "note": "Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0027",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h2",
+          "note": "Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0028",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h3",
+          "note": "Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0029",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h4",
+          "note": "Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0030",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h5",
+          "note": "Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0031",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h6",
+          "note": "Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0032",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h7",
+          "note": "Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0033",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h8",
+          "note": "Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0034",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.cut",
+          "note": "8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "OP-0035",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TOP_FACE",
+            "offset": "sr_h_supplied"
+          },
+          "feature": "thermal.SR-TOP-PLANE.plane",
+          "note": "Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0036",
+          "satisfies": [
+            "SR-TOP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G6_SLOTS",
+            "plane": "PL_TOP_FACE"
+          },
+          "feature": "mech.SR-SLOTS.sketch",
+          "note": "Slot pattern sketch for SR-SLOTS.",
+          "op": "create_sketch",
+          "op_id": "OP-0037",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "end": [
+                  74.367773,
+                  134.858762
+                ],
+                "start": [
+                  73.392773,
+                  133.170012
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.9875,
+                  133.346262
+                ],
+                "end": [
+                  79.607227,
+                  131.833762
+                ],
+                "radius": 3.025,
+                "start": [
+                  74.367773,
+                  134.858762
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  78.632227,
+                  130.145012
+                ],
+                "start": [
+                  79.607227,
+                  131.833762
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.0125,
+                  131.657512
+                ],
+                "end": [
+                  73.392773,
+                  133.170012
+                ],
+                "radius": 3.025,
+                "start": [
+                  78.632227,
+                  130.145012
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  -153.975,
+                  -3.025
+                ],
+                "start": [
+                  -152.025,
+                  -3.025
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  -153.975,
+                  0.0
+                ],
+                "end": [
+                  -153.975,
+                  3.025
+                ],
+                "radius": 3.025,
+                "start": [
+                  -153.975,
+                  -3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  -152.025,
+                  3.025
+                ],
+                "start": [
+                  -153.975,
+                  3.025
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  -152.025,
+                  0.0
+                ],
+                "end": [
+                  -152.025,
+                  -3.025
+                ],
+                "radius": 3.025,
+                "start": [
+                  -152.025,
+                  3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  79.607227,
+                  -131.833762
+                ],
+                "start": [
+                  78.632227,
+                  -130.145012
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.9875,
+                  -133.346262
+                ],
+                "end": [
+                  74.367773,
+                  -134.858762
+                ],
+                "radius": 3.025,
+                "start": [
+                  79.607227,
+                  -131.833762
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  73.392773,
+                  -133.170012
+                ],
+                "start": [
+                  74.367773,
+                  -134.858762
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.0125,
+                  -131.657512
+                ],
+                "end": [
+                  78.632227,
+                  -130.145012
+                ],
+                "radius": 3.025,
+                "start": [
+                  73.392773,
+                  -133.170012
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.outlines",
+          "note": "3 radially-oriented obround(s) 8 x 6.05, ends fully rounded.",
+          "op": "sketch_path",
+          "op_id": "OP-0038",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sr_slot_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.cut",
+          "note": "Slot cut, depth sr_slot_dep.",
+          "op": "extrude",
+          "op_id": "OP-0039",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "name": "G7_REG",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-REGISTER.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0040",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -142.75,
+                  0.0
+                ],
+                "radius": 142.75,
+                "start": [
+                  142.75,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  142.75,
+                  0.0
+                ],
+                "radius": 142.75,
+                "start": [
+                  -142.75,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -159.25,
+                  0.0
+                ],
+                "radius": 159.25,
+                "start": [
+                  159.25,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  159.25,
+                  0.0
+                ],
+                "radius": 159.25,
+                "start": [
+                  -159.25,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G7_REG"
+          },
+          "feature": "mech.SR-REGISTER.rings",
+          "note": "Annular groove walls at O285.5 and O318.5 (mean O302, width 16.5); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0041",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_reg_dep",
+            "operation": "cut",
+            "profile": "smallest",
+            "sketch": "G7_REG"
+          },
+          "feature": "mech.SR-REGISTER.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0042",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0043",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 2,
+        "diagnoses": [
+          {
+            "evidence": "bodies.count: expected 1, observed 0 (delta 1 exceeds tolerance 1e-06)",
+            "failed_requirement": "bodies.count",
+            "finding": "ACC-BODY-COUNT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dz: expected 20.3, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dx: expected 318.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dy: expected 318.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "features.count: expected 7, observed 0 (delta 7 exceeds tolerance 1e-06)",
+            "failed_requirement": "features.count",
+            "finding": "ACC-FEATURES",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.mass_kg: expected 0.62, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "MFG-SR",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "bodies.count: expected '>= 1', observed 0 (the solution extrudes a solid but the model reports no body)",
+            "failed_requirement": "bodies.count",
+            "finding": "GEO-BODY-PRESENT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G1_BFL.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G1_BFL.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-BFLANGE.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G2_WEB.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G2_WEB.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-WEB.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G3_TFL.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G3_TFL.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-TFLANGE.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G6_SLOTS.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G6_SLOTS.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-SLOTS.outlines",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G7_REG.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G7_REG.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-REGISTER.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "plane:PL_TOP_FACE.offset_mm: expected 20.3, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-TOP-PLANE",
+            "finding": "ACC-PL-TOP",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "sketch:G6_SLOTS.exists: expected True, observed False (boolean mismatch)",
+            "failed_requirement": "SR-SLOTS",
+            "finding": "ACC-SK-SLOTS",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_WEB.exists: expected True, observed False (construction plane 'PL_WEB' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_WEB.exists",
+            "finding": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TFL.exists: expected True, observed False (construction plane 'PL_TFL' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TFL.exists",
+            "finding": "IF-PLANE-thermal.SR-TFL-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TOP_FACE.exists: expected True, observed False (construction plane 'PL_TOP_FACE' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TOP_FACE.exists",
+            "finding": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "component.name: expected 'SEWCP-400_SUPPORT_RING', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "component.name",
+            "finding": "ACC-NAME",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 16, observed 0 (delta 16 exceeds tolerance 1e-06)",
+            "failed_requirement": "parameters.count",
+            "finding": "ACC-PARAM-COUNT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:sr_fl_h.value: expected 3.15, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-FL-H",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:sr_fl_h.is_derived: expected True, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "parameter:sr_fl_h.is_derived",
+            "finding": "ACC-FL-H-DERIVED",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 16, observed 0 (16 declared parameter(s) absent from the model: sr_bolt_bc, sr_bolt_d, sr_fl_h, sr_fl_id, sr_fl_od, sr_h_supplied, sr_reg_dep, sr_reg_id ...)",
+            "failed_requirement": "parameters.count",
+            "finding": "CON-PARAM-PRESENT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "parameters": [
+                {
+                  "comment": "",
+                  "expression": "20.3",
+                  "name": "sr_h_supplied",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "300.0",
+                  "name": "sr_web_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "294.0",
+                  "name": "sr_web_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "14.0",
+                  "name": "sr_web_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "318.0",
+                  "name": "sr_fl_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "286.0",
+                  "name": "sr_fl_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "(sr_h_supplied - sr_web_h) / 2",
+                  "name": "sr_fl_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "7.0",
+                  "name": "sr_bolt_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "302.0",
+                  "name": "sr_bolt_bc",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "6.05",
+                  "name": "sr_slot_w",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "8.0",
+                  "name": "sr_slot_l",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "sr_slot_dep",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "306.0",
+                  "name": "sr_slot_bc",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "318.5",
+                  "name": "sr_reg_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "285.5",
+                  "name": "sr_reg_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "0.5",
+                  "name": "sr_reg_dep",
+                  "unit": "mm"
+                }
+              ]
+            },
+            "feature": "setup.parameters",
+            "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+            "op": "set_parameters",
+            "op_id": "RP2-OP-0002",
+            "satisfies": []
+          },
+          {
+            "args": {
+              "name": "G1_BFL",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-BFLANGE.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0005",
+            "satisfies": [
+              "SR-BFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "SR_BODY",
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "new_body",
+              "profile": "smallest",
+              "sketch": "G1_BFL"
+            },
+            "feature": "mech.SR-BFLANGE.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0007",
+            "satisfies": [
+              "SR-BFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_WEB",
+              "offset": "sr_fl_h"
+            },
+            "feature": "thermal.SR-WEB-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0008",
+            "satisfies": [
+              "SR-WEB-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G2_WEB",
+              "plane": "PL_WEB"
+            },
+            "feature": "mech.SR-WEB.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0009",
+            "satisfies": [
+              "SR-WEB"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_web_h",
+              "operation": "join",
+              "profile": "smallest",
+              "sketch": "G2_WEB"
+            },
+            "feature": "mech.SR-WEB.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0011",
+            "satisfies": [
+              "SR-WEB"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TFL",
+              "offset": "sr_fl_h + sr_web_h"
+            },
+            "feature": "thermal.SR-TFL-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0012",
+            "satisfies": [
+              "SR-TFL-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G3_TFL",
+              "plane": "PL_TFL"
+            },
+            "feature": "mech.SR-TFLANGE.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0013",
+            "satisfies": [
+              "SR-TFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "join",
+              "profile": "smallest",
+              "sketch": "G3_TFL"
+            },
+            "feature": "mech.SR-TFLANGE.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0015",
+            "satisfies": [
+              "SR-TFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G4_BOLT_B",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-BOLT-B.sketch",
+            "note": "repair attempt 2: Hole pattern sketch for SR-BOLT-B on XY.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0016",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h1",
+            "note": "repair attempt 2: Hole 1 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0017",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h2",
+            "note": "repair attempt 2: Hole 2 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0018",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h3",
+            "note": "repair attempt 2: Hole 3 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0019",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h4",
+            "note": "repair attempt 2: Hole 4 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0020",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                -57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h5",
+            "note": "repair attempt 2: Hole 5 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0021",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                -139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h6",
+            "note": "repair attempt 2: Hole 6 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0022",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                -139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h7",
+            "note": "repair attempt 2: Hole 7 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0023",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                -57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h8",
+            "note": "repair attempt 2: Hole 8 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0024",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.cut",
+            "note": "repair attempt 2: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0025",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "name": "G5_BOLT_T",
+              "plane": "PL_TFL"
+            },
+            "feature": "mech.SR-BOLT-T.sketch",
+            "note": "repair attempt 2: Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0026",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h1",
+            "note": "repair attempt 2: Hole 1 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0027",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h2",
+            "note": "repair attempt 2: Hole 2 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0028",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h3",
+            "note": "repair attempt 2: Hole 3 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0029",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h4",
+            "note": "repair attempt 2: Hole 4 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0030",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                -57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h5",
+            "note": "repair attempt 2: Hole 5 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0031",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                -139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h6",
+            "note": "repair attempt 2: Hole 6 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0032",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                -139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h7",
+            "note": "repair attempt 2: Hole 7 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0033",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                -57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h8",
+            "note": "repair attempt 2: Hole 8 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP2-OP-0034",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.cut",
+            "note": "repair attempt 2: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0035",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TOP_FACE",
+              "offset": "sr_h_supplied"
+            },
+            "feature": "thermal.SR-TOP-PLANE.plane",
+            "note": "repair attempt 2: Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP2-OP-0036",
+            "satisfies": [
+              "SR-TOP-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G6_SLOTS",
+              "plane": "PL_TOP_FACE"
+            },
+            "feature": "mech.SR-SLOTS.sketch",
+            "note": "repair attempt 2: Slot pattern sketch for SR-SLOTS.",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0037",
+            "satisfies": [
+              "SR-SLOTS"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "sr_slot_dep",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G6_SLOTS"
+            },
+            "feature": "mech.SR-SLOTS.cut",
+            "note": "repair attempt 2: Slot cut, depth sr_slot_dep.",
+            "op": "extrude",
+            "op_id": "RP2-OP-0039",
+            "satisfies": [
+              "SR-SLOTS"
+            ]
+          },
+          {
+            "args": {
+              "name": "G7_REG",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-REGISTER.sketch",
+            "note": "repair attempt 2: ",
+            "op": "create_sketch",
+            "op_id": "RP2-OP-0040",
+            "satisfies": [
+              "SR-REGISTER"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_reg_dep",
+              "operation": "cut",
+              "profile": "smallest",
+              "sketch": "G7_REG"
+            },
+            "feature": "mech.SR-REGISTER.cut",
+            "note": "repair attempt 2: ",
+            "op": "extrude",
+            "op_id": "RP2-OP-0042",
+            "satisfies": [
+              "SR-REGISTER"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP2-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 34 operation(s) of kind(s) construction_sketch, extrude, offset_plane, parameters, sketch, sketch_circle that bear on 22 failed check(s)"
+      },
+      "sequence_digest": "sha256:19a319ef5dba8fa9f2e1cc579c4ee76436321fd9383a99d775880eff8bf0b1b7",
+      "verdict": {
+        "attempt": 1,
+        "checks": 26,
+        "failed": 22,
+        "reports": [
+          {
+            "checks": 12,
+            "failed": 12,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 7 exceeds tolerance 1e-06",
+                "expected": 7,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.62,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "MFG-SR",
+                "subject": "body:SR_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-BFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G1_BFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-WEB.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G2_WEB.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-TFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G3_TFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-SLOTS.outlines",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G6_SLOTS.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-REGISTER.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G7_REG.curve_geometry"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 5,
+            "failed": 5,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-PL-TOP",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-TOP-PLANE",
+                "subject": "plane:PL_TOP_FACE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-SLOTS",
+                "observed": false,
+                "passed": false,
+                "requirement": "SR-SLOTS",
+                "subject": "sketch:G6_SLOTS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_WEB' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_WEB.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TFL' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TFL-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TFL.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TOP_FACE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TOP_FACE.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 5,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-400_SUPPORT_RING",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 16 exceeds tolerance 1e-06",
+                "expected": 16,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 3.15,
+                "id": "ACC-FL-H",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "parameter:sr_fl_h.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-FL-H-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:sr_fl_h.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "16 declared parameter(s) absent from the model: sr_bolt_bc, sr_bolt_d, sr_fl_h, sr_fl_id, sr_fl_od, sr_h_supplied, sr_reg_dep, sr_reg_id ...",
+                "expected": 16,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T183336-a70c01.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 2,
+      "dispatched": 3,
+      "executed": 2,
+      "execution_halt": "RP2-OP-0007 (extrude) did not execute - ERROR: RuntimeError: sketch 'G1_BFL' yields no closed profile",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453416.8514824,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 16
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453416.8390617,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T183336-a70c01.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453419.0070474,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G1_BFL",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453418.9940968,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T183336-a70c01.S1-0003",
+          "error": {
+            "kind": "RuntimeError",
+            "message": "sketch 'G1_BFL' yields no closed profile",
+            "trace": "Traceback (most recent call last):\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 191, in notify\n    observed = handler(cmd.get(\"args\") or {})\n  File \"C:\\Users\\<user>\\AppData\\Roaming\\Autodesk\\Autodesk Fusion 360\\API\\AddIns\\AIEF_CAD_Bridge\\bridge_ops_ext.py\", line 241, in op_extrude\n    raise RuntimeError(\"sketch %r yields no closed profile\" % args[\"sketch\"])\nRuntimeError: sketch 'G1_BFL' yields no closed profile\n"
+          },
+          "executed": false,
+          "finished_at": 1786453419.2337568,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v0",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786453419.2327619,
+          "status": "ERROR"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {},
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "20.3",
+                "name": "sr_h_supplied",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "300.0",
+                "name": "sr_web_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "294.0",
+                "name": "sr_web_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "14.0",
+                "name": "sr_web_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.0",
+                "name": "sr_fl_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "286.0",
+                "name": "sr_fl_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "(sr_h_supplied - sr_web_h) / 2",
+                "name": "sr_fl_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "7.0",
+                "name": "sr_bolt_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "302.0",
+                "name": "sr_bolt_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.05",
+                "name": "sr_slot_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "sr_slot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "sr_slot_dep",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "306.0",
+                "name": "sr_slot_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.5",
+                "name": "sr_reg_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "285.5",
+                "name": "sr_reg_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "0.5",
+                "name": "sr_reg_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "repair attempt 2: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "RP2-OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "G1_BFL",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BFLANGE.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0005",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "SR_BODY",
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "new_body",
+            "profile": "smallest",
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0007",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_WEB",
+            "offset": "sr_fl_h"
+          },
+          "feature": "thermal.SR-WEB-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0008",
+          "satisfies": [
+            "SR-WEB-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G2_WEB",
+            "plane": "PL_WEB"
+          },
+          "feature": "mech.SR-WEB.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0009",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_web_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0011",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TFL",
+            "offset": "sr_fl_h + sr_web_h"
+          },
+          "feature": "thermal.SR-TFL-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0012",
+          "satisfies": [
+            "SR-TFL-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G3_TFL",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0013",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0015",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G4_BOLT_B",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BOLT-B.sketch",
+          "note": "repair attempt 2: Hole pattern sketch for SR-BOLT-B on XY.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0016",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h1",
+          "note": "repair attempt 2: Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0017",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h2",
+          "note": "repair attempt 2: Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0018",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h3",
+          "note": "repair attempt 2: Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0019",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h4",
+          "note": "repair attempt 2: Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0020",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h5",
+          "note": "repair attempt 2: Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0021",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h6",
+          "note": "repair attempt 2: Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0022",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h7",
+          "note": "repair attempt 2: Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0023",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h8",
+          "note": "repair attempt 2: Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0024",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.cut",
+          "note": "repair attempt 2: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0025",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "name": "G5_BOLT_T",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-BOLT-T.sketch",
+          "note": "repair attempt 2: Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0026",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h1",
+          "note": "repair attempt 2: Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0027",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h2",
+          "note": "repair attempt 2: Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0028",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h3",
+          "note": "repair attempt 2: Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0029",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h4",
+          "note": "repair attempt 2: Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0030",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h5",
+          "note": "repair attempt 2: Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0031",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h6",
+          "note": "repair attempt 2: Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0032",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h7",
+          "note": "repair attempt 2: Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0033",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h8",
+          "note": "repair attempt 2: Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP2-OP-0034",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.cut",
+          "note": "repair attempt 2: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0035",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TOP_FACE",
+            "offset": "sr_h_supplied"
+          },
+          "feature": "thermal.SR-TOP-PLANE.plane",
+          "note": "repair attempt 2: Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP2-OP-0036",
+          "satisfies": [
+            "SR-TOP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G6_SLOTS",
+            "plane": "PL_TOP_FACE"
+          },
+          "feature": "mech.SR-SLOTS.sketch",
+          "note": "repair attempt 2: Slot pattern sketch for SR-SLOTS.",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0037",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sr_slot_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.cut",
+          "note": "repair attempt 2: Slot cut, depth sr_slot_dep.",
+          "op": "extrude",
+          "op_id": "RP2-OP-0039",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "name": "G7_REG",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-REGISTER.sketch",
+          "note": "repair attempt 2: ",
+          "op": "create_sketch",
+          "op_id": "RP2-OP-0040",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_reg_dep",
+            "operation": "cut",
+            "profile": "smallest",
+            "sketch": "G7_REG"
+          },
+          "feature": "mech.SR-REGISTER.cut",
+          "note": "repair attempt 2: ",
+          "op": "extrude",
+          "op_id": "RP2-OP-0042",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP2-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "repair": {
+        "attempt": 3,
+        "diagnoses": [
+          {
+            "evidence": "bodies.count: expected 1, observed 0 (delta 1 exceeds tolerance 1e-06)",
+            "failed_requirement": "bodies.count",
+            "finding": "ACC-BODY-COUNT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dz: expected 20.3, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DZ",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dx: expected 318.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DX",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.dy: expected 318.0, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-BODY-DY",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "features.count: expected 7, observed 0 (delta 7 exceeds tolerance 1e-06)",
+            "failed_requirement": "features.count",
+            "finding": "ACC-FEATURES",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "body:SR_BODY.mass_kg: expected 0.62, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "MFG-SR",
+            "finding": "ACC-MASS",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "bodies.count: expected '>= 1', observed 0 (the solution extrudes a solid but the model reports no body)",
+            "failed_requirement": "bodies.count",
+            "finding": "GEO-BODY-PRESENT",
+            "likely_cause": "the solid was not created, or its extent does not match the distance the solution declares",
+            "proposed_correction": "re-dispatch the profile and extrude operations for this body",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G1_BFL.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G1_BFL.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-BFLANGE.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G2_WEB.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G2_WEB.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-WEB.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G3_TFL.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G3_TFL.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-TFLANGE.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G6_SLOTS.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G6_SLOTS.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-SLOTS.outlines",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "sketch:G7_REG.curve_geometry: expected 'curve geometry reported by the observing add-in', observed 'sketch not observed' (the routed path cannot be verified without observed curve geometry; unmeasured is not compliant)",
+            "failed_requirement": "sketch:G7_REG.curve_geometry",
+            "finding": "GEO-PATH-OBSERVED-mech.SR-REGISTER.rings",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.design-engineer",
+            "responsible_area": "geometry"
+          },
+          {
+            "evidence": "plane:PL_TOP_FACE.offset_mm: expected 20.3, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-TOP-PLANE",
+            "finding": "ACC-PL-TOP",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "sketch:G6_SLOTS.exists: expected True, observed False (boolean mismatch)",
+            "failed_requirement": "SR-SLOTS",
+            "finding": "ACC-SK-SLOTS",
+            "likely_cause": "the sketch is absent from the model",
+            "proposed_correction": "re-dispatch the sketch creation operation",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_WEB.exists: expected True, observed False (construction plane 'PL_WEB' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_WEB.exists",
+            "finding": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TFL.exists: expected True, observed False (construction plane 'PL_TFL' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TFL.exists",
+            "finding": "IF-PLANE-thermal.SR-TFL-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "plane:PL_TOP_FACE.exists: expected True, observed False (construction plane 'PL_TOP_FACE' is declared by the solution and absent from the model; every feature that locates against it is unlocated)",
+            "failed_requirement": "plane:PL_TOP_FACE.exists",
+            "finding": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+            "likely_cause": "the construction plane is absent or sits at the wrong offset",
+            "proposed_correction": "re-dispatch the offset_plane operation for this datum",
+            "repairable": true,
+            "responsible_agent": "mechanical.simulation-engineer",
+            "responsible_area": "interface"
+          },
+          {
+            "evidence": "document.units: expected 'mm', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "document.units",
+            "finding": "ACC-UNITS",
+            "likely_cause": "the document was created in a different length unit, which rescales every dimension in the solution",
+            "proposed_correction": "the document unit cannot be corrected in place without reinterpreting existing geometry - escalate",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "component.name: expected 'SEWCP-400_SUPPORT_RING', observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "component.name",
+            "finding": "ACC-NAME",
+            "likely_cause": "no rule in this layer classifies this failure",
+            "proposed_correction": "escalate to the responsible agent; an unclassified failure is not repaired by guessing",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 16, observed 0 (delta 16 exceeds tolerance 1e-06)",
+            "failed_requirement": "parameters.count",
+            "finding": "ACC-PARAM-COUNT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:sr_fl_h.value: expected 3.15, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "SR-BFLANGE",
+            "finding": "ACC-FL-H",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameter:sr_fl_h.is_derived: expected True, observed None (not present in the observed model. A check that cannot be evaluated has not passed)",
+            "failed_requirement": "parameter:sr_fl_h.is_derived",
+            "finding": "ACC-FL-H-DERIVED",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "parameters.count: expected 16, observed 0 (16 declared parameter(s) absent from the model: sr_bolt_bc, sr_bolt_d, sr_fl_h, sr_fl_id, sr_fl_od, sr_h_supplied, sr_reg_dep, sr_reg_id ...)",
+            "failed_requirement": "parameters.count",
+            "finding": "CON-PARAM-PRESENT",
+            "likely_cause": "the parameter set was not applied, or was applied to a different document than the one observed",
+            "proposed_correction": "re-dispatch set_parameters for the full solution parameter set",
+            "repairable": true,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          },
+          {
+            "evidence": "document.units: expected 'mm', observed None (every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them)",
+            "failed_requirement": "document.units",
+            "finding": "CON-UNITS",
+            "likely_cause": "the document was created in a different length unit, which rescales every dimension in the solution",
+            "proposed_correction": "the document unit cannot be corrected in place without reinterpreting existing geometry - escalate",
+            "repairable": false,
+            "responsible_agent": "model-setup",
+            "responsible_area": "constraint"
+          }
+        ],
+        "ops": [
+          {
+            "args": {
+              "parameters": [
+                {
+                  "comment": "",
+                  "expression": "20.3",
+                  "name": "sr_h_supplied",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "300.0",
+                  "name": "sr_web_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "294.0",
+                  "name": "sr_web_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "14.0",
+                  "name": "sr_web_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "318.0",
+                  "name": "sr_fl_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "286.0",
+                  "name": "sr_fl_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "(sr_h_supplied - sr_web_h) / 2",
+                  "name": "sr_fl_h",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "7.0",
+                  "name": "sr_bolt_d",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "302.0",
+                  "name": "sr_bolt_bc",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "6.05",
+                  "name": "sr_slot_w",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "8.0",
+                  "name": "sr_slot_l",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "3.0",
+                  "name": "sr_slot_dep",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "306.0",
+                  "name": "sr_slot_bc",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "318.5",
+                  "name": "sr_reg_od",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "285.5",
+                  "name": "sr_reg_id",
+                  "unit": "mm"
+                },
+                {
+                  "comment": "",
+                  "expression": "0.5",
+                  "name": "sr_reg_dep",
+                  "unit": "mm"
+                }
+              ]
+            },
+            "feature": "setup.parameters",
+            "note": "repair attempt 3: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+            "op": "set_parameters",
+            "op_id": "RP3-OP-0002",
+            "satisfies": []
+          },
+          {
+            "args": {
+              "name": "G1_BFL",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-BFLANGE.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0005",
+            "satisfies": [
+              "SR-BFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "body_name": "SR_BODY",
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "new_body",
+              "profile": "smallest",
+              "sketch": "G1_BFL"
+            },
+            "feature": "mech.SR-BFLANGE.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0007",
+            "satisfies": [
+              "SR-BFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_WEB",
+              "offset": "sr_fl_h"
+            },
+            "feature": "thermal.SR-WEB-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0008",
+            "satisfies": [
+              "SR-WEB-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G2_WEB",
+              "plane": "PL_WEB"
+            },
+            "feature": "mech.SR-WEB.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0009",
+            "satisfies": [
+              "SR-WEB"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_web_h",
+              "operation": "join",
+              "profile": "smallest",
+              "sketch": "G2_WEB"
+            },
+            "feature": "mech.SR-WEB.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0011",
+            "satisfies": [
+              "SR-WEB"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TFL",
+              "offset": "sr_fl_h + sr_web_h"
+            },
+            "feature": "thermal.SR-TFL-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0012",
+            "satisfies": [
+              "SR-TFL-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G3_TFL",
+              "plane": "PL_TFL"
+            },
+            "feature": "mech.SR-TFLANGE.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0013",
+            "satisfies": [
+              "SR-TFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "join",
+              "profile": "smallest",
+              "sketch": "G3_TFL"
+            },
+            "feature": "mech.SR-TFLANGE.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0015",
+            "satisfies": [
+              "SR-TFLANGE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G4_BOLT_B",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-BOLT-B.sketch",
+            "note": "repair attempt 3: Hole pattern sketch for SR-BOLT-B on XY.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0016",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h1",
+            "note": "repair attempt 3: Hole 1 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0017",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h2",
+            "note": "repair attempt 3: Hole 2 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0018",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h3",
+            "note": "repair attempt 3: Hole 3 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0019",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h4",
+            "note": "repair attempt 3: Hole 4 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0020",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                -57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h5",
+            "note": "repair attempt 3: Hole 5 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0021",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                -139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h6",
+            "note": "repair attempt 3: Hole 6 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0022",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                -139.505809,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h7",
+            "note": "repair attempt 3: Hole 7 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0023",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                -57.785198,
+                0.0
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.h8",
+            "note": "repair attempt 3: Hole 8 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0024",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G4_BOLT_B"
+            },
+            "feature": "mech.SR-BOLT-B.cut",
+            "note": "repair attempt 3: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0025",
+            "satisfies": [
+              "SR-BOLT-B"
+            ]
+          },
+          {
+            "args": {
+              "name": "G5_BOLT_T",
+              "plane": "PL_TFL"
+            },
+            "feature": "mech.SR-BOLT-T.sketch",
+            "note": "repair attempt 3: Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0026",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h1",
+            "note": "repair attempt 3: Hole 1 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0027",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h2",
+            "note": "repair attempt 3: Hole 2 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0028",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h3",
+            "note": "repair attempt 3: Hole 3 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0029",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h4",
+            "note": "repair attempt 3: Hole 4 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0030",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -139.505809,
+                -57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h5",
+            "note": "repair attempt 3: Hole 5 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0031",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                -57.785198,
+                -139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h6",
+            "note": "repair attempt 3: Hole 6 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0032",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                57.785198,
+                -139.505809,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h7",
+            "note": "repair attempt 3: Hole 7 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0033",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "center_model": [
+                139.505809,
+                -57.785198,
+                17.15
+              ],
+              "diameter": "sr_bolt_d",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.h8",
+            "note": "repair attempt 3: Hole 8 of 8, centre governed by the pattern's parameters.",
+            "op": "sketch_circle",
+            "op_id": "RP3-OP-0034",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_fl_h",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G5_BOLT_T"
+            },
+            "feature": "mech.SR-BOLT-T.cut",
+            "note": "repair attempt 3: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0035",
+            "satisfies": [
+              "SR-BOLT-T"
+            ]
+          },
+          {
+            "args": {
+              "base": "XY",
+              "name": "PL_TOP_FACE",
+              "offset": "sr_h_supplied"
+            },
+            "feature": "thermal.SR-TOP-PLANE.plane",
+            "note": "repair attempt 3: Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+            "op": "offset_plane",
+            "op_id": "RP3-OP-0036",
+            "satisfies": [
+              "SR-TOP-PLANE"
+            ]
+          },
+          {
+            "args": {
+              "name": "G6_SLOTS",
+              "plane": "PL_TOP_FACE"
+            },
+            "feature": "mech.SR-SLOTS.sketch",
+            "note": "repair attempt 3: Slot pattern sketch for SR-SLOTS.",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0037",
+            "satisfies": [
+              "SR-SLOTS"
+            ]
+          },
+          {
+            "args": {
+              "direction": "negative",
+              "distance": "sr_slot_dep",
+              "operation": "cut",
+              "profile": "all",
+              "sketch": "G6_SLOTS"
+            },
+            "feature": "mech.SR-SLOTS.cut",
+            "note": "repair attempt 3: Slot cut, depth sr_slot_dep.",
+            "op": "extrude",
+            "op_id": "RP3-OP-0039",
+            "satisfies": [
+              "SR-SLOTS"
+            ]
+          },
+          {
+            "args": {
+              "name": "G7_REG",
+              "plane": "XY"
+            },
+            "feature": "mech.SR-REGISTER.sketch",
+            "note": "repair attempt 3: ",
+            "op": "create_sketch",
+            "op_id": "RP3-OP-0040",
+            "satisfies": [
+              "SR-REGISTER"
+            ]
+          },
+          {
+            "args": {
+              "direction": "positive",
+              "distance": "sr_reg_dep",
+              "operation": "cut",
+              "profile": "smallest",
+              "sketch": "G7_REG"
+            },
+            "feature": "mech.SR-REGISTER.cut",
+            "note": "repair attempt 3: ",
+            "op": "extrude",
+            "op_id": "RP3-OP-0042",
+            "satisfies": [
+              "SR-REGISTER"
+            ]
+          },
+          {
+            "args": {
+              "scope": [
+                "document",
+                "parameters",
+                "bodies",
+                "sketches",
+                "planes",
+                "features",
+                "material"
+              ]
+            },
+            "feature": null,
+            "note": "Re-observe after repair. Verification reads this, not the repair.",
+            "op": "observe",
+            "op_id": "RP3-OBSERVE",
+            "satisfies": []
+          }
+        ],
+        "rationale": "re-dispatching 34 operation(s) of kind(s) construction_sketch, extrude, offset_plane, parameters, sketch, sketch_circle that bear on 24 failed check(s)"
+      },
+      "sequence_digest": "sha256:4c755b32e214702e286771966e2ad3f21ecb1171305848bc27e7045adaf758ff",
+      "verdict": {
+        "attempt": 2,
+        "checks": 26,
+        "failed": 24,
+        "reports": [
+          {
+            "checks": 12,
+            "failed": 12,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 7 exceeds tolerance 1e-06",
+                "expected": 7,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.62,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "MFG-SR",
+                "subject": "body:SR_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-BFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G1_BFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-WEB.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G2_WEB.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-TFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G3_TFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-SLOTS.outlines",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G6_SLOTS.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-REGISTER.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G7_REG.curve_geometry"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 5,
+            "failed": 5,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-PL-TOP",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-TOP-PLANE",
+                "subject": "plane:PL_TOP_FACE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-SLOTS",
+                "observed": false,
+                "passed": false,
+                "requirement": "SR-SLOTS",
+                "subject": "sketch:G6_SLOTS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_WEB' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_WEB.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TFL' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TFL-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TFL.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TOP_FACE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TOP_FACE.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-400_SUPPORT_RING",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 16 exceeds tolerance 1e-06",
+                "expected": 16,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 3.15,
+                "id": "ACC-FL-H",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "parameter:sr_fl_h.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-FL-H-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:sr_fl_h.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "16 declared parameter(s) absent from the model: sr_bolt_bc, sr_bolt_d, sr_fl_h, sr_fl_id, sr_fl_od, sr_h_supplied, sr_reg_dep, sr_reg_id ...",
+                "expected": 16,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T183336-a70c01.S1",
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "attempt": 3,
+      "dispatched": 3,
+      "executed": 2,
+      "execution_halt": "RP3-OP-0007 (extrude) did not execute - ERROR: RuntimeError: sketch 'G1_BFL' yields no closed profile",
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T183336-a70c01.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453416.8514824,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 16
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453416.8390617,
+          "status": "OK"
+        },
+        {
+          "command_id": "A2-RUN-20260811T183336-a70c01.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453419.0070474,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v0",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G1_BFL",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453418.9940968,
+          "status": "OK"
+        },
+        {
+          "command_id": "A3-RUN-20260811T183336-a70c01.S1-0003",
+          "error": {
+            "kind": "RuntimeError",
+            "message": "sketch 'G1_BFL' yields no closed profile",
+            "trace": "Traceback (most recent call last):\n  File \"C:/Users/<user>/AppData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/AIEF_CAD_Bridge/AIEF_CAD_Bridge.py\", line 191, in notify\n    observed = handler(cmd.get(\"args\") or {})\n  File \"C:\\Users\\<user>\\AppData\\Roaming\\Autodesk\\Autodesk Fusion 360\\API\\AddIns\\AIEF_CAD_Bridge\\bridge_ops_ext.py\", line 241, in op_extrude\n    raise RuntimeError(\"sketch %r yields no closed profile\" % args[\"sketch\"])\nRuntimeError: sketch 'G1_BFL' yields no closed profile\n"
+          },
+          "executed": false,
+          "finished_at": 1786453419.4703283,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {},
+          "protocol": "aief-cad/1",
+          "started_at": 1786453419.4692996,
+          "status": "ERROR"
+        }
+      ],
+      "observed_model": {
+        "bodies": [],
+        "component": {},
+        "document": {},
+        "features": [],
+        "material": null,
+        "parameters": [],
+        "planes": [],
+        "sketches": []
+      },
+      "ops": [
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "20.3",
+                "name": "sr_h_supplied",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "300.0",
+                "name": "sr_web_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "294.0",
+                "name": "sr_web_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "14.0",
+                "name": "sr_web_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.0",
+                "name": "sr_fl_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "286.0",
+                "name": "sr_fl_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "(sr_h_supplied - sr_web_h) / 2",
+                "name": "sr_fl_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "7.0",
+                "name": "sr_bolt_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "302.0",
+                "name": "sr_bolt_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.05",
+                "name": "sr_slot_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "sr_slot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "sr_slot_dep",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "306.0",
+                "name": "sr_slot_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.5",
+                "name": "sr_reg_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "285.5",
+                "name": "sr_reg_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "0.5",
+                "name": "sr_reg_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "repair attempt 3: The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "RP3-OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "G1_BFL",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BFLANGE.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0005",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "SR_BODY",
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "new_body",
+            "profile": "smallest",
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0007",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_WEB",
+            "offset": "sr_fl_h"
+          },
+          "feature": "thermal.SR-WEB-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0008",
+          "satisfies": [
+            "SR-WEB-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G2_WEB",
+            "plane": "PL_WEB"
+          },
+          "feature": "mech.SR-WEB.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0009",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_web_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0011",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TFL",
+            "offset": "sr_fl_h + sr_web_h"
+          },
+          "feature": "thermal.SR-TFL-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0012",
+          "satisfies": [
+            "SR-TFL-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G3_TFL",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0013",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0015",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G4_BOLT_B",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BOLT-B.sketch",
+          "note": "repair attempt 3: Hole pattern sketch for SR-BOLT-B on XY.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0016",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h1",
+          "note": "repair attempt 3: Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0017",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h2",
+          "note": "repair attempt 3: Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0018",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h3",
+          "note": "repair attempt 3: Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0019",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h4",
+          "note": "repair attempt 3: Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0020",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h5",
+          "note": "repair attempt 3: Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0021",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h6",
+          "note": "repair attempt 3: Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0022",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h7",
+          "note": "repair attempt 3: Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0023",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h8",
+          "note": "repair attempt 3: Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0024",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.cut",
+          "note": "repair attempt 3: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0025",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "name": "G5_BOLT_T",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-BOLT-T.sketch",
+          "note": "repair attempt 3: Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0026",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h1",
+          "note": "repair attempt 3: Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0027",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h2",
+          "note": "repair attempt 3: Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0028",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h3",
+          "note": "repair attempt 3: Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0029",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h4",
+          "note": "repair attempt 3: Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0030",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h5",
+          "note": "repair attempt 3: Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0031",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h6",
+          "note": "repair attempt 3: Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0032",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h7",
+          "note": "repair attempt 3: Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0033",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h8",
+          "note": "repair attempt 3: Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "RP3-OP-0034",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.cut",
+          "note": "repair attempt 3: 8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0035",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TOP_FACE",
+            "offset": "sr_h_supplied"
+          },
+          "feature": "thermal.SR-TOP-PLANE.plane",
+          "note": "repair attempt 3: Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "RP3-OP-0036",
+          "satisfies": [
+            "SR-TOP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G6_SLOTS",
+            "plane": "PL_TOP_FACE"
+          },
+          "feature": "mech.SR-SLOTS.sketch",
+          "note": "repair attempt 3: Slot pattern sketch for SR-SLOTS.",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0037",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sr_slot_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.cut",
+          "note": "repair attempt 3: Slot cut, depth sr_slot_dep.",
+          "op": "extrude",
+          "op_id": "RP3-OP-0039",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "name": "G7_REG",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-REGISTER.sketch",
+          "note": "repair attempt 3: ",
+          "op": "create_sketch",
+          "op_id": "RP3-OP-0040",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_reg_dep",
+            "operation": "cut",
+            "profile": "smallest",
+            "sketch": "G7_REG"
+          },
+          "feature": "mech.SR-REGISTER.cut",
+          "note": "repair attempt 3: ",
+          "op": "extrude",
+          "op_id": "RP3-OP-0042",
+          "satisfies": [
+            "SR-REGISTER"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Re-observe after repair. Verification reads this, not the repair.",
+          "op": "observe",
+          "op_id": "RP3-OBSERVE",
+          "satisfies": []
+        }
+      ],
+      "sequence_digest": "sha256:4c755b32e214702e286771966e2ad3f21ecb1171305848bc27e7045adaf758ff",
+      "verdict": {
+        "attempt": 3,
+        "checks": 26,
+        "failed": 24,
+        "reports": [
+          {
+            "checks": 12,
+            "failed": 12,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "delta 1 exceeds tolerance 1e-06",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-BODY-DZ",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DX",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 318.0,
+                "id": "ACC-BODY-DY",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "delta 7 exceeds tolerance 1e-06",
+                "expected": 7,
+                "id": "ACC-FEATURES",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 0.62,
+                "id": "ACC-MASS",
+                "observed": null,
+                "passed": false,
+                "requirement": "MFG-SR",
+                "subject": "body:SR_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "the solution extrudes a solid but the model reports no body",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-BFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G1_BFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-WEB.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G2_WEB.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-TFLANGE.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G3_TFL.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-SLOTS.outlines",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G6_SLOTS.curve_geometry"
+              },
+              {
+                "area": "geometry",
+                "detail": "the routed path cannot be verified without observed curve geometry; unmeasured is not compliant",
+                "expected": "curve geometry reported by the observing add-in",
+                "id": "GEO-PATH-OBSERVED-mech.SR-REGISTER.rings",
+                "observed": "sketch not observed",
+                "passed": false,
+                "requirement": null,
+                "subject": "sketch:G7_REG.curve_geometry"
+              }
+            ],
+            "passed": false,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 5,
+            "failed": 5,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 20.3,
+                "id": "ACC-PL-TOP",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-TOP-PLANE",
+                "subject": "plane:PL_TOP_FACE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "boolean mismatch",
+                "expected": true,
+                "id": "ACC-SK-SLOTS",
+                "observed": false,
+                "passed": false,
+                "requirement": "SR-SLOTS",
+                "subject": "sketch:G6_SLOTS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_WEB' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_WEB.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TFL' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TFL-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TFL.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "construction plane 'PL_TOP_FACE' is declared by the solution and absent from the model; every feature that locates against it is unlocated",
+                "expected": true,
+                "id": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+                "observed": false,
+                "passed": false,
+                "requirement": null,
+                "subject": "plane:PL_TOP_FACE.exists"
+              }
+            ],
+            "passed": false,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 7,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": "SEWCP-400_SUPPORT_RING",
+                "id": "ACC-NAME",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "delta 16 exceeds tolerance 1e-06",
+                "expected": 16,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": 3.15,
+                "id": "ACC-FL-H",
+                "observed": null,
+                "passed": false,
+                "requirement": "SR-BFLANGE",
+                "subject": "parameter:sr_fl_h.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "not present in the observed model. A check that cannot be evaluated has not passed",
+                "expected": true,
+                "id": "ACC-FL-H-DERIVED",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameter:sr_fl_h.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "16 declared parameter(s) absent from the model: sr_bolt_bc, sr_bolt_d, sr_fl_h, sr_fl_id, sr_fl_od, sr_h_supplied, sr_reg_dep, sr_reg_id ...",
+                "expected": 16,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 0,
+                "passed": false,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "every dimension in the solution is stated in the declared unit; a document in another unit silently rescales all of them",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": null,
+                "passed": false,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": false,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T183336-a70c01.S1",
+        "verdict": "FAIL"
+      }
+    }
+  ],
+  "component": "SEWCP-400_SUPPORT_RING",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [
+    "attempt limit 3 reached with 24 check(s) still failing"
+  ],
+  "finished_at": 1786453419.7120495,
+  "package_digest": "sha256:a70c014832c9c43a8832b800d78517b63a2e96d1b2d6d660ab65c8d9b78c6d7d",
+  "package_id": "SEWCP-400-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:23da6492291097e15ae354a5edc6266395d58902699ea1fa6372cffa504d3109",
+  "run_id": "RUN-20260811T183336-a70c01",
+  "solution_digest": "sha256:805d207cfdbcf5808926faae3112cb370317c6a8afc8ecbcc46427dc8339b01b",
+  "solution_id": "RUN-20260811T183336-a70c01.S1",
+  "started_at": 1786453416.185409,
+  "verdict": "FAIL"
+}

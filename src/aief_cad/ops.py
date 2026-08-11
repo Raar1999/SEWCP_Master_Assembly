@@ -158,8 +158,12 @@ OP_SPECS: dict[str, OpSpec] = {
     ),
     "assign_material": OpSpec(
         required={"material": _is_str},
-        optional={"body": _is_str},
-        doc="Assign a physical material, which is what makes a mass check real.",
+        optional={"body": _is_str, "density": _is_num},
+        doc=(
+            "Assign a physical material, which is what makes a mass check "
+            "real. `density` (kg/m^3) lets the bridge create the stated "
+            "material when the host library lacks it."
+        ),
     ),
     "observe": OpSpec(
         required={},
@@ -364,7 +368,10 @@ def _args_for(kind: str, feat: FeatureSpec, solution: DesignSolution) -> dict[st
                 f"feature {feat.id}: material feature declared but the solution "
                 f"carries no material"
             )
-        return {"material": p.get("material", material.name if material else "")}
+        args = {"material": p.get("material", material.name if material else "")}
+        if material is not None and material.density:
+            args["density"] = float(material.density)
+        return args
     if kind == "document":
         return {"name": p["name"], "units": p.get("units", "mm")}
     if kind == "component_name":

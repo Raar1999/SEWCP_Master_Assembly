@@ -307,7 +307,10 @@ class MechanicalDesignAgent:
                     params={"sketch": sketch,
                             "distance": _param_ref(req, "depth", form),
                             "direction": str(form.get("direction", "negative")),
-                            "operation": "cut", "profile": "smallest"},
+                            "operation": str(form.get("operation", "cut")),
+                            "profile": "smallest",
+                            **({"body_name": str(form["body"])}
+                               if "body" in form else {})},
                     satisfies=(req.id,), depends_on=(f"{base_id}.rings",),
                 ),
             ]

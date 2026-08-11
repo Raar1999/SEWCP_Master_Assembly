@@ -1,0 +1,3856 @@
+{
+  "agents": [
+    "model-setup",
+    "mechanical.design-engineer",
+    "mechanical.simulation-engineer",
+    "mechanical.manufacturing-engineer"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "dispatched": 40,
+      "executed": 40,
+      "execution_halt": null,
+      "observations": [
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0001",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453556.1034281,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "document": {
+              "adopted": true,
+              "name": "SEWCP-400_SUPPORT_RING v1",
+              "persisted_name": "SEWCP-400_SUPPORT_RING",
+              "units": "mm"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453556.1024392,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0002",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453556.3771806,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "parameters_applied": 16
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453556.357844,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0003",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453556.6057484,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "component": {
+              "name": "SEWCP-400_SUPPORT_RING v1",
+              "persisted_name": "SEWCP-400_SUPPORT_RING"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453556.6050887,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0004",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453557.283802,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "material": {
+              "applied_to": [
+                "<component>"
+              ],
+              "name": "Aluminum Oxide"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453556.8694444,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0005",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453557.6707559,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G1_BFL",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453557.6653514,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0006",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453557.9689567,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 4,
+              "curves": 4,
+              "fully_constrained": true,
+              "lines": 0,
+              "name": "G1_BFL",
+              "profiles": 2
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453557.9234457,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0007",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453558.1871006,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453558.1757648,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0008",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453558.4406333,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_WEB"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453558.4364586,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0009",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453558.6985428,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G2_WEB",
+              "plane": "PL_WEB"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453558.693019,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0010",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453558.9776492,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 4,
+              "curves": 4,
+              "fully_constrained": true,
+              "lines": 0,
+              "name": "G2_WEB",
+              "profiles": 2
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453558.948855,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0011",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453559.225586,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453559.207688,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0012",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453559.457082,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_TFL"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453559.4493113,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0013",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453559.7193527,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G3_TFL",
+              "plane": "PL_TFL"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453559.7090864,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0014",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453560.0270166,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 4,
+              "curves": 4,
+              "fully_constrained": true,
+              "lines": 0,
+              "name": "G3_TFL",
+              "profiles": 2
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453559.9631715,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0015",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453560.2353802,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453560.219446,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0016",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453560.4961188,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G4_BOLT_B",
+              "plane": "XY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453560.4833245,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0017",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453560.7499733,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453560.7292585,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0018",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453561.0001278,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453560.9866629,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0019",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453561.2690096,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 3,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453561.2431977,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0020",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453561.5263774,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453561.49898,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0021",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453561.7749863,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 5,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453561.7556229,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0022",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453562.031571,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 6,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453562.0106668,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0023",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453562.2792559,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 7,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453562.263276,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0024",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453562.5555382,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 8,
+              "fully_constrained": true,
+              "name": "G4_BOLT_B"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453562.5239282,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0025",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453562.8371422,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453562.7803574,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0026",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453563.0544913,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G5_BOLT_T",
+              "plane": "PL_TFL"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453563.0477035,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0027",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453563.3173978,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 1,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453563.3025966,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0028",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453563.567596,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 2,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453563.5514882,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0029",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453563.8329716,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 3,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453563.8073204,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0030",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453564.0986226,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 4,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453564.0672557,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0031",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453564.3446221,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 5,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453564.323786,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0032",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453564.5962539,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 6,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453564.5790725,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0033",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453564.8640888,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 7,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453564.8323126,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0034",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453565.4009395,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "curves": 8,
+              "fully_constrained": true,
+              "name": "G5_BOLT_T"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453565.3571553,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0035",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453565.9229558,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453565.8684702,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0036",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453566.3944354,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "plane": {
+              "base": "XY",
+              "name": "PL_TOP_FACE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453566.3803875,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0037",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453566.9067228,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "name": "G6_SLOTS",
+              "plane": "PL_TOP_FACE"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453566.8958356,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0038",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453567.6552992,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "sketch": {
+              "arcs": 6,
+              "curves": 12,
+              "fully_constrained": true,
+              "lines": 6,
+              "name": "G6_SLOTS",
+              "profiles": 3
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453567.3935418,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0039",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453567.9591582,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "extrude": {
+              "bodies": 1,
+              "body_name": "SR_BODY"
+            }
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453567.9150877,
+          "status": "OK"
+        },
+        {
+          "command_id": "A1-RUN-20260811T183556-788260.S1-0040",
+          "error": null,
+          "executed": true,
+          "finished_at": 1786453568.2010915,
+          "fusion": {
+            "document": "SEWCP-400_SUPPORT_RING v1",
+            "version": "2704.1.53"
+          },
+          "observed": {
+            "bodies": [
+              {
+                "area_mm2": 93677.4352323762,
+                "bbox_max": [
+                  159.0,
+                  159.0,
+                  20.300000000000004
+                ],
+                "bbox_min": [
+                  -159.0,
+                  -159.0,
+                  0.0
+                ],
+                "mass_kg": 0.5168233551672233,
+                "material": "Aluminum Oxide",
+                "name": "SR_BODY",
+                "volume_mm3": 132518.80901723675
+              }
+            ],
+            "component": {
+              "name": "SEWCP-400_SUPPORT_RING v1",
+              "persisted_name": "SEWCP-400_SUPPORT_RING"
+            },
+            "document": {
+              "design_type": "parametric",
+              "name": "SEWCP-400_SUPPORT_RING v1",
+              "persisted_name": "SEWCP-400_SUPPORT_RING",
+              "saved": true,
+              "units": "mm"
+            },
+            "features": [
+              {
+                "name": "Extrude1",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude2",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude3",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude4",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude5",
+                "type": "ExtrudeFeature"
+              },
+              {
+                "name": "Extrude6",
+                "type": "ExtrudeFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "expression": "20.3 mm",
+                "name": "sr_h_supplied",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 20.3
+              },
+              {
+                "expression": "300.0 mm",
+                "name": "sr_web_od",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 300.0
+              },
+              {
+                "expression": "294.0 mm",
+                "name": "sr_web_id",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 294.0
+              },
+              {
+                "expression": "14.0 mm",
+                "name": "sr_web_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 14.0
+              },
+              {
+                "expression": "318.0 mm",
+                "name": "sr_fl_od",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 318.0
+              },
+              {
+                "expression": "286.0 mm",
+                "name": "sr_fl_id",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 286.0
+              },
+              {
+                "expression": "( sr_h_supplied - sr_web_h ) / 2",
+                "name": "sr_fl_h",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.1500000000000004
+              },
+              {
+                "expression": "7.0 mm",
+                "name": "sr_bolt_d",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 7.0
+              },
+              {
+                "expression": "302.0 mm",
+                "name": "sr_bolt_bc",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 302.0
+              },
+              {
+                "expression": "6.05 mm",
+                "name": "sr_slot_w",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 6.05
+              },
+              {
+                "expression": "8.0 mm",
+                "name": "sr_slot_l",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 8.0
+              },
+              {
+                "expression": "3.0 mm",
+                "name": "sr_slot_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 3.0000000000000004
+              },
+              {
+                "expression": "306.0 mm",
+                "name": "sr_slot_bc",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 306.0
+              },
+              {
+                "expression": "318.5 mm",
+                "name": "sr_reg_od",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 318.5
+              },
+              {
+                "expression": "285.5 mm",
+                "name": "sr_reg_id",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 285.5
+              },
+              {
+                "expression": "0.5 mm",
+                "name": "sr_reg_dep",
+                "unit": "mm",
+                "unit_basis": "length",
+                "value": 0.5
+              }
+            ],
+            "planes": [
+              {
+                "base": "XY",
+                "name": "PL_WEB",
+                "offset_mm": 3.1500000000000004
+              },
+              {
+                "base": "XY",
+                "name": "PL_TFL",
+                "offset_mm": 17.150000000000002
+              },
+              {
+                "base": "XY",
+                "name": "PL_TOP_FACE",
+                "offset_mm": 20.300000000000004
+              }
+            ],
+            "sketches": [
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -143.0,
+                      1.751244922780715e-14
+                    ],
+                    "mid": [
+                      8.756224613903576e-15,
+                      143.0
+                    ],
+                    "radius": 143.0,
+                    "start": [
+                      143.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      143.0,
+                      -1.751244922780715e-14
+                    ],
+                    "mid": [
+                      -8.756224613903576e-15,
+                      -143.0
+                    ],
+                    "radius": 143.0,
+                    "start": [
+                      -143.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -159.0,
+                      1.9471884106442917e-14
+                    ],
+                    "mid": [
+                      9.735942053221458e-15,
+                      159.0
+                    ],
+                    "radius": 159.0,
+                    "start": [
+                      159.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      159.0,
+                      -1.9471884106442917e-14
+                    ],
+                    "mid": [
+                      -9.735942053221458e-15,
+                      -159.0
+                    ],
+                    "radius": 159.0,
+                    "start": [
+                      -159.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "G1_BFL",
+                "plane": "XY",
+                "profiles": 2
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -147.0,
+                      1.8002307947466092e-14
+                    ],
+                    "mid": [
+                      9.001153973733046e-15,
+                      147.0
+                    ],
+                    "radius": 147.0,
+                    "start": [
+                      147.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      147.0,
+                      -1.8002307947466092e-14
+                    ],
+                    "mid": [
+                      -9.001153973733046e-15,
+                      -147.0
+                    ],
+                    "radius": 147.0,
+                    "start": [
+                      -147.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -150.0,
+                      1.83697019872103e-14
+                    ],
+                    "mid": [
+                      9.18485099360515e-15,
+                      150.0
+                    ],
+                    "radius": 150.0,
+                    "start": [
+                      150.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      150.0,
+                      -1.83697019872103e-14
+                    ],
+                    "mid": [
+                      -9.18485099360515e-15,
+                      -150.0
+                    ],
+                    "radius": 150.0,
+                    "start": [
+                      -150.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "G2_WEB",
+                "plane": "PL_WEB",
+                "profiles": 2
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -143.0,
+                      1.751244922780715e-14
+                    ],
+                    "mid": [
+                      8.756224613903576e-15,
+                      143.0
+                    ],
+                    "radius": 143.0,
+                    "start": [
+                      143.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      143.0,
+                      -1.751244922780715e-14
+                    ],
+                    "mid": [
+                      -8.756224613903576e-15,
+                      -143.0
+                    ],
+                    "radius": 143.0,
+                    "start": [
+                      -143.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -159.0,
+                      1.9471884106442917e-14
+                    ],
+                    "mid": [
+                      9.735942053221458e-15,
+                      159.0
+                    ],
+                    "radius": 159.0,
+                    "start": [
+                      159.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "center": [
+                      0.0,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      159.0,
+                      -1.9471884106442917e-14
+                    ],
+                    "mid": [
+                      -9.735942053221458e-15,
+                      -159.0
+                    ],
+                    "radius": 159.0,
+                    "start": [
+                      -159.0,
+                      0.0
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 4,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "G3_TFL",
+                "plane": "PL_TFL",
+                "profiles": 2
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      139.505809,
+                      57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      57.785197999999994,
+                      139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -57.785197999999994,
+                      139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -139.505809,
+                      57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -139.505809,
+                      -57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -57.785197999999994,
+                      -139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      57.785197999999994,
+                      -139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      139.505809,
+                      -57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 8,
+                "dimensions": 8,
+                "fully_constrained": true,
+                "name": "G4_BOLT_B",
+                "plane": "XY",
+                "profiles": 8
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "center": [
+                      139.505809,
+                      57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      57.785197999999994,
+                      139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -57.785197999999994,
+                      139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -139.505809,
+                      57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -139.505809,
+                      -57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      -57.785197999999994,
+                      -139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      57.785197999999994,
+                      -139.505809
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  },
+                  {
+                    "center": [
+                      139.505809,
+                      -57.785197999999994
+                    ],
+                    "construction": false,
+                    "radius": 3.4999999999999964,
+                    "type": "circle"
+                  }
+                ],
+                "curves": 8,
+                "dimensions": 8,
+                "fully_constrained": true,
+                "name": "G5_BOLT_T",
+                "plane": "PL_TFL",
+                "profiles": 8
+              },
+              {
+                "construction_curves": 0,
+                "curve_geometry": [
+                  {
+                    "construction": false,
+                    "end": [
+                      74.367773,
+                      134.858762
+                    ],
+                    "start": [
+                      73.392773,
+                      133.170012
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      76.9875,
+                      133.346262
+                    ],
+                    "construction": false,
+                    "end": [
+                      74.367773,
+                      134.858762
+                    ],
+                    "mid": [
+                      78.50000001951845,
+                      135.965988988731
+                    ],
+                    "radius": 3.025000132980002,
+                    "start": [
+                      79.60722700000002,
+                      131.833762
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      78.632227,
+                      130.145012
+                    ],
+                    "start": [
+                      79.607227,
+                      131.833762
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      76.0125,
+                      131.657512
+                    ],
+                    "construction": false,
+                    "end": [
+                      78.632227,
+                      130.145012
+                    ],
+                    "mid": [
+                      74.5,
+                      129.037785
+                    ],
+                    "radius": 3.0250001329799736,
+                    "start": [
+                      73.39277300000003,
+                      133.17001199999999
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -153.975,
+                      -3.025
+                    ],
+                    "start": [
+                      -152.025,
+                      -3.025
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      -153.975,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -153.975,
+                      -3.025
+                    ],
+                    "mid": [
+                      -157.0,
+                      1.8522782837103716e-16
+                    ],
+                    "radius": 3.025,
+                    "start": [
+                      -153.975,
+                      3.025
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      -152.025,
+                      3.025
+                    ],
+                    "start": [
+                      -153.975,
+                      3.025
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      -152.025,
+                      0.0
+                    ],
+                    "construction": false,
+                    "end": [
+                      -152.025,
+                      3.025
+                    ],
+                    "mid": [
+                      -149.0,
+                      -1.8522782837103716e-16
+                    ],
+                    "radius": 3.025,
+                    "start": [
+                      -152.025,
+                      -3.025
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      79.607227,
+                      -131.833762
+                    ],
+                    "start": [
+                      78.632227,
+                      -130.145012
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      76.9875,
+                      -133.346262
+                    ],
+                    "construction": false,
+                    "end": [
+                      79.607227,
+                      -131.833762
+                    ],
+                    "mid": [
+                      78.49999998048152,
+                      -135.96598901126896
+                    ],
+                    "radius": 3.025000132979981,
+                    "start": [
+                      74.36777300000001,
+                      -134.858762
+                    ],
+                    "type": "arc"
+                  },
+                  {
+                    "construction": false,
+                    "end": [
+                      73.392773,
+                      -133.170012
+                    ],
+                    "start": [
+                      74.367773,
+                      -134.858762
+                    ],
+                    "type": "line"
+                  },
+                  {
+                    "center": [
+                      76.0125,
+                      -131.657512
+                    ],
+                    "construction": false,
+                    "end": [
+                      73.392773,
+                      -133.170012
+                    ],
+                    "mid": [
+                      74.499999966193,
+                      -129.03778501951845
+                    ],
+                    "radius": 3.0250001329800114,
+                    "start": [
+                      78.63222700000003,
+                      -130.145012
+                    ],
+                    "type": "arc"
+                  }
+                ],
+                "curves": 12,
+                "dimensions": 0,
+                "fully_constrained": true,
+                "name": "G6_SLOTS",
+                "plane": "PL_TOP_FACE",
+                "profiles": 3
+              }
+            ]
+          },
+          "protocol": "aief-cad/1",
+          "started_at": 1786453568.1785243,
+          "status": "OK"
+        }
+      ],
+      "observed_model": {
+        "bodies": [
+          {
+            "area_mm2": 93677.4352323762,
+            "bbox_max": [
+              159.0,
+              159.0,
+              20.300000000000004
+            ],
+            "bbox_min": [
+              -159.0,
+              -159.0,
+              0.0
+            ],
+            "mass_kg": 0.5168233551672233,
+            "material": "Aluminum Oxide",
+            "name": "SR_BODY",
+            "volume_mm3": 132518.80901723675
+          }
+        ],
+        "component": {
+          "display_name": "SEWCP-400_SUPPORT_RING v1",
+          "name": "SEWCP-400_SUPPORT_RING",
+          "name_source": "data_file",
+          "persisted_name": "SEWCP-400_SUPPORT_RING"
+        },
+        "document": {
+          "design_type": "parametric",
+          "name": "SEWCP-400_SUPPORT_RING v1",
+          "persisted_name": "SEWCP-400_SUPPORT_RING",
+          "saved": true,
+          "units": "mm"
+        },
+        "features": [
+          {
+            "name": "Extrude1",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude2",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude3",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude4",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude5",
+            "type": "ExtrudeFeature"
+          },
+          {
+            "name": "Extrude6",
+            "type": "ExtrudeFeature"
+          }
+        ],
+        "material": null,
+        "parameters": [
+          {
+            "expression": "20.3 mm",
+            "name": "sr_h_supplied",
+            "unit": "mm",
+            "value": 20.3
+          },
+          {
+            "expression": "300.0 mm",
+            "name": "sr_web_od",
+            "unit": "mm",
+            "value": 300.0
+          },
+          {
+            "expression": "294.0 mm",
+            "name": "sr_web_id",
+            "unit": "mm",
+            "value": 294.0
+          },
+          {
+            "expression": "14.0 mm",
+            "name": "sr_web_h",
+            "unit": "mm",
+            "value": 14.0
+          },
+          {
+            "expression": "318.0 mm",
+            "name": "sr_fl_od",
+            "unit": "mm",
+            "value": 318.0
+          },
+          {
+            "expression": "286.0 mm",
+            "name": "sr_fl_id",
+            "unit": "mm",
+            "value": 286.0
+          },
+          {
+            "expression": "( sr_h_supplied - sr_web_h ) / 2",
+            "name": "sr_fl_h",
+            "unit": "mm",
+            "value": 3.1500000000000004
+          },
+          {
+            "expression": "7.0 mm",
+            "name": "sr_bolt_d",
+            "unit": "mm",
+            "value": 7.0
+          },
+          {
+            "expression": "302.0 mm",
+            "name": "sr_bolt_bc",
+            "unit": "mm",
+            "value": 302.0
+          },
+          {
+            "expression": "6.05 mm",
+            "name": "sr_slot_w",
+            "unit": "mm",
+            "value": 6.05
+          },
+          {
+            "expression": "8.0 mm",
+            "name": "sr_slot_l",
+            "unit": "mm",
+            "value": 8.0
+          },
+          {
+            "expression": "3.0 mm",
+            "name": "sr_slot_dep",
+            "unit": "mm",
+            "value": 3.0000000000000004
+          },
+          {
+            "expression": "306.0 mm",
+            "name": "sr_slot_bc",
+            "unit": "mm",
+            "value": 306.0
+          },
+          {
+            "expression": "318.5 mm",
+            "name": "sr_reg_od",
+            "unit": "mm",
+            "value": 318.5
+          },
+          {
+            "expression": "285.5 mm",
+            "name": "sr_reg_id",
+            "unit": "mm",
+            "value": 285.5
+          },
+          {
+            "expression": "0.5 mm",
+            "name": "sr_reg_dep",
+            "unit": "mm",
+            "value": 0.5
+          }
+        ],
+        "planes": [
+          {
+            "base": "XY",
+            "name": "PL_WEB",
+            "offset_mm": 3.1500000000000004
+          },
+          {
+            "base": "XY",
+            "name": "PL_TFL",
+            "offset_mm": 17.150000000000002
+          },
+          {
+            "base": "XY",
+            "name": "PL_TOP_FACE",
+            "offset_mm": 20.300000000000004
+          }
+        ],
+        "sketches": [
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -143.0,
+                  1.751244922780715e-14
+                ],
+                "mid": [
+                  8.756224613903576e-15,
+                  143.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  143.0,
+                  -1.751244922780715e-14
+                ],
+                "mid": [
+                  -8.756224613903576e-15,
+                  -143.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -159.0,
+                  1.9471884106442917e-14
+                ],
+                "mid": [
+                  9.735942053221458e-15,
+                  159.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  159.0,
+                  -1.9471884106442917e-14
+                ],
+                "mid": [
+                  -9.735942053221458e-15,
+                  -159.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "G1_BFL",
+            "plane": "XY",
+            "profiles": 2
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -147.0,
+                  1.8002307947466092e-14
+                ],
+                "mid": [
+                  9.001153973733046e-15,
+                  147.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  147.0,
+                  -1.8002307947466092e-14
+                ],
+                "mid": [
+                  -9.001153973733046e-15,
+                  -147.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  -147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -150.0,
+                  1.83697019872103e-14
+                ],
+                "mid": [
+                  9.18485099360515e-15,
+                  150.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  150.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  150.0,
+                  -1.83697019872103e-14
+                ],
+                "mid": [
+                  -9.18485099360515e-15,
+                  -150.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  -150.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "G2_WEB",
+            "plane": "PL_WEB",
+            "profiles": 2
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -143.0,
+                  1.751244922780715e-14
+                ],
+                "mid": [
+                  8.756224613903576e-15,
+                  143.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  143.0,
+                  -1.751244922780715e-14
+                ],
+                "mid": [
+                  -8.756224613903576e-15,
+                  -143.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -159.0,
+                  1.9471884106442917e-14
+                ],
+                "mid": [
+                  9.735942053221458e-15,
+                  159.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  159.0,
+                  -1.9471884106442917e-14
+                ],
+                "mid": [
+                  -9.735942053221458e-15,
+                  -159.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 4,
+            "fully_constrained": true,
+            "name": "G3_TFL",
+            "plane": "PL_TFL",
+            "profiles": 2
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  139.505809,
+                  57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  57.785197999999994,
+                  139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -57.785197999999994,
+                  139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -139.505809,
+                  57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -139.505809,
+                  -57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -57.785197999999994,
+                  -139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  57.785197999999994,
+                  -139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  139.505809,
+                  -57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              }
+            ],
+            "curves": 8,
+            "fully_constrained": true,
+            "name": "G4_BOLT_B",
+            "plane": "XY",
+            "profiles": 8
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "center": [
+                  139.505809,
+                  57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  57.785197999999994,
+                  139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -57.785197999999994,
+                  139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -139.505809,
+                  57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -139.505809,
+                  -57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  -57.785197999999994,
+                  -139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  57.785197999999994,
+                  -139.505809
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              },
+              {
+                "center": [
+                  139.505809,
+                  -57.785197999999994
+                ],
+                "construction": false,
+                "radius": 3.4999999999999964,
+                "type": "circle"
+              }
+            ],
+            "curves": 8,
+            "fully_constrained": true,
+            "name": "G5_BOLT_T",
+            "plane": "PL_TFL",
+            "profiles": 8
+          },
+          {
+            "construction_curves": 0,
+            "curve_geometry": [
+              {
+                "construction": false,
+                "end": [
+                  74.367773,
+                  134.858762
+                ],
+                "start": [
+                  73.392773,
+                  133.170012
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  76.9875,
+                  133.346262
+                ],
+                "construction": false,
+                "end": [
+                  74.367773,
+                  134.858762
+                ],
+                "mid": [
+                  78.50000001951845,
+                  135.965988988731
+                ],
+                "radius": 3.025000132980002,
+                "start": [
+                  79.60722700000002,
+                  131.833762
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  78.632227,
+                  130.145012
+                ],
+                "start": [
+                  79.607227,
+                  131.833762
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  76.0125,
+                  131.657512
+                ],
+                "construction": false,
+                "end": [
+                  78.632227,
+                  130.145012
+                ],
+                "mid": [
+                  74.5,
+                  129.037785
+                ],
+                "radius": 3.0250001329799736,
+                "start": [
+                  73.39277300000003,
+                  133.17001199999999
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -153.975,
+                  -3.025
+                ],
+                "start": [
+                  -152.025,
+                  -3.025
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  -153.975,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -153.975,
+                  -3.025
+                ],
+                "mid": [
+                  -157.0,
+                  1.8522782837103716e-16
+                ],
+                "radius": 3.025,
+                "start": [
+                  -153.975,
+                  3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  -152.025,
+                  3.025
+                ],
+                "start": [
+                  -153.975,
+                  3.025
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  -152.025,
+                  0.0
+                ],
+                "construction": false,
+                "end": [
+                  -152.025,
+                  3.025
+                ],
+                "mid": [
+                  -149.0,
+                  -1.8522782837103716e-16
+                ],
+                "radius": 3.025,
+                "start": [
+                  -152.025,
+                  -3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  79.607227,
+                  -131.833762
+                ],
+                "start": [
+                  78.632227,
+                  -130.145012
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  76.9875,
+                  -133.346262
+                ],
+                "construction": false,
+                "end": [
+                  79.607227,
+                  -131.833762
+                ],
+                "mid": [
+                  78.49999998048152,
+                  -135.96598901126896
+                ],
+                "radius": 3.025000132979981,
+                "start": [
+                  74.36777300000001,
+                  -134.858762
+                ],
+                "type": "arc"
+              },
+              {
+                "construction": false,
+                "end": [
+                  73.392773,
+                  -133.170012
+                ],
+                "start": [
+                  74.367773,
+                  -134.858762
+                ],
+                "type": "line"
+              },
+              {
+                "center": [
+                  76.0125,
+                  -131.657512
+                ],
+                "construction": false,
+                "end": [
+                  73.392773,
+                  -133.170012
+                ],
+                "mid": [
+                  74.499999966193,
+                  -129.03778501951845
+                ],
+                "radius": 3.0250001329800114,
+                "start": [
+                  78.63222700000003,
+                  -130.145012
+                ],
+                "type": "arc"
+              }
+            ],
+            "curves": 12,
+            "fully_constrained": true,
+            "name": "G6_SLOTS",
+            "plane": "PL_TOP_FACE",
+            "profiles": 3
+          }
+        ]
+      },
+      "ops": [
+        {
+          "args": {
+            "name": "SEWCP-400_SUPPORT_RING",
+            "units": "mm"
+          },
+          "feature": "setup.document",
+          "note": "Document identity and length unit, from the package scope.",
+          "op": "new_document",
+          "op_id": "OP-0001",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "parameters": [
+              {
+                "comment": "",
+                "expression": "20.3",
+                "name": "sr_h_supplied",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "300.0",
+                "name": "sr_web_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "294.0",
+                "name": "sr_web_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "14.0",
+                "name": "sr_web_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.0",
+                "name": "sr_fl_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "286.0",
+                "name": "sr_fl_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "(sr_h_supplied - sr_web_h) / 2",
+                "name": "sr_fl_h",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "7.0",
+                "name": "sr_bolt_d",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "302.0",
+                "name": "sr_bolt_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "6.05",
+                "name": "sr_slot_w",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "8.0",
+                "name": "sr_slot_l",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "3.0",
+                "name": "sr_slot_dep",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "306.0",
+                "name": "sr_slot_bc",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "318.5",
+                "name": "sr_reg_od",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "285.5",
+                "name": "sr_reg_id",
+                "unit": "mm"
+              },
+              {
+                "comment": "",
+                "expression": "0.5",
+                "name": "sr_reg_dep",
+                "unit": "mm"
+              }
+            ]
+          },
+          "feature": "setup.parameters",
+          "note": "The parameter master is imported before any geometry, so every later dimension is a reference and never a literal.",
+          "op": "set_parameters",
+          "op_id": "OP-0002",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "SEWCP-400_SUPPORT_RING"
+          },
+          "feature": "setup.component",
+          "note": "Root component named for the component identity.",
+          "op": "rename_component",
+          "op_id": "OP-0003",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "density": 3900.0,
+            "material": "Aluminum Oxide"
+          },
+          "feature": "setup.material",
+          "note": "Physical material assigned so a mass acceptance condition measures something real.",
+          "op": "assign_material",
+          "op_id": "OP-0004",
+          "satisfies": []
+        },
+        {
+          "args": {
+            "name": "G1_BFL",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BFLANGE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0005",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.rings",
+          "note": "Annular groove walls at O286 and O318 (mean O302, width 16); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0006",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "body_name": "SR_BODY",
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "new_body",
+            "profile": "smallest",
+            "sketch": "G1_BFL"
+          },
+          "feature": "mech.SR-BFLANGE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0007",
+          "satisfies": [
+            "SR-BFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_WEB",
+            "offset": "sr_fl_h"
+          },
+          "feature": "thermal.SR-WEB-PLANE.plane",
+          "note": "Mating datum for SR-WEB-PLANE, located by sr_fl_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0008",
+          "satisfies": [
+            "SR-WEB-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G2_WEB",
+            "plane": "PL_WEB"
+          },
+          "feature": "mech.SR-WEB.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0009",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -147.0,
+                  0.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  147.0,
+                  0.0
+                ],
+                "radius": 147.0,
+                "start": [
+                  -147.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -150.0,
+                  0.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  150.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  150.0,
+                  0.0
+                ],
+                "radius": 150.0,
+                "start": [
+                  -150.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.rings",
+          "note": "Annular groove walls at O294 and O300 (mean O297, width 3); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0010",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_web_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G2_WEB"
+          },
+          "feature": "mech.SR-WEB.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0011",
+          "satisfies": [
+            "SR-WEB"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TFL",
+            "offset": "sr_fl_h + sr_web_h"
+          },
+          "feature": "thermal.SR-TFL-PLANE.plane",
+          "note": "Mating datum for SR-TFL-PLANE, located by sr_fl_h + sr_web_h so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0012",
+          "satisfies": [
+            "SR-TFL-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G3_TFL",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.sketch",
+          "note": "",
+          "op": "create_sketch",
+          "op_id": "OP-0013",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  143.0,
+                  0.0
+                ],
+                "radius": 143.0,
+                "start": [
+                  -143.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  -159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  159.0,
+                  0.0
+                ],
+                "type": "arc"
+              },
+              {
+                "ccw": true,
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "end": [
+                  159.0,
+                  0.0
+                ],
+                "radius": 159.0,
+                "start": [
+                  -159.0,
+                  0.0
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.rings",
+          "note": "Annular groove walls at O286 and O318 (mean O302, width 16); the ring is cut by smallest-area profile selection, leaving the inner sealing land intact.",
+          "op": "sketch_path",
+          "op_id": "OP-0014",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "join",
+            "profile": "smallest",
+            "sketch": "G3_TFL"
+          },
+          "feature": "mech.SR-TFLANGE.cut",
+          "note": "",
+          "op": "extrude",
+          "op_id": "OP-0015",
+          "satisfies": [
+            "SR-TFLANGE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G4_BOLT_B",
+            "plane": "XY"
+          },
+          "feature": "mech.SR-BOLT-B.sketch",
+          "note": "Hole pattern sketch for SR-BOLT-B on XY.",
+          "op": "create_sketch",
+          "op_id": "OP-0016",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h1",
+          "note": "Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0017",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h2",
+          "note": "Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0018",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h3",
+          "note": "Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0019",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h4",
+          "note": "Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0020",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h5",
+          "note": "Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0021",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h6",
+          "note": "Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0022",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h7",
+          "note": "Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0023",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              0.0
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.h8",
+          "note": "Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0024",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G4_BOLT_B"
+          },
+          "feature": "mech.SR-BOLT-B.cut",
+          "note": "8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "OP-0025",
+          "satisfies": [
+            "SR-BOLT-B"
+          ]
+        },
+        {
+          "args": {
+            "name": "G5_BOLT_T",
+            "plane": "PL_TFL"
+          },
+          "feature": "mech.SR-BOLT-T.sketch",
+          "note": "Hole pattern sketch for SR-BOLT-T on PL_TFL.",
+          "op": "create_sketch",
+          "op_id": "OP-0026",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h1",
+          "note": "Hole 1 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0027",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h2",
+          "note": "Hole 2 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0028",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h3",
+          "note": "Hole 3 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0029",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h4",
+          "note": "Hole 4 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0030",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h5",
+          "note": "Hole 5 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0031",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              -57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h6",
+          "note": "Hole 6 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0032",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              57.785198,
+              -139.505809,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h7",
+          "note": "Hole 7 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0033",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "center_model": [
+              139.505809,
+              -57.785198,
+              17.15
+            ],
+            "diameter": "sr_bolt_d",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.h8",
+          "note": "Hole 8 of 8, centre governed by the pattern's parameters.",
+          "op": "sketch_circle",
+          "op_id": "OP-0034",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "direction": "positive",
+            "distance": "sr_fl_h",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G5_BOLT_T"
+          },
+          "feature": "mech.SR-BOLT-T.cut",
+          "note": "8 hole(s) O(sr_bolt_d) x sr_fl_h.",
+          "op": "extrude",
+          "op_id": "OP-0035",
+          "satisfies": [
+            "SR-BOLT-T"
+          ]
+        },
+        {
+          "args": {
+            "base": "XY",
+            "name": "PL_TOP_FACE",
+            "offset": "sr_h_supplied"
+          },
+          "feature": "thermal.SR-TOP-PLANE.plane",
+          "note": "Mating datum for CP-IF-1, located by sr_h_supplied so the interface height moves with the parameter rather than being re-typed.",
+          "op": "offset_plane",
+          "op_id": "OP-0036",
+          "satisfies": [
+            "SR-TOP-PLANE"
+          ]
+        },
+        {
+          "args": {
+            "name": "G6_SLOTS",
+            "plane": "PL_TOP_FACE"
+          },
+          "feature": "mech.SR-SLOTS.sketch",
+          "note": "Slot pattern sketch for SR-SLOTS.",
+          "op": "create_sketch",
+          "op_id": "OP-0037",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "centerline": [],
+            "footprint": [
+              {
+                "end": [
+                  74.367773,
+                  134.858762
+                ],
+                "start": [
+                  73.392773,
+                  133.170012
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.9875,
+                  133.346262
+                ],
+                "end": [
+                  79.607227,
+                  131.833762
+                ],
+                "radius": 3.025,
+                "start": [
+                  74.367773,
+                  134.858762
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  78.632227,
+                  130.145012
+                ],
+                "start": [
+                  79.607227,
+                  131.833762
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.0125,
+                  131.657512
+                ],
+                "end": [
+                  73.392773,
+                  133.170012
+                ],
+                "radius": 3.025,
+                "start": [
+                  78.632227,
+                  130.145012
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  -153.975,
+                  -3.025
+                ],
+                "start": [
+                  -152.025,
+                  -3.025
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  -153.975,
+                  0.0
+                ],
+                "end": [
+                  -153.975,
+                  3.025
+                ],
+                "radius": 3.025,
+                "start": [
+                  -153.975,
+                  -3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  -152.025,
+                  3.025
+                ],
+                "start": [
+                  -153.975,
+                  3.025
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  -152.025,
+                  0.0
+                ],
+                "end": [
+                  -152.025,
+                  -3.025
+                ],
+                "radius": 3.025,
+                "start": [
+                  -152.025,
+                  3.025
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  79.607227,
+                  -131.833762
+                ],
+                "start": [
+                  78.632227,
+                  -130.145012
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.9875,
+                  -133.346262
+                ],
+                "end": [
+                  74.367773,
+                  -134.858762
+                ],
+                "radius": 3.025,
+                "start": [
+                  79.607227,
+                  -131.833762
+                ],
+                "type": "arc"
+              },
+              {
+                "end": [
+                  73.392773,
+                  -133.170012
+                ],
+                "start": [
+                  74.367773,
+                  -134.858762
+                ],
+                "type": "line"
+              },
+              {
+                "ccw": false,
+                "center": [
+                  76.0125,
+                  -131.657512
+                ],
+                "end": [
+                  78.632227,
+                  -130.145012
+                ],
+                "radius": 3.025,
+                "start": [
+                  73.392773,
+                  -133.170012
+                ],
+                "type": "arc"
+              }
+            ],
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.outlines",
+          "note": "3 radially-oriented obround(s) 8 x 6.05, ends fully rounded.",
+          "op": "sketch_path",
+          "op_id": "OP-0038",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "direction": "negative",
+            "distance": "sr_slot_dep",
+            "operation": "cut",
+            "profile": "all",
+            "sketch": "G6_SLOTS"
+          },
+          "feature": "mech.SR-SLOTS.cut",
+          "note": "Slot cut, depth sr_slot_dep.",
+          "op": "extrude",
+          "op_id": "OP-0039",
+          "satisfies": [
+            "SR-SLOTS"
+          ]
+        },
+        {
+          "args": {
+            "scope": [
+              "document",
+              "parameters",
+              "bodies",
+              "sketches",
+              "planes",
+              "features",
+              "material"
+            ]
+          },
+          "feature": null,
+          "note": "Evidence for independent verification. Reads; changes nothing.",
+          "op": "observe",
+          "op_id": "OP-0040",
+          "satisfies": []
+        }
+      ],
+      "saved": {
+        "command_id": "LC-RUN-20260811T183556-788260-save_document",
+        "error": null,
+        "executed": true,
+        "finished_at": 1786453569.166801,
+        "fusion": {
+          "document": "SEWCP-400_SUPPORT_RING v1",
+          "version": "2704.1.53"
+        },
+        "observed": {
+          "document": {
+            "name": "SEWCP-400_SUPPORT_RING",
+            "saved": true,
+            "version": 1
+          }
+        },
+        "protocol": "aief-cad/1",
+        "started_at": 1786453568.432381,
+        "status": "OK"
+      },
+      "sequence_digest": "sha256:bb22812f22d4e76574a82c3255c89a991f81438f450172d6b6b5aa3c3c3aaa02",
+      "verdict": {
+        "attempt": 1,
+        "checks": 20,
+        "failed": 0,
+        "reports": [
+          {
+            "checks": 7,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 1,
+                "id": "ACC-BODY-COUNT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 20.3,
+                "id": "ACC-BODY-DZ",
+                "observed": 20.300000000000004,
+                "passed": true,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dz"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 318.0,
+                "id": "ACC-BODY-DX",
+                "observed": 318.0,
+                "passed": true,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dx"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 318.0,
+                "id": "ACC-BODY-DY",
+                "observed": 318.0,
+                "passed": true,
+                "requirement": "SR-BFLANGE",
+                "subject": "body:SR_BODY.dy"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 6,
+                "id": "ACC-FEATURES",
+                "observed": 6,
+                "passed": true,
+                "requirement": null,
+                "subject": "features.count"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": 0.5175,
+                "id": "ACC-MASS",
+                "observed": 0.5168233551672233,
+                "passed": true,
+                "requirement": "MFG-SR",
+                "subject": "body:SR_BODY.mass_kg"
+              },
+              {
+                "area": "geometry",
+                "detail": "",
+                "expected": ">= 1",
+                "id": "GEO-BODY-PRESENT",
+                "observed": 1,
+                "passed": true,
+                "requirement": null,
+                "subject": "bodies.count"
+              }
+            ],
+            "passed": true,
+            "verifier": "geometry"
+          },
+          {
+            "checks": 4,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 20.3,
+                "id": "ACC-PL-TOP",
+                "observed": 20.300000000000004,
+                "passed": true,
+                "requirement": "SR-TOP-PLANE",
+                "subject": "plane:PL_TOP_FACE.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-SK-SLOTS",
+                "observed": true,
+                "passed": true,
+                "requirement": "SR-SLOTS",
+                "subject": "sketch:G6_SLOTS.exists"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 3.1500000000000004,
+                "id": "IF-PLANE-thermal.SR-WEB-PLANE.plane",
+                "observed": 3.1500000000000004,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_WEB.offset_mm"
+              },
+              {
+                "area": "interface",
+                "detail": "",
+                "expected": 20.3,
+                "id": "IF-PLANE-thermal.SR-TOP-PLANE.plane",
+                "observed": 20.300000000000004,
+                "passed": true,
+                "requirement": null,
+                "subject": "plane:PL_TOP_FACE.offset_mm"
+              }
+            ],
+            "passed": true,
+            "verifier": "interface"
+          },
+          {
+            "checks": 9,
+            "failed": 0,
+            "findings": [
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "ACC-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "SEWCP-400_SUPPORT_RING",
+                "id": "ACC-NAME",
+                "observed": "SEWCP-400_SUPPORT_RING",
+                "passed": true,
+                "requirement": null,
+                "subject": "component.name"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 16,
+                "id": "ACC-PARAM-COUNT",
+                "observed": 16,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 3.15,
+                "id": "ACC-FL-H",
+                "observed": 3.1500000000000004,
+                "passed": true,
+                "requirement": "SR-BFLANGE",
+                "subject": "parameter:sr_fl_h.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": true,
+                "id": "ACC-FL-H-DERIVED",
+                "observed": true,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:sr_fl_h.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": 16,
+                "id": "CON-PARAM-PRESENT",
+                "observed": 16,
+                "passed": true,
+                "requirement": null,
+                "subject": "parameters.count"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every parameter equals its resolved expression",
+                "id": "CON-PARAM-VALUE",
+                "observed": "0 mismatched",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.value"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "every declared derivation is an expression in the model",
+                "id": "CON-PARAM-DERIVED",
+                "observed": "0 flattened to literals",
+                "passed": true,
+                "requirement": null,
+                "subject": "parameter:*.is_derived"
+              },
+              {
+                "area": "constraint",
+                "detail": "",
+                "expected": "mm",
+                "id": "CON-UNITS",
+                "observed": "mm",
+                "passed": true,
+                "requirement": null,
+                "subject": "document.units"
+              }
+            ],
+            "passed": true,
+            "verifier": "constraint"
+          }
+        ],
+        "solution_id": "RUN-20260811T183556-788260.S1",
+        "verdict": "PASS"
+      }
+    }
+  ],
+  "component": "SEWCP-400_SUPPORT_RING",
+  "domains": [
+    "geometry",
+    "interface",
+    "manufacturing",
+    "material"
+  ],
+  "escalations": [],
+  "finished_at": 1786453569.4180763,
+  "package_digest": "sha256:7882607853ee2831eb89a098b74a3d18fa79d8b4d71d2c496a9fc91d5d6fe245",
+  "package_id": "SEWCP-400-REQ-001",
+  "protocol": "aief-cad/1",
+  "record_digest": "sha256:b925ae12f4a618335cda2fc0cca5cd7ff0d4f2d5fd8d1a3fb01d5437ef473bb9",
+  "run_id": "RUN-20260811T183556-788260",
+  "solution_digest": "sha256:123713ae2f1123f956d02ff4e36cd2829cb3220982dfaacbb605e57a966b9acf",
+  "solution_id": "RUN-20260811T183556-788260.S1",
+  "started_at": 1786453556.0118392,
+  "verdict": "PASS"
+}

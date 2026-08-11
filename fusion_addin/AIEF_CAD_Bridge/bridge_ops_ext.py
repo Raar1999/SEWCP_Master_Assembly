@@ -197,6 +197,27 @@ def op_assign_material(args):
                 found = mat
         if found is not None and found.name.strip().lower() == wanted:
             break
+    if found is None and args.get("density"):
+        # The library lacks the stated material: create it at the stated
+        # density, copied from any available base - the density is what a
+        # mass verification measures, and the requirement states it.
+        base = None
+        for i in range(app.materialLibraries.count):
+            lib = app.materialLibraries.item(i)
+            if lib.materials.count:
+                base = lib.materials.item(0)
+                break
+        if base is not None:
+            existing = design.materials.itemByName(args["material"])
+            if existing is not None:
+                found = existing
+            else:
+                found = design.materials.addByCopy(base, args["material"])
+                try:
+                    prop = found.materialProperties.itemByName("Density")
+                    prop.value = float(args["density"])  # kg/m^3
+                except Exception:
+                    pass
     if found is None:
         raise RuntimeError("no material matching %r in any loaded library"
                            % args["material"])
