@@ -8,18 +8,20 @@
 Read at boot step B4. Provides constant-time head lookup without reading the ledger body.
 
 ```yaml
-seq:         0
-state:       genesis
-entry_hash:  null   # no entry written; see OI-F-02
+seq:         1
+state:       active
+entry_hash:  7b76b9e1e8e801fdad8a3e02ff68c9ae3af10a227a123b99b14bd144aba712d5   # DC-3 of L-0000001
 segment:     SEG-0000
 prev_hash:   null
 ```
 
 ## B4 verification
 
-1. `HEAD.seq` = 0, state `genesis` - no entry to verify.
-2. No file at seq 1 exists - no orphan.
-3. `STATE.last_ledger_seq` (0) equals `HEAD.seq` (0). **Reconciled.**
+1. `SEG-0000/L-0000001` exists and recomputes under DC-3 to `HEAD.entry_hash`.
+2. No file at seq 2 exists - no orphan.
+3. `STATE.last_ledger_seq` (1) equals `HEAD.seq` (1). **Reconciled.**
+
+Prior state, and the pre-ledger session gap it leaves: `SEG-0000/L-0000001`.
 
 ## Genesis semantics
 
@@ -30,9 +32,9 @@ Ruled by **AIEF-AMD-003 §AMD-10**. `state` takes one of two values:
 | `genesis` | Ledger empty. `seq: 0`, `entry_hash: null`, `prev_hash: null` | **Check 1 vacuous by definition.** Checks 2 and 3 apply unchanged and are the operative reconciliation |
 | `active` | One or more entries written | All three checks apply unchanged |
 
-**The first session close transitions `genesis` → `active`**, writing entry `L-0000001` and setting `seq: 1`. The transition occurs once per repository and is irreversible.
+**The first session close transitions `genesis` → `active`**, writing entry `L-0000001` and setting `seq: 1`. The transition occurs once per repository and is irreversible. **Performed at `S-2026-08-12-01`** under DC-3.
 
-B4's anti-drift guarantee is unchanged: checks 2 and 3 detect divergence between state and history; check 1 detects a corrupted entry, which cannot exist when no entry exists.
+B4's anti-drift guarantee is unchanged: checks 2 and 3 detect divergence between state and history; check 1 detects a corrupted or missing entry.
 
 ## Write order at session close
 

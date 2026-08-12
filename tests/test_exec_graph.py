@@ -18,6 +18,21 @@ from aief_exec import graph, records
 REPO = Path(__file__).resolve().parents[1]
 
 
+def _declared_open_blockers(tid):
+    """The blocked_by items a live task declares that are still open.
+
+    Derived from both sides - the task record and OPEN_ITEMS.md - so that
+    closing an open item lawfully moves the assertion instead of breaking it.
+    This is the OI-C-12 repair form applied to the two T-006 blocking tests,
+    which pinned OQ-14 and failed when it was discharged at S-2026-08-12-01.
+    """
+    task = records.load_tasks(REPO)[tid]
+    open_ids = records.open_item_ids(REPO)
+    declared_open = [i for i in task.blocked_by if i in open_ids]
+    assert declared_open, f"{tid} declares no open blocked_by item"
+    return declared_open
+
+
 def _task(tid, **kw):
     data = {
         "task_id": tid,
@@ -733,7 +748,10 @@ class TestLivePlan:
         reasons = plan.blocked["T-006"]
         assert any("depends_on T-002" in r for r in reasons)
         assert any("R-002" in r for r in reasons)
-        assert any("OQ-14" in r for r in reasons)
+        # Third ground, derived rather than pinned - see the OI-C-12 note on
+        # test_open_item_blocks_stage_six. Was OQ-14 until S-2026-08-12-01.
+        for item in _declared_open_blockers("T-006"):
+            assert any(item in r for r in reasons), item
 
     def test_the_live_dependency_state_is_derived_end_to_end(self, plan):
         # T-004 depends on T-001 and consumes a result T-001 produced. Both ends
@@ -870,8 +888,14 @@ class TestLivePlan:
         assert len(str(seal.get("digest") or "")) == 64
 
     def test_open_item_blocks_stage_six(self, plan):
+        # OI-C-12 property form. This pinned OQ-14, which closed lawfully at
+        # S-2026-08-12-01 once the canonical Stage 6 emission was performed.
+        # The property is that whichever item T-006 declares in blocked_by and
+        # is still open is the one reported - the id is derived from both sides.
         assert plan.states["T-006"] == graph.BLOCKED
-        assert any("OQ-14" in r for r in plan.blocked["T-006"])
+        declared_open = _declared_open_blockers("T-006")
+        for item in declared_open:
+            assert any(item in r for r in plan.blocked["T-006"]), item
 
     def test_dispatch_groups_are_internally_parallel(self, plan):
         for group in plan.parallel_sets():

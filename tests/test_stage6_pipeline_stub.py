@@ -47,6 +47,7 @@ def _stub_probe() -> TokenizerProbe:
 
 
 def test_full_pipeline_with_stub_families(tmp_path):
+    binding_before = (REPO / ".ai" / "project" / "BINDING.md").read_bytes()
     outcome = run(repo_root=REPO, out_root=tmp_path, tokenizers=_stub_probe(),
                   runs=2)
     assert outcome.status == "OK", outcome.notes
@@ -90,6 +91,10 @@ def test_full_pipeline_with_stub_families(tmp_path):
     # BINDING pin preview carries the DC-4 aggregate.
     preview = (tmp_path / "preview" / "BINDING.md.PREVIEW").read_text("utf-8")
     assert outcome.dc4_aggregate in preview
-    # The real BINDING is untouched (PENDING-STAGE-6 still pinned).
-    real = (REPO / ".ai" / "project" / "BINDING.md").read_text("utf-8")
-    assert "PENDING-STAGE-6" in real
+    # The real BINDING is untouched by a preview run. This asserted
+    # `PENDING-STAGE-6 in real` - the Stage 3 placeholder - which stopped being
+    # true when the owner-authorized canonical emission wrote the pin at
+    # S-2026-08-12-01. Comparing the bytes across the run is the property the
+    # token was standing in for, and it is strictly stronger: it catches any
+    # modification a preview makes, not only the loss of one placeholder.
+    assert (REPO / ".ai" / "project" / "BINDING.md").read_bytes() == binding_before

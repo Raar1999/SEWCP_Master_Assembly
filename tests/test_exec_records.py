@@ -221,12 +221,31 @@ class TestLiveRecords:
                 assert task.data.get(field) not in (None, "", [], {}), f"{tid}.{field}"
 
     def test_open_items_parses_and_excludes_closed(self):
+        # OI-C-12 property form. This test previously pinned OQ-14 as its open
+        # exemplar and OQ-15 / CMP-BLOCK-006 as its closed ones. OQ-14 closed at
+        # S-2026-08-12-01 and the test failed for the one reason a test must not:
+        # the repository moved lawfully. The exemplars are now derived from the
+        # file, so the assertion is the parser's contract - open sections in,
+        # Closed out - and it cannot stale again.
+        text = (REPO / ".ai" / "project" / "OPEN_ITEMS.md").read_text(encoding="utf-8")
+        sections: dict[str, set[str]] = {}
+        heading = None
+        for raw in text.replace("\r\n", "\n").split("\n"):
+            line = raw.strip()
+            if line.startswith("## "):
+                heading = line[3:].strip()
+                sections[heading] = set()
+            elif heading and line and not line.startswith(("#", ">", "|", "*", "-")):
+                sections[heading].add(line)
+
+        closed = sections["Closed"]
+        expected = {i for h, ids in sections.items() if h != "Closed" for i in ids}
+        assert closed, "the fixture is vacuous if nothing is closed"
+        assert expected, "the fixture is vacuous if nothing is open"
+
         ids = records.open_item_ids(REPO)
-        assert "OQ-14" in ids
-        assert "OI-C-09" in ids
-        # OQ-15 and CMP-BLOCK-006 are listed under Closed by AIEF-AMD-014.
-        assert "OQ-15" not in ids
-        assert "CMP-BLOCK-006" not in ids
+        assert ids == expected
+        assert ids.isdisjoint(closed - expected)
 
     def test_dc1_of_a_known_file_is_stable(self):
         a = records.file_dc1(REPO, ".ai/BOOT.md")

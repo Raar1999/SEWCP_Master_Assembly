@@ -1,0 +1,61 @@
+# Ledger Entry L-0000001
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The first entry in this repository's ledger. Writing it transitions `HEAD.state` from
+`genesis` to `active` per `AIEF-AMD-003` §AMD-10 — **once per repository, irreversible**.
+
+```yaml
+seq:         1
+timestamp:   2026-08-12T15:49:53Z
+session_id:  S-2026-08-12-01
+actor:       repository-engineer
+action:      Stage 6 canonical closeout - OQ-14 discharged, B2a verified, repository state reconciled, ledger genesis to active
+artifacts:
+  - .ai/core/MANIFEST.lock
+  - .ai/project/BINDING.md
+  - .ai/project/OPEN_ITEMS.md
+  - .ai/project/OPEN_ITEMS_REGISTER.md
+  - .ai/project/STATE.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/sessions/S-2026-08-12-01.md
+  - ENGINEERING.md
+prev_hash:   null
+entry_hash:  7b76b9e1e8e801fdad8a3e02ff68c9ae3af10a227a123b99b14bd144aba712d5
+```
+
+## `entry_hash` — DC-3, not an invented construction
+
+`entry_hash` is **DC-3**, declared at `framework.manifest.json`
+`metadata.reproducible.digest_constructions.ledger_entry_hash` by `AIEF-AMD-008` §AMD-17
+(approval `approvals/APR-002`), disposing `ecr/ECR-Q-002`. Seven covered fields in the
+declared order — `seq`, `timestamp`, `session_id`, `actor`, `action`, `artifacts`,
+`prev_hash` — each serialised as one `<field-name> <SP> <value> <LF>` record, concatenated
+with no header or trailer. `entry_hash` is excluded from its own preimage. `prev_hash` is
+the literal token `null` at genesis, and is a covered field, so it feeds the successor
+digest and makes the chain tamper-evident rather than merely sequential.
+
+**The digest domain is that canonical preimage, never these on-disk octets** — the manifest
+states that file layout, key order, comments and whitespace do not affect the value. This
+file therefore follows the grammar of its sibling `../HEAD`; no serialisation was invented
+here, and none was needed.
+
+The implementation used was validated against **both** worked examples the manifest
+publishes (`entry_1` → `cb8e7972…8259e0`, `entry_2` → `66e51617…f8195b`, and the
+eleven-octet empty-`artifacts` record) **before** this entry was written, because the
+transition it performs cannot be undone.
+
+## What this entry records
+
+The Stage 6 canonical emission and the repository-state reconciliation that follows it.
+`OQ-14` was authorised by the human owner at `S-2026-08-11-06`
+(`decisions/DECISIONS_S-2026-08-11-06` DEC-10) and executed 2026-08-12; boot step **B2a
+executes and passes** from that emission onward. `ECR-D-006` and `ECR-D-014` are **not**
+closed by this session — `OI-V-13` owes an independent `qa-engineer` audit and LAW-05 bars
+self-verification.
+
+`sessions/S-2026-08-12-01.md` is the session summary this close produces (`WF-01` Phase 11).

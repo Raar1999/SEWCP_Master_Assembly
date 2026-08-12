@@ -1,0 +1,436 @@
+{
+  "framework_version": "1.0.0",
+  "aggregate_digest": "2180df021b892ee0c19d7bc164713e46b1003bfb193497cad06b6c20f5ac92f0",
+  "build_provenance": {
+    "source_manifest": "framework/framework.manifest.json",
+    "source_manifest_dc1": "5b78d25b00a405c61715752e6aad1084dc7852048c0074d9c3c948ffbbd6b652",
+    "selected_profile": "mechanical",
+    "compiler_stage": 6,
+    "build_id": "stage6-2026-08-12T15:36:23Z",
+    "timestamp": "2026-08-12T15:36:23Z"
+  },
+  "hash_algorithm": "SHA-256",
+  "normalisation": {
+    "encoding": "UTF-8",
+    "line_ending": "LF",
+    "trailing_whitespace": "stripped",
+    "terminal_newline": "enforced"
+  },
+  "budget_measurement": {
+    "tokenizer_families": [
+      {
+        "id": "TF-1",
+        "artifact": "cl100k_base.tiktoken",
+        "artifact_pin_sha256_raw_octets": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7"
+      },
+      {
+        "id": "TF-2",
+        "artifact": "spiece.model",
+        "artifact_pin_sha256_raw_octets": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      }
+    ],
+    "per_file": [
+      {
+        "path": "BOOT.md",
+        "tier": "T0",
+        "token_cap": 504,
+        "counts": {
+          "TF-1": 445,
+          "TF-2": 504
+        },
+        "governing": 504,
+        "verdict": "PASS"
+      },
+      {
+        "path": "FRAMEWORK.md",
+        "tier": "T1",
+        "token_cap": 1100,
+        "counts": {
+          "TF-1": 652,
+          "TF-2": 748
+        },
+        "governing": 748,
+        "verdict": "PASS"
+      },
+      {
+        "path": "core/MANIFEST.lock",
+        "tier": "T1",
+        "token_cap": 200,
+        "counts": null,
+        "governing": null,
+        "verdict": "DEFERRED-SELF-MEASURED"
+      },
+      {
+        "path": "core/PRECEDENCE.md",
+        "tier": "T1",
+        "token_cap": 700,
+        "counts": {
+          "TF-1": 341,
+          "TF-2": 382
+        },
+        "governing": 382,
+        "verdict": "PASS"
+      },
+      {
+        "path": "core/laws/INDEX.md",
+        "tier": "T1",
+        "token_cap": 900,
+        "counts": {
+          "TF-1": 598,
+          "TF-2": 721
+        },
+        "governing": 721,
+        "verdict": "PASS"
+      },
+      {
+        "path": "project/BINDING.md",
+        "tier": "T1",
+        "token_cap": 800,
+        "counts": {
+          "TF-1": 483,
+          "TF-2": 574
+        },
+        "governing": 574,
+        "verdict": "PASS"
+      },
+      {
+        "path": "project/STATE.md",
+        "tier": "T1",
+        "token_cap": 1100,
+        "counts": {
+          "TF-1": 900,
+          "TF-2": 1039
+        },
+        "governing": 1039,
+        "verdict": "PASS"
+      },
+      {
+        "path": "project/OPEN_ITEMS.md",
+        "tier": "T1",
+        "token_cap": 600,
+        "counts": {
+          "TF-1": 503,
+          "TF-2": 569
+        },
+        "governing": 569,
+        "verdict": "PASS"
+      }
+    ],
+    "totals_t0_t1": {
+      "TF-1": 3922,
+      "TF-2": 4537
+    },
+    "aggregate_ceiling_charge": 200,
+    "charged_totals_t0_t1": {
+      "TF-1": 4122,
+      "TF-2": 4737
+    },
+    "aggregate_governing_maximum": 4737,
+    "aggregate_ceiling": 6000,
+    "verdict": "PASS",
+    "measurement_timestamp": "2026-08-12T15:36:23Z",
+    "stage6_build_id": "stage6-2026-08-12T15:36:23Z"
+  },
+  "files": [
+    [
+      "BOOT.md",
+      "5a97d6ad763f8720b3e9e5c9cf9be6ad62f6ba953b5b70eb78a3624b580b82db"
+    ],
+    [
+      "FRAMEWORK.md",
+      "d238b6fc0e99ad3e79d2ae461fe84d019cff4c90d6533ffc148ff7f78387e819"
+    ],
+    [
+      "README.md",
+      "468a8a170a1df68be375fd60a08042ff31bafb1d040f47e41ff8ad6d5f3ed3a9"
+    ],
+    [
+      "core/CONTEXT_TIERS.md",
+      "dad8a47ad994cce45820b9b89f016872f259b7b44b10e8a87ed42f32e31ade4f"
+    ],
+    [
+      "core/PRECEDENCE.md",
+      "8aca87e595d3a03aff1590176482768672831c6489c402cdaa0f49f1221234ff"
+    ],
+    [
+      "core/VERSION",
+      "a7683288351e98fd705115a3cf8074329ba5965835b0672804956e2f6247cde9"
+    ],
+    [
+      "core/agents/AGENT-CONTRACT.md",
+      "6bf9c424efdb226625e276af9782aac92e6194b01473bb7a14d982cdc2ac144f"
+    ],
+    [
+      "core/agents/AGT-chief-systems-engineer.md",
+      "788468473f86e94a018af3418805c0b65bdac7df50945cbb1c21a99cbbd23dec"
+    ],
+    [
+      "core/agents/AGT-documentation-engineer.md",
+      "259b0bcaef9e3d2730d2d13180c430a2e49980ac971e2d26c64574398a387292"
+    ],
+    [
+      "core/agents/AGT-project-manager.md",
+      "076ea87c8a5c7bd0a678975079b0d91f4d9a86b23e4bca39d471b2d163188eab"
+    ],
+    [
+      "core/agents/AGT-qa-engineer.md",
+      "f9d59e97f0a39876bd8a6016219e501f34bd97981046be7128acbd6a01a91e86"
+    ],
+    [
+      "core/agents/AGT-repository-engineer.md",
+      "091b548990fb6ac2334368fbfe14d64b41330ec7ef25e80989634c77514c2afa"
+    ],
+    [
+      "core/agents/INDEX.md",
+      "0649ab0fd13ec11a73fdd0ef0fe39fc316ff7ca4c53245cbf4fe89f3be6ec49e"
+    ],
+    [
+      "core/laws/INDEX.md",
+      "bb15e3227f9e29912ef67e207f3a9d9e84d69512c3892aef77e6fb29e9bc8ee8"
+    ],
+    [
+      "core/laws/LAW-01_architecture_freeze.md",
+      "92e373c72f156772c76624941d0f1b5b4c4cbcefe172a1960fbc7196e0acd3a4"
+    ],
+    [
+      "core/laws/LAW-02_engineering_change_request.md",
+      "e24e0bb7f90f2a85bad948f835ad000111c46eb95978955539114094c812d1fe"
+    ],
+    [
+      "core/laws/LAW-03_release_gates.md",
+      "dcd6263ee7580833fb10844e95e9149de7ed81c0c88536068ef8f16d3685c556"
+    ],
+    [
+      "core/laws/LAW-04_design_review.md",
+      "0493dd6b725844ddbeceab6b29343fc99e5152ba32f16173c88f6cf2a328b336"
+    ],
+    [
+      "core/laws/LAW-05_verification_reproducibility.md",
+      "91f7a6cf4c615259addb7620fad0b1f2d5d98af4e18cd28a9e6a398f7d1a8806"
+    ],
+    [
+      "core/laws/LAW-06_traceability.md",
+      "79a2804dafc10e668eb84b25f357105fb7ee6fa7ee3bcb8d4ca607e24f92e054"
+    ],
+    [
+      "core/laws/LAW-07_git_configuration.md",
+      "41b6e074b54bdff430c86a5dd443fb7232084b67ec99c307ede3a47826b1fdcf"
+    ],
+    [
+      "core/laws/LAW-08_documentation.md",
+      "c63515fbcde352dcceac28b24757a565920df49042f3e74a352f259a56536e0b"
+    ],
+    [
+      "core/laws/LAW-09_session.md",
+      "c251c03502a4fa46c0c29f38d33929bf44ac1faa019b6c4f6a5b9e8d19aae2a4"
+    ],
+    [
+      "core/laws/LAW-10_human_approval.md",
+      "12f154226197222a6c5bc8c6fbd318c2e01ede679dd588b89539187cdec43165"
+    ],
+    [
+      "core/laws/LAW-11_agent_conduct.md",
+      "54b70aa9e1590b9598b2bccd2f9954c71fac32ed829455466bd37dcdecfd85ac"
+    ],
+    [
+      "core/laws/LAW-12_ambiguity_stop_conditions.md",
+      "cf8a72e4eea4d0b1083d8cdc98312e1a79fc8ec21dca20e5aa73fd436afaafea"
+    ],
+    [
+      "core/laws/LAW-13_content_trust_boundary.md",
+      "22f12345b98f43a1e470dcb21b6772be4063946a10a7189f9a6d926d63add80e"
+    ],
+    [
+      "core/profiles/mechanical/PROFILE.md",
+      "52f4106124274c5b8c48b8959b4bb15d5a6e68cd269cacdb68f255c28acf83fb"
+    ],
+    [
+      "core/profiles/mechanical/agents/AGT-cad-engineer.md",
+      "64be36d0339c7dfe23652864e35b593f38228724e5bd09c982018bc362d63799"
+    ],
+    [
+      "core/profiles/mechanical/agents/AGT-design-engineer.md",
+      "414e1ebf92980eabd7334b714303be1789b10099864bfc1ddd7f8b57685da08b"
+    ],
+    [
+      "core/profiles/mechanical/agents/AGT-manufacturing-engineer.md",
+      "3152ab6ebfb8d87ac0190680ae3dfc718c41776abb8f467049fb3dbb4dcbedd1"
+    ],
+    [
+      "core/profiles/mechanical/agents/AGT-simulation-engineer.md",
+      "1a31915ee1f268e206d4f68b3db857ed66349a1c489193d6a319accb28293ce1"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/INDEX.md",
+      "af75d2296dcb3e4709ba4f740751257338f47baeec1c50871616f1129f691f06"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M01_idea.md",
+      "9cc7d36ddb3248aeac0cc1842bc8c9148e1ebaffc7c3c0989ac5df752f7c09f2"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M02_architecture.md",
+      "30c546bd795afbcf9ae09014713e6b4bbd7acb0100a1b43f6ed569393a1630c3"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M03_specification.md",
+      "cfa6f2cde4ff67908483fec864c77c851bbde909c4e964226b4b7c5e508a464d"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M04_implementation.md",
+      "519b1401c5c16ae1cd35f852631b2181cef13f094e9c84faf7573129e332d36a"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M05_verification.md",
+      "4a68e4d2c585d0a6de4926657174323da22500018086d54e242375e55cb903ac"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M06_validation.md",
+      "3e50260538eeb51ebb9ca5d3b0e32cec1f661dfdfd162459f4540a4204662246"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M07_release.md",
+      "ee1194a15e3db48ff257932e418765f84108f488f54d9fe342a06dc8a98ef1a1"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M08_maintenance.md",
+      "ee85901608da6519bbd506c149970c853176ce6e12228841e951350dae85898f"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M09_revision.md",
+      "9eb9a30a4dcc4f1cd5be363914ef1c021537a975b68b22754510d7a3fd8f6fd4"
+    ],
+    [
+      "core/profiles/mechanical/lifecycle/LC-M10_archive.md",
+      "989b3a509d4f3856db52a1cf7944d37ecc519e4d003222c8b0e7f0e504e8da6b"
+    ],
+    [
+      "core/profiles/software/agents/AGT-platform-engineer.md",
+      "96e5680c1edb51b960afe410b3482e1c331e9a818764e7b8ff00548560c3e4fd"
+    ],
+    [
+      "core/profiles/software/agents/AGT-software-engineer.md",
+      "6bc734d47ceacbc8f9e2a5c31b41fac31083dc0f6dcaee47191053aaf19ce717"
+    ],
+    [
+      "core/profiles/software/agents/AGT-test-engineer.md",
+      "bb8cebd57b65091774182ecef56991ffb50564bbefa6dda47b3ccc63227127d8"
+    ],
+    [
+      "core/schemas/INDEX.md",
+      "15114866f4b8777db5cca673554bf3e028cf35aff12193e12aed9dd7f56ca71f"
+    ],
+    [
+      "core/schemas/SCH-agent.schema.json",
+      "6b95094f7706c142c019426242462a4adde0a0a6c9e641272ac16b0a6f23b54e"
+    ],
+    [
+      "core/schemas/SCH-approval.schema.json",
+      "1ba58db0caaf7663fc8ff347602fc83f812a765097e2bbc50edcced014246395"
+    ],
+    [
+      "core/schemas/SCH-binding.schema.json",
+      "99f3d533a332c376970916d9b22d2a0ffa3302e1c42cc7df2c965e95649551dd"
+    ],
+    [
+      "core/schemas/SCH-core-manifest.schema.json",
+      "1e98343935eb83dfc4ef7c192034d082033b7abaf196813e434c2c8d8708317b"
+    ],
+    [
+      "core/schemas/SCH-ecr.schema.json",
+      "0bbff75759ccfe71ac3391b40d36ebf153d8fd2b86ac1cedfb85dabbc45d945a"
+    ],
+    [
+      "core/schemas/SCH-ledger-entry.schema.json",
+      "8cd88aeb760f3fb2f0245e4727fadcc3084b2e41b0b366c62dff6917d6a97a15"
+    ],
+    [
+      "core/schemas/SCH-state.schema.json",
+      "57859ae7673e485817913fe691b3e526c2f2345cac02381283eb4b8cbab3ecb9"
+    ],
+    [
+      "core/schemas/SCH-task.schema.json",
+      "e874fdd70b56f55b6205e26c7ef537e090e46b5f05ab2964f8b1ee4ad6cccc80"
+    ],
+    [
+      "core/templates/INDEX.md",
+      "8ea3f26db7b60a7e897b833fe3b80f927c98747943400f6b11ae26baffd69df2"
+    ],
+    [
+      "core/templates/TPL-agent-specification.md",
+      "fe49e470a8a4dc5e805c82191579eaa5caaa9415f9ce8b0921adcfbb24ef2d1c"
+    ],
+    [
+      "core/templates/TPL-current-state.md",
+      "dacc5a90ce290e47c688b9579d32fc05a72bd040ccaa5cb6242e73e6f208bab5"
+    ],
+    [
+      "core/templates/TPL-design-review.md",
+      "b7afa2f0a5f05a30b9201896b2b80e069751b76bd0de0569a3646d31faaabcec"
+    ],
+    [
+      "core/templates/TPL-engineering-change-request.md",
+      "3ac8c79e4ac0b53d637b482e122a6fa2b315dfb27573580559d58343fa06150b"
+    ],
+    [
+      "core/templates/TPL-implementation-package.md",
+      "af645f90693948a052c87f45980e20e45489dcb293eb15fe72c5673eef7be957"
+    ],
+    [
+      "core/templates/TPL-issue-report.md",
+      "c54913df6669c928da65329efd12eeca166365e71e4ff181e012cb1e27938895"
+    ],
+    [
+      "core/templates/TPL-release-notes.md",
+      "f66277f052849b3569011398e5c5dc27a326c4b143b3aa2b24ef5ddfe5375226"
+    ],
+    [
+      "core/templates/TPL-session-summary.md",
+      "e10eaa123adcff385e2d90b207d299f22b1e781d43b4c41759e898b7d01eeaa3"
+    ],
+    [
+      "core/templates/TPL-task-package.md",
+      "a51c5d27fa44f85b3d6a291b28099161561e8cc367e2ce64dc8ae0553501e9b2"
+    ],
+    [
+      "core/templates/TPL-verification-report.md",
+      "f8ba7dad06ae6fef6aab5e75989372c77db42f6404ca4c0a72e9fcf17c6f7fb2"
+    ],
+    [
+      "core/validation/CHECKS.md",
+      "202e86c42a755fd34216074a78d19d7a67e2c54e707e075d25e1d7a6da22ff84"
+    ],
+    [
+      "core/validation/MANIFEST",
+      "e8f905c4c29a2e4826a461cd468cf2094bdd70ba442dfed19d42abe33fa31016"
+    ],
+    [
+      "core/workflows/INDEX.md",
+      "6f200203dfec9ed18dca3f1259b06029c42e1c2cea127cd3ca209ba976f280fc"
+    ],
+    [
+      "core/workflows/WF-01_session.md",
+      "d60ff036c06dcad961913341592bebe508b90134660a5ea28ee84d51857e522a"
+    ],
+    [
+      "core/workflows/WF-02_task.md",
+      "ce73458d8b19bb1349368376ddfc6be12df48376d74ecb387713305af6ea5915"
+    ],
+    [
+      "core/workflows/WF-03_review.md",
+      "b3c932369a21e1adbc0f3bf666edbe8bb52e5d7ee03d5837e67529202b447de6"
+    ],
+    [
+      "core/workflows/WF-04_implement.md",
+      "e7c33edd608c8573a3479d85cf3d44a488846dcb9fbee68161996c64f51a0195"
+    ],
+    [
+      "core/workflows/WF-05_release.md",
+      "71b46d4c65547c7e9b2cd28c875a8a95f338c765252a83875939d7a7f6a0d18f"
+    ],
+    [
+      "core/workflows/WF-06_closeout.md",
+      "e93e0ad06ce0968c379a71b48484ebb0587d55a632556022909a71699434dbe8"
+    ]
+  ]
+}

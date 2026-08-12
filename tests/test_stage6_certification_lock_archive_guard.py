@@ -336,11 +336,23 @@ class TestPinRender:
         # and prove the on-disk file is byte-identical afterwards.
         real = REPO_ROOT / ".ai" / "project" / "BINDING.md"
         before = real.read_bytes()
-        render_pin_update(before.decode("utf-8"), Z)
+        rendered = render_pin_update(before.decode("utf-8"), Z)
         assert real.read_bytes() == before
-        # And the live pin remains the Stage 3 placeholder (Stage 6 execution
-        # is unauthorized - OQ-14).
-        assert b"PENDING-STAGE-6" in before
+        # The second half of this test asserted `PENDING-STAGE-6 in before` -
+        # the Stage 3 placeholder, on the ground that Stage 6 was unauthorized
+        # under OQ-14. The owner authorized it and the canonical emission ran at
+        # S-2026-08-12-01, so that assertion pinned a state the repository has
+        # lawfully left. The durable property it was reaching for is that the
+        # renderer finds and rewrites the real file's pin line - whatever that
+        # line currently holds - and touches nothing else.
+        diff = [
+            (a, b)
+            for a, b in zip(before.decode("utf-8").split("\n"), rendered.split("\n"))
+            if a != b
+        ]
+        assert len(diff) == 1, diff
+        assert diff[0][0].startswith("core_digest_pin:")
+        assert Z in diff[0][1]
 
 
 # --------------------------------------------------------------------------
