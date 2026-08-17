@@ -1,0 +1,104 @@
+{
+ "drawing": "SEWCP-000-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-600",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-700",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-902",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-1000",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-200 CP \u2300320",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "SEWCP-500 ESC \u2300297",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 1",
+   "view": "PLAN (TOP)",
+   "kind": "note",
+   "label": "CLOCKING PER spec/00 \u00a73.2",
+   "source": "spec/00 \u00a73.2 (binding clocking)"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "linear",
+   "label": "20.000 (lapped, DR-3)",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS); spec/00 \u00a74.2"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "linear",
+   "label": "40.000",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS); spec/00 \u00a74.2"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "linear",
+   "label": "49.500",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS); spec/00 \u00a74.2"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "linear",
+   "label": "55.900",
+   "source": "observed:RUN-20260811T200919-f6cb5e (verified PASS); spec/00 \u00a74.2"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "note",
+   "label": "1.50 CHOKE GAP (SEWCP-301 \u00d716)",
+   "source": "spec/00 \u00a74.2 row 3"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "note",
+   "label": "0.40 BOND LINE",
+   "source": "spec/00 \u00a74.2 row 5"
+  },
+  {
+   "sheet": "SEWCP-000-DRW-001 Sh 2",
+   "view": "SECTION ELEVATION",
+   "kind": "note",
+   "label": "WAFER PLANE 55.920 (MESA 0.020)",
+   "source": "spec/00 \u00a74.2 rows 7-8"
+  }
+ ]
+}

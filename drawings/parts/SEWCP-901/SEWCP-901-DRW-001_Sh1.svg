@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view INSTALLED FORM (SIDE) -->
+<polyline points="120.000,211.438 120.000,177.000 120.000,177.000 120.171,179.611 120.681,182.176 121.522,184.654 122.679,187.000 124.133,189.175 125.858,191.142 127.825,192.867 130.000,194.321 132.346,195.478 134.824,196.319 137.389,196.829 140.000,197.000 182.681,157.000 183.992,156.957 185.296,156.828 186.589,156.615 187.866,156.316 189.120,155.935 190.346,155.473 191.540,154.931 192.695,154.312 193.808,153.619 194.873,152.855 195.885,152.022 196.841,151.125 196.841,151.125 197.796,150.228 198.809,149.395 199.873,148.631 200.986,147.938 202.142,147.319 203.335,146.777 204.562,146.315 205.816,145.934 207.092,145.635 208.385,145.422 209.690,145.293 211.000,145.250 251.000,145.250" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="100.000" y1="165.000" x2="265.000" y2="165.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<text x="101.000" y="163.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATUM A (BASE PLATE)</text>
+<line x1="100.000" y1="145.000" x2="265.000" y2="145.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<text x="101.000" y="143.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP BOTTOM FACE / RF LAND Z=20</text>
+<line x1="140.000" y1="165.000" x2="128.000" y2="165.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="140.000" y1="157.000" x2="128.000" y2="157.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="128.000" y1="165.000" x2="128.000" y2="157.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 128.000 165.000 L 129.200 161.400 L 126.800 161.400 Z" fill="#000" stroke="none"/>
+<path d="M 128.000 157.000 L 126.800 160.600 L 129.200 160.600 Z" fill="#000" stroke="none"/>
+<text x="128.000" y="160.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 128 160)">8.0 ±1.0 INSTALLED (RS-D04)</text>
+<line x1="196.800" y1="151.000" x2="203.871" y2="143.929" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 196.800 151.000 L 200.194 149.303 L 198.497 147.606 Z" fill="#000" stroke="none"/>
+<text x="204.871" y="142.929" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R20 S-COMPLIANCE ×2 (RS-D05)</text>
+<line x1="211.000" y1="145.250" x2="211.000" y2="153.250" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="251.000" y1="145.250" x2="251.000" y2="153.250" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="211.000" y1="153.250" x2="251.000" y2="153.250" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 211.000 153.250 L 214.600 154.450 L 214.600 152.050 Z" fill="#000" stroke="none"/>
+<path d="M 251.000 153.250 L 247.400 152.050 L 247.400 154.450 Z" fill="#000" stroke="none"/>
+<text x="231.000" y="152.250" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">PAD FLAT 40.0 TO r=146</text>
+<line x1="241.180" y1="145.250" x2="247.608" y2="152.910" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 241.180 145.250 L 242.575 148.779 L 244.413 147.236 Z" fill="#000" stroke="none"/>
+<text x="248.608" y="151.910" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2× ⌀6.6 AT TAP POSITIONS (r 136.18)</text>
+<!-- view FLAT PATTERN -->
+<polygon points="105.000,275.000 285.000,275.000 285.000,225.000 105.000,225.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="139.438" y1="275.000" x2="139.438" y2="225.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="170.854" y1="275.000" x2="170.854" y2="225.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="213.536" y1="275.000" x2="213.536" y2="225.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="229.270" y1="275.000" x2="229.270" y2="225.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="245.004" y1="275.000" x2="245.004" y2="225.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="275.180" cy="264.970" r="3.300" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="275.180" cy="235.030" r="3.300" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="105.000" y1="275.000" x2="105.000" y2="283.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="285.000" y1="275.000" x2="285.000" y2="283.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="105.000" y1="283.000" x2="285.000" y2="283.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 105.000 283.000 L 108.600 284.200 L 108.600 281.800 Z" fill="#000" stroke="none"/>
+<path d="M 285.000 283.000 L 281.400 281.800 L 281.400 284.200 Z" fill="#000" stroke="none"/>
+<text x="195.000" y="282.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">180.0 ±2.0 DEVELOPED (RS-D03)</text>
+<line x1="105.000" y1="275.000" x2="113.000" y2="275.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="105.000" y1="225.000" x2="113.000" y2="225.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="113.000" y1="275.000" x2="113.000" y2="225.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 113.000 275.000 L 114.200 271.400 L 111.800 271.400 Z" fill="#000" stroke="none"/>
+<path d="M 113.000 225.000 L 111.800 228.600 L 114.200 228.600 Z" fill="#000" stroke="none"/>
+<text x="113.000" y="249.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 113 249)">50.0 ±0.5 (RS-D01)</text>
+<line x1="275.180" y1="235.030" x2="282.251" y2="227.959" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 275.180 235.030 L 278.574 233.333 L 276.877 231.636 Z" fill="#000" stroke="none"/>
+<text x="283.251" y="226.959" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2× ⌀6.6 AT 29.94 CTRS — COINCIDENT WITH CP-IF-8 TAPS</text>
+<line x1="245.000" y1="275.000" x2="250.000" y2="283.660" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 245.000 275.000 L 245.761 278.718 L 247.839 277.518 Z" fill="#000" stroke="none"/>
+<text x="251.000" y="282.660" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">BEND STATIONS AT 34.44 / 65.85 / 108.54 / 124.27 / 140.00</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. 0.50 C10100 OFHC STRIP; SILVER 8–13 µm DIRECTLY ON COPPER — NO NICKEL (RS-D08/09, DR-7).</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. FORM ON R20 MANDREL; ANNEAL; FLATTEN PADS 0.05 TIR; 4-WIRE ≤ 3 mΩ.</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. HOLES COINCIDENT WITH CP-IF-8 TAPS: 29.94 CTRS AT PAD STATION 9.82 FROM END (ECR-D-013 DISPOSITION A, DEC-01).</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. SEWCP-904 DEPOSITION SHROUD: NO DIMENSIONAL AUTHORITY IN spec/08 — CARRIED (NOT DRAWN).</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RF STRAP SEWCP-901 — RF strap — form and flat pattern</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-901-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">C10100 OFHC + Ag</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SILVER 8–13 µm (DR-7)</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

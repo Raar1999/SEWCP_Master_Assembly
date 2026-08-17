@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view SIDE -->
+<polygon points="132.800,220.000 147.200,220.000 147.200,214.600 144.500,214.600 144.500,52.600 135.500,52.600 135.500,214.600 132.800,214.600" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="140.000" y1="227.200" x2="140.000" y2="41.800" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<path d="M 145.494 49.168 A 90.000 90.000 0 0 0 134.506 49.168" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="161.600" y1="220.000" x2="167.600" y2="220.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="161.600" y1="49.000" x2="167.600" y2="49.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="167.600" y1="220.000" x2="167.600" y2="49.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 167.600 220.000 L 168.800 216.400 L 166.400 216.400 Z" fill="#000" stroke="none"/>
+<path d="M 167.600 49.000 L 166.400 52.600 L 168.800 52.600 Z" fill="#000" stroke="none"/>
+<text x="167.600" y="133.500" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 167.6 133.5)">95 ±0.05 (LP-D02)</text>
+<line x1="118.400" y1="220.000" x2="122.400" y2="220.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="118.400" y1="214.600" x2="122.400" y2="214.600" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="122.400" y1="220.000" x2="122.400" y2="214.600" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 122.400 220.000 L 123.600 216.400 L 121.200 216.400 Z" fill="#000" stroke="none"/>
+<path d="M 122.400 214.600 L 121.200 218.200 L 123.600 218.200 Z" fill="#000" stroke="none"/>
+<text x="122.400" y="216.300" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 122.4 216.3)">3 FOOT (LP-D07)</text>
+<line x1="144.500" y1="130.000" x2="154.159" y2="127.412" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 144.500 130.000 L 148.288 130.227 L 147.667 127.909 Z" fill="#000" stroke="none"/>
+<text x="155.159" y="126.412" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀5 h6 SHAFT (LP-D01)</text>
+<line x1="147.200" y1="217.300" x2="156.597" y2="220.720" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 147.200 217.300 L 150.172 219.659 L 150.993 217.404 Z" fill="#000" stroke="none"/>
+<text x="157.597" y="219.720" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀8 FOOT (LP-D06)</text>
+<line x1="140.000" y1="49.000" x2="145.000" y2="40.340" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 140.000 49.000 L 142.839 46.482 L 140.761 45.282 Z" fill="#000" stroke="none"/>
+<text x="146.000" y="39.340" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R50 ±5 CROWN, Ra ≤ 0.2 (LP-D04/LP-D10)</text>
+<text x="230.000" y="58.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="230.00" y="60.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="62.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D01</text>
+<rect x="248.00" y="60.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="62.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Shaft diameter</text>
+<rect x="310.00" y="60.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="62.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø5.000</text>
+<rect x="340.00" y="60.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="62.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">h6 (−0 / −0.008)</text>
+<rect x="230.00" y="64.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="67.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D02</text>
+<rect x="248.00" y="64.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="67.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Overall length</text>
+<rect x="310.00" y="64.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="67.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">95.00</text>
+<rect x="340.00" y="64.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="67.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="230.00" y="68.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="71.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D03</text>
+<rect x="248.00" y="68.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="71.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Shaft straightness</text>
+<rect x="310.00" y="68.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="71.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="340.00" y="68.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="71.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.020 over 95 mm</text>
+<rect x="230.00" y="72.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="75.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D04</text>
+<rect x="248.00" y="72.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="75.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Tip crown radius</text>
+<rect x="310.00" y="72.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="75.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R50</text>
+<rect x="340.00" y="72.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="75.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±5</text>
+<rect x="230.00" y="76.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="79.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D05</text>
+<rect x="248.00" y="76.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="79.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Crown-to-shaft blend</text>
+<rect x="310.00" y="76.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="79.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R1.0 min, no undercu</text>
+<rect x="340.00" y="76.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="79.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.5 / −0</text>
+<rect x="230.00" y="81.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="83.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D06</text>
+<rect x="248.00" y="81.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="83.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Foot flange diameter</text>
+<rect x="310.00" y="81.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="83.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø8.00</text>
+<rect x="340.00" y="81.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="83.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="230.00" y="85.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="88.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D07</text>
+<rect x="248.00" y="85.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="88.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Foot flange thickness</text>
+<rect x="310.00" y="85.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="88.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.00</text>
+<rect x="340.00" y="85.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="88.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="230.00" y="89.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="92.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D08</text>
+<rect x="248.00" y="89.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="92.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Foot-to-shaft fillet</text>
+<rect x="310.00" y="89.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="92.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R1.0 min</text>
+<rect x="340.00" y="89.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="92.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.5 / −0</text>
+<rect x="230.00" y="93.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="96.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D09</text>
+<rect x="248.00" y="93.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="96.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Foot seat cone angle</text>
+<rect x="310.00" y="93.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="96.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">90°</text>
+<rect x="340.00" y="93.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="96.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±1°</text>
+<rect x="230.00" y="97.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="100.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D10</text>
+<rect x="248.00" y="97.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="100.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Tip surface finish</text>
+<rect x="310.00" y="97.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="100.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ra ≤ 0.2 µm</text>
+<rect x="340.00" y="97.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="100.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="230.00" y="102.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="104.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D11</text>
+<rect x="248.00" y="102.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="104.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Shaft surface finish</text>
+<rect x="310.00" y="102.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="104.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ra ≤ 0.2 µm</text>
+<rect x="340.00" y="102.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="104.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="230.00" y="106.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.000" y="109.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LP-D12</text>
+<rect x="248.00" y="106.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="249.000" y="109.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Length matching, set of 3</text>
+<rect x="310.00" y="106.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="311.000" y="109.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="340.00" y="106.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="341.000" y="109.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">≤ 0.03 mm range within</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. MATCHED SET OF 3, LENGTH GRADE ±0.01 WITHIN SET (spec/05 MATCHED-SET NOTE).</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. CENTRELESS GRIND SHAFT; STRAIGHTNESS 0.020/95 (LP-D03).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. CROWN-TO-SHAFT BLEND R1.0 MIN, NO UNDERCUT (LP-D05).</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. SEWCP-601 BUSHING: SEPARATE PART, ⌀5.60 +0.05/−0 BORE (ECR-Q-009 CORRECTED) — NO CAD MODEL, SPEC-ONLY (BOM).</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LIFT PIN SEWCP-600 — Lift pin</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-600-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Al2O3 (shaft/crown) per spec/05 §6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEE NOTES</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.8:1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view PLAN (LOOKING UP AT THE CP FACE) -->
+<polygon points="183.200,174.184 259.613,174.184 259.613,178.784 280.313,178.784 280.313,158.084 259.613,158.084 259.613,162.684 192.400,162.684 192.400,73.316 259.613,73.316 259.613,77.916 280.313,77.916 280.313,57.216 259.613,57.216 259.613,61.816 183.200,61.816" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="183.200,153.650 192.400,153.650 192.400,82.350 183.200,82.350" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<polygon points="183.200,88.963 192.400,88.963 192.400,83.213 183.200,83.213" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="269.963" cy="67.566" r="3.795" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="183.200,147.037 192.400,147.037 192.400,152.787 183.200,152.787" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="269.963" cy="168.434" r="3.795" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="145.250,146.750 272.900,146.750 272.900,89.250 145.250,89.250" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<line x1="183.200" y1="174.184" x2="183.200" y2="184.184" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="280.313" y1="174.184" x2="280.313" y2="184.184" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="183.200" y1="184.184" x2="280.313" y2="184.184" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 183.200 184.184 L 186.800 185.384 L 186.800 182.984 Z" fill="#000" stroke="none"/>
+<path d="M 280.313 184.184 L 276.713 182.984 L 276.713 185.384 Z" fill="#000" stroke="none"/>
+<text x="231.756" y="183.184" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">84.45 OVERALL</text>
+<line x1="269.963" y1="67.566" x2="277.623" y2="61.138" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 269.963 67.566 L 273.492 66.171 L 271.949 64.333 Z" fill="#000" stroke="none"/>
+<text x="278.623" y="60.138" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2× ⌀6.6 AT r=150, 88°/122° TAPS</text>
+<line x1="187.800" y1="85.800" x2="180.140" y2="79.372" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 187.800 85.800 L 185.814 82.567 L 184.271 84.405 Z" fill="#000" stroke="none"/>
+<text x="179.140" y="78.372" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">CHEEKS 50.5 GAP</text>
+<line x1="220.000" y1="146.750" x2="216.580" y2="156.147" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 220.000 146.750 L 217.641 149.722 L 219.896 150.543 Z" fill="#000" stroke="none"/>
+<text x="215.580" y="155.147" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">SEWCP-901 STRAP (REF)</text>
+<!-- view SECTION AT STRAP AXIS -->
+<polygon points="285.200,194.000 386.280,194.000 386.280,187.000 285.200,187.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="285.200,203.450 296.400,203.450 296.400,194.000 285.200,194.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="285.200,203.800 296.400,203.800 296.400,203.450 285.200,203.450" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<line x1="232.000" y1="187.000" x2="400.000" y2="187.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<text x="234.800" y="184.900" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP BOTTOM FACE Z=20 (RF-HOT)</text>
+<line x1="232.000" y1="215.000" x2="400.000" y2="215.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<text x="234.800" y="212.900" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">BASE PLATE Z=0 (GROUND)</text>
+<polygon points="239.000,204.150 298.780,204.150 298.780,203.450 239.000,203.450" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<line x1="274.000" y1="215.000" x2="256.000" y2="215.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="274.000" y1="203.800" x2="256.000" y2="203.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="256.000" y1="215.000" x2="256.000" y2="203.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 256.000 215.000 L 257.200 211.400 L 254.800 211.400 Z" fill="#000" stroke="none"/>
+<path d="M 256.000 203.800 L 254.800 207.400 L 257.200 207.400 Z" fill="#000" stroke="none"/>
+<text x="256.000" y="208.400" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 256 208.4)">8.0 MIN TO GROUND (SB-D04)</text>
+<line x1="282.400" y1="203.450" x2="276.400" y2="203.450" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="282.400" y1="187.000" x2="276.400" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="276.400" y1="203.450" x2="276.400" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 276.400 203.450 L 277.600 199.850 L 275.200 199.850 Z" fill="#000" stroke="none"/>
+<path d="M 276.400 187.000 L 275.200 190.600 L 277.600 190.600 Z" fill="#000" stroke="none"/>
+<text x="276.400" y="194.225" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 276.4 194.225)">11.75 DROP (SB-D01: BEARING 8.25)</text>
+<line x1="388.800" y1="194.000" x2="392.800" y2="194.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="388.800" y1="187.000" x2="392.800" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="392.800" y1="194.000" x2="392.800" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 392.800 194.000 L 394.000 190.400 L 391.600 190.400 Z" fill="#000" stroke="none"/>
+<path d="M 392.800 187.000 L 391.600 190.600 L 394.000 190.600 Z" fill="#000" stroke="none"/>
+<text x="392.800" y="189.500" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 392.8 189.5)">5 WEB</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. PLATE-HUNG HANGER PER ECR-Q-012 DISPOSITION (DEC-02 + ADDENDUM, APR-031/032): MOUNTS TO THE RF-HOT COOLING PLATE — NOT TO GROUND (RF-IF-3).</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. BEARS ON THE STRAP TOP FACE AT 8.25: RS-D04 MID-PLANE = 8.0 EXACTLY (SB-D01).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. ALL SURFACES ≥ 8.0 FROM THE GROUNDED BASE PLATE (SB-D04) — MINIMUM AT THE CHEEK TIPS.</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. M6 × 16 SHCS, 6.0 N·m INTO THE CP BRACKET TAPS (r=150, 88°/122°); GRIP 5.0, ENGAGEMENT 11.</text>
+<text x="14.000" y="54.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">9. CNC ONE PIECE FROM 6061-T6 12.7 PLATE; ALODINE 1200 (CONDUCTIVE) — NOT ANODIZE.</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">STRAP SUPPORT HANGER SEWCP-902 — Strap support hanger</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-902-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">B</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ALODINE 1200</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.15:1 / 1.6:1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

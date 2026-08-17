@@ -1,0 +1,34 @@
+{
+ "drawing": "SEWCP-500-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-500-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300297 (EC-D01)",
+   "source": "parameter:ec_od (SEWCP-500-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-500-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300200 BC 3\u00d7 \u23005.2 H8 LIFT (EC-D16)",
+   "source": "parameter:ec_lp_bc (SEWCP-500-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-500-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u23001.5 He FEED (AXIS)",
+   "source": "parameter:ec_he_d (SEWCP-500-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-500-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "6 \u00b10.020 (EC-D02)",
+   "source": "parameter:ec_thk (SEWCP-500-REQ-001)"
+  }
+ ]
+}

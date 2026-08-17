@@ -1,0 +1,48 @@
+{
+ "drawing": "SEWCP-400-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300318 FLANGE",
+   "source": "parameter:sr_fl_od (SEWCP-400-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300300/\u2300294 WEB (3.0 WALL)",
+   "source": "parameter:sr_web_od (SEWCP-400-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300306 BC 3\u00d7 SLOT 6.05 H8",
+   "source": "parameter:sr_slot_bc (SEWCP-400-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300302 BC 8+8 \u23007 (DR-9 TWO CIRCUITS)",
+   "source": "parameter:sr_bolt_bc (SEWCP-400-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "20.3 AS-SUPPLIED \u2014 LAP TO 20.000 AT ASSY (DR-3)",
+   "source": "parameter:sr_h_supplied (SEWCP-400-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-400-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "3.15 FLANGE",
+   "source": "parameter:sr_fl_h (SEWCP-400-REQ-001)"
+  }
+ ]
+}

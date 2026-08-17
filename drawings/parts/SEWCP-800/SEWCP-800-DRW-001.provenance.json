@@ -1,0 +1,62 @@
+{
+ "drawing": "SEWCP-800-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "10 (VP-D02)",
+   "source": "parameter:vp_flange_h (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "8 (VP-D04)",
+   "source": "parameter:vp_spigot_l (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "note",
+   "label": "\u23009.9 h8 PILOT (VP-D03)",
+   "source": "parameter:vp_spigot_d (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "note",
+   "label": "\u230050 FLANGE (VP-D01)",
+   "source": "parameter:vp_flange_d (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "note",
+   "label": "\u23006.35\u00d71 WALL \u00d7100 (VP-D13/14)",
+   "source": "parameter:vp_tube_od (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "note",
+   "label": "\u23004 H9 BORE (VP-D05)",
+   "source": "parameter:vp_bore_d (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u230038 BC 4\u00d7 \u23004.5 (VP-D11)",
+   "source": "parameter:vp_bolt_bc (SEWCP-800-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-800-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u230024.5 O-RING GROOVE MEAN (VP-D06)",
+   "source": "parameter:vp_groove_mean (SEWCP-800-REQ-001)"
+  }
+ ]
+}

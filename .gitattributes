@@ -31,12 +31,29 @@
 # working tree immediately after the repair. Enumerating partitions means the
 # next partition is missed the same way.
 #
-# The blanket rule is safe here because it was checked rather than assumed:
-# EVERY tracked file in this repository decodes as UTF-8 and contains no NUL
-# octet - 232 `.md`, 91 `.py`, 79 `.gitkeep`, 69 `.json`, one `.csv`, one
-# `.manifest`, and four extensionless text artifacts (`.ai/core/VERSION`,
+# The blanket rule was safe when written because it was checked rather than
+# assumed: EVERY tracked file in this repository decoded as UTF-8 and contained
+# no NUL octet - 232 `.md`, 91 `.py`, 79 `.gitkeep`, 69 `.json`, one `.csv`,
+# one `.manifest`, and four extensionless text artifacts (`.ai/core/VERSION`,
 # `.ai/core/validation/MANIFEST`, `.ai/project/ledger/HEAD`, `LICENSE`). There
-# is no binary content to damage. Re-run that check before adding any.
+# was no binary content to damage. Re-run that check before adding any.
+#
+# THAT CHECK WAS RE-RUN, AND BINARY CONTENT WAS THEN ADDED. `ECR-D-015`
+# (session `S-2026-08-17-01`) mirrors the 61 CAD deliverables into the tree at
+# the paths `SEDEP-PMP-002` §3.1 declares. Of the 61: **14 PDF and 10 STL carry
+# NUL octets and do not decode as UTF-8**, and the other 37 - STEP, SVG,
+# provenance JSON, BOM CSV - are UTF-8 but carry CRLF. Under `* text eol=lf`
+# git would corrupt the 24 binaries outright and rewrite the 37 to LF, moving
+# every one of the 61 digests `cad/DELIVERABLES.md` registers and that
+# `releases/RELEASE_READINESS_S-2026-08-11-06.md` §5 verified bi-directionally.
+#
+# So the four deliverable subtrees are declared `-text`: octets in, octets out,
+# no normalisation in either direction. They are GENERATED EVIDENCE BOUND BY
+# DIGEST, not source - the byte identity IS the record, and a line-ending
+# policy has no business touching it. Scoped by path, never by extension: 69
+# `.json` and one `.csv` elsewhere in the tree stay under the blanket rule,
+# where they belong. The `V-25` domain is untouched - no deliverable is under
+# `.ai/` and none is registered in `project/FROZEN.md`.
 #
 # `text` is stated explicitly rather than left to `text=auto` heuristics, so
 # the outcome does not depend on git's content sniffing.
@@ -51,3 +68,10 @@
 # deleting the blanket rule does not silently un-fix them.
 params/generated/*.csv text eol=lf
 .gitattributes         text eol=lf
+
+# CAD deliverables - ECR-D-015. Byte-preserved, never normalised. Ordered
+# after the blanket rule because the last matching line wins.
+cad/exports/**       -text
+cad/bom/**           -text
+drawings/parts/**    -text
+drawings/assembly/** -text

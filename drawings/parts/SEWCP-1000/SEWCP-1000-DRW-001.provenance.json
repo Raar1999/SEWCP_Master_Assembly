@@ -1,0 +1,34 @@
+{
+ "drawing": "SEWCP-1000-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-1000-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "linear",
+   "label": "18 \u00b10.1 (TR-D04)",
+   "source": "parameter:tr_mount_pitch (SEWCP-1000-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-1000-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "note",
+   "label": "\u23001.75 +0.05/\u22120 PROBE BORE (TR-D02)",
+   "source": "parameter:tr_probe_d (SEWCP-1000-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-1000-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "12 (TR-D01)",
+   "source": "parameter:tr_hgt (SEWCP-1000-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-1000-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "VENT SLOT 2 W \u00d7 1 DP (TR-D08, DR-13)",
+   "source": "parameter:tr_vent_w (SEWCP-1000-REQ-001)"
+  }
+ ]
+}

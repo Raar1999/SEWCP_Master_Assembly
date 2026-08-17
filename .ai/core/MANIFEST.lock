@@ -3,11 +3,11 @@
   "aggregate_digest": "2180df021b892ee0c19d7bc164713e46b1003bfb193497cad06b6c20f5ac92f0",
   "build_provenance": {
     "source_manifest": "framework/framework.manifest.json",
-    "source_manifest_dc1": "5b78d25b00a405c61715752e6aad1084dc7852048c0074d9c3c948ffbbd6b652",
+    "source_manifest_dc1": "759f774b727c43a0f96845aa5ac12a05a1158b60c27ba8b31d963a33cde74e3b",
     "selected_profile": "mechanical",
     "compiler_stage": 6,
-    "build_id": "stage6-2026-08-12T15:36:23Z",
-    "timestamp": "2026-08-12T15:36:23Z"
+    "build_id": "stage6-2026-08-17T05:12:06Z",
+    "timestamp": "2026-08-17T05:12:06Z"
   },
   "hash_algorithm": "SHA-256",
   "normalisation": {
@@ -87,10 +87,10 @@
         "tier": "T1",
         "token_cap": 800,
         "counts": {
-          "TF-1": 483,
-          "TF-2": 574
+          "TF-1": 671,
+          "TF-2": 787
         },
-        "governing": 574,
+        "governing": 787,
         "verdict": "PASS"
       },
       {
@@ -98,10 +98,10 @@
         "tier": "T1",
         "token_cap": 1100,
         "counts": {
-          "TF-1": 900,
-          "TF-2": 1039
+          "TF-1": 921,
+          "TF-2": 1074
         },
-        "governing": 1039,
+        "governing": 1074,
         "verdict": "PASS"
       },
       {
@@ -109,27 +109,27 @@
         "tier": "T1",
         "token_cap": 600,
         "counts": {
-          "TF-1": 503,
-          "TF-2": 569
+          "TF-1": 533,
+          "TF-2": 595
         },
-        "governing": 569,
+        "governing": 595,
         "verdict": "PASS"
       }
     ],
     "totals_t0_t1": {
-      "TF-1": 3922,
-      "TF-2": 4537
+      "TF-1": 4161,
+      "TF-2": 4811
     },
     "aggregate_ceiling_charge": 200,
     "charged_totals_t0_t1": {
-      "TF-1": 4122,
-      "TF-2": 4737
+      "TF-1": 4361,
+      "TF-2": 5011
     },
-    "aggregate_governing_maximum": 4737,
+    "aggregate_governing_maximum": 5011,
     "aggregate_ceiling": 6000,
     "verdict": "PASS",
-    "measurement_timestamp": "2026-08-12T15:36:23Z",
-    "stage6_build_id": "stage6-2026-08-12T15:36:23Z"
+    "measurement_timestamp": "2026-08-17T05:12:06Z",
+    "stage6_build_id": "stage6-2026-08-17T05:12:06Z"
   },
   "files": [
     [

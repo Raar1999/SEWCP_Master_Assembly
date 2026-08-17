@@ -19,7 +19,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-OUT_ROOT = Path(r"D:\AIEF_CAD_OUTPUT\SEWCP")
+# ECR-D-015: the deliverables live in this repository now. This script
+# read the external generation root, so it verified a copy no clone has -
+# and went on reporting PASS after the in-repo BOM and drawings had moved.
+STEP_DIR = ROOT / "cad/exports/step"
+BOM_CSV = ROOT / "cad/bom/SEWCP-000_BOM_RevA.csv"
+DRAWING_DIR = ROOT / "drawings"
+
+
+def _drawing_dir(pn: str) -> Path:
+    return DRAWING_DIR / ("assembly" if pn == "SEWCP-000" else f"parts/{pn}")
 ASM_RUN = ROOT / "cad/runs/ASSEMBLY_S-2026-08-11-05/run.json"
 
 REGISTRY = {"SEWCP-200", "SEWCP-300", "SEWCP-400", "SEWCP-500", "SEWCP-600",
@@ -108,7 +117,7 @@ def main() -> int:
     missing, unsourced = [], 0
     n_dims = 0
     for pn in sorted(REGISTRY | {"SEWCP-000"}):
-        d = OUT_ROOT / "DRAWINGS" / pn
+        d = _drawing_dir(pn)
         sidecars = list(d.glob("*.provenance.json"))
         svgs = list(d.glob("*.svg"))
         pdfs = list(d.glob("*.pdf"))
@@ -127,19 +136,19 @@ def main() -> int:
 
     # -- deliverable digests reproduce -------------------------------------
     manifest = (ROOT / "cad/DELIVERABLES.md").read_text(encoding="utf-8")
-    bom_path = OUT_ROOT / "BOM/SEWCP-000_BOM_RevA.csv"
+    bom_path = BOM_CSV
     bom_hash = hashlib.sha256(bom_path.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-BOM", bom_hash in manifest,
           "BOM digest recorded in the deliverable manifest", bom_hash)
-    strap = OUT_ROOT / "SEWCP-900/step/SEWCP-901_RF_STRAP.step"
+    strap = STEP_DIR / "SEWCP-901_RF_STRAP.step"
     strap_hash = hashlib.sha256(strap.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-STRAP", strap_hash in manifest,
           "re-issued strap STEP digest recorded", strap_hash)
-    hanger = OUT_ROOT / "SEWCP-900/step/SEWCP-902_SADDLE.step"
+    hanger = STEP_DIR / "SEWCP-902_SADDLE.step"
     hanger_hash = hashlib.sha256(hanger.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-HANGER", hanger_hash in manifest,
           "hanger STEP digest recorded", hanger_hash)
-    asm = OUT_ROOT / "ASSEMBLY/SEWCP-000_MASTER_ASSEMBLY.step"
+    asm = STEP_DIR / "SEWCP-000_MASTER_ASSEMBLY.step"
     asm_hash = hashlib.sha256(asm.read_bytes()).hexdigest()[:16]
     check("FSV-MANIFEST-ASM", asm_hash in manifest,
           "assembly STEP exported and digest recorded", asm_hash)

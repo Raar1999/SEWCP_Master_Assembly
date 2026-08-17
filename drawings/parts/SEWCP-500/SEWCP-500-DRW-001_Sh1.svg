@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view TOP -->
+<circle cx="210.000" cy="120.000" r="53.460" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="36.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="241.177" cy="102.000" r="0.936" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="178.823" cy="102.000" r="0.936" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="156.000" r="0.936" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="0.270" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="210.000" cy="120.000" r="10.800" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="220.800" cy="120.000" r="1.440" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="199.200" cy="120.000" r="1.440" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<path d="M 159.764 138.284 L 152.246 141.021 L 146.246 141.021" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 159.764 138.284 L 155.971 138.388 L 156.792 140.643 Z" fill="#000" stroke="none"/>
+<text x="145.246" y="140.021" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀297 (EC-D01)</text>
+<path d="M 178.823 102.000 L 171.895 98.000 L 165.895 98.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 178.823 102.000 L 176.305 99.161 L 175.105 101.239 Z" fill="#000" stroke="none"/>
+<text x="164.895" y="97.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀200 BC 3× ⌀5.2 H8 LIFT (EC-D16)</text>
+<path d="M 210.191 119.809 L 215.848 114.152 L 221.848 114.152" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 210.191 119.809 L 213.585 118.112 L 211.888 116.415 Z" fill="#000" stroke="none"/>
+<text x="222.848" y="113.152" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀1.5 He FEED (AXIS)</text>
+<!-- view SECTION -->
+<polygon points="36.540,225.000 143.460,225.000 143.460,222.840 36.540,222.840" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="145.620" y1="225.000" x2="151.620" y2="225.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="145.620" y1="222.840" x2="151.620" y2="222.840" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.620" y1="225.000" x2="151.620" y2="222.840" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 151.620 225.000 L 152.820 221.400 L 150.420 221.400 Z" fill="#000" stroke="none"/>
+<path d="M 151.620 222.840 L 150.420 226.440 L 152.820 226.440 Z" fill="#000" stroke="none"/>
+<text x="151.620" y="222.920" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 151.62 222.92)">6 ±0.020 (EC-D02)</text>
+<text x="14.000" y="56.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="14.00" y="58.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D01</text>
+<rect x="32.00" y="58.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Puck outside diameter</text>
+<rect x="94.00" y="58.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø297.0</text>
+<rect x="124.00" y="58.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="62.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D02</text>
+<rect x="32.00" y="62.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Puck thickness</text>
+<rect x="94.00" y="62.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.000</text>
+<rect x="124.00" y="62.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.020</text>
+<rect x="14.00" y="66.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D03</text>
+<rect x="32.00" y="66.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Dielectric thickness over electrode</text>
+<rect x="94.00" y="66.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.300</text>
+<rect x="124.00" y="66.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.020</text>
+<rect x="14.00" y="70.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D04</text>
+<rect x="32.00" y="70.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Mesa height above field</text>
+<rect x="94.00" y="70.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.020</text>
+<rect x="124.00" y="70.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.003</text>
+<rect x="14.00" y="74.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D05</text>
+<rect x="32.00" y="74.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Mesa diameter</text>
+<rect x="94.00" y="74.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø0.80</text>
+<rect x="124.00" y="74.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="14.00" y="79.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D06</text>
+<rect x="32.00" y="79.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Mesa pitch (hexagonal)</text>
+<rect x="94.00" y="79.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.00</text>
+<rect x="124.00" y="79.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="83.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D07</text>
+<rect x="32.00" y="83.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Mesa plane flatness</text>
+<rect x="94.00" y="83.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="83.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.010 TIR over Ø297</text>
+<rect x="14.00" y="87.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D08</text>
+<rect x="32.00" y="87.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Seal band width</text>
+<rect x="94.00" y="87.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.00</text>
+<rect x="124.00" y="87.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="91.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D09</text>
+<rect x="32.00" y="91.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Seal band height (= mesa height)</text>
+<rect x="94.00" y="91.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.020</text>
+<rect x="124.00" y="91.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.002</text>
+<rect x="14.00" y="95.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D10</text>
+<rect x="32.00" y="95.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Seal band outside diameter</text>
+<rect x="94.00" y="95.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø297.0</text>
+<rect x="124.00" y="95.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="100.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D11</text>
+<rect x="32.00" y="100.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Electrode outside diameter</text>
+<rect x="94.00" y="100.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø291.0</text>
+<rect x="124.00" y="100.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.20</text>
+<rect x="14.00" y="104.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D12</text>
+<rect x="32.00" y="104.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Electrode thickness (metallization)</text>
+<rect x="94.00" y="104.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.020</text>
+<rect x="124.00" y="104.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.005</text>
+<rect x="14.00" y="108.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D13</text>
+<rect x="32.00" y="108.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Bipolar pole gap</text>
+<rect x="94.00" y="108.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.00</text>
+<rect x="124.00" y="108.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.20</text>
+<rect x="14.00" y="112.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D14</text>
+<rect x="32.00" y="112.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">He distribution groove</text>
+<rect x="94.00" y="112.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.00 W × 0.50 D</text>
+<rect x="124.00" y="112.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="14.00" y="116.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D15</text>
+<rect x="32.00" y="116.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Central He port</text>
+<rect x="94.00" y="116.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø1.50</text>
+<rect x="124.00" y="116.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.10 / −0</text>
+<rect x="14.00" y="121.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D16</text>
+<rect x="32.00" y="121.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore</text>
+<rect x="94.00" y="121.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø5.200</text>
+<rect x="124.00" y="121.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8</text>
+<rect x="14.00" y="125.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D17</text>
+<rect x="32.00" y="125.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore position</text>
+<rect x="94.00" y="125.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø200 BC</text>
+<rect x="124.00" y="125.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.100 Ⓜ</text>
+<rect x="14.00" y="129.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D18</text>
+<rect x="32.00" y="129.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore perpendicularity</text>
+<rect x="94.00" y="129.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="129.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.030 over 6 mm</text>
+<rect x="14.00" y="133.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D19</text>
+<rect x="32.00" y="133.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore chamfer, both ends</text>
+<rect x="94.00" y="133.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.3 × 45°</text>
+<rect x="124.00" y="133.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.15</text>
+<rect x="14.00" y="137.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">EC-D20</text>
+<rect x="32.00" y="137.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HV pad diameter</text>
+<rect x="94.00" y="137.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø12.0</text>
+<rect x="124.00" y="137.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.30</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. MESA PATTERN H 0.020 ±0.003: SURFACE ARCHITECTURE — MFG PROCESS DEFINITION, NOT SOLID GEOMETRY (spec/04; deferred-feature register).</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. BIPOLAR BURIED ELECTRODES: CO-FIRED; SEE spec/04 ELECTRODE ARCHITECTURE — NOT DIMENSIONED HERE.</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. EC-D14 He DISTRIBUTION GROOVE LAYOUT: NO GEOMETRIC AUTHORITY IN spec/04 — CARRIED OPEN (drawing-stage register).</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. CERAMIC EDGE BREAK 0.2–0.3 × 45° ALL EDGES; NO METAL WITHIN 10 mm OF TOP SURFACE AT ASSY.</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ESC PUCK SEWCP-500 — Geometry / surface architecture</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-500-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Al2O3 99.6%</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LAPPED TOP; SEE MESA NOTE</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:2.5</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

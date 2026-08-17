@@ -65,7 +65,7 @@ Both are declared normatively in `framework.manifest.json` → `metadata.reprodu
 | `framework/AIEF-AMD-014_OQ-15_Enactment_Bounded_Register_Split.md` | `07ced7582c7dafc8649eb8ac0736d1587ba4cc38c30f11c929240809be639945` |
 | `framework/AIEF-AMD-015_Lock_Boot_Read_Prefix_And_Member_Order.md` | `195302214a14ab38d9c595dee35c5eb6a930f5f90c4c70854488ff62207c6ae4` |
 | `framework/SCH-framework-manifest.schema.json` | `ee3d0bdf37156541c13ece46fec9172dabd93e98f32cb88c0ae7a2adff4bb25f` |
-| `framework/framework.manifest.json` | `5b78d25b00a405c61715752e6aad1084dc7852048c0074d9c3c948ffbbd6b652` |
+| `framework/framework.manifest.json` | `759f774b727c43a0f96845aa5ac12a05a1158b60c27ba8b31d963a33cde74e3b` |
 
 **Not registered, by ruling.** `framework/AIEF-ARCH-001_AI_Engineering_Framework_Architecture.md` — superseded by `AIEF-FRZ-001`, authorises nothing, cited by nothing as a live authority (AMD-21, APR-003).
 
@@ -122,10 +122,10 @@ Per-artifact verification after this change: **29 of 29 verified at the time of 
 **`frozen_set_hash`**, DC-2 over the 31 registered artifacts above:
 
 ```
-701db1fd2facde42c6e0a1a937261e4e48a4fbe587450a2ae58259b8f618aa50
+1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 ```
 
-Dual-computed at `S-2026-08-11-06` — once by `src/aief_stage6/digests.py` and once by an
+Recomputed at `S-2026-08-17-01` over the same 31-member membership after `ECR-D-017` disposition A re-registered `framework/framework.manifest.json` at `759f774b…de74e3b` (`APR-037`; three leaves - `metadata.license` and two `authority` fields - zero removals). Prior value: `701db1fd2facde42c6e0a1a937261e4e48a4fbe587450a2ae58259b8f618aa50` - reproducible from the superseded membership, retained for audit. Dual-computed at `S-2026-08-11-06` — once by `src/aief_stage6/digests.py` and once by an
 independent implementation written from the DC-2 text above, importing nothing from `src/`. The
 two agree, and all **31** rows reproduce against the tree.
 

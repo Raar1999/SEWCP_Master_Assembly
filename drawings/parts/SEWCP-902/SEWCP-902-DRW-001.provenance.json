@@ -1,0 +1,55 @@
+{
+ "drawing": "SEWCP-902-DRW-001",
+ "revision": "B",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "PLAN (LOOKING UP AT THE CP FACE)",
+   "kind": "linear",
+   "label": "84.45 OVERALL",
+   "source": "parameter:sb_rail_w (SEWCP-902-REQ-002)"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "PLAN (LOOKING UP AT THE CP FACE)",
+   "kind": "note",
+   "label": "2\u00d7 \u23006.6 AT r=150, 88\u00b0/122\u00b0 TAPS",
+   "source": "spec/08 SB-D03 (APR-032): holes at CP-IF-8 bracket taps r=150, \u00b117\u00b0"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "PLAN (LOOKING UP AT THE CP FACE)",
+   "kind": "note",
+   "label": "CHEEKS 50.5 GAP",
+   "source": "spec/08 SB-D02 (APR-030): cheeks guide the 50.0 strap at 50.5"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "PLAN (LOOKING UP AT THE CP FACE)",
+   "kind": "note",
+   "label": "SEWCP-901 STRAP (REF)",
+   "source": "observed strap installed form (phantom)"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "SECTION AT STRAP AXIS",
+   "kind": "linear",
+   "label": "8.0 MIN TO GROUND (SB-D04)",
+   "source": "spec/08 SB-D04 (\u22658.0 min to ground)"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "SECTION AT STRAP AXIS",
+   "kind": "linear",
+   "label": "11.75 DROP (SB-D01: BEARING 8.25)",
+   "source": "parameter:sb_drop (SEWCP-902-REQ-002)"
+  },
+  {
+   "sheet": "SEWCP-902-DRW-001 Sh 1",
+   "view": "SECTION AT STRAP AXIS",
+   "kind": "linear",
+   "label": "5 WEB",
+   "source": "parameter:sb_web (SEWCP-902-REQ-002)"
+  }
+ ]
+}

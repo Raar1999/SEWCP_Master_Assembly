@@ -454,10 +454,21 @@ def _bounded_register_split(manifest: Manifest, repo_root: Path) -> _SplitResult
     section the index did not agree with. A ruling without a check is a
     convention - the AMD-19/AMD-26 lesson, applied to AMD-49.
 
-    The state pair is deliberately NOT checked here: `mapping_state` is a
-    section-name correspondence over a YAML block rather than an identifier
-    bijection, and asserting the wrong relation is worse than asserting none.
-    Recorded as the declared residual of this implementation.
+    **The state pair is now checked too.** It was not, and the residual was
+    recorded only in this docstring - in no ECR, no register row and no
+    verification report. `OI-V-13`'s independent audit found the consequence:
+    the skip sat *before* the existence check, so `project/STATE_REGISTER.md`
+    could be declared in `files[]` and absent from the tree while V-03 reported
+    PASS over `register_pairs: 1` of 2 declared pairs. A BLOCKING clause
+    enforced for half its declared domain reports green for the other half,
+    which is the `OI-V-02` failure mode one level up. `TCR-002` F-2 recorded
+    the missing file as BLOCKING on 2026-08-09 and was never actioned.
+
+    `mapping_state` is a different relation from `mapping_open_items` - a
+    section-name correspondence over a YAML block, not an identifier bijection -
+    so it gets its own comparison rather than being forced through the wrong
+    one. What both pairs now share is the part that never depended on the
+    relation at all: **both files must exist.**
     """
     declared = manifest.reproducible.get("bounded_register_split")
     if not declared:
@@ -476,15 +487,29 @@ def _bounded_register_split(manifest: Manifest, repo_root: Path) -> _SplitResult
                 f"bounded_register_split pair {index_id}/{register_id}: "
                 f"a member does not resolve in files[]")
             continue
-        if index_id != "open-items":
-            continue  # see the docstring: the state pair's relation differs
+        # Existence first, and for EVERY pair. This check used to sit behind
+        # the open-items branch, so a declared register could be missing from
+        # the tree without V-03 noticing (OI-V-13 FIND-3, TCR-002 F-2).
         checked += 1
         p_i = repo_root / ".ai" / entry_i["path"]
         p_r = repo_root / ".ai" / entry_r["path"]
-        if not p_i.is_file() or not p_r.is_file():
+        for role, p, entry in (("index", p_i, entry_i), ("register", p_r, entry_r)):
+            if not p.is_file():
+                failures.append(
+                    f"bounded_register_split pair {index_id}/{register_id}: "
+                    f"{role} {entry['path']} is declared in files[] and absent "
+                    f"from the tree")
+        if not (p_i.is_file() and p_r.is_file()):
+            continue
+
+        if index_id == "state":
+            failures += _mapping_state(entry_i, entry_r, p_i, p_r)
+            continue
+        if index_id != "open-items":
             failures.append(
-                f"bounded_register_split pair {index_id}: "
-                f"{'index' if not p_i.is_file() else 'register'} absent from the tree")
+                f"bounded_register_split pair {index_id}/{register_id}: no "
+                f"mapping is implemented for this pair - a declared pair that "
+                f"nothing compares is the defect this check exists to prevent")
             continue
         idx = _md_sections(p_i.read_text(encoding="utf-8"), rows=False)
         reg = _md_sections(p_r.read_text(encoding="utf-8"), rows=True)
@@ -526,6 +551,54 @@ def _bounded_register_split(manifest: Manifest, repo_root: Path) -> _SplitResult
                     f"{rdupes}")
 
     return _SplitResult(checked, identifiers, failures)
+
+
+_YAML_BLOCK = re.compile(r"```yaml\n(.*?)```", re.S)
+_YAML_KEY = re.compile(r"^([A-Za-z_][A-Za-z0-9_]*):")
+
+
+def _mapping_state(entry_i, entry_r, p_i: Path, p_r: Path) -> list[str]:
+    """`mapping_state`, verbatim from the manifest declaration:
+
+        'Every key of the YAML block of project/STATE.md appears exactly once
+        as a level-2 heading of project/STATE_REGISTER.md, and every level-2
+        heading of that register is either such a key or the literal heading
+        Notes.'
+
+    Top-level keys only - a nested key is part of its parent's value, not a
+    key of the block.
+    """
+    failures: list[str] = []
+    m = _YAML_BLOCK.search(p_i.read_text(encoding="utf-8"))
+    if not m:
+        return [f"{entry_i['path']}: no fenced yaml block - mapping_state is "
+                f"defined over its keys and there are none to map"]
+
+    keys: list[str] = []
+    for line in m.group(1).split("\n"):
+        k = _YAML_KEY.match(line)
+        if k:
+            keys.append(k.group(1))
+
+    headings = [ln[3:].strip() for ln in p_r.read_text(encoding="utf-8").split("\n")
+                if ln.startswith("## ")]
+
+    for key in keys:
+        n = headings.count(key)
+        if n == 0:
+            failures.append(
+                f"{entry_r['path']}: STATE.md key '{key}' has no level-2 heading "
+                f"- mapping_state requires exactly one")
+        elif n > 1:
+            failures.append(
+                f"{entry_r['path']}: key '{key}' appears as {n} level-2 headings "
+                f"- mapping_state requires exactly one")
+    for heading in headings:
+        if heading != "Notes" and heading not in keys:
+            failures.append(
+                f"{entry_r['path']}: level-2 heading '{heading}' is neither a "
+                f"STATE.md key nor the literal heading Notes")
+    return failures
 
 
 def check_v04(manifest: Manifest) -> Check:

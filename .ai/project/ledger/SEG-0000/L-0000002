@@ -1,0 +1,87 @@
+# Ledger Entry L-0000002
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-17-01`, the session that prepared this repository for public
+release. `HEAD.state` was already `active`; this is an ordinary append.
+
+```yaml
+seq:         2
+timestamp:   2026-08-17T12:00:00Z
+session_id:  S-2026-08-17-01
+actor:       repository-engineer
+action:      Public-release preparation - C-4 and ECR-D-006 closed, ECR-D-015/016/017 and ECR-Q-014/015 raised and dispositioned, OI-V-13 audit repairs applied, deliverables mirrored into the repository, Stage 6 re-emitted
+artifacts:
+  - .ai/core/MANIFEST.lock
+  - .ai/project/BINDING.md
+  - .ai/project/FROZEN.md
+  - .ai/project/GATES.md
+  - .ai/project/OPEN_ITEMS.md
+  - .ai/project/OPEN_ITEMS_REGISTER.md
+  - .ai/project/STATE.md
+  - .ai/project/STATE_REGISTER.md
+  - .ai/project/decisions/DECISIONS_S-2026-08-17-01.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/results/R-025.md
+  - .ai/project/sessions/S-2026-08-17-01.md
+  - .gitattributes
+  - CHANGELOG.md
+  - ENGINEERING.md
+  - LICENSE
+  - README.md
+  - cad/DELIVERABLES.md
+  - framework/framework.manifest.json
+  - requirements.txt
+prev_hash:   7b76b9e1e8e801fdad8a3e02ff68c9ae3af10a227a123b99b14bd144aba712d5
+entry_hash:  59e8882a10b97f39e6a18e90d2f74e35eb8ad12eb7d08ad305fb9cf06bf5ff5d
+```
+
+## `entry_hash` — DC-3, and validated before it was written
+
+`entry_hash` is **DC-3**, declared at `framework.manifest.json`
+`metadata.reproducible.digest_constructions.ledger_entry_hash` by `AIEF-AMD-008` §AMD-17,
+disposing `ecr/ECR-Q-002`. Seven covered fields in the declared order — `seq`, `timestamp`,
+`session_id`, `actor`, `action`, `artifacts`, `prev_hash` — each as one
+`<field-name> <SP> <value> <LF>` record, concatenated with no header or trailer.
+`entry_hash` is excluded from its own preimage.
+
+`prev_hash` carries `L-0000001`'s `entry_hash` and is itself a covered field, which is what
+makes the chain tamper-evident rather than merely sequential: altering entry 1 invalidates
+entry 2's digest as well as its own.
+
+**The implementation was re-validated against three controls before this entry was written**:
+both worked examples the manifest publishes (`entry_1` → `cb8e7972…8259e0`, `entry_2` →
+`66e51617…f8195b`), and — the stronger control — **`L-0000001` recomputed from its own
+on-disk bytes to `7b76b9e1…aba712d5`**, the value `HEAD` carries. A construction that
+reproduces the repository's own prior entry is not a construction that was guessed at.
+
+## `artifacts` — what it lists and what it does not
+
+Twenty paths: the release-facing artifacts, the framework artifacts the `ECR-D-017` amendment
+moved, and the governance records this close produces. It is **not** the full change set —
+this session also wrote five ECR records, three approvals, three `src/` packages, three test
+modules and 61 mirrored deliverables. `sch-ledger-entry` does not require exhaustiveness and
+DC-3 covers what is listed; the exhaustive record is the commit, and the reasoned record is
+`decisions/DECISIONS_S-2026-08-17-01.md`.
+
+## What this entry records, and what it does not close
+
+**Closed:** `C-4`, by the ratified licence (`DEC-11`); and `ECR-D-006`, by the independent
+cold-context `qa-engineer` audit `OI-V-13` owed, which reproduced every element of its
+disposition and confirmed the recorded residual more strongly than the record had.
+
+**Not closed, and deliberately:** `ECR-D-014`. The same audit returned **`NOT CLEARED`** on
+it and named two grounds. Both are now repaired — the ruling is pinned at the pipeline by
+mutation-proven tests, and §4's false detection history is corrected against `TCR-002`. **This
+session may not certify its own repair.** LAW-05 clause 2 bars self-verification and no
+delegation of *owner* authority reaches a *constitutional* separation of duties. `ECR-D-014`
+waits on one fresh cold round, and on nothing else.
+
+**Raised here:** `ECR-D-016` — the Support Ring isolation joint does not close on frozen
+dimensions. It blocks the **hardware build**, and no gate, deliverable or release.
+
+`sessions/S-2026-08-17-01.md` is the session summary this close produces (`WF-01` Phase 11).

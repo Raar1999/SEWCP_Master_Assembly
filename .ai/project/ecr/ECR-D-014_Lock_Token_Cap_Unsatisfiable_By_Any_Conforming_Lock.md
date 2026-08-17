@@ -82,6 +82,41 @@ it stands at **5904** — 96 tokens of headroom, the figure `AIEF-AMD-014` §AMD
 
 ## 4 · Why it went undetected until the first authorised build
 
+> ### CORRECTION — `S-2026-08-17-01`. **This heading was false, and the three reasons below were not this session's to claim.**
+>
+> **The defect was detected, measured and escalated `BLOCKING` two days before this ECR was
+> raised**, by an independent cold `software.test-engineer` session, and this record cited it
+> nowhere. [`verification/TCR-002`](../verification/TCR-002_Stage_6_Increment_Recertification.md)
+> **F-3**, filed 2026-08-09 at `HEAD` `8546960`:
+>
+> > *"The emitted lock measures governing 6,458 against its 200 cap — a 32.3× breach,
+> > dominated by the mandated `files` member at 5,198 … a collision between two frozen
+> > declarations."*
+>
+> Its §9 item 2 states the governing ambiguity this ECR was raised on, in the same terms this
+> ECR uses: *"whether the 200-token cap … is intended to bind the whole serialised artifact …
+> or only the 'digest read' the §1.8 table annotates that row with. **The two readings differ
+> by a factor of 32.**"* And `TCR-002` **F-5** predicted the residual that `OI-V-13` FIND-1
+> later confirmed: *"Repairing the registry will make this test green on a build that cannot
+> actually complete."*
+>
+> The three reasons below are, accordingly, **`TCR-002` F-5, F-3 and `TCR-001` restated
+> without attribution** — not independent findings of this session. `TCR-002` was referenced
+> in exactly two files in the whole repository, itself and `tasks/T-002.md`, and none of its
+> six findings was carried in any open-items register. The escalation it directed to
+> `chief-systems-engineer` went unactioned for two sessions.
+>
+> **What was true** is narrower and is stated plainly: the defect was undetected *by the
+> authorities that could dispose of it*, because an independent verifier's BLOCKING finding
+> was filed and never routed. That is a LAW-06 traceability failure in the routing, not a
+> detection failure — and recording it as "undetected" erased the one session that did detect
+> it.
+>
+> Raised by the `OI-V-13` independent cold audit as **FIND-2 (MAJOR)**. `TCR-002`'s six
+> findings are now carried at `OI-V-14` in the open-items register. The **substance** of the
+> three reasons below is correct and is retained unedited; only the claim of priority is
+> withdrawn.
+
 Three independent reasons, each worth recording:
 
 1. **The certification harness injects a stub tokenizer probe.** `tests/test_stage6_pipeline_stub.py`

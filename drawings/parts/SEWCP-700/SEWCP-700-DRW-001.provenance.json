@@ -1,0 +1,55 @@
+{
+ "drawing": "SEWCP-700-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "3 \u00b10.02 (AP-D04)",
+   "source": "parameter:ap_flange_h (SEWCP-700-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "2.5 \u00b10.05 (AP-D02)",
+   "source": "parameter:ap_boss_h (SEWCP-700-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "9.5 \u00b10.05 (AP-D12)",
+   "source": "parameter:ap_len (SEWCP-700-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "M4\u00d70.7 INTEGRAL SPIGOT (AP-D13)",
+   "source": "spec/06 AP-D13 M4\u00d70.7\u00d74.00 spigot"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "\u23006 h6 BOSS (AP-D01)",
+   "source": "parameter:ap_boss_d (SEWCP-700-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "\u230010 h6 FLANGE (AP-D03)",
+   "source": "parameter:ap_flange_d (SEWCP-700-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-700-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "HEX 3.0 A/F \u00d7 2.0 DP (AP-D14)",
+   "source": "spec/06 AP-D14 hex 3.0 A/F \u00d7 2.0"
+  }
+ ]
+}

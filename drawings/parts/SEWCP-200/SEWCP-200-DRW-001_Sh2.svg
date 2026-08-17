@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view BOTTOM FACE MASKS -->
+<circle cx="120.000" cy="130.000" r="52.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="117.789,87.818 117.478,81.886 98.127,87.071 100.823,92.364" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="108.554" y="87.285" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M1</text>
+<polygon points="143.265,88.254 147.225,88.254 147.225,84.294 143.265,84.294" fill="url(#hatchX)" stroke="#000" stroke-width="0.3"/><text x="145.245" y="86.274" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M2</text>
+<polygon points="67.530,131.980 71.490,131.980 71.490,128.020 67.530,128.020" fill="url(#hatchX)" stroke="#000" stroke-width="0.3"/><text x="69.510" y="130.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M2</text>
+<polygon points="143.265,175.706 147.225,175.706 147.225,171.746 143.265,171.746" fill="url(#hatchX)" stroke="#000" stroke-width="0.3"/><text x="145.245" y="173.726" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M2</text>
+<polygon points="115.380,134.620 124.620,134.620 124.620,125.380 115.380,125.380" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="120.000" y="130.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M3</text>
+<line x1="120.000" y1="182.800" x2="120.000" y2="192.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 120.000 182.800 L 118.800 186.400 L 121.200 186.400 Z" fill="#000" stroke="none"/>
+<text x="119.000" y="191.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">ANODIZE MASK ZONES — SEE NOTES</text>
+<!-- view TOP FACE MASKS -->
+<circle cx="300.000" cy="130.000" r="52.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="340.920,133.630 348.180,133.630 348.180,126.370 340.920,126.370" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="344.550" y="130.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="334.951,111.355 342.211,111.355 342.211,104.095 334.951,104.095" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="338.581" y="107.725" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="318.645,95.049 325.905,95.049 325.905,87.789 318.645,87.789" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="322.275" y="91.419" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="296.370,89.080 303.630,89.080 303.630,81.820 296.370,81.820" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="300.000" y="85.450" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="274.095,95.049 281.355,95.049 281.355,87.789 274.095,87.789" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="277.725" y="91.419" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="257.789,111.355 265.049,111.355 265.049,104.095 257.789,104.095" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="261.419" y="107.725" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="251.820,133.630 259.080,133.630 259.080,126.370 251.820,126.370" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="255.450" y="130.000" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="257.789,155.905 265.049,155.905 265.049,148.645 257.789,148.645" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="261.419" y="152.275" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="274.095,172.211 281.355,172.211 281.355,164.951 274.095,164.951" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="277.725" y="168.581" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="296.370,178.180 303.630,178.180 303.630,170.920 296.370,170.920" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="300.000" y="174.550" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="318.645,172.211 325.905,172.211 325.905,164.951 318.645,164.951" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="322.275" y="168.581" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="334.951,155.905 342.211,155.905 342.211,148.645 334.951,148.645" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="338.581" y="152.275" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="306.871,123.129 314.131,123.129 314.131,115.869 306.871,115.869" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="310.501" y="119.499" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="285.869,123.129 293.129,123.129 293.129,115.869 285.869,115.869" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="289.499" y="119.499" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="285.869,144.131 293.129,144.131 293.129,136.871 285.869,136.871" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="289.499" y="140.501" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<polygon points="306.871,144.131 314.131,144.131 314.131,136.871 306.871,136.871" fill="url(#hatch)" stroke="#000" stroke-width="0.3"/><text x="310.501" y="140.501" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">M4</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. HARD ANODIZE ALL OVER EXCEPT MASKED ZONES M1–M5 (spec/01 §8, ECR-D-004).</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. M1 RF LAND 93°–117°: MASK; ALODINE 1200 ONLY; Ra ≤ 0.8 (CP-D18, spec/08 §7).</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. M2 LOCATOR COUNTERBORES + M4 THREADS (BOTH FACES): MASK (spec/01 §7 STEP 13).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. M3 VACUUM-PORT SEALING FACE + O-RING LAND: MASK (CP-IF-5).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. M4 16× CHOKE PADS + CP-D26 COUNTERBORE FLOORS: MASK — BELLEVILLE SLIP, ECR-D-004.</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. M5 CHANNEL INTERIOR AND PORT POCKETS: MASK (spec/01 §7 STEP 13).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. RTD PORTS CROSS-VENTED PER DR-6; VENTS ⌀1.7 INTO ADJACENT CHOKE-SIDE RELIEF (CP-IF-9).</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">COOLING PLATE SEWCP-200 — Masking (S9/S10)</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-200-DRW-001 Sh 2</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HARD ANODIZE 25–50 µm EXC. MASKS</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:2.8</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

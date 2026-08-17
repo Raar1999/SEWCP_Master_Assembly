@@ -1,0 +1,26 @@
+﻿level,part_number,name,qty,material,spec_source,cad_state,deliverable,notes
+0,SEWCP-000,MASTER ASSEMBLY,1,—,spec/00 §4 / §10,Fusion assembly (cloud),cad/exports/step/SEWCP-000_MASTER_ASSEMBLY.step,"19 occurrences, verified ASSEMBLY_S-2026-08-11-05 PASS"
+1,SEWCP-200,COOLING PLATE,1,6061-T6,spec/01 §7,verified model (SEWCP-200_COOLING_PLATE),"cad/exports/step/SEWCP-200_COOLING_PLATE.step, cad/exports/stl/SEWCP-200_COOLING_PLATE.stl",Hard anodize exc. masks; lineage re-homed 2026-08-11 (stuck cloud derivative) - REPAIRS_S-2026-08-11-04
+1,SEWCP-300,HEATER PLATE,1,6061-T6,spec/02 §6,verified model (SEWCP-300_HEATER_PLATE),"cad/exports/step/SEWCP-300_HEATER_PLATE.step, cad/exports/stl/SEWCP-300_HEATER_PLATE.stl",Clean; no anodize on bond face
+1,SEWCP-400,SUPPORT RING,1,Al2O3 99.5%,spec/03 §7,verified model (SEWCP-400_SUPPORT_RING),"cad/exports/step/SEWCP-400_SUPPORT_RING.step, cad/exports/stl/SEWCP-400_SUPPORT_RING.stl",As-fired; lapped at assy
+1,SEWCP-500,ESC PUCK,1,Al2O3 99.6%,spec/04 §6,verified model (SEWCP-500_ESC_PUCK),"cad/exports/step/SEWCP-500_ESC_PUCK.step, cad/exports/stl/SEWCP-500_ESC_PUCK.stl",Lapped top; mesa process
+1,SEWCP-600,LIFT PIN,3,Al2O3 99.8%,spec/05 §6,verified model (SEWCP-600_LIFT_PIN),"cad/exports/step/SEWCP-600_LIFT_PIN.step, cad/exports/stl/SEWCP-600_LIFT_PIN.stl",Ground; Ra ≤ 0.2 tip/shaft
+1,SEWCP-700,ALIGNMENT PIN,6,Ti-6Al-4V,spec/06 §6,verified model (SEWCP-700_ALIGNMENT_PIN),"cad/exports/step/SEWCP-700_ALIGNMENT_PIN.step, cad/exports/stl/SEWCP-700_ALIGNMENT_PIN.stl",Dry film + passivate
+1,SEWCP-800,PORT BODY,1,316L SST,spec/07 §6,verified model (SEWCP-800_PORT_BODY),"cad/exports/step/SEWCP-800_PORT_BODY.step, cad/exports/stl/SEWCP-800_PORT_BODY.stl",Electropolish wetted
+1,SEWCP-901,RF STRAP,1,C10100 OFHC,spec/08 §6,verified model (SEWCP-901_RF_STRAP),"cad/exports/step/SEWCP-901_RF_STRAP.step, cad/exports/stl/SEWCP-901_RF_STRAP.stl",Ag 8-13 µm direct (DR-7)
+1,SEWCP-902,SADDLE,1,6061-T6,spec/08 §5.2,verified model (SEWCP-902_SADDLE),"cad/exports/step/SEWCP-902_SADDLE.step, cad/exports/stl/SEWCP-902_SADDLE.stl",Alodine 1200
+1,SEWCP-1000,RETAINER,3,6061-T6,spec/09 §6,verified model (SEWCP-1000_RETAINER),"cad/exports/step/SEWCP-1000_RETAINER.step, cad/exports/stl/SEWCP-1000_RETAINER.stl",Alodine 1200
+1,SEWCP-301,"Thermal choke washer, Ti, 1.50 thk",16,Ti Grade 2,spec/00 §4.2 row 3; spec/01 CP-IF-3,spec-only,-,Unmodelled by CP package decision: choke pads are treatment zones; the washer supplies the 1.50 gap represented in the assembly.
+1,SEWCP-401,Support ring clamp ring,1,316L,spec/03 §5.2,spec-only,-,"Material corrected 6061-T6 -> 316L per ECR-Q-014: the old row cited spec/00 §9 and SR-IF-2, neither of which states a material, while spec/03 §5.2 heads the part '(316L)'. Geometry deferred, and per ECR-D-016 the tabulated Ø318.0/Ø286.0 form cannot be placed at all - it intersects the web. Rev B item."
+1,SEWCP-601,"Lift pin bushing, bore Ø5.60 +0.05/−0",3,Vespel/PEEK per spec/05,spec/05 LB-D01 (ECR-Q-009 corrected),spec-only,-,Deferred geometry (drawing-stage register).
+1,SEWCP-903,"RF terminal hardware set (4× M6×16 Ag SHCS, 4× Ø16 Ag washers, 4× Belleville stacks)",1,A4-70 / Ag plated,spec/08 §5.3,spec-only,-,Hardware set; 6.0 N·m; spec-only.
+1,SEWCP-904,Deposition shroud,1,Ceramic per spec/08,spec/08 §5.4,spec-only,-,"NO dimensional authority in spec/08 - requirement gap, carried (drawing-stage register); not modelled, not drawn."
+1,HW-M640SHCS,M6 × 40 SHCS — Lower circuit: Base Plate ↔ Support Ring bottom flange ↔ SEW,8,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 6.0 N·m; Ø16 flat + Belleville stack
+1,HW-M616SHCS,M6 × 16 SHCS — Upper circuit: Support Ring top flange ↔ Cooling Plate,8,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 6.0 N·m; Ø16 flat + Belleville stack
+1,HW-M525SHCS,M5 × 25 SHCS — Cooling Plate ↔ Heater Plate (outer choke),12,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 3.5 N·m; Ti washer + Belleville
+1,HW-M525SHCS,M5 × 25 SHCS — Cooling Plate ↔ Heater Plate (inner choke),4,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 3.5 N·m; Ti washer + Belleville
+1,HW-M416SHCS,M4 × 16 SHCS — Vacuum Port flange,4,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 1.8 N·m; Flat
+1,HW-M616SHCS,M6 × 16 SHCS — RF strap to Cooling Plate land,2,"A4-70, silver-plated",spec/00 §9 (verbatim),spec-only,-,torque 6.0 N·m; Silver-plated flat + Belleville
+1,HW-M620SHCS,M6 × 20 SHCS — RF bracket clamp to Base Plate,2,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 6.0 N·m; Flat
+1,HW-M412SHCS,M4 × 12 SHCS — Temp sensor bracket,4,A4-70,spec/00 §9 (verbatim),spec-only,-,torque 1.8 N·m; Flat
+1,SEWCP-100,BASE PLATE (frozen reference),REF,—,spec/00 §2 FBA,frozen — not part of deliverable set,-,Datum A reference; excluded from the assembly by DR-1

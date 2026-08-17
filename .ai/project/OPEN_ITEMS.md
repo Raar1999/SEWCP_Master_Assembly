@@ -2,15 +2,15 @@
 
 > **Instance artifact**, partition `project`, owner `project-manager`, mutable.
 
-Read at B7. Bounded T1 index, `AIEF-AMD-014` §AMD-49.
-Authority: [`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md), T4, cap null.
-Bijective by id, section by section. One id per line.
+B7. Bounded index, AMD-49. Authority:
+[`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md).
+Bijective by id, per section. One id per line.
 
 ## Blocking
 
 CMP-BLOCK-004
 CMP-BLOCK-005
-C-4
+ECR-D-016
 
 ## Open, not blocking
 
@@ -26,11 +26,15 @@ ECR-D-011
 ECR-D-012
 ECR-D-013
 ECR-D-014
+ECR-D-015
+ECR-D-017
 ECR-Q-009
 ECR-Q-010
 ECR-Q-011
 ECR-Q-012
 ECR-Q-013
+ECR-Q-014
+ECR-Q-015
 OI-V-02
 OI-V-03
 OI-V-04
@@ -42,7 +46,8 @@ OI-V-09
 OI-V-10
 OI-V-12
 OI-V-13
-ECR-D-006
+OI-V-14
+OI-V-15
 OI-C-01
 OI-C-02
 OI-C-04
@@ -56,9 +61,11 @@ OI-C-13
 OI-C-14
 OI-C-15
 OI-CAD-03
+OI-CAD-04
 OI-P-01
 OI-P-02
 OI-P-03
+OI-P-04
 OI-R-01
 
 ## Closed
@@ -67,7 +74,9 @@ OI-CAD-01
 OI-CAD-02
 CMP-BLOCK-006
 CMP-BLOCK-014
+C-4
 ECR-D-005
+ECR-D-006
 ECR-Q-001
 ECR-Q-002
 ECR-Q-003

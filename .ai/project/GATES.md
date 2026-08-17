@@ -195,8 +195,19 @@ this gate or by a separate checkpoint is an open `project-manager` / rank-1 ques
 
 ### Excluded — confirmed by the owner
 
-`ECR-D-006`, `CMP-BLOCK-004`, `CMP-BLOCK-005` and `C-4` appear under `Blocking` in
-[`OPEN_ITEMS.md`](OPEN_ITEMS.md) but are **not** criteria of this gate.
+`CMP-BLOCK-004`, `CMP-BLOCK-005` and `ECR-D-016` appear under `Blocking` in
+[`OPEN_ITEMS.md`](OPEN_ITEMS.md), and `ECR-D-006` and `C-4` did when this paragraph was
+written; **none of the five is a criterion of this gate.**
+
+> *Corrected `S-2026-08-17-01`.* This sentence read *"`ECR-D-006`, `CMP-BLOCK-004`,
+> `CMP-BLOCK-005` and `C-4` appear under `Blocking`"* and had been false on two of its four
+> ids: `ECR-D-006` was moved to § *Open, not blocking* by `S-2026-08-11-06`, and `C-4` was
+> closed by the license decision of `S-2026-08-17-01` (`DEC-11`). Found by the `OI-V-13`
+> independent audit as **FIND-10**. The exclusion itself is unchanged and is what this section
+> records — *which* section of the index an excluded id sits in has never been part of the
+> exclusion, which is why the drift went unnoticed. `ECR-D-016` is excluded on the same ground
+> as the rest: it is dispositioned, it bears on `spec/**` and therefore satisfies `C7`, and
+> what it blocks is the **hardware build**, which is not this gate.
 [`../../ENGINEERING.md`](../../ENGINEERING.md) records positively that *"Neither `ECR-D-005`
 nor Stage 2 will unblock the `LC-M04-EXIT` gate. That gate is held by `ECR-D-001…004`"*, and
 `ECR-D-006` is a framework-manifest defect whose class-D scope is the framework work it

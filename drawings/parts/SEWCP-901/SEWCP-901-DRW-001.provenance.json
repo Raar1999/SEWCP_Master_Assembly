@@ -1,0 +1,62 @@
+{
+ "drawing": "SEWCP-901-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "INSTALLED FORM (SIDE)",
+   "kind": "linear",
+   "label": "8.0 \u00b11.0 INSTALLED (RS-D04)",
+   "source": "parameter:rs_h (SEWCP-901-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "INSTALLED FORM (SIDE)",
+   "kind": "note",
+   "label": "R20 S-COMPLIANCE \u00d72 (RS-D05)",
+   "source": "parameter:rs_loop_r (SEWCP-901-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "INSTALLED FORM (SIDE)",
+   "kind": "linear",
+   "label": "PAD FLAT 40.0 TO r=146",
+   "source": "decision: pad flat 40.0 ending at land outer r=146 (repair record, RUN-20260811T200254)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "INSTALLED FORM (SIDE)",
+   "kind": "note",
+   "label": "2\u00d7 \u23006.6 AT TAP POSITIONS (r 136.18)",
+   "source": "RS-D07 as amended (APR-032): holes at r=136.18, \u00b114.97 \u2014 tap-coincident"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "FLAT PATTERN",
+   "kind": "linear",
+   "label": "180.0 \u00b12.0 DEVELOPED (RS-D03)",
+   "source": "parameter:rs_dev (SEWCP-901-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "FLAT PATTERN",
+   "kind": "linear",
+   "label": "50.0 \u00b10.5 (RS-D01)",
+   "source": "parameter:rs_width (SEWCP-901-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "FLAT PATTERN",
+   "kind": "note",
+   "label": "2\u00d7 \u23006.6 AT 29.94 CTRS \u2014 COINCIDENT WITH CP-IF-8 TAPS",
+   "source": "parameter:rs_hole_pitch (RS-D07 as amended: tap-coincident, ECR-D-013 DEC-01, APR-030/032)"
+  },
+  {
+   "sheet": "SEWCP-901-DRW-001 Sh 1",
+   "view": "FLAT PATTERN",
+   "kind": "note",
+   "label": "BEND STATIONS AT 34.44 / 65.85 / 108.54 / 124.27 / 140.00",
+   "source": "decision: bend stations from installed-form derivation (RUN-20260811T200254)"
+  }
+ ]
+}

@@ -365,6 +365,40 @@ the instrument half is not. **Every row's status is `NOT VERIFIED — HARDWARE R
 
 ---
 
+> ## 6 — DISCHARGED IN PART, `S-2026-08-17-01`. Both items were performed. Read this first.
+>
+> **6.1 `SR-07` / `AP-08` — DISCHARGED at the as-modelled mass.** Both re-run by
+> `PYTHONPATH=src python -m aief_analysis`, computed from the observed assembly record rather
+> than scaled, and pinned by 16 tests including controls that reproduce `spec/06` §2.3's and
+> `spec/03` §2.2's own published margins. At **7.69973 kg** the per-pin lateral load is
+> **125.89 N** and the governing case — bearing on the 6061 slot wall — carries **32.9×**
+> against a required 3×. **The figure that settles it: that case does not reach SF = 3 until
+> 84.4 kg**, eleven times the as-modelled mass, so neither the +2.66 % error nor any
+> unmodelled `spec-only` BOM line can disturb the conclusion, and **no bound on their mass is
+> needed or asserted.** `SR-07`'s own governing case does not reach SF = 3 until ~11 tonnes.
+>
+> **One correction to §6.1's reasoning below.** It says the 2.66 % is *"absorbed by
+> `ECR-D-007`'s recorded 4.4–6.9× margin"*. **That margin is not applicable here.** It is the
+> counterbore ligament hoop stress from a Ø12.000 k6 **interference fit**, and `ECR-D-009`'s
+> disposition removed the interference — the flange became `h6` clearance, so that stress term
+> is zero. The applicable margins are `spec/06` §2.3's, which are the ones recomputed above.
+> The conclusion of §6.1 was right; one of its citations was not.
+>
+> **6.2 `SR-03` / `SR-04` — PERFORMED, AND THE TRACE DOES NOT CLOSE.** Filing it found
+> **three frozen acceptance criteria failing on frozen dimensions**: `SR-04` ≤ 8.50 mm against
+> 12, `SR-03` 14.00 mm against 20, and `SR-02` 353.9 Ω against 400 — all from one omission,
+> a 6.00 mm grounded clamp ring inside a flange gap that two sections of `spec/03` compute as
+> empty. Raised and ruled as
+> [`ECR-D-016`](../ecr/ECR-D-016_Support_Ring_Isolation_Joint_Does_Not_Close.md);
+> **hardware build is blocked pending a Rev B baseline revision.** `RF-09`, `RF-10` and
+> `RF-11` are **not** discharged by that trace and remain owed — they are `spec/08` bracket
+> geometry, a different joint, and asserting them from a `spec/03` result would be the error
+> §6.2 exists to prevent.
+>
+> `OI-C-15` accordingly remains **open**, narrowed to the three `spec/08` traces.
+>
+> *The original section is retained verbatim below, unedited.*
+
 ## 6 · Two desk-dischargeable items that are **not** discharged
 
 These carry a `DESK-DISCHARGEABLE` method — so no hardware blocks them — and the analysis has

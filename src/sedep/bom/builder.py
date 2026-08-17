@@ -48,8 +48,12 @@ SPEC_ONLY = [
      "Unmodelled by CP package decision: choke pads are treatment zones; "
      "the washer supplies the 1.50 gap represented in the assembly."),
     ("SEWCP-401", "Support ring clamp ring", 1,
-     "6061-T6", "spec/00 §9 lower circuit; spec/03 SR-IF-2",
-     "Deferred geometry (drawing-stage register)."),
+     "316L", "spec/03 §5.2",
+     "Material corrected 6061-T6 -> 316L per ECR-Q-014: the old row cited "
+     "spec/00 §9 and SR-IF-2, neither of which states a material, while "
+     "spec/03 §5.2 heads the part '(316L)'. Geometry deferred, and per "
+     "ECR-D-016 the tabulated Ø318.0/Ø286.0 form cannot be placed at all - "
+     "it intersects the web. Rev B item."),
     ("SEWCP-601", "Lift pin bushing, bore Ø5.60 +0.05/−0", 3,
      "Vespel/PEEK per spec/05", "spec/05 LB-D01 (ECR-Q-009 corrected)",
      "Deferred geometry (drawing-stage register)."),
@@ -157,9 +161,13 @@ def build_bom(assembly_run: str | Path) -> list[BomRow]:
             observed_material[row["part"]] = \
                 row["observed_after"]["material"]
 
+    # ECR-D-015: the deliverable column names paths INSIDE this repository.
+    # It previously named an external output root on one machine, and the
+    # assembly cell still read "export pending bridge resume" long after the
+    # export existed.
     rows = [BomRow(0, "SEWCP-000", "MASTER ASSEMBLY", 1, "—",
                    "spec/00 §4 / §10", "Fusion assembly (cloud)",
-                   "ASSEMBLY/ (export pending bridge resume)",
+                   "cad/exports/step/SEWCP-000_MASTER_ASSEMBLY.step",
                    f"{len(occs)} occurrences, verified "
                    f"{run['run_id']} {run['verdict']}")]
     for pn in sorted(counts, key=lambda p: (len(p), p)):
@@ -176,9 +184,7 @@ def build_bom(assembly_run: str | Path) -> list[BomRow]:
             1, pn, names[pn].split("_", 1)[1].replace("_", " "),
             counts[pn], mat, mat_src,
             f"verified model ({names[pn]})",
-            f"{pn}\\step, {pn}\\stl (cad/DELIVERABLES.md)"
-            if pn not in ("SEWCP-901", "SEWCP-902")
-            else "SEWCP-900\\step, SEWCP-900\\stl (cad/DELIVERABLES.md)",
+            f"cad/exports/step/{names[pn]}.step, cad/exports/stl/{names[pn]}.stl",
             note))
     for pn, name, qty, mat, src, note in SPEC_ONLY:
         rows.append(BomRow(1, pn, name, qty, mat, src, "spec-only", "-", note))

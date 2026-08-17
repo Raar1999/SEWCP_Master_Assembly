@@ -1,0 +1,327 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view TOP -->
+<circle cx="215.000" cy="125.000" r="57.600" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="153.800" y1="125.000" x2="276.200" y2="125.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="215.000" y1="186.200" x2="215.000" y2="63.800" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="54.360" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="265.222" cy="104.197" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="235.803" cy="74.778" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="194.197" cy="74.778" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="164.778" cy="104.197" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="164.778" cy="145.803" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="194.197" cy="175.222" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="235.803" cy="175.222" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="265.222" cy="145.803" r="1.260" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="55.080" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="242.540" cy="77.299" r="1.800" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="159.920" cy="125.000" r="1.800" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="242.540" cy="172.701" r="1.800" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="215.000" cy="125.000" r="46.800" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="227.113" cy="79.795" r="1.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="169.795" cy="137.113" r="1.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="248.093" cy="158.093" r="1.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="48.600" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="263.600" cy="125.000" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="257.089" cy="100.700" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="239.300" cy="82.911" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="76.400" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="190.700" cy="82.911" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="172.911" cy="100.700" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="166.400" cy="125.000" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="172.911" cy="149.300" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="190.700" cy="167.089" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="173.600" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="239.300" cy="167.089" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="257.089" cy="149.300" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="16.200" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="226.455" cy="113.545" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="203.545" cy="113.545" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="203.545" cy="136.455" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="226.455" cy="136.455" r="0.990" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="36.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="246.177" cy="107.000" r="1.440" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="183.823" cy="107.000" r="1.440" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="161.000" r="1.440" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="10.800" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<circle cx="215.000" cy="125.000" r="45.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<circle cx="218.727" cy="111.091" r="0.306" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="180.227" cy="115.683" r="0.306" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="179.362" cy="160.638" r="0.306" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<polygon points="212.588,78.983 212.249,72.512 191.138,78.169 194.080,83.942" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<path d="M 160.874 144.700 L 153.356 147.437 L 147.356 147.437" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 160.874 144.700 L 157.080 144.804 L 157.901 147.059 Z" fill="#000" stroke="none"/>
+<text x="146.356" y="146.437" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀320 (CP-D01)</text>
+<path d="M 265.222 104.197 L 272.613 101.136 L 278.613 101.136" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 265.222 104.197 L 269.007 103.928 L 268.089 101.711 Z" fill="#000" stroke="none"/>
+<text x="279.613" y="100.136" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀302 BC 8× M6 (CP-IF-2)</text>
+<path d="M 227.113 79.795 L 229.183 72.067 L 235.183 72.067" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 227.113 79.795 L 229.204 76.628 L 226.885 76.007 Z" fill="#000" stroke="none"/>
+<text x="236.183" y="71.067" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀260 BC locators 75°/195°/315° (ECR-D-010)</text>
+<path d="M 257.089 149.300 L 264.017 153.300 L 270.017 153.300" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 257.089 149.300 L 259.607 152.139 L 260.807 150.061 Z" fill="#000" stroke="none"/>
+<text x="271.017" y="152.300" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀270 BC 12× choke (CP-IF-3)</text>
+<path d="M 183.823 107.000 L 176.895 103.000 L 170.895 103.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 183.823 107.000 L 181.305 104.161 L 180.105 106.239 Z" fill="#000" stroke="none"/>
+<text x="169.895" y="102.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀200 BC 3× lift pin</text>
+<line x1="202.235" y1="77.361" x2="199.647" y2="67.701" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 202.235 77.361 L 202.462 73.573 L 200.144 74.194 Z" fill="#000" stroke="none"/>
+<text x="198.647" y="66.701" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">RF LAND 93°–117° (BOTTOM FACE, MASKED)</text>
+<line x1="200.092" y1="180.637" x2="197.504" y2="190.297" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 200.092 180.637 L 198.001 183.804 L 200.319 184.425 Z" fill="#000" stroke="none"/>
+<text x="196.504" y="189.297" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">COOLANT IN 255° / OUT 285°, RADIAL</text>
+<!-- view SECTION A-A -->
+<polygon points="32.400,245.000 147.600,245.000 147.600,237.800 32.400,237.800" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="45.000,242.840 79.200,242.840 79.200,240.680 45.000,240.680" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<polygon points="100.800,242.840 135.000,242.840 135.000,240.680 100.800,240.680" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<line x1="149.760" y1="245.000" x2="155.760" y2="245.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="149.760" y1="237.800" x2="155.760" y2="237.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="155.760" y1="245.000" x2="155.760" y2="237.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 155.760 245.000 L 156.960 241.400 L 154.560 241.400 Z" fill="#000" stroke="none"/>
+<path d="M 155.760 237.800 L 154.560 241.400 L 156.960 241.400 Z" fill="#000" stroke="none"/>
+<text x="155.760" y="240.400" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 155.76 240.4)">20 ±0.030 (CP-D02)</text>
+<line x1="32.400" y1="240.680" x2="42.400" y2="240.680" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="32.400" y1="237.800" x2="42.400" y2="237.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="42.400" y1="240.680" x2="42.400" y2="237.800" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 42.400 240.680 L 43.600 237.080 L 41.200 237.080 Z" fill="#000" stroke="none"/>
+<path d="M 42.400 237.800 L 41.200 241.400 L 43.600 241.400 Z" fill="#000" stroke="none"/>
+<text x="42.400" y="238.240" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 42.4 238.24)">8 (CP-D07)</text>
+<line x1="27.360" y1="245.000" x2="31.360" y2="245.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="27.360" y1="242.840" x2="31.360" y2="242.840" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="31.360" y1="245.000" x2="31.360" y2="242.840" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 31.360 245.000 L 32.560 241.400 L 30.160 241.400 Z" fill="#000" stroke="none"/>
+<path d="M 31.360 242.840 L 30.160 246.440 L 32.560 246.440 Z" fill="#000" stroke="none"/>
+<text x="31.360" y="242.920" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 31.36 242.92)">6 FSW lid (CP-D08)</text>
+<text x="14.000" y="56.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="14.00" y="58.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D01</text>
+<rect x="32.00" y="58.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Outside diameter</text>
+<rect x="94.00" y="58.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø320.0</text>
+<rect x="124.00" y="58.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="62.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D02</text>
+<rect x="32.00" y="62.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Overall thickness</text>
+<rect x="94.00" y="62.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">20.000</text>
+<rect x="124.00" y="62.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.030</text>
+<rect x="14.00" y="66.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D03</text>
+<rect x="32.00" y="66.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Top face flatness</text>
+<rect x="94.00" y="66.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="66.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.015 TIR</text>
+<rect x="14.00" y="70.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D04</text>
+<rect x="32.00" y="70.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Top-to-bottom parallelism</text>
+<rect x="94.00" y="70.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="70.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.015 TIR</text>
+<rect x="14.00" y="74.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D05</text>
+<rect x="32.00" y="74.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Coolant channel width</text>
+<rect x="94.00" y="74.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">10.00</text>
+<rect x="124.00" y="74.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.20 / −0</text>
+<rect x="14.00" y="79.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D06</text>
+<rect x="32.00" y="79.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Coolant channel depth</text>
+<rect x="94.00" y="79.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.00</text>
+<rect x="124.00" y="79.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.20 / −0</text>
+<rect x="14.00" y="83.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D07</text>
+<rect x="32.00" y="83.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Channel-to-top-face wall</text>
+<rect x="94.00" y="83.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8.00</text>
+<rect x="124.00" y="83.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.20</text>
+<rect x="14.00" y="87.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D08</text>
+<rect x="32.00" y="87.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FSW lid thickness</text>
+<rect x="94.00" y="87.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.00</text>
+<rect x="124.00" y="87.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="91.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D09</text>
+<rect x="32.00" y="91.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic locator counterbore (bottom), Ø306</text>
+<rect x="94.00" y="91.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø10.000</text>
+<rect x="124.00" y="91.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H7</text>
+<rect x="14.00" y="95.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D09a</text>
+<rect x="32.00" y="95.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Locator retention tapped hole (bottom), coax</text>
+<rect x="94.00" y="95.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M4 × 0.7. Ø3.30 dril</text>
+<rect x="124.00" y="95.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="14.00" y="100.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D10</text>
+<rect x="32.00" y="100.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic locator counterbore (top), Ø260 BC</text>
+<rect x="94.00" y="100.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø10.000</text>
+<rect x="124.00" y="100.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H7</text>
+<rect x="14.00" y="104.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D10a</text>
+<rect x="32.00" y="104.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Locator retention tapped hole (top), coaxial</text>
+<rect x="94.00" y="104.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M4 × 0.7. Ø3.30 dril</text>
+<rect x="124.00" y="104.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="14.00" y="108.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D11</text>
+<rect x="32.00" y="108.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic locator counterbore position</text>
+<rect x="94.00" y="108.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø306 / Ø260</text>
+<rect x="124.00" y="108.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.020 M @ B,C</text>
+<rect x="14.00" y="112.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D12</text>
+<rect x="32.00" y="112.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore</text>
+<rect x="94.00" y="112.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø8.000</text>
+<rect x="124.00" y="112.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8</text>
+<rect x="14.00" y="116.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D13</text>
+<rect x="32.00" y="116.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore position</text>
+<rect x="94.00" y="116.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø200 BC</text>
+<rect x="124.00" y="116.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.050 M @ A,B,C</text>
+<rect x="14.00" y="121.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D14</text>
+<rect x="32.00" y="121.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bore perpendicularity to Datum A</text>
+<rect x="94.00" y="121.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="121.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.030 over 20 mm</text>
+<rect x="14.00" y="125.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D15</text>
+<rect x="32.00" y="125.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Central He bore</text>
+<rect x="94.00" y="125.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø10.000</text>
+<rect x="124.00" y="125.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8</text>
+<rect x="14.00" y="129.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D16</text>
+<rect x="32.00" y="129.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Vacuum port sealing face (flat, masked, Ø18–</text>
+<rect x="94.00" y="129.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Flatness 0.010, Ra 0</text>
+<rect x="124.00" y="129.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="14.00" y="133.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D17</text>
+<rect x="32.00" y="133.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Choke washer seat pads (16×)</text>
+<rect x="94.00" y="133.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø22 flat, coplanar</text>
+<rect x="124.00" y="133.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.010 TIR set</text>
+<rect x="14.00" y="137.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D18</text>
+<rect x="32.00" y="137.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RF land flatness</text>
+<rect x="94.00" y="137.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">60 × 18 land, Ø274 B</text>
+<rect x="124.00" y="137.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.020 TIR</text>
+<rect x="14.00" y="142.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="144.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D19</text>
+<rect x="32.00" y="142.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="144.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RTD blind bore (3×, r = 40/100/140 @ 75°/165</text>
+<rect x="94.00" y="142.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="144.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø1.700</text>
+<rect x="124.00" y="142.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="144.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8, depth 12 ±0.2</text>
+<rect x="14.00" y="146.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="149.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D20</text>
+<rect x="32.00" y="146.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="149.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 tapped holes (Ring upper circuit), Ø302 B</text>
+<rect x="94.00" y="146.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="149.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 × 1.0 × 12 deep</text>
+<rect x="124.00" y="146.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="149.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.30 Ⓜ</text>
+<rect x="14.00" y="150.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="153.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D21</text>
+<rect x="32.00" y="150.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="153.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M5 tapped depth (into Heater Plate side)</text>
+<rect x="94.00" y="150.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="153.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="150.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="153.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">`HP-D12`, 6.50 blind</text>
+<rect x="14.00" y="154.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="157.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CP-D22</text>
+<rect x="32.00" y="154.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="157.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Coolant stub bore (2×), radial at 255° / 285</text>
+<rect x="94.00" y="154.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="157.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø10.0</text>
+<rect x="124.00" y="154.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="157.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H9</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. COOLANT CHANNEL PER MDR-001; RIB 5.0 CONFIRMED (ECR-Q-011 DEC-03): FSW RIB PASSES — TAPERED PROBE TIP ⌀≤4.0, TRACKING ≤±0.5, PENETRATION 6.5–7.0.</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. FSW LID PER spec/01 §6 STEP 5; RADIOGRAPH PER PROCESS NOTES.</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. CLOCKING PER spec/00 §3.2 — BINDING; DO NOT RE-CLOCK.</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. 2× M6×12 BRACKET TAPS AT r=150, 88°/122°, BOTTOM FACE (CP-IF-8 AS AMENDED, APR-031).</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">COOLING PLATE SEWCP-200 — Geometry</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-200-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HARD ANODIZE 25–50 µm EXC. MASKS</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:2.8</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

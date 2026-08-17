@@ -207,8 +207,35 @@ def load_approvals(repo: Path) -> tuple[list[ApprovalRecord], list[str]]:
                 f"must carry its own bound digest, LAW-10 clause 1"
             )
             continue
+        # OI-V-13 FIND-8(a): pairing is positional, so the SAME path named twice
+        # produces two records - and `PathChain.states` is keyed by approval id,
+        # so whichever is processed last silently overwrites the other. A
+        # fabricated binding paired with a correct one therefore reported LIVE
+        # with report.ok True. A path an approval binds twice binds it to two
+        # different digests, which cannot both be the state the approver signed.
+        duplicates = sorted({p for p in subject_paths
+                             if subject_paths.count(p) > 1})
+        if duplicates:
+            failures.append(
+                f"{approval_id}: subject_path names {', '.join(duplicates)} more "
+                f"than once - one approval binds one digest per path, and a "
+                f"repeated path would let one binding mask the other"
+            )
+            continue
 
-        prior = _scalar(fields.get("prior_hash")) or None
+        # OI-V-13 FIND-8(b): a block-sequence `prior_hash` was read as an empty
+        # scalar and became None, silently making the approval a chain root -
+        # the same swallow the multi-subject repair fixed for subject_path, one
+        # field over. `prior_hash` is a scalar or null and nothing else.
+        raw_prior = fields.get("prior_hash")
+        if isinstance(raw_prior, list):
+            failures.append(
+                f"{approval_id}: prior_hash is a block sequence with "
+                f"{len(raw_prior)} entries - it is a single digest or null, and "
+                f"reading a sequence as null would silently root the chain"
+            )
+            continue
+        prior = _scalar(raw_prior) or None
         if prior is not None and not _HEX64.match(prior):
             failures.append(
                 f"{approval_id}: prior_hash {prior!r} is not 64 lowercase hex or null"

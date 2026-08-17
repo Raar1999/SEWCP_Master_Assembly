@@ -4,7 +4,7 @@
     "identifier": "AIEF",
     "description": "Repository-driven, model-agnostic operating system for AI-assisted engineering projects.",
     "authors": ["Chief Systems Engineer (A4)"],
-    "license": "TBD-at-release",
+    "license": "MIT AND CC-BY-4.0 - see LICENSE at the repository root, which declares the path boundary. Code MIT; documents, engineering artifacts and generated design data CC-BY-4.0. Ratified S-2026-08-17-01 under owner-delegated licence authority (DECISIONS_S-2026-08-17-01 DEC-11), closing C-4",
     "provenance": {
       "frozen_by": "Chief Systems Engineer (A4)",
       "freeze_document": "AIEF-FRZ-001 Framework Architecture Freeze 1.0.0",
@@ -100,7 +100,7 @@
         "core_aggregate": {
           "id": "DC-4",
           "algorithm": "SHA-256",
-          "authority": "AIEF-AMD-010 AMD-27, disposing Stage 6 pre-flight OPEN-QUESTION 4 and OPEN-QUESTION 5; coverage extended to enabled-role agent artifacts by AIEF-AMD-012 AMD-39, disposing OI-C-06",
+          "authority": "AIEF-AMD-010 AMD-27, disposing Stage 6 pre-flight OPEN-QUESTION 4 and OPEN-QUESTION 5; coverage extended to enabled-role agent artifacts by AIEF-AMD-012 AMD-39, disposing OI-C-06; lock_serialisation member order amended and the measured quantity scoped to the boot-read prefix by AIEF-AMD-015 AMD-54 and AMD-55, disposing ECR-D-014",
           "target_fields": ["core/MANIFEST.lock aggregate_digest", "project/BINDING.md core_digest_pin"],
           "covers": "every files[] entry declared integrity hashed that the build emits for the selected profile - the L0 root files BOOT.md, FRAMEWORK.md and README.md, core/** including core/templates/** and core/validation/**, and core/profiles/<selected>/** - plus every enabled-role agent artifact resolved per enabled_role_coverage, as the pair (emission path, DC-1 digest); core/MANIFEST.lock itself is excluded by self-exclusion; unhashed partitions (project, adapters) are never covered",
           "enabled_role_coverage": {
@@ -168,7 +168,7 @@
         "governing_rule": "per-file and aggregate measurement under both families; the maximum governs - AIEF-FRZ-001 section 1.8, not restated"
       },
       "budget_measurement_record": {
-        "authority": "AIEF-AMD-010 AMD-29, disposing Stage 6 pre-flight OPEN-QUESTION 6; measured domain, measurement instant and lock self-measurement declared by AIEF-AMD-013 AMD-42 and AMD-45; the aggregate ceiling charge for the deferred lock row declared by AIEF-AMD-014 AMD-51, disposing VER-007 FIND-Q7-3",
+        "authority": "AIEF-AMD-010 AMD-29, disposing Stage 6 pre-flight OPEN-QUESTION 6; measured domain, measurement instant and lock self-measurement declared by AIEF-AMD-013 AMD-42 and AMD-45; the aggregate ceiling charge for the deferred lock row declared by AIEF-AMD-014 AMD-51, disposing VER-007 FIND-Q7-3; lock_self_measurement scoped to the boot-read prefix by AIEF-AMD-015 AMD-54, disposing ECR-D-014",
         "location": "the budget_measurement member of core/MANIFEST.lock, admitted by sch-core-manifest additionalProperties true; not a separate file - a separate file would require a files[] entry, a schema and a consumer, and would be a dead file in every install; no schema amendment is required",
         "content": [
           "per-file token count under each family for every file carrying a non-null token_cap in tiers T0 and T1",

@@ -1,0 +1,83 @@
+{
+ "drawing": "SEWCP-200-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300320 (CP-D01)",
+   "source": "parameter:cp_od (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300302 BC 8\u00d7 M6 (CP-IF-2)",
+   "source": "parameter:bc_ring (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300260 BC locators 75\u00b0/195\u00b0/315\u00b0 (ECR-D-010)",
+   "source": "parameter:bc_kin_top (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300270 BC 12\u00d7 choke (CP-IF-3)",
+   "source": "parameter:bc_choke_out (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300200 BC 3\u00d7 lift pin",
+   "source": "spec/00 \u00a73.2 lift-pin bores \u2300200 BC"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "note",
+   "label": "RF LAND 93\u00b0\u2013117\u00b0 (BOTTOM FACE, MASKED)",
+   "source": "spec/01 CP-IF-8; ECR-Q-010 envelope governs"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "note",
+   "label": "COOLANT IN 255\u00b0 / OUT 285\u00b0, RADIAL",
+   "source": "spec/00 \u00a73.2 coolant 255\u00b0(in)/285\u00b0(out)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "SECTION A-A",
+   "kind": "linear",
+   "label": "20 \u00b10.030 (CP-D02)",
+   "source": "parameter:cp_thk (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "SECTION A-A",
+   "kind": "linear",
+   "label": "8 (CP-D07)",
+   "source": "parameter:ch_top_wall (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 1",
+   "view": "SECTION A-A",
+   "kind": "linear",
+   "label": "6 FSW lid (CP-D08)",
+   "source": "parameter:lid_thk (params/generated/SEWCP-200.csv)"
+  },
+  {
+   "sheet": "SEWCP-200-DRW-001 Sh 2",
+   "view": "BOTTOM FACE MASKS",
+   "kind": "note",
+   "label": "ANODIZE MASK ZONES \u2014 SEE NOTES",
+   "source": "spec/01 \u00a78 masking table"
+  }
+ ]
+}

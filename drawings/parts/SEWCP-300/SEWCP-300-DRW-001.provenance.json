@@ -1,0 +1,41 @@
+{
+ "drawing": "SEWCP-300-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-300-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300300 (HP-D01)",
+   "source": "parameter:hp_od (SEWCP-300-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-300-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "diameter",
+   "label": "\u2300260 BC 3\u00d7 slot 6.05 H8 (HP-IF-3)",
+   "source": "parameter:hp_slot_bc (SEWCP-300-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-300-DRW-001 Sh 1",
+   "view": "TOP",
+   "kind": "note",
+   "label": "HEATER GROOVE SPIRALS w3.2\u00d7d3.2 p6 (BOTTOM)",
+   "source": "cad/runs spiral routing record (commit 3889a48); parameters hp_gr_*"
+  },
+  {
+   "sheet": "SEWCP-300-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "linear",
+   "label": "8 \u00b10.020 (HP-D02)",
+   "source": "parameter:hp_thk (SEWCP-300-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-300-DRW-001 Sh 1",
+   "view": "SECTION",
+   "kind": "note",
+   "label": "16\u00d7 M5\u00d76.5 BLIND \u2014 1.5 MIN TO BOND FACE",
+   "source": "spec/02 M5 blind depth vs bond face; IF-HP-M5 verified +1.50"
+  }
+ ]
+}

@@ -183,7 +183,15 @@ def render_drawing_pdf(drawing: Drawing, out_dir: str | Path) -> list[Path]:
             ax.text(cx + 1.2, cy + 3.2, key, fontsize=4.5, family="monospace")
             ax.text(cx + 1.2, cy + 8.0, val, fontsize=6, family="monospace")
         p = out / f"{drawing.number}_Sh{i}.pdf"
-        fig.savefig(p, format="pdf", bbox_inches=None, pad_inches=0)
+        # `CreationDate: None` suppresses matplotlib's wall-clock stamp, which
+        # made every PDF byte-different on every render even when not one line
+        # of the drawing had moved. A deliverable register whose digests churn
+        # on re-render cannot distinguish a real change from a re-run, and
+        # `AIEF-AMD-033` requires a build to be byte-identical across executions.
+        # The remaining fields are pinned for the same reason.
+        fig.savefig(p, format="pdf", bbox_inches=None, pad_inches=0,
+                    metadata={"CreationDate": None, "Producer": "aief_draw",
+                              "Creator": "aief_draw", "Title": drawing.number})
         plt.close(fig)
         written.append(p)
     return written

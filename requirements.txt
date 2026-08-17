@@ -1,0 +1,23 @@
+# SEWCP / SEDEP - runtime and test dependencies.
+#
+# Versions are the ones this repository's results were produced against, given
+# as floors rather than pins: nothing here is digest-bound, and pinning exactly
+# would make a fresh clone fail on a patch release for no engineering reason.
+# Every licence below was read from the installed distribution's own metadata,
+# not assumed - see LICENSE section 2 and DECISIONS_S-2026-08-17-01 DEC-11.
+
+jsonschema>=4.26.0        # MIT      - schema validation of the framework manifest
+pytest>=9.1.1             # MIT      - the 848-test suite
+matplotlib>=3.11.1        # PSF-style permissive - vector canvas for drawing PDFs
+
+# Stage 6 budget measurement. The two normative tokenizer families TF-1 and
+# TF-2 (AIEF-AMD-010 AMD-26). Needed only to run `python -m aief_stage6`; the
+# seven `needs_artifacts` tests skip without the pinned artifacts, which are
+# not tracked. Everything else in the suite runs without these.
+tiktoken>=0.13.0          # MIT        - TF-1, cl100k_base BPE
+sentencepiece>=0.2.2      # Apache-2.0 - TF-2, T5 SentencePiece
+
+# NOT a dependency of anything installable: `adsk` is the Autodesk Fusion 360
+# Python API, supplied by Fusion itself and imported only by
+# fusion_addin/AIEF_CAD_Bridge/**, which runs inside Fusion. No Autodesk code
+# is vendored or redistributed here.

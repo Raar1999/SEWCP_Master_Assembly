@@ -446,3 +446,67 @@ def test_live_repository_every_spec_volume_is_accounted_for() -> None:
         if not path.startswith("spec/"):
             continue
         assert chain.ok, f"{path}: {chain.failures}"
+
+
+# ── OI-V-13 FIND-8: two silent swallows, one field apart ───────────────────
+# Both were found by the independent cold audit that `OI-V-13` owes. Neither
+# was exploited on disk - APR-003's eight paths are distinct and every
+# prior_hash is a scalar - and neither was covered by any of the five
+# multi-subject tests above. They are the same class of defect those tests
+# were written for: a malformed field read as an absence rather than as a
+# fault.
+
+def test_a_repeated_subject_path_cannot_mask_a_bad_binding(repo: Path) -> None:
+    """FIND-8(a). Pairing is positional and `states` is keyed by approval id,
+    so a path named twice let the good binding overwrite the bad one - the
+    approval reported LIVE with a digest the tree never held."""
+    good = _write_named(repo, "spec/x.md", "content\n")
+    _multi_approval(
+        repo, "APR-900",
+        [("spec/x.md", "f" * 64), ("spec/x.md", good)],
+    )
+    report = verify(repo)
+    assert not report.ok
+    assert any("more than once" in f for f in report.failures), report.failures
+    assert report.state_of("APR-900") is None, (
+        "a rejected approval must not go on to report a state"
+    )
+
+
+def test_a_block_sequence_prior_hash_is_a_fault_not_a_chain_root(repo: Path) -> None:
+    """FIND-8(b). `_scalar` returned '' for a sequence, which became None,
+    which silently made the approval the root of its chain."""
+    digest = _write_named(repo, "spec/y.md", "content\n")
+    target = repo / ".ai" / "project" / "approvals" / "APR-901_seq_prior.md"
+    target.write_text(
+        "# APR-901\n\n```yaml\napproval_id:   APR-901\n"
+        "approver:      human-owner\n"
+        f"subject_path:  spec/y.md\n"
+        f"subject_hash:  {digest}\n"
+        "prior_hash:\n"
+        f"  - {'a' * 64}\n"
+        f"  - {'b' * 64}\n```\n",
+        encoding="utf-8",
+    )
+    report = verify(repo)
+    assert not report.ok
+    assert any("block sequence" in f for f in report.failures), report.failures
+
+
+def test_a_scalar_null_prior_hash_is_still_a_lawful_chain_root(repo: Path) -> None:
+    """The control. The repair must reject a sequence without rejecting the
+    genuine root case, which is how every first approval on a path is written."""
+    digest = _write_named(repo, "spec/z.md", "content\n")
+    _registry(repo, {"spec/z.md": digest})
+    target = repo / ".ai" / "project" / "approvals" / "APR-902_root.md"
+    target.write_text(
+        "# APR-902\n\n```yaml\napproval_id:   APR-902\n"
+        "approver:      human-owner\n"
+        f"subject_path:  spec/z.md\n"
+        f"subject_hash:  {digest}\n"
+        "prior_hash:    null   # none previously registered\n```\n",
+        encoding="utf-8",
+    )
+    report = verify(repo)
+    assert report.ok, report.failures
+    assert report.state_of("APR-902") is State.LIVE

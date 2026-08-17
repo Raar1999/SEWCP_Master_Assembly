@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view TOP -->
+<polygon points="72.000,132.000 168.000,132.000 168.000,68.000 72.000,68.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="120.000" cy="100.000" r="3.500" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="84.000" cy="100.000" r="9.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="156.000" cy="100.000" r="9.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="84.000" y1="100.000" x2="84.000" y2="88.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="156.000" y1="100.000" x2="156.000" y2="88.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="84.000" y1="88.000" x2="156.000" y2="88.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 84.000 88.000 L 87.600 89.200 L 87.600 86.800 Z" fill="#000" stroke="none"/>
+<path d="M 156.000 88.000 L 152.400 86.800 L 152.400 89.200 Z" fill="#000" stroke="none"/>
+<text x="120.000" y="87.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle">18 ±0.1 (TR-D04)</text>
+<line x1="120.000" y1="96.500" x2="125.000" y2="87.840" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 120.000 96.500 L 122.839 93.982 L 120.761 92.782 Z" fill="#000" stroke="none"/>
+<text x="126.000" y="86.840" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀1.75 +0.05/−0 PROBE BORE (TR-D02)</text>
+<!-- view SIDE -->
+<polygon points="232.000,100.000 328.000,100.000 328.000,52.000 232.000,52.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="276.000,56.000 284.000,56.000 284.000,52.000 276.000,52.000" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<line x1="336.000" y1="100.000" x2="339.000" y2="100.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="336.000" y1="52.000" x2="339.000" y2="52.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="339.000" y1="100.000" x2="339.000" y2="52.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 339.000 100.000 L 340.200 96.400 L 337.800 96.400 Z" fill="#000" stroke="none"/>
+<path d="M 339.000 52.000 L 337.800 55.600 L 340.200 55.600 Z" fill="#000" stroke="none"/>
+<text x="339.000" y="75.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 339 75)">12 (TR-D01)</text>
+<line x1="280.000" y1="52.000" x2="287.071" y2="44.929" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 280.000 52.000 L 283.394 50.303 L 281.697 48.606 Z" fill="#000" stroke="none"/>
+<text x="288.071" y="43.929" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VENT SLOT 2 W × 1 DP (TR-D08, DR-13)</text>
+<text x="14.000" y="158.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="14.00" y="160.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D01</text>
+<rect x="32.00" y="160.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Body envelope</text>
+<rect x="94.00" y="160.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">24 × 16 × 12</text>
+<rect x="124.00" y="160.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.2</text>
+<rect x="14.00" y="164.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D02</text>
+<rect x="32.00" y="164.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Probe bore</text>
+<rect x="94.00" y="164.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø1.75</text>
+<rect x="124.00" y="164.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.05 / −0</text>
+<rect x="14.00" y="168.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D03</text>
+<rect x="32.00" y="168.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Probe bore concentricity to the plate bore</text>
+<rect x="94.00" y="168.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="168.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.10 TIR</text>
+<rect x="14.00" y="172.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D04</text>
+<rect x="32.00" y="172.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Mounting hole spacing</text>
+<rect x="94.00" y="172.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">18.0</text>
+<rect x="124.00" y="172.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.1</text>
+<rect x="14.00" y="176.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D05</text>
+<rect x="32.00" y="176.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Spring plunger preload</text>
+<rect x="94.00" y="176.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7.5 N</text>
+<rect x="124.00" y="176.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±2.5 N</text>
+<rect x="14.00" y="181.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D06</text>
+<rect x="32.00" y="181.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Spring working travel</text>
+<rect x="94.00" y="181.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2.0 min</text>
+<rect x="124.00" y="181.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="14.00" y="185.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D07</text>
+<rect x="32.00" y="185.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Strain-relief clamp bore</text>
+<rect x="94.00" y="185.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø3.0</text>
+<rect x="124.00" y="185.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.1 / −0</text>
+<rect x="14.00" y="189.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TR-D08</text>
+<rect x="32.00" y="189.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Vent slot (clears the plate cross-vent)</text>
+<rect x="94.00" y="189.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2.0 W × 1.0 D</text>
+<rect x="124.00" y="189.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.2 / −0</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. PROBE BORE CONCENTRIC TO PLATE BORE 0.10 TIR AT ASSEMBLY (TR-D03).</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. SPRING PLUNGER PRELOAD 7.5 ±2.5 N, TRAVEL 2.0 MIN (TR-D05/06) — HW IS SPEC-ONLY (BOM).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. VENT SLOT MUST ALIGN WITH PLATE CROSS-VENT AT INSTALL (spec/09 §10 STEP 7).</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. SC SPRING-CLIP DETAIL: DEFERRED-FEATURE REGISTER — SPEC-ONLY HW, NOT DRAWN.</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RTD RETAINER SEWCP-1000 — RTD retainer</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-1000-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ALODINE 1200</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4:1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

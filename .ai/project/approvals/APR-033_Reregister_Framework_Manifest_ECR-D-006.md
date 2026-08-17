@@ -169,3 +169,51 @@ closed by this approval and is not asserted to be.
 | ECR-D-006 | The change request this approval dispositions |
 | `AIEF-AMD-008` §AMD-21 | The registration criterion this artifact meets |
 | `ECR-D-005` / `APR-001` | The disposition-A precedent followed here |
+
+---
+
+## Corrections of record — `S-2026-08-17-01`
+
+> **Appended, never applied in place.** This approval's `subject_hash` binding, its
+> attribution and its disposition are **unchanged and unaffected**: both corrections are to
+> the *wording of its corroboration*, not to anything it binds. The
+> `.ai/project/verification/` supersession convention is not available here — an approval is
+> not a verification report — so the corrections are appended and attributed, which is the
+> register's own convention for an updated row.
+>
+> Both were found by the independent cold-context `qa-engineer` audit that `OI-V-13` owes,
+> which reproduced every load-bearing value of this approval **exactly** — the `8546960` git
+> object at `ae16ccac…9d8395aa`, the three-approval chain to `5b78d25b…bbd6b652`, zero
+> removals, all three DC-2 lineage values, and V-24 at 31/31 — and confirmed the recorded
+> residual more strongly than this record does, by enumerating every blob named
+> `framework.manifest.json` anywhere in the object graph (ten of them) and showing
+> `8af8971b…a7e42ff7` is **not among them**.
+
+**Correction 1 — `OI-V-13` FIND-5. "Twenty-seven changed leaves" is the wrong noun.**
+§2's *"The twenty-seven discrete changes"* and the enumeration's row count are **27 authorised
+change-events over 25 distinct leaves.** Two leaves are extended twice, once by each of two
+instruments: `metadata.reproducible.budget_measurement_record.authority` (rows 13 and 27) and
+`validation[V-09].verifies` (rows 16 and 24). Every row is a real, separately authorised
+change, and the 3 / 13 / 11 partition against each instrument's own enumeration is
+**unaffected** — an instrument that extends a value a second time declares a change, and the
+row is that change. What is wrong is calling 27 rows 27 *leaves*. The attribution is complete
+and correct; the count of leaves is 25.
+
+**Correction 2 — `OI-V-13` FIND-6. Corroboration 2's universal claim is false for two of
+eight.** *"An unattributed extension would be visible as an extension carrying no citation.
+None is."* Two carry none:
+
+| Extended value | The extension | Cites |
+|---|---|---|
+| `…core_aggregate.covers` | *"plus every enabled-role agent artifact resolved per `enabled_role_coverage`"* — a **mid-string insertion**, not an append | no amendment |
+| `…budget_measurement_record.verdict_rule` | *"; the aggregate comparison is the charged comparison of `aggregate_ceiling_charge`"* | no amendment |
+
+Attribution survives one hop in both cases — each names a sibling member whose own `authority`
+field carries the citation — so **no leaf is unattributable and the disposition does not
+move.** The defect is that corroboration 2 was stated as exhaustive and is not, and an
+exhaustive claim that is false in two of eight instances is exactly the kind of assurance
+this repository has learned to distrust.
+
+**Neither correction disturbs anything this approval binds.** `subject_path`, `subject_hash`,
+`prior_hash` and the ruling are untouched; `aief_approval verify` and `V-24` are unaffected
+and both continue to pass.

@@ -1,9 +1,16 @@
-"""Generate the SEWCP drawing set to the external deliverable root.
+"""Generate the SEWCP drawing set into the repository.
 
     python drawings/generate.py [--only SEWCP-200,...] [--out DIR]
 
 Outputs SVG (canonical) + PDF (print) + a provenance sidecar per drawing,
 and prints a digest table for the deliverable manifest.
+
+**Output goes into `drawings/`, not to an external root** - `ECR-D-015`. It
+used to default to `D:\\AIEF_CAD_OUTPUT\\SEWCP\\DRAWINGS`, so a clone of this
+repository could regenerate nothing it could then find. The assembly drawing
+goes to `drawings/assembly/` and every part drawing to `drawings/parts/<part>/`,
+the layout `SEDEP-PMP-002` §1 declares. `--out` still overrides, for a
+scratch render that must not touch the tracked set.
 """
 
 from __future__ import annotations
@@ -17,7 +24,15 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "defs"))
 sys.path.insert(0, str(HERE.parent / "src"))
 
-DEFAULT_OUT = Path(r"D:\AIEF_CAD_OUTPUT\SEWCP\DRAWINGS")
+DEFAULT_OUT = HERE          # the repository's own drawings/ tree - ECR-D-015
+
+#: The assembly drawing and the part drawings live in different subtrees, per
+#: `SEDEP-PMP-002` §1. Everything not named here is a part.
+ASSEMBLY_PART = "SEWCP-000"
+
+
+def _drawing_dir(out: Path, part: str) -> Path:
+    return out / ("assembly" if part == ASSEMBLY_PART else f"parts/{part}")
 
 
 def main() -> int:
@@ -41,7 +56,7 @@ def main() -> int:
             continue
         drawing = builder()
         drawing.validate()
-        d_out = out / part
+        d_out = _drawing_dir(out, part)
         written += render_drawing_svg(drawing, d_out)
         written += render_drawing_pdf(drawing, d_out)
         n_dims = len(drawing.provenance())

@@ -1,0 +1,390 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view SECTION ELEVATION -->
+<polygon points="64.932,205.270 145.068,205.270 145.068,187.000 64.932,187.000" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<polygon points="64.680,187.000 145.320,187.000 145.320,169.000 64.680,169.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="67.200,167.650 142.800,167.650 142.800,160.450 67.200,160.450" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="67.578,160.090 142.422,160.090 142.422,154.690 67.578,154.690" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="51.000" y1="205.000" x2="159.000" y2="205.000" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<text x="51.900" y="203.650" font-size="2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATUM A</text>
+<line x1="151.800" y1="205.000" x2="155.800" y2="205.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.800" y1="187.000" x2="155.800" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="155.800" y1="205.000" x2="155.800" y2="187.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 155.800 205.000 L 157.000 201.400 L 154.600 201.400 Z" fill="#000" stroke="none"/>
+<path d="M 155.800 187.000 L 154.600 190.600 L 157.000 190.600 Z" fill="#000" stroke="none"/>
+<text x="155.800" y="195.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 155.8 195)">20.000 (lapped, DR-3)</text>
+<line x1="151.800" y1="205.000" x2="165.800" y2="205.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.800" y1="169.000" x2="165.800" y2="169.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="165.800" y1="205.000" x2="165.800" y2="169.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 165.800 205.000 L 167.000 201.400 L 164.600 201.400 Z" fill="#000" stroke="none"/>
+<path d="M 165.800 169.000 L 164.600 172.600 L 167.000 172.600 Z" fill="#000" stroke="none"/>
+<text x="165.800" y="186.000" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 165.8 186)">40.000</text>
+<line x1="151.800" y1="205.000" x2="175.800" y2="205.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.800" y1="160.450" x2="175.800" y2="160.450" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="175.800" y1="205.000" x2="175.800" y2="160.450" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 175.800 205.000 L 177.000 201.400 L 174.600 201.400 Z" fill="#000" stroke="none"/>
+<path d="M 175.800 160.450 L 174.600 164.050 L 177.000 164.050 Z" fill="#000" stroke="none"/>
+<text x="175.800" y="181.725" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 175.8 181.725)">49.500</text>
+<line x1="151.800" y1="205.000" x2="185.800" y2="205.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.800" y1="154.690" x2="185.800" y2="154.690" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="185.800" y1="205.000" x2="185.800" y2="154.690" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 185.800 205.000 L 187.000 201.400 L 184.600 201.400 Z" fill="#000" stroke="none"/>
+<path d="M 185.800 154.690 L 184.600 158.290 L 187.000 158.290 Z" fill="#000" stroke="none"/>
+<text x="185.800" y="178.845" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 185.8 178.845)">55.900</text>
+<line x1="105.000" y1="168.100" x2="114.659" y2="165.512" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 105.000 168.100 L 108.788 168.327 L 108.167 166.009 Z" fill="#000" stroke="none"/>
+<text x="115.659" y="164.512" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.50 CHOKE GAP (SEWCP-301 ×16)</text>
+<line x1="105.000" y1="160.270" x2="114.659" y2="162.858" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 105.000 160.270 L 108.167 162.361 L 108.788 160.043 Z" fill="#000" stroke="none"/>
+<text x="115.659" y="161.858" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.40 BOND LINE</text>
+<line x1="78.000" y1="154.690" x2="68.603" y2="151.270" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 78.000 154.690 L 75.028 152.331 L 74.207 154.586 Z" fill="#000" stroke="none"/>
+<text x="67.603" y="150.270" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">WAFER PLANE 55.920 (MESA 0.020)</text>
+<text x="180.000" y="28.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">INDENTURED BOM (SEWCP-000)</text>
+<rect x="180.00" y="30.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LVL</text>
+<rect x="190.00" y="30.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">PART NO</text>
+<rect x="216.00" y="30.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NAME</text>
+<rect x="278.00" y="30.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">QTY</text>
+<rect x="290.00" y="30.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<rect x="320.00" y="30.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="33.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">STATE</text>
+<rect x="180.00" y="34.40" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0</text>
+<rect x="190.00" y="34.40" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-000</text>
+<rect x="216.00" y="34.40" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MASTER ASSEMBLY</text>
+<rect x="278.00" y="34.40" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="34.40" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="320.00" y="34.40" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="37.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Fusion assembly (c</text>
+<rect x="180.00" y="38.80" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="38.80" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-200</text>
+<rect x="216.00" y="38.80" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">COOLING PLATE</text>
+<rect x="278.00" y="38.80" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="38.80" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="320.00" y="38.80" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="41.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="43.20" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="43.20" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-300</text>
+<rect x="216.00" y="43.20" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HEATER PLATE</text>
+<rect x="278.00" y="43.20" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="43.20" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="320.00" y="43.20" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="46.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="47.60" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="47.60" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-400</text>
+<rect x="216.00" y="47.60" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SUPPORT RING</text>
+<rect x="278.00" y="47.60" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="47.60" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Al2O3 99.5%</text>
+<rect x="320.00" y="47.60" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="50.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="52.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="52.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-500</text>
+<rect x="216.00" y="52.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ESC PUCK</text>
+<rect x="278.00" y="52.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="52.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Al2O3 99.6%</text>
+<rect x="320.00" y="52.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="55.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="56.40" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="56.40" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-600</text>
+<rect x="216.00" y="56.40" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">LIFT PIN</text>
+<rect x="278.00" y="56.40" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3</text>
+<rect x="290.00" y="56.40" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Al2O3 99.8%</text>
+<rect x="320.00" y="56.40" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="59.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="60.80" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="60.80" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-700</text>
+<rect x="216.00" y="60.80" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ALIGNMENT PIN</text>
+<rect x="278.00" y="60.80" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6</text>
+<rect x="290.00" y="60.80" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ti-6Al-4V</text>
+<rect x="320.00" y="60.80" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="63.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="65.20" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="65.20" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-800</text>
+<rect x="216.00" y="65.20" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">PORT BODY</text>
+<rect x="278.00" y="65.20" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="65.20" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">316L SST</text>
+<rect x="320.00" y="65.20" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="68.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="69.60" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="69.60" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-901</text>
+<rect x="216.00" y="69.60" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RF STRAP</text>
+<rect x="278.00" y="69.60" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="69.60" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">C10100 OFHC</text>
+<rect x="320.00" y="69.60" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="72.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="74.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="74.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-902</text>
+<rect x="216.00" y="74.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SADDLE</text>
+<rect x="278.00" y="74.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="74.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="320.00" y="74.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="77.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="78.40" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="78.40" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-1000</text>
+<rect x="216.00" y="78.40" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RETAINER</text>
+<rect x="278.00" y="78.40" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3</text>
+<rect x="290.00" y="78.40" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="320.00" y="78.40" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="81.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">verified model (SE</text>
+<rect x="180.00" y="82.80" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="82.80" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-301</text>
+<rect x="216.00" y="82.80" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Thermal choke washer, Ti, 1.50 thk</text>
+<rect x="278.00" y="82.80" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">16</text>
+<rect x="290.00" y="82.80" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ti Grade 2</text>
+<rect x="320.00" y="82.80" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="85.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="87.20" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="87.20" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-401</text>
+<rect x="216.00" y="87.20" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Support ring clamp ring</text>
+<rect x="278.00" y="87.20" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="87.20" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">316L</text>
+<rect x="320.00" y="87.20" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="90.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="91.60" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="91.60" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-601</text>
+<rect x="216.00" y="91.60" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin bushing, bore Ø5.60 +0.05</text>
+<rect x="278.00" y="91.60" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3</text>
+<rect x="290.00" y="91.60" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Vespel/PEEK per </text>
+<rect x="320.00" y="91.60" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="94.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="96.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="96.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-903</text>
+<rect x="216.00" y="96.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RF terminal hardware set (4× M6×16</text>
+<rect x="278.00" y="96.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="96.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70 / Ag plate</text>
+<rect x="320.00" y="96.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="99.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="100.40" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="100.40" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-904</text>
+<rect x="216.00" y="100.40" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Deposition shroud</text>
+<rect x="278.00" y="100.40" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="290.00" y="100.40" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ceramic per spec</text>
+<rect x="320.00" y="100.40" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="103.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="104.80" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="104.80" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M640SHCS</text>
+<rect x="216.00" y="104.80" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 × 40 SHCS — Lower circuit: Base</text>
+<rect x="278.00" y="104.80" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8</text>
+<rect x="290.00" y="104.80" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="104.80" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="107.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="109.20" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="109.20" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M616SHCS</text>
+<rect x="216.00" y="109.20" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 × 16 SHCS — Upper circuit: Supp</text>
+<rect x="278.00" y="109.20" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8</text>
+<rect x="290.00" y="109.20" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="109.20" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="112.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="113.60" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="113.60" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M525SHCS</text>
+<rect x="216.00" y="113.60" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M5 × 25 SHCS — Cooling Plate ↔ Hea</text>
+<rect x="278.00" y="113.60" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">12</text>
+<rect x="290.00" y="113.60" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="113.60" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="116.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="118.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="118.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M525SHCS</text>
+<rect x="216.00" y="118.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M5 × 25 SHCS — Cooling Plate ↔ Hea</text>
+<rect x="278.00" y="118.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4</text>
+<rect x="290.00" y="118.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="118.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="121.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="122.40" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="122.40" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M416SHCS</text>
+<rect x="216.00" y="122.40" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M4 × 16 SHCS — Vacuum Port flange</text>
+<rect x="278.00" y="122.40" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4</text>
+<rect x="290.00" y="122.40" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="122.40" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="125.400" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="126.80" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="126.80" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M616SHCS</text>
+<rect x="216.00" y="126.80" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 × 16 SHCS — RF strap to Cooling</text>
+<rect x="278.00" y="126.80" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2</text>
+<rect x="290.00" y="126.80" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70, silver-pl</text>
+<rect x="320.00" y="126.80" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="129.800" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="131.20" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="131.20" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M620SHCS</text>
+<rect x="216.00" y="131.20" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M6 × 20 SHCS — RF bracket clamp to</text>
+<rect x="278.00" y="131.20" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2</text>
+<rect x="290.00" y="131.20" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="131.20" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="134.200" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="135.60" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="135.60" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HW-M412SHCS</text>
+<rect x="216.00" y="135.60" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M4 × 12 SHCS — Temp sensor bracket</text>
+<rect x="278.00" y="135.60" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4</text>
+<rect x="290.00" y="135.60" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A4-70</text>
+<rect x="320.00" y="135.60" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="138.600" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">spec-only</text>
+<rect x="180.00" y="140.00" width="10.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="181.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1</text>
+<rect x="190.00" y="140.00" width="26.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="191.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-100</text>
+<rect x="216.00" y="140.00" width="62.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="217.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">BASE PLATE (frozen reference)</text>
+<rect x="278.00" y="140.00" width="12.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="279.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REF</text>
+<rect x="290.00" y="140.00" width="30.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="320.00" y="140.00" width="34.00" height="4.4" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="143.000" font-size="1.9" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">frozen — not part </text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. HEIGHTS ARE OBSERVED OCCURRENCE BOUNDS; NOMINAL AUTHORITY spec/00 §4.2.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. FULL BOM: BOM/SEWCP-000_BOM_RevA.csv (CROSS-CHECKED 4 WAYS).</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. SEWCP-600 MATERIAL CORRECTED TO 99.8% ALUMINA (REPAIRS_S-2026-08-11-04).</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP MASTER ASSEMBLY — Elevation + indentured BOM</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-000-DRW-001 Sh 2</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:3 / 1:1.1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

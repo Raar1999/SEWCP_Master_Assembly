@@ -39,6 +39,7 @@ Open Questions in the dispatch report, per the dispatching instruction):
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from .digests import dc4_digest
@@ -98,6 +99,10 @@ def serialise_lock(lock: dict[str, Any]) -> bytes:
 
 
 _AGGREGATE_MEMBER = '"aggregate_digest"'
+#: A member line per `lock_json_layout`: indent, the member name, the
+#: name separator, the value, LF. Anchored so the boundary is the member
+#: and not a coincidence of substrings (OI-V-13 FIND-7).
+_MEMBER_LINE = re.compile(r'^\s*"aggregate_digest"\s*:')
 
 
 class LockPrefixUndefined(RuntimeError):
@@ -120,16 +125,29 @@ def boot_read_prefix(lock_text: str) -> str:
     run-scoped value, so the quantity the cap bounds is determined by the
     specification rather than by the length of a build identifier.
     """
-    idx = lock_text.find(_AGGREGATE_MEMBER)
-    if idx < 0:
+    # OI-V-13 FIND-7: this searched for the first occurrence of the token
+    # ANYWHERE, which is a substring heuristic where AMD-54 specifies a
+    # member. For conforming JSON the two agree - a value cannot contain an
+    # unescaped quote, and no other member name can end in the token followed
+    # by a quote - so there was no live exploit. It is matched at the member
+    # position now anyway: the ruling says "the line carrying the
+    # aggregate_digest member", and an implementation that happens to agree
+    # with the ruling is not the same as one that states it.
+    consumed = 0
+    for line in lock_text.splitlines(keepends=True):
+        if not line.endswith("\n"):
+            break
+        consumed += len(line)
+        if _MEMBER_LINE.match(line):
+            return lock_text[:consumed]
+
+    if _AGGREGATE_MEMBER in lock_text:
         raise LockPrefixUndefined(
-            "no aggregate_digest member in the serialised lock - the boot-read "
-            "prefix is undefined and the build halts (AMD-54)"
+            "the aggregate_digest member is present but not as an LF-terminated "
+            "member line - lock_json_layout requires one member per line with LF "
+            "endings, and the boot-read prefix is otherwise undefined (AMD-54)"
         )
-    end = lock_text.find("\n", idx)
-    if end < 0:
-        raise LockPrefixUndefined(
-            "aggregate_digest line is not LF-terminated - lock_json_layout "
-            "requires one member per line with LF endings (AMD-54)"
-        )
-    return lock_text[: end + 1]
+    raise LockPrefixUndefined(
+        "no aggregate_digest member in the serialised lock - the boot-read "
+        "prefix is undefined and the build halts (AMD-54)"
+    )

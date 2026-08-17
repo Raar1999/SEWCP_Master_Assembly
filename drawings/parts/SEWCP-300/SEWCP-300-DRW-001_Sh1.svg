@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view TOP -->
+<circle cx="210.000" cy="120.000" r="54.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="152.400" y1="120.000" x2="267.600" y2="120.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="210.000" y1="177.600" x2="210.000" y2="62.400" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="46.800" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="222.113" cy="74.795" r="1.089" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="164.795" cy="132.113" r="1.089" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="243.093" cy="153.093" r="1.089" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="48.600" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="258.600" cy="120.000" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="252.089" cy="95.700" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="234.300" cy="77.911" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="210.000" cy="71.400" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="185.700" cy="77.911" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="167.911" cy="95.700" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="161.400" cy="120.000" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="167.911" cy="144.300" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="185.700" cy="162.089" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="210.000" cy="168.600" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="234.300" cy="162.089" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="252.089" cy="144.300" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="210.000" cy="120.000" r="16.200" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="221.455" cy="108.545" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="198.545" cy="108.545" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="198.545" cy="131.455" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="221.455" cy="131.455" r="0.900" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="210.000" cy="120.000" r="36.000" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="241.177" cy="102.000" r="1.080" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="178.823" cy="102.000" r="1.080" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="156.000" r="1.080" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="5.400" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="25.920" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="28.080" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<circle cx="210.000" cy="120.000" r="52.200" stroke="#555" stroke-width="0.25" stroke-dasharray="6,1.5,1.5,1.5,1.5,1.5" fill="none"/>
+<path d="M 159.257 138.469 L 151.739 141.205 L 145.739 141.205" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 159.257 138.469 L 155.463 138.573 L 156.284 140.828 Z" fill="#000" stroke="none"/>
+<text x="144.739" y="140.205" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀300 (HP-D01)</text>
+<path d="M 222.113 74.795 L 224.183 67.067 L 230.183 67.067" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 222.113 74.795 L 224.204 71.628 L 221.885 71.007 Z" fill="#000" stroke="none"/>
+<text x="231.183" y="66.067" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀260 BC 3× slot 6.05 H8 (HP-IF-3)</text>
+<line x1="246.911" y1="83.089" x2="253.982" y2="76.018" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 246.911 83.089 L 250.305 81.392 L 248.608 79.695 Z" fill="#000" stroke="none"/>
+<text x="254.982" y="75.018" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HEATER GROOVE SPIRALS w3.2×d3.2 p6 (BOTTOM)</text>
+<!-- view SECTION -->
+<polygon points="36.000,235.000 144.000,235.000 144.000,232.120 36.000,232.120" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="146.160" y1="235.000" x2="152.160" y2="235.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="146.160" y1="232.120" x2="152.160" y2="232.120" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="152.160" y1="235.000" x2="152.160" y2="232.120" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 152.160 235.000 L 153.360 231.400 L 150.960 231.400 Z" fill="#000" stroke="none"/>
+<path d="M 152.160 232.120 L 150.960 235.720 L 153.360 235.720 Z" fill="#000" stroke="none"/>
+<text x="152.160" y="232.560" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 152.16 232.56)">8 ±0.020 (HP-D02)</text>
+<line x1="90.000" y1="235.000" x2="95.000" y2="243.660" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 90.000 235.000 L 90.761 238.718 L 92.839 237.518 Z" fill="#000" stroke="none"/>
+<text x="96.000" y="242.660" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">16× M5×6.5 BLIND — 1.5 MIN TO BOND FACE</text>
+<text x="14.000" y="56.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="14.00" y="58.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D01</text>
+<rect x="32.00" y="58.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Outside diameter</text>
+<rect x="94.00" y="58.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø300.0</text>
+<rect x="124.00" y="58.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="60.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="62.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D02</text>
+<rect x="32.00" y="62.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Overall thickness</text>
+<rect x="94.00" y="62.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8.000</text>
+<rect x="124.00" y="62.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="65.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.020</text>
+<rect x="14.00" y="66.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D03</text>
+<rect x="32.00" y="66.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Bond face flatness</text>
+<rect x="94.00" y="66.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="66.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="69.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.015 TIR</text>
+<rect x="14.00" y="70.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D04</text>
+<rect x="32.00" y="70.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Choke face flatness</text>
+<rect x="94.00" y="70.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="70.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="73.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.015 TIR</text>
+<rect x="14.00" y="74.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D05</text>
+<rect x="32.00" y="74.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Bond-face to choke-face parallelism</text>
+<rect x="94.00" y="74.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="124.00" y="74.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="77.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.015 TIR</text>
+<rect x="14.00" y="79.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D06</text>
+<rect x="32.00" y="79.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Heater groove</text>
+<rect x="94.00" y="79.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.20 W × 3.20 D</text>
+<rect x="124.00" y="79.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="81.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.10 / −0</text>
+<rect x="14.00" y="83.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D07</text>
+<rect x="32.00" y="83.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Groove pitch</text>
+<rect x="94.00" y="83.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.00</text>
+<rect x="124.00" y="83.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="86.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="87.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D08</text>
+<rect x="32.00" y="87.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Groove to bond face (min material)</text>
+<rect x="94.00" y="87.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4.60 min</text>
+<rect x="124.00" y="87.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="90.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="14.00" y="91.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D09</text>
+<rect x="32.00" y="91.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic slot width</text>
+<rect x="94.00" y="91.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6.05</text>
+<rect x="124.00" y="91.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="94.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8</text>
+<rect x="14.00" y="95.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D10</text>
+<rect x="32.00" y="95.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic slot length (radial)</text>
+<rect x="94.00" y="95.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8.00</text>
+<rect x="124.00" y="95.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="98.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.20 / −0</text>
+<rect x="14.00" y="100.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D09a</text>
+<rect x="32.00" y="100.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic slot depth</text>
+<rect x="94.00" y="100.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.00</text>
+<rect x="124.00" y="100.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="102.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="14.00" y="104.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D11</text>
+<rect x="32.00" y="104.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Kinematic slot position</text>
+<rect x="94.00" y="104.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø260 BC @ 75°/195°/3</text>
+<rect x="124.00" y="104.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="107.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.030 Ⓜ A B C</text>
+<rect x="14.00" y="108.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D12</text>
+<rect x="32.00" y="108.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M5 tapped holes (16×), blind from the choke </text>
+<rect x="94.00" y="108.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">M5 × 0.8, 1×D (5.0) </text>
+<rect x="124.00" y="108.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="111.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.200 Ⓜ A B C</text>
+<rect x="14.00" y="112.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D13</text>
+<rect x="32.00" y="112.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Lift pin clearance bores</text>
+<rect x="94.00" y="112.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø6.000</text>
+<rect x="124.00" y="112.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="115.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8, ⌖ Ø0.100 Ⓜ</text>
+<rect x="14.00" y="116.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D14</text>
+<rect x="32.00" y="116.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">He transfer bore</text>
+<rect x="94.00" y="116.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø6.000</text>
+<rect x="124.00" y="116.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="119.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8</text>
+<rect x="14.00" y="121.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D15</text>
+<rect x="32.00" y="121.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HV feed bores</text>
+<rect x="94.00" y="121.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø8.000</text>
+<rect x="124.00" y="121.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="123.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8, ⌖ Ø0.200 Ⓜ</text>
+<rect x="14.00" y="125.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D16</text>
+<rect x="32.00" y="125.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Secondary He O-ring groove (top face)</text>
+<rect x="94.00" y="125.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø8.0 × 1.90 W × 1.15</text>
+<rect x="124.00" y="125.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="128.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="14.00" y="129.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D17</text>
+<rect x="32.00" y="129.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">RTD blind bore</text>
+<rect x="94.00" y="129.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø1.700</text>
+<rect x="124.00" y="129.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="132.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H8, depth 6.0 ±0.2</text>
+<rect x="14.00" y="133.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D18</text>
+<rect x="32.00" y="133.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Bond-face edge break</text>
+<rect x="94.00" y="133.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.5 × 45°</text>
+<rect x="124.00" y="133.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="136.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.2</text>
+<rect x="14.00" y="137.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="15.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HP-D19</text>
+<rect x="32.00" y="137.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="33.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Choke washer thickness (SEWCP-301)</text>
+<rect x="94.00" y="137.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="95.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.500</text>
+<rect x="124.00" y="137.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="125.000" y="140.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.010, set variation </text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. MI HEATER ELEMENT GROOVES: TWO COUNTER-SPIRALS, BOTTOM FACE; EXACT PATH PER ROUTING RECORD.</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. BOND FACE (TOP): Ra ≤ 0.8, FLAT 0.05 — ESC ELASTOMER BOND (HP-IF-4).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. KINEMATIC SLOTS RE-CLOCKED 75°/195°/315° PER ECR-D-010.</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">HEATER PLATE SEWCP-300 — Geometry</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-300-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6061-T6</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CLEAN PER SEMI; NO ANODIZE ON BOND FACE</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1:2.8</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

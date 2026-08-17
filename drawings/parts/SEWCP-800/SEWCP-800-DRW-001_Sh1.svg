@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><pattern id="hatch" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/></pattern><pattern id="hatchX" width="3" height="3" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="3" stroke="#000" stroke-width="0.25"/><line x1="0" y1="1.5" x2="3" y2="1.5" stroke="#000" stroke-width="0.25"/></pattern></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="10" y="10" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.7"/>
+<!-- view SECTION -->
+<polygon points="122.200,141.200 125.445,141.200 125.445,150.000 147.500,150.000 147.500,161.000 123.493,161.000 123.493,271.000 122.392,271.000 122.392,166.500 122.200,161.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<polygon points="117.800,141.200 114.555,141.200 114.555,150.000 92.500,150.000 92.500,161.000 116.507,161.000 116.507,271.000 117.608,271.000 117.608,166.500 117.800,161.000" stroke="#000" stroke-width="0.5" fill="none"/>
+<line x1="120.000" y1="136.800" x2="120.000" y2="275.400" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<line x1="151.900" y1="150.000" x2="147.900" y2="150.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="151.900" y1="161.000" x2="147.900" y2="161.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="147.900" y1="150.000" x2="147.900" y2="161.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 147.900 150.000 L 146.700 153.600 L 149.100 153.600 Z" fill="#000" stroke="none"/>
+<path d="M 147.900 161.000 L 149.100 157.400 L 146.700 157.400 Z" fill="#000" stroke="none"/>
+<text x="147.900" y="154.500" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(90 147.9 154.5)">10 (VP-D02)</text>
+<line x1="128.745" y1="150.000" x2="136.745" y2="150.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="128.745" y1="141.200" x2="136.745" y2="141.200" stroke="#000" stroke-width="0.18" fill="none"/>
+<line x1="136.745" y1="150.000" x2="136.745" y2="141.200" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 136.745 150.000 L 137.945 146.400 L 135.545 146.400 Z" fill="#000" stroke="none"/>
+<path d="M 136.745 141.200 L 135.545 144.800 L 137.945 144.800 Z" fill="#000" stroke="none"/>
+<text x="136.745" y="144.600" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="middle" transform="rotate(-90 136.745 144.6)">8 (VP-D04)</text>
+<line x1="125.445" y1="145.600" x2="134.105" y2="140.600" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 125.445 145.600 L 129.163 144.839 L 127.963 142.761 Z" fill="#000" stroke="none"/>
+<text x="135.105" y="139.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀9.9 h8 PILOT (VP-D03)</text>
+<line x1="147.500" y1="152.200" x2="157.500" y2="152.200" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 147.500 152.200 L 151.100 153.400 L 151.100 151.000 Z" fill="#000" stroke="none"/>
+<text x="158.500" y="151.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀50 FLANGE (VP-D01)</text>
+<line x1="123.493" y1="216.000" x2="133.493" y2="216.000" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 123.493 216.000 L 127.093 217.200 L 127.093 214.800 Z" fill="#000" stroke="none"/>
+<text x="134.493" y="215.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀6.35×1 WALL ×100 (VP-D13/14)</text>
+<line x1="122.200" y1="145.600" x2="127.200" y2="136.940" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 122.200 145.600 L 125.039 143.082 L 122.961 141.882 Z" fill="#000" stroke="none"/>
+<text x="128.200" y="135.940" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀4 H9 BORE (VP-D05)</text>
+<!-- view TOP -->
+<circle cx="300.000" cy="105.000" r="27.500" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="300.000" cy="105.000" r="5.445" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="300.000" cy="105.000" r="13.475" stroke="#000" stroke-width="0.25" stroke-dasharray="2,1.2" fill="none"/>
+<circle cx="300.000" cy="105.000" r="20.900" stroke="#000" stroke-width="0.18" stroke-dasharray="8,1.5,1.5,1.5" fill="none"/>
+<circle cx="314.779" cy="90.221" r="2.475" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="285.221" cy="90.221" r="2.475" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="285.221" cy="119.779" r="2.475" stroke="#000" stroke-width="0.5" fill="none"/>
+<circle cx="314.779" cy="119.779" r="2.475" stroke="#000" stroke-width="0.5" fill="none"/>
+<path d="M 314.779 90.221 L 320.435 84.565 L 326.435 84.565" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 314.779 90.221 L 318.173 88.524 L 316.476 86.827 Z" fill="#000" stroke="none"/>
+<text x="327.435" y="83.565" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌀38 BC 4× ⌀4.5 (VP-D11)</text>
+<path d="M 287.338 109.609 L 279.820 112.345 L 273.820 112.345" stroke="#000" stroke-width="0.18" fill="none"/>
+<path d="M 287.338 109.609 L 283.544 109.712 L 284.365 111.968 Z" fill="#000" stroke="none"/>
+<text x="272.820" y="111.345" font-size="2.5" font-family="ISOCPEUR, Consolas, monospace" text-anchor="end">⌀24.5 O-RING GROOVE MEAN (VP-D06)</text>
+<text x="240.000" y="158.500" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">CRITICAL DIMENSIONS (frozen spec, verbatim)</text>
+<rect x="240.00" y="160.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D01</text>
+<rect x="258.00" y="160.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Flange diameter</text>
+<rect x="320.00" y="160.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø50.0</text>
+<rect x="350.00" y="160.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="162.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.20</text>
+<rect x="240.00" y="164.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D02</text>
+<rect x="258.00" y="164.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Flange thickness</text>
+<rect x="320.00" y="164.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">10.00</text>
+<rect x="350.00" y="164.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="167.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="240.00" y="168.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D03</text>
+<rect x="258.00" y="168.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Pilot spigot diameter</text>
+<rect x="320.00" y="168.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø9.90</text>
+<rect x="350.00" y="168.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="171.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">h8</text>
+<rect x="240.00" y="172.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D04</text>
+<rect x="258.00" y="172.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Pilot spigot length</text>
+<rect x="320.00" y="172.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8.00</text>
+<rect x="350.00" y="172.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="175.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.10</text>
+<rect x="240.00" y="176.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D05</text>
+<rect x="258.00" y="176.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Central bore</text>
+<rect x="320.00" y="176.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø4.00</text>
+<rect x="350.00" y="176.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="179.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H9</text>
+<rect x="240.00" y="181.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D06</text>
+<rect x="258.00" y="181.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">O-ring groove mean diameter</text>
+<rect x="320.00" y="181.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø24.50</text>
+<rect x="350.00" y="181.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="183.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="240.00" y="185.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D07</text>
+<rect x="258.00" y="185.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">O-ring groove width</text>
+<rect x="320.00" y="185.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3.20</text>
+<rect x="350.00" y="185.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="188.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">+0.10 / −0</text>
+<rect x="240.00" y="189.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D08</text>
+<rect x="258.00" y="189.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">O-ring groove depth</text>
+<rect x="320.00" y="189.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.90</text>
+<rect x="350.00" y="189.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="192.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.03</text>
+<rect x="240.00" y="193.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="196.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D09</text>
+<rect x="258.00" y="193.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="196.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Groove corner radii</text>
+<rect x="320.00" y="193.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="196.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">R0.3 max</text>
+<rect x="350.00" y="193.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="196.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="240.00" y="197.80" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="200.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D10</text>
+<rect x="258.00" y="197.80" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="200.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Flange sealing face flatness</text>
+<rect x="320.00" y="197.80" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="200.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">—</text>
+<rect x="350.00" y="197.80" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="200.600" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">0.010 TIR</text>
+<rect x="240.00" y="202.00" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="204.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D11</text>
+<rect x="258.00" y="202.00" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="204.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Bolt clearance holes</text>
+<rect x="320.00" y="202.00" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="204.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4× Ø4.5 at Ø38 BC</text>
+<rect x="350.00" y="202.00" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="204.800" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">⌖ Ø0.30 Ⓜ</text>
+<rect x="240.00" y="206.20" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="209.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D12</text>
+<rect x="258.00" y="206.20" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="209.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Orifice seat bore</text>
+<rect x="320.00" y="206.20" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="209.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø6.00</text>
+<rect x="350.00" y="206.20" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="209.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">H7</text>
+<rect x="240.00" y="210.40" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="213.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D13</text>
+<rect x="258.00" y="210.40" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="213.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Tube stub OD × wall</text>
+<rect x="320.00" y="210.40" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="213.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Ø6.35 × 1.00</text>
+<rect x="350.00" y="210.40" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="213.200" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±0.05</text>
+<rect x="240.00" y="214.60" width="18.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="241.000" y="217.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VP-D14</text>
+<rect x="258.00" y="214.60" width="62.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="259.000" y="217.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">Tube stub length</text>
+<rect x="320.00" y="214.60" width="30.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="321.000" y="217.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">100.0</text>
+<rect x="350.00" y="214.60" width="32.00" height="4.2" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.000" y="217.400" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">±2.0</text>
+<text x="14.000" y="18.000" font-size="2.6" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NOTES:</text>
+<text x="14.000" y="22.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1. INTERPRET PER ASME Y14.5-2018. UNITS mm. UNLESS NOTED: X.X ±0.2, X.XX ±0.05.</text>
+<text x="14.000" y="26.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2. BREAK ALL EDGES 0.2-0.4 UNLESS NOTED. NO BURRS.</text>
+<text x="14.000" y="30.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">3. VENT ALL BLIND HOLES IN VACUUM-EXPOSED PARTS PER DR-6 (spec/00).</text>
+<text x="14.000" y="34.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">4. PROVENANCE: EVERY DIMENSION TRACES PER THE SIDECAR PROVENANCE FILE OF THIS DRAWING (AIEF).</text>
+<text x="14.000" y="38.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">5. O-RING GROOVE 3.2 W × 1.9 DP (VP-D07/08), CORNERS R0.3 MAX (VP-D09); FKM 22.0 ID × 2.50 CS.</text>
+<text x="14.000" y="42.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">6. SEALING FACE FLAT 0.010 TIR (VP-D10).</text>
+<text x="14.000" y="46.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">7. ORIFICE SEAT ⌀6.00 H7 × 5.0 (VP-D12) — RESTRICTOR IS SEPARATE HW (SPEC-ONLY, BOM).</text>
+<text x="14.000" y="50.000" font-size="2.2" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">8. ORBITAL-WELD TUBE STUB; ELECTROPOLISH WETTED SURFACES.</text>
+<rect x="230.0" y="257.0" width="180.0" height="30.0" fill="white" stroke="#000" stroke-width="0.5"/>
+<rect x="230.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">TITLE</text>
+<text x="231.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">VACUUM PORT BODY SEWCP-800 — Port body</text>
+<rect x="290.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">NUMBER</text>
+<text x="291.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SEWCP-800-DRW-001 Sh 1</text>
+<rect x="350.0" y="257.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="260.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">REV</text>
+<text x="351.200" y="264.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">A</text>
+<rect x="230.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">MATERIAL</text>
+<text x="231.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">316L SST</text>
+<rect x="290.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">FINISH</text>
+<text x="291.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ELECTROPOLISH WETTED</text>
+<rect x="350.0" y="267.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="270.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">SCALE</text>
+<text x="351.200" y="274.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">1.1:1</text>
+<rect x="230.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="231.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">UNITS</text>
+<text x="231.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">mm</text>
+<rect x="290.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="291.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">DATE</text>
+<text x="291.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">2026-08-11</text>
+<rect x="350.0" y="277.0" width="60.0" height="10.0" fill="none" stroke="#000" stroke-width="0.2"/>
+<text x="351.200" y="280.200" font-size="1.8" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">ORIGIN</text>
+<text x="351.200" y="284.800" font-size="2.4" font-family="ISOCPEUR, Consolas, monospace" text-anchor="start">AIEF autonomous run</text>
+</svg>

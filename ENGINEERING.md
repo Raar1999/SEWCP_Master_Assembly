@@ -144,7 +144,7 @@ Recovering an in-progress project without conversation history:
 | Agents | 5 universal + 4 `mechanical` + 3 `software` (enabled by AMD-011; `active_profile` unchanged), all persisted on disk |
 | Frozen set | **31** artifacts hash-registered in [`.ai/project/FROZEN.md`](.ai/project/FROZEN.md); **31 verify** — computed by `V-24`, never read from this cell. Corrected `S-2026-08-11-06`: this row read *"29 … 28 verify"* and was the state `ECR-D-006` records. Registry 29 → 30 (`APR-033`/`APR-034`, the `AIEF-AMD-014` registration owed since `S-2026-08-08-12` and never performed) → 31 (`APR-035`/`APR-036`, `AIEF-AMD-015`) |
 | Ledger | **`active`**, `HEAD.seq = 1`, reconciled with `STATE`. The `genesis → active` transition was performed at the `S-2026-08-12-01` LAW-09 close — once per repository, irreversible — writing `L-0000001` under **DC-3** (`AIEF-AMD-008` §AMD-17, the construction `ECR-Q-002` demanded). *Read "genesis, `HEAD.seq = 0`… No LAW-09 close has been performed" until then; every session before it closed without a ledger write, and the trail does not reach back over them* |
-| Repository | **Local only**, push deferred to **2026-09-01** by standing instruction — verify the distance with `git rev-list --count origin/main..HEAD`, **never by reading this cell**, which is the defect this row has now carried twice. Approval-provenance commits: `d07e931`, `655aa75`, `be75798`, and `8546960` — whose manifest blob reproduces `APR-006`'s subject `ae16ccac…` and is the git object the `ECR-D-006` attribution rests on |
+| Repository | **PUBLIC.** Pushed to `origin/main` at `S-2026-08-17-01` under the owner's written instruction of 2026-08-17, which supersedes the standing 2026-09-01 deferral in terms: *"The previous 'do not push before 2026-09-01' restriction is superseded by this explicit owner instruction."* Verify the distance with `git rev-list --count origin/main..HEAD`, **never by reading this cell** — the defect this row carried twice. Approval-provenance commits: `d07e931`, `655aa75`, `be75798`, and `8546960` — whose manifest blob reproduces `APR-006`'s subject `ae16ccac…` and is the git object the `ECR-D-006` attribution rests on |
 
 > **Approval provenance.** Each approval's subject is recoverable as a git object: `git show d07e931:framework/framework.manifest.json` normalises to APR-002's `subject_hash`; `git show 655aa75:framework/framework.manifest.json` to APR-004's; `git show 655aa75:framework/AIEF-AMD-009_Stage_1_Barrier_and_MI-3_Namespace.md` to APR-005's. This discharges VER-002 findings FIND-Q2-2 and FIND-Q2-3.
 
@@ -155,7 +155,8 @@ Recovering an in-progress project without conversation history:
 | ECR-D-001…004, 007…012 | **All dispositioned, approved, applied and registered.** `C6` closed by `VER-017`; `ECR-D-012` (the `C6` instrument) ruled `S-2026-08-10-04`. **Nothing blocking** — see [`.ai/project/OPEN_ITEMS.md`](.ai/project/OPEN_ITEMS.md) | Nothing |
 | CMP-BLOCK-004 / -005 | Full six-stage compiler not implemented as software; validation-campaign infrastructure absent. **Both still blocking.** The Stage 6 *increment* is implemented, certified and has now executed canonically — that is the slice, not the compiler | Release 1.0.0, V-10/V-12/V-15/V-18 campaign evidence. *Read "Stage 6, V-09/V-12/V-15/V-18" until `S-2026-08-12-01`; Stage 6 has executed and V-09 passes* |
 | ~~CMP-BLOCK-006~~ | **Closed** by [`AIEF-AMD-014`](framework/AIEF-AMD-014_OQ-15_Enactment_Bounded_Register_Split.md) §AMD-52 (OQ-15 enacted) | — |
-| C-4 | `LICENSE` is an unresolved placeholder | Public or external release |
+| ~~C-4~~ | **CLOSED `S-2026-08-17-01`** — `LICENSE` ratified `MIT AND CC-BY-4.0`, boundary by path (`DECISIONS_S-2026-08-17-01` DEC-11). Its second, unregistered instance — `metadata.license` in the frozen manifest — closed with it under `ECR-D-017` | — |
+| **ECR-D-016** | **The Support Ring isolation joint does not close** — `SR-02`, `SR-03` and `SR-04` all fail on frozen dimensions. Dispositioned A, **implemented at Rev B** | **SEWCP hardware build.** No gate, no deliverable, no release |
 | CDR-C3 | Independent cold-context ratification of the AIEF CDR not performed | Recorded residual risk, AIEF-FRZ-001 §6.2 |
 
 **Recently closed by `S-2026-08-10-04`/`-05`** — `OI-V-11` (the `VER-014` evidence-integrity
@@ -172,9 +173,22 @@ no validation-campaign infrastructure), `OI-V-03` (all session `S-2026-08-08-02`
 
 ## 8 · Next Engineering Activity
 
-> ### CAD is AUTHORISED — `LC-M04-EXIT` passes `C1`–`C7`
+> ### CAD IS COMPLETE. The next activity is **not** CAD.
 >
-> **Next action: OPEN FUSION 360.**
+> **Next action: a fresh independent cold-context QA round on the `S-2026-08-17-01` repairs** —
+> the only thing standing between `ECR-D-014` and closure. After that, the **Rev B baseline
+> revision** that [`ECR-D-016`](.ai/project/ecr/ECR-D-016_Support_Ring_Isolation_Joint_Does_Not_Close.md)
+> requires, before any hardware is built to this design.
+>
+> *This block read* **"Next action: OPEN FUSION 360"** *from the CAD authorisation until
+> `S-2026-08-17-01`. All nine component volumes are modelled and verified, the assembly closes
+> at 19 occurrences, the drawing set and BOM are generated, and 61 deliverables are in the
+> repository. What follows is below, and is retained because it is still the authority for how
+> the CAD path was opened.*
+>
+> ---
+>
+> ### How CAD was authorised — `LC-M04-EXIT` passes `C1`–`C7`
 >
 > `C6` was closed by [`VER-017`](.ai/project/verification/VER-017_Confirmatory_Round_On_The_C6_Instrument_And_VER-016_Residue.md)
 > (`qa-engineer`, `S-2026-08-10-05`, **CLEARED — 12 PASS, 0 FAIL**), which supersedes `VER-014`,
@@ -203,14 +217,26 @@ no validation-campaign infrastructure), `OI-V-03` (all session `S-2026-08-08-02`
 > PYTHONPATH=src python -m aief_gate          # C1..C7; exits 0, prints LC-M04 CAD-READY: YES
 > PYTHONPATH=src python -m aief_clearance     # spec/00 s3.2 feature clearance; exits 0
 > PYTHONPATH=src python -m aief_params emit   # 105 parameters, derived from package section 3
-> PYTHONPATH=src python -m pytest tests/ -q   # 799 pass, 0 fail
+> PYTHONPATH=src python -m aief_deliverables  # the 61 CAD deliverables against their register
 > PYTHONPATH=src python -m aief_approval verify   # approval-chain integrity
+> PYTHONPATH=src python -m pytest tests/ -q   # the full suite
+> PYTHONPATH=src python -m aief_analysis      # OI-C-15; EXITS 1 BY DESIGN - see below
 > ```
 >
-> **Two of those exit non-zero, and are expected to.** The two test failures and
-> `aief_approval verify` are all the same defect — `ECR-D-006`, the framework manifest, which is
-> not under `spec/**` and is excluded from this gate by name in [`GATES.md`](.ai/project/GATES.md).
-> Every `spec/**` row and chain resolves. Recorded at `VER-017` N-4.
+> **All of those exit 0 except the last, which exits 1 and is meant to.**
+> `aief_analysis` files the `SR-03`/`SR-04` drawing trace that `OI-C-15` recorded as owed, and
+> **the trace does not close**: `SR-02`, `SR-03` and `SR-04` all fail on frozen dimensions, for
+> one reason — a 6.00 mm grounded clamp ring inside a flange gap that two sections of `spec/03`
+> compute as empty. Raised and ruled at
+> [`ECR-D-016`](.ai/project/ecr/ECR-D-016_Support_Ring_Isolation_Joint_Does_Not_Close.md).
+> A check that reported PASS on that would be the defect, not the finding.
+>
+> *This block read* **"Two of those exit non-zero, and are expected to. The two test failures
+> and `aief_approval verify` are all the same defect — `ECR-D-006`"** *until `S-2026-08-17-01`.
+> It was true when written and was left standing by the two sessions that repaired the defect:
+> `APR-033`/`APR-034` fixed the registry at `S-2026-08-11-06`, and every one of those three
+> commands has exited 0 since. Found by the `OI-V-13` independent audit as* **FIND-9** *— a
+> stale hand-written label in the index that warns about stale hand-written labels.*
 >
 > Four defect classes that had gone unnoticed for many sessions were each a **declared property
 > with no standing check**, and each now has one: approval supersession (`aief_approval`), the

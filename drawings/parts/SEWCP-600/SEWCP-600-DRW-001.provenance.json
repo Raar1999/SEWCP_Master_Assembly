@@ -1,0 +1,41 @@
+{
+ "drawing": "SEWCP-600-DRW-001",
+ "revision": "A",
+ "dimensions": [
+  {
+   "sheet": "SEWCP-600-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "95 \u00b10.05 (LP-D02)",
+   "source": "parameter:lp_len (SEWCP-600-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-600-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "linear",
+   "label": "3 FOOT (LP-D07)",
+   "source": "parameter:lp_foot_h (SEWCP-600-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-600-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "\u23005 h6 SHAFT (LP-D01)",
+   "source": "parameter:lp_shaft_d (SEWCP-600-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-600-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "\u23008 FOOT (LP-D06)",
+   "source": "parameter:lp_foot_d (SEWCP-600-REQ-001)"
+  },
+  {
+   "sheet": "SEWCP-600-DRW-001 Sh 1",
+   "view": "SIDE",
+   "kind": "note",
+   "label": "R50 \u00b15 CROWN, Ra \u2264 0.2 (LP-D04/LP-D10)",
+   "source": "spec/05 LP-D04 crown R50"
+  }
+ ]
+}

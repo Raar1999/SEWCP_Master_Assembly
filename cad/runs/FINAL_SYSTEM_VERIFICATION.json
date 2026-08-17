@@ -82,7 +82,7 @@
    "id": "FSV-MANIFEST-BOM",
    "passed": true,
    "statement": "BOM digest recorded in the deliverable manifest",
-   "detail": "bca24310b3bdd083"
+   "detail": "7e32fc7267949124"
   },
   {
    "id": "FSV-MANIFEST-STRAP",
