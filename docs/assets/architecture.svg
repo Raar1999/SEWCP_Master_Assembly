@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2933"/>
+    </marker>
+    <marker id="arrowFail" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a4262c"/>
+    </marker>
+    <marker id="arrowPass" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0b6b3a"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="760" fill="#ffffff"/>
+
+  <text x="40" y="44" font-size="21" font-weight="700" fill="#1f2933">AIEF — agent-driven CAD engineering loop</text>
+  <text x="40" y="68" font-size="13.5" fill="#52606d">A CAD operation succeeding is not evidence that it worked. Only the observed model is evidence.</text>
+
+  <!-- main column boxes -->
+  <g stroke="#1f2933" stroke-width="1.4" fill="#f4f6f8">
+    <rect x="240" y="96"  width="330" height="52" rx="6"/>
+    <rect x="240" y="178" width="330" height="52" rx="6"/>
+    <rect x="240" y="260" width="330" height="52" rx="6"/>
+    <rect x="240" y="342" width="330" height="52" rx="6"/>
+  </g>
+
+  <!-- observed model: emphasised -->
+  <rect x="216" y="424" width="378" height="60" rx="6" fill="#eef4fb" stroke="#1f4e79" stroke-width="2.4"/>
+
+  <!-- verification diamond-ish box -->
+  <rect x="240" y="514" width="330" height="56" rx="6" fill="#f4f6f8" stroke="#1f2933" stroke-width="1.8"/>
+
+  <!-- pass / release -->
+  <rect x="240" y="646" width="330" height="56" rx="6" fill="#eef7f0" stroke="#0b6b3a" stroke-width="2"/>
+
+  <!-- labels for main column -->
+  <g text-anchor="middle" fill="#1f2933">
+    <text x="405" y="120" font-size="15" font-weight="600">GOVERNED REQUIREMENTS</text>
+    <text x="405" y="139" font-size="12" fill="#52606d">spec/** — frozen, hash-registered</text>
+
+    <text x="405" y="202" font-size="15" font-weight="600">DESIGN AGENTS → DESIGN SOLUTION</text>
+    <text x="405" y="221" font-size="12" fill="#52606d">domain-bounded; what should be built</text>
+
+    <text x="405" y="284" font-size="15" font-weight="600">CAD BRIDGE</text>
+    <text x="405" y="303" font-size="12" fill="#52606d">operation sequence over a file queue</text>
+
+    <text x="405" y="366" font-size="15" font-weight="600">FUSION 360</text>
+    <text x="405" y="385" font-size="12" fill="#52606d">add-in executes one operation on the document thread</text>
+
+    <text x="405" y="448" font-size="15" font-weight="700" fill="#1f4e79">OBSERVED MODEL STATE</text>
+    <text x="405" y="467" font-size="12" fill="#1f4e79">extents · volume · mass · material · parameters · sketches · planes · features</text>
+
+    <text x="405" y="538" font-size="15" font-weight="600">INDEPENDENT VERIFICATION</text>
+    <text x="405" y="557" font-size="12" fill="#52606d">geometry · interface · constraint — never reads &quot;executed&quot;</text>
+
+    <text x="405" y="670" font-size="15" font-weight="700" fill="#0b6b3a">PASS → save · export · draw · release</text>
+    <text x="405" y="689" font-size="12" fill="#0b6b3a">the document is saved here, and only here</text>
+  </g>
+
+  <!-- main column arrows -->
+  <g stroke="#1f2933" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+    <path d="M405 148 L405 172"/>
+    <path d="M405 230 L405 254"/>
+    <path d="M405 312 L405 336"/>
+    <path d="M405 394 L405 418"/>
+  </g>
+  <path d="M405 484 L405 508" stroke="#1f4e79" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M405 570 L405 640" stroke="#0b6b3a" stroke-width="2" fill="none" marker-end="url(#arrowPass)"/>
+  <text x="416" y="612" font-size="12.5" font-weight="700" fill="#0b6b3a">PASS</text>
+
+  <!-- observation annotation -->
+  <text x="600" y="452" font-size="12.5" font-weight="600" fill="#1f4e79">read back out of Fusion —</text>
+  <text x="600" y="469" font-size="12.5" font-weight="600" fill="#1f4e79">never the command&apos;s own claim</text>
+
+  <!-- FAIL branch, right side -->
+  <g stroke="#a4262c" stroke-width="1.8" fill="none" marker-end="url(#arrowFail)">
+    <path d="M570 542 L672 542 L672 452"/>
+    <path d="M760 400 L760 330"/>
+    <path d="M672 296 L570 296"/>
+  </g>
+  <text x="582" y="534" font-size="12.5" font-weight="700" fill="#a4262c">FAIL</text>
+
+  <rect x="628" y="392" width="264" height="60" rx="6" fill="#fdf0f0" stroke="#a4262c" stroke-width="1.8"/>
+  <text x="760" y="415" text-anchor="middle" font-size="14" font-weight="600" fill="#a4262c">DIAGNOSE</text>
+  <text x="760" y="433" text-anchor="middle" font-size="11.5" fill="#7a2226">requirement · evidence · area · cause · correction</text>
+
+  <rect x="628" y="270" width="264" height="60" rx="6" fill="#fdf0f0" stroke="#a4262c" stroke-width="1.8"/>
+  <text x="760" y="293" text-anchor="middle" font-size="14" font-weight="600" fill="#a4262c">REPAIR — bounded</text>
+  <text x="760" y="311" text-anchor="middle" font-size="11.5" fill="#7a2226">sequence digest must change · attempts capped</text>
+
+  <!-- escalate -->
+  <path d="M760 452 L760 500" stroke="#8a6d00" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+  <rect x="628" y="500" width="264" height="60" rx="6" fill="#fdf6e3" stroke="#8a6d00" stroke-width="1.8"/>
+  <text x="760" y="523" text-anchor="middle" font-size="14" font-weight="600" fill="#7a5c00">ESCALATE</text>
+  <text x="760" y="541" text-anchor="middle" font-size="11.5" fill="#7a5c00">not repairable → engineering decision / ECR</text>
+
+  <!-- left annotations -->
+  <text x="24" y="204" font-size="11.5" fill="#52606d">no agent writes</text>
+  <text x="24" y="219" font-size="11.5" fill="#52606d">outside its scope</text>
+
+  <text x="24" y="368" font-size="11.5" fill="#52606d">every command and</text>
+  <text x="24" y="383" font-size="11.5" fill="#52606d">observation is tracked,</text>
+  <text x="24" y="398" font-size="11.5" fill="#52606d">including the failures</text>
+
+  <text x="24" y="673" font-size="11.5" fill="#52606d">a failed attempt is</text>
+  <text x="24" y="688" font-size="11.5" fill="#52606d">never saved</text>
+
+  <line x1="40" y1="722" x2="860" y2="722" stroke="#cbd2d9" stroke-width="1"/>
+  <text x="40" y="742" font-size="11.5" fill="#52606d">SEWCP demonstration: 9 components · 19 occurrences · 19/19 system verification · 36 tracked runs, 18 of them failures · 0 of 91 hardware requirements physically verified</text>
+</svg>
