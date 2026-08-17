@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  5
+last_ledger_seq:  6
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -26,28 +26,28 @@ open_non_blocking:
   - OI-CAD-03, OI-CAD-04
   - OI-P-01..04, OI-R-01
 next_action: |
-  PUBLISHED. THREE independent cold rounds, S-2026-08-17-01/-02/-03.
-  C-4 and ECR-D-006 CLOSED. ECR-D-014's ENFORCEMENT condition is DISCHARGED -
-  round 3 applied 15 mutations incl. 6 new and all die; it says do not
-  re-audit it. ECR-D-014 STILL OPEN on RECORD ACCURACY only, now corrected;
-  LAW-05 bars this session certifying that. A FOURTH round, scoped to five
-  corrections, is all that remains.
-  OI-C-10 HAS ARRIVED: raising OI-V-18 took the index to 602 of 600 and
-  halted V-09. Identifier WITHDRAWN, finding folded into OI-V-17, recorded as
-  forced by the budget not the merits. NO SESSION-LEVEL ACTION REMAINS - the
-  next distinct finding cannot be folded. A4 + owner decision required.
-  NEXT: fourth cold round; the OI-C-10 decision; then Rev B for ECR-D-016.
+  RELEASED AND VERIFIED. FIVE independent cold rounds, S-2026-08-17-01..-05.
+  C-4, ECR-D-006 and ECR-D-014 all CLOSED - the last on round 5's own
+  recommendation, a qa-engineer act in a distinct cold session, with LAW-02
+  cl.5 and LAW-05 satisfied: no session that repaired it certified its own
+  repair, across four attempts.
+  THE PROCESS FINDING STANDS: four consecutive repair sessions each introduced
+  a defect of the class they were repairing. It belongs to OI-V-17, not to any
+  ECR, and it is why the register check is now structural rather than lexical.
+  OI-C-10 HAS ARRIVED AND IS BINDING: index 597 of 600, ~5 per identifier.
+  TWO findings in three sessions could not be given identifiers. No session
+  can act; A4 + owner must rule.
+  BLOCKING NOTHING IN THIS RELEASE. ECR-D-016 blocks HARDWARE BUILD only.
+  NEXT: the OI-C-10 decision; then Rev B for ECR-D-016 before any hardware.
 ```
 
 ## Notes — each resolves in full at the artifact cited
 
 - **The gate is computed, never asserted** (`VER-014` R3-F1). Read no status sentence here as
   authority.
-- **`ECR-D-006` CLOSED**, `ECR-D-014` **not**. The audit reproduced every element of the first
-  and confirmed its residual more strongly than the record had. It refused the second: the
-  ruling is sound and its two load-bearing figures reproduce exactly, but three call-site
-  mutations survived all 799 tests and §4 stated as fact what `TCR-002` contradicts. Both
-  repaired — **a fresh round must say so, not this session.**
+- **`ECR-D-006` and `ECR-D-014` both CLOSED**, each on an independent cold round. The second
+  took five: the ruling was sound throughout but was **enforced by nothing** until round 3
+  proved otherwise against fifteen mutations. Residuals at `OI-V-17`.
 - **`ECR-D-016` is this run's engineering finding.** It blocks hardware, not release.
 - **Six stages emitted; B2a passes**, re-verified after the `ECR-D-017` re-emission.
   `CMP-BLOCK-004`/`-005` gate the *framework's* 1.0.0 — see `STATE_REGISTER.md`.

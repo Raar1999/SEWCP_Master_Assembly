@@ -35,6 +35,7 @@ All tags are **annotated** (`git tag -a`). Lightweight tags are not permitted �
 |---|---|---|
 | `baseline/spec-revA` | SEWCP engineering specification Rev A, Volumes 00–09, frozen | **APPLIED** |
 | `v0.1.0` | Repository infrastructure baseline | **APPLIED** |
+| `v0.11.0` | Public release — CAD and software complete; physical qualification not started; hardware build blocked by `ECR-D-016` | **APPLIED**, authorised by [`RELEASE_READINESS_v0.11.0.md`](RELEASE_READINESS_v0.11.0.md) |
 | `gate/G0` | Baseline Freeze Review passed | Pending |
 | `gate/G1` | Digital Foundation Review passed | Pending |
 | `gate/G2` | Model Design Review passed | Pending |

@@ -78,7 +78,7 @@ six-stage compiler and the validation-campaign infrastructure are still absent. 
 > line-scoped while the defect's own phrasing puts the value two lines below its heading, so
 > the verbatim defect passed all seven tests while four artifacts claimed it was caught. The
 > rule is structural now — body text speaks in this register's voice, a blockquote is a marked
-> account — and 21 tests replay every phrasing round 4 found evading.
+> account — and the tests replay the phrasings the rounds found evading.
 
 What this section does record is the part that does not move:
 
@@ -89,7 +89,16 @@ What this section does record is the part that does not move:
 
 That is quoted rather than asserted deliberately: `python -m aief_register` treats body text as
 the register's own voice and a blockquote as a marked account, and a permanent historical fact
-belongs in the second.
+belongs in a blockquote.
+
+> **This section may contain no numeral and no written number.** Stricter than it needs to be
+> for its own sake, and that is the point: round 5 got twelve of thirteen stale phrasings past
+> a rule that tried to match the *forms* the value takes — `seq 2`, "the second entry", "entry
+> two", and `last_ledger_seq: 2` itself, which the pattern could not see because there is no
+> word boundary after an underscore. **Forbidding the value cannot be phrased around.** The
+> cost is that ordinary English number words are refused in this section's body text; the
+> section is short, the explanation lives in a blockquote like this one, and that is a cheap
+> price for a rule with no gaps.
 
 ## frozen_set_hash
 

@@ -29,7 +29,23 @@ impact:       "The first authorised Stage 6 execution is a permanent halt. core/
 requested_action: "Declare which octets the 200-token cap bounds, and make the declaration
                achievable."
 raised_at:    2026-08-11T00:00:00Z
-closed_at:    null
+closed_at:    2026-08-18T00:00:00Z
+closed_by:    qa-engineer, independent cold-context round 5 (S-2026-08-17-05), on its own recommendation - a distinct role and session from the raiser, author of none of the audited work, and it wrote no repository file
+closure_basis: |
+  FIVE independent cold-context rounds. Round 1 refused; round 2 found the ruling enforced by
+  nothing; round 3 declared the enforcement condition FULLY DISCHARGED after fifteen source
+  mutations and said it must not be re-audited; round 4 re-proved the substance cold and
+  refused on record accuracy; round 5 re-proved it again and recommended closure with named
+  residuals - option (c) of the three it was asked to choose between.
+  The two load-bearing figures reproduce exactly under independent recomputation that imports
+  nothing from src/aief_stage6: the boot-read prefix at 56 TF-1 / 69 TF-2 against a cap of
+  200, and MI-4 at 5904 of 6000. B2a verifies at 75/75 with DC-4 equal to the lock aggregate
+  and to BINDING.core_digest_pin.
+  LAW-02 clause 5 is satisfied: the raiser was claude-under-owner-delegation at
+  S-2026-08-11-06, and the closing act is a qa-engineer's in a distinct cold session.
+  LAW-05 is satisfied: no session that repaired this ECR certified its own repair, across
+  four consecutive attempts.
+residuals:    Findings 2-7 of round 5 attach to OI-V-17 (the register's content is governed by nothing) and NOT to this ECR. They are recorded there because OI-C-10 forbids new identifiers
 residual:     "The whole-document size of the lock (6469 TF-2) is now bounded by nothing. It is
                not boot-loaded context, but it is unmeasured, and that is recorded as OI-C-14
                rather than claimed closed."

@@ -1,0 +1,78 @@
+# Ledger Entry L-0000006
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-17-05`. **`ECR-D-014` is closed.**
+
+```yaml
+seq:         6
+timestamp:   2026-08-18T08:00:00Z
+session_id:  S-2026-08-17-05
+actor:       software.test-engineer
+action:      ECR-D-014 CLOSED on the fifth independent round's own recommendation; the register check rebuilt by forbidding the value rather than matching phrasings, 13 of 13 and 8 of 8 evasions now caught; five record corrections
+artifacts:
+  - .ai/project/OPEN_ITEMS.md
+  - .ai/project/OPEN_ITEMS_REGISTER.md
+  - .ai/project/STATE.md
+  - .ai/project/STATE_REGISTER.md
+  - .ai/project/decisions/DECISIONS_S-2026-08-17-01.md
+  - .ai/project/ecr/ECR-D-014_Lock_Token_Cap_Unsatisfiable_By_Any_Conforming_Lock.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/results/R-030.md
+  - .ai/project/sessions/S-2026-08-17-05.md
+  - LICENSE
+  - README.md
+  - src/aief_register/check.py
+  - tests/test_state_register_currency.py
+prev_hash:   6da688870d33a799b8ae20e3e5b2b8023df6078ef7088ba26c6d1677d6fb2a54
+entry_hash:  e511f6253ac6bbf93f4e8697cdea6c38354da386ddabe3d4cc78baf30834d9ab
+```
+
+## `ECR-D-014`, after five independent rounds
+
+Round 1 cleared `ECR-D-006` and refused this. Round 2 found the ruling **enforced by nothing**
+— a mutation skipping the cap check on the canonical path survived all 846 tests while the
+build wrote a 249-token prefix against a cap of 200. Round 3 declared the enforcement condition
+**fully discharged** against fifteen mutations and said it must not be re-audited. Round 4
+re-proved the substance and refused on record accuracy. **Round 5 re-proved it again and
+recommended closure**, choosing option (c) — close with named residuals — of three it was asked
+to weigh.
+
+**The closing act is a `qa-engineer`'s, in a distinct cold session, and this entry only records
+it.** LAW-02 clause 5 and LAW-05 are satisfied on their own terms: **no session that repaired
+this ECR certified its own repair, across four consecutive attempts.**
+
+**What the closure does not say.** It does not find those repairs clean. Each of the four
+introduced a defect of the class it was repairing — a count asserted rather than measured, a
+coverage claim wider than its coverage, a half-replaced sentence, and twice a check that did
+not catch what it was written for. **That is a process finding and it belongs to `OI-V-17`**,
+not to an ECR about a token cap. Holding this one open a sixth time would have made it the
+carrier for a class it does not own, and would not have reached the cause.
+
+## The check, rebuilt by giving up on phrasings
+
+Round 5 got **twelve of thirteen** sequence phrasings past the previous rule, including
+`last_ledger_seq: 2` — the field's own name — because there is no word boundary after an
+underscore. Matching the *forms* a value takes is unwinnable: catch `seq 2` and lose to "the
+second entry"; catch both and lose to "entry two".
+
+So the rule no longer matches forms. **A section named for a governed field may contain no
+numeral and no written number at all.** Re-measured against the round's own list: **13 of 13
+and 8 of 8 caught**, every section hole closed, the fenced-YAML case closed, and both converse
+properties intact — a blockquote recounting the defect does not fire, and the findings register
+stays out of scope, because a rule that cannot tell *"X is current"* from *"X was wrongly
+called current"* is a trap for the honest.
+
+## `OI-C-10`, for the third session running
+
+**No new open item was raised, and not because none was found.** The index stands at 597 of
+600 against ~5 tokens per identifier. Round 5's residuals fold into `OI-V-17`; `DEC-21`
+dispositions the tracked local username; and **three findings in three sessions have now been
+denied an identifier of their own.** That is the cost, stated plainly, of a decision only A4
+and the human owner can make.
+
+`sessions/S-2026-08-17-05.md` is the session summary this close produces (`WF-01` Phase 11).
