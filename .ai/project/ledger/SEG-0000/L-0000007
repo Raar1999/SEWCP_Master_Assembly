@@ -1,0 +1,100 @@
+# Ledger Entry L-0000007
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-18-01`. **`R-030` is superseded by `R-031`; no engineering
+artifact was modified.**
+
+```yaml
+seq:         7
+timestamp:   2026-08-18T09:30:00Z
+session_id:  S-2026-08-18-01
+actor:       documentation-engineer
+action:      Portfolio and governance closeout: docs/** published, R-030 superseded by R-031 to republish the rewritten README digest, six stale narrative claims corrected, portfolio/renders/** declared -text before binary content was staged; no engineering artifact modified
+artifacts:
+  - .ai/project/STATE.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/ledger/SEG-0000/L-0000007
+  - .ai/project/results/R-030.md
+  - .ai/project/results/R-031.md
+  - .ai/project/sessions/S-2026-08-18-01.md
+  - .ai/project/tasks/T-009.md
+  - .gitattributes
+  - CHANGELOG.md
+  - ENGINEERING.md
+  - README.md
+  - docs/ARCHITECTURE.md
+  - docs/DELIVERABLES.md
+  - docs/DOCUMENTATION_FINDINGS.md
+  - docs/FAILURE_RECOVERY.md
+  - docs/INTERVIEW_STORY.md
+  - docs/LINKEDIN_POST.md
+  - docs/PORTFOLIO_ASSETS.md
+  - docs/QA.md
+  - docs/README.md
+  - docs/RECRUITER_OVERVIEW.md
+  - docs/RELEASE.md
+  - docs/RESUME_BULLETS.md
+  - docs/VERIFICATION.md
+  - docs/assets/architecture.svg
+  - portfolio/renders/SEWCP-000_assembly_exploded.png
+  - portfolio/renders/SEWCP-000_assembly_iso.png
+  - releases/GITHUB_RELEASE_NOTES_v0.11.0.md
+  - releases/RELEASE_READINESS_v0.11.0.md
+  - scripts/render_assembly.py
+prev_hash:   e511f6253ac6bbf93f4e8697cdea6c38354da386ddabe3d4cc78baf30834d9ab
+entry_hash:  f4363d4749a5f3f7d36547676d62d450fce8eed2401ff3a77af164371e30e556
+```
+
+## Why this close exists
+
+The portfolio pass rewrote `README.md`, which `R-030` pinned by DC-1. The record went STALE and
+`X-06` — the drift detector — failed, which is the mechanism working rather than a defect. The
+architecture's answer to a stale result is stated in one sentence at
+`EXECUTION_ARCHITECTURE.md` §6.1: **correction is by supersession, never by mutation.** `R-031`
+republishes the pins; `R-030` takes its closing edit and nothing else, and is sealed at the DC-1
+it now stands at.
+
+**The check was neither weakened nor bypassed.** `src/aief_exec/**` and `tests/test_exec_*.py`
+are byte-identical to `f8ff028`. `X-06` refused the portfolio commit and now admits it, and the
+difference between those two states is a published record, not an edited test.
+
+## Both digest constructions were reproduced before use
+
+DC-3 against **both** normative worked examples of `AIEF-AMD-008` §AMD-17 and against the live
+`L-0000006` entry hash; DC-1 against `R-030`'s existing seal over `R-029`. A digest
+implementation that has not reproduced a known answer is not a digest implementation, and this
+entry's own hash depends on getting it right.
+
+## What the close found on the way
+
+**`.gitattributes` would have corrupted the two PNG renders.** Staging them produced
+`warning: CRLF will be replaced by LF` — the blanket `* text eol=lf` rule reaching binary
+content, which is precisely what `ECR-D-015` recorded for the 24 binary deliverables. That file's
+own comment says *"Re-run that check before adding any"*. It was re-run, it fired, and
+`portfolio/renders/** -text` is the answer. Both PNGs now round-trip byte-identically through the
+index; all 61 existing binary deliverables were re-checked and still do.
+
+**DC-1 cannot pin a binary at all.** Pinning the renders in `R-031` raised `UnicodeDecodeError` —
+DC-1 decodes UTF-8 before hashing. That is the construction refusing rather than guessing, and it
+is the same reason `cad/DELIVERABLES.md` registers the PDF and STL deliverables by raw SHA-256
+over octets. The renders are therefore unpinned and regenerable; the script that produces them is
+pinned, and it is byte-deterministic across re-runs.
+
+## `OI-C-10`, for the fourth session running
+
+**No new open item was raised, and again not because none was found.** Narrative release
+documents restate values other artifacts govern and `aief_register` does not reach them; six
+instances were corrected and the class is not closed. It is recorded at
+`docs/DOCUMENTATION_FINDINGS.md` §3 and at `R-031` `F-3`, and it was **denied an identifier by
+the 600-token cap**, not on its merits. That is the fourth finding in four sessions.
+
+## What this close does not do
+
+It does not make the repository public, it does not create a GitHub Release object, and it does
+not push. All three are owner gates. `sessions/S-2026-08-18-01.md` is the session summary this
+close produces (`WF-01` Phase 11).

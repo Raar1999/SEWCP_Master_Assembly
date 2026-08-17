@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  6
+last_ledger_seq:  7
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -26,19 +26,18 @@ open_non_blocking:
   - OI-CAD-03, OI-CAD-04
   - OI-P-01..04, OI-R-01
 next_action: |
-  RELEASED AND VERIFIED. FIVE independent cold rounds, S-2026-08-17-01..-05.
-  C-4, ECR-D-006 and ECR-D-014 all CLOSED - the last on round 5's own
-  recommendation, a qa-engineer act in a distinct cold session, with LAW-02
-  cl.5 and LAW-05 satisfied: no session that repaired it certified its own
-  repair, across four attempts.
-  THE PROCESS FINDING STANDS: four consecutive repair sessions each introduced
-  a defect of the class they were repairing. It belongs to OI-V-17, not to any
-  ECR, and it is why the register check is now structural rather than lexical.
-  OI-C-10 HAS ARRIVED AND IS BINDING: index 597 of 600, ~5 per identifier.
-  TWO findings in three sessions could not be given identifiers. No session
-  can act; A4 + owner must rule.
-  BLOCKING NOTHING IN THIS RELEASE. ECR-D-016 blocks HARDWARE BUILD only.
-  NEXT: the OI-C-10 decision; then Rev B for ECR-D-016 before any hardware.
+  RELEASED AND VERIFIED. Five cold rounds, S-2026-08-17-01..-05; C-4,
+  ECR-D-006, ECR-D-014 CLOSED. OI-V-17 carries the process finding.
+  CLOSEOUT S-2026-08-18-01: docs/** published, no authority; result head
+  republished by supersession for the rewritten README digest, predecessor
+  sealed, X-06 PASS; no engineering artifact modified, no Fusion opened.
+  OI-C-10 BINDING. Four findings in four sessions denied identifiers. This
+  block is now cap-bound too: the closeout took STATE.md past its V-09 cap
+  and the prose was compressed to fit. A4 + owner must rule.
+  TWO OWNER GATES, closable by no session: repository PRIVATE, no GitHub
+  Release object. Notes prepared, deliberately unpublished.
+  ECR-D-016 blocks HARDWARE BUILD only; nothing blocks this release.
+  NEXT: PRIVATE -> PUBLIC; then OI-C-10; then Rev B for ECR-D-016.
 ```
 
 ## Notes — each resolves in full at the artifact cited

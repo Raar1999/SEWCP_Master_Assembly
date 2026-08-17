@@ -6,14 +6,67 @@ Versioning follows the release tag scheme in `releases/TAGS.md`.
 
 ---
 
+## [Unreleased] — portfolio and governance closeout
+
+> **No engineering artifact is created, modified or deleted.** `spec/**`, `cad/**`,
+> `drawings/**`, `analysis/**`, `params/**`, `src/**`, `tests/**`, `framework/**` and
+> `.ai/core/**` are untouched, and no Fusion document was opened. Sessions
+> `S-2026-08-18-01`; no new release tag.
+
+### Added
+- **`docs/**` — the portfolio and presentation layer.** Recruiter overview, architecture,
+  verification, failure-recovery, QA, release, deliverables, portfolio-asset register,
+  documentation-findings register, interview material, résumé bullets, a post draft, and an
+  architecture diagram. These carry **no authority**; where one appears to conflict with a
+  canonical artifact, the canonical artifact governs.
+- **`R-031`** — the lawful supersession of `R-030`, republishing the pinned `README.md` DC-1
+  after the portfolio rewrite. `R-030` is preserved unedited but for its closing edit and is
+  sealed at the DC-1 it now stands at, per `EXECUTION_ARCHITECTURE.md` §6.1.
+
+### Changed
+- **`README.md` rewritten** for a reader who does not know AIEF, with the physical-qualification
+  boundary and `ECR-D-016` on the first screen rather than in an appendix.
+
+### Fixed
+- **`README.md` published a clean-clone figure of "821 passed, 52 skipped"** — a total of 873
+  that predates the 22 tests round 5 added. Measured **843 passed, 52 skipped, 0 failed** from
+  a clone of `origin` at `f8ff028`; **894 passed, 1 skipped** with the tokenizer artifacts
+  provisioned; **895 passed** in the working tree. This entry's own §[0.11.0] and
+  `RELEASE_READINESS_v0.11.0.md` §2 already published 843, so the README was the outlier.
+- **`README.md` published `ECR-D-014` as OPEN.** It is CLOSED — `OPEN_ITEMS.md` governs.
+- **`ENGINEERING.md` §1 named `v0.10.0` as the last tag** after `v0.11.0` was applied. The row
+  had cured the *distance*, which stales on every commit, and left the *name*, which stales on
+  every release.
+- **`RELEASE_READINESS_v0.11.0.md` disagreed with itself about which release it audits.** §1
+  cited `1c15818` and 800 tests while §2 cited 843; §2's PII row cited 583 tracked files
+  against 597; §3 said three QA rounds while §5 tabulates five; §6 said 852 tests against 895.
+  All corrected to the state at `f8ff028` with the superseded readings recorded in the header.
+- **This entry's own lead said three QA rounds and `ECR-D-014` open.** Rounds four and five ran
+  before the tag was applied. Corrected below.
+
+### Known, and not fixed here
+- **Repository visibility is `private` and no GitHub Release object exists** for any tag. Both
+  are owner actions on GitHub that no file in this tree can perform.
+- `docs/DOCUMENTATION_FINDINGS.md` carries the full register, including what this pass
+  declined to repair and why.
+
+---
+
 ## [0.11.0] — 2026-08-17 — Public release: CAD and software complete
 
-> **Three independent cold-context QA rounds ran against this release.** Two returned
+> **Five independent cold-context QA rounds ran against this release.** Four returned
 > `NOT CLEARED` and each found a real defect in a repair that looked complete; the third
 > declared the `ECR-D-014` enforcement condition fully discharged after fifteen source
-> mutations, and refused closure on record accuracy alone. Every finding is recorded, and the
-> corrections below are the result. `ECR-D-014` is left **open** because LAW-05 bars a session
-> from certifying its own repair — three times running.
+> mutations, and refused closure on record accuracy alone; the fourth found that the check
+> written to end a recurring defect did not catch that defect. **`ECR-D-014` is CLOSED**, on
+> the fifth round's own recommendation — a `qa-engineer` act in a distinct cold session, with
+> LAW-05 satisfied because no session that repaired it certified its own repair, across four
+> consecutive attempts. Every finding is recorded, and the corrections below are the result.
+>
+> *This lead read "Three independent cold-context QA rounds … `ECR-D-014` is left **open** …
+> three times running" until `S-2026-08-18-01`. It was written after round three and never
+> re-read against the release it describes; rounds four and five both ran before the tag was
+> applied. The sections below are as written at their rounds and are left so.*
 
 ### Corrected after the second and third rounds
 - The `ECR-D-014` ruling was enforced **only on the preview path**; a canonical build could

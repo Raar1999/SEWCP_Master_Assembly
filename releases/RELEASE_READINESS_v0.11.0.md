@@ -9,6 +9,20 @@
 > release commits — proven at the tree level, one and the same tree object throughout — and
 > `V-24` verifies 31 of 31 registered artifacts. No Fusion document was opened at any point.
 
+> **Correction, `S-2026-08-18-01`, and it is the same defect class this report is about.**
+> Five figures in the narrative sections had gone stale against §2 and §5 of this same
+> document, because each section was written as its round finished and the leads were never
+> re-read against the release they authorise. §1 said `origin/main` was at `1c15818` and that a
+> clone runs **800 passed, 52 skipped** — the state two rounds before the tag — while §2
+> already published `843`. §2's PII row cited **583** tracked files against **597** at the
+> release commit; the scan's result is not disputed, only its denominator. §3 said **three**
+> independent rounds and **two** `NOT CLEARED` while §5 tabulates **five** and **four**. §6
+> said **852** tests against **895**. All five are corrected in place to the state at
+> `f8ff028`, which is the commit this report authorises, and the superseded readings are
+> recorded here rather than discarded. **A release report that disagrees with itself about
+> which release it is auditing is a finding, not a footnote** — recorded at
+> `docs/DOCUMENTATION_FINDINGS.md` §3.
+
 ---
 
 ## 1 · Verdict
@@ -19,7 +33,7 @@ Three statements, all true at once, and the release is honest only if all three 
 
 | | |
 |---|---|
-| **The repository is published and reproducible.** | `origin/main` at `1c15818`, verified from the server. A clean clone runs **800 passed, 52 skipped, 0 failed** and every standing check exits 0 except two that exit 1 by design |
+| **The repository is published and reproducible.** | `origin/main` at `f8ff028`, verified from the server. A clean clone runs **843 passed, 52 skipped, 0 failed** and every standing check exits 0 except two that exit 1 by design |
 | **Nothing physical exists.** | 0 of 91 hardware-verifiable requirements verified. No article has been built. Four mass figures are `MODEL-PREDICTED` and labelled so |
 | **The design must not be built as it stands.** | `ECR-D-016`: the Support Ring isolation joint does not close — `SR-02`, `SR-03` and `SR-04` all fail on frozen dimensions. Ruled, remedy computed, **implemented at Rev B** |
 
@@ -42,20 +56,20 @@ Three statements, all true at once, and the release is honest only if all three 
 | Tests | **895 local · 843 from a clean clone**, 0 fail | measured both ways, the second by cloning from GitHub | No |
 | Licence | **`MIT AND CC-BY-4.0`**, boundary by path | `LICENSE`; `C-4` **CLOSED** | No |
 | CI | `validate` workflow | `C-5` **CLOSED** | No |
-| Secrets / PII | **none found** | scan over all 583 tracked files | No |
+| Secrets / PII | **none found** | scan over all 597 tracked files | No |
 | **Physical verification** | **0 of 91 — NOT VERIFIED, HARDWARE REQUIRED** | `PVR-001` | **No for release; YES for build** |
 | **`ECR-D-016`** | **OPEN** — dispositioned A, Rev B | §4 | **No for release; YES for build** |
 | **`ECR-D-014`** | **CLOSED** — five independent rounds | §5 | No |
 | `CMP-BLOCK-004`/`-005` | OPEN — gate **AIEF framework 1.0.0**, a different release | `DEC-18` | No |
-| GitHub | **PUSHED**, remote HEAD verified | `git ls-remote` = `1c15818`; 0 ahead, 0 behind | — |
+| GitHub | **PUSHED**, remote HEAD verified | `git ls-remote` = `f8ff028`; 0 ahead, 0 behind. **Repository visibility is `private`; no GitHub Release object exists for any tag** — both owner actions, `S-2026-08-18-01` | — |
 
 ---
 
 ## 3 · What this run actually did
 
 Nine owner-delegated decisions (`DEC-11`…`DEC-19`), five ECRs raised and dispositioned, two
-closed, three approvals filed, two ledger entries, and **three independent cold-context QA
-rounds** — two of which returned `NOT CLEARED` and each of which found a real defect in a
+closed, three approvals filed, two ledger entries, and **five independent cold-context QA
+rounds** — four of which returned `NOT CLEARED` and each of which found a real defect in a
 repair that looked complete.
 
 **The engineering finding.** Performing the `SR-03`/`SR-04` drawing trace that `OI-C-15` §6.2
@@ -117,7 +131,7 @@ recorded at `OI-V-17`, and it is not closed by this release.**
 
 ## 6 · What a reader should not conclude
 
-Every standing check is green and 852 tests pass. **That is not the same as ready.** Nothing
+Every standing check is green and 895 tests pass. **That is not the same as ready.** Nothing
 physical has been built or measured; 91 requirements await hardware; one joint of the design
 is known not to close; and the framework's own `ECR-D-014` is open on a rule this session
 could have quietly ignored. The green is real, it is broader than it was, and it is still

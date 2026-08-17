@@ -7,10 +7,12 @@ model Fusion actually built, and iterates through failure-recovery loops before 
 The demonstration hardware is **SEWCP** — a 300 mm bipolar electrostatic chuck pedestal for
 RF-biased plasma process equipment.
 
-![SEWCP master assembly — section elevation, Datum A to wafer plane, with the indentured BOM](drawings/assembly/SEWCP-000-DRW-001_Sh2.svg)
+![SEWCP-000 master assembly — shaded isometric of the 19-occurrence pedestal](portfolio/renders/SEWCP-000_assembly_iso.png)
 
-<sub>*SEWCP master assembly, section elevation. Generated from the verified model; every dimension
-traced to a parameter or a specification clause.*</sub>
+<sub>*SEWCP-000 master assembly. Rendered from the released STL exports composed with the
+occurrence transforms in `cad/runs/ASSEMBLY_S-2026-08-11-05/run.json` — every placement
+reconciled against the bounding box Fusion actually observed before it was drawn. Tessellated
+geometry, not a dimensional source.*</sub>
 
 | | | | |
 |---|---|---|---|
@@ -120,12 +122,11 @@ Every figure above is measured at the release commit `f8ff028`. Two standing che
 which reports three open exec-layer conditions of its own. A check reporting PASS on an open
 defect would itself be the defect.
 
-> **One consequence of this documentation commit, stated rather than hidden.** `README.md` is a
-> pinned deliverable of result record `R-030`, so rewriting it moves its DC-1 digest, marks
-> `R-030` stale, and makes `X-06` — the drift detector — report FAIL until a superseding record
-> republishes it. That is the mechanism working, not a defect: in this repository the README is a
-> governed deliverable, and republishing it is an engineering act a documentation pass has no
-> authority to perform. Recorded at
+> **This file is a governed deliverable, and rewriting it is a recorded act.** `README.md` is
+> pinned by DC-1 in a result record, so the portfolio rewrite moved its digest and `X-06` — the
+> drift detector — reported the record STALE. That is the mechanism working. It was answered the
+> way the architecture prescribes: **by supersession, never by mutation.** `R-031` republishes
+> the digest, seals `R-030` at the state it now stands at, and `R-030` itself is preserved.
 > [`docs/DOCUMENTATION_FINDINGS.md`](docs/DOCUMENTATION_FINDINGS.md) §6.
 
 ## Engineering failure → recovery → verification

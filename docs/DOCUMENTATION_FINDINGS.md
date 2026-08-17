@@ -59,32 +59,48 @@ skipped", a condition nothing can produce. This is the neighbouring figure it di
 
 ---
 
-## 3 · Stale cross-references in engineering documents — **NOT CORRECTED**
+## 3 · Stale cross-references in engineering documents — **CORRECTED, `S-2026-08-18-01`**
 
-These are internal staleness in artifacts this pass does not own. None of them affects a
-verified engineering property; each is a number or pointer that another artifact governs and
-that has since moved.
+*Raised as `NOT CORRECTED` by the portfolio pass, then repaired by the governance closeout under
+owner authority to make ordinary repository decisions. Each correction names its governing
+source, and each superseded reading is recorded in the artifact it was corrected in rather than
+discarded.*
 
-| Artifact | Says | Authoritative value |
-|---|---|---|
-| `README.md` (previous) §Status | *"`ECR-D-014` **OPEN** — awaiting one fresh independent QA round"* | **CLOSED** — `.ai/project/OPEN_ITEMS.md` *Closed* section; closed by the fifth round at `f8ff028`. *(Corrected in the rewritten README.)* |
-| `ENGINEERING.md` §1 | *"Repository release — Last tag **v0.10.0**"* | `v0.11.0`, applied at `f8ff028` |
-| `releases/RELEASE_READINESS_v0.11.0.md` §1 | *"`origin/main` at `1c15818`"*; *"a clean clone runs **800 passed, 52 skipped**"* | `origin/main` is `f8ff028`; a clean clone runs **843 passed, 52 skipped**. **§2 of the same document already states 843** — the staleness is confined to §1's lead |
-| `releases/RELEASE_READINESS_v0.11.0.md` §6 | *"**852** tests pass"* | **895** local |
-| `releases/RELEASE_READINESS_v0.11.0.md` §2 | *"scan over all **583** tracked files"* | `git ls-files` → **597** tracked today. The scan's result is not disputed; its denominator has moved |
-| `releases/RELEASE_READINESS_v0.11.0.md` §3 | *"**three** independent cold-context QA rounds"*; `CHANGELOG.md` [0.11.0] lead, same | **five** rounds — §5 of the same report tabulates all five. Both leads were written before rounds 4 and 5 ran |
+None of these affects a verified engineering property; each is a number or pointer that another
+artifact governs and that had since moved.
 
-**Pattern.** Every one is a *count or pointer restated in a second place*, which is precisely the
-defect class `python -m aief_register` was built to forbid — *"no state register asserts a value
-another artifact governs."* That check's scope is `.ai/project/STATE.md` and
-`.ai/project/STATE_REGISTER.md`. The findings above sit outside its scope, in `ENGINEERING.md`,
-`releases/**` and `CHANGELOG.md`.
+| Artifact | Said | Governing source | Verified value | Now |
+|---|---|---|---|---|
+| `README.md` §Status | *"`ECR-D-014` **OPEN** — awaiting one fresh independent QA round"* | `.ai/project/OPEN_ITEMS.md` *Closed* section | **CLOSED** at `f8ff028` by the fifth round | corrected in the rewritten README |
+| `ENGINEERING.md` §1 | *"Last tag **v0.10.0**"* | `git tag`, `git describe --tags f8ff028` → `v0.11.0` | **`v0.11.0`** | corrected, with the superseded reading recorded in the cell |
+| `RELEASE_READINESS_v0.11.0.md` §1 | *"`origin/main` at `1c15818`"* · *"a clean clone runs **800 passed, 52 skipped**"* | `git ls-remote origin HEAD`; a clone of `origin` run this pass | **`f8ff028`** · **843 passed, 52 skipped** — §2 of the same document already said 843 | corrected; superseded readings recorded in the header |
+| `RELEASE_READINESS_v0.11.0.md` §2 | *"scan over all **583** tracked files"* | `git ls-tree -r --name-only f8ff028 \| wc -l` | **597** at the release commit. The scan's *result* is not disputed; its denominator was | corrected |
+| `RELEASE_READINESS_v0.11.0.md` §3 | *"**three** independent cold-context QA rounds"*, *"two … `NOT CLEARED`"* | §5 of the same report, which tabulates the rounds | **five** rounds, **four** `NOT CLEARED` | corrected |
+| `RELEASE_READINESS_v0.11.0.md` §6 | *"**852** tests pass"* | `pytest tests/ -q` at `f8ff028` | **895** | corrected |
+| `CHANGELOG.md` [0.11.0] lead | *"**Three** independent … rounds"*, *"`ECR-D-014` is left **open**"* | §5 of the release report; `OPEN_ITEMS.md` | **five** rounds; **CLOSED** | corrected, with the superseded lead quoted beneath it |
 
-**Suggested disposition (an owner/engineering decision, not a documentation one):** either widen
-the register check's declared scope to cover release and index documents, or record explicitly
-that narrative release documents are historical snapshots as-written and are not maintained
-against later state. The second is defensible — a release report *should* describe the state it
-audited — but it should be *stated*, because right now §1 and §2 of one document disagree.
+**What was *not* rewritten.** The body sections of `RELEASE_READINESS_v0.11.0.md` and of
+`CHANGELOG.md` [0.11.0] are as written at their rounds and are left so. Only the **leads and
+summary cells that make a present-tense claim about the release being certified** were corrected
+— a release report is entitled to describe the state it audited, but not to disagree with itself
+about which release that is.
+
+**Pattern, and it is the one this repository is organised around.** Every item is a *count or
+pointer restated in a second place*, which is precisely the defect class
+`python -m aief_register` was built to forbid — *"no state register asserts a value another
+artifact governs."* That check's scope is `.ai/project/STATE.md` and
+`.ai/project/STATE_REGISTER.md`. Every finding above sat **outside** its scope, in
+`ENGINEERING.md`, `releases/**` and `CHANGELOG.md`.
+
+**The residue, and it is not closed by correcting the values.** Correcting six restatements does
+nothing to stop the seventh. The lawful successors are an engineering decision, not a
+documentation one: either widen the register check's declared scope to reach release and index
+documents, or declare narrative release documents to be historical snapshots that are not
+maintained against later state. **The second is defensible and would have made five of these
+non-findings** — but it has to be *stated*, because a reader cannot tell an intentional snapshot
+from a stale cell by looking. Recorded here as owed; **not raised as a new open item, because
+`OI-C-10` stands at 597 of a 600-token cap and this pass will not spend the last identifier on
+its own finding.**
 
 ---
 
@@ -119,9 +135,10 @@ Not findings of this pass. Listed so a reader of the portfolio can see they were
 
 ---
 
-## 6 · Rewriting `README.md` stales result record `R-030` — **DISCLOSED, NOT REPAIRED**
+## 6 · Rewriting `README.md` staled result record `R-030` — **REPAIRED BY SUPERSESSION, `S-2026-08-18-01`**
 
-**Severity: blocks pushing this commit. Not an engineering defect — the mechanism working.**
+**Not an engineering defect — the mechanism working, and then being answered the way the
+architecture says to answer it.**
 
 `README.md` is not merely a documentation file in this repository. It is a **pinned deliverable
 of the CURRENT result record `R-030`**, which seals its DC-1 digest:
@@ -154,28 +171,59 @@ republishing → the current record STALE → X-06 FAIL"*. A bare PASS there wou
 `docs/**` present, `tests/test_exec_checks.py` runs **107 passed**. The new documentation tree
 stales nothing; only the README rewrite does.
 
-**Why not repaired here.** The remedy is a superseding result record (`R-031`) recomputing the
-sealed digests, with the ledger entry and session close that go with it. That is a governance act
-under `EXECUTION_ARCHITECTURE.md` §6, requiring an assigned role — squarely outside a
-documentation pass, and squarely inside what this pass was instructed not to touch.
+### The repair — `R-030` → `R-031`
 
-**Consequence for publication.** `.github/workflows/validate.yml` runs `pytest tests/ -q` on every
-push to `main`. Pushing this commit before `R-030` is republished would turn the published CI
-signal red. **The documentation commit is therefore left local and unpushed**, which is the
-finding's practical cost and the reason it is stated here rather than in a footnote.
+Performed under `EXECUTION_ARCHITECTURE.md` §6.1: *"Correction is by **supersession**, never by
+mutation."* Five acts, in this order, because the order is load-bearing:
 
-**Owner action:** dispatch a session with a role assignment to republish `R-030` → `R-031` against
-the new `README.md` digest, then push. Until then, `X-06` FAIL is expected and correct.
+| # | Act | Why it must come here |
+|---:|---|---|
+| 1 | Every content edit finalised first — `docs/**`, `README.md`, `ENGINEERING.md`, `CHANGELOG.md`, the release report | a pin taken before the last edit is stale the moment it is written |
+| 2 | `T-009` declares `produces: … R-031` and adds `.ai/project/results/R-031.md` to `write_scope` | **X-09 mode 1**: a task that produces a record it cannot lawfully write is a failure. `T-009` is the producer of `R-022`…`R-030`, so the chain continues where it lives |
+| 3 | `R-030`'s **closing edit** — `status: CURRENT` → `SUPERSEDED`, `superseded_by: R-031` | §6.3 requires the link to be declared from **both** ends. This is the only edit `R-030` receives, and it is the edit supersession consists of |
+| 4 | `R-031` written, sealing `R-030` at the DC-1 it now stands at, with every input and deliverable recomputed against the finished tree | §6.1: the seal is taken **after** the predecessor's closing edit — the same construction `R-030` used over `R-029`, and `R-029` over `R-028` |
+| 5 | Session record, ledger entry `L-0000007`, `HEAD`, `STATE.last_ledger_seq` | LAW-09 close. Written **after** `R-031` so nothing it pins can move underneath it |
+
+**`R-030` is preserved.** It is not rewritten, not deleted, and its content is unchanged apart
+from the two-field closing edit the architecture prescribes. From this point any further edit to
+it moves its DC-1 away from `R-031`'s seal and `X-06` raises `REWRITTEN AFTER SUPERSESSION` — the
+evidence living in a different file from the one it protects, which §6.1 says is the only reason
+it protects anything.
+
+**The DC-3 and DC-1 constructions were verified before use, not assumed.** DC-3 was reproduced
+against both normative worked examples in `AIEF-AMD-008` §AMD-17 **and** against the live
+`L-0000006` entry hash; DC-1 was reproduced against `R-030`'s existing seal over `R-029`. A
+digest implementation that has not reproduced a known answer is not a digest implementation.
+
+**Result:** `X-06` **PASS**. The check that correctly refused the portfolio commit now correctly
+admits it, and it was neither weakened nor bypassed — `src/aief_exec/**` and
+`tests/test_exec_*.py` are untouched by this pass.
 
 ---
 
 ## 7 · Visual assets
 
-No rendered images, screenshots or photographs exist in the repository; `portfolio/renders/`
-contains only a `.gitkeep`. The available visuals are the **14 generated drawing sheets** (SVG
-and PDF), which are genuine project artifacts and are used as such. **Nothing was fabricated,
-and no stock or generic image was substituted.** What still needs manual capture is listed in
-[`PORTFOLIO_ASSETS.md`](PORTFOLIO_ASSETS.md) §3.
+*Raised by the portfolio pass as "no rendered images exist"; **closed by the governance closeout**,
+which found that they could be generated from repository evidence rather than captured by hand.*
 
-The portfolio is textually and technically complete; it is **not visually complete** until a
-shaded assembly render exists.
+`scripts/render_assembly.py` composes the released STL exports with the occurrence transforms
+in `cad/runs/ASSEMBLY_S-2026-08-11-05/run.json` and produces a shaded isometric and an exploded
+view. It is **derived evidence, not illustration**: every occurrence's transformed bounding box is
+reconciled against the box Fusion observed before it is drawn, the deviation is printed, and
+`--strict` refuses to render past tolerance. 18 of 19 agree to ≤ 0.072 mm; the coarsely
+tessellated saddle deviates 3.864 mm inward while its mesh volume agrees to 0.018 %.
+
+Two things this required getting right rather than guessing:
+
+- **`z_axis_scale`.** Three of the six alignment pins are installed inverted and the record says
+  so. Ignoring that field placed them 9.5 mm out — which the reconciliation caught, because it
+  compares against observed state rather than trusting the transform.
+- **Depth resolution.** The first attempt sorted triangles by centroid depth. Centroid order is
+  not depth order for overlapping triangles of very different size, so the heater plate painted
+  through the ESC puck's top face in visible grey spikes. Replaced with a per-pixel z-buffer,
+  which is exact. The wrong version is described in the module docstring rather than quietly
+  deleted.
+
+**Nothing was fabricated, and no stock or generic image was substituted.** The remaining gaps —
+including that these are tessellations rather than BRep surfaces — are listed at
+[`PORTFOLIO_ASSETS.md`](PORTFOLIO_ASSETS.md) §3.

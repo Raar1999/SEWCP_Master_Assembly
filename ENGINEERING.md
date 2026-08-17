@@ -19,7 +19,7 @@ Read this first, then the canonical artifacts it references.
 | **Governing framework** | AIEF 1.0.0 — **FROZEN**, **fifteen** amendments |
 | **Active profile** | `mechanical` |
 | **Active host adapter** | `claude-code` |
-| **Repository release** | Last tag **v0.10.0**, on the Stage 5 release commit. **`HEAD` is past it**, so `git describe --tags --exact-match` *fails* by construction — read the distance with `git describe --tags`, **never from this cell**. Corrected `S-2026-08-10-04`: the row published the `--exact-match` form as a passing verification. Corrected again `S-2026-08-12-01`: it then published a frozen distance (`v0.10.0-16-g5e7ac74`) which was wrong by seventeen commits within a day. A number that stales on every commit is not published here at all |
+| **Repository release** | Last tag **v0.11.0**, on the public-release commit. Whether `git describe --tags --exact-match` succeeds depends on where `HEAD` stands and is **not** a property this cell can hold — read it with `git describe --tags`, **never from here**. Corrected `S-2026-08-10-04`: the row published the `--exact-match` form as a passing verification. Corrected again `S-2026-08-12-01`: it then published a frozen distance (`v0.10.0-16-g5e7ac74`) which was wrong by seventeen commits within a day. Corrected again `S-2026-08-18-01`: the tag name itself had gone stale, still reading `v0.10.0` after `v0.11.0` was applied — the row had cured the *number* that stales on every commit and left the *name* that stales on every release. A number that stales on every commit is not published here at all |
 
 ## 2 · Startup Sequence
 
