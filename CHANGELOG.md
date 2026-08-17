@@ -25,7 +25,7 @@ Versioning follows the release tag scheme in `releases/TAGS.md`.
   derived from the source rather than measured. Corrected at the ECR **and** at
   `cad/DELIVERABLES.md`, which had kept publishing the withdrawn claim.
 - `README.md` claimed a reproducibility never tested from outside: a clone failed 35 tests.
-  Now **800 passed, 52 skipped, 0 failed**, measured from a clone of the published repository.
+  Now **821 passed, 52 skipped, 0 failed**, measured from a clone of the published repository.
 - `LICENSE` §2's *"nothing in the set is copyleft"* was wrong — `certifi` is MPL-2.0. The
   conclusion survives on the correct ground: nothing is vendored, modified or redistributed.
 - `STATE_REGISTER.md` recited three values that its own session's close moved, three sessions
@@ -60,7 +60,7 @@ against the design itself. Session `S-2026-08-17-01`; decisions at
   written (`OI-V-13` FIND-3; `TCR-002` F-2, filed BLOCKING eight days earlier and unactioned).
 - `requirements.txt`, with each dependency's licence recorded beside it.
 - `tests/test_stage6_prefix_enforcement.py` — pins the `ECR-D-014` ruling **at the pipeline**,
-  not at the function. 47 tests added overall; suite 799 → 846.
+  not at the function. 47 tests added overall; suite 799 → 873.
 
 ### Fixed
 - **`V-03` enforced half its declared domain and reported green.** The state register pair was

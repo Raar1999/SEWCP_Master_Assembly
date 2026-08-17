@@ -9,8 +9,14 @@ Copyright (c) 2026 Raar1999, repository owner of
 This repository is dual-licensed. Which of the two licenses applies to a
 given file is determined by its path, and by nothing else. The boundary
 below covers every tracked file that carries content; section 1a covers the
-remainder, and between them they are exhaustive. No tracked file falls in
-exactly one column.
+remainder, and between them they are exhaustive. **Every tracked file falls in
+exactly one column, and none falls in both.**
+
+*This sentence read "No tracked file falls in exactly one column" between
+`1c15818` and `6d403bf` - a half-replaced edit that asserted the negation of
+the property the licence turns on, and contradicted section 1a's own "Zero
+tracked files fall in BOTH columns". Found by the fourth independent round,
+which classified every tracked file and measured 0 in neither and 0 in both.*
 
 --------------------------------------------------------------------------
 1 · THE BOUNDARY, BY PATH

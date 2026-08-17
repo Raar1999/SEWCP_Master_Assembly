@@ -70,15 +70,26 @@ six-stage compiler and the validation-campaign infrastructure are still absent. 
 > writes, and no amount of care changes that ordering.
 >
 > So the recital is gone rather than corrected a fourth time, and
-> `tests/test_state_register_currency.py` now **fails** if any section of this file states a
-> `last_ledger_seq` value that disagrees with `ledger/HEAD` — the property, checked, instead
-> of a convention to be careful.
+> `python -m aief_register` now **fails** if this file, or `STATE.md`, states a governed value
+> in its own voice that disagrees with the artifact governing it — the property, checked,
+> instead of a convention to be careful.
+>
+> **The first attempt at that check did not work, and round 4 caught it.** Its pattern was
+> line-scoped while the defect's own phrasing puts the value two lines below its heading, so
+> the verbatim defect passed all seven tests while four artifacts claimed it was caught. The
+> rule is structural now — body text speaks in this register's voice, a blockquote is a marked
+> account — and 21 tests replay every phrasing round 4 found evading.
 
-What this section does record is the part that does not move: the ledger became `active` at
-the `S-2026-08-12-01` LAW-09 close, writing `L-0000001` under DC-3 — once per repository,
-irreversible. No earlier session wrote an entry, so the trail does not reach back over them
-(`OI-P-01`). Each entry's `prev_hash` is a covered DC-3 field, which is what makes the chain
-tamper-evident rather than merely sequential.
+What this section does record is the part that does not move:
+
+> The ledger became `active` at the `S-2026-08-12-01` LAW-09 close, writing `L-0000001` under
+> DC-3 — once per repository, irreversible. No earlier session wrote an entry, so the trail
+> does not reach back over them (`OI-P-01`). Each entry's `prev_hash` is a covered DC-3 field,
+> which is what makes the chain tamper-evident rather than merely sequential.
+
+That is quoted rather than asserted deliberately: `python -m aief_register` treats body text as
+the register's own voice and a blockquote as a marked account, and a permanent historical fact
+belongs in the second.
 
 ## frozen_set_hash
 

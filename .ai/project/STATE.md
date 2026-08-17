@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  4
+last_ledger_seq:  5
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -51,5 +51,6 @@ next_action: |
 - **`ECR-D-016` is this run's engineering finding.** It blocks hardware, not release.
 - **Six stages emitted; B2a passes**, re-verified after the `ECR-D-017` re-emission.
   `CMP-BLOCK-004`/`-005` gate the *framework's* 1.0.0 — see `STATE_REGISTER.md`.
-- **Ledger `active`**, seq 2 (`L-0000002`).
-- **Budget.** `OI-C-10`'s runway is now 5 tokens on the index; `OI-C-08` the uncapped `HEAD`.
+- **Ledger `active`.** The sequence is the field above; prose must not restate it, and
+  `python -m aief_register` fails if it does.
+- **Budget.** `OI-C-10` has arrived — 3 tokens of index runway. `OI-C-08` stands.

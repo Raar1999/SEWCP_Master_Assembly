@@ -1,35 +1,27 @@
-"""`project/STATE_REGISTER.md` may not recite a value another artifact governs.
+"""No state register may assert, in its own voice, a value another artifact governs.
 
-**Three independent QA rounds found the same defect in this one file.** Round 2
-(FIND-11) found `last_ledger_seq` recorded as `1` when the creating session had
-written `L-0000002`, and `R-017` named as the exec-layer head when it had been
-superseded twice. Round 3 (FIND-1, FIND-2) found the *corrections* to both
-stale again — `2` against a live `3`, and `R-023`/`R-025` named as current by
-the very commit that superseded them.
+**This module exists because four independent rounds found one defect, and the
+third repair of it was itself defective.** `STATE_REGISTER.md` recited
+`last_ledger_seq` as `1`, then `2`, and named `R-017`, then `R-023`/`R-025`, as
+the current exec-layer head - each written before the close that moved it.
 
-That is not three mistakes. It is one **structural** fact: a register drafted
-during a session cannot recite a field that the session's own close writes, and
-being more careful does not change the ordering. `V-03` cannot see it either —
-`mapping_state` is a section-name correspondence and says nothing about
-content, which is `OI-V-17`.
+Round 4 then found that **the first version of this module did not catch the
+defect in its own historical phrasing**. Its regex was line-bounded and the
+register's real wording put the heading and the value two lines apart, so the
+verbatim round-3 defect passed all seven tests while four artifacts claimed
+"both were caught". That is the failure this repository names most often: a
+property asserted as checked and not checked.
 
-So the recitals were removed and this module makes their absence a checked
-property rather than a convention. It does **not** ban prose: it requires that
-any governed value the register *does* state be live. Adding the value back
-correctly is allowed; adding it back wrongly, or letting a correct one go
-stale, fails here.
-
-The three governed facts, and who governs each:
-
-  * `last_ledger_seq`  -> `project/ledger/HEAD.seq`, written at the LAW-09 close
-  * the exec-layer head -> `aief_exec.graph`, which derives currency from the
-                           supersession chain and the pinned digests
-  * `HEAD`'s token cost -> measured, and only with the tokenizer artifacts
+So the tests below **replay the defect in the phrasings that actually
+occurred**, not in phrasings written to suit a pattern. The first version's
+self-test was circular - it validated the regex against a string built for the
+regex - which is exactly why it passed while the real thing walked through.
 """
 
 from __future__ import annotations
 
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -39,114 +31,156 @@ SRC = Path(__file__).resolve().parent.parent / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from aief_register.check import SCOPE, check, current_results, ledger_seq  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
-REGISTER = REPO / ".ai/project/STATE_REGISTER.md"
-HEAD = REPO / ".ai/project/ledger/HEAD"
-STATE = REPO / ".ai/project/STATE.md"
+REGISTER = ".ai/project/STATE_REGISTER.md"
+STATE = ".ai/project/STATE.md"
 
 
-def _register() -> str:
-    return REGISTER.read_text(encoding="utf-8")
+@pytest.fixture()
+def repo(tmp_path: Path) -> Path:
+    """A copy of the tree sufficient to run the check. The real repository is
+    never written."""
+    root = tmp_path / "repo"
+    (root / ".ai" / "project" / "ledger").mkdir(parents=True)
+    for rel in (REGISTER, STATE, ".ai/project/ledger/HEAD"):
+        shutil.copy2(REPO / rel, root / rel)
+    for sub in ("tasks", "results"):
+        shutil.copytree(REPO / ".ai/project" / sub, root / ".ai/project" / sub)
+    shutil.copytree(REPO / "src", root / "src",
+                    ignore=shutil.ignore_patterns("__pycache__"))
+    return root
 
 
-def _head_seq() -> int:
-    return int(re.search(r"^seq:\s*(\d+)", HEAD.read_text(encoding="utf-8"), re.M).group(1))
+def _edit(root: Path, rel: str, fn) -> None:
+    p = root / rel
+    p.write_text(fn(p.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
 
 
-def _current_result_ids() -> set[str]:
-    from aief_exec import graph, records  # noqa: PLC0415
+# -- the live tree ---------------------------------------------------------
 
-    for fn in ("current_results", "current", "heads"):
-        f = getattr(graph, fn, None)
-        if callable(f):
-            try:
-                got = f(REPO)
-            except TypeError:
-                continue
-            return {getattr(r, "result_id", r) for r in got}
-    # Fall back to the records themselves: a result is CURRENT iff it says so.
-    res = records.load_results(REPO)
-    return {rid for rid, r in res.items()
-            if str(getattr(r, "status", "")).upper() == "CURRENT"}
-
-
-def test_the_register_exists_and_is_substantive() -> None:
-    """The guard on the guard. A missing or empty register would make every
-    assertion below vacuous - and this file was declared in the frozen manifest
-    and absent from the tree for four sessions (`TCR-002` F-2, `OI-V-13` FIND-3)."""
-    assert REGISTER.is_file()
-    text = _register()
-    assert len(text) > 3000, "a shell would satisfy V-03 and say nothing (OI-V-17)"
-    assert text.count("\n## ") >= 9
-
-
-def test_the_register_states_no_stale_last_ledger_seq() -> None:
-    """Any `last_ledger_seq` value the register states must be the live one."""
-    live = _head_seq()
-    text = _register()
-    claims = [int(m) for m in re.findall(
-        r"last_ledger_seq[^\n]{0,80}?`(\d+)`", text)]
-    claims += [int(m) for m in re.findall(
-        r"`last_ledger_seq`[^\n]{0,80}?\bis (\d+)\b", text)]
-    for c in claims:
-        assert c == live, (
-            f"STATE_REGISTER.md states last_ledger_seq {c}; ledger/HEAD says {live}. "
-            "This is the third-recurrence defect - do not correct the number, "
-            "remove the recital."
-        )
+def test_the_live_registers_assert_nothing_governed() -> None:
+    rep = check(REPO)
+    assert rep.ok, "\n".join(str(f) for f in rep.findings)
+    assert rep.scanned == list(SCOPE), "a file dropping out of scope would go unchecked"
 
 
 def test_state_md_and_head_agree_on_the_sequence() -> None:
-    """The B4 check-3 reconciliation, asserted where a test can see it."""
+    """B4 check 3, asserted where a test can see it."""
     declared = int(re.search(r"^last_ledger_seq:\s*(\d+)",
-                             STATE.read_text(encoding="utf-8"), re.M).group(1))
-    assert declared == _head_seq()
+                             (REPO / STATE).read_text(encoding="utf-8"), re.M).group(1))
+    assert declared == ledger_seq(REPO)
 
 
-def test_the_register_names_no_superseded_result_as_current() -> None:
-    """Any result id the register presents as a current head must be current."""
-    text = _register()
-    current = _current_result_ids()
-    named: set[str] = set()
-    for sentence in re.split(r"(?<=[.!?])\s+", text):
-        low = sentence.lower()
-        if "current head" in low or "heads are" in low or "head of the exec" in low:
-            named |= set(re.findall(r"\bR-\d{3}\b", sentence))
-    stale = sorted(named - current)
-    assert not stale, (
-        f"STATE_REGISTER.md names {stale} as a current exec-layer head; "
-        f"aief_exec makes the current set {sorted(current)}. Do not correct the "
-        "id - the head moves whenever this session publishes a record, which is "
-        "why the recital was removed."
-    )
+def test_there_is_something_to_check() -> None:
+    """Guard on the guard: an empty CURRENT set makes the head half vacuous."""
+    assert current_results(REPO)
+    assert ledger_seq(REPO) >= 1
 
 
-def test_the_removal_actually_happened() -> None:
-    """The repair itself, pinned. If a future session reinstates a recital it
-    must reinstate a correct one, and the two tests above will say so - but the
-    reasoning for the removal must survive, or the defect returns by drift."""
-    text = _register()
-    assert "deliberately not repeated here" in text
-    assert "computed, not recited here" in text
+# -- the defects, replayed verbatim ----------------------------------------
+
+def test_the_round_3_sequence_defect_verbatim_is_caught(repo: Path) -> None:
+    """**The mutation the first version of this module let through.**
+
+    Heading on one line, value two lines below, in the register's own wording
+    at commit `1c15818`. A line-scoped pattern cannot see it.
+    """
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## last_ledger_seq\n",
+        "## last_ledger_seq\n\n`2`, reconciled with `HEAD.seq`.\n\nseq 2\n", 1))
+    rep = check(repo)
+    assert not rep.ok, "the verbatim round-3 defect walked through again"
+    assert any("sequence" in f.kind for f in rep.findings), \
+        [str(f) for f in rep.findings]
 
 
-def test_the_check_is_sensitive_to_the_defect_it_exists_for(tmp_path) -> None:
-    """Adversarial. Reinstating a stale recital must fail, or this module is
-    decoration - which is the `OI-V-02` lesson these rounds keep re-teaching."""
-    live = _head_seq()
-    stale = live - 1
-    doctored = _register() + (
-        f"\n\n## Notes\n\n`last_ledger_seq` is `{stale}`, reconciled with `HEAD.seq`.\n")
-    claims = [int(m) for m in re.findall(
-        r"last_ledger_seq[^\n]{0,80}?`(\d+)`", doctored)]
-    assert stale in claims, "the pattern must see a reinstated recital at all"
-    assert any(c != live for c in claims), "and must judge it stale"
+def test_the_round_2_head_defect_verbatim_is_caught(repo: Path) -> None:
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## active_tasks\n",
+        "## active_tasks\n\n`R-017` is the current head of the exec-layer chain "
+        "and seals `R-014`.\n", 1))
+    rep = check(repo)
+    assert not rep.ok
+    assert any("superseded result" in f.kind for f in rep.findings)
 
 
-def test_a_superseded_head_would_be_caught(tmp_path) -> None:
-    """The same sensitivity check for the exec-layer half."""
-    current = _current_result_ids()
-    assert current, "no CURRENT result - the assertion below would be vacuous"
-    doctored = "The current heads are R-001 and R-002."
-    named = set(re.findall(r"\bR-\d{3}\b", doctored))
-    assert named - current, "a superseded id in that sentence must be detectable"
+def test_the_round_3_head_defect_verbatim_is_caught(repo: Path) -> None:
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## active_tasks\n",
+        "## active_tasks\n\nComputed from `aief_exec.graph`, the CURRENT heads are\n"
+        "`R-021`, `R-023` and `R-025`.\n", 1))
+    stated = {f.stated for f in check(repo).findings}
+    assert {"R-023", "R-025"} <= stated, stated
+
+
+def test_the_round_4_defect_in_state_md_is_caught(repo: Path) -> None:
+    """It was live in the governing file when round 4 ran."""
+    _edit(repo, STATE, lambda s: s.replace(
+        "- **Ledger `active`.**",
+        "- **Ledger `active`**, seq 2 (`L-0000002`).\n- **Ledger `active`.**", 1))
+    rep = check(repo)
+    assert not rep.ok
+    assert any(f.path == STATE for f in rep.findings)
+
+
+@pytest.mark.parametrize("phrasing", [
+    "`2`, reconciled with `HEAD.seq`.\n\nseq 2",
+    "The head entry is `L-0000002`.",
+    "seq 2 (`L-0000002`)",
+    "seq: 2",
+    "The ledger is at seq 2.",
+])
+def test_a_spread_of_sequence_phrasings_is_caught(repo: Path, phrasing: str) -> None:
+    """Round 4 found 7 of 9 phrasings evading the first version."""
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## last_ledger_seq\n", f"## last_ledger_seq\n\n{phrasing}\n", 1))
+    assert not check(repo).ok, phrasing
+
+
+@pytest.mark.parametrize("phrasing", [
+    "The head is `R-025`.",
+    "`R-025` is current.",
+    "The record of record is `R-023`.",
+    "The record pinning `src/aief_exec/**` is `R-023`.",
+    "Currently at the head: `R-025`.",
+    "The unsuperseded results are `R-021`, `R-023` and `R-025`.",
+])
+def test_every_head_phrasing_round_4_found_is_caught(repo: Path, phrasing: str) -> None:
+    """All six survivors round 4 constructed. Naming a superseded id in body
+    text now fails whatever the sentence around it says - which is why the rule
+    is structural rather than lexical."""
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## active_tasks\n", f"## active_tasks\n\n{phrasing}\n", 1))
+    assert not check(repo).ok, phrasing
+
+
+# -- and it must not punish the record for being honest --------------------
+
+def test_a_blockquote_recounting_the_defect_is_not_a_finding(repo: Path) -> None:
+    """The first attempt at this rule flagged thirty assertions, almost all of
+    them a register *recording* the defect. A rule that cannot tell
+    'X is current' from 'X was wrongly called current' is a trap for the
+    honest, because the sentence that records a defect looks like the defect."""
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## active_tasks\n",
+        "## active_tasks\n\n> This section named `R-017`, then `R-023`/`R-025`, and\n"
+        "> each was stale within the commit that wrote it. `last_ledger_seq`\n"
+        "> read `1`, then `2`.\n", 1))
+    rep = check(repo)
+    assert rep.ok, [str(f) for f in rep.findings]
+
+
+def test_the_findings_record_is_out_of_scope_entirely() -> None:
+    """`OPEN_ITEMS_REGISTER.md` records findings and is full of historical
+    identifiers by design. Scanning it produced 27 false positives."""
+    assert ".ai/project/OPEN_ITEMS_REGISTER.md" not in SCOPE
+
+
+def test_a_section_that_does_not_govern_is_not_scanned(repo: Path) -> None:
+    """Only the two sections whose subject is these values are in scope."""
+    _edit(repo, REGISTER, lambda s: s.replace(
+        "## compiler_stage\n",
+        "## compiler_stage\n\nThe `S-2026-08-12-01` close wrote `L-0000001`.\n", 1))
+    assert check(repo).ok

@@ -1,0 +1,77 @@
+# Ledger Entry L-0000005
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-17-04`. **This entry also carries the correction of
+`L-0000004`, which is wrong and is not being edited.**
+
+```yaml
+seq:         5
+timestamp:   2026-08-18T02:00:00Z
+session_id:  S-2026-08-17-04
+actor:       software.test-engineer
+action:      Fourth independent QA round - the register-currency check did not catch the defect it was written for; rebuilt as a structural rule with 21 tests replaying the real phrasings, five record corrections, and L-0000004's false narrative annotated rather than edited
+artifacts:
+  - .ai/project/OPEN_ITEMS_REGISTER.md
+  - .ai/project/STATE.md
+  - .ai/project/STATE_REGISTER.md
+  - .ai/project/decisions/DECISIONS_S-2026-08-17-01.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/results/R-029.md
+  - .ai/project/sessions/S-2026-08-17-04.md
+  - LICENSE
+  - README.md
+  - src/aief_register/check.py
+  - tests/test_state_register_currency.py
+prev_hash:   6d0d2af72049794d504b515ef91159fe1402b40626b3e34de8c1ad6788e39f70
+entry_hash:  6da688870d33a799b8ae20e3e5b2b8023df6078ef7088ba26c6d1677d6fb2a54
+```
+
+## The correction of `L-0000004`, recorded here because it may not be recorded there
+
+`L-0000004`'s **prose body was produced by incrementing the identifiers in `L-0000003`'s and
+was never rewritten.** It therefore describes the *second* round's canonical-path defect,
+cites 846 tests and mutations M8–M13, states that `S-2026-08-17-01` wrote `L-0000003`, and
+says the work waits on a *third* cold round. Every one of those sentences is about the wrong
+session.
+
+**What is true of `L-0000004`:** all seven DC-3-covered fields — `seq`, `timestamp`,
+`session_id`, `actor`, `action`, `artifacts`, `prev_hash` — are correct; its `action` describes
+`S-2026-08-17-03` accurately; its digest recomputes; the chain links; `HEAD` reconciles.
+**No digest moves and the tamper-evidence is intact.** The falsehood is confined to prose that
+DC-3 does not cover, which is the exposure `OI-C-01` records in the general case.
+
+**Why it stands.** The artifact is `append-only`. Rewriting an entry's account so a session
+reads better is the precise act this chain exists to make detectable, and doing it here — in
+the ledger, to tidy a record of my own work — would be worse than the error. **A false account
+left standing and annotated is a smaller failure than a corrected one that leaves no trace.**
+Found by the fourth independent round as its FIND-5.
+
+## What this entry records
+
+**The fourth round found that the check written to end a recurring defect did not catch that
+defect**, while four artifacts claimed it did. Its pattern was line-scoped and the defect's own
+phrasing spans lines; **2 of 9 sequence phrasings and 2 of 9 head phrasings were caught**, and
+its self-test was circular — validating the pattern against a string written for the pattern.
+
+Rebuilt as `python -m aief_register` with a rule that is structural rather than lexical:
+**outside a blockquote, in a section that governs, an identifier must be the live one.** The
+first attempt at *that* was also wrong — a keyword window over prose flagged **thirty**
+assertions, almost all of them a register *recounting* the defect — and the reason is recorded
+at the module: **a rule that cannot tell "X is current" from "X was wrongly called current" is
+a trap for the honest.** 21 tests now replay every phrasing the round found evading, and two
+assert the converse.
+
+`ECR-D-014` is **not** closed. Its substance has been re-proved cold twice and round 3
+declared its enforcement condition fully discharged; what holds it is record accuracy, and
+LAW-05 bars this session from certifying its own corrections. Fourth time.
+
+**No new open item was raised, and `OI-C-10` is why** — the index stands at 597 of 600 against
+a marginal cost of ~5. **That is the second finding in two sessions that could not be given an
+identifier**, and it is the clearest available statement of what `OI-C-10` now costs.
+
+`sessions/S-2026-08-17-04.md` is the session summary this close produces (`WF-01` Phase 11).
