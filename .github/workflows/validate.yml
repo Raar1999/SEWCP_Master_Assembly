@@ -1,0 +1,115 @@
+name: validate
+
+# Closes C-5. Every check here is one this repository already runs at the desk;
+# CI exists so that a claim in README.md is falsifiable by a stranger, not so
+# that a badge is green.
+#
+# `adapters/ADP-ci.md` is the framework's declaration of what CI must run and is
+# stale at 22 checks (OI-C-02); curing it is a Stage 4 re-emission this workflow
+# cannot perform. This file therefore runs the checks that ARE implemented as
+# software, and says so rather than implying full V-01..V-25 coverage.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: standing checks and test suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Gate LC-M04-EXIT (C1-C7)
+        run: PYTHONPATH=src python -m aief_gate
+
+      - name: Feature clearance (spec/00 s3.2)
+        run: PYTHONPATH=src python -m aief_clearance
+
+      - name: Parameter master
+        run: PYTHONPATH=src python -m aief_params check
+
+      - name: Approval-chain integrity (LAW-10)
+        run: PYTHONPATH=src python -m aief_approval verify
+
+      - name: Deliverable register, both directions
+        run: PYTHONPATH=src python -m aief_deliverables
+
+      - name: Test suite
+        run: PYTHONPATH=src python -m pytest tests/ -q
+
+      # ECR-D-016 is open: the SR-02/SR-03/SR-04 trace does not close, and
+      # `aief_analysis` exits 1 to say so. Requiring the non-zero exit is
+      # deliberate - when Rev B lands and the trace closes, THIS STEP FAILS,
+      # which forces the release record to be updated rather than letting a
+      # resolved defect sit unrecorded behind a green build.
+      - name: OI-C-15 analyses - must still report ECR-D-016 open
+        run: |
+          set +e
+          PYTHONPATH=src python -m aief_analysis
+          rc=$?
+          set -e
+          if [ "$rc" -ne 1 ]; then
+            echo "::error::aief_analysis exited $rc, expected 1."
+            echo "Either ECR-D-016 has been resolved - in which case update"
+            echo "ECR-D-016, the open-items register, README.md and this step -"
+            echo "or the check has stopped checking."
+            exit 1
+          fi
+          echo "ECR-D-016 still open, as recorded."
+
+  line-endings:
+    name: V-25 line-ending policy survives a fresh checkout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # OI-V-05 FIND-Q3-4 predicted a CRLF checkout breaking V-25, and it was
+      # realised once: 62 files carried CR. `.gitattributes` cures it, and this
+      # step proves the cure survives a checkout on a machine that is not the
+      # author's.
+      - name: No CR in the V-25 domain
+        run: |
+          if grep -rlI $'\r' .ai spec framework --include='*' 2>/dev/null | grep -q .; then
+            echo "::error::CR found in the V-25 domain after a clean checkout"
+            grep -rlI $'\r' .ai spec framework 2>/dev/null
+            exit 1
+          fi
+          echo "V-25 domain is LF-only after checkout."
+
+      - name: Deliverable binaries are intact
+        run: |
+          # The 24 binary deliverables must not have been normalised. A PDF that
+          # lost its CR octets is a corrupted PDF, and `-text` in .gitattributes
+          # is what prevents it (ECR-D-015).
+          fail=0
+          for f in $(git ls-files 'drawings/**/*.pdf' 'cad/exports/stl/*.stl'); do
+            head -c 4 "$f" | grep -q . || { echo "empty: $f"; fail=1; }
+          done
+          python - <<'PY'
+          import pathlib, sys
+          bad = []
+          for p in list(pathlib.Path("drawings").rglob("*.pdf")) + list(pathlib.Path("cad/exports/stl").glob("*.stl")):
+              b = p.read_bytes()
+              if b"\x00" not in b:
+                  bad.append(str(p))
+          if bad:
+              print("::error::binary deliverables lost their NUL octets - normalisation damage")
+              print("\n".join(bad))
+              sys.exit(1)
+          print(f"binary deliverables intact")
+          PY
+          exit $fail

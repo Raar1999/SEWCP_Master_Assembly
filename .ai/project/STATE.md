@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  2
+last_ledger_seq:  3
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -21,27 +21,28 @@ blockers:
 open_non_blocking:
   - ECR-D-001..004, 007..015, 017
   - ECR-Q-009..015
-  - OI-V-02..10, OI-V-12..15
-  - OI-C-01,02,04,05,07..11,13,14,15
+  - OI-V-02..10, OI-V-12..17
+  - OI-C-01,02,04,05,07..11,13..16
   - OI-CAD-03, OI-CAD-04
   - OI-P-01..04, OI-R-01
 next_action: |
-  RELEASE PREPARED, S-2026-08-17-01. C-4 CLOSED - MIT AND CC-BY-4.0, boundary
-  by path (DEC-11). ECR-D-006 CLOSED on the OI-V-13 cold audit. ECR-D-014
-  STILL OPEN: that audit returned NOT CLEARED; both its conditions are now
-  discharged - prefix enforcement pinned at the pipeline and mutation-proven,
-  s4 corrected against TCR-002 - and LAW-05 bars this session certifying its
-  own repair. A FRESH cold round is all that stands between it and closure.
-  ECR-D-015/016/017, ECR-Q-014/015 raised and dispositioned. Deliverables are
-  IN the repo, 61 files, checked both ways. NO CAD CHANGED.
-  NEXT: fresh cold QA on these repairs; then Rev B for ECR-D-016 before any
-  hardware. Gate YES, B2a PASS.
+  PUBLISHED AND REPAIRED, S-2026-08-17-01/-02. C-4 and ECR-D-006 CLOSED.
+  TWO independent cold rounds have run; the second returned NOT CLEARED on a
+  defect the first did not reach - the ECR-D-014 ruling was enforced only on
+  the PREVIEW path, and a canonical build could emit a 249-token prefix
+  against a cap of 200. Repaired structurally: run() re-derives the
+  measurement from the emitted octets and halts on disagreement. Six
+  mutations M8..M13 applied for real and all caught.
+  ECR-D-014 STILL OPEN - LAW-05 again. A THIRD cold round is what it waits on.
+  OI-C-10 IS SPENT: index 597 of 600, ~6 tokens per id. THE NEXT IDENTIFIER
+  RAISED HALTS STAGE 6 ON V-09. Architecture decision, not care, is the cure.
+  NEXT: third cold round; then Rev B for ECR-D-016 before any hardware.
 ```
 
 ## Notes — each resolves in full at the artifact cited
 
-- **The gate is computed, never asserted** (`VER-014` R3-F1). Read no status sentence as
-  authority — including `ENGINEERING.md` §8, stale six days until `OI-V-13` FIND-9.
+- **The gate is computed, never asserted** (`VER-014` R3-F1). Read no status sentence here as
+  authority.
 - **`ECR-D-006` CLOSED**, `ECR-D-014` **not**. The audit reproduced every element of the first
   and confirmed its residual more strongly than the record had. It refused the second: the
   ruling is sound and its two load-bearing figures reproduce exactly, but three call-site

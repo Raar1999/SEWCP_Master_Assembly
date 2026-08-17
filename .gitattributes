@@ -47,13 +47,22 @@
 # every one of the 61 digests `cad/DELIVERABLES.md` registers and that
 # `releases/RELEASE_READINESS_S-2026-08-11-06.md` §5 verified bi-directionally.
 #
-# So the four deliverable subtrees are declared `-text`: octets in, octets out,
+# So the deliverable subtrees are declared `-text`: octets in, octets out,
 # no normalisation in either direction. They are GENERATED EVIDENCE BOUND BY
 # DIGEST, not source - the byte identity IS the record, and a line-ending
-# policy has no business touching it. Scoped by path, never by extension: 69
-# `.json` and one `.csv` elsewhere in the tree stay under the blanket rule,
-# where they belong. The `V-25` domain is untouched - no deliverable is under
-# `.ai/` and none is registered in `project/FROZEN.md`.
+# policy has no business touching it. Scoped by path, never by extension, so
+# the `.json` and `.csv` files elsewhere in the tree stay under the blanket
+# rule where they belong. The `V-25` domain is untouched - no deliverable is
+# under `.ai/` and none is registered in `project/FROZEN.md`.
+#
+# THE CENSUS ABOVE IS A MEASUREMENT AND IT GOES STALE. An independent audit
+# found the paragraph above citing "69 `.json`" against 70 observed - already
+# wrong at the parent commit, because a count written into a comment is not
+# recomputed by anything. Today: 81 `.json`, 2 `.csv`, 257 `.md`, 103 `.py`,
+# 75 `.gitkeep`. Do not trust these either; recompute with `git ls-files`.
+# What is NOT a stale count, and is the operative property, is checked by the
+# `validate` workflow on every push: no CR in the `V-25` domain after a clean
+# checkout, and every binary deliverable still carrying its NUL octets.
 #
 # `text` is stated explicitly rather than left to `text=auto` heuristics, so
 # the outcome does not depend on git's content sniffing.
@@ -75,3 +84,13 @@ cad/exports/**       -text
 cad/bom/**           -text
 drawings/parts/**    -text
 drawings/assembly/** -text
+# The remaining declared drawing directories of SEDEP-PMP-002 s1. They hold
+# only .gitkeep today, so nothing is protected by adding them - which is the
+# point: an independent audit observed that the trap this file's own comment
+# warns about was re-armed for exactly these four, because the -text scoping
+# named the two subtrees that happened to have content rather than the class
+# of directory that holds drawings. `drawings/defs/**` is deliberately NOT
+# here: it is MIT-licensed Python source and belongs under the blanket rule.
+drawings/icd/**       -text
+drawings/templates/** -text
+drawings/redlines/**  -text

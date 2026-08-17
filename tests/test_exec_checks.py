@@ -20,6 +20,24 @@ from aief_exec import checks, graph, records, scope
 
 REPO = Path(__file__).resolve().parents[1]
 
+# The exec layer measures token cost through the two normative tokenizer
+# families, whose pinned artifacts live under `build/stage6/tokenizer_artifacts/`
+# and are NOT tracked (they are third-party binaries under trust-on-first-use).
+# Without them `Cost` is `measured=False` by design - "absence blocks, never
+# estimates" - and a test that asserts on a measurement has nothing to assert on.
+#
+# These tests carried no guard until `S-2026-08-17-01`, so a fresh clone failed
+# 35 of them rather than skipping them. Found by cloning the published
+# repository and running the suite against it, which is the only check that sees
+# what a stranger sees. Same guard as `tests/test_stage6_platform_tokenizers.py`.
+_ARTIFACT_DIR = REPO / "build" / "stage6" / "tokenizer_artifacts"
+
+needs_artifacts = pytest.mark.skipif(
+    not (_ARTIFACT_DIR / "cl100k_base.tiktoken").is_file()
+    or not (_ARTIFACT_DIR / "spiece.model").is_file(),
+    reason="tokenizer artifacts not provisioned under build/stage6/ - see README",
+)
+
 ROSTER = """# Project Roster
 
 | Role | Authority | Assigned identity |
@@ -337,6 +355,7 @@ class TestLiveRepositoryOpenFailures:
         assert not any("pins no supersedes_seal" in d for d in details), details
         assert any("pins no supersedes_seal" in n for n in rows["X-06"]["notices"])
 
+    @needs_artifacts
     def test_x08_open_because_the_measurement_is_now_honest(self, rows):
         # FIND-Q9-35 and its own correction. Repair: the declared caps, which
         # live in task records and are a project-manager decision.
@@ -374,6 +393,7 @@ class TestLiveRepositoryOpenFailures:
         # ... and no gated figure includes a deliverable.
         assert not any("deliverable" in d for d in gate), gate
 
+    @needs_artifacts
     def test_x10_open_on_the_cost_the_gate_excludes(self, rows):
         # FIND-Q9-37, now carried by its own check - FIND-Q9-45. The bound rows
         # moved out of X-08 verbatim; every assertion the old test made about
@@ -396,6 +416,7 @@ class TestLiveRepositoryOpenFailures:
         assert demoted, rows["X-10"]["notices"]
         assert all("not gated" in n and "COMPLETE" in n for n in demoted), demoted
 
+    @needs_artifacts
     def test_the_gate_and_the_bound_decide_their_own_booleans(self, rows):
         # FIND-Q9-45, stated as the property rather than as a case. The two
         # checks must be separable by a machine, not only by a reader: X-08's
@@ -414,6 +435,7 @@ class TestLiveRepositoryOpenFailures:
         assert all(": acquisition " in d for d in rows["X-08"]["details"])
         assert all(": total_measurable " in d for d in rows["X-10"]["details"])
 
+    @needs_artifacts
     def test_x08_no_longer_gates_a_complete_task(self, rows):
         # T-001 is COMPLETE and charges TF-1 ~35,000 against a cap of 6,000,
         # almost all of it its own finished deliverables. It will not be
@@ -425,6 +447,7 @@ class TestLiveRepositoryOpenFailures:
             for d in rows["X-08"]["notices"]
         ), [n for n in rows["X-08"]["notices"] if n.startswith("T-001")]
 
+    @needs_artifacts
     def test_x08_still_reports_the_deliverable_that_dominates_a_qa_task(self, rows):
         # The specific number the finding turned on: X-08 certified T-004 at
         # TF-1 2,519 against a cap of 8,000 while omitting VER-009, which T-004's
@@ -794,12 +817,14 @@ class TestInducedFaults:
         assert len(plan.parallel_sets()) == 2
         assert checks.x07_no_concurrent_write_conflict(repo)["status"] == "PASS"
 
+    @needs_artifacts
     def test_x08_catches_a_budget_breach(self, tmp_path):
         repo = build_repo(tmp_path, [{"tid": "T-001", "tf1": 1, "tf2": 1}])
         row = checks.x08_context_budget(repo)
         assert row["status"] == "FAIL"
         assert any("exceeds declared cap" in d for d in row["details"])
 
+    @needs_artifacts
     def test_x08_catches_an_undeclared_budget(self, tmp_path):
         repo = build_repo(tmp_path, [{"tid": "T-001"}])
         p = repo / ".ai/project/tasks/T-001.md"
@@ -915,6 +940,7 @@ class TestVer009Regressions:
         assert "note" in buf.getvalue()
         assert ".ai/core/MANIFEST.lock" in buf.getvalue()
 
+    @needs_artifacts
     def test_x08_charges_optional_scope(self, tmp_path):
         # FIND-Q9-5: a task could declare four times its cap as optional.
         repo = build_repo(tmp_path, [{"tid": "T-001", "tf1": 400, "tf2": 500}])
@@ -934,6 +960,7 @@ class TestVer009Regressions:
         assert row["status"] == "FAIL"
         assert any("exceeds declared cap" in d for d in row["details"])
 
+    @needs_artifacts
     def test_x08_measures_an_existing_deliverable_without_gating_on_it(self, tmp_path):
         # FIND-Q9-35: the measurement modelled a task as what it reads to start,
         # so a task that must rewrite a large existing artifact passed on a
@@ -1005,6 +1032,7 @@ class TestVer009Regressions:
             )[0]
         assert gated(before8) == gated(after8)
 
+    @needs_artifacts
     def test_x08_does_not_charge_a_deliverable_that_does_not_exist(self, tmp_path):
         repo = build_repo(tmp_path, [{"tid": "T-001", "tf1": 800, "tf2": 1000}])
         p = repo / ".ai/project/tasks/T-001.md"
@@ -1018,6 +1046,7 @@ class TestVer009Regressions:
         assert row["status"] == "PASS", row["details"]
         assert any("charged nothing" in n for n in row["notices"])
 
+    @needs_artifacts
     def test_x10_fails_on_the_cost_the_gate_excludes(self, tmp_path):
         # FIND-Q9-37. `revision` is real, mandatory, pre-dispatch cost - the
         # class's own docstring concedes it - and the gate excludes it: 19,049
@@ -1074,6 +1103,7 @@ class TestVer009Regressions:
         assert not any(": acquisition " in d for d in gate["details"]), gate["details"]
         assert gate["status"] == "PASS", gate["details"]
 
+    @needs_artifacts
     def test_the_gate_verdict_does_not_move_when_the_task_writes_its_own_work(
         self, tmp_path
     ):
@@ -1114,6 +1144,7 @@ class TestVer009Regressions:
         split = [n for n in after["notices"] if n.startswith("T-001 [")][0]
         assert "revision" in split and "deliverable" in split, split
 
+    @needs_artifacts
     def test_the_split_notice_asserts_no_verdict_it_did_not_emit(self, tmp_path):
         # FIND-Q9-46, the regression test. The notice used to append
         # "total_measurable {...} BOUNDED by the same cap and failed separately"
@@ -1146,6 +1177,7 @@ class TestVer009Regressions:
         assert any("total_measurable" in n and n.startswith("T-001 [")
                    for n in bound["notices"]), bound["notices"]
 
+    @needs_artifacts
     def test_the_bound_is_not_suppressed_when_revision_is_zero(self, tmp_path):
         # WHAT CHANGED - FIND-Q9-45. This was
         # `test_x08_does_not_double_report_when_revision_is_zero`, and it
@@ -1182,6 +1214,7 @@ class TestVer009Regressions:
         split = [n for n in gate["notices"] if n.startswith("T-001 [")]
         assert split and "total_measurable" in split[0], gate["notices"]
 
+    @needs_artifacts
     def test_x08_reports_how_much_of_the_gate_the_task_itself_moves(self, tmp_path):
         # FIND-Q9-36 / 36b, through the check. The split notice must carry the
         # stable/self-referential decomposition of the gated figure, and must

@@ -565,8 +565,18 @@ def _mapping_state(entry_i, entry_r, p_i: Path, p_r: Path) -> list[str]:
         heading of that register is either such a key or the literal heading
         Notes.'
 
-    Top-level keys only - a nested key is part of its parent's value, not a
-    key of the block.
+    **Top-level keys only, and this is a reading rather than a quotation.**
+    The declaration says "every key of the YAML block"; `compiler_stage` has
+    three nested keys (`next`, `complete`, `outstanding`), and under a literal
+    reading each would need its own level-2 heading and V-03 would FAIL today.
+    A nested key is part of its parent's value, not a key of the block, and
+    that is the reading applied here.
+
+    LAW-12 forbids resolving an ambiguity by assumption, so it is not resolved
+    by assumption: it is recorded as `OI-C-16`, raised by the second `OI-V-13`
+    round, which found this restriction load-bearing and documented only in a
+    docstring. Until an A4 ruling amends `mapping_state`, this is a disclosed
+    reading with an open item against it, not a silent choice.
     """
     failures: list[str] = []
     m = _YAML_BLOCK.search(p_i.read_text(encoding="utf-8"))

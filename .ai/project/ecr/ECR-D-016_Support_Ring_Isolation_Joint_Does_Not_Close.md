@@ -69,9 +69,14 @@ That single number produces every failure above:
 
 **The arithmetic is proven against the specification's own published answer.**
 `tests/test_analysis_oi_c_15.py::test_the_model_reproduces_spec_03_s2_1` feeds the model
-§2.1's own 14 mm gap and requires §2.1's own published 17.4 pF, 9.6 pF and 435 Ω — and gets
-them, to the digit. The control passes and the substitution fails, so **the divergence is in
-the input, not in the arithmetic.**
+§2.1's own 14 mm gap and requires §2.1's own published 17.4 pF, 9.6 pF and 435 Ω — and gets them
+to within the precision §2.1 publishes: 17.349 pF, 9.600 pF and 435.53 Ω, against §2.1's
+17.4 / 9.6 / 435 — agreement better than 0.31 % on every term, and §2.1's own 17.4 is itself
+a rounding of 17.349. **The control passes and the substitution fails, so the divergence is
+in the input, not in the arithmetic.** *An earlier wording said "to the digit", which is true
+of one term of three and is withdrawn; the certifying test tolerances are `abs=0.1` and
+`abs=1.0`, wider than the last published digit, and the claim has been narrowed to what they
+actually establish.*
 
 ### 2.2 · A hard radial collision, independent of every number above
 
@@ -216,3 +221,33 @@ re-drawn, re-exported and independently verified, and this ECR closes only then.
 - **`SR-D12`, `SR-D15`, `SR-D16`, `SR-D21` are absent from the verified model** and three of
   the four are marked *Critical*. Recorded here as evidence; the CAD conformance gap it
   implies is `OI-CAD-04`.
+
+
+## 7 · The published Rev B candidate is a starting point, and it has known defects
+
+> Added `S-2026-08-17-01` after the second independent round attacked §5's candidate rather
+> than only its arithmetic. **Two of the four figures reproduce; the candidate is not yet a
+> design and must not be treated as one.**
+
+| Claim | Independent finding |
+|---|---|
+| ≈0.207 K/W | **Reproduces** |
+| ≈532 Ω | **Reproduces** |
+| ≈22 mm creepage | **Does not reproduce.** 17.42 + 4.58 mm, and the 4.58 is underived |
+| The relocated web | **Recreates the defect in miniature.** At Ø322.0/Ø316.0 the web occupies r 158–161, and the Ø16 washer on the still-frozen Ø302 bolt circle reaches r **159.0** — so the washer again overlaps the web root, which is `§2.3`'s conflict at a smaller scale |
+| `R_total` ≈ 0.207 K/W | **Not robust.** The 0.015 K/W spreading term is carried unchanged from a continuous annulus to 8 discrete lugs, and `SR-05`'s band is ±0.03. A spreading term that is wrong by 0.02 puts the candidate outside it |
+
+**This does not weaken the finding**, which rests on §2.1–§2.3 and is independently
+reproduced: the joint does not close. It bounds the *remedy*: §5 demonstrates that a Rev B
+**exists in the neighbourhood**, not that this particular Rev B closes. Rev B must re-derive
+the creepage path explicitly, place the web clear of the Ø302 washer envelope rather than
+merely clear of the bolt circle, and compute spreading for the lug geometry it actually
+adopts.
+
+**Three things the original trace missed, all of which make the finding worse rather than
+better**, recorded so Rev B meets them: the M6 × 40 lower-circuit bolt overshoots into the
+gap on any Base Plate thinner than ~31 mm, against `FBA-2`'s ≥ 20 mm floor; `spec/03` §2.2's
+bearing-stress case is invalidated by the same geometry that invalidates the clearance; and
+`spec/00` §3.2's own ≥ 8 mm vacuum-side clearance row is a **closer** counter-argument to
+`SR-04` than the `spec/08` `RF-09` precedent §4 option C considers — and 8.50 mm clears it,
+which is why option C was rejected on `SR-03` and `SR-02` rather than on `SR-04` alone.

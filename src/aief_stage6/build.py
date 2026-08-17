@@ -240,12 +240,24 @@ def run(repo_root: Path | None = None, out_root: Path | None = None,
     build_id = ("stage6-" if authorization else "stage6-preview-") + timestamp
     run_root = out_root / ("canonical" if authorization else "preview")
     emissions: list[dict[str, bytes]] = []
-    for i in range(1, max(2, runs) + 1):
-        emissions.append(_emit_once(
-            run_root / f"run{i}", repo_root, manifest,
-            covered_pairs, covered.selected_profile, tokenizers,
-            build_id, timestamp, canonical=authorization is not None,
-        ))
+    try:
+        for i in range(1, max(2, runs) + 1):
+            emissions.append(_emit_once(
+                run_root / f"run{i}", repo_root, manifest,
+                covered_pairs, covered.selected_profile, tokenizers,
+                build_id, timestamp, canonical=authorization is not None,
+            ))
+    except budget_mod.BudgetBreach as breach:
+        # TCR-002 F-7, routed at OI-V-14 and repaired here: a cap breach used to
+        # propagate uncaught out of `run()` while every other halt returned a
+        # structured BuildOutcome, so a caller reading the outcome could not
+        # tell "did not run" from "halted on a breach". Both are halts and both
+        # now say so. The exception type is unchanged for the direct callers of
+        # `budget.measure` / `measure_text`, which is where the certification
+        # suite asserts on it.
+        outcome.status = "HALT"
+        outcome.notes.append(f"budget breach: {breach}")
+        return outcome
     first = emissions[0]
     for i, emission in enumerate(emissions[1:], start=2):
         for key, blob in first.items():
@@ -261,6 +273,42 @@ def run(repo_root: Path | None = None, out_root: Path | None = None,
     outcome.dc5_release_digest = dc5_digest(first[name])
     outcome.lock_prefix_measurement = json.loads(
         first["__prefix_measurement__"].decode("utf-8"))
+
+    # ------------------------------------------------------------------
+    # Post-condition on the AMD-54 cap check, re-derived here from the octets
+    # that were actually emitted.
+    #
+    # The second OI-V-13 round found the prior repair enforced only on the
+    # PREVIEW path: a mutation skipping the check when `canonical` is true
+    # survived all 846 tests, and the canonical build then wrote
+    # core/MANIFEST.lock and the BINDING pin with a 249-token prefix against a
+    # cap of 200. The cause was that the ruling was pinned at the call site by
+    # tests, and the call site is inside a branch.
+    #
+    # So it is re-derived here instead, unconditionally, on the path both modes
+    # share and immediately before the only writes that leave this process. A
+    # branch that skips the measurement, fabricates its verdict, measures the
+    # whole document, measures a truncated region, or applies a cap that is not
+    # `files[manifest-lock].token_cap` produces a different record than this
+    # line does, and the build halts rather than emitting.
+    #
+    # `measure_text` raises BudgetBreach on an over-cap prefix, so a fabricated
+    # PASS over real octets that breach does not reach the comparison at all.
+    # ------------------------------------------------------------------
+    reference = budget_mod.measure_text(
+        tokenizers, lock_mod.boot_read_prefix(first["lock"].decode("utf-8")),
+        manifest.files_by_id["manifest-lock"]["token_cap"],
+        "core/MANIFEST.lock boot-read prefix",
+    )
+    if outcome.lock_prefix_measurement != reference:
+        outcome.status = "HALT"
+        outcome.notes.append(
+            "lock boot-read prefix measurement does not reproduce from the "
+            "emitted octets: the build recorded "
+            f"{outcome.lock_prefix_measurement!r} and the emitted lock implies "
+            f"{reference!r}. AMD-54 halts rather than emits."
+        )
+        return outcome
 
     if authorization is None:
         return outcome

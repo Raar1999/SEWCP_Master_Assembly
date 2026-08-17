@@ -1,6 +1,11 @@
 # Master Document Index
 
-**Generated:** 2026-08-07 · **Release:** 0.1.0 · **Documents indexed:** 14
+**Release:** 0.11.0 · **Documents indexed:** the controlled set below.
+
+> This header read *"Generated: 2026-08-07 · Release: 0.1.0 · Documents indexed: 14"* until
+> `S-2026-08-17-02`. The repository has held far more than 14 controlled documents since
+> Stage 3. A count in a hand-written header is not recomputed by anything, which is why one is
+> no longer published here.
 
 Every controlled document in this repository. Verified reachable from the repository root.
 
@@ -78,7 +83,7 @@ Every controlled document in this repository. Verified reachable from the reposi
 | Repository landing page | [`README.md`](README.md) |
 | Contribution rules and repository policy | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 | Changelog | [`CHANGELOG.md`](CHANGELOG.md) |
-| License (**placeholder — unresolved**) | [`LICENSE`](LICENSE) |
+| License — **`MIT AND CC-BY-4.0`, boundary by path** (`C-4` closed) | [`LICENSE`](LICENSE) |
 
 ---
 

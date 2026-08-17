@@ -103,7 +103,11 @@ it stands at **5904** — 96 tokens of headroom, the figure `AIEF-AMD-014` §AMD
 > The three reasons below are, accordingly, **`TCR-002` F-5, F-3 and `TCR-001` restated
 > without attribution** — not independent findings of this session. `TCR-002` was referenced
 > in exactly two files in the whole repository, itself and `tasks/T-002.md`, and none of its
-> six findings was carried in any open-items register. The escalation it directed to
+> **eight** findings — `F-1`…`F-8`, **three** of them BLOCKING — was carried in any
+> open-items register. *This sentence said "six" and "two BLOCKING" until the second
+> independent round counted them: `TCR-002` §8 records F-1…F-8 and closes "Findings F-1
+> through F-8 are recorded, not repaired". `F-7` and `F-8` were dropped by the very item
+> raised to stop findings being dropped.* The escalation it directed to
 > `chief-systems-engineer` went unactioned for two sessions.
 >
 > **What was true** is narrower and is stated plainly: the defect was undetected *by the
@@ -112,7 +116,7 @@ it stands at **5904** — 96 tokens of headroom, the figure `AIEF-AMD-014` §AMD
 > detection failure — and recording it as "undetected" erased the one session that did detect
 > it.
 >
-> Raised by the `OI-V-13` independent cold audit as **FIND-2 (MAJOR)**. `TCR-002`'s six
+> Raised by the `OI-V-13` independent cold audit as **FIND-2 (MAJOR)**. `TCR-002`'s **eight**
 > findings are now carried at `OI-V-14` in the open-items register. The **substance** of the
 > three reasons below is correct and is retained unedited; only the claim of priority is
 > withdrawn.

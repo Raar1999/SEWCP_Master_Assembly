@@ -50,6 +50,25 @@ Everything whose function is to be read, cited or manufactured from:
     CLAUDE.md  and every other Markdown, JSON, CSV, STEP, STL, SVG or PDF
     artifact in the tree
 
+--------------------------------------------------------------------------
+1a . THE SIX FILES THAT ARE IN NEITHER COLUMN
+--------------------------------------------------------------------------
+
+Found by an independent audit that enumerated all 579 tracked files against
+section 1 and reported that six fall in neither column, in a document that had
+claimed the boundary was exhaustive. They are repository mechanics carrying no
+authorship worth licensing:
+
+    .gitattributes   .gitignore   LICENSE   requirements.txt
+    .github/ISSUE_TEMPLATE/.gitkeep         .github/workflows/.gitkeep
+
+Together with everything else under `.github/**`, they are placed under
+**MIT**, on the same terms as section 5. `LICENSE` is a licence text and is
+not itself claimed as licensed subject matter.
+
+Zero tracked files fall in BOTH columns; the `cad/scripts/**` and
+`drawings/defs/**` carve-outs in section 1 are correct.
+
 Attribution for CC-BY-4.0 material is satisfied by citing:
 
     SEWCP - Semiconductor Electrostatic Wafer Chuck Platform,
@@ -73,13 +92,31 @@ decision, its alternatives and its authority are at
     among them - would have been in direct tension with the repository's
     own integrity mechanism.
 
-  - MIT is compatible with every dependency. The runtime set is
-    jsonschema (MIT), pytest (MIT), tiktoken (MIT), sentencepiece
-    (Apache-2.0) and matplotlib (Matplotlib/PSF-style permissive), with
-    transitive dependencies under MIT, Apache-2.0, BSD-3-Clause, Zlib,
-    0BSD and CC0-1.0. Licences were read from each installed
-    distribution's own metadata, not assumed. Nothing in the set is
-    copyleft, so no obligation propagates into this repository.
+  - MIT is compatible with every dependency. The five direct
+    dependencies are jsonschema (MIT), pytest (MIT), tiktoken (MIT),
+    sentencepiece (Apache-2.0) and matplotlib (Matplotlib/PSF-style
+    permissive). Licences were read from each installed distribution's
+    own metadata, not assumed.
+
+    CORRECTED. This paragraph previously read "Nothing in the set is
+    copyleft, so no obligation propagates into this repository", over an
+    enumeration of "MIT, Apache-2.0, BSD-3-Clause, Zlib, 0BSD and
+    CC0-1.0". **Both halves were wrong.** An independent audit computed
+    the full transitive closure - 30 distributions - and found `certifi`
+    under **MPL-2.0**, reached via tiktoken -> requests -> certifi.
+    MPL-2.0 is file-scope weak copyleft. The enumeration also omitted
+    MIT-CMU (pillow), BSD-2-Clause (pygments), Apache-2.0 AND
+    CNRI-Python (regex), PSF-2.0 (typing-extensions) and the dual
+    BSD/Apache of python-dateutil.
+
+    The conclusion is unchanged and now rests on the correct ground:
+    **no third-party source is vendored, modified or redistributed by
+    this repository.** MPL-2.0's obligations attach to distribution of
+    the covered files themselves; this repository distributes none of
+    them, and installs its dependencies from PyPI at the user's own
+    machine under their own licences. So no obligation propagates - not
+    because the set is permissive, which it is not quite, but because
+    nothing in it is conveyed from here.
 
   - CC-BY-4.0 is the right instrument for a specification. MIT's
     warranty and notice language is written for software and reads

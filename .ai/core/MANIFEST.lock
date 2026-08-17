@@ -6,8 +6,8 @@
     "source_manifest_dc1": "759f774b727c43a0f96845aa5ac12a05a1158b60c27ba8b31d963a33cde74e3b",
     "selected_profile": "mechanical",
     "compiler_stage": 6,
-    "build_id": "stage6-2026-08-17T05:12:06Z",
-    "timestamp": "2026-08-17T05:12:06Z"
+    "build_id": "stage6-2026-08-17T06:17:22Z",
+    "timestamp": "2026-08-17T06:17:22Z"
   },
   "hash_algorithm": "SHA-256",
   "normalisation": {
@@ -109,27 +109,27 @@
         "tier": "T1",
         "token_cap": 600,
         "counts": {
-          "TF-1": 533,
-          "TF-2": 595
+          "TF-1": 546,
+          "TF-2": 597
         },
-        "governing": 595,
+        "governing": 597,
         "verdict": "PASS"
       }
     ],
     "totals_t0_t1": {
-      "TF-1": 4161,
-      "TF-2": 4811
+      "TF-1": 4174,
+      "TF-2": 4813
     },
     "aggregate_ceiling_charge": 200,
     "charged_totals_t0_t1": {
-      "TF-1": 4361,
-      "TF-2": 5011
+      "TF-1": 4374,
+      "TF-2": 5013
     },
-    "aggregate_governing_maximum": 5011,
+    "aggregate_governing_maximum": 5013,
     "aggregate_ceiling": 6000,
     "verdict": "PASS",
-    "measurement_timestamp": "2026-08-17T05:12:06Z",
-    "stage6_build_id": "stage6-2026-08-17T05:12:06Z"
+    "measurement_timestamp": "2026-08-17T06:17:22Z",
+    "stage6_build_id": "stage6-2026-08-17T06:17:22Z"
   },
   "files": [
     [

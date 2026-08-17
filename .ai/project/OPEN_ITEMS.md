@@ -3,8 +3,8 @@
 > **Instance artifact**, partition `project`, owner `project-manager`, mutable.
 
 B7. Bounded index, AMD-49. Authority:
-[`OPEN_ITEMS_REGISTER.md`](OPEN_ITEMS_REGISTER.md).
-Bijective by id, per section. One id per line.
+[register](OPEN_ITEMS_REGISTER.md). Bijective by
+id, per section. One id per line.
 
 ## Blocking
 
@@ -48,6 +48,8 @@ OI-V-12
 OI-V-13
 OI-V-14
 OI-V-15
+OI-V-16
+OI-V-17
 OI-C-01
 OI-C-02
 OI-C-04
@@ -60,6 +62,7 @@ OI-C-11
 OI-C-13
 OI-C-14
 OI-C-15
+OI-C-16
 OI-CAD-03
 OI-CAD-04
 OI-P-01

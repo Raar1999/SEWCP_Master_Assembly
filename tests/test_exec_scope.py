@@ -17,6 +17,24 @@ from aief_exec import records, scope
 
 REPO = Path(__file__).resolve().parents[1]
 
+# The exec layer measures token cost through the two normative tokenizer
+# families, whose pinned artifacts live under `build/stage6/tokenizer_artifacts/`
+# and are NOT tracked (they are third-party binaries under trust-on-first-use).
+# Without them `Cost` is `measured=False` by design - "absence blocks, never
+# estimates" - and a test that asserts on a measurement has nothing to assert on.
+#
+# These tests carried no guard until `S-2026-08-17-01`, so a fresh clone failed
+# 35 of them rather than skipping them. Found by cloning the published
+# repository and running the suite against it, which is the only check that sees
+# what a stranger sees. Same guard as `tests/test_stage6_platform_tokenizers.py`.
+_ARTIFACT_DIR = REPO / "build" / "stage6" / "tokenizer_artifacts"
+
+needs_artifacts = pytest.mark.skipif(
+    not (_ARTIFACT_DIR / "cl100k_base.tiktoken").is_file()
+    or not (_ARTIFACT_DIR / "spiece.model").is_file(),
+    reason="tokenizer artifacts not provisioned under build/stage6/ - see README",
+)
+
 AMD_013 = (
     "framework/AIEF-AMD-013_Boot_Budget_Determination_and_Stage_6_"
     "Build_Constructions.md"
@@ -173,6 +191,7 @@ class TestAnchorResolution:
         assert "## AMD-46" not in got
         assert "## AMD-44" not in got
 
+    @needs_artifacts
     def test_heading_anchor_is_far_smaller_than_the_file(self):
         whole = (REPO / AMD_013).read_text(encoding="utf-8")
         part = scope.resolve_heading(whole, "AMD-45")
@@ -209,11 +228,13 @@ class TestAnchorResolution:
 
 
 class TestCost:
+    @needs_artifacts
     def test_both_declared_families_are_available(self):
         pr = scope.probe()
         assert pr.available, pr.missing
         assert {f.family_id for f in pr.families} == {"TF-1", "TF-2"}
 
+    @needs_artifacts
     def test_counts_are_exact_and_never_estimated(self):
         c = scope.cost("hello world")
         assert c.measured and c.tf1 > 0 and c.tf2 > 0
@@ -226,6 +247,7 @@ class TestCost:
 
 
 class TestResolvedScope:
+    @needs_artifacts
     def test_anchoring_reduces_the_mandatory_scope_materially(self):
         task = records.load_tasks(REPO)["T-002"]
         rs = scope.resolve_scope(REPO, task, "mandatory")
@@ -235,6 +257,7 @@ class TestResolvedScope:
         assert rs.total.tf1 < rs.whole_file_total.tf1 / 5
         assert rs.total.tf2 < rs.whole_file_total.tf2 / 5
 
+    @needs_artifacts
     def test_resolved_scope_is_within_declared_budget(self):
         for tid, task in records.load_tasks(REPO).items():
             budget = task.data.get("context_budget") or {}
@@ -268,6 +291,7 @@ class TestChargedContext:
     """VER-009 FIND-Q9-35. The budget must count what a task holds, not what it
     reads first."""
 
+    @needs_artifacts
     def test_an_existing_deliverable_is_charged(self):
         task = records.load_tasks(REPO)["T-004"]
         results = records.load_results(REPO)
@@ -293,6 +317,7 @@ class TestChargedContext:
             (REPO / results[rid].path).read_text(encoding="utf-8")
         ).tf1
 
+    @needs_artifacts
     def test_a_prospective_deliverable_costs_nothing_and_is_declared(self, tmp_path):
         # Hermetic on purpose. This was first written against T-005's declared
         # deliverable and a concurrent session created that file mid-run, which
@@ -409,6 +434,7 @@ class TestBudgetSplit:
         p.write_text("# Report\n\n" + ("body that must be read to be rewritten. " * 300),
                      encoding="utf-8")
 
+    @needs_artifacts
     def test_acquisition_is_invariant_to_whether_the_deliverable_exists(self, tmp_path):
         # The T-005 non-monotonicity, measured directly: the same task, the same
         # record, the same read scope, once before its deliverable exists and
@@ -435,6 +461,7 @@ class TestBudgetSplit:
         assert cc.non_monotonic == ["out/report.md"]
         assert any("self-referential" in n for n in cc.notices)
 
+    @needs_artifacts
     def test_a_deliverable_outside_the_write_scope_is_revision_but_monotonic(self, tmp_path):
         # Revision is still not gated - it is not a precondition - but it does
         # not move under the task's own hand, and the two facts are separate.
@@ -456,6 +483,7 @@ class TestBudgetSplit:
         assert cc.total == cc.acquisition + cc.revision
         assert set(scope.ACQUISITION_COMPONENTS).isdisjoint(scope.REVISION_COMPONENTS)
 
+    @needs_artifacts
     def test_telemetry_is_unmeasurable_not_zero(self, tmp_path):
         # The distinction is the whole content of the field. Zero would be a
         # claim; UNMEASURED is the truth, and the repository holds no execution
@@ -471,6 +499,7 @@ class TestBudgetSplit:
         assert cc.total.measured
         assert any("telemetry" in n for n in cc.notices)
 
+    @needs_artifacts
     def test_the_live_t005_shape_reproduces_the_incident(self):
         # The task the defect was found on. Its deliverable now exists, so the
         # summed charge is over its cap while the gated quantity is under it.
@@ -520,6 +549,7 @@ class TestAcquisitionIsNotInvariant:
             "consumes": [],
         })
 
+    @needs_artifacts
     def test_the_gate_moves_when_the_task_appends_to_its_own_checkpoint(self, tmp_path):
         # The auditor's synthetic case, reproduced: 542 -> 1,328 TF-1, +145%,
         # from one progress note appended to the record the task is required to
@@ -543,6 +573,7 @@ class TestAcquisitionIsNotInvariant:
         assert (after.acquisition_self_referential.tf1
                 > before.acquisition_self_referential.tf1)
 
+    @needs_artifacts
     def test_the_gate_is_split_into_stable_and_self_referential(self, tmp_path):
         task = self._task(tmp_path)
         cc = scope.charged_context(tmp_path, task, {})
@@ -575,6 +606,7 @@ class TestAcquisitionIsNotInvariant:
         assert note, cc.notices
         assert "mandatory in/stable.md" in note[0], note[0]
 
+    @needs_artifacts
     def test_the_live_t002_movement_is_not_in_revision(self):
         # The live case the finding turned on, asserted on the live record: 24%
         # of a figure X-08 currently FAILS on is self-written, and every moving
@@ -587,6 +619,7 @@ class TestAcquisitionIsNotInvariant:
         assert cc.acquisition_self_referential.tf1 > 0
         assert cc.acquisition_self_referential.tf1 < cc.acquisition.tf1
 
+    @needs_artifacts
     def test_the_record_component_is_not_dropped_to_buy_invariance(self):
         # The repair that must not be taken. An agent cannot execute a contract
         # it has not read, so the record stays charged and the movement stays
@@ -597,6 +630,7 @@ class TestAcquisitionIsNotInvariant:
         cc = scope.charged_context(REPO, task, records.load_results(REPO))
         assert cc.component_total("record").tf1 > 0
 
+    @needs_artifacts
     def test_total_measurable_is_named_and_equals_the_two_measured_parts(self):
         # FIND-Q9-37: what the gate excludes must have a name and a number, not
         # a footnote. 53% of T-004's measurable input is excluded from the gate.
@@ -653,6 +687,7 @@ class TestSharedReadAndDeliverablePathIsCharedToRevision:
         )
 
     @pytest.mark.parametrize("kind", ["mandatory", "optional"])
+    @needs_artifacts
     def test_the_gate_does_not_move_when_the_task_creates_the_shared_path(
         self, tmp_path, kind
     ):
@@ -677,6 +712,7 @@ class TestSharedReadAndDeliverablePathIsCharedToRevision:
         charged = [(k, p) for k, p, _ in cc.components if p == "out/shared.md"]
         assert charged == [("deliverable", "out/shared.md")], cc.components
 
+    @needs_artifacts
     def test_it_is_charged_exactly_once_and_the_total_is_unchanged(self, tmp_path):
         """The repair moves a cost between named quantities. It must not create,
         destroy or duplicate one - `total_measurable`, and therefore `X-10`, is
@@ -834,6 +870,7 @@ class TestAcquisitionSurfaceIsOneDeclaration:
         assert "telemetry" in str(exc.value)
         assert "charged nowhere" in str(exc.value)
 
+    @needs_artifacts
     def test_the_charge_accounts_for_every_declared_component(self, tmp_path):
         # The consequence that matters: the gate is the sum over the declared
         # set, so a declared component that emits nothing quietly contributes

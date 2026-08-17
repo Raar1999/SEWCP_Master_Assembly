@@ -35,6 +35,7 @@ Two mechanisms close it, and both are needed:
 from __future__ import annotations
 
 import json
+import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -128,7 +129,9 @@ def test_the_build_measures_the_prefix_against_the_declared_cap(tmp_path, monkey
     assert outcome.status == "OK", outcome.notes
 
     assert calls, "M10: the build emitted a lock without measuring it at all"
-    assert len(calls) == 2, f"one measurement per execution expected, got {len(calls)}"
+    # One per execution (AMD-33 requires >= 2), plus the post-condition `run()`
+    # re-derives from the emitted octets before any canonical write.
+    assert len(calls) >= 3, f"expected an emission pair plus the post-condition, got {len(calls)}"
     for text, cap, label in calls:
         # M9 - the cap must be the manifest's, not a local literal.
         assert cap == _declared_cap()
@@ -166,11 +169,13 @@ def test_m8_whole_document_reading_halts_the_build(tmp_path, monkeypatch) -> Non
     existed, and it is the exact defect `ECR-D-014` was raised on.
     """
     monkeypatch.setattr(build_mod.lock_mod, "boot_read_prefix", lambda text: text)
-    with pytest.raises(BudgetBreach) as exc:
-        run(repo_root=REPO, out_root=tmp_path,
-            tokenizers=_discriminating_probe(), runs=2)
-    assert "cap 200" in str(exc.value)
-    assert "prefix" in str(exc.value).lower()
+    outcome = run(repo_root=REPO, out_root=tmp_path,
+                  tokenizers=_discriminating_probe(), runs=2)
+    # TCR-002 F-7: a cap breach is a structured halt now, not a bare exception.
+    assert outcome.status == "HALT", outcome.notes
+    assert outcome.canonical_writes == []
+    note = " ".join(outcome.notes)
+    assert "cap 200" in note and "prefix" in note.lower(), outcome.notes
 
 
 def test_m9_a_substituted_cap_is_caught(tmp_path, monkeypatch) -> None:
@@ -260,3 +265,197 @@ def test_the_prefix_is_free_of_run_scoped_octets_at_any_build_id() -> None:
         prefixes.add(lock_mod.boot_read_prefix(
             lock_mod.serialise_lock(obj).decode("utf-8")))
     assert len(prefixes) == 1, "a run-scoped octet reached the measured region"
+
+
+# ── the canonical path, which no test reached until now ────────────────────
+# The second `OI-V-13` round found M11: skip the check when `canonical` is
+# true, and all 846 tests still pass while the canonical build writes
+# `.ai/core/MANIFEST.lock` and the `BINDING` pin with a 249-token prefix
+# against a cap of 200. The cause was structural - `grep Authorization tests/`
+# reached only the dataclass's own `__post_init__`, so **the path with
+# consequences had no end-to-end coverage at all** while the preview path had
+# plenty. These tests run the real thing, in a copied tree.
+
+import shutil  # noqa: E402
+
+from aief_stage6.build import Authorization  # noqa: E402
+
+
+def _tree(tmp_path: Path) -> Path:
+    """A copy of the repository sufficient to run a canonical emission.
+
+    Copied, not mocked, and never the real tree: a canonical run writes
+    `.ai/core/MANIFEST.lock` and `.ai/project/BINDING.md` under `repo_root`.
+    """
+    root = tmp_path / "repo"
+    root.mkdir(parents=True)
+    for sub in (".ai", "framework", "spec"):
+        shutil.copytree(REPO / sub, root / sub,
+                        ignore=shutil.ignore_patterns("__pycache__"))
+    return root
+
+
+def _authorization() -> Authorization:
+    return Authorization(
+        "human-owner", "2026-08-11",
+        "If Stage 6 can be executed without changing verified CAD: "
+        "execute it autonomously.",
+    )
+
+
+def test_the_canonical_path_measures_the_prefix_and_writes(tmp_path) -> None:
+    root = _tree(tmp_path)
+    lock_before = (root / ".ai/core/MANIFEST.lock").read_bytes()
+
+    outcome = run(repo_root=root, out_root=tmp_path / "out",
+                  tokenizers=_discriminating_probe(), runs=2,
+                  authorization=_authorization())
+
+    assert outcome.status == "OK", outcome.notes
+    assert outcome.mode == "CANONICAL"
+    assert outcome.canonical_writes == [
+        ".ai/core/MANIFEST.lock", ".ai/project/BINDING.md"]
+
+    m = outcome.lock_prefix_measurement
+    assert m is not None, "the canonical path emitted without measuring"
+    assert m["verdict"] == "PASS"
+    assert m["cap"] == _declared_cap()
+    assert m["counts"], "a measurement with no counts behind it"
+    assert m["governing"] == max(m["counts"].values()) <= m["cap"]
+
+    assert (root / ".ai/core/MANIFEST.lock").read_bytes() != lock_before, (
+        "a canonical run must actually write the lock, or this test proves nothing"
+    )
+
+
+def test_m11_skipping_the_check_on_the_canonical_path_cannot_emit(tmp_path) -> None:
+    """**The M11 killer.** Under the whole-document reading the canonical build
+    must halt and write nothing. Before the post-condition in `run()` it
+    completed and wrote both canonical paths."""
+    root = _tree(tmp_path)
+    lock_before = (root / ".ai/core/MANIFEST.lock").read_bytes()
+    binding_before = (root / ".ai/project/BINDING.md").read_bytes()
+
+    import pytest as _pytest
+    with _pytest.MonkeyPatch.context() as mp:
+        mp.setattr(build_mod.lock_mod, "boot_read_prefix", lambda text: text)
+        outcome = run(repo_root=root, out_root=tmp_path / "out",
+                      tokenizers=_discriminating_probe(), runs=2,
+                      authorization=_authorization())
+    assert outcome.status == "HALT", outcome.notes
+    assert outcome.canonical_writes == [], "a halted build wrote canonical bytes"
+
+    assert (root / ".ai/core/MANIFEST.lock").read_bytes() == lock_before
+    assert (root / ".ai/project/BINDING.md").read_bytes() == binding_before
+
+
+def _emit_with(monkeypatch, transform):
+    """Mutate what `_emit_once` RECORDS, leaving everything else intact.
+
+    This is where a real M10/M11 lives - inside the emitter, not inside
+    `measure_text`. Patching `measure_text` globally would mutate the
+    post-condition too, and the two would agree; the point of the
+    post-condition is that it is a second, independent derivation.
+    """
+    real = build_mod._emit_once
+
+    def wrapped(*a, **kw):
+        out = real(*a, **kw)
+        out["__prefix_measurement__"] = json.dumps(
+            transform(json.loads(out["__prefix_measurement__"].decode("utf-8"))),
+            sort_keys=True).encode("utf-8")
+        return out
+
+    monkeypatch.setattr(build_mod, "_emit_once", wrapped)
+
+
+def test_a_fabricated_measurement_cannot_reach_the_canonical_writes(
+        tmp_path, monkeypatch) -> None:
+    """**The M11 killer in its quietest form.** A plausible PASS over octets
+    nobody measured. Before the post-condition, this reached both canonical
+    writes."""
+    root = _tree(tmp_path)
+    lock_before = (root / ".ai/core/MANIFEST.lock").read_bytes()
+    binding_before = (root / ".ai/project/BINDING.md").read_bytes()
+
+    _emit_with(monkeypatch, lambda m: {**m, "counts": {}, "governing": 0,
+                                       "verdict": "PASS"})
+    outcome = run(repo_root=root, out_root=tmp_path / "out",
+                  tokenizers=_discriminating_probe(), runs=2,
+                  authorization=_authorization())
+
+    assert outcome.status == "HALT", outcome.notes
+    assert outcome.canonical_writes == []
+    assert any("does not reproduce from the emitted octets" in n
+               for n in outcome.notes), outcome.notes
+    assert (root / ".ai/core/MANIFEST.lock").read_bytes() == lock_before
+    assert (root / ".ai/project/BINDING.md").read_bytes() == binding_before
+
+
+def test_m13_a_truncated_measured_region_cannot_emit(tmp_path, monkeypatch) -> None:
+    """**The M13 killer.** The region is now pinned by identity with
+    `boot_read_prefix`, not by shape. A silent truncation satisfied every shape
+    assertion in this module and is caught here because the post-condition
+    re-derives the region itself."""
+    root = _tree(tmp_path)
+    lock_before = (root / ".ai/core/MANIFEST.lock").read_bytes()
+
+    # What a truncating emitter would record: fewer tokens, same shape.
+    _emit_with(monkeypatch, lambda m: {**m,
+                                       "counts": {k: max(1, v - 20)
+                                                  for k, v in m["counts"].items()},
+                                       "governing": max(1, m["governing"] - 20)})
+    outcome = run(repo_root=root, out_root=tmp_path / "out",
+                  tokenizers=_discriminating_probe(), runs=2,
+                  authorization=_authorization())
+
+    assert outcome.status == "HALT", outcome.notes
+    assert outcome.canonical_writes == []
+    assert (root / ".ai/core/MANIFEST.lock").read_bytes() == lock_before
+
+
+def test_a_substituted_cap_cannot_emit(tmp_path, monkeypatch) -> None:
+    """M9 on the canonical path: the recorded cap must be the declared one."""
+    root = _tree(tmp_path)
+    _emit_with(monkeypatch, lambda m: {**m, "cap": 6000})
+    outcome = run(repo_root=root, out_root=tmp_path / "out",
+                  tokenizers=_discriminating_probe(), runs=2,
+                  authorization=_authorization())
+    assert outcome.status == "HALT", outcome.notes
+    assert outcome.canonical_writes == []
+
+
+def test_m12_the_cap_is_taken_from_the_manifest_not_a_literal(tmp_path) -> None:
+    """**The M12 killer.** AMD-54 measures "against `files[manifest-lock].token_cap`".
+    A literal `200` satisfies that only by coincidence of today's value, and
+    every value assertion in this module compares the cap to the manifest's
+    own number - so the two agree whichever the code used.
+
+    Move the declared cap in memory and require the recorded measurement to
+    follow. `_emit_once` is called directly so the frozen-registry checks,
+    which would fail first on a modified manifest and mask the property, are
+    not involved.
+    """
+    import json as _json
+
+    manifest = load_manifest(REPO)
+    lock = _json.loads((REPO / ".ai/core/MANIFEST.lock").read_text(encoding="utf-8"))
+    pairs = [(a, b) for a, b in lock["files"]]
+
+    original = manifest.files_by_id["manifest-lock"]["token_cap"]
+    assert original == 200, original
+    try:
+        manifest.files_by_id["manifest-lock"]["token_cap"] = 137
+        out = build_mod._emit_once(
+            tmp_path / "emit", REPO, manifest, pairs, "mechanical",
+            _discriminating_probe(), build_id="m12", timestamp="2026-01-01T00:00:00Z",
+        )
+        recorded = _json.loads(out["__prefix_measurement__"].decode("utf-8"))
+    finally:
+        manifest.files_by_id["manifest-lock"]["token_cap"] = original
+
+    assert recorded["cap"] == 137, (
+        "the cap did not follow the manifest - it is a literal, and AMD-54's "
+        "'against files[manifest-lock].token_cap' holds only by coincidence"
+    )
+    assert 0 < recorded["governing"] <= 137

@@ -60,7 +60,12 @@ six-stage compiler and the validation-campaign infrastructure are still absent. 
 
 ## last_ledger_seq
 
-`1`, reconciled with `HEAD.seq`. The `genesis → active` transition was performed at the
+`2`, reconciled with `HEAD.seq`. *Corrected `S-2026-08-17-01`: this read `1` from the moment
+this file was created, and was already false when written — the session that created it wrote
+`L-0000002` in the same close. Found by the second independent round as FIND-11, and it is
+exactly the defect this register exists to avoid: a recital that went stale between drafting
+and filing, invisible to `V-03`, which checks section names and not content.* The
+`genesis → active` transition was performed at the
 `S-2026-08-12-01` LAW-09 close — once per repository, irreversible — writing `L-0000001` under
 DC-3. No earlier session wrote a ledger entry, so the trail does not reach back over them
 (`OI-P-01`).
@@ -75,7 +80,10 @@ lineage values exactly.
 ## active_tasks
 
 Empty. The exec layer's task records are at [`tasks/`](tasks/) and its published results at
-[`results/`](results/); `R-017` is the current head of the exec-layer chain and seals `R-014`.
+[`results/`](results/). *Corrected `S-2026-08-17-01` (FIND-11): this said `R-017` is the
+current head and seals `R-014`. Computed from `aief_exec.graph`, the CURRENT heads are
+`R-021`, `R-023` and `R-025`, and the record pinning `src/aief_exec/**` is `R-023`. `R-017`
+has been superseded twice over.*
 
 ## blockers
 
@@ -113,5 +121,6 @@ a plan: the plan is the open-items register and the ECR records.
   under unbounded register growth, and it is why this file may say as much as it needs to.
 - **`OI-C-08` remains uncured**: `project/ledger/HEAD` is read at boot step B4 and carries no
   `token_cap`, so the V-09 measured set under-covers the boot-loaded set by exactly one file.
-  Slack against MI-4 is 96 tokens; `HEAD` measures 497 TF-1. Curing it is a human-owner
+  Slack against MI-4 is 96 tokens; `HEAD` measures 449 TF-1 after being trimmed twice for
+  exactly this reason. Curing it is a human-owner
   architecture decision, not a repair.

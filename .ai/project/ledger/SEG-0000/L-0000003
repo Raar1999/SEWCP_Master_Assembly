@@ -1,0 +1,83 @@
+# Ledger Entry L-0000003
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-17-02`, the session that repaired what the **second**
+independent cold-context QA round found.
+
+```yaml
+seq:         3
+timestamp:   2026-08-17T18:00:00Z
+session_id:  S-2026-08-17-02
+actor:       software.software-engineer
+action:      Second independent QA round returned NOT CLEARED - canonical-path enforcement repaired structurally, TCR-002 F-7 fixed, four false statements withdrawn, clone reproducibility repaired, CONTRIBUTING ratified and CI added
+artifacts:
+  - .ai/core/MANIFEST.lock
+  - .ai/project/BINDING.md
+  - .ai/project/OPEN_ITEMS.md
+  - .ai/project/OPEN_ITEMS_REGISTER.md
+  - .ai/project/STATE.md
+  - .ai/project/STATE_REGISTER.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/results/R-026.md
+  - .ai/project/sessions/S-2026-08-17-02.md
+  - .gitattributes
+  - .github/workflows/validate.yml
+  - CONTRIBUTING.md
+  - INDEX.md
+  - LICENSE
+  - README.md
+  - analysis/SEDEP-RPT-003_structural/SR-07_AP-08_as_modelled_mass.md
+  - analysis/SEDEP-RPT-004_electrical_rf/SR-02_SR-03_SR-04_insulation_trace.md
+  - requirements.txt
+  - src/aief_stage6/build.py
+  - src/aief_stage6/preconditions.py
+  - tests/test_stage6_prefix_enforcement.py
+prev_hash:   59e8882a10b97f39e6a18e90d2f74e35eb8ad12eb7d08ad305fb9cf06bf5ff5d
+entry_hash:  19b802cf15284dd0230c591f43021cdf313ad4735417e3e656bb62e369581731
+```
+
+## Why this is a separate session rather than more of `-01`
+
+`S-2026-08-17-01` performed its LAW-09 close and wrote `L-0000002`. **A session has one
+close**, and everything after it belongs to the next session. Recording this work under `-01`
+would have made the ledger assert that the close happened after the work it closed, which is
+the kind of small untruth this chain exists to make impossible.
+
+## `entry_hash` — DC-3, validated before it was written
+
+DC-3 per `AIEF-AMD-008` §AMD-17: seven covered fields in the declared order, each as one
+`<field-name> <SP> <value> <LF>` record, `entry_hash` self-excluded. The implementation was
+re-validated against **three** controls first — both worked examples the manifest publishes,
+and **`L-0000001` and `L-0000002` recomputed from their own on-disk bytes** to the values
+`HEAD` and this entry's `prev_hash` carry. A construction that reproduces both of this
+repository's prior entries is not one that was guessed at.
+
+## What this entry records
+
+**The second round refused `ECR-D-014` on a defect the first did not reach.** The ruling was
+enforced only on the **preview** path: a mutation skipping the cap check when `canonical` is
+true survived all 846 tests, and the canonical build then wrote `core/MANIFEST.lock` and the
+`BINDING` pin with a **249-token prefix against a cap of 200**. The cause was structural —
+**no test in the repository ever called `run()` with an `Authorization`**, so the only path
+that writes canonical bytes had no end-to-end coverage while the preview path had plenty.
+
+Repaired at the source rather than by adding another test at the call site: `run()` now
+re-derives the prefix measurement from the octets it actually emitted, immediately before the
+only writes that leave the process, and halts on any disagreement. **Six mutations — M8
+through M13 — were applied to `build.py` for real and every one is caught.**
+
+**`ECR-D-014` is still not closed**, and for the same reason as at `L-0000002`: LAW-05 bars a
+session from certifying its own repair, and no delegation of owner authority reaches a
+constitutional separation. It waits on a third cold round and on nothing else.
+
+**A hard limit is now recorded rather than predicted.** `OI-C-10`'s bounded-index runway is
+spent: `project/OPEN_ITEMS.md` stands at **597 TF-2 against its 600 cap** after two grammar
+reductions in one run, at ~6 tokens per identifier. **The next identifier raised against this
+repository breaches `V-09` and halts Stage 6.** No amount of careful writing avoids it.
+
+`sessions/S-2026-08-17-02.md` is the session summary this close produces (`WF-01` Phase 11).

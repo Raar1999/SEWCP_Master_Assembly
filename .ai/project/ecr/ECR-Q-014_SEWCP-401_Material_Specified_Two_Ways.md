@@ -40,8 +40,15 @@ cad/bom/SEWCP-000_BOM_RevA.csv
 
 The BOM row cites `spec/00` §9 and `spec/03` `SR-IF-2` as its sources. **Neither states a
 material** — §9 is the fastener and torque schedule, `SR-IF-2` is the register interface.
-The only place `SEWCP-401`'s material is stated is §5.2's heading, and the BOM did not read
-it. So this is not two authorities disagreeing; it is one authority and one unsourced value.
+`spec/03` states 316L in **three** places — §5.2's heading, §6 and §7 — and the BOM read none
+of them. So this is not two authorities disagreeing; it is one authority and one unsourced
+value.
+
+> **Corrected `S-2026-08-17-01`.** This sentence read *"The **only** place `SEWCP-401`'s
+> material is stated is §5.2's heading"*. An independent audit found the three citations
+> above. **The disposition is better founded than its own argument was** — the governing
+> volume is not merely unambiguous, it is consistent three times over — and the ruling is
+> unchanged. The false half is withdrawn rather than left standing.
 
 ## 3 · Impact
 
