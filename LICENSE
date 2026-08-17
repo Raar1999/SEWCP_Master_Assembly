@@ -8,7 +8,8 @@ Copyright (c) 2026 Raar1999, repository owner of
 
 This repository is dual-licensed. Which of the two licenses applies to a
 given file is determined by its path, and by nothing else. The boundary
-below is exhaustive over the tracked tree: every tracked file falls in
+below covers every tracked file that carries content; section 1a covers the
+remainder, and between them they are exhaustive. No tracked file falls in
 exactly one column.
 
 --------------------------------------------------------------------------
@@ -54,13 +55,16 @@ Everything whose function is to be read, cited or manufactured from:
 1a . THE SIX FILES THAT ARE IN NEITHER COLUMN
 --------------------------------------------------------------------------
 
-Found by an independent audit that enumerated all 579 tracked files against
+Found by an independent audit that enumerated every tracked file against
 section 1 and reported that six fall in neither column, in a document that had
-claimed the boundary was exhaustive. They are repository mechanics carrying no
+claimed the boundary was exhaustive. A later round found this paragraph citing
+579 files against 583 then tracked, and naming a `.gitkeep` that had been
+replaced by `validate.yml` in the same commit - so the count is no longer
+published here at all. Recompute it with `git ls-files`. They are repository mechanics carrying no
 authorship worth licensing:
 
     .gitattributes   .gitignore   LICENSE   requirements.txt
-    .github/ISSUE_TEMPLATE/.gitkeep         .github/workflows/.gitkeep
+    .github/ISSUE_TEMPLATE/.gitkeep         .github/workflows/validate.yml
 
 Together with everything else under `.github/**`, they are placed under
 **MIT**, on the same terms as section 5. `LICENSE` is a licence text and is

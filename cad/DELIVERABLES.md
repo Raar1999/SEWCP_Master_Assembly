@@ -20,12 +20,27 @@ mirrored to repo]`**, and `.gitignore` carries `!cad/exports/step/*.step` and
 `!drawings/**/*.pdf` negations that existed for four sessions with nothing to
 negate. The consequence was total for distribution and nil for engineering: a
 clone contained a register of 62 digests naming files it could not obtain.
-`ECR-D-015` disposition A mirrored 61 of the 62 in, byte-identical.
+`ECR-D-015` disposition A brought 61 of the 62 in.
+
+**They are not byte-identical to the generation root, and are not claimed to be.**
+The copy was — 61 of 61, SHA-256 before and after — and then **16 of them were
+regenerated in the same session**: 14 PDFs by the `src/aief_draw/pdf.py`
+determinism repair, and one SVG and the BOM CSV by `ECR-Q-014`'s `6061-T6` →
+`316L` correction. Measured today against `D:\AIEF_CAD_OUTPUT\SEWCP\`:
+**45 of 61 identical, 16 differ.** Both differences are improvements this
+session made deliberately, and the register below is computed from **what is in
+this repository**, which is the authoritative set.
+
+> *This paragraph read "mirrored 61 of the 62 in, byte-identical" and the row
+> below claimed the byte identity had been proven twice. `ECR-D-015` §5
+> withdrew that at `S-2026-08-17-02` and a third independent round found the
+> withdrawal had not reached this file — the register still published the exact
+> claim the ECR had retracted. Corrected here, `S-2026-08-17-03`.*
 
 | | |
 |---|---|
 | **Point of generation** | `D:\AIEF_CAD_OUTPUT\SEWCP\` — where the bridge's `export_model` writes. Retained as provenance; **no longer the place the deliverables live** |
-| **In the repository** | **61 files, 4,995,097 bytes**, byte-identical to the generated octets — proven by SHA-256 before and after the copy, and again by materialising the git index into a clean directory and re-comparing (`git checkout-index`) |
+| **In the repository** | **61 files, 4,995,097 bytes** — measured from this tree, and the authoritative set. Every digest below is recomputed from the file beside it by `python -m aief_deliverables`, both directions. The index round-trips them byte-identically through a clean `git checkout-index`, which is the property that matters for a clone; identity with the *generation root* is a different property and does not hold for 16 of them |
 | **Excluded, deliberately** | `SEWCP-000_MASTER_ASSEMBLY.f3d` (58,903 bytes) — the **parametric** source. `SEDEP-PMP-002` §3.1 assigns it to Fusion Team cloud versioning and `.gitignore` excludes `*.f3d` by name. It is the one file of the 62 that policy places elsewhere |
 | **Line-ending policy** | The four deliverable subtrees are `-text` in `.gitattributes`. 14 PDF and 10 STL carry NUL octets; the other 37 are UTF-8 with CRLF. Under the repository's blanket `* text eol=lf` git would have corrupted the binaries and rewritten the rest to LF, **moving every digest in this register**. Octets in, octets out |
 | **System interface verification** | [`cad/runs/SYSTEM_INTERFACES.json`](runs/SYSTEM_INTERFACES.json) — 12/12 PASS; `FINAL_SYSTEM_VERIFICATION` 19/19 PASS |

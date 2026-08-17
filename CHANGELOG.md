@@ -8,6 +8,34 @@ Versioning follows the release tag scheme in `releases/TAGS.md`.
 
 ## [0.11.0] — 2026-08-17 — Public release: CAD and software complete
 
+> **Three independent cold-context QA rounds ran against this release.** Two returned
+> `NOT CLEARED` and each found a real defect in a repair that looked complete; the third
+> declared the `ECR-D-014` enforcement condition fully discharged after fifteen source
+> mutations, and refused closure on record accuracy alone. Every finding is recorded, and the
+> corrections below are the result. `ECR-D-014` is left **open** because LAW-05 bars a session
+> from certifying its own repair — three times running.
+
+### Corrected after the second and third rounds
+- The `ECR-D-014` ruling was enforced **only on the preview path**; a canonical build could
+  have emitted a 249-token prefix against a cap of 200. `run()` now re-derives the measurement
+  from the octets it emitted and halts on disagreement. **Fifteen mutations die.**
+- `TCR-002` has **eight** findings, three BLOCKING — not six and two. `F-7` repaired, `F-6`
+  and `F-8` carried.
+- `ECR-D-015`'s byte-identity claim was false of the final state and its byte total was
+  derived from the source rather than measured. Corrected at the ECR **and** at
+  `cad/DELIVERABLES.md`, which had kept publishing the withdrawn claim.
+- `README.md` claimed a reproducibility never tested from outside: a clone failed 35 tests.
+  Now **800 passed, 52 skipped, 0 failed**, measured from a clone of the published repository.
+- `LICENSE` §2's *"nothing in the set is copyleft"* was wrong — `certifi` is MPL-2.0. The
+  conclusion survives on the correct ground: nothing is vendored, modified or redistributed.
+- `STATE_REGISTER.md` recited three values that its own session's close moved, three sessions
+  running. **Cured procedurally**: the recitals are removed and
+  `tests/test_state_register_currency.py` fails if any governed value it states goes stale.
+- **`OI-C-10` arrived.** Raising one more open item took the bounded index to 602 tokens
+  against its 600 cap and halted `V-09`. The identifier was withdrawn and the finding folded,
+  recorded at both rows as forced by the budget rather than by the merits. **No session-level
+  action remains**; the next distinct finding cannot be folded.
+
 **The repository becomes public.** Every CAD-verifiable property is verified and reproducible
 from a clean clone; **nothing physical has been built or measured**, and one defect is open
 against the design itself. Session `S-2026-08-17-01`; decisions at
@@ -44,8 +72,9 @@ against the design itself. Session `S-2026-08-17-01`; decisions at
   caught. (`OI-V-13` FIND-1, BLOCKING.)
 - **`ECR-D-014` §4 stated as fact something the repository contradicts.** The defect was
   measured and escalated BLOCKING two days earlier by an independent cold session (`TCR-002`
-  F-3) that this record cited nowhere. Corrected in place, priority claim withdrawn, `TCR-002`'s
-  six findings now carried at `OI-V-14`. (FIND-2.)
+  F-3) that this record cited nowhere. Corrected in place, priority claim withdrawn, and
+  `TCR-002`'s **eight** findings — three of them BLOCKING — now carried at `OI-V-14`. (FIND-2;
+  the count itself corrected from six after round 3 found this line uncorrected.)
 - Two silent swallows in the approval-chain parser: a repeated `subject_path` let a good binding
   mask a fabricated one, and a block-sequence `prior_hash` was read as null and silently rooted
   the chain. (FIND-8.)

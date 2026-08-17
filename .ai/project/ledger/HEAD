@@ -8,20 +8,20 @@
 Read at boot step B4. Constant-time head lookup without reading the ledger body.
 
 ```yaml
-seq:         3
+seq:         4
 state:       active
-entry_hash:  19b802cf15284dd0230c591f43021cdf313ad4735417e3e656bb62e369581731   # DC-3 of L-0000003
+entry_hash:  6d0d2af72049794d504b515ef91159fe1402b40626b3e34de8c1ad6788e39f70   # DC-3 of L-0000004
 segment:     SEG-0000
-prev_hash:   59e8882a10b97f39e6a18e90d2f74e35eb8ad12eb7d08ad305fb9cf06bf5ff5d
+prev_hash:   19b802cf15284dd0230c591f43021cdf313ad4735417e3e656bb62e369581731
 ```
 
 ## B4 verification
 
-1. `SEG-0000/L-0000003` exists and recomputes under DC-3 to `HEAD.entry_hash`.
-2. No file at seq 4 exists - no orphan.
-3. `STATE.last_ledger_seq` (3) equals `HEAD.seq` (3). **Reconciled.**
+1. `SEG-0000/L-0000004` exists and recomputes under DC-3 to `HEAD.entry_hash`.
+2. No file at seq 5 exists - no orphan.
+3. `STATE.last_ledger_seq` (4) equals `HEAD.seq` (4). **Reconciled.**
 
-Prior head `L-0000002`; its `entry_hash` is this entry's `prev_hash`.
+Prior head `L-0000003`; its `entry_hash` is this entry's `prev_hash`.
 
 ## Genesis semantics
 

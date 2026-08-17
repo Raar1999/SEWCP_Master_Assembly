@@ -5,7 +5,8 @@ Everything the insulation trace concludes rests on one substitution - 8.50 mm of
 conductor gap where `spec/03` §2.1 assumed 14.00 - so the only way the finding
 can be wrong is if the electrical model itself is wrong. That test feeds the
 model the specification's own input and requires it to return the
-specification's own published answer, to the digit it published. If the control
+specification's own published answer, within the precision that answer is
+published at. If the control
 passes and the substitution fails, the divergence is in the input, which is
 exactly the claim.
 

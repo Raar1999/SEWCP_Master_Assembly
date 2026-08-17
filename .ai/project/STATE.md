@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  3
+last_ledger_seq:  4
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -26,17 +26,17 @@ open_non_blocking:
   - OI-CAD-03, OI-CAD-04
   - OI-P-01..04, OI-R-01
 next_action: |
-  PUBLISHED AND REPAIRED, S-2026-08-17-01/-02. C-4 and ECR-D-006 CLOSED.
-  TWO independent cold rounds have run; the second returned NOT CLEARED on a
-  defect the first did not reach - the ECR-D-014 ruling was enforced only on
-  the PREVIEW path, and a canonical build could emit a 249-token prefix
-  against a cap of 200. Repaired structurally: run() re-derives the
-  measurement from the emitted octets and halts on disagreement. Six
-  mutations M8..M13 applied for real and all caught.
-  ECR-D-014 STILL OPEN - LAW-05 again. A THIRD cold round is what it waits on.
-  OI-C-10 IS SPENT: index 597 of 600, ~6 tokens per id. THE NEXT IDENTIFIER
-  RAISED HALTS STAGE 6 ON V-09. Architecture decision, not care, is the cure.
-  NEXT: third cold round; then Rev B for ECR-D-016 before any hardware.
+  PUBLISHED. THREE independent cold rounds, S-2026-08-17-01/-02/-03.
+  C-4 and ECR-D-006 CLOSED. ECR-D-014's ENFORCEMENT condition is DISCHARGED -
+  round 3 applied 15 mutations incl. 6 new and all die; it says do not
+  re-audit it. ECR-D-014 STILL OPEN on RECORD ACCURACY only, now corrected;
+  LAW-05 bars this session certifying that. A FOURTH round, scoped to five
+  corrections, is all that remains.
+  OI-C-10 HAS ARRIVED: raising OI-V-18 took the index to 602 of 600 and
+  halted V-09. Identifier WITHDRAWN, finding folded into OI-V-17, recorded as
+  forced by the budget not the merits. NO SESSION-LEVEL ACTION REMAINS - the
+  next distinct finding cannot be folded. A4 + owner decision required.
+  NEXT: fourth cold round; the OI-C-10 decision; then Rev B for ECR-D-016.
 ```
 
 ## Notes — each resolves in full at the artifact cited

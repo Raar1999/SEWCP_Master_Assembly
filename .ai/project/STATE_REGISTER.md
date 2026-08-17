@@ -60,15 +60,25 @@ six-stage compiler and the validation-campaign infrastructure are still absent. 
 
 ## last_ledger_seq
 
-`2`, reconciled with `HEAD.seq`. *Corrected `S-2026-08-17-01`: this read `1` from the moment
-this file was created, and was already false when written — the session that created it wrote
-`L-0000002` in the same close. Found by the second independent round as FIND-11, and it is
-exactly the defect this register exists to avoid: a recital that went stale between drafting
-and filing, invisible to `V-03`, which checks section names and not content.* The
-`genesis → active` transition was performed at the
-`S-2026-08-12-01` LAW-09 close — once per repository, irreversible — writing `L-0000001` under
-DC-3. No earlier session wrote a ledger entry, so the trail does not reach back over them
-(`OI-P-01`).
+**The value is on `STATE.md` and in `ledger/HEAD`, and it is deliberately not repeated here.**
+
+> **Why this section states no number.** It stated one three times, and it was wrong three
+> times — `1` when the value was 2, then `2` when the value was 3, each written before the
+> session close that moved it and each caught by a later independent round (FIND-11, then
+> round 3 FIND-1). Three occurrences of one defect is not three mistakes; it is a
+> **structural** one: a register drafted before a close cannot recite a field the close
+> writes, and no amount of care changes that ordering.
+>
+> So the recital is gone rather than corrected a fourth time, and
+> `tests/test_state_register_currency.py` now **fails** if any section of this file states a
+> `last_ledger_seq` value that disagrees with `ledger/HEAD` — the property, checked, instead
+> of a convention to be careful.
+
+What this section does record is the part that does not move: the ledger became `active` at
+the `S-2026-08-12-01` LAW-09 close, writing `L-0000001` under DC-3 — once per repository,
+irreversible. No earlier session wrote an entry, so the trail does not reach back over them
+(`OI-P-01`). Each entry's `prev_hash` is a covered DC-3 field, which is what makes the chain
+tamper-evident rather than merely sequential.
 
 ## frozen_set_hash
 
@@ -79,11 +89,17 @@ lineage values exactly.
 
 ## active_tasks
 
-Empty. The exec layer's task records are at [`tasks/`](tasks/) and its published results at
-[`results/`](results/). *Corrected `S-2026-08-17-01` (FIND-11): this said `R-017` is the
-current head and seals `R-014`. Computed from `aief_exec.graph`, the CURRENT heads are
-`R-021`, `R-023` and `R-025`, and the record pinning `src/aief_exec/**` is `R-023`. `R-017`
-has been superseded twice over.*
+Empty. Task records at [`tasks/`](tasks/); published results at [`results/`](results/).
+
+**Which result is the current head is computed, not recited here** — `python -m aief_exec
+check` derives it, and `X-06` fails if any record declares `CURRENT` over bytes that have
+moved.
+
+> This section named `R-017` as the head, then `R-021`/`R-023`/`R-025`; both were stale within
+> the commit that wrote them, because publishing a superseding record is exactly what a
+> session doing this work does. Same structural defect as § *last_ledger_seq*, same fix:
+> `tests/test_state_register_currency.py` fails if this file names a result id as a current
+> head that `aief_exec` does not agree is current.
 
 ## blockers
 
@@ -121,6 +137,5 @@ a plan: the plan is the open-items register and the ECR records.
   under unbounded register growth, and it is why this file may say as much as it needs to.
 - **`OI-C-08` remains uncured**: `project/ledger/HEAD` is read at boot step B4 and carries no
   `token_cap`, so the V-09 measured set under-covers the boot-loaded set by exactly one file.
-  Slack against MI-4 is 96 tokens; `HEAD` measures 449 TF-1 after being trimmed twice for
-  exactly this reason. Curing it is a human-owner
+  Slack against MI-4 is 96 tokens, and `HEAD` has now been trimmed twice to stay small — the figure is not quoted here for the same reason as the two sections above. Curing it is a human-owner
   architecture decision, not a repair.
