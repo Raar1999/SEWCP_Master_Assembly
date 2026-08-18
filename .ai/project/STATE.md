@@ -11,7 +11,7 @@ compiler_stage:
   next:           null           # all six emitted
   complete:       [1, 2, 3, 4, 5, 6]
   outstanding:    []
-last_ledger_seq:  8
+last_ledger_seq:  9
 frozen_set_hash:  1f32489a4ca0e4064c70679933c77ee339fdc3f68e978244b30e53278d45cc4b
 active_tasks:     []
 blockers:
@@ -35,11 +35,12 @@ next_action: |
   v0.11.0. Result head republished by supersession. Pre-rewrite hashes
   resolve at HISTORY_REMAP.md. No engineering artifact modified, no
   failure evidence altered. LOCAL ONLY - origin holds the old objects.
-  OI-C-10 BINDING. Five findings, five sessions, no identifiers; newest:
-  ENGINEERING.md s7 says PUBLIC, this file says PRIVATE.
+  AUDITED+REPAIRED S-2026-08-18-03: 3 doc defects found+fixed in
+  0bc1690 (142->137; f8ff028->cad6ced6 x4; s7 PUBLIC->PRIVATE).
+  Detail: R-034.
   THREE OWNER GATES: force-update, visibility, Release object.
-  OWED: independent cold round - LAW-05 bars self-certification.
-  NEXT: verify, force-update, PRIVATE -> PUBLIC, then OI-C-10.
+  OWED: cold round x2.
+  NEXT: force-update per instruction; stays PRIVATE.
 ```
 
 ## Notes — each resolves in full at the artifact cited

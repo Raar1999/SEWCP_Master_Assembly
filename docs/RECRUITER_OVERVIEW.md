@@ -1,7 +1,7 @@
 # AIEF / SEWCP — Recruiter Overview
 
 *Two pages. Every figure is computed by a command named beside it, at release `v0.11.0`,
-commit `f8ff028`.*
+commit `cad6ced6`.*
 
 ---
 

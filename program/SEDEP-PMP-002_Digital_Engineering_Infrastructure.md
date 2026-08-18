@@ -528,7 +528,7 @@ Finding during execution
 2. **One-line scope:** 300 mm bipolar electrostatic chuck pedestal for RF-biased plasma process equipment — full specification through released drawing set.
 3. **Exploded render** with the five-part stack labelled
 4. **Key engineering figures:** wafer plane 55.920 ± 0.150 mm · thermal chain 0.122 K/W · clamping 38.9 mbar at ±1500 V · shunt 435 Ω at 13.56 MHz · assembly leak < 1×10⁻⁹ mbar·L/s
-5. **Scale:** 10 specification volumes · 10 released parts · 12 drawings · 6 analysis reports · 142 traced requirements · 13 design rules
+5. **Scale:** 10 specification volumes · 10 released parts · 12 drawings · 6 analysis reports · 137 traced requirements · 13 design rules
 6. **Three headline engineering decisions** (§6.4)
 7. Repository link and QR code
 
@@ -538,7 +538,7 @@ Written to be **literally true on completion**, each traceable to a committed ar
 
 > **Semiconductor Electrostatic Wafer Chuck Platform (SEWCP) — Lead Mechanical Design Engineer**
 >
-> - Authored a **10-volume, 142-requirement engineering specification** for a 300 mm bipolar electrostatic chuck pedestal — covering thermal, RF, vacuum, and tolerance architecture — and executed it to a **released 12-drawing manufacturing package** across an 8-gate, 18-week program.
+> - Authored a **10-volume, 137-requirement engineering specification** for a 300 mm bipolar electrostatic chuck pedestal — covering thermal, RF, vacuum, and tolerance architecture — and executed it to a **released 12-drawing manufacturing package** across an 8-gate, 18-week program.
 > - Designed a **cooled-base / thermal-choke / trim-heater architecture** achieving a **0.122 K/W wafer-to-coolant chain**, sizing a deliberate 0.10 K/W titanium-standoff thermal break that gives the heater control authority a directly-coupled design cannot provide.
 > - Closed a **wafer-plane tolerance stack to ±0.150 mm** where worst-case analysis failed by 3 µm, by introducing a single lap-to-fit component that converted a statistical argument into a deterministic assembly measurement — recovering **7× margin** without tightening six upstream part tolerances.
 > - Derived **three mechanical requirements from Paschen breakdown analysis** — lift-pin bore engagement, backside-gas interlocking, and an RF pressure-window inhibit — identifying a hazard band that **increasing clearance makes worse**.
@@ -564,7 +564,7 @@ Written to be **literally true on completion**, each traceable to a committed ar
 | Metric | Value | Source |
 |---|---|---|
 | Specification volumes | 10 | `spec/` |
-| Traced requirements | 142 | `traceability/rtm.csv` |
+| Traced requirements | 137 | `traceability/rtm.csv` |
 | Design rules defined | 13 | `params/design_rules.yaml` |
 | Released parts | 10 | `cad/exports/step/` |
 | Released drawings | 12 | `drawings/` |

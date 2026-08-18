@@ -1,7 +1,7 @@
 # `docs/` — portfolio and presentation
 
 Presentation layer for the released engineering state. **These documents carry no authority.**
-They describe `v0.11.0` (`f8ff028`) and every figure in them was computed during the portfolio
+They describe `v0.11.0` (`cad6ced6`) and every figure in them was computed during the portfolio
 pass by running the command named beside it. Where any of them appears to conflict with a
 canonical artifact — `spec/**`, `.ai/**`, `releases/**`, `cad/**` — **the canonical artifact
 governs.**

@@ -1,0 +1,84 @@
+# Ledger Entry L-0000009
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-18-03`. **An independent publication-readiness audit of local
+main `0bc1690` found three documentation-accuracy defects; the owner authorised their repair.**
+No engineering artifact was modified, no git history was rewritten, and no push, merge, or
+visibility action was performed.
+
+```yaml
+seq:         9
+timestamp:   2026-08-18T21:00:00Z
+session_id:  S-2026-08-18-03
+actor:       repository-engineer
+action:      Independent publication-readiness audit of local main 0bc1690 (four parallel dimensions; verdict NOT READY FOR PUBLICATION) followed by owner-authorised repair of the three documentation-accuracy blockers found: ENGINEERING.md and SEDEP-PMP-002 142 to 137 requirements, sourced to PVR-001's frozen_set_hash-anchored parse; four release-identity references f8ff028 to cad6ced6, matching what v0.11.0 targets; ENGINEERING.md section 7 PUBLIC to PRIVATE, matching gh repo view and STATE.md; the local-drive-path advisory finding evaluated and preserved, not redacted, in independent-verification evidence; R-032 superseded by R-034; T-012 registered in EXEC.md; no engineering artifact modified, no push, no merge, no tag update, no visibility change
+artifacts:
+  - .ai/project/EXEC.md
+  - .ai/project/STATE.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/ledger/SEG-0000/L-0000009
+  - .ai/project/results/R-032.md
+  - .ai/project/results/R-034.md
+  - .ai/project/sessions/S-2026-08-18-03.md
+  - .ai/project/tasks/T-012.md
+  - ENGINEERING.md
+  - README.md
+  - docs/README.md
+  - docs/RECRUITER_OVERVIEW.md
+  - docs/VERIFICATION.md
+  - program/SEDEP-PMP-002_Digital_Engineering_Infrastructure.md
+prev_hash:   8a1efb98976e947af94c3cb39e92743597cbfc014f057abe57cc924a15b030e2
+entry_hash:  ff77fb26af8486542c866a363254a725f3eb2f222fef45868ecd109d20b047b6
+```
+
+## Why this close exists
+
+An independent audit of local main `0bc1690` — four parallel, mutually-cold review dimensions
+run within this session — returned **NOT READY FOR PUBLICATION**: zero security, privacy
+(personal-identity), license or governance defects, and three documentation-accuracy defects.
+One (`ENGINEERING.md` §7) had already been named and left unrepaired by `R-032` finding `F-3`;
+the other two were newly surfaced. The owner authorised repair, live, scoped to documentation
+only and excluding any engineering, CAD, specification, git-history or GitHub-visibility action.
+
+## What changed
+
+Six files edited: `ENGINEERING.md` (142→137 requirements; §7 PUBLIC→PRIVATE),
+`program/SEDEP-PMP-002_Digital_Engineering_Infrastructure.md` (142→137), `README.md`,
+`docs/README.md`, `docs/RECRUITER_OVERVIEW.md`, `docs/VERIFICATION.md` (each: the release-commit
+reference `f8ff028`→`cad6ced6`). `R-032` received its closing edit and is superseded by `R-034`,
+which republishes its full pin set against the repaired tree — 87 digests unchanged, 5 changed.
+
+**One finding was evaluated and left unrepaired, by decision, not oversight.** The advisory
+local-drive-path occurrence (`D:\Fusion Projects\SEWCP_Master_Assembly`, no username) inside
+seven independent-verification records and one closed-incident procedure record was reviewed and
+preserved: redacting literal auditor-recorded evidence trades authenticity for a privacy gain the
+account-name sanitization already delivered. No history rewrite was performed or considered.
+
+## Integrity verification
+
+`DC-1` was reproduced by recomputing all 92 digests `R-032` pinned and confirming exactly the
+five edited portfolio/index files differ, none of the other 87. `DC-3` was reproduced against
+`L-0000008`'s own recorded `entry_hash`, from its seven declared fields in field order, before
+being used to compute this entry's. `PYTHONPATH=src python -m aief_register` reports
+`REGISTERS OK` both before and after every edit in this session.
+
+## What was overridden
+
+**Nothing.** No `LAW-01` frozen artifact and no law rule is changed by a documentation-accuracy
+correction, so no rank-1 override and no new approval instrument was required or filed. Authority
+for the edits is the live owner instruction this session's summary records in full.
+
+## Publication safety
+
+**Nothing was published.** `origin/main` still stands at the pre-rewrite `f8ff028`; the
+pre-sanitization objects remain reachable through `refs/remotes/origin/*`. The force-update, the
+GitHub Release object, and the visibility change remain **owner gates**; the repository is
+**PRIVATE**, confirmed directly rather than asserted from a stale cell.
+
+`LAW-05` bars this session from certifying its own repair, and from certifying `T-011`'s. The
+independent cold-context round is **owed** for both.

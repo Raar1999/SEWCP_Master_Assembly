@@ -2,7 +2,7 @@
 
 *What was verified, how, and — stated with equal weight — what was not.*
 
-All figures measured at release `v0.11.0`, commit `f8ff028`.
+All figures measured at release `v0.11.0`, commit `cad6ced6`.
 
 ---
 
@@ -166,7 +166,7 @@ PYTHONPATH=src python -m aief_stage6          # HALTS: tokenizer artifacts absen
 PYTHONPATH=src python -m aief_exec check      # 7 of 10 PASS                       exit 1
 ```
 
-Measured three ways at `f8ff028`:
+Measured three ways at `cad6ced6`:
 
 | Environment | Result |
 |---|---|

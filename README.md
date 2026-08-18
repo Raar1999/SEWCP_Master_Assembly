@@ -117,7 +117,7 @@ out of scope.
 | Final system verification | **19 / 19** | `cad/runs/FINAL_SYSTEM_VERIFICATION.json` |
 | Tests | **895 local · 843 from a clean clone**, 0 fail | `pytest tests/` |
 
-Every figure above is measured at the release commit `f8ff028`. Two standing checks exit non-zero
+Every figure above is measured at the release commit `cad6ced6`. Two standing checks exit non-zero
 **and are meant to**: `aief_analysis`, because `ECR-D-016` does not close, and `aief_exec check`,
 which reports three open exec-layer conditions of its own. A check reporting PASS on an open
 defect would itself be the defect.
