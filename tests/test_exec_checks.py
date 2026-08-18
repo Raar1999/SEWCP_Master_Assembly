@@ -505,41 +505,57 @@ class TestLiveRepositoryOpenFailures:
         details = rows["X-09"]["details"]
         converse = [d for d in details if "does not declare produces" in d]
         assert converse, details
-        assert all(d.startswith("T-001:") for d in converse), converse
-        reached = sorted(d.split("results/")[1].split(".md")[0] for d in converse)
-        # OI-C-12: this pinned ["R-002".."R-006"] and broke the moment T-007/T-008
-        # published R-015/R-016 into the same `.ai/project/results/**` that T-001
-        # reaches. The result set is live, monotonically growing project state.
-        # The PROPERTY is that X-09 reports exactly those results T-001 can reach
-        # and does not produce - derived here from the records, so the expectation
-        # grows with them.
+        # The (task, result) pairs the check actually reports.
+        reached = sorted(
+            (d.split(":")[0], d.split("results/")[1].split(".md")[0]) for d in converse
+        )
+        # OI-C-12, twice. This first pinned ["R-002".."R-006"] and broke the moment
+        # T-007/T-008 published R-015/R-016 into the same `.ai/project/results/**`
+        # that T-001 reaches, so the *result* set was derived from the records
+        # instead. It then still pinned the *task* set to T-001, and broke again at
+        # S-2026-08-18-02 when T-011 lawfully wrote R-031 - a record T-009 produces
+        # - because EXECUTION_ARCHITECTURE.md section 6.1 REQUIRES a superseding
+        # record to give its predecessor a closing edit, so a supersession across a
+        # task boundary necessarily reaches a foreign result. Same defect, one
+        # level up: a snapshot of live project state pinned in a test.
+        # The PROPERTY is that X-09 reports exactly those (task, result) pairs
+        # where a task's write scope reaches a result it does not produce, for
+        # EVERY task - derived here, so the expectation grows in both dimensions.
         tasks = records.load_tasks(REPO)
+        owners = {r: t.task_id for t in tasks.values() for r in t.produces}
         expected = sorted(
-            rid
-            for rid, owner in (
-                (r, t) for t in tasks.values() for r in t.produces
-            )
-            if owner.task_id != "T-001"
+            (tid, rid)
+            for tid, t in tasks.items()
+            for rid, owner in owners.items()
+            if owner != tid
             and any(
                 scope.glob_to_regex(p).match(f".ai/project/results/{rid}.md")
-                for p in tasks["T-001"].write_scope
+                for p in t.write_scope
             )
         )
         assert reached == expected, (reached, expected)
-        assert reached, "T-001 reaches no foreign result - the converse is untested"
+        assert reached, "no task reaches a foreign result - the converse is untested"
+        # FIND-Q9-42 itself, asserted by name and not left to the derivation: the
+        # original regression was T-001 reaching R-002. If that stops being
+        # reported, this test has stopped guarding what it was written for,
+        # whatever else the derivation happens to agree about.
+        assert ("T-001", "R-002") in reached, reached
         # Each row names the task that does declare it, so the reader is not
         # left to look the owner up.
-        owners = {r: t.task_id for t in tasks.values() for r in t.produces}
-        for rid in reached:
-            row = [d for d in converse if f"{rid}.md" in d][0]
+        for tid, rid in reached:
+            row = [
+                d for d in converse if d.startswith(f"{tid}:") and f"{rid}.md" in d
+            ][0]
             assert f"- {owners[rid]} does" in row, row
             assert rid in tasks[owners[rid]].produces
         # A4 is reported, never decided: the repair names both declarations.
         assert all("does not decide A4" in d for d in converse), converse
         assert all("narrow" in d and "or add" in d for d in converse), converse
-        # And the guard does not fire on what T-001 does produce.
-        for rid in tasks["T-001"].produces:
-            assert not any(f"{rid}.md but T-001" in d for d in converse), rid
+        # And the guard does not fire on what a task does produce - checked for
+        # every task, not only T-001.
+        for tid, t in tasks.items():
+            for rid in t.produces:
+                assert not any(f"{rid}.md but {tid}" in d for d in converse), (tid, rid)
 
     def test_x09_names_the_structural_deadlock_reachable_from_it(self, rows):
         # T-006 consumes R-002 and R-003. Both have declared producers, so no

@@ -10,10 +10,17 @@ running the command named beside it, or by querying the remote.*
 | | |
 |---|---|
 | **Release** | `v0.11.0` — *public release: CAD and software complete* |
-| **Tag** | annotated, `v0.11.0` → commit `f8ff028d56aee3004b5d41eb1a3d5c3e8f579270` |
-| **Commit** | `f8ff028` — *"ECR-D-014 closed on the fifth independent round; register check rebuilt by forbidding the value"* |
-| **Branch** | `main`, 0 ahead / 0 behind `origin/main` |
-| **Remote** | `git ls-remote origin HEAD` → `f8ff028…` — **identical to local `HEAD`** |
+| **Tag** | annotated, `v0.11.0` → commit `cad6ced67c675611620519fc9986ba861703c315` |
+| **Commit** | `cad6ced6` — *"ECR-D-014 closed on the fifth independent round; register check rebuilt by forbidding the value"* |
+| **Branch** | `main`, **ahead of `origin/main` by a rewritten history** — not by new commits |
+| **Remote** | `git ls-remote origin HEAD` → `f8ff028…` — the **pre-rewrite** commit. Local and remote **diverge**, and the force-update that closes the gap is reserved to the owner |
+
+> **These four rows were corrected on `2026-08-18`.** They read `f8ff028…`, *"0 ahead / 0
+> behind"* and *"identical to local `HEAD`"* until the `ECR-D-018` history sanitization, which
+> was true when written and became false the moment history was rewritten. The release is
+> **still `v0.11.0`** and its content is unchanged apart from the removal of a local account
+> name from ten failure records; only the git object hashes moved.
+> Resolver: [`../.ai/project/HISTORY_REMAP.md`](../.ai/project/HISTORY_REMAP.md).
 | **Authorising report** | [`releases/RELEASE_READINESS_v0.11.0.md`](../releases/RELEASE_READINESS_v0.11.0.md) |
 | **Engineering baseline** | SEWCP Rev A, Volumes 00–09 — **FROZEN** |
 | **Governing framework** | AIEF 1.0.0 — **FROZEN**, fifteen amendments |
@@ -108,7 +115,7 @@ digest and halt boot step B2a. `LICENSE` is authoritative; the summary above is 
 | | |
 |---|---|
 | Remote | `https://github.com/Raar1999/SEWCP_Master_Assembly.git` |
-| Remote `HEAD` | `f8ff028…` — matches local, verified with `git ls-remote` |
+| Remote `HEAD` | `f8ff028…` — the **pre-rewrite** commit. *Read "matches local, verified with `git ls-remote`" until the `ECR-D-018` sanitization of `2026-08-18`; local `main` is now `cad6ced6` and the two diverge until the owner force-updates* |
 | Tag `v0.11.0` | **pushed** |
 | GitHub **Release** objects | **none created** — the tag is pushed, but no Release page exists |
 | Repository visibility | **private** at the time of this audit (`gh api repos/…` → `"private": true`) |

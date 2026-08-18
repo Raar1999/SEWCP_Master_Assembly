@@ -61,7 +61,7 @@ Three statements, all true at once, and the release is honest only if all three 
 | **`ECR-D-016`** | **OPEN** — dispositioned A, Rev B | §4 | **No for release; YES for build** |
 | **`ECR-D-014`** | **CLOSED** — five independent rounds | §5 | No |
 | `CMP-BLOCK-004`/`-005` | OPEN — gate **AIEF framework 1.0.0**, a different release | `DEC-18` | No |
-| GitHub | **PUSHED**, remote HEAD verified | `git ls-remote` = `f8ff028`; 0 ahead, 0 behind. **Repository visibility is `private`; no GitHub Release object exists for any tag** — both owner actions, `S-2026-08-18-01` | — |
+| GitHub | **PUSHED at the time of this report**, remote HEAD verified then | `git ls-remote` = `f8ff028`; 0 ahead, 0 behind **as measured at `S-2026-08-18-01`**. **Repository visibility is `private`; no GitHub Release object exists for any tag** — both owner actions. **Superseded reading:** the *"0 ahead, 0 behind"* figure ceased to hold at `S-2026-08-18-02`, when the `ECR-D-018` sanitization rewrote local history; `origin/main` still stands at the pre-rewrite `f8ff028` and the force-update is an owner gate. Resolver: [`../.ai/project/HISTORY_REMAP.md`](../.ai/project/HISTORY_REMAP.md) | — |
 
 ---
 

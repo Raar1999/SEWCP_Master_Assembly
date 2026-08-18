@@ -314,7 +314,8 @@ implemented here**, because implementing it is a specification re-baseline.
 | | |
 |---|---|
 | Release | **`v0.11.0`** — CAD and software complete |
-| Commit | `f8ff028`, annotated tag `v0.11.0`, remote `HEAD` verified identical |
+| Commit | `cad6ced6`, annotated tag `v0.11.0`. **Local history diverges from `origin` by design** — see below |
+| History | **Sanitized `2026-08-18`** under `ECR-D-018`: a local account name was removed from ten tracked failure records before publication. Pre-rewrite hashes resolve at [`.ai/project/HISTORY_REMAP.md`](.ai/project/HISTORY_REMAP.md). `origin/main` still stands at the pre-rewrite `f8ff028` pending an owner force-update |
 | Engineering baseline | SEWCP Rev A, Volumes 00–09 — **FROZEN** |
 | Framework | AIEF 1.0.0 — **FROZEN**, fifteen amendments |
 | Hardware build | **BLOCKED** by `ECR-D-016` pending a Rev B baseline revision |

@@ -1,0 +1,132 @@
+# Ledger Entry L-0000008
+
+> **Instance artifact.** Partition `project` — never touched by framework upgrade.
+> Owner `repository-engineer`. Mutability append-only.
+> Schema: `core/schemas/SCH-ledger-entry.schema.json`.
+
+---
+
+The LAW-09 close of `S-2026-08-18-02`. **Reachable history was rewritten to remove a local
+account name before publication.** No engineering artifact was modified and no failure evidence
+was altered.
+
+```yaml
+seq:         8
+timestamp:   2026-08-18T18:00:00Z
+session_id:  S-2026-08-18-02
+actor:       repository-engineer
+action:      ECR-D-018 publication-safety history sanitization: DEC-21 reopened and superseded on a corrected factual basis, the local account name normalised to <user> in 53 occurrences across 11 blobs and 25 rewritten commits under the owner's rank-1 override of LAW-07 clauses 6/7/8 recorded at APR-039; v0.11.0 re-pointed and unchanged as a release; R-031 superseded by R-032 and R-027 by R-033; no engineering artifact modified, no failure evidence altered, no push and no visibility change
+artifacts:
+  - .ai/project/EXEC.md
+  - .ai/project/HISTORY_REMAP.md
+  - .ai/project/STATE.md
+  - .ai/project/approvals/APR-039_Rank-1_Override_LAW-07_For_ECR-D-018_Sanitization.md
+  - .ai/project/decisions/DECISIONS_S-2026-08-17-01.md
+  - .ai/project/decisions/DECISIONS_S-2026-08-18-02.md
+  - .ai/project/ecr/ECR-D-018_Local_Account_Name_Becomes_New_Public_Information_At_Publication.md
+  - .ai/project/ecr/ECR-Q-016_Whether_Published_History_In_LAW-07_Means_Pushed_Or_Public.md
+  - .ai/project/ledger/HEAD
+  - .ai/project/ledger/SEG-0000/L-0000008
+  - .ai/project/results/R-027.md
+  - .ai/project/results/R-031.md
+  - .ai/project/results/R-032.md
+  - .ai/project/results/R-033.md
+  - .ai/project/sessions/S-2026-08-18-02.md
+  - .ai/project/tasks/T-004.md
+  - .ai/project/tasks/T-011.md
+  - README.md
+  - cad/runs/RUN-20260811T144928-5ab8e1/run.json
+  - cad/runs/RUN-20260811T161532-c7d1e5/run.json
+  - cad/runs/RUN-20260811T164300-21fa2b/run.json
+  - cad/runs/RUN-20260811T171559-874bdd/run.json
+  - cad/runs/RUN-20260811T175856-8b8da6/run.json
+  - cad/runs/RUN-20260811T181657-7889f4/run.json
+  - cad/runs/RUN-20260811T182806-c1ba11/run.json
+  - cad/runs/RUN-20260811T183336-a70c01/run.json
+  - cad/runs/RUN-20260811T190655-d6ed1a/run.json
+  - cad/runs/RUN-20260811T224345-ff189f/run.json
+  - docs/RELEASE.md
+  - releases/RELEASE_READINESS_v0.11.0.md
+  - tests/test_exec_checks.py
+prev_hash:   f4363d4749a5f3f7d36547676d62d450fce8eed2401ff3a77af164371e30e556
+entry_hash:  8a1efb98976e947af94c3cb39e92743597cbfc014f057abe57cc924a15b030e2
+```
+
+## Why this close exists
+
+`DEC-21` ruled *preserve* for the local Windows account name carried in ten tracked CAD failure
+records. An independent public-release review measured its stated grounds and found them false:
+the count was `41` against a measured **52**, the name is **not** already in the commit history
+— every commit is authored under a GitHub noreply address — and the repository is **not** public.
+The owner reopened the decision, ruled **B — sanitize before publication**, and set the stop line
+at the publication gate.
+
+## The hash remapping
+
+The rewrite moved **25 of 54** commits. Twenty-nine are untouched, including all four
+approval-provenance commits — `d07e931`, `655aa75`, `be75798`, `8546960` — so the `ECR-D-006`
+attribution and the `APR-002`/`-004`/`-005` subject recovery survive intact.
+
+| Ref | Predecessor | Successor |
+|---|---|---|
+| `refs/heads/main` | `f8ff028d56ae` | `cad6ced67c67` |
+| `refs/heads/docs/portfolio-presentation-pass` (pre-close) | `cf2163b3830b` | `ad50aebf1b20` |
+| `refs/tags/v0.11.0` tag object | `055fee8299b5` | `abe7f0fbc0c1` |
+| `refs/tags/v0.11.0` target | `f8ff028d56ae` | `cad6ced67c67` |
+
+The full 25-row table, the seven pre-rewrite hashes cited 40 times across 20 tracked files, and
+the rule that **a citation naming a pre-rewrite hash is not stale and must not be edited**, are
+at [`../../HISTORY_REMAP.md`](../../HISTORY_REMAP.md).
+
+**`L-0000007` was not edited.** It names `f8ff028` in prose; the ledger is append-only and that
+reference resolves through the remap. Preserving it is the point.
+
+## Integrity verification
+
+Both digest constructions were reproduced against known answers **before** use: DC-3 against the
+two normative worked examples of `AIEF-AMD-008` §AMD-17 and against all seven prior live
+entries, their chain, and `HEAD`; DC-1 through the single implementation the manifest declares.
+
+Measured across the rewrite: `0` author-identity mismatches, `0` committer-identity mismatches,
+`0` timestamp mismatches, `0` commit-message mismatches, exactly `11` paths with any content
+difference, and `0` occurrences of the account name reachable from `refs/heads/*` or
+`refs/tags/*`. For each of the ten run records, reversing the substitution reproduces the
+original bytes exactly, and every exception, frame, line number, module name and Fusion build
+identifier compares equal.
+
+## What was overridden
+
+`LAW-07` clauses 6, 7 and 8, at `core/PRECEDENCE.md` rank 1, recorded at `APR-039` **before** the
+dependent work as `PRECEDENCE` §4 and `LAW-10` clause 4 require. `V-22` restates clause 6 as a
+BLOCKING check and has no executable implementation (`CMP-BLOCK-005`); that is recorded rather
+than relied upon. **No check was weakened, skipped or deleted, and no cap was raised.**
+
+`X-06` fired **twice** and was answered both times by publishing a record, never by relaxing the
+check: once when the sanitized decisions file moved a pin of `R-031` (→ `R-032`), and again when
+a pinned test module moved a pin of `R-027` (→ `R-033`). `T-004` then consumed a superseded
+record and was re-pointed to `R-033`, which is the repair `X-02` itself printed.
+
+**One test module was edited, and it is named here rather than left to be discovered.**
+`tests/test_exec_checks.py` asserted that `T-001` is the only task able to reach a result it does
+not produce. `T-011` became the second, lawfully, because `EXECUTION_ARCHITECTURE.md` §6.1
+requires a superseding record to give its predecessor a closing edit. That assertion was a
+snapshot of live project state — `OI-C-12`'s class, in a test already repaired once for it — and
+was re-derived over **every** task in both directions, with the original `FIND-Q9-42` case now
+asserted by name. The repair is broader than what it replaced.
+
+**A session repairing a test its own change turned red is `LAW-05` territory.** The reasoning is
+at `R-033`; the independent round owed on `ECR-D-018` should read that diff before anything else.
+
+`STATE.md` breached its declared V-09 per-file cap when this close was first written — 1187
+against 1100 — and was **compressed three times to fit**. The cap was not raised. `OI-C-10`
+predicted exactly this.
+
+## Publication safety
+
+**Nothing was published.** `origin/main` still stands at the pre-rewrite `f8ff028`; the
+pre-rewrite objects therefore remain reachable in this clone through `refs/remotes/origin/*`,
+which is the truth about the remote and not a residue. The force-update, the merge, the GitHub
+Release object and the visibility change are all **owner gates** and all remain closed.
+
+`LAW-05` bars this session from certifying its own repair. The independent cold-context round is
+**owed**.
